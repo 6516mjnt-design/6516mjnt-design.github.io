@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ロッテルダム条約とストックホルム条約の規制物質</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 24px;
+    color: #1f2937;
+  }
+  header {
+    margin-bottom: 20px;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #134e4a;
+  }
+  .subtitle {
+    color: #6b7280;
+    font-size: 13px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .stat {
+    background: #fff;
+    padding: 14px 16px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-left: 4px solid #0f766e;
+  }
+  .stat .label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .stat .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #134e4a;
+    margin-top: 4px;
+  }
+  .stat.rotterdam { border-left-color: #c2410c; }
+  .stat.stockholm { border-left-color: #1d4ed8; }
+  .stat.adopted   { border-left-color: #15803d; }
+  .stat.review    { border-left-color: #ca8a04; }
+
+  .controls {
+    background: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    align-items: end;
+  }
+  @media (max-width: 700px) {
+    .controls { grid-template-columns: 1fr; }
+  }
+  .field label {
+    display: block;
+    font-size: 12px;
+    color: #4b5563;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .field input:focus, .field select:focus {
+    outline: 2px solid #0f766e;
+    border-color: #0f766e;
+  }
+
+  .panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+  }
+  .panel h2 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  .panel h2.rotterdam { color: #c2410c; border-bottom-color: #fed7aa; }
+  .panel h2.stockholm { color: #1d4ed8; border-bottom-color: #bfdbfe; }
+
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 1200px;
+  }
+  thead th {
+    background: #134e4a;
+    color: #fff;
+    padding: 10px 8px;
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+  }
+  thead th:hover { background: #0f766e; }
+  thead th.sorted { background: #0d9488; }
+  thead th .sort-arrow {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 10px;
+    opacity: 0.9;
+    width: 10px;
+  }
+  tbody td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 8px;
+    vertical-align: top;
+  }
+  tbody td.muted { color: #9ca3af; text-align: center; }
+  tbody tr:hover { background: #f9fafb; }
+
+  .name-en { font-weight: 600; color: #111827; }
+  .name-ja { font-size: 12px; color: #6b7280; margin-top: 2px; }
+  .cas { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12px; color: #4b5563; white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-adopted   { background: #d1fae5; color: #065f46; }
+  .badge-recommend { background: #dbeafe; color: #1e40af; }
+  .badge-review    { background: #fef3c7; color: #92400e; }
+  .badge-rejected  { background: #fee2e2; color: #991b1b; }
+
+  .empty {
+    padding: 30px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+  }
+  .note {
+    font-size: 11px;
+    color: #6b7280;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #e5e7eb;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ロッテルダム条約とストックホルム条約の規制物質</h1>
+  <div class="subtitle">
+    ロッテルダム条約（CRC／附属書III）・ストックホルム条約（POPRC／附属書A）対象物質の審査状況
+    <br><span style="color:#0f766e;font-weight:600">最終更新: BRS COPs-12（2025年4–5月）／POPRC-21（2025年9–10月）／CRC-21（2025年9月）の結果を反映</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="label">登録物質 合計</div><div class="value" id="statTotal">0</div></div>
+  <div class="stat rotterdam"><div class="label">ロッテルダム条約</div><div class="value" id="statRotterdam">0</div></div>
+  <div class="stat stockholm"><div class="label">ストックホルム条約</div><div class="value" id="statStockholm">0</div></div>
+  <div class="stat adopted"><div class="label">採択済み</div><div class="value" id="statAdopted">0</div></div>
+  <div class="stat review"><div class="label">審査中・勧告済み</div><div class="value" id="statPending">0</div></div>
+</div>
+
+<div class="controls">
+  <div class="field">
+    <label for="search">検索（物質名・CAS番号・備考）</label>
+    <input type="search" id="search" placeholder="例: PFOA, 1763-23-1, 石綿">
+  </div>
+  <div class="field">
+    <label for="filterTreaty">条約</label>
+    <select id="filterTreaty">
+      <option value="all">すべて</option>
+      <option value="rotterdam">ロッテルダム条約</option>
+      <option value="stockholm">ストックホルム条約</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="filterStatus">ステータス</label>
+    <select id="filterStatus">
+      <option value="all">すべて</option>
+      <option value="review">審査中</option>
+      <option value="recommend">勧告済み</option>
+      <option value="adopted">採択済み</option>
+      <option value="rejected">否決</option>
+    </select>
+  </div>
+</div>
+
+<div class="panel" id="rotterdamPanel">
+  <h2 class="rotterdam">ロッテルダム条約 — CRC審査・附属書III（PIC手続対象）</h2>
+  <div class="table-wrap">
+    <table id="rotterdamTable">
+      <thead>
+        <tr>
+          <th data-sort="nameEn">物質名<span class="sort-arrow"></span></th>
+          <th data-sort="cas">CAS番号<span class="sort-arrow"></span></th>
+          <th data-sort="startYear">審査開始<span class="sort-arrow"></span></th>
+          <th data-sort="status">ステータス<span class="sort-arrow"></span></th>
+          <th data-sort="copDecision">COP決定<span class="sort-arrow"></span></th>
+          <th data-sort="poprcDecision">POPRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="crcDecision">CRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="note">備考<span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="empty" id="rotterdamEmpty" style="display:none">該当する物質はありません</div>
+  </div>
+</div>
+
+<div class="panel" id="stockholmPanel">
+  <h2 class="stockholm">ストックホルム条約 — POPRC審査・附属書A（廃絶対象）</h2>
+  <div class="table-wrap">
+    <table id="stockholmTable">
+      <thead>
+        <tr>
+          <th data-sort="nameEn">物質名<span class="sort-arrow"></span></th>
+          <th data-sort="cas">CAS番号<span class="sort-arrow"></span></th>
+          <th data-sort="startYear">審査開始<span class="sort-arrow"></span></th>
+          <th data-sort="status">ステータス<span class="sort-arrow"></span></th>
+          <th data-sort="copDecision">COP決定<span class="sort-arrow"></span></th>
+          <th data-sort="poprcDecision">POPRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="crcDecision">CRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="note">備考<span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="empty" id="stockholmEmpty" style="display:none">該当する物質はありません</div>
+  </div>
+  <div class="note">
+    ※ データはBRS事務局・各COP/CRC/POPRC会合の公開資料（IISD Earth Negotiations Bulletin、ECHA、pic.int、pops.int 等）に基づく。<br>
+    ※ <strong>2025年COP-12のハイライト</strong>: ストックホルム条約附属書Aに <em>クロルピリホス・MCCPs・LC-PFCAs</em> の3物質を新規収載。ロッテルダム条約附属書IIIに <em>カルボスルファン・フェンチオン</em>（ULV製剤）を収載（2025年10月22日発効）。一方、水銀・臭化メチル・クロルピリホス（ロッテルダム）は合意得られず。<br>
+    ※ 列ヘッダーをクリックでソート（再クリックで昇順／降順切替）。最新の正式情報は <a href="http://www.pic.int" target="_blank" rel="noopener">pic.int</a> ／ <a href="http://www.pops.int" target="_blank" rel="noopener">pops.int</a> を参照。
+  </div>
+</div>
+
+<script>
+// ステータス: review=審査中, recommend=勧告済み, adopted=採択済み, rejected=否決
+
+const rotterdamData = [
+  {
+    nameEn: 'Carbosulfan',
+    nameJa: 'カルボスルファン',
+    cas: '55285-14-8',
+    startYear: 2011,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-12（2025年5月）附属書III収載決定',
+    poprcDecision: '',
+    crcDecision: 'CRC-08（2012）附属書III収載を勧告',
+    note: '複数COPで否決が続いたが、COP-12でついに合意。発効2025年10月22日、輸入回答期限2026年7月21日。'
+  },
+  {
+    nameEn: 'Fenthion (ULV formulations ≥640 g/L)',
+    nameJa: 'フェンチオン（超低容量製剤、有効成分640g/L以上）',
+    cas: '55-38-9',
+    startYear: 2011,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-12（2025年5月）附属書III収載決定',
+    poprcDecision: '',
+    crcDecision: 'CRC-07（2011）SHPF収載を勧告',
+    note: '重度有害農薬製剤（SHPF）。チャドからの提案。長年COPで合意できなかったが、COP-12で採択。'
+  },
+  {
+    nameEn: 'Iprodione',
+    nameJa: 'イプロジオン',
+    cas: '36734-19-7',
+    startYear: 2018,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書III収載',
+    poprcDecision: '',
+    crcDecision: 'CRC-15（2019）附属書III収載を勧告',
+    note: '殺菌剤。EU等で禁止規制が進み収載に至った。'
+  },
+  {
+    nameEn: 'Terbufos',
+    nameJa: 'テルブホス',
+    cas: '13071-79-9',
+    startYear: 2018,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書III収載',
+    poprcDecision: '',
+    crcDecision: 'CRC-15・16（2019–20）附属書III収載を勧告',
+    note: '高毒性有機リン系殺虫剤。'
+  },
+  {
+    nameEn: 'Decabromodiphenyl ether (decaBDE)',
+    nameJa: 'デカブロモジフェニルエーテル',
+    cas: '1163-19-5',
+    startYear: 2019,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書III収載',
+    poprcDecision: '',
+    crcDecision: 'CRC-16（2020）附属書III収載を勧告',
+    note: '臭素系難燃剤。ストックホルム条約附属書Aにも収載済。'
+  },
+  {
+    nameEn: 'Methyl-parathion',
+    nameJa: 'メチルパラチオン',
+    cas: '298-00-0',
+    startYear: 2003,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-03（2006）SHPFとして附属書III収載',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）農薬としての広域収載を勧告',
+    note: '既にSHPFとしてAnnex III収載済。CRC-21で広範な収載を新たに勧告、COP-13へ送付予定。'
+  },
+  {
+    nameEn: 'Mercury (and mercury compounds)',
+    nameJa: '水銀および水銀化合物',
+    cas: '7439-97-6',
+    startYear: 2009,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-12（2025年5月）収載合意得られず',
+    poprcDecision: '',
+    crcDecision: 'CRC-20（2024）附属書III収載を再勧告',
+    note: '水俣条約と重複する点で意見が分かれた。'
+  },
+  {
+    nameEn: 'Methyl bromide',
+    nameJa: '臭化メチル',
+    cas: '74-83-9',
+    startYear: 2011,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-12（2025年5月）合意得られず',
+    poprcDecision: '',
+    crcDecision: 'CRC勧告済（QPS用途以外）',
+    note: 'オゾン層破壊物質（モントリオール議定書）。検疫・出荷前用途の継続使用が論点。'
+  },
+  {
+    nameEn: 'Chlorpyrifos',
+    nameJa: 'クロルピリホス',
+    cas: '2921-88-2',
+    startYear: 2021,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-12（2025年5月）合意得られず',
+    poprcDecision: '',
+    crcDecision: 'CRC-20（2024）附属書III収載を勧告',
+    note: '同時期にストックホルム附属書Aへは収載されたため、注目案件。'
+  },
+  {
+    nameEn: 'Chrysotile asbestos',
+    nameJa: 'クリソタイル（白石綿）',
+    cas: '12001-29-5',
+    startYear: 2005,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-12（2025年5月）コンセンサス不成立で再度収載見送り',
+    poprcDecision: '',
+    crcDecision: 'CRC-02（2006）附属書III収載を勧告',
+    note: 'ロシア・カザフ等の反対で約20年に渡りCOP収載が継続的に阻止されている。'
+  },
+  {
+    nameEn: 'Paraquat dichloride (formulations ≥276 g/L)',
+    nameJa: 'パラコート二塩化物（高濃度製剤）',
+    cas: '1910-42-5',
+    startYear: 2011,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-12（2025年5月）コンセンサス不成立',
+    poprcDecision: '',
+    crcDecision: 'CRC-07（2011）勧告／CRC-20（2024）再確認',
+    note: 'グアテマラ提案。生産国の反対が続く。'
+  },
+  {
+    nameEn: 'Chlorpyrifos-methyl',
+    nameJa: 'クロルピリホスメチル',
+    cas: '5598-13-0',
+    startYear: 2024,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-20（2024）附属書II基準を満たすと確認',
+    note: '第二地域からの通報受領後に勧告手続へ。'
+  },
+  {
+    nameEn: 'Acetochlor',
+    nameJa: 'アセトクロール',
+    cas: '34256-82-1',
+    startYear: 2024,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC審査継続中',
+    note: 'クロロアセトアミド系除草剤。'
+  },
+  {
+    nameEn: 'Dichlorvos / Fenamiphos / Chlorothalonil / Diazinon / Methiocarb / Methomyl',
+    nameJa: 'ジクロルボス／フェナミホス／クロロタロニル／ダイアジノン／メチオカルブ／メソミル',
+    cas: '複数',
+    startYear: 2025,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認',
+    note: '第二地域からの通報受領後に勧告手続へ。'
+  },
+];
+
+const stockholmData = [
+  {
+    nameEn: 'Chlorpyrifos',
+    nameJa: 'クロルピリホス',
+    cas: '2921-88-2',
+    startYear: 2021,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-12（2025年5月）附属書A収載・22項目の特定用途適用除外あり',
+    poprcDecision: 'POPRC-19（2023）勧告／POPRC-20（2024）追加検討',
+    crcDecision: '',
+    note: '広く使用される有機リン系殺虫剤の段階的廃止に向けた歴史的決定。'
+  },
+  {
+    nameEn: 'Medium-chain chlorinated paraffins (MCCPs, C14–17, ≥45% Cl)',
+    nameJa: '中鎖塩素化パラフィン（MCCPs、C14–17、塩素含有率45%以上）',
+    cas: '85535-85-9',
+    startYear: 2021,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-12（2025年5月）附属書A収載・複数の適用除外あり',
+    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告',
+    crcDecision: '',
+    note: '可塑剤・難燃剤・金属加工油。塩素含有率45%未満MCCPsの生産は段階的削減対象。'
+  },
+  {
+    nameEn: 'Long-chain perfluorocarboxylic acids (LC-PFCAs, C9–C21)',
+    nameJa: '長鎖ペルフルオロカルボン酸（LC-PFCAs, C9–C21）',
+    cas: '375-95-1 ほか',
+    startYear: 2021,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-12（2025年5月）附属書A収載・適用除外あり',
+    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告',
+    crcDecision: '',
+    note: '半導体（5年）、内燃機関船舶・生産終了車両用部品（2041年または使用終了まで）等の特定例外。'
+  },
+  {
+    nameEn: 'Methoxychlor',
+    nameJa: 'メトキシクロル',
+    cas: '72-43-5',
+    startYear: 2019,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書A収載・適用除外なし',
+    poprcDecision: 'POPRC-15（2019）勧告',
+    crcDecision: '',
+    note: '有機塩素系殺虫剤。'
+  },
+  {
+    nameEn: 'UV-328',
+    nameJa: 'UV-328（ベンゾトリアゾール系紫外線吸収剤）',
+    cas: '25973-55-1',
+    startYear: 2020,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書A収載／COP-12（2025）航空機用シール材・接着剤の新規例外追加',
+    poprcDecision: 'POPRC-17（2021）勧告',
+    crcDecision: '',
+    note: 'プラスチック・塗料用UV吸収剤。COP-12で「初の収載再開」事例として航空機産業向け例外追加。'
+  },
+  {
+    nameEn: 'Dechlorane Plus',
+    nameJa: 'デクロランプラス',
+    cas: '13560-89-9',
+    startYear: 2019,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-11（2023）附属書A収載・適用除外あり',
+    poprcDecision: 'POPRC-17（2021）勧告',
+    crcDecision: '',
+    note: '難燃剤。航空宇宙・電子部品用途で時限的除外。'
+  },
+  {
+    nameEn: 'Perfluorohexane sulfonic acid (PFHxS)',
+    nameJa: 'ペルフルオロヘキサンスルホン酸（PFHxS）',
+    cas: '355-46-4',
+    startYear: 2017,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-10（2022）附属書A収載・適用除外なし',
+    poprcDecision: 'POPRC-15（2019）勧告',
+    crcDecision: '',
+    note: 'PFAS。塩・関連物質も対象。'
+  },
+  {
+    nameEn: 'Perfluorooctanoic acid (PFOA)',
+    nameJa: 'ペルフルオロオクタン酸（PFOA）',
+    cas: '335-67-1',
+    startYear: 2015,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-09（2019）附属書A収載',
+    poprcDecision: 'POPRC-12（2016）勧告',
+    crcDecision: '',
+    note: 'PFAS。撥水剤・フッ素ポリマー助剤として広く使用。'
+  },
+  {
+    nameEn: 'Dicofol',
+    nameJa: 'ジコホル',
+    cas: '115-32-2',
+    startYear: 2013,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-09（2019）附属書A収載・適用除外なし',
+    poprcDecision: 'POPRC-13（2017）勧告',
+    crcDecision: '',
+    note: 'ダニ駆除剤。DDTから合成される有機塩素系。'
+  },
+  {
+    nameEn: 'Decabromodiphenyl ether (c-decaBDE)',
+    nameJa: 'デカブロモジフェニルエーテル（商業デカBDE）',
+    cas: '1163-19-5',
+    startYear: 2013,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-08（2017）附属書A収載・複数の適用除外あり',
+    poprcDecision: 'POPRC-10（2014）勧告',
+    crcDecision: '',
+    note: '臭素系難燃剤。自動車・繊維等の時限的除外措置あり。'
+  },
+  {
+    nameEn: 'Short-chain chlorinated paraffins (SCCPs)',
+    nameJa: '短鎖塩素化パラフィン（SCCPs）',
+    cas: '85535-84-8',
+    startYear: 2006,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-08（2017）附属書A収載',
+    poprcDecision: 'POPRC-08（2012）勧告',
+    crcDecision: '',
+    note: '可塑剤・金属加工油。POPRC勧告から採択まで長期審議。'
+  },
+  {
+    nameEn: 'Hexabromocyclododecane (HBCD)',
+    nameJa: 'ヘキサブロモシクロドデカン（HBCD）',
+    cas: '25637-99-4',
+    startYear: 2008,
+    status: 'adopted', statusLabel: '採択済み',
+    copDecision: 'COP-06（2013）附属書A収載',
+    poprcDecision: 'POPRC-06（2010）勧告',
+    crcDecision: '',
+    note: '発泡ポリスチレン用難燃剤。'
+  },
+  {
+    nameEn: 'Polybrominated and mixed polybrominated/chlorinated dioxins and furans (PBDD/Fs, PXDD/Fs)',
+    nameJa: 'ポリ臭素化／混合ポリ臭素化・塩素化ジベンゾダイオキシン類およびフラン類',
+    cas: '複数',
+    startYear: 2023,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: 'POPRC-21（2025年9–10月）リスクプロファイル草案合意未到達／会期間作業継続',
+    crcDecision: '',
+    note: '人健康への長距離移動影響の追加情報収集を継続。'
+  },
+];
+
+// 各テーブルのソート状態
+const sortState = {
+  rotterdam: { column: null, dir: 'asc' },
+  stockholm: { column: null, dir: 'asc' },
+};
+
+// status はステータスの意味順で並べる
+const statusOrder = { adopted: 1, recommend: 2, review: 3, rejected: 4 };
+
+function compareValues(va, vb, key) {
+  if (key === 'status') {
+    return (statusOrder[va] || 99) - (statusOrder[vb] || 99);
+  }
+  if (typeof va === 'number' && typeof vb === 'number') return va - vb;
+  return String(va || '').localeCompare(String(vb || ''), 'ja');
+}
+
+function statusBadgeClass(status) {
+  return {
+    adopted: 'badge-adopted',
+    recommend: 'badge-recommend',
+    review: 'badge-review',
+    rejected: 'badge-rejected',
+  }[status] || '';
+}
+
+function cellOrDash(text) {
+  return text && text.trim() ? text : '<span class="muted">—</span>';
+}
+
+function renderTable(treaty) {
+  const sourceData = treaty === 'rotterdam' ? rotterdamData : stockholmData;
+  const ss = sortState[treaty];
+  let rows = sourceData.slice();
+
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const fStatus = document.getElementById('filterStatus').value;
+  rows = rows.filter(d => {
+    if (fStatus !== 'all' && d.status !== fStatus) return false;
+    if (q) {
+      const blob = (d.nameEn + ' ' + d.nameJa + ' ' + d.cas + ' ' + d.note + ' ' +
+                    d.copDecision + ' ' + d.poprcDecision + ' ' + d.crcDecision).toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    return true;
+  });
+
+  if (ss.column) {
+    const sign = ss.dir === 'asc' ? 1 : -1;
+    rows.sort((a, b) => compareValues(a[ss.column], b[ss.column], ss.column) * sign);
+  }
+
+  const tbody = document.querySelector(`#${treaty}Table tbody`);
+  tbody.innerHTML = rows.map(d => `
+    <tr>
+      <td>
+        <div class="name-en">${d.nameEn}</div>
+        <div class="name-ja">${d.nameJa}</div>
+      </td>
+      <td class="cas">${d.cas}</td>
+      <td>${d.startYear}</td>
+      <td><span class="badge ${statusBadgeClass(d.status)}">${d.statusLabel}</span></td>
+      <td>${cellOrDash(d.copDecision)}</td>
+      <td>${cellOrDash(d.poprcDecision)}</td>
+      <td>${cellOrDash(d.crcDecision)}</td>
+      <td>${d.note}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById(`${treaty}Empty`).style.display = rows.length === 0 ? 'block' : 'none';
+
+  document.querySelectorAll(`#${treaty}Table thead th`).forEach(th => {
+    const arrow = th.querySelector('.sort-arrow');
+    if (th.dataset.sort === ss.column) {
+      arrow.textContent = ss.dir === 'asc' ? '▲' : '▼';
+      th.classList.add('sorted');
+    } else {
+      arrow.textContent = '';
+      th.classList.remove('sorted');
+    }
+  });
+}
+
+function renderAll() {
+  const treaty = document.getElementById('filterTreaty').value;
+  document.getElementById('rotterdamPanel').style.display = (treaty === 'stockholm') ? 'none' : '';
+  document.getElementById('stockholmPanel').style.display = (treaty === 'rotterdam') ? 'none' : '';
+  renderTable('rotterdam');
+  renderTable('stockholm');
+}
+
+function renderStats() {
+  const all = [...rotterdamData, ...stockholmData];
+  document.getElementById('statTotal').textContent = all.length;
+  document.getElementById('statRotterdam').textContent = rotterdamData.length;
+  document.getElementById('statStockholm').textContent = stockholmData.length;
+  document.getElementById('statAdopted').textContent = all.filter(d => d.status === 'adopted').length;
+  document.getElementById('statPending').textContent = all.filter(d => d.status === 'review' || d.status === 'recommend').length;
+}
+
+function attachSortHandlers(treaty) {
+  document.querySelectorAll(`#${treaty}Table thead th`).forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      const ss = sortState[treaty];
+      if (ss.column === key) {
+        ss.dir = ss.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        ss.column = key;
+        ss.dir = 'asc';
+      }
+      renderTable(treaty);
+    });
+  });
+}
+
+attachSortHandlers('rotterdam');
+attachSortHandlers('stockholm');
+renderStats();
+renderAll();
+
+document.getElementById('search').addEventListener('input', renderAll);
+document.getElementById('filterTreaty').addEventListener('change', renderAll);
+document.getElementById('filterStatus').addEventListener('change', renderAll);
+</script>
+
+</body>
+</html>
