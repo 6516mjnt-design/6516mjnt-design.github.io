@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ブッダの実践心理学 — 読了の履歴</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --bg2: #f2ede4;
+    --ink: #1a1611;
+    --ink-soft: #5c5244;
+    --accent: #7a5c3a;
+    --accent2: #b08060;
+    --gold: #c9a45a;
+    --gold-light: #e8d4a8;
+    --line: #d4c9b8;
+    --vol1: #8b6355;
+    --vol2: #5a7a6a;
+    --vol3: #4a6880;
+    --vol4: #7a6a4a;
+    --vol5: #6a5a7a;
+    --vol6: #5a6a4a;
+    --vol7: #7a5a4a;
+    --vol8: #4a6a7a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  header {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 3rem 4rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(201,164,90,0.04) 60px,
+        rgba(201,164,90,0.04) 61px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(201,164,90,0.04) 60px,
+        rgba(201,164,90,0.04) 61px
+      );
+  }
+
+  .header-inner { position: relative; z-index: 1; }
+
+  .title-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--bg);
+    line-height: 1.4;
+  }
+
+  .subtitle {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  .gold-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.2rem 0;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--line);
+    padding: 1.2rem 4rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+  }
+
+  /* Volume legend */
+  .legend-section {
+    padding: 2rem 4rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .legend-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--accent2);
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.6rem 2rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-right: 0.2rem;
+  }
+
+  /* Main table */
+  .table-wrapper {
+    padding: 2rem 4rem 4rem;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+
+  thead th {
+    padding: 0.8rem 1rem;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--bg);
+    background: var(--accent);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    position: sticky;
+    top: 0;
+  }
+
+  thead th:first-child {
+    text-align: center;
+    width: 80px;
+  }
+
+  thead th:last-child {
+    border-right: none;
+  }
+
+  .vol-subtitle {
+    display: block;
+    font-size: 0.62rem;
+    color: var(--gold-light);
+    font-weight: 300;
+    margin-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  tbody tr {
+    transition: background 0.15s;
+  }
+
+  tbody tr:hover {
+    background: rgba(176,128,96,0.06);
+  }
+
+  tbody td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    font-size: 0.8rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  tbody td:first-child {
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    background: rgba(122,92,58,0.04);
+    border-left: 3px solid var(--accent);
+    border-right: 1px solid var(--line);
+    white-space: nowrap;
+  }
+
+  tbody td:last-child {
+    border-right: none;
+  }
+
+  .year-row td {
+    border-top: 2px solid var(--line);
+  }
+
+  tbody tr:first-child td {
+    border-top: none;
+  }
+
+  .year-row td:first-child {
+    font-weight: 600;
+  }
+
+  /* Date pills */
+  .date-pill {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+
+  .pill-1 { background: rgba(139,99,85,0.12); color: var(--vol1); border-color: rgba(139,99,85,0.25); }
+  .pill-2 { background: rgba(90,122,106,0.12); color: var(--vol2); border-color: rgba(90,122,106,0.25); }
+  .pill-3 { background: rgba(74,104,128,0.12); color: var(--vol3); border-color: rgba(74,104,128,0.25); }
+  .pill-4 { background: rgba(122,106,74,0.12); color: var(--vol4); border-color: rgba(122,106,74,0.25); }
+  .pill-5 { background: rgba(106,90,122,0.12); color: var(--vol5); border-color: rgba(106,90,122,0.25); }
+  .pill-6 { background: rgba(90,106,74,0.12); color: var(--vol6); border-color: rgba(90,106,74,0.25); }
+  .pill-7 { background: rgba(122,90,74,0.12); color: var(--vol7); border-color: rgba(122,90,74,0.25); }
+  .pill-8 { background: rgba(74,106,122,0.12); color: var(--vol8); border-color: rgba(74,106,122,0.25); }
+
+  .empty-cell {
+    color: var(--line);
+    font-size: 0.7rem;
+  }
+
+  /* Note */
+  .note-section {
+    padding: 0 4rem 3rem;
+  }
+
+  .note-box {
+    background: var(--bg2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 1rem 1.5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  .note-box strong {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    color: var(--gold-light);
+    padding: 1.5rem 4rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  footer span { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    header, .stats-bar, .legend-section, .table-wrapper, .note-section, footer {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .stats-bar { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="title-en">Abhidhamma in Practice — Reading Journal</div>
+    <div class="gold-line"></div>
+    <h1>ブッダの実践心理学<br>読了の履歴</h1>
+    <p class="subtitle">アルボムッレ・スマナサーラ 長老 著　／　全8巻</p>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num" id="total-reads">—</span>
+    <span class="stat-label">総読了回数</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">2006</span>
+    <span class="stat-label">読書開始年</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">2026</span>
+    <span class="stat-label">最終記録年</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">21</span>
+    <span class="stat-label">記録期間（年）</span>
+  </div>
+</div>
+
+<div class="legend-section">
+  <div class="legend-title">Volume Guide</div>
+  <div class="legend-grid">
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol1)"></span><span class="legend-num">第一巻</span> 物質の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol2)"></span><span class="legend-num">第二巻</span> 心の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol3)"></span><span class="legend-num">第三巻</span> 心所の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol4)"></span><span class="legend-num">第四巻</span> 心の消滅の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol5)"></span><span class="legend-num">第五巻</span> 業と輪廻の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol6)"></span><span class="legend-num">第六巻</span> 縁起の分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol7)"></span><span class="legend-num">第七巻</span> 瞑想と悟りの分析</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--vol8)"></span><span class="legend-num">第八巻</span> 瞑想と悟りの分析</div>
+  </div>
+</div>
+
+<div class="table-wrapper">
+  <table id="main-table">
+    <thead>
+      <tr>
+        <th>年</th>
+        <th>第一巻</th>
+        <th>第二巻</th>
+        <th>第三巻</th>
+        <th>第四巻</th>
+        <th>第五巻</th>
+        <th>第六巻</th>
+        <th>第七巻</th>
+        <th>第八巻</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<div class="note-section">
+  <div class="note-box">
+    <strong>※ 巻名について</strong>　第七巻：瞑想と悟りの分析（サマタ瞑想編）、第八巻：瞑想と悟りの分析（ヴィパッサナー瞑想編）
+  </div>
+</div>
+
+<footer>
+  <div>ブッダの実践心理学 読了の履歴</div>
+  <div>総記録数 <span id="footer-count">—</span> 件</div>
+</footer>
+
+<script>
+// Raw data: [year_label, [vol1_dates], [vol2_dates], ..., [vol8_dates]]
+// null = empty cell
+const rawData = [
+  ["2006年",
+    ["2006-04-27","2006-05-25","2006-08-16","2006-09-17"],
+    ["2006-06-11","2006-06-25","2006-07-12","2006-07-30","2006-10-09","2006-10-29","2006-11-24"],
+    [], [], [], [], [], []
+  ],
+  ["2007年",
+    ["2007-02-18","2007-09-08"],
+    ["2007-01-08","2007-05-09","2007-06-10","2007-12-15"],
+    ["2007-04-19","2007-04-22","2007-05-02","2007-06-27","2007-07-21","2007-08-22"],
+    [], [], [], [], []
+  ],
+  ["2008年",
+    [],
+    [],
+    ["2008-01-05"],
+    [], [], [], [], []
+  ],
+  ["2009年", [], [], [], [], [], [], [], []],
+  ["2010年",
+    ["2010-03-23"],
+    ["2010-04-25"],
+    [],
+    ["2010-05-30"],
+    [], [], [], []
+  ],
+  ["2011年",
+    ["2011-03-28"],
+    ["2011-04-20"],
+    ["2011-04-29"],
+    ["2011-02-21","2011-05-04","2011-06-23"],
+    ["2011-03-04","2011-05-07","2011-07-19"],
+    ["2011-02-14","2011-05-19","2011-06-05","2011-08-07"],
+    [], []
+  ],
+  ["2012年", [], [], [], [], [], [], [], []],
+  ["2013年", [], [], [], [], [], [], [], []],
+  ["2014年",
+    [], [], [], [], [], [],
+    ["2014-09-15"],
+    ["2014-07-21"]
+  ],
+  ["2015年", [], [], [], [], [], [], [], []],
+  ["2016年",
+    ["2016-01-10","2016-04-19","2016-07-22"],
+    ["2016-01-17","2016-03-06","2016-05-03","2016-08-11"],
+    ["2016-01-26","2016-01-31","2016-05-11","2016-08-21"],
+    ["2016-02-28","2016-03-22","2016-05-22","2016-09-04","2016-11-25"],
+    ["2016-03-28","2016-06-04","2016-09-17"],
+    ["2016-04-03","2016-06-26","2016-09-26","2016-11-08"],
+    ["2016-04-14","2016-07-02","2016-09-30"],
+    ["2016-04-10","2016-07-08","2016-10-05","2016-10-20"]
+  ],
+  ["2017年",
+    ["2017-12-06"],
+    ["2017-12-24"],
+    [], [], [], [], [], []
+  ],
+  ["2018年",
+    ["2018-03-25"],
+    ["2018-03-21"],
+    [],
+    ["2018-01-27","2018-04-17"],
+    ["2018-02-05","2018-04-25"],
+    ["2018-02-08","2018-05-04"],
+    ["2018-03-13"],
+    ["2018-03-21","2018-12-05","2018-12-21"]
+  ],
+  ["2019年",
+    ["2019-07-15","2019-10-10","2019-12-26"],
+    ["2019-07-29","2019-10-22"],
+    ["2019-07-07","2019-08-06","2019-10-27"],
+    ["2019-06-28","2019-08-18","2019-11-06"],
+    ["2019-06-13","2019-08-30","2019-11-16"],
+    ["2019-05-27","2019-09-12","2019-12-01"],
+    ["2019-09-20","2019-12-07"],
+    ["2019-05-06","2019-09-28","2019-12-26"]
+  ],
+  ["2020年",
+    [],
+    ["2020-01-05"],
+    ["2020-01-16"],
+    ["2020-02-01"],
+    ["2020-02-15"],
+    ["2020-03-01"],
+    ["2020-03-07"],
+    ["2020-03-11"]
+  ],
+  ["2021年", [], [], [], [], [], [], [], []],
+  ["2022年", [], [], [], [], [], [], [], []],
+  ["2023年",
+    [], [], [], [], [], [],
+    ["2023-10-19"],
+    ["2023-10-28"]
+  ],
+  ["2024年",
+    [], [], [], [], 
+    ["2024-01-21"],
+    ["2024-02-11"],
+    [], []
+  ],
+  ["2025年", [], [], [], [], [], [], [], []],
+  ["2026年",
+    [],
+    ["2026-03-09"],
+    ["2026-02-19"],
+    ["2026-03-27"],
+    ["2026-04-04"],
+    ["2026-04-24"],
+    ["2026-05-04"],
+    ["2026-05-18"]
+  ],
+  ["2027年", [], [], [], [], [], [], [], []]
+];
+function formatDate(d) {
+  const parts = d.split('-');
+  return `${parts[1]}/${parts[2]}`;
+}
+
+function buildTable() {
+  const tbody = document.getElementById('table-body');
+  let totalReads = 0;
+
+  // Find max rows needed per year block
+  rawData.forEach(([year, ...vols]) => {
+    const maxRows = Math.max(1, ...vols.map(v => v.length));
+    
+    for (let r = 0; r < maxRows; r++) {
+      const tr = document.createElement('tr');
+      if (r === 0) tr.classList.add('year-row');
+
+      // Year cell - always create, show label only on first row (no rowspan)
+      const tdYear = document.createElement('td');
+      tdYear.textContent = r === 0 ? year : '';
+      tr.appendChild(tdYear);
+
+      // Volume cells
+      vols.forEach((dates, vi) => {
+        if (r > 0 && r >= Math.max(dates.length, 1)) {
+          // Only add cell if this row exists for this vol
+          if (dates.length <= r) {
+            const td = document.createElement('td');
+            td.innerHTML = '<span class="empty-cell">—</span>';
+            tr.appendChild(td);
+          }
+        } else {
+          const td = document.createElement('td');
+          if (dates[r]) {
+            const pill = document.createElement('span');
+            pill.className = `date-pill pill-${vi+1}`;
+            pill.textContent = formatDate(dates[r]);
+            td.appendChild(pill);
+            totalReads++;
+          } else {
+            td.innerHTML = '<span class="empty-cell">—</span>';
+          }
+          tr.appendChild(td);
+        }
+      });
+
+      tbody.appendChild(tr);
+    }
+  });
+
+  document.getElementById('total-reads').textContent = totalReads;
+  document.getElementById('footer-count').textContent = totalReads;
+}
+
+buildTable();
+</script>
+</body>
+</html>
