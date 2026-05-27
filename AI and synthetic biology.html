@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI×合成生物学の技術進展と規制</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181c24;
+    --border: #252a35;
+    --accent1: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --accent4: #f59e0b;
+    --accent5: #ef4444;
+    --text-primary: #e8eaf0;
+    --text-secondary: #8892a4;
+    --text-dim: #4a5568;
+    --col-year: 90px;
+    --col-tech: 200px;
+    --col-dir: 140px;
+    --col-core: 260px;
+    --col-social: 220px;
+    --col-reg: 240px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── header ── */
+  .page-header {
+    padding: 56px 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,212,255,.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .page-header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: 120px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(124,58,237,.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    color: var(--accent1);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .04em;
+    margin-bottom: 8px;
+  }
+
+  h1 span { color: var(--accent1); }
+
+  .subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .meta-row {
+    display: flex; align-items: center; gap: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .meta-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent1);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .4; transform: scale(.7); }
+  }
+
+  /* ── legend ── */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    padding: 0 48px 36px;
+  }
+
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--text-secondary);
+    font-family: 'Space Mono', monospace;
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px; border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── wrapper ── */
+  .table-wrapper {
+    padding: 0 24px 64px;
+    overflow-x: auto;
+  }
+
+  /* ── table ── */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1100px;
+  }
+
+  thead th {
+    background: var(--surface2);
+    color: var(--text-secondary);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  thead th:last-child { border-right: none; }
+
+  /* column indicator bar */
+  thead th::after {
+    content: '';
+    display: block;
+    height: 2px;
+    margin-top: 8px;
+    border-radius: 1px;
+  }
+
+  thead th:nth-child(1)::after { background: var(--text-dim); }
+  thead th:nth-child(2)::after { background: var(--accent1); }
+  thead th:nth-child(3)::after { background: var(--accent2); }
+  thead th:nth-child(4)::after { background: var(--accent3); }
+  thead th:nth-child(5)::after { background: var(--accent4); }
+  thead th:nth-child(6)::after { background: var(--accent5); }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+
+  tbody tr:hover { background: rgba(255,255,255,.025); }
+
+  tbody td {
+    padding: 20px 16px;
+    vertical-align: top;
+    border-right: 1px solid var(--border);
+    line-height: 1.75;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+
+  tbody td:last-child { border-right: none; }
+
+  /* ── year cell ── */
+  .year-cell {
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: .05em;
+  }
+
+  /* ── tech cell ── */
+  .tech-cell { font-weight: 500; }
+
+  .tech-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .tech-authors {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* ── direction badge ── */
+  .dir-cell { }
+
+  .dir-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: .04em;
+    line-height: 1.6;
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+
+  /* ── era classes ── */
+  tr[data-era="2000s"] .year-cell { color: #6b7280; }
+  tr[data-era="2010s"] .year-cell { color: #60a5fa; }
+  tr[data-era="2018"]  .year-cell { color: var(--accent1); }
+  tr[data-era="2020s"] .year-cell { color: var(--accent3); }
+  tr[data-era="2024s"] .year-cell { color: var(--accent4); }
+  tr[data-era="2026"]  .year-cell { color: var(--accent5); }
+
+  tr[data-era="2000s"] .dir-badge { background: rgba(107,114,128,.15); color: #9ca3af; border: 1px solid #374151; }
+  tr[data-era="2010s"] .dir-badge { background: rgba(96,165,250,.12); color: #93c5fd; border: 1px solid #1e3a5f; }
+  tr[data-era="2018"]  .dir-badge { background: rgba(0,212,255,.1);  color: var(--accent1); border: 1px solid rgba(0,212,255,.25); }
+  tr[data-era="2020s"] .dir-badge { background: rgba(16,185,129,.1); color: var(--accent3); border: 1px solid rgba(16,185,129,.25); }
+  tr[data-era="2024s"] .dir-badge { background: rgba(245,158,11,.1); color: var(--accent4); border: 1px solid rgba(245,158,11,.25); }
+  tr[data-era="2026"]  .dir-badge { background: rgba(239,68,68,.1);  color: var(--accent5); border: 1px solid rgba(239,68,68,.25); }
+
+  /* ── risk level indicator ── */
+  .risk-indicator {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px;
+    font-family: 'Space Mono', monospace;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  .risk-bar {
+    display: flex; gap: 2px;
+  }
+
+  .risk-seg {
+    width: 12px; height: 4px; border-radius: 1px;
+    background: var(--border);
+  }
+
+  .risk-seg.on { }
+
+  tr[data-era="2000s"] .risk-seg.on { background: #6b7280; }
+  tr[data-era="2010s"] .risk-seg.on { background: #60a5fa; }
+  tr[data-era="2018"]  .risk-seg.on { background: var(--accent1); }
+  tr[data-era="2020s"] .risk-seg.on { background: var(--accent3); }
+  tr[data-era="2024s"] .risk-seg.on { background: var(--accent4); }
+  tr[data-era="2026"]  .risk-seg.on { background: var(--accent5); }
+
+  /* ── note ── */
+  .table-note {
+    margin: 0 24px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--text-dim);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  /* ── divider rule in long text ── */
+  td p + p { margin-top: 8px; }
+
+  /* ── responsive scroll hint ── */
+  .scroll-hint {
+    display: none;
+    text-align: center;
+    padding: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 900px) {
+    .page-header { padding: 36px 24px 28px; }
+    .legend { padding: 0 24px 28px; }
+    .scroll-hint { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <p class="eyebrow">Research Timeline — Synthetic Biology × AI</p>
+  <h1>AI×合成生物学の<span>技術進展</span>と規制</h1>
+  <p class="subtitle">2000年代〜2026年 ／ 主要ブレイクスルーと輸出管理・バイオセキュリティの動向</p>
+  <div class="meta-row">
+    <span class="meta-dot"></span>
+    <span>6 eras tracked</span>
+    <span>·</span>
+    <span>動的アップデート予定</span>
+  </div>
+</header>
+
+<div class="legend">
+ 
+</div>
+
+<p class="scroll-hint">← 横スクロールで全列を表示 →</p>
+
+<div class="table-wrapper">
+<table>
+  <thead>
+    <tr>
+      <th>年代</th>
+      <th>技術的ブレイクスルー</th>
+      <th>方向性</th>
+      <th>技術的核心</th>
+      <th>社会的影響</th>
+      <th>輸出管理規制の動向</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- 2000年代 -->
+    <tr data-era="2000s">
+      <td class="year-cell">
+        2000年代
+        <div class="risk-indicator">
+          <div class="risk-bar">
+           
+          </div>
+
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">代謝工学と遺伝子回路の計算モデル</div>
+        <div class="tech-authors">初期の数理モデル</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">順方向の挙動予測</div>
+      </td>
+      <td>遺伝子工学において、単純な数理モデルや初期の機械学習を用い、細胞内の代謝経路や遺伝子回路のシミュレーションを開始。個々のパーツの決定論的な組み合わせを試みる。</td>
+      <td>特定の有用物質（医薬品原材料やバイオ燃料）を微生物に作らせる初期のバイオものづくりの基盤。</td>
+      <td>従来の化学兵器禁止条約（CWC）物質目録（スケジュール物質）や、オーストラリア・グループ（AG）による「現物（原材料・設備）」の輸出管理で制御可能だった時代。</td>
+    </tr>
+
+    <!-- 2010年代半ば -->
+    <tr data-era="2010s">
+      <td class="year-cell">
+        2010年代半ば
+        <div class="risk-indicator">
+          <div class="risk-bar">
+            
+          </div>
+          
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">ディープラーニングの本格導入</div>
+        <div class="tech-authors">深層学習の台頭</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">パターン認識と予測</div>
+      </td>
+      <td>深層学習の台頭により、膨大なDNA配列データやゲノムデータから遺伝子発現パターンを予測する研究が加速。人間には見出せない非線形な相関関係をAIが抽出。</td>
+      <td>ゲノム編集（CRISPR-Cas9など）の標的予測の正確性が向上し、品種改良や遺伝子治療の基礎研究が劇的にスピードアップ。</td>
+      <td>ゲノムデータのデジタル化（DSI：デジタル配列情報）が国際的に流通し始め、貨物に依存する従来の輸出管理レジームに「技術データの流通」という問題が生じ始める。</td>
+    </tr>
+
+    <!-- 2018年 -->
+    <tr data-era="2018">
+      <td class="year-cell">
+        2018年
+        <div class="risk-indicator">
+          <div class="risk-bar">
+            
+          </div>
+          
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">AlphaFold（第1世代）</div>
+        <div class="tech-authors">デミス・ハサビス率いる Google DeepMind</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">構造予測</div>
+        <br>
+        <div class="dir-badge">配列 → 距離マップ予測</div>
+      </td>
+      <td>タンパク質を構成するアミノ酸ペア間の「距離」と「結合角」を深層ニューラルネットワークで確率予測し、従来の物理的勾配法と組み合わせて3D構造を推定。CASP13において初出場で圧倒的優勝を飾り、世界に衝撃を与える。</td>
+      <td>AIが生命科学の難問（タンパク質折り畳み問題）に対して有効であることの決定的な証明。計算生物学の新しい扉を開く。</td>
+      <td>計算科学による予測精度の急速な向上が、将来的なバイオセキュリティ（二重用途リスク）へ与える影響について、一部の先見的な専門家が議論を開始。</td>
+    </tr>
+
+    <!-- 2020〜2021年 -->
+    <tr data-era="2020s">
+      <td class="year-cell">
+        2020〜2021年
+        <div class="risk-indicator">
+          <div class="risk-bar">
+           
+          </div>
+          
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">AlphaFold2（第2世代） / Rosettaの進化</div>
+        <div class="tech-authors">D.ハサビス、J.ジャンパー、D.ベイカー</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">構造予測 (End-to-End)</div>
+        <br>
+        <div class="dir-badge">De Novo 設計（形→配列）</div>
+      </td>
+      <td>アライメントデータ（Evoformer）と3D構造モジュールを直結させた革新的な「End-to-End」アーキテクチャを導入。実験データ（X線結晶構造解析等）に匹敵する原子レベルでの高精度予測を達成し、50年来の難問を事実上解決。同時期にベイカー氏らも逆方向の「De Novo設計（Rosetta等）」を確立。</td>
+      <td>地球上のほぼすべての既知のタンパク質（約2億個）の予測構造がデータベースとして無償公開。創薬ターゲットの特定、プラスチック分解酵素の設計、新規ワクチンの開発が数ヶ月から「数分・数時間」に短縮。</td>
+      <td>優れた創薬設計力や高精度な構造予測力は、容易に「未知の毒物・生物兵器の設計」へと反転可能なことが判明。コードやデータベースの完全な公開と、安全保障上のリスク（機密性）のジレンマが国際的な論点となる。</td>
+    </tr>
+
+    <!-- 2024〜2025年 -->
+    <tr data-era="2024s">
+      <td class="year-cell">
+        2024〜2025年
+        <div class="risk-indicator">
+          <div class="risk-bar">
+           
+          </div>
+          
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">AlphaFold3（第3世代） / ProteinMPNN の登場</div>
+        <div class="tech-authors">マルチモーダル・生成AI</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">統合生成および相互作用の予測</div>
+        <br>
+        <div class="dir-badge">全バイオ分子</div>
+      </td>
+      <td>最新の「拡散モデル（Diffusion Model）」をコアに採用。タンパク質単体にとどまらず、DNA、RNA、化学物質（化合物・リガンド）、イオンなど、「生命のすべての分子の相互作用と複合体構造」を同一システムで高精度に生成・予測する段階へ創発。2024年ノーベル化学賞の決定打となる。</td>
+      <td>複雑な細胞内シグナルを制御する分子標的薬の自動設計や、核酸医薬の最適化、特定の環境下でのみ駆動する人工酵素の創出など、バイオものづくりのパラダイムが「実験主導」から「デジタル主導」へ完全移行。</td>
+      <td>OPCWの科学諮問委員会（SAB）に「AIに関する臨時作業部会（TWG on AI）」が設置され集中議論。AIが規制リスト（CWC表物質）を迂回する「新しい合成経路」を勝手に最適化・創発するため、現物や静的な禁止リストによる輸出管理が機能不全に陥り始める。</td>
+    </tr>
+
+    <!-- 2026年 -->
+    <tr data-era="2026">
+      <td class="year-cell">
+        2026年
+        <div class="risk-indicator">
+          <div class="risk-bar">
+            
+          </div>
+          
+        </div>
+      </td>
+      <td class="tech-cell">
+        <div class="tech-name">デジタル生命（Virtual Cell）と自律型ロボットラボ</div>
+        <div class="tech-authors">クローズドループ自律実験</div>
+      </td>
+      <td class="dir-cell">
+        <div class="dir-badge">自律的試行錯誤と動的制御</div>
+      </td>
+      <td>AIが細胞全体の振る舞いを予測・シミュレートする「仮想細胞（Virtual Cell）」が本格化。さらに、AIの設計からロボットによる自動実験、結果のフィードバックまでを人間を介さず高速ループ（クローズドループ）させる自律型ラボが登場。</td>
+      <td>医療・環境・素材分野での超高速な実証実験と、オーダーメイド型バイオ製品のオンデマンド生産の実現。</td>
+      <td>「予測・完全制御の不可能性」を科学的前提とし、撲滅型規制から免疫型の「動的ロバストネス」へ。DNA委託合成の現場における「スクリーニング（物質化のチョークポイント監視）」の国際標準化。AIの思考プロセス（Chain of Thought）監視による行動の検知強化。</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div class="table-note">
+  ※ 本表は、今後の科学的発見や国際的な貿易管理レジーム等で新たな報告書が出た際に、行および列を動的に拡張・アップデートする。
+</div>
+
+</body>
+</html>
