@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セントラルドグマ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fc;
+    --panel: #ffffff;
+    --blue: #1a3a8f;
+    --blue-light: #3a5bbf;
+    --red: #c0392b;
+    --text: #1a1a2e;
+    --muted: #555;
+    --border: #d0d8f0;
+    --dna-color: #1a3a8f;
+    --rna-color: #2980b9;
+    --protein-color: #27ae60;
+    --arrow-color: #1a1a2e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide {
+    background: var(--panel);
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(26,58,143,0.10);
+    max-width: 860px;
+    width: 100%;
+    padding: 40px 48px 48px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Title ─────────────────────────────────── */
+  .slide-title {
+    font-family: 'Source Serif 4', 'Noto Sans JP', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--blue);
+    border-bottom: 3px solid var(--blue);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── Summary box ────────────────────────────── */
+  .summary {
+    background: #eef2fb;
+    border-left: 5px solid var(--blue-light);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 36px;
+  }
+  .summary .arrow { color: var(--blue); font-weight: 700; }
+
+  /* ─── Central Dogma Diagram ──────────────────── */
+  .diagram-section {
+    margin-bottom: 40px;
+  }
+
+  .diagram-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 8px 0;
+  }
+
+  .molecule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mol-box {
+    width: 110px;
+    height: 68px;
+    border: 2.5px solid;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .mol-box:hover { transform: scale(1.05); }
+
+  .mol-dna { border-color: var(--dna-color); color: var(--dna-color); background: #e8eeff; }
+  .mol-rna { border-color: var(--rna-color); color: var(--rna-color); background: #e4f3fb; }
+  .mol-protein { border-color: var(--protein-color); color: var(--protein-color); background: #e6f9ee; }
+
+  .mol-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .step-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 0 6px;
+  }
+
+  .step-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .arrow-svg {
+    display: block;
+  }
+
+  /* Replication loop indicator */
+  .replication-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--red);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  /* ─── Detail Sections ────────────────────────── */
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .detail-card {
+    border-radius: 8px;
+    padding: 18px 22px;
+    border-left: 5px solid;
+    animation: fadeUp 0.6s ease both;
+  }
+  .detail-card:nth-child(1) { animation-delay: 0.15s; }
+  .detail-card:nth-child(2) { animation-delay: 0.28s; }
+  .detail-card:nth-child(3) { animation-delay: 0.41s; }
+
+  .detail-card.replication {
+    border-color: var(--red);
+    background: #fdf4f3;
+  }
+  .detail-card.transcription {
+    border-color: var(--rna-color);
+    background: #f0f8fd;
+  }
+  .detail-card.translation {
+    border-color: var(--protein-color);
+    background: #f0faf4;
+  }
+
+  .detail-heading {
+    font-size: 1rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .detail-card.replication .detail-heading { color: var(--red); }
+  .detail-card.transcription .detail-heading { color: var(--rna-color); }
+  .detail-card.translation .detail-heading { color: var(--protein-color); }
+
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+  }
+  .badge-rep { background: var(--red); color: #fff; }
+  .badge-trs { background: var(--rna-color); color: #fff; }
+  .badge-trl { background: var(--protein-color); color: #fff; }
+
+  .detail-body {
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: #333;
+  }
+
+  footer {
+    margin-top: 28px;
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1 class="slide-title">セントラルドグマ</h1>
+
+  <!-- Summary -->
+  <div class="summary">
+    生物の体内にある遺伝情報が
+    <span class="arrow">DNA ➔ RNA ➔ タンパク質</span>
+    の順に伝達されるという、分子生物学における最も基本的な原則。
+  </div>
+
+  <!-- Diagram -->
+  <div class="diagram-section">
+    <div class="diagram-label">情報の流れ</div>
+    <div class="diagram">
+
+      <!-- DNA with replication indicator -->
+      <div class="molecule">
+        <span class="replication-badge">↺ 複製</span>
+        <div class="mol-box mol-dna">
+          DNA
+        </div>
+        <span class="mol-name">デオキシリボ核酸</span>
+      </div>
+
+      <!-- Transcription arrow -->
+      <div class="step-block">
+        <span class="step-label">転写</span>
+        <svg class="arrow-svg" width="64" height="20" viewBox="0 0 64 20">
+          <defs>
+            <marker id="ah1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#1a1a2e"/>
+            </marker>
+          </defs>
+          <line x1="2" y1="10" x2="54" y2="10" stroke="#1a1a2e" stroke-width="3" marker-end="url(#ah1)"/>
+        </svg>
+      </div>
+
+      <!-- RNA -->
+      <div class="molecule">
+        <div class="mol-box mol-rna">RNA</div>
+        <span class="mol-name">リボ核酸（mRNA）</span>
+      </div>
+
+      <!-- Translation arrow -->
+      <div class="step-block">
+        <span class="step-label">翻訳</span>
+        <svg class="arrow-svg" width="64" height="20" viewBox="0 0 64 20">
+          <defs>
+            <marker id="ah2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#1a1a2e"/>
+            </marker>
+          </defs>
+          <line x1="2" y1="10" x2="54" y2="10" stroke="#1a1a2e" stroke-width="3" marker-end="url(#ah2)"/>
+        </svg>
+      </div>
+
+      <!-- Protein -->
+      <div class="molecule">
+        <div class="mol-box mol-protein">タンパク質</div>
+        <span class="mol-name">Protein</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Detail cards -->
+  <div class="details">
+
+    <div class="detail-card replication">
+      <div class="detail-heading">
+        <span class="badge badge-rep">複製</span>
+        DNA → DNA
+      </div>
+      <div class="detail-body">
+        生物はDNAを持ち、細胞から細胞へ、親から子へと受け継がれる。
+        DNAは、生命の設計図を記した情報を含む意味で<strong>ゲノム</strong>とも呼ばれる。
+        ゲノムとDNAは物理的実体は同じだが、情報を保持していないDNAはゲノムとは呼ばない。
+      </div>
+    </div>
+
+    <div class="detail-card transcription">
+      <div class="detail-heading">
+        <span class="badge badge-trs">転写</span>
+        DNA → RNA
+      </div>
+      <div class="detail-body">
+        DNAの塩基配列を基に、まず作られるRNAの塩基配列は、DNAの塩基配列と同じ。
+        このDNAの塩基配列を写し取られたRNAは、<strong>核から核膜孔を通って</strong>外の細胞質へと移行し、
+        細胞質にあるリボソームにまでたどり着く。
+      </div>
+    </div>
+
+    <div class="detail-card translation">
+      <div class="detail-heading">
+        <span class="badge badge-trl">翻訳</span>
+        RNA → タンパク質
+      </div>
+      <div class="detail-body">
+        <strong>リボソーム</strong>において、RNAの塩基配列を基に、アミノ酸がその設計図どおりに重合し、
+        タンパク質が作られる。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 2: 転写（DNA → mRNA）                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide" style="margin-top: 32px; animation-delay: 0.1s;">
+  <h1 class="slide-title" style="color: var(--rna-color); border-color: var(--rna-color);">
+    転写（DNA → mRNA）
+  </h1>
+
+  <div class="summary" style="border-color: var(--rna-color); background: #f0f8fd;">
+    DNAの塩基配列を鋳型としたRNAの合成反応であり、<br>
+    塩基配列がDNAからRNAへ写し取られる反応を<strong>転写</strong>という。
+  </div>
+
+  <!-- Base pairing diagram -->
+  <div class="diagram-section">
+    <div class="diagram-label">塩基の対応関係</div>
+
+    <!-- DNA strand -->
+    <div style="background: #1a1a2e; border-radius: 10px; padding: 24px 28px; max-width: 480px; margin: 0 auto;">
+      <!-- Double helix label -->
+      <div style="color: #aab8d8; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; text-align: left;">
+        二本鎖の DNA
+      </div>
+
+      <!-- DNA bases row -->
+      <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+        <span style="color: #7a90b8; font-size: 0.8rem; font-weight: 700; width: 48px;">DNA</span>
+        <div style="display: flex; gap: 8px;">
+          <span class="base-box" style="background:#e74c3c; color:#fff;">A</span>
+          <span class="base-box" style="background:#3498db; color:#fff;">T</span>
+          <span class="base-box" style="background:#27ae60; color:#fff;">G</span>
+          <span class="base-box" style="background:#f39c12; color:#fff;">C</span>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <div style="display: flex; align-items: center; gap: 6px; margin: 2px 0;">
+        <span style="width: 48px;"></span>
+        <div style="display: flex; gap: 8px; padding-left: 2px;">
+          <span style="color: #8bc34a; font-size: 1.1rem; width: 32px; text-align: center;">↓</span>
+          <span style="color: #8bc34a; font-size: 1.1rem; width: 32px; text-align: center;">↓</span>
+          <span style="color: #8bc34a; font-size: 1.1rem; width: 32px; text-align: center;">↓</span>
+          <span style="color: #8bc34a; font-size: 1.1rem; width: 32px; text-align: center;">↓</span>
+        </div>
+        <span style="color: #8bc34a; font-size: 0.75rem; font-weight: 700; margin-left: 8px;">転写</span>
+      </div>
+
+      <!-- mRNA bases row -->
+      <div style="display: flex; align-items: center; gap: 6px; margin-top: 4px;">
+        <span style="color: #7a90b8; font-size: 0.8rem; font-weight: 700; width: 48px;">mRNA</span>
+        <div style="display: flex; gap: 8px;">
+          <span class="base-box" style="background:#c0392b; color:#fff;">U</span>
+          <span class="base-box" style="background:#2980b9; color:#fff;">A</span>
+          <span class="base-box" style="background:#229954; color:#fff;">C</span>
+          <span class="base-box" style="background:#d68910; color:#fff;">G</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; color: #6fa8d8; font-size: 0.78rem; line-height: 1.6; border-top: 1px solid #2a3a5e; padding-top: 12px;">
+        ➜ DNAの配列がコピーされたRNAの配列
+      </div>
+    </div>
+  </div>
+
+  <!-- Base pairing rules -->
+  <div class="details" style="margin-top: 0;">
+    <div class="detail-card transcription">
+      <div class="detail-heading" style="color: var(--rna-color);">
+        <span class="badge badge-trs">塩基対応ルール</span>
+      </div>
+      <div class="detail-body">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px;">
+          <div class="pair-rule" style="border-color: #e74c3c;">
+            <span style="background:#e74c3c; color:#fff;" class="pair-b">A</span>
+            <span class="pair-arrow">→</span>
+            <span style="background:#c0392b; color:#fff;" class="pair-b">U</span>
+          </div>
+          <div class="pair-rule" style="border-color: #3498db;">
+            <span style="background:#3498db; color:#fff;" class="pair-b">T</span>
+            <span class="pair-arrow">→</span>
+            <span style="background:#2980b9; color:#fff;" class="pair-b">A</span>
+          </div>
+          <div class="pair-rule" style="border-color: #27ae60;">
+            <span style="background:#27ae60; color:#fff;" class="pair-b">G</span>
+            <span class="pair-arrow">→</span>
+            <span style="background:#229954; color:#fff;" class="pair-b">C</span>
+          </div>
+          <div class="pair-rule" style="border-color: #f39c12;">
+            <span style="background:#f39c12; color:#fff;" class="pair-b">C</span>
+            <span class="pair-arrow">→</span>
+            <span style="background:#d68910; color:#fff;" class="pair-b">G</span>
+          </div>
+        </div>
+        <p style="margin-top: 12px;">DNAではチミン（T）が使われるが、RNAではウラシル（<strong>U</strong>）に置き換わる。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SLIDE 3: 翻訳（mRNA → タンパク質）                      -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide" style="margin-top: 32px; animation-delay: 0.2s;">
+  <h1 class="slide-title" style="color: var(--protein-color); border-color: var(--protein-color);">
+    翻訳（mRNA → タンパク質）
+  </h1>
+
+  <div class="summary" style="border-color: var(--protein-color); background: #f0faf4;">
+    mRNAの塩基配列が、アミノ酸配列に変換されたタンパク質の合成反応であり、<br>
+    mRNAの情報からタンパク質が合成される反応を<strong>翻訳</strong>という。
+  </div>
+
+  <!-- Translation flow -->
+  <div class="diagram-section">
+    <div class="diagram-label">タンパク質合成の流れ</div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+
+      <!-- Step 1: mRNA → codon reading -->
+      <div class="translation-step">
+        <div class="translation-box" style="border-color: var(--rna-color); background: #e4f3fb;">
+          <div style="color: var(--rna-color); font-weight: 900; font-size: 0.9rem; margin-bottom: 10px;">mRNA（コドン読み取り）</div>
+          <div style="display: flex; gap: 3px; justify-content: center; flex-wrap: wrap;">
+            <span class="codon">U A U</span>
+            <span class="codon">G G C</span>
+            <span class="codon">A A G</span>
+            <span class="codon">C U U</span>
+            <span class="codon" style="background:#d5e8d4; border-color:#82b366;">···</span>
+          </div>
+          <div style="font-size: 0.76rem; color: #555; margin-top: 8px;">3つの塩基（コドン）＝ 1つのアミノ酸を指定</div>
+        </div>
+      </div>
+
+      <!-- Down arrow -->
+      <div class="translation-arrow-block">
+        <svg width="30" height="36" viewBox="0 0 30 36">
+          <defs><marker id="da1" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M0,0 L8,0 L4,8 z" fill="#2980b9"/></marker></defs>
+          <line x1="15" y1="2" x2="15" y2="28" stroke="#2980b9" stroke-width="3" marker-end="url(#da1)"/>
+        </svg>
+        <span style="font-size: 0.8rem; font-weight: 700; color: #2980b9;">アミノ酸指定</span>
+      </div>
+
+      <!-- Step 2: Amino acid chain -->
+      <div class="translation-step">
+        <div class="translation-box" style="border-color: #8e44ad; background: #f5eef8;">
+          <div style="color: #8e44ad; font-weight: 900; font-size: 0.9rem; margin-bottom: 10px;">アミノ酸配列（ペプチド鎖）</div>
+          <div style="display: flex; align-items: center; gap: 0; justify-content: center; flex-wrap: wrap;">
+            <span class="amino">Tyr</span><span class="peptide-bond">—</span>
+            <span class="amino">Gly</span><span class="peptide-bond">—</span>
+            <span class="amino">Lys</span><span class="peptide-bond">—</span>
+            <span class="amino">Leu</span><span class="peptide-bond">—</span>
+            <span style="color:#aaa; font-size:1.2rem;">···</span>
+          </div>
+          <div style="font-size: 0.76rem; color: #555; margin-top: 8px;"><strong>ペプチド結合</strong>でアミノ酸同士がつながる</div>
+        </div>
+      </div>
+
+      <!-- Down arrow -->
+      <div class="translation-arrow-block">
+        <svg width="30" height="36" viewBox="0 0 30 36">
+          <defs><marker id="da2" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M0,0 L8,0 L4,8 z" fill="#27ae60"/></marker></defs>
+          <line x1="15" y1="2" x2="15" y2="28" stroke="#27ae60" stroke-width="3" marker-end="url(#da2)"/>
+        </svg>
+        <span style="font-size: 0.8rem; font-weight: 700; color: #27ae60;">折りたたまる</span>
+      </div>
+
+      <!-- Step 3: Protein -->
+      <div class="translation-step">
+        <div class="translation-box" style="border-color: var(--protein-color); background: #e6f9ee;">
+          <div style="color: var(--protein-color); font-weight: 900; font-size: 0.9rem; margin-bottom: 10px;">タンパク質（立体構造）</div>
+          <!-- SVG protein folding illustration -->
+          <svg viewBox="0 0 220 80" width="220" height="80" style="display:block; margin: 0 auto;">
+            <path d="M20,40 C40,10 60,70 80,40 C100,10 120,70 140,40 C160,10 180,60 200,40"
+              stroke="#27ae60" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="20" cy="40" r="7" fill="#52be80"/>
+            <circle cx="60" cy="55" r="7" fill="#52be80"/>
+            <circle cx="100" cy="55" r="7" fill="#52be80"/>
+            <circle cx="140" cy="40" r="7" fill="#52be80"/>
+            <circle cx="180" cy="30" r="7" fill="#52be80"/>
+            <circle cx="200" cy="40" r="7" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+          </svg>
+          <div style="font-size: 0.76rem; color: #555; margin-top: 6px;">特定の立体構造に折りたたまれ、機能を持つタンパク質になる</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="details" style="margin-top: 4px;">
+    <div class="detail-card translation">
+      <div class="detail-heading">
+        <span class="badge badge-trl">ポイント</span>
+        コドンとアミノ酸
+      </div>
+      <div class="detail-body">
+        mRNAの<strong>3つの塩基（コドン）</strong>に基づいて、1つのアミノ酸が指定される。
+        このアミノ酸が並んだものを<strong>アミノ酸配列</strong>という。
+        アミノ酸同士は<strong>ペプチド結合</strong>でつながり、ペプチド鎖を形成。
+        最終的に折りたたまれて機能的なタンパク質となる。
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .base-box {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1rem;
+    font-family: monospace;
+  }
+  .pair-rule {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background: #fff;
+  }
+  .pair-b {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.95rem;
+    font-family: monospace;
+  }
+  .pair-arrow { color: #888; font-size: 1rem; margin: 0 2px; }
+  .codon {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    background: #d6eaf8;
+    border: 1.5px solid #85c1e9;
+    border-radius: 4px;
+    padding: 4px 8px;
+    letter-spacing: 0.12em;
+  }
+  .translation-step {
+    width: 100%;
+    max-width: 480px;
+  }
+  .translation-box {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .translation-arrow-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin: 4px 0;
+  }
+  .amino {
+    background: #d5f5e3;
+    border: 1.5px solid #82e0aa;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1e8449;
+  }
+  .peptide-bond {
+    color: #aaa;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 1px;
+  }
+</style>
+
+<footer>Central Dogma — Molecular Biology</footer>
+
+</body>
+</html>
