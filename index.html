@@ -2,46 +2,155 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>いしちゃんのホームページ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: sans-serif;
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #f0f2f7;
+      color: #1a1a2e;
+      padding: 40px 20px 60px;
+      min-height: 100vh;
+    }
+
+    header {
       text-align: center;
-      padding: 50px;
-      background-color: #f5f5f5;
+      margin-bottom: 40px;
     }
-    h1 { color: #333; }
-    .button-group {
-      display: inline-flex;
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: 0.05em;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    .grid {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
       flex-direction: column;
-      align-items: stretch;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 16px;
     }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .category-label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #555;
+      width: 100px;
+      min-width: 100px;
+      text-align: right;
+      padding-right: 8px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     a.button {
-      display: block;
-      padding: 15px 30px;
-      background-color: #0057b8;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1a5eb8;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background-color 0.2s, transform 0.1s;
+      white-space: nowrap;
     }
-    a.button:hover { background-color: #003f8a; }
+
+    a.button:hover {
+      background-color: #0f3f80;
+      transform: translateY(-1px);
+    }
+
+    a.button.green {
+      background-color: #5a9e6f;
+    }
+
+    a.button.green:hover {
+      background-color: #3d7a52;
+    }
+
+    .divider {
+      width: calc(100% - 112px);
+      margin-left: 112px;
+      border: none;
+      border-top: 1px solid #dde0ea;
+    }
   </style>
 </head>
 <body>
-  <h1>いしちゃんのホームページ</h1>
-  <p>ようこそ！こちらがいしちゃんのホームページです。</p>
-  <p>最終更新日：2026年6月3日</p>
-  <div class="button-group">
-    <a class="button" href="treaty-dashboard.html">ロッテルダム条約とストックホルム条約の規制物質</a>
-    <a class="button" href="AI_version_history.html">AI開発と各社AIバージョン</a>
-    <a class="button" href="AI×生物学/AI and synthetic biology.html">AIと合成生物学</a>
-    <a class="button" href="AI×生物学/Central Dogma.html">AI×分子生物学</a>
-    <a class="button" href="buddha.html" style="background-color:#5a9e6f;">ブッダの実践心理学</a>
+
+  <header>
+    <h1>いしちゃんのホームページ</h1>
+    <p>最終更新日：2026年6月3日</p>
+  </header>
+
+  <div class="grid">
+
+    <div class="row">
+      <div class="category-label">AI開発</div>
+      <div class="buttons">
+        <a class="button" href="AI_version_history.html">AI開発と各社AIバージョン</a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+      <div class="category-label">AIと生物学</div>
+      <div class="buttons">
+        <a class="button" href="AI×生物学/Central Dogma.html">AI×分子生物学</a>
+        <a class="button" href="AI×生物学/AI and synthetic biology.html">AIと合成生物学</a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+      <div class="category-label">AIと知能</div>
+      <div class="buttons">
+        <a class="button green" href="buddha.html">ブッダの実践心理学</a>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+      <div class="category-label">AIと量子論</div>
+      <div class="buttons">
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row">
+      <div class="category-label">環境規制物質</div>
+      <div class="buttons">
+        <a class="button" href="treaty-dashboard.html">ロッテルダム条約とストックホルム条約の規制物質</a>
+      </div>
+    </div>
+
   </div>
+
 </body>
 </html>
-
-
