@@ -348,6 +348,20 @@
     }
     .stats-bar { gap: 1.5rem; }
   }
+
+  .header-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .header-buddha-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
@@ -356,7 +370,10 @@
   <div class="header-inner">
     <div class="title-en">Abhidhamma in Practice — Reading Journal</div>
     <div class="gold-line"></div>
-    <h1>ブッダの実践心理学<br>読了の履歴</h1>
+    <div class="header-title-row">
+      <h1>ブッダの実践心理学<br>読了の履歴</h1>
+      <img src="images/ブッダ.png" alt="ブッダ" class="header-buddha-img">
+    </div>
     <p class="subtitle">アルボムッレ・スマナサーラ 長老 著（ブッダの実践心理学は、アビダンマ・サンガハの解説書）</p>
   </div>
 </header>
