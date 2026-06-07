@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>最近のRNAの研究の方向性</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --bg2: #0d1428;
+    --surface: #111827;
+    --surface2: #1a2340;
+    --accent1: #00d4ff;
+    --accent2: #7c3aed;
+    --accent3: #10b981;
+    --accent4: #f59e0b;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --border: rgba(0, 212, 255, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow orbs */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    padding: 5rem 0 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .header-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--accent1);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(124, 58, 237, 0.06));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin: 2rem 0 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+  }
+
+  .formula-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent1);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.75rem;
+  }
+
+  .formula-text {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .formula-text .op {
+    color: var(--accent1);
+    font-family: 'Space Mono', monospace;
+    margin: 0 0.3em;
+    font-weight: 700;
+  }
+
+  /* Intro */
+  .intro {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 750px;
+    margin: 0 auto 1rem;
+    text-align: left;
+  }
+
+  .intro-block {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent3);
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0 3rem;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.9;
+  }
+
+  /* Section headers */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0 2rem;
+  }
+
+  .section-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent1);
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  /* Direction cards */
+  .direction-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .direction-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .direction-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+  }
+
+  .dir-1::before { background: var(--accent1); }
+  .dir-2::before { background: var(--accent2); }
+  .dir-3::before { background: var(--accent3); }
+
+  .direction-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
+
+  .direction-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  /* Sub-topics */
+  .subtopic {
+    background: var(--bg2);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin: 1rem 0;
+  }
+
+  .subtopic-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent1);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .subtopic p {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+
+  /* RNA Classification */
+  .rna-section {
+    margin-top: 4rem;
+  }
+
+  .rna-group {
+    margin-bottom: 2.5rem;
+  }
+
+  .rna-group-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent4);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .rna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .rna-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .rna-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .rna-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .rna-fullname {
+    font-size: 0.78rem;
+    color: var(--accent1);
+    margin-bottom: 0.7rem;
+    opacity: 0.8;
+  }
+
+  .rna-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* Tag badges */
+  .tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .tag-blue { background: rgba(0, 212, 255, 0.1); color: var(--accent1); border: 1px solid rgba(0, 212, 255, 0.2); }
+  .tag-purple { background: rgba(124, 58, 237, 0.1); color: #a78bfa; border: 1px solid rgba(124, 58, 237, 0.2); }
+  .tag-green { background: rgba(16, 185, 129, 0.1); color: var(--accent3); border: 1px solid rgba(16, 185, 129, 0.2); }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 3rem 0;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 0 4rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    opacity: 0.4;
+    letter-spacing: 0.15em;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container > * {
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  .direction-card:nth-child(1) { animation-delay: 0.1s; }
+  .direction-card:nth-child(2) { animation-delay: 0.2s; }
+  .direction-card:nth-child(3) { animation-delay: 0.3s; }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 1.2rem; }
+    .formula-box { padding: 1.5rem; }
+    .direction-card { padding: 1.5rem; }
+    .rna-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-label">RNA Research Landscape 2024–2025</div>
+    <h1>最近の<span>RNA</span>の研究の方向性</h1>
+
+    <div class="formula-box">
+      <div class="formula-label">// Research Equation</div>
+      <div class="formula-text">
+        RNA生物学基礎
+        <span class="op">×</span>AI設計
+        <span class="op">×</span>DDS技術運搬
+        <span class="op">×</span>次世代の超精密医療・個別化医療
+      </div>
+    </div>
+
+    <div class="intro-block">
+      RNAは単なる「設計図のコピー」ではなく、私たちの体を動かす<strong>「生体OSのプログラミングコード」</strong>そのものであり、それを自由に書き換えて病気を治す時代になっている。<br><br>
+      RNA研究は、「病気の治療薬そのもの（創薬）としての実用化」と「生命の謎を解き明かす新領域（エピトランスクリプトミクス等）の解明」の2つの大きな方向性へと舵を切っている。
+    </div>
+  </header>
+
+  <!-- Direction 1 -->
+  <div class="section-header">
+    <div class="section-number">DIR — 01</div>
+    <div class="section-title">RNAを「薬」にする最先端創薬（モダリティの進化）</div>
+  </div>
+
+  <p class="intro">新型コロナウイルスのmRNAワクチン成功を皮切りに、RNA自体を病気の治療薬（核酸医薬）として直接使う研究が加速している。</p>
+
+  <div class="direction-card dir-1">
+    <div class="subtopic">
+      <div class="subtopic-title">▸ AI × RNA構造予測の実装化</div>
+      <p>これまで試行錯誤に頼っていたRNA分子の設計にAIが導入されている。特定の標的タンパク質に結合する「RNAアプタマー」の結合活性をAIで高精度にスコアリングして最適化する技術（<strong>RaptScore</strong>など）が登場し、開発スピードが飛躍的に向上している。</p>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-title">▸「効く・長く続く」ためのDDS（ドラッグデリバリーシステム）の革新</div>
+      <p>RNA医薬の最大の弱点は「体内（血液中）ですぐに分解されること」。これを克服するため、<strong>脂質ナノ粒子（LNP）</strong>によるカプセル化技術や、狙った臓器（肝臓・がん細胞）にピンポイントで送り届けるための化学修飾（コンジュゲーション戦略）が高度化している。</p>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-title">▸ がんに対する個別化ネオアンチゲン療法</div>
+      <p>患者一人ひとりのがん細胞の遺伝子配列を素早く解析し、その患者専用の「がん治療mRNAワクチン」をカスタムメイドで作る臨床試験が進んでいる。既存の抗がん剤と併用することで、がんの再発や死亡リスクを<strong>約半減</strong>させるデータが発表されるなど、実用化のフェーズに入っている。</p>
+    </div>
+  </div>
+
+  <!-- Direction 2 -->
+  <div class="section-header">
+    <div class="section-number">DIR — 02</div>
+    <div class="section-title">ノンコーディングRNA（ncRNA）の未知なる機能解明</div>
+  </div>
+
+  <p class="intro">セントラルドグマに関係しないノンコーディングRNA（タンパク質に翻訳されないRNA）が、人間の複雑な体を制御する黒幕であることが分かってきた。</p>
+
+  <div class="direction-card dir-2">
+    <div class="subtopic">
+      <div class="subtopic-title">▸ エピトランスクリプトミクス（RNA修飾）の解明</div>
+      <p>DNAの塩基配列が変わらなくても、RNAに「糖」や「メチル基」などの目印が後から付く（化学修飾される）ことで、タンパク質が作られる量やタイミングが劇的に変わる仕組みが解明されつつある。これを制御することで、これまで原因不明だった<strong>疾患や老化のメカニズムをリセット</strong>する研究が進んでいる。</p>
+    </div>
+
+    <div class="subtopic">
+      <div class="subtopic-title">▸ RNA干渉とスプライシング異常を狙った治療</div>
+      <p>がんや難病（筋ジストロフィー・脊髄性筋萎縮症：SMAなど）の多くは、細胞内でRNAが切り貼りされる「スプライシング」のバグや、特定の微小RNA（miRNA）の暴走が原因。これらを<strong>アンチセンスオリゴヌクレオチド（ASO）</strong>と呼ばれる人工RNAでピンポイントにブロック・修復する治療薬が次々と臨床開発されている。</p>
+    </div>
+  </div>
+
+  <!-- Direction 3 -->
+  <div class="section-header">
+    <div class="section-number">DIR — 03</div>
+    <div class="section-title">RNAを「見る・測る」解析技術の超高解像度化</div>
+  </div>
+
+  <p class="intro">RNAが細胞の中でいつ、どこで、どのように働いているかをリアルタイムで観察する技術が急速に進化している。</p>
+
+  <div class="direction-card dir-3">
+    <div class="subtopic">
+      <div class="subtopic-title">▸ シングルセル・ロングリードRNA解析</div>
+      <p>組織を丸ごとすり潰すのではなく、「<strong>細胞1個1個（シングルセル）</strong>」のレベルで、さらにRNAの端から端まで長い配列をちぎらずにそのまま一気に読み切る（ロングリード）技術が主流になった。これにより、一見同じに見えるがん細胞の中でも、どの細胞が薬に抵抗性を持っているのかを完全に見分けることが可能になっている。</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RNA Classification -->
+  <div class="rna-section">
+    <div class="section-header" style="margin-top:0">
+      <div class="section-number">REF</div>
+      <div class="section-title">RNAの分類（セントラルドグマとの関係）</div>
+    </div>
+
+    <!-- Group 1 -->
+    <div class="rna-group">
+      <div class="rna-group-title">1. セントラルドグマに関係するRNA</div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">タンパク質の合成（転写・翻訳）に直接関わる代表的なRNA。</p>
+      <div class="rna-grid">
+        <div class="rna-card">
+          <div class="rna-name">mRNA</div>
+          <div class="rna-fullname">メッセンジャーRNA</div>
+          <div class="rna-desc">DNAの遺伝情報を写し取り（転写）、リボソームへ運ぶ設計図の役割を果たす。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">tRNA</div>
+          <div class="rna-fullname">トランスファーRNA</div>
+          <div class="rna-desc">mRNAの配列を読み取り、対応するアミノ酸をリボソームへと運搬する。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">rRNA</div>
+          <div class="rna-fullname">リボソームRNA</div>
+          <div class="rna-desc">リボソーム自体を構成する部品であり、mRNAとtRNAが結合するための足場として機能する。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">pre-mRNA</div>
+          <div class="rna-fullname">mRNA前駆体</div>
+          <div class="rna-desc">転写直後の未熟なRNAで、スプライシングを経て成熟したmRNAになる。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">tmRNA</div>
+          <div class="rna-fullname">トランスマーカーRNA</div>
+          <div class="rna-desc">バクテリア（原核生物）に存在し、途中で止まってしまった翻訳を再開・終結させるレスキュー役。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">snoRNA</div>
+          <div class="rna-fullname">核小体低分子RNA</div>
+          <div class="rna-desc">rRNAが正しく働くように、化学的な修飾（メチル化など）を施すガイド役。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2 -->
+    <div class="rna-group">
+      <div class="rna-group-title">2. セントラルドグマに関係しないRNA（ncRNA）</div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">タンパク質の設計図にはならず、主に遺伝子の発現調節や細胞内の環境維持に働くノンコーディングRNA。</p>
+      <div class="rna-grid">
+        <div class="rna-card">
+          <div class="rna-name">miRNA</div>
+          <div class="rna-fullname">マイクロRNA</div>
+          <div class="rna-desc">20〜25塩基ほどの小さなRNAで、特定のmRNAにくっついてタンパク質への翻訳を抑えたり分解したりする調節役。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">snRNA</div>
+          <div class="rna-fullname">核内低分子RNA</div>
+          <div class="rna-desc">mRNA前駆体から不要な部分を取り除く「スプライシング」という編集作業に関与する。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">lncRNA</div>
+          <div class="rna-fullname">長鎖ノンコーディングRNA</div>
+          <div class="rna-desc">200塩基以上の長いRNAで、DNAの特定領域に結合して遺伝子の働きをオン・オフする制御を行う。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">siRNA</div>
+          <div class="rna-fullname">小分子干渉RNA</div>
+          <div class="rna-desc">外部から侵入したウイルスのRNAなどを特異的に分解し、細胞を守る防御システム（RNA干渉）を担う。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">piRNA</div>
+          <div class="rna-fullname">Piwi結合RNA</div>
+          <div class="rna-desc">生殖細胞で働き、ゲノムを傷つける「トランスポゾン（動く遺伝子）」の暴走を抑えて次世代への遺伝子を守る。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">gRNA</div>
+          <div class="rna-fullname">ガイドRNA</div>
+          <div class="rna-desc">ゲノム編集技術（CRISPR-Cas9）の核となるRNAで、切断したいDNAの標的場所を正確に指示する。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">TERC</div>
+          <div class="rna-fullname">テロメアRNA</div>
+          <div class="rna-desc">染色体の末端（テロメア）を保護・伸長する酵素「テロメラーゼ」のコンポーネントとして働く。</div>
+        </div>
+        <div class="rna-card">
+          <div class="rna-name">circRNA</div>
+          <div class="rna-fullname">環状RNA</div>
+          <div class="rna-desc">端と端が繋がって輪の形をしたRNAで、余分なmiRNAを吸い寄せる「スポンジ」として機能し、翻訳を間接調節する。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>RNA RESEARCH LANDSCAPE &nbsp;|&nbsp; 2024–2025 &nbsp;|&nbsp; GENERATED FROM DOCX</footer>
+
+</div>
+</body>
+</html>
