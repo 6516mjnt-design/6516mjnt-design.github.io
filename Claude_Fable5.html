@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Fable 5 リリース</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .meta-info {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        .lead-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: #e6f2ff;
+            padding: 15px;
+            border-left: 5px solid #0056b3;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+        }
+        h2 {
+            color: #222;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+        h3 {
+            color: #444;
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .timeline {
+            list-style: none;
+            padding-left: 0;
+        }
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid #ccc;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #0056b3;
+            display: block;
+            margin-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .status-ok {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .status-switch {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        blockquote {
+            background-color: #f0f0f0;
+            border-left: 4px solid #666;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Claude Fable 5 リリース</h1>
+        <div class="meta-info">2026年6月10日</div>
+    </header>
+
+    <div class="lead-text">
+        Anthropicが一般公開したばかりの最新・最強モデル。
+    </div>
+
+    <h2>１．概要</h2>
+    <p>Claude Fable 5は、ソフトウェアエンジニアリング・知識作業・ビジョンに優れた能力を持つが、強力な安全制限が設けられている。Mythos（ミュトス）モデルの一般公開バージョンになる。</p>
+    <p>Anthropicは「Fable 5の能力は、これまで一般公開したどのモデルをも上回る」と述べており、ソフトウェアエンジニアリング・知識作業・ビジョン・科学研究など、ほぼすべてのベンチマークで最先端の性能を示している。タスクが長く・複雑になるほど、他のモデルとの差が広がるとしている。</p>
+
+    <h2>２．Claude Fable 5リリース時期</h2>
+    <p>時系列でまとめると以下の通り。</p>
+    
+    <ul class="timeline">
+        <li class="timeline-item">
+            <span class="timeline-date">2026年3月26日：Claude Mythos存在が漏洩</span>
+            <p>CMSの設定ミスによる社内文書の誤公開により、「Claude Mythos」の存在が外部に知られることになった。</p>
+        </li>
+        <li class="timeline-item">
+            <span class="timeline-date">2026年4月7日：Mythos Preview 公開（限定）</span>
+            <p>Amazon BedrockにてClaude Mythos Previewが正式報道。ただしサイバーセキュリティの防衛用途を優先とした限定的な研究プレビューとして、審査済みパートナーのみへのアクセスに限定された。</p>
+            <p>AWS・Microsoft・Apple・CrowdStrikeなどのパートナーが参加するProject Glasswingという制限プログラムを通じた提供。</p>
+        </li>
+        <li class="timeline-item">
+            <span class="timeline-date">2026年6月9日（米国時間）：Mythos 5 & Fable 5 同時リリース</span>
+            <p>Anthropicは既にMythosへのアクセスを承認済みの組織向けに新バージョン「Mythos 5」を展開するとともに、一般向けに「Fable 5」を同時リリースした。TechCrunchの記事によると、2026年6月9日 午前10時（米国太平洋夏時間・PDT）に発表。日本時間に換算すると、6月10日（火）午前2時に相当する。</p>
+            <p>Mythosを約2ヶ月間、限定パートナーのみに提供した後、安全装置付きの一般公開版（Fable）と合わせてアップデートされた形。</p>
+        </li>
+    </ul>
+
+    <h2>３．Claudeモデルファミリーの位置づけ</h2>
+    <p>Claudeのモデルファミリーは現在、4クラス。</p>
+    <p>Fableは最も野心的な非同期タスク向け（大型プロジェクトを自律的に分解・調査・作成・検証）、Opusは複雑なタスクへの高速な同期的協業に適している。</p>
+    <p>正確に整理すると（4クラス）: <strong>①Haiku → ②Sonnet → ③Opus → ④Mythos＋Fable</strong></p>
+    <p>FableはMythosクラスの能力を一般公開向けに安全制限付きで提供するモデルという位置づけ。Fableは独立した新クラスというより、Mythosクラスの「一般公開版」と考えるのが正確としている。</p>
+    <p>Mythosは4月にプレビュー公開されてからサイバーセキュリティ上の懸念から一部パートナーに限定されていたが、Fable 5はその能力を広く一般に提供するために安全制限を加えたバージョン。FableとMythosの違いを以下詳しく紹介。</p>
+
+    <h3>Claude Fable 5（一般公開版）</h3>
+    <ul>
+        <li>誰でも使える（Pro・Max・Team・Enterprise・API）が、ただし安全装置つき</li>
+        <li>サイバーセキュリティ・生物学・化学など危険分野の質問は自動的にOpus 4.8に切り替わって回答される</li>
+        <li>このような切り替えが発生した場合、Fable価格は請求されない</li>
+    </ul>
+
+    <h3>Claude Mythos 5（制限付き研究者向け）</h3>
+    <ul>
+        <li>4月のプレビュー公開後、サイバーセキュリティ上の懸念から一部パートナーに限定。先週は重要インフラを管理する15カ国の数百組織に拡大した</li>
+        <li>サイバーセキュリティや生物学研究での制限なしの能力を持つ</li>
+        <li>Mythos 5へのアクセスを希望する場合は、Anthropicの通知登録フォームから申し込む必要がある</li>
+    </ul>
+    
+    <blockquote>
+        つまり同じ世代の同じ能力のモデルだが、「危険な使い方をブロックする安全装置があるか否か」で名前が分けられているイメージ。Fableは安全装置付きのMythos、と考えると一番わかりやすい。
+    </blockquote>
+
+    <h2>４．Claude Fable 5の主な特徴</h2>
+    <ul>
+        <li>
+            <strong>長時間・自律実行</strong><br>
+            Claude CodeなどのエージェントHarness上で数日間にわたって動作可能。複数ステージにわたる計画立案、サブエージェントへのタスク委譲、自己の作業チェックを行える。
+        </li>
+        <li>
+            <strong>高度なビジョン能力</strong><br>
+            PDF・ファイルに埋め込まれた図表・グラフ・表を理解し、金融・法務・分析・建築など文書が多い分野の作業を可能にする。コーディングでは設計を高い精度で実装し、ビジョン機能で目標に対して出力を評価する。
+        </li>
+        <li>
+            <strong>安全対策</strong><br>
+            サイバーセキュリティ・生物学・化学・蒸留などハイリスク分野ではレスポンスをブロックし、Claude Opus 4.8にフォールバックする。外部のバグバウンティで1,000時間以上のジェイルブレーク試験を実施し、普遍的な脆弱点は発見されなかった。
+        </li>
+        <li>
+            <strong>料金・アクセス</strong><br>
+            APIの料金は入力トークン100万件あたり$10、出力トークン100万件あたり$50（プロンプトキャッシュ適用時は入力90%割引）。APIモデル文字列は <code>claude-fable-5</code>。
+        </li>
+    </ul>
+
+    <h2>５．Claude Fable 5がOpus 4.8に切り替わる領域 (危険領域の質問)</h2>
+    <p>危険領域のユーザーからの質問（Fable 5がOpus 4.8に切り替わる領域）</p>
+
+    <h3>サイバーセキュリティ</h3>
+    <p>Mythosはあらゆる主要OSおよびブラウザのゼロデイ脆弱性を完全自律的に特定・悪用できる能力を持つ。例えば27年間発見されなかったOpenBSDの脆弱性や、FreeBSDの17年前のリモートコード実行脆弱性を発見・悪用する。⇒ つまり「大規模サイバー攻撃の設計・実行」に使えるレベルの質問がブロック対象。</p>
+
+    <h3>生物学・化学</h3>
+    <p>サイバーセキュリティと生物学の分野では危険な生物兵器の作成に悪用されうるため、これらの領域のクエリは自動的にOpus 4.8にルーティングされる。（自動で切り替わる）<br>
+    例えば、リシン（毒素）の作り方を聞いた場合、モデルはレスポンスをブロックしてOpus 4.8で安全な回答を返す。</p>
+
+    <h3>ブロックされない質問の割合</h3>
+    <p>Anthropicのデータによると、Fable 5のセッションのうちOpus 4.8へのフォールバックが発生するのは5%未満。つまり95%以上の通常の質問はFable 5がそのまま回答する。</p>
+
+    <h3>わかりやすいイメージ</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>質問例</th>
+                <th>回答するのは？</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>コードのバグを直して</td>
+                <td><span class="status-ok">✅ Fable 5が回答</span></td>
+            </tr>
+            <tr>
+                <td>法律・金融の調査分析</td>
+                <td><span class="status-ok">✅ Fable 5が回答</span></td>
+            </tr>
+            <tr>
+                <td>一般的な生物学の説明</td>
+                <td><span class="status-ok">✅ Fable 5が回答</span></td>
+            </tr>
+            <tr>
+                <td>ゼロデイ脆弱性の具体的な悪用方法</td>
+                <td><span class="status-switch">🔀 Opus 4.8に切替</span></td>
+            </tr>
+            <tr>
+                <td>生物兵器・化学兵器の製造方法</td>
+                <td><span class="status-switch">🔀 Opus 4.8に切替</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
