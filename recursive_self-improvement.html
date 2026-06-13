@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIの再帰的自己改善への流れ - Anthropic</title>
+    <title>アンソロピックのAIの再帰的自己改善への流れ</title>
     <style>
         :root {
             --primary-color: #191919;
@@ -32,21 +32,24 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
+        /* ヘッダー・出典情報のスタイル */
         header {
-            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 40px;
             padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            font-size: 28px;
-            margin: 0 0 10px 0;
+            font-size: 1.75rem;
+            margin: 0 0 12px 0;
             color: var(--primary-color);
+            font-weight: 800;
         }
 
         .source-info {
-            font-size: 14px;
+            font-size: 0.85rem;
             color: var(--text-muted);
+            line-height: 1.5;
         }
 
         .source-info a {
@@ -59,91 +62,132 @@
         }
 
         .timeline {
-            margin-top: 30px;
+            position: relative;
+            border-left: 2px solid var(--border-color);
+            padding-left: 20px;
+            margin-left: 10px;
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 30px;
-            border-left: 3px solid var(--border-color);
             margin-bottom: 40px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -8px;
+            left: -27px;
             top: 5px;
-            width: 13px;
-            height: 13px;
-            background-color: var(--card-bg);
-            border: 3px solid var(--primary-color);
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            background-color: var(--border-color);
+            border: 2px solid var(--card-bg);
         }
-        
-        /* 最後の項目のマーカー色を他の項目と統一 */
-        .timeline-item:last-child::before {
-            border-color: var(--primary-color);
+
+        .timeline-item.active::before {
+            background-color: var(--accent-color);
         }
 
         .meta {
-            font-weight: bold;
-            color: var(--accent-color);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
             margin-bottom: 4px;
         }
 
         h2 {
-            font-size: 20px;
+            font-size: 1.25rem;
             margin: 0 0 12px 0;
-            color: var(--primary-color);
+            font-weight: 700;
         }
 
         p {
-            margin: 0;
-            color: #374151;
+            margin: 0 0 12px 0;
+            color: var(--text-muted);
         }
 
-        .image-container {
-            margin-top: 50px;
+        .comparison-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag-human {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .tag-ai {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .alert-text {
+            color: #B91C1C;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .image-box {
+            margin-top: 20px;
+            margin-bottom: 20px;
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 40px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
         }
 
-        .image-container img {
+        .image-box img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
         }
 
         .image-caption {
-            font-size: 14px;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 10px;
+            margin-top: 8px;
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>アンソロピックのAIの再帰的自己改善への流れ</h1>
-        <div class="source-info">
-            出典: アンソロピック 「When AI builds itself」より抜粋 (2026年6月４日公開情報)<br>
-            URL: <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/institute/recursive-self-improvement</a>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <h1>アンソロピックのAIの再帰的自己改善への流れ</h1>
+            <div class="source-info">
+                <div><strong>出典:</strong> アンソロピック 「When AI builds itself」より抜粋 (2026年6月4日公開情報)</div>
+                <div><strong>URL:</strong> <a href="https://www.anthropic.com/institute/recursive-self-improvement" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/institute/recursive-self-improvement</a></div>
+            </div>
+        </header>
 
-    <main>
         <div class="timeline">
+
             <div class="timeline-item">
                 <div class="meta">2021年～2023年</div>
                 <h2>最初のクロードを建造する</h2>
@@ -168,19 +212,43 @@
                 <p>エージェントは、コードを直接実行したり、他のエージェントに何時間もの作業を委任したりできるようになりました。</p>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item active">
                 <div class="meta">20XX年？</div>
-                <h2>ループを閉じる　(再帰的自己改善)</h2>
-                <p>将来的には、エージェントが自らモデルを構築・訓練できる能力を獲得する可能性がある。そうなれば、Claudeの将来のバージョンは、Claude自身によって継続的に改良されるようになるだろう。</p>
-            </div>
-        </div>
+                <h2>ループを閉じる（再帰的自己改善）</h2>
+                <p>将来的には、エージェントが自らモデルを構築・訓練できる能力を獲得する可能性がある。そうなれば、Claudeの将来のバージョンは、Claude自身によって継続的に改良されるようになるだろう。この「再帰的自己改善」のフェーズは、AIが主体性を持っているか、そして開発の主導権がどこにあるかという点で、従来の開発体制とは決定的に異なります。</p>
 
-        <div class="image-container">
-            <img src="images/self-improvement.png" alt="AIの再帰的自己改善への流れ図">
-            <div class="image-caption">図：再帰的自己改善（Recursive self-improvement）の各フェーズ</div>
+                <div class="image-box">
+                    <img src="images/self-improvement.png" alt="再帰的自己改善（ループを閉じる）の概念図">
+                    <p class="image-caption">図：再帰的自己改善（ループを閉じる）の概念イメージ</p>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        1. ループ開発（AIによる自動化・支援）
+                        <span class="tag-human">主導権：人間</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        AIがコード生成やテスト、データ処理などの特定タスクを自動化し、人間がそれを監督・評価してシステムに組み込む反復プロセス。人間が方針を決め、AIが作業を代行することで開発スピードを劇的に向上させる。ほとんどの本番コードをAIが記述しても、最終的な評価や修正は人間のエンジニアが行う（ツール・部下としてのAI）。
+                    </p>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        2. 再帰的自己改善（AIによる自己進化）
+                        <span class="tag-ai">主導権：AI</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        AI自身が次世代AIのアイデア出し、設計、実装、テストの全工程を自律的に行い、改良されたAIがさらに次のより良いAIを作るサイクル。人間を介さずにAIが指数関数的に賢くなっていくため、開発サイクルは劇的に短縮される。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ リスクと懸念：</strong> いわゆる「知能爆発（シンギュラリティ）」を引き起こす可能性のある概念であり、人間の意図から外れるリスクや、完全に制御不能に陥る危険性も指摘されている。
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-    </main>
-</div>
+    </div>
 
 </body>
 </html>
