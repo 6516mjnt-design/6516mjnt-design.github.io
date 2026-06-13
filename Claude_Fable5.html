@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Fable 5 リリース</title>
+    <title>Claude Fable 5</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
@@ -104,18 +104,21 @@
             margin: 15px 0;
             font-style: italic;
         }
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 4px 4px 0;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Claude Fable 5 リリース</h1>
-        <div class="meta-info">2026年6月10日</div>
+        <h1>Claude Fable 5</h1>
+        <div class="meta-info">2026年6月13日</div>
     </header>
-
-    <div class="lead-text">
-        Anthropicが一般公開したばかりの最新・最強モデル。
-    </div>
 
     <h2>１．概要</h2>
     <p>Claude Fable 5は、ソフトウェアエンジニアリング・知識作業・ビジョンに優れた能力を持つが、強力な安全制限が設けられている。Mythos（ミュトス）モデルの一般公開バージョンになる。</p>
@@ -230,6 +233,24 @@
             </tr>
         </tbody>
     </table>
+
+    <h2>６．Fable 5リリース時の隠れた制限の設計</h2>
+    <p>6月9日のリリース時に公開された319ページのシステムカードに、ある仕様が小さく記載されていた。「フロンティアAI研究タスク（事前学習パイプライン・分散学習インフラ・MLアクセラレータ設計など）を検出した場合、ステアリングベクターとプロンプト修正によってパフォーマンスをサイレントに低下させる」というもの。ユーザーへの通知は一切なし。Anthropicは影響を受けるのはトラフィックの約0.03%と推定していた。</p>
+
+    <h3>① ５．に記載の制限との決定的な違い</h3>
+    <p>サイバーセキュリティや生物学の危険クエリに対しては、Fableは明示的に処理を一時停止してユーザーに通知したうえでOpus 4.8に切り替える。しかしフロンティアAI研究タスクへの制限は<strong>完全に不可視（サイレントな性能低下）</strong>だった。</p>
+
+    <h3>② フロンティアAI研究者コミュニティが反発</h3>
+    <p>批判されたのは「安全上の懸念と競合排除戦略の混同」。不可視の性能劣化は、資金力のある大手ラボと小規模・オープンソースの研究者の格差をさらに広げ、独立した安全性評価機関（モデルをテストする第三者機関）も被害を受けかねないと指摘された。</p>
+    <blockquote>
+        「Anthropic自身の研究者は制限なしモデルを使えるのに、外部の科学者は劣化版を受け取る」という批判が広まった。
+    </blockquote>
+
+    <h3>③ Anthropicが謝罪・撤回（6月11日）</h3>
+    <div class="alert-box">
+        <p>Anthropicは「不可視のセーフガードはターゲットを絞り誤検知を減らせるという理由で採用したが、それは誤ったトレードオフだった。ユーザーはセーフガードの存在と理由を知る権利がある。バランスを誤ったことを謝罪する」と表明。</p>
+        <p>今後はフロンティアAI開発への制限も明示的（拒否またはより非力なモデルへのリダイレクト）に変更すると発表した。</p>
+    </div>
 
 </body>
 </html>
