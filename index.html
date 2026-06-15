@@ -90,6 +90,14 @@
       background-color: #3d7a52;
     }
 
+    /* AIと人間の知能（グレーボタン）用のスタイルを追加 */
+    a.button.gray {
+      background-color: #94a3b8; /* スレートグレー */
+      color: #ffffff;
+      cursor: not-allowed; /* マウスホバー時に禁止マークを表示 */
+      pointer-events: none; /* クリックイベントを無効化 */
+    }
+
     .divider {
       width: calc(100% - 112px);
       margin-left: 112px;
@@ -102,7 +110,7 @@
 
   <header>
     <h1>いしちゃんのホームページ</h1>
-    <p>最終更新日：2026年6月14日</p>
+    <p>最終更新日：2026年6月15日</p>
   </header>
 
   <div class="grid">
@@ -113,6 +121,7 @@
         <a class="button" href="AI_version_history.html">AIの進化</a>
         <a class="button" href="recursive_self-improvement.html">AIの再帰的自己改善</a>
        <a class="button" href="Claude_Fable5.html">ClaudeFable5</a>
+       <a class="button" href="AI_regulation.html">AI規制と技術ブロック経済</a>
       </div>
     </div>
 
@@ -141,7 +150,7 @@
     <div class="row">
       <div class="category-label">認識と知能</div>
       <div class="buttons">
-        <a class="button" href=" ">AIと人間の知能</a>
+        <a class="button gray" href=" ">AIと人間の知能</a>
         <a class="button green" href="buddha.html">ブッダの実践心理学</a>
         <a class="button green" href="Vinaya.html">律蔵と仏伝</a>
       </div>
