@@ -21,6 +21,24 @@
       margin-bottom: 40px;
     }
 
+    /* タイトルと画像を中央で横並びにする設定 */
+    header .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px; /* 画像とテキストの間の余白 */
+    }
+
+    /* 小さなSVG画像のスタイル */
+    header .profile-icon {
+      width: 45px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 50%; /* 丸型にくり抜き */
+      background-color: #ffffff;
+      border: 1px solid #dde0ea; /* 軽い枠線 */
+    }
+
     header h1 {
       font-size: 1.8rem;
       font-weight: 700;
@@ -109,7 +127,11 @@
 <body>
 
   <header>
-    <h1>いしちゃんのホームページ</h1>
+    <div class="title-container">
+      <!-- 横に小さく配置するSVG画像 -->
+      <img src="images/shingo.svg" alt="プロフィール" class="profile-icon">
+      <h1>いしちゃんのホームページ</h1>
+    </div>
     <p>最終更新日：2026年6月15日</p>
   </header>
 
@@ -120,8 +142,8 @@
       <div class="buttons">
         <a class="button" href="AI_version_history.html">AIの進化</a>
         <a class="button" href="recursive_self-improvement.html">AIの再帰的自己改善</a>
-       <a class="button" href="Claude_Fable5.html">ClaudeFable5</a>
-       <a class="button" href="AI_regulation.html">AI規制と技術ブロック経済</a>
+        <a class="button" href="Claude_Fable5.html">ClaudeFable5</a>
+        <a class="button" href="AI_regulation.html">AI規制と技術ブロック経済</a>
       </div>
     </div>
 
@@ -130,7 +152,7 @@
     <div class="row">
       <div class="category-label">AIと生物学</div>
       <div class="buttons">
-       <a class="button" href="AI×生物学/omics_explainer.html">オミクス科学</a>
+        <a class="button" href="AI×生物学/omics_explainer.html">オミクス科学</a>
         <a class="button" href="AI×生物学/Central Dogma.html">セントラルドグマ</a>
         <a class="button" href="AI×生物学/RNA_research.html">RNAの研究</a>
         <a class="button" href="AI×生物学/AI and synthetic biology.html">AI×合成生物学</a>
@@ -156,7 +178,7 @@
       </div>
     </div>
  
-   <hr class="divider">
+    <hr class="divider">
 
     <div class="row">
       <div class="category-label">生物兵器規制</div>
@@ -172,7 +194,7 @@
       <div class="category-label">環境規制物質</div>
       <div class="buttons">
         <a class="button" href="treaty-dashboard.html">PICとPOPs規制物質</a>
-       <a class="button" href="PFAS-related_substances.html">PFAS関連物質</a>
+        <a class="button" href="PFAS-related_substances.html">PFAS関連物質</a>
       </div>
     </div>
 
