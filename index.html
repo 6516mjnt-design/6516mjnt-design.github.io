@@ -18,7 +18,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
 
     /* タイトルと画像を中央で横並びにする設定 */
@@ -40,16 +40,16 @@
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: #1a1a2e;
       letter-spacing: 0.05em;
     }
 
     header p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #888;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
     .grid {
@@ -63,13 +63,13 @@
     .row {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .category-label {
       font-size: 0.95rem;
       font-weight: 500;
-      color: #555;
+      color: #333;
       width: 100px;
       min-width: 100px;
       text-align: right;
@@ -79,41 +79,60 @@
     .buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
+      flex: 1;
     }
 
     a.button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #1a5eb8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 128px;
+      height: 50px;
+      flex: 0 0 128px;
+      padding: 4px 8px;
+      background-color: #0033cc;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1.25;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
       transition: background-color 0.2s, transform 0.1s;
-      white-space: nowrap;
+      overflow: hidden;
     }
 
     a.button:hover {
-      background-color: #0f3f80;
+      background-color: #00227a;
       transform: translateY(-1px);
     }
 
     a.button.green {
-      background-color: #5a9e6f;
+      background-color: #00b050;
     }
 
     a.button.green:hover {
-      background-color: #3d7a52;
+      background-color: #00813b;
+    }
+
+    /* 生物兵器規制・環境規制物質（ブラウンボタン）用のスタイル */
+    a.button.brown {
+      background-color: #7b3614;
+    }
+
+    a.button.brown:hover {
+      background-color: #5c2710;
     }
 
     /* AIと人間の知能（グレーボタン）用のスタイルを追加 */
     a.button.gray {
-      background-color: #94a3b8; /* スレートグレー */
+      background-color: #a6a6a6; /* グレー */
       color: #ffffff;
       cursor: not-allowed; /* マウスホバー時に禁止マークを表示 */
       pointer-events: none; /* クリックイベントを無効化 */
+      box-shadow: none;
     }
 
     .divider {
@@ -177,17 +196,18 @@
       <div class="buttons">
         <a class="button gray" href=" ">AIと人間の知能</a>
         <a class="button green" href="Buddhist_scriptures.html">仏教聖典</a>
-        <a class="button green" href="Vinaya.html">律蔵と仏伝</a>  
-        <a class="button green" href="buddha.html">ブッダの実践心理学</a> </div>
+        <a class="button green" href="Vinaya.html">律蔵と仏伝</a>
+        <a class="button green" href="buddha.html">ブッダの実践心理学</a>
+      </div>
     </div>
- 
+
     <hr class="divider">
 
     <div class="row">
       <div class="category-label">生物兵器規制</div>
       <div class="buttons">
-        <a class="button" href="Dual-Use-Biological-Equipment_250930.html">AG規制</a>
-        <a class="button" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド合成規制</a>
+        <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">AG規制</a>
+        <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド合成規制</a>
       </div>
     </div>
 
@@ -196,8 +216,8 @@
     <div class="row">
       <div class="category-label">環境規制物質</div>
       <div class="buttons">
-        <a class="button" href="treaty-dashboard.html">PICとPOPs規制物質</a>
-        <a class="button" href="PFAS-related_substances.html">PFAS関連物質</a>
+        <a class="button brown" href="treaty-dashboard.html">PICとPOPs規制物質</a>
+        <a class="button brown" href="PFAS-related_substances.html">PFAS関連物質</a>
       </div>
     </div>
 
