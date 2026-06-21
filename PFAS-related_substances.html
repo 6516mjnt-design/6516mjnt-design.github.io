@@ -3,84 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PFAS関連物質の一覧</title>
+    <title>PFAS関連物質の規制動向</title>
     <style>
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.6;
-            background-color: #fcfcfc;
+            line-height: 1.7;
             color: #333;
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 20px;
+            background-color: #f8f9fa;
         }
         h1 {
-            font-size: 24px;
-            border-bottom: 2px solid #2b579a;
+            color: #1a365d;
+            border-bottom: 3px solid #2b6cb0;
             padding-bottom: 10px;
-            color: #2b579a;
-        }
-        .section {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-top: 30px;
         }
         h2 {
-            font-size: 18px;
-            margin-top: 0;
-            color: #333;
+            color: #2c5282;
+            background: #ebf8ff;
+            padding: 10px 15px;
+            border-left: 5px solid #3182ce;
+            margin-top: 40px;
         }
-        h2 a {
-            color: #0066cc;
-            text-decoration: none;
+        h3 {
+            color: #2b6cb0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
         }
-        h2 a:hover {
+        .lead-text {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2d3748;
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .lead-text p {
+            margin: 5px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .law-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .law-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .law-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #1a202c;
+        }
+        .law-name a {
+            color: #2b6cb0;
             text-decoration: underline;
         }
-        p {
-            margin: 8px 0;
-            font-size: 15px;
+        .law-name a:hover {
+            color: #2c5282;
+            text-decoration: none;
         }
-        .meta-info {
-            color: #666;
-            font-size: 14px;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-left: 3px solid #ccc;
-            margin-top: 10px;
+        .law-detail {
+            font-size: 0.9em;
+            color: #718096;
+            margin-top: 5px;
+            padding-left: 10px;
+            border-left: 2px solid #cbd5e0;
+        }
+        .alert-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            border-left: 5px solid #dd6b20;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
-    <h1>PFAS関連物質の一覧</h1>
-
-    <div class="section">
-        <h2><a href="pfas/138-list.pdf">１．PFOA 関連物質</a></h2>
-        <p>2025年1月10日施行の省令で(138物質）指定</p>
-        <div class="meta-info">
-            化審法施行令第1条第1項第35号ハの規定に基づき化学物質を定める省令
-        </div>
+    <h1>PFAS関連物質の規制</h1>
+    
+    <div class="lead-text">
+        <p>● 「個別の物質ごとの禁止」から「数千種類をまとめて縛る包括規制」に進んでいる。</p>
+        <p>● 「数千種類におよぶPFAS全体」をどう扱うかというフェーズに入っている。</p>
     </div>
 
-    <div class="section">
-        <h2><a href="pfas/117-list.pdf">２．PFHxS 関連物質</a></h2>
-        <p>2026年6月17日施行の省令で(117物質）指定</p>
-        <div class="meta-info">
-            化審法施行令第1条第1項第37号の規定に基づき化学物質を定める省令
-        </div>
+    <h2>１．日本のPFAS関連物質の一覧</h2>
+    <ul class="law-list">
+        <li class="law-item">
+            <span class="law-name">・<a href="pfas/138-list.pdf" target="_blank">PFOA 関連物質</a>（138物質を指定）</span><br>
+            2025年1月10日施行
+            <div class="law-detail">化審法施行令第1条第1項第35号ハの規定に基づき化学物質を定める省令</div>
+        </li>
+        <li class="law-item">
+            <span class="law-name">・<a href="pfas/117-list.pdf" target="_blank">PFHxS 関連物質</a>（117物質を指定）</span><br>
+            2026年6月17日施行
+            <div class="law-detail">化審法施行令第1条第1項第37号の規定に基づき化学物質を定める省令</div>
+        </li>
+        <li class="law-item">
+            <span class="law-name">・<a href="pfas/156-list.pdf" target="_blank">LC-PFCA 関連物質</a>（156物質を指定）</span><br>
+            2026年11月22日施行
+            <div class="law-detail">化審法施行令第1条第1項第42号の規定に基づき化学物質を定める省令</div>
+        </li>
+    </ul>
+
+    <h2>２．世界の動向</h2>
+
+    <h3>１）国際条約（POPsおよびPIC条約）の動き</h3>
+    <ul>
+        <li>残留性有機汚染物質に関するロテルダム・ストックホルム条約では、すでにPFOS、PFOA、PFHxSが廃絶対象となっている。</li>
+        <li>さらに、長鎖ペルフルオロカルボン酸（LC-PFCA：C9-C21）とその塩、および関連物質の段階的な規制化・環境管理ガイドラインの適用が進められている。</li>
+    </ul>
+
+    <h3>２）EU（REACH規則）による包括規制案の行方</h3>
+    <ul>
+        <li>EUが進めているのが「PFAS包括制限案」。約1万種類とも言われるPFASすべてを原則として製造・販売禁止にするという非常に厳しい内容。</li>
+        <li>現状のフェーズは、「規制するかどうか」の議論はすでに過ぎ、現在は「どの用途に、どれくらいの猶予期間（適用除外）を認めるか」という具体的な利害調整の最終段階に入っている。</li>
+        <li>今後は、欧州化学品庁（ECHA）の科学委員会による評価を経て、早ければ2027年頃には、EUとしての最終決定・発効へ向かう可能性が高い。</li>
+        <li>「意図的添加」から「成形品（パーツ・部品）」の規制拡大の動きがある。</li>
+    </ul>
+    
+    <div class="alert-box">
+        <strong>【重要リスク】</strong><br>
+        原材料として化学物質を直接扱っていなくても、調達している「部品」や「コーティング」「パッキン」などにPFASが含まれている場合、輸出や流通ができなくなるリスクが高まる。<br><br>
+        フランスなど特定国の独自の動きとして、EU全体の動きを待たず、フランスのように2026年1月1日から化粧品、衣類、スキーワックスなどの製造・輸出入を独自に禁止する法律を公布する国（個別国レベルのフライング規制）が出てきている。
     </div>
 
-    <div class="section">
-        <h2><a href="pfas/156-list.pdf">３．LC-PFCA 関連物質</a></h2>
-        <p>2026年11月22日施行の省令で(156物質）指定</p>
-        <div class="meta-info">
-            化審法施行令第1条第1項第42号の規定に基づき化学物質を定める省令
-        </div>
-    </div>
+    <h3>３）米国（EPA・州法）の多層的な規制</h3>
+    <ul>
+        <li>米国では連 連邦レベル（EPA）と州レベルでの二極化・多層化が進んでいる。</li>
+        <li>TSCA（有害物質規制法）では、過去に遡ってPFASの製造・輸入実績の報告を義務付ける規則が進んでいる。</li>
+        <li>州法は、カリフォルニア州やその他の州で、食品包装、衣料品、化粧品など、生活に身近な製品から順次「意図的な添加」を禁止する法律が施行され始めている。</li>
+    </ul>
 
 </body>
 </html>

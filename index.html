@@ -141,13 +141,20 @@
       border: none;
       border-top: 1px solid #dde0ea;
     }
+
+    /* ボタンを縦に並べるためのカスタムクラス */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <div class="title-container">
-      <!-- 横に小さく配置するSVG画像 -->
       <img src="images/shingo.svg" alt="プロフィール" class="profile-icon">
       <h1>いしちゃんのホームページ</h1>
     </div>
@@ -157,12 +164,12 @@
   <div class="grid">
 
     <div class="row">
-      <div class="category-label">AI開発</div>
+      <div class="category-label">AIとその開発</div>
       <div class="buttons">
         <a class="button" href="AI_version_history.html">AIの進化</a>
         <a class="button" href="recursive_self-improvement.html">AIの再帰的自己改善</a>
         <a class="button" href="Claude_Fable5.html">ClaudeFable5</a>
-        <a class="button" href="AI_regulation.html">AI規制と技術ブロック経済</a>
+        <a class="button" href="AI_regulation.html">AIの規制</a>
       </div>
     </div>
 
@@ -192,7 +199,7 @@
     <hr class="divider">
 
     <div class="row">
-      <div class="category-label">認識と知能</div>
+      <div class="category-label">知能について</div>
       <div class="buttons">
         <a class="button gray" href=" ">AIと人間の知能</a>
         <a class="button green" href="Buddhist_scriptures.html">仏教聖典</a>
@@ -204,20 +211,16 @@
     <hr class="divider">
 
     <div class="row">
-      <div class="category-label">生物兵器規制</div>
-      <div class="buttons">
-        <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">AG規制</a>
-        <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド合成規制</a>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="row">
-      <div class="category-label">環境規制物質</div>
-      <div class="buttons">
-        <a class="button brown" href="treaty-dashboard.html">PICとPOPs規制物質</a>
-        <a class="button brown" href="PFAS-related_substances.html">PFAS関連物質</a>
+      <div class="category-label">法的規制</div>
+      <div class="buttons-container">
+        <div class="buttons">
+          <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">AG規制</a>
+          <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド合成規制</a>
+        </div>
+        <div class="buttons">
+          <a class="button brown" href="treaty-dashboard.html">PICとPOPs規制物質</a>
+          <a class="button brown" href="PFAS-related_substances.html">PFAS関連物質</a>
+        </div>
       </div>
     </div>
 
