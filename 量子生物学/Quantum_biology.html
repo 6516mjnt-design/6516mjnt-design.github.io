@@ -43,6 +43,8 @@
             display: flex;
             align-items: center;
             margin-bottom: 30px;
+            width: 100%;
+            justify-content: center;
         }
         /* 左側の見出しラベル */
         .row-label {
@@ -104,6 +106,49 @@
             background-color: #9ea1a6;
             color: #ffffff;
             font-family: inherit; /* フォントのズレを防ぐ */
+        }
+
+        /* 💡 スマートフォン・タブレット向けのレスポンシブ対応 */
+        @media (max-width: 850px) {
+            body {
+                padding: 24px 16px;
+            }
+            .main-title {
+                font-size: 26px;
+                margin-bottom: 40px;
+            }
+            /* 縦並びに変更 */
+            .content-row {
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+            /* 見出しラベルをボタンの上に配置 */
+            .row-label {
+                width: auto;
+                text-align: center;
+                padding-right: 0;
+                border-right: none;
+                margin-right: 0;
+                margin-bottom: 15px;
+                font-size: 20px;
+                border-bottom: 2px solid #333333;
+                padding-bottom: 4px;
+            }
+            /* ボタン群を折り返せるようにし、中央に寄せる */
+            .button-group {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+                width: 100%;
+                max-width: 340px; /* スマホで2列が綺麗に収まる幅 */
+            }
+            /* ボタンの幅を2列（半分）に収まるよう自動調整 */
+            .btn {
+                width: calc(50% - 6px);
+                font-size: 12px; /* 小さな画面でも文字がはみ出ないよう調整 */
+                padding: 0 4px;
+            }
         }
     </style>
 </head>
