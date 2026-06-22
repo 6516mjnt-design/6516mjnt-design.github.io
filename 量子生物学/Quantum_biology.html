@@ -10,70 +10,86 @@
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             background-color: #f5f7fa;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            align-items: center; /* 全体を中央寄せ */
             min-height: 100vh;
+            box-sizing: border-box;
         }
-        /* パターンB: 背景を透明（transparent）にし、枠線や影を完全に排除 */
+        /* 表題：画面上部の中央に配置 */
+        .main-title {
+            font-size: 32px; /* 表題サイズを少し大きく調整 */
+            color: #333333;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 60px; /* ボタン群との間隔をしっかり空ける */
+            width: 100%;
+        }
+        /* パターンB: 背景を透明にし、枠線や影を完全に排除 */
         .slide-container {
             background-color: transparent;
             border: none;
             box-shadow: none;
             width: 100%;
             max-width: 1200px;
-            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* コンテンツ行を中央に寄せる */
             box-sizing: border-box;
-        }
-        /* 表題：中央配置 */
-        .main-title {
-            font-size: 28px;
-            color: #333333;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 40px;
         }
         /* 横並びの行（タイトルと4つのボタン） */
         .content-row {
             display: flex;
             align-items: center;
-            width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         /* 左側の見出しラベル */
         .row-label {
-            font-size: 20px;
+            font-size: 22px; /* 文字サイズを少し大きく調整 */
             font-weight: bold;
             color: #333333;
-            flex: 1; /* ラベルエリアの幅の比率 */
+            width: 150px; /* 幅を固定して綺麗に揃える */
             padding-right: 20px;
             border-right: 3px solid #333333;
             margin-right: 30px;
             text-align: right;
             white-space: nowrap;
+            box-sizing: border-box;
         }
         /* 4つのボタンのラッパー */
         .button-group {
             display: flex;
             gap: 15px;
-            flex: 4; /* ボタンエリア全体の幅の比率 */
+            box-sizing: border-box;
         }
         /* ボタンの共通スタイル */
         .btn {
-            flex: 1; /* 4つのボタンを均等幅にする */
-            display: block;\r
-            padding: 20px 10px;
-            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* ボタンのサイズを前より一回り大きく指定（横幅160px） */
+            width: 160px; 
+            /* 横:縦＝12:4.7 の比率を完全に維持（横が大きくなったので縦も自動で大きくなります） */
+            aspect-ratio: 12 / 4.7; 
+            
+            font-size: 14px; /* ボタン内の文字サイズを少し大きく調整 */
             font-weight: bold;
             text-align: center;
             text-decoration: none;
             border-radius: 12px;
-            box-sizing: border-box;
             border: none;
+            outline: none;
+            margin: 0;
+            padding: 0 6px;
+            box-sizing: border-box; /* 枠線と余白の計算を完全統一 */
             cursor: pointer;
             transition: opacity 0.2s ease;
             white-space: nowrap;
+            line-height: 1.2;
+            -webkit-appearance: none;
+            appearance: none;
         }
         .btn:hover {
             opacity: 0.9;
@@ -87,13 +103,15 @@
         .btn-gray {
             background-color: #9ea1a6;
             color: #ffffff;
+            font-family: inherit; /* フォントのズレを防ぐ */
         }
     </style>
 </head>
 <body>
 
+<div class="main-title">量子生物学</div>
+
 <div class="slide-container">
-    <div class="main-title">量子生物学</div>
     
     <div class="content-row">
         <div class="row-label">光合成</div>
@@ -114,6 +132,8 @@
             <button class="btn btn-gray" disabled>ーーー</button>
         </div>
     </div>
+
+</div>
 
 </body>
 </html>
