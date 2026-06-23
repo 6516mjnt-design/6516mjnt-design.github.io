@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エネルギーと生命活動</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  header {
+    background: #1a2340;
+    color: #e8e8e0;
+    padding: 2rem 2rem 1.5rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.3rem;
+  }
+  header p {
+    font-size: 0.85rem;
+    color: #9aa3b8;
+  }
+
+  nav {
+    background: #232e4a;
+    padding: 0.6rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: #9aa3b8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #e8e8e0; }
+
+  main {
+    max-width: 820px;
+    margin: 2rem auto;
+    padding: 0 1.25rem 3rem;
+  }
+
+  .intro {
+    background: #fff;
+    border: 1px solid #e0dfd8;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    font-size: 0.93rem;
+    color: #444;
+  }
+
+  section { margin-bottom: 2rem; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1.5px solid #1a2340;
+    padding-bottom: 0.4rem;
+  }
+  .section-num {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background: #1a2340;
+    border-radius: 4px;
+    padding: 1px 8px;
+    letter-spacing: 0.05em;
+  }
+  .section-header h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a2340;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e0dfd8;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .card p { font-size: 0.92rem; color: #333; }
+  .card .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #7a7a70;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .card-doka { border-left: 3px solid #2e7d52; }
+  .card-ika  { border-left: 3px solid #c07a1a; }
+  .card-atp  { border-left: 3px solid #2055a0; }
+  .card-ps   { border-left: 3px solid #2e7d52; }
+  .card-key  { border-left: 3px solid #7a4ab0; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .badge-green  { background: #d6edd9; color: #1d5c2a; }
+  .badge-amber  { background: #fae8c8; color: #7a4a08; }
+  .badge-blue   { background: #d4e4f8; color: #1a3c78; }
+  .badge-purple { background: #e8d8f8; color: #5a2a8a; }
+
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0.7rem 0;
+  }
+  .flow-box {
+    background: #f5f5f0;
+    border: 1px solid #d0cfc8;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .flow-box.green  { background: #e8f5e9; border-color: #5ab06a; color: #1d5c2a; }
+  .flow-box.amber  { background: #fff3e0; border-color: #e0a040; color: #7a4a08; }
+  .flow-box.blue   { background: #e3eefb; border-color: #6090d0; color: #1a3c78; }
+  .flow-arrow { font-size: 1.1rem; color: #888; }
+
+  .equation {
+    font-family: "Courier New", monospace;
+    font-size: 0.92rem;
+    background: #f0f0ea;
+    border: 1px solid #d8d8d0;
+    border-radius: 6px;
+    padding: 0.6rem 1.1rem;
+    display: inline-block;
+    margin: 0.6rem 0;
+    color: #1a1a1a;
+  }
+
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .step-label {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+  .step-label.amber { background: #fae8c8; color: #7a4a08; }
+  .step-label.green { background: #d6edd9; color: #1d5c2a; }
+  .step-text { font-size: 0.9rem; color: #333; }
+
+  .summary-box {
+    background: #eef3fb;
+    border: 1px solid #b0c8e8;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    font-size: 0.92rem;
+    color: #1a2a4a;
+    margin-top: 0.75rem;
+  }
+
+  .energy-types {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0.75rem 0;
+  }
+  .energy-tag {
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  .energy-tag.light  { background: #fff3cd; color: #7a5000; border: 1px solid #e8c840; }
+  .energy-tag.heat   { background: #fde0e0; color: #7a1a1a; border: 1px solid #e88080; }
+  .energy-tag.chem   { background: #ddeeff; color: #1a3a6a; border: 1px solid #7aaae0; }
+
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #aaa;
+    padding: 1.5rem;
+    border-top: 1px solid #e0dfd8;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>エネルギーと生命活動</h1>
+  <p>生物基礎 ― 代謝・ATP・光合成のまとめ</p>
+</header>
+
+<nav>
+  <a href="#energy">エネルギーの種類</a>
+  <a href="#metabolism">代謝とは</a>
+  <a href="#atp">ATPのしくみ</a>
+  <a href="#flow">エネルギーの流れ</a>
+  <a href="#photosynthesis">光合成</a>
+</nav>
+
+<main>
+
+  <div class="intro">
+    植物は光合成によって光エネルギーを化学エネルギーに変換し、有機物(炭水化物/でんぷん/糖など)を合成する。この有機物に蓄えられたエネルギーが、地球上のほぼすべての生物の活動を支えている。このページでは、生物がエネルギーを利用する仕組みを体系的に整理する。
+  </div>
+
+  <!-- 1. エネルギーの種類 -->
+  <section id="energy">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>生命活動に使われるエネルギーの種類</h2>
+    </div>
+    <div class="energy-types">
+      <div class="energy-tag light">光エネルギー</div>
+      <div class="energy-tag heat">熱エネルギー</div>
+      <div class="energy-tag chem">化学エネルギー</div>
+    </div>
+    <div class="card">
+      <div class="label">化学エネルギーとは</div>
+      <p>物質内の<strong>結合</strong>（分子と分子の結合）に蓄えられているエネルギー。物質が分解されると結合が切り離され、蓄えられていたエネルギーが放出される。</p>
+      <p style="margin-top:0.5rem">例：グルコース（ブドウ糖）の中に化学エネルギーとして蓄えられており、細胞がそれを取り出して利用する。</p>
+    </div>
+  </section>
+
+  <!-- 2. 代謝 -->
+  <section id="metabolism">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>代謝（たいしゃ）とは</h2>
+    </div>
+    <div class="card" style="margin-bottom:0.75rem">
+      <p>生体内で起きるすべての化学反応の総称。生体内の個々の反応はバラバラに独立しているのではなく、<strong>連続した反応過程として一つにつながっている</strong>。ある反応で生じた物質が別の反応の材料となることを繰り返し、最終的に全体が一つのネットワークを形成する。</p>
+    </div>
+    <div class="grid2">
+      <div class="card card-doka">
+        <span class="badge badge-green">同化（どうか）</span>
+        <p style="margin-top:0.6rem">化学反応のうち、簡単な物質からより複雑な物質を<strong>合成</strong>し、エネルギーを物質内に<strong>蓄える</strong>過程。</p>
+        <p style="margin-top:0.5rem; font-size:0.85rem; color:#555">
+          例：アミノ酸 → タンパク質（細胞膜・酵素）<br>
+          代表例：光合成
+        </p>
+      </div>
+      <div class="card card-ika">
+        <span class="badge badge-amber">異化（いか）</span>
+        <p style="margin-top:0.6rem">化学反応のうち、複雑な物質をより簡単な物質に<strong>分解</strong>し、蓄えられたエネルギーを<strong>取り出す</strong>過程。</p>
+        <p style="margin-top:0.5rem; font-size:0.85rem; color:#555">
+          ① 消化器官での消化<br>
+          ② 細胞内での異化（呼吸など）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ATP -->
+  <section id="atp">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>ATP（細胞内のエネルギー受け渡しの仲介役）</h2>
+    </div>
+    <div class="card card-atp">
+      <div class="label">ATPとは</div>
+      <p><strong>アデノシン</strong>にリン酸が3つ結合した物質。細胞内のエネルギー受け渡しのほとんどを仲介するため、「エネルギーの通貨」と呼ばれる。</p>
+    </div>
+    <div class="card">
+      <div class="label">ATPの合成（エネルギー充電）</div>
+      <div class="flow">
+        <div class="flow-box">ADP</div>
+        <span>＋</span>
+        <div class="flow-box">リン酸</div>
+        <span class="flow-arrow">＋ エネルギー →</span>
+        <div class="flow-box blue">ATP（エネルギー蓄積）</div>
+      </div>
+      <p style="font-size:0.85rem;color:#555">リン酸同士の結合にエネルギーが化学エネルギーとして蓄えられる。</p>
+    </div>
+    <div class="card">
+      <div class="label">ATPの分解（エネルギー放電）</div>
+      <div class="flow">
+        <div class="flow-box blue">ATP</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">ADP</div>
+        <span>＋</span>
+        <div class="flow-box">リン酸</div>
+        <span class="flow-arrow">＋ エネルギー放出</span>
+      </div>
+      <p style="font-size:0.85rem;color:#555">主に末端のリン酸が切り離され、蓄えていたエネルギーが解放される。ATPはADPとリン酸から再合成され、何度も繰り返し再利用される。</p>
+    </div>
+  </section>
+
+  <!-- 4. エネルギーの流れ -->
+  <section id="flow">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>生体内のエネルギーの流れ（全体像）</h2>
+    </div>
+    <div class="card">
+      <div class="flow">
+        <div class="flow-box amber">異化（分解によりエネルギーを取り出し）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box blue">ATPの合成（エネルギー充電）</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box green">同化（エネルギーを生命活動に利用）</div>
+      </div>
+      <p style="font-size:0.88rem;color:#444;margin-top:0.5rem">異化によって取り出されたエネルギーは、まず化学エネルギーの形でATPに蓄えられる。次に、ATPが分解される際に放出されたエネルギーが、同化やその他の生命活動に<strong>直接</strong>利用される。</p>
+    </div>
+    <div class="summary-box">
+      ATPという共通の物質を介することで、生命活動に必要なエネルギーを効率よく利用できる。これがATPを"通貨"と呼ぶ理由。
+    </div>
+  </section>
+
+  <!-- 5. 光合成 -->
+  <section id="photosynthesis">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>光合成のしくみ</h2>
+    </div>
+    <div class="card card-ps">
+      <div class="label">光合成とは</div>
+      <p>植物などが光エネルギーを利用して二酸化炭素と水から有機物（主に炭水化物）を合成し、酸素を生じる反応過程。葉緑体に含まれる酵素が各反応を促進する。</p>
+    </div>
+    <div class="card">
+      <div class="label">化学反応式</div>
+      <div class="equation">CO₂ + H₂O → 有機物 (C₆H₁₂O₆) + O₂</div>
+      <p style="font-size:0.83rem;color:#666;margin-top:0.4rem">※合成された有機物の多くはデンプンに変換される（C₆H₁₂O₆はグルコースの化学式）。</p>
+    </div>
+    <div class="card">
+      <div class="label">エネルギー変換の2ステップ</div>
+      <div class="step-row" style="margin-top:0.4rem">
+        <span class="step-label amber">Step 1</span>
+        <span class="step-text"><strong>光エネルギー → ATPの化学エネルギー</strong><br>ADP＋リン酸 → ATP （葉緑体内で起こる）</span>
+      </div>
+      <div class="step-row">
+        <span class="step-label green">Step 2</span>
+        <span class="step-text"><strong>ATPの化学エネルギー → 有機物内の化学エネルギー</strong><br>CO₂＋H₂Oから炭水化物を合成し、同時に酸素が生じる</span>
+      </div>
+    </div>
+    <div class="card card-key">
+      <div class="label">なぜ光合成が重要か</div>
+      <p>光合成を行う生物だけが利用できる<strong>光エネルギー</strong>を、すべての生物が利用できる<strong>化学エネルギー（有機物）</strong>に変換する。光合成を行わない生物の多くは、この有機物に直接または間接的に依存して生活している。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  いしちゃんのホームページ ― 生物基礎メモ
+</footer>
+
+</body>
+</html>
