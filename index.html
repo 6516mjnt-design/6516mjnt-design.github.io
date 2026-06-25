@@ -125,6 +125,14 @@
     a.button.brown:hover {
       background-color: #5c2710;
     }
+    /* 先端AIへの規制（オリーブボタン）用のスタイル */
+    a.button.olive {
+      background-color: #808000;
+    }
+
+    a.button.olive:hover {
+      background-color: #708000;
+    }
 
     /* AIと人間の知能（グレーボタン）用のスタイルを追加 */
     a.button.gray {
@@ -152,13 +160,24 @@
   </style>
 </head>
 <body>
+<div style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="
+    padding: 8px 20px;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  ">🖨️ 印刷</button>
+</div>
 
   <header>
     <div class="title-container">
       <img src="images/shingo.svg" alt="プロフィール" class="profile-icon">
       <h1>いしちゃんのホームページ</h1>
     </div>
-    <p>最終更新日：2026年6月25日</p>
+    <p>最終更新日：2026年6月26日</p>
   </header>
 
   <div class="grid">
@@ -166,9 +185,9 @@
     <div class="row">
       <div class="category-label">AIとその開発</div>
       <div class="buttons">
-        <a class="button" href="AI_version_history.html">AIの進化</a>
+        <a class="button" href="AI_version_history.html">AIバージョン変遷</a>
         <a class="button" href="recursive_self-improvement.html">AIの再帰的自己改善</a>
-        <a class="button" href="Claude_Fable5.html">ClaudeFable5</a>
+        <a class="button" href="Claude_Fable5.html">Mythos5/Fable5</a>
       </div>
     </div>
 
@@ -215,7 +234,7 @@
         <div class="buttons">
           <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">オーストラリアグループ規制</a>
           <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド合成規制</a>
-          <a class="button brown" href="AI_regulation.html">先端AIへの規制</a>
+          <a class="button olive" href="AI_regulation.html">先端AIへの規制</a>
         </div>
         <div class="buttons">
           <a class="button brown" href="中国の規制/Chinese_regulations.html">中国の規制</a>
