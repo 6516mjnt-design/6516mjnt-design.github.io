@@ -38,10 +38,10 @@
             align-items: center; /* コンテンツ行を中央に寄せる */
             box-sizing: border-box;
         }
-        /* 横並びの行（タイトルと4つのボタン） */
+        /* 横並びの行（タイトルとボタン群） */
         .content-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* ボタンが2行になってもラベルが上端で揃うように調整 */
             margin-bottom: 30px;
             width: 100%;
             justify-content: center;
@@ -58,11 +58,16 @@
             text-align: right;
             white-space: nowrap;
             box-sizing: border-box;
+            line-height: 4.7vw; /* ボタンの高さとラベルの中央を合わせるための微調整（PC用） */
+            max-height: 62px;
         }
-        /* 4つのボタンのラッパー */
+        /* ボタンのラッパー：4つで折り返すよう幅を制限 */
         .button-group {
             display: flex;
+            flex-wrap: wrap; /* 5つ目以降の折り返しを許可 */
             gap: 15px;
+            max-width: 685px; /* ボタン4つ分＋隙間3つ分の幅に制限 (160px * 4 + 15px * 3) */
+            width: 100%;
             box-sizing: border-box;
         }
         /* ボタンの共通スタイル */
@@ -73,7 +78,7 @@
             
             /* ボタンのサイズを前より一回り大きく指定（横幅160px） */
             width: 160px; 
-            /* 横:縦＝12:4.7 の比率を完全に維持（横が大きくなったので縦も自動で大きくなります） */
+            /* 横:縦＝12:4.7 の比率を完全に維持 */
             aspect-ratio: 12 / 4.7; 
             
             font-size: 10px; /* ボタン内の文字サイズを少し大きく調整 */
@@ -134,13 +139,13 @@
                 font-size: 20px;
                 border-bottom: 2px solid #333333;
                 padding-bottom: 4px;
+                line-height: normal;
+                max-height: none;
             }
-            /* ボタン群を折り返せるようにし、中央に寄せる */
+            /* ボタン群を中央に寄せ、スマホ用の最大幅に上書き */
             .button-group {
-                flex-wrap: wrap;
                 justify-content: center;
                 gap: 12px;
-                width: 100%;
                 max-width: 340px; /* スマホで2列が綺麗に収まる幅 */
             }
             /* ボタンの幅を2列（半分）に収まるよう自動調整 */
@@ -164,6 +169,7 @@
             <a href="Quantum_biology_photosynthesis.html" class="btn btn-blue">量子生物学と光合成</a>
             <a href="energy_and_life.html" class="btn btn-blue">光合成とエネルギーの流れ</a>
             <a href="Electron_transport.html" class="btn btn-blue">光合成と電子の運搬</a>
+            <a href="Photosystem.html" class="btn btn-blue">光合成と光化学系Ⅰ・Ⅱ</a>
             <a href="quantum_photosynthesis.html" class="btn btn-blue">光合成と量子コヒーレンス</a>
         </div>
     </div>
