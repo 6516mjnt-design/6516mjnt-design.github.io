@@ -235,14 +235,20 @@
     植物や光合成細菌は、受け取った光エネルギーをほぼ<span class="hl-green">100%近い効率</span>で「反応中心<sup>※1</sup>」に届ける。この驚異的な高効率は、古典物理学的な拡散では説明できず、<span class="hl-blue">量子コヒーレンス効果</span>によって実現されていると考えられている。
   </div>
   <p>この現象を理解するには、「光アンテナ複合体」「量子ウォーク」「ENAQT」という3つの概念を順に理解することが重要である。</p>
+
+  <!-- 脚注 ※1 -->
+  <div class="footnote-box">
+    <div class="fn-title">※1　光合成における「反応中心」とは</div>
+    「反応中心」は、光合成で光エネルギーを化学エネルギーに変換する中核部位であって、主にタンパク質と光合成色素（クロロフィルなど）で構成されている。クロロフィルなどの色素「アンテナ」が光を集め、「反応中心」へエネルギーを伝達。「反応中心」で電子が励起・放出され、水から有機物を合成するためのATPやNADPHが作られる。
+  </div>
 </div>
 
 <!-- ====== Step 1: 光アンテナ複合体 ====== -->
 <div class="section">
   <div class="section-label">Step 1 — 光アンテナ複合体</div>
-  <h2>１．光アンテナ複合体（FMOなど）</h2>
+  <h2>１．光子吸収（光アンテナ複合体：FMOなど）</h2>
   <p>
-    クロロフィル分子が数個〜数十個集まった「アンテナ」が光を吸収する。個々の分子は互いに近接しており、
+    クロロフィル分子が数個〜数十個集まった「アンテナ」が光をキャッチし吸収する。クロロフィルの個々の分子は互いに近接しており、
     <span class="hl-purple">「量子力学的結合<sup>※2</sup>」</span>している。
   </p>
   <p>
@@ -250,7 +256,7 @@
   </p>
 
   <!-- FMO図 -->
-  <div class="sub-label">図 2 — FMO複合体のエネルギーランドスケープ</div>
+  <div class="sub-label">図 １ — FMO複合体とエネルギー傾斜</div>
   <div style="max-width:500px;margin:0 auto;">
     <svg viewBox="0 0 480 285" style="width:100%;display:block;">
       <defs>
@@ -319,7 +325,7 @@
     </svg>
   </div>
   <p class="fig-caption">
-    FMO複合体の模式図。7個のBChlが<span class="hl-purple">エネルギー傾斜</span>を形成し、励起エネルギーは量子波として複数経路を同時に伝わり<span class="hl-gold">反応中心（★）</span>へ到達する。
+    FMO複合体の模式図。7個のBChl（バクテリオクロロフィルは、紅色光合成細菌などの光合成生物が持つ特有の光合成色素（細菌型葉緑素））が<span class="hl-purple">エネルギー傾斜</span>を形成し、励起エネルギーは量子波として複数経路を同時に伝わり<span class="hl-gold">反応中心（※１）</span>へ到達する。
   </p>
 
   <!-- 脚注 ※2 -->
@@ -358,20 +364,20 @@
   </ul>
 
   <!-- アニメーション図 -->
-  <div class="sub-label">図 1 — エネルギー転送の比較（アニメーション）</div>
+  <div class="sub-label">図 ２ — エネルギー転送の比較（アニメーション）</div>
   <div class="two-col">
     <div class="canvas-panel classical">
-      <div class="panel-title">🎲 古典的ホッピング（ランダムウォーク）</div>
+      <div class="panel-title">🎲 古典的転送（ランダムウォーク）</div>
       <canvas id="classicalCanvas" height="155"></canvas>
     </div>
     <div class="canvas-panel quantum">
-      <div class="panel-title">🌊 量子コヒーレント転送（量子ウォーク）</div>
+      <div class="panel-title">🌊 量子コヒーレンス転送（量子ウォーク）</div>
       <canvas id="quantumCanvas" height="155"></canvas>
     </div>
   </div>
   <p class="fig-caption">
-    <span class="hl-red">古典：</span>エネルギーが一つの分子からランダムに「飛ぶ」。経路を一つずつ探索するため遅く損失が大きい。<br>
-    <span class="hl-green">量子：</span>励起状態が波として複数の経路を同時に伝わる。反応中心（★）への最短経路に収束しやすい。
+    <span class="hl-red">古典的転送：</span>エネルギーが一つの分子からランダムに「飛ぶ」。経路を一つずつ探索するため遅く損失が大きい。<br>
+    <span class="hl-green">量子コヒーレンス転送：</span>励起状態が波として複数の経路を同時に伝わる。反応中心（※１）への最短経路に収束しやすい。
   </p>
 
   <!-- 直感的アナロジー -->
@@ -383,11 +389,11 @@
   <!-- 比較カード -->
   <div class="two-col">
     <div class="card classical">
-      <div class="card-title">🎲 古典的ホッピング</div>
+      <div class="card-title">🎲 古典的転送</div>
       ボールが一段ずつ階段を降りる。一つの経路をランダムに選ぶため、遅く損失が大きい。
     </div>
     <div class="card quantum">
-      <div class="card-title">🌊 量子コヒーレント転送</div>
+      <div class="card-title">🌊 量子コヒーレンス転送</div>
       波が全ての経路を同時に伝わる。複数経路の重ね合わせにより、高速・高効率で反応中心へ到達。
     </div>
   </div>
@@ -396,7 +402,7 @@
 <!-- ====== Step 3: ENAQT ====== -->
 <div class="section">
   <div class="section-label">Step 3 — ENAQT</div>
-  <h2>３．ノイズ支援量子輸送（ENAQT）</h2>
+  <h2>３．ENAQT（ノイズ支援量子輸送）</h2>
   <p>
     常温・湿潤環境では通常、熱ノイズがコヒーレンスを壊すはずである。しかし2007年のFleming・Engelらの実験（FMO複合体）で、<span class="hl-gold">ある程度のノイズがむしろ量子コヒーレンスを助ける</span>ことが示された。
   </p>
@@ -466,7 +472,7 @@
     <line x1="100" y1="83" x2="127" y2="83" stroke="#059669" stroke-width="1.5" marker-end="url(#ar3)"/>
 
     <rect x="127" y="42" width="100" height="80" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-    <text x="177" y="68"  fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">② 量子重ね合わせ</text>
+    <text x="177" y="68"  fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">② 量子コヒーレンス</text>
     <text x="177" y="83"  fill="#475569" font-size="9"  text-anchor="middle">励起が複数分子に</text>
     <text x="177" y="95"  fill="#475569" font-size="9"  text-anchor="middle">「同時に」存在</text>
     <text x="177" y="111" fill="#7c3aed" font-size="9"  text-anchor="middle">（量子ウォーク）</text>
@@ -486,15 +492,10 @@
 
     <rect x="58" y="145" width="364" height="22" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
     <text x="240" y="161" fill="#047857" font-size="11" text-anchor="middle" font-weight="bold">
-      量子コヒーレンス × ENAQT ＝ 近100%のエネルギー転送効率
+      量子コヒーレンス × ENAQT ＝ 100%近いエネルギー転送効率を実現
     </text>
   </svg>
 
-  <!-- 脚注 ※1 -->
-  <div class="footnote-box" style="margin-top:1.4rem;">
-    <div class="fn-title">※1　葉緑体の「反応中心」とは</div>
-    「反応中心」は、光合成で光エネルギーを化学エネルギーに変換する中核部位であって、主にタンパク質と光合成色素（クロロフィルなど）で構成されている。クロロフィルなどの色素「アンテナ」が光を集め、この反応中心へエネルギーを伝達。中心で電子が励起・放出され、水から有機物を合成するためのATPやNADPHが作られる。
-  </div>
 </div>
 
 <script>
