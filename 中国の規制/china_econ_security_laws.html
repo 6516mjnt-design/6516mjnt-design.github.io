@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国の経済安全保障関連法律</title>
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --bg:         #ffffff;
+      --surface:    #f5f7fa;
+      --border:     #d0d7de;
+      --accent:     #b91c1c;      /* 中国赤 — signature color */
+      --accent-dim: rgba(185,28,28,0.08);
+      --text:       #1a1a2e;
+      --muted:      #4b5563;
+      --tag-bg:     #dbeafe;
+      --tag-text:   #1d4ed8;
+
+      --font-head: 'Noto Serif JP', 'Hiragino Mincho ProN', Georgia, serif;
+      --font-body: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Mono', monospace;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== BASE ===== */
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: var(--tag-text); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== LAYOUT ===== */
+    .page-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+    .header-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .header-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* ===== CONCEPT BOX ===== */
+    .concept-box {
+      background: var(--accent-dim);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .concept-box strong { color: var(--text); }
+
+    /* ===== CATEGORY ===== */
+    .category {
+      margin-bottom: 36px;
+    }
+    .category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .cat-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      min-width: 2.2em;
+    }
+    .cat-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .cat-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .cat-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding-left: 2.2em;
+      /* indent aligns with title */
+      padding-left: calc(2.2em + 12px);
+    }
+
+    /* ===== LAW TABLE ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead th {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+    tbody tr:hover { background: var(--surface); }
+    tbody tr:last-child { border-bottom: none; }
+
+    td {
+      padding: 10px 10px;
+      vertical-align: top;
+    }
+
+    /* col widths */
+    .col-ja   { width: 34%; }
+    .col-en   { width: 34%; color: var(--muted); font-size: 12px; }
+    .col-year { width: 8%;  color: var(--muted); font-family: var(--font-mono); font-size: 11px; text-align: center; }
+    .col-note { width: 24%; }
+
+    .law-ja { color: var(--text); font-weight: 500; }
+    .law-zh {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: var(--font-mono);
+      padding: 1px 7px;
+      border-radius: 12px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      line-height: 1.8;
+      white-space: nowrap;
+    }
+    .badge.red {
+      background: var(--accent-dim);
+      color: #b91c1c;
+    }
+    .badge.gray {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-top: 48px;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 680px) {
+      .col-en, .col-year { display: none; }
+      .col-ja, .col-note { width: 60%; }
+      .cat-subtitle { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      tbody tr { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <p class="header-eyebrow">中華人民共和国 / Economic Security</p>
+    <h1>中国の経済安全保障関連法律</h1>
+    <div class="header-meta">
+      <span>📅 最終更新：2025年6月</span>
+      <span>📋 収録法令数：21</span>
+      <span>🔖 カテゴリ数：4</span>
+    </div>
+  </header>
+
+  <!-- ========== CONCEPT ========== -->
+  <div class="concept-box">
+    中国の安全保障法制は<strong>「総体国家安全観」</strong>という概念をベースに、軍事・政治だけでなく、経済・金融・データ・文化・エコロジーなどあらゆる分野を包括しているのが特徴。
+  </div>
+
+  <!-- ========== CAT 1 ========== -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-num">01</span>
+      <span class="cat-title">総合・国家安全保障</span>
+      <span class="cat-subtitle">General &amp; National Security</span>
+    </div>
+    <p class="cat-desc">国家全体の安全保障の基本理念や、スパイ行為の取り締まり、データ・サイバー・暗号の管理を規定する法律</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-ja">法律名（日本語）</th>
+          <th class="col-en">英語名</th>
+          <th class="col-year">施行年</th>
+          <th class="col-note">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">国家安全法</span>
+            <span class="law-zh">国家安全法</span>
+          </td>
+          <td class="col-en">National Security Law</td>
+          <td class="col-year">2015</td>
+          <td class="col-note"><span class="badge">基本法</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">反スパイ法</span>
+            <span class="law-zh">反间谍法</span>
+          </td>
+          <td class="col-en">Counter-Espionage Law</td>
+          <td class="col-year">2023改</td>
+          <td class="col-note"><span class="badge red">2023年改正・強化</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">国家情報法</span>
+            <span class="law-zh">国家情报法</span>
+          </td>
+          <td class="col-en">National Intelligence Law</td>
+          <td class="col-year">2017</td>
+          <td class="col-note"><span class="badge gray">第7条：協力義務</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">データセキュリティ法</span>
+            <span class="law-zh">数据安全法</span>
+          </td>
+          <td class="col-en">Data Security Law</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"><span class="badge">データ三法の一角</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">サイバーセキュリティ法</span>
+            <span class="law-zh">网络安全法</span>
+          </td>
+          <td class="col-en">Cybersecurity Law</td>
+          <td class="col-year">2017</td>
+          <td class="col-note"><span class="badge">データ三法の一角</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">個人情報保護法</span>
+            <span class="law-zh">个人信息保护法</span>
+          </td>
+          <td class="col-en">Personal Information Protection Law (PIPL)</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"><span class="badge">データ三法の一角</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">暗号法</span>
+            <span class="law-zh">密码法</span>
+          </td>
+          <td class="col-en">Cryptography Law</td>
+          <td class="col-year">2020</td>
+          <td class="col-note"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== CAT 2 ========== -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-num">02</span>
+      <span class="cat-title">輸出管理・対抗措置</span>
+      <span class="cat-subtitle">Export Control &amp; Countermeasures</span>
+    </div>
+    <p class="cat-desc">技術・物資の流出を防ぐ輸出管理と、外国の制裁・規制から自国市場・サプライチェーンを守るための対抗措置に関する法律</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-ja">法律名（日本語）</th>
+          <th class="col-en">英語名</th>
+          <th class="col-year">施行年</th>
+          <th class="col-note">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">輸出管理法</span>
+            <span class="law-zh">出口管制法</span>
+          </td>
+          <td class="col-en">Export Control Law</td>
+          <td class="col-year">2020</td>
+          <td class="col-note"><span class="badge">域外適用あり</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">両用物項輸出管制条例</span>
+            <span class="law-zh">两用物项出口管制条例</span>
+          </td>
+          <td class="col-en">Regulation on Export Control of Dual-Use Items</td>
+          <td class="col-year">2024</td>
+          <td class="col-note"><span class="badge red">2024年新施行（旧条例廃止）</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">技術輸出入管理条例</span>
+            <span class="law-zh">技术进出口管理条例</span>
+          </td>
+          <td class="col-en">Regulations on Administration of Import and Export of Technologies</td>
+          <td class="col-year">2019改</td>
+          <td class="col-note"><span class="badge gray">技術ライセンス・移転規制</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">核輸出管制条例</span>
+            <span class="law-zh">核出口管制条例 他</span>
+          </td>
+          <td class="col-en">Regulations on Nuclear Export Controls</td>
+          <td class="col-year">—</td>
+          <td class="col-note"><span class="badge gray">AG管理品目と重複領域</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">反外国制裁法</span>
+            <span class="law-zh">反外国制裁法</span>
+          </td>
+          <td class="col-en">Anti-Foreign Sanctions Law</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"><span class="badge red">対抗制裁の主要根拠</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">対外貿易法</span>
+            <span class="law-zh">对外贸易法</span>
+          </td>
+          <td class="col-en">Foreign Trade Law</td>
+          <td class="col-year">2022改</td>
+          <td class="col-note"><span class="badge gray">制裁・対抗措置規定含む</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">外国法・措置不当域外適用阻止弁法</span>
+            <span class="law-zh">阻断外国法律与措施不当域外适用办法</span>
+          </td>
+          <td class="col-en">Rules on Countering Unjustified Extra-territorial Application of Foreign Legislation</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"><span class="badge gray">商務部令（省令）</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">信頼懸念エンティティリスト規定</span>
+            <span class="law-zh">不可靠实体清单规定</span>
+          </td>
+          <td class="col-en">Provisions on the Unreliable Entity List</td>
+          <td class="col-year">2020</td>
+          <td class="col-note"><span class="badge gray">米エンティティリストへの対抗</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">外国国家免責法</span>
+            <span class="law-zh">外国国家豁免法</span>
+          </td>
+          <td class="col-en">Foreign State Immunity Law</td>
+          <td class="col-year">2023</td>
+          <td class="col-note"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== CAT 3 ========== -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-num">03</span>
+      <span class="cat-title">重要インフラ・資源安全</span>
+      <span class="cat-subtitle">Critical Infrastructure &amp; Resource Security</span>
+    </div>
+    <p class="cat-desc">食料・エネルギー・金融・海洋・中小企業サプライチェーンなど、経済・社会の基盤となるインフラの安全を担保する法律</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-ja">法律名（日本語）</th>
+          <th class="col-en">英語名</th>
+          <th class="col-year">施行年</th>
+          <th class="col-note">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">重要情報インフラ安全保護条例</span>
+            <span class="law-zh">关键信息基础设施安全保护条例</span>
+          </td>
+          <td class="col-en">Regulations on Security Protection of Critical Information Infrastructure</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">食料安全保障法</span>
+            <span class="law-zh">粮食安全保障法</span>
+          </td>
+          <td class="col-en">Food Security Law</td>
+          <td class="col-year">2024</td>
+          <td class="col-note"></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">エネルギー法</span>
+            <span class="law-zh">能源法</span>
+          </td>
+          <td class="col-en">Energy Law</td>
+          <td class="col-year">2025</td>
+          <td class="col-note"><span class="badge red">2025年3月施行</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">金融安定法</span>
+            <span class="law-zh">金融稳定法</span>
+          </td>
+          <td class="col-en">Financial Stability Law</td>
+          <td class="col-year">2025</td>
+          <td class="col-note"><span class="badge red">2025年施行</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">海洋基本法</span>
+            <span class="law-zh">海洋基本法</span>
+          </td>
+          <td class="col-en">Marine Basic Law</td>
+          <td class="col-year">2023</td>
+          <td class="col-note"><span class="badge gray">海洋資源・航行の安全保障</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">中小企業促進法</span>
+            <span class="law-zh">中小企业促进法</span>
+          </td>
+          <td class="col-en">Small and Medium-Sized Enterprises Promotion Law</td>
+          <td class="col-year">2018改</td>
+          <td class="col-note"><span class="badge gray">サプライチェーン強靭化関連</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== CAT 4 ========== -->
+  <div class="category">
+    <div class="category-header">
+      <span class="cat-num">04</span>
+      <span class="cat-title">対内投資・技術保護</span>
+      <span class="cat-subtitle">Inbound Investment &amp; Technology Protection</span>
+    </div>
+    <p class="cat-desc">外国からの投資受入れ審査（FISC）と、国内市場・技術の保護に関する法律。外国資本によるM&amp;A等を対象とする安全審査の根拠法令</p>
+    <table>
+      <thead>
+        <tr>
+          <th class="col-ja">法律名（日本語）</th>
+          <th class="col-en">英語名</th>
+          <th class="col-year">施行年</th>
+          <th class="col-note">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">外商投資法</span>
+            <span class="law-zh">外商投资法</span>
+          </td>
+          <td class="col-en">Foreign Investment Law</td>
+          <td class="col-year">2020</td>
+          <td class="col-note"><span class="badge">ネガティブリスト・内国民待遇</span></td>
+        </tr>
+        <tr>
+          <td class="col-ja">
+            <span class="law-ja">外商投資安全審査弁法</span>
+            <span class="law-zh">外商投资安全审查办法</span>
+          </td>
+          <td class="col-en">Measures for the Security Review of Foreign Investments</td>
+          <td class="col-year">2021</td>
+          <td class="col-note"><span class="badge gray">中国版CFIUS</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <span>中国の経済安全保障関連法律 — いしちゃんのホームページ</span>
+    <span>最終更新：2025-06 | 継続メンテ版</span>
+  </footer>
+
+</div>
+</body>
+</html>
