@@ -92,7 +92,7 @@
             padding: 0 6px;
             box-sizing: border-box; /* 枠線と余白の計算を完全統一 */
             cursor: pointer;
-            transition: opacity 0.2s ease;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
             white-space: nowrap;
             line-height: 1.2;
             -webkit-appearance: none;
@@ -101,10 +101,14 @@
         .btn:hover {
             opacity: 0.9;
         }
-        /* 青色のリンクボタン */
-        .btn-blue {
-            background-color: #003399;
+        /* 指定のメインボタンカラー */
+        .btn-primary {
+            background-color: #7b3614;
             color: #ffffff;
+        }
+        /* 指定のメインボタンホバーカラー */
+        .btn-primary:hover {
+            background-color: #5c2710;
         }
         /* グレーのボタン */
         .btn-gray {
@@ -151,7 +155,7 @@
             /* ボタンの幅を2列（半分）に収まるよう自動調整 */
             .btn {
                 width: calc(50% - 6px);
-                font-size: 12px; /* 小さな画面でも文字がはみ出ないよう調整 */
+                font-size: 12px; /* 小さな画面でも文字がはみ外れないよう調整 */
                 padding: 0 4px;
             }
         }
@@ -166,8 +170,8 @@
     <div class="content-row">
         <div class="row-label">法律</div>
         <div class="button-group">
-            <a href="china_econ_security_laws.html" class="btn btn-blue">経済安全保障関連</a>
-            <a href="China_AIregulations.html" class="btn btn-blue">中国のAI関連規制</a>
+            <a href="china_econ_security_laws.html" class="btn btn-primary">経済安全保障関連</a>
+            <a href="China_AIregulations.html" class="btn btn-primary">中国のAI関連規制</a>
             <button class="btn btn-gray" disabled>-------</button>
             <button class="btn btn-gray" disabled>-------</button>
             <button class="btn btn-gray" disabled>-------</button>
