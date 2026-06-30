@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 信頼できない実体リスト（不可靠实体清单）</title>
+    <style>
+        :root {
+            --primary-color: #991b1b;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .meta-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #fca5a5;
+        }
+        .content-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            font-size: 18px;
+            color: #0f172a;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        .company-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media(min-width: 768px) {
+            .company-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .company-item {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .company-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 12px;
+            min-width: 25px;
+        }
+        .company-name {
+            color: #334155;
+        }
+        .special-note {
+            background-color: #fff1f2;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 0 4px 4px 0;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .empty-status {
+            color: #64748b;
+            font-style: italic;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>1. 信頼できない実体リスト（不可靠实体清单）</h1>
+            <div class="meta-info">リストに掲載されている企業</div>
+        </header>
+        <div class="content-box">
+            <h2>１．日本</h2>
+            <p class="empty-status">該当なし</p>
+
+            <h2>２．アメリカ合衆国</h2>
+            <ul class="company-list">
+                <li class="company-item"><span class="company-number">1）</span><span class="company-name">Lockheed Martin Corporation（ロッキード・マーティン）</span></li>
+                <li class="company-item"><span class="company-number">2）</span><span class="company-name">Lockheed Martin Missiles and Fire Control（ロッキード・マーティン・ミサイル＆ファイアコントロール）</span></li>
+                <li class="company-item"><span class="company-number">3）</span><span class="company-name">Raytheon Missiles & Defense（レイセオン・ミサイルズ＆ディフェンス ※現RTX子会社）</span></li>
+                <li class="company-item"><span class="company-number">4）</span><span class="company-name">Boeing Defense, Space & Security（ボーイング・ディフェンス・スペース＆セキュリティ）</span></li>
+                <li class="company-item"><span class="company-number">5）</span><span class="company-name">General Atomics Aeronautical Systems（ゼネラル・アトミクス・エアロノーティカル・システムズ）</span></li>
+                <li class="company-item"><span class="company-number">6）</span><span class="company-name">General Dynamics Land Systems（ジェネラル・ダイナミクス・ランド・システムズ）</span></li>
+                <li class="company-item"><span class="company-number">7）</span><span class="company-name">Anduril Industries（アン杜里爾 / 自律防衛技術・AIドローン）</span></li>
+                <li class="company-item"><span class="company-number">8）</span><span class="company-name">Shield AI（護盾人工知能 / 軍用AI・ドローン技術）</span></li>
+                <li class="company-item"><span class="company-number">9）</span><span class="company-name">Sierra Nevada Corporation（内華達山脈公司 / 航空宇宙・防衛）</span></li>
+                <li class="company-item"><span class="company-number">10）</span><span class="company-name">Inter-Coastal Electronics（海岸間電子公司）</span></li>
+                <li class="company-item"><span class="company-number">11）</span><span class="company-name">System Studies & Simulation（系統研究与模擬公司）</span></li>
+                <li class="company-item"><span class="company-number">12）</span><span class="company-name">IronMountain Solutions（鉄山解決方案公司）</span></li>
+                <li class="company-item"><span class="company-number">13）</span><span class="company-name">Applied Technologies Group（応用技術集団）</span></li>
+                <li class="company-item"><span class="company-number">14）</span><span class="company-name">Axient（阿克西恩特）</span></li>
+                <li class="company-item"><span class="company-number">15）</span><span class="company-name">Maritime Tactical Systems（海上戦術系統公司）</span></li>
+                <li class="company-item"><span class="company-number">17）</span><span class="company-name">Cyberlux Corporation（賽博勒克斯）</span></li>
+                <li class="company-item"><span class="company-number">18）</span><span class="company-name">Edge Autonomy Operations（辺縁自治運営公司）</span></li>
+                <li class="company-item"><span class="company-number">19）</span><span class="company-name">Group W</span></li>
+                <li class="company-item"><span class="company-number">20)</span><span class="company-name">Hudson Technologies（ハドソン・テクノロジーズ）</span></li>
+                <li class="company-item"><span class="company-number">21）</span><span class="company-name">Skydio（スカルディオ / ドローン開発）</span></li>
+                <li class="company-item" style="grid-column: span 1;"><span class="company-number">22）</span>
+                    <span class="company-name">
+                        <strong>PVH外資グループ</strong>
+                        <div class="special-note">アパレル。新疆綿のボイコット排除問題を巡り、非軍事企業として初調査・指定対象に。</div>
+                    </span>
+                </li>
+                <li class="company-item"><span class="company-number">23）</span><span class="company-name">Illumina（イルミナ / ゲノム解析大手）</span></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

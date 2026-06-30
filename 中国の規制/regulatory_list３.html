@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. 輸出管制・管控リスト（出口管制管控名单）</title>
+    <style>
+        :root {
+            --primary-color: #047857;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .meta-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #a7f3d0;
+        }
+        .content-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .info-panel {
+            background-color: #f0fdf4;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+        }
+        h2 {
+            font-size: 18px;
+            color: #0f172a;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 15px;
+            margin-top: 20px;
+            background-color: #f8fafc;
+            padding: 6px 12px;
+            border-left: 4px solid var(--primary-color);
+            color: #0f172a;
+        }
+        .company-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        @media(min-width: 768px) {
+            .company-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .company-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            display: flex;
+        }
+        .num {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 10px;
+            min-width: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>3. 輸出管制・管控リスト（出口管制管控名单）</h1>
+            <div class="meta-info">リストに掲載されている企業</div>
+        </header>
+        <div class="content-box">
+            <div class="info-panel">
+                <p style="margin:0;">『中華人民共和国出口管制法（輸出管理法）』に基づき、軍事転用の恐れがある物品や技術の取引を制限するために、商務部が指定・注視している企業・団体。米国をはじめとする多国籍企業への指定拡大と並び、日本国内のハイテク、自動車、電機、化学、大学などの研究機関に対しても、「監視対象リスト（監察名単）」などの枠組みを介して実質的な網羅・指定。</p>
+            </div>
+
+            <h2>１．日本</h2>
+            
+            <h3>【第1弾指定（2026年2月24日公布）】</h3>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">1）</span>株式会社SUBARU（SUBARU Corporation）</div>
+                <div class="company-item"><span class="num">2）</span>富士エアロスペーステクノロジー株式会社（FUJI Aerospace Technology Co., Ltd.）</div>
+                <div class="company-item"><span class="num">3）</span>ENEOS株式会社（ENEOS Corporation）</div>
+                <div class="company-item"><span class="num">4）</span>輸送機工業株式会社（Yusoki Co., Ltd.）</div>
+                <div class="company-item"><span class="num">5）</span>伊藤忠アビエーション株式会社（ITOCHU Aviation Co., Ltd.）</div>
+                <div class="company-item"><span class="num">6）</span>株式会社レダグループホールディングス（Leda Group Holdings Co., Ltd.）</div>
+                <div class="company-item"><span class="num">7）</span>東京科学大学（Institute of Science Tokyo / 旧東京工業大学等）</div>
+                <div class="company-item"><span class="num">8）</span>三菱マテリアル株式会社（Mitsubishi Materials Corporation）</div>
+                <div class="company-item"><span class="num">9）</span>ASPP株式会社（ASPP Co., Ltd.）</div>
+                <div class="company-item"><span class="num">10）</span>八洲電機株式会社（Yashima Denki Co., Ltd.）</div>
+                <div class="company-item"><span class="num">11）</span>住友重機械工業株式会社（Sumitomo Heavy Industries, Ltd.）</div>
+                <div class="company-item"><span class="num">12）</span>TDK株式会社（TDK Corporation）</div>
+                <div class="company-item"><span class="num">13）</span>三井物産エアロスペース株式会社（Mitsui Bussan Aerospace Co., Ltd.）</div>
+                <div class="company-item"><span class="num">14）</span>日野自動車株式会社（Hino Motors, Ltd.）</div>
+                <div class="company-item"><span class="num">15）</span>株式会社トーキン（Tokin Corporation）</div>
+                <div class="company-item"><span class="num">16）</span>日新電機株式会社（Nissin Electric Co., Ltd.）</div>
+                <div class="company-item"><span class="num">17）</span>株式会社サン・テクトロ（Sun Tectro Co., Ltd.）</div>
+                <div class="company-item"><span class="num">18）</span>日東電工株式会社（Nitto Denko Corporation）</div>
+                <div class="company-item"><span class="num">19）</span>日油株式会社（NOF Corporation）</div>
+                <div class="company-item"><span class="num">20）</span>ナカライテスク株式会社（Nacalai Tesque, Inc.）</div>
+            </div>
+
+            <h3>【第2弾指定（2026年6月29日公布追加）】</h3>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">21）</span>株式会社三井E&S（MITSUI E&S Co., Ltd.）</div>
+                <div class="company-item"><span class="num">22）</span>三井物産エアロスペース株式会社 メンテナンスセンター（Mitsui Bussan Aerospace Co., Ltd. ）</div>
+                <div class="company-item"><span class="num">23）</span>Terra Drone株式会社（Terra Drone Corporation）</div>
+                <div class="company-item"><span class="num">24）</span>ACSL株式会社（ACSL Ltd.）</div>
+                <div class="company-item"><span class="num">25）</span>三菱原子燃料株式会社（Mitsubishi Nuclear Fuel Co., Ltd.）</div>
+                <div class="company-item"><span class="num">26）</span>日本原燃株式会社（Japan Nuclear Fuel Limited）</div>
+                <div class="company-item"><span class="num">27）</span>富士通ネットワークソリューションズ株式会社（Fujitsu Network Solutions Limited）</div>
+                <div class="company-item"><span class="num">28）</span>日立高端システム株式会社（Hitachi Advanced Systems Corporation）</div>
+                <div class="company-item"><span class="num">29）</span>小松産機株式会社（Komatsu Industries Corporation）</div>
+                <div class="company-item"><span class="num">30）</span>小松NTC株式会社（Komatsu NTC Ltd.）</div>
+                <div class="company-item"><span class="num">31）</span>沖電気工業株式会社（OKI Electric Industry Co., Ltd.）</div>
+                <div class="company-item"><span class="num">32）</span>OKI通信回声株式会社（OKI Com-Echoes Co., Ltd.）</div>
+                <div class="company-item"><span class="num">33）</span>OKI回路技術株式会社（OKI Circuit Technology Co., Ltd.）</div>
+                <div class="company-item"><span class="num">34）</span>OKIネクステック株式会社（OKI Nextech Co., Ltd.）</div>
+                <div class="company-item"><span class="num">35）</span>沖エンジニアリング株式会社（OKI Engineering Co., Ltd.）</div>
+                <div class="company-item"><span class="num">36）</span>YDKテクノロジーズ株式会社（YDK Technologies Co., Ltd.）</div>
+                <div class="company-item"><span class="num">37）</span>日本電磁測器株式会社（Nihon Denji Sokki Co., Ltd）</div>
+                <div class="company-item"><span class="num">38）</span>豊和工業株式会社（Howa Machinery, Ltd.）</div>
+                <div class="company-item"><span class="num">39）</span>細谷火工株式会社（Hosoya Pyro-Engineering Co., Ltd.）</div>
+                <div class="company-item"><span class="num">40）</span>藤倉航装株式会社（The Fujikura Parachute Co., Ltd.）</div>
+            </div>
+
+            <h2>２．アメリカ合衆国</h2>
+            <p style="font-size: 13.5px; color:#475569; margin-bottom: 15px;">米国企業は、信頼できない実体リストや輸出規制管理リスト（管控名单）に直接入るケースが多いが、迂回輸出の疑いや、エンドユーザー確認の拒否を理由に、以下の流通・コンポーネント企業等が注視リスト（未検証リスト的な位置づけを含む）に掲載。</p>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">1）</span>Caplugs（ケイプラッグス / 緩衝材・保護キャップ大手：のちに一部規制リストへ移行）</div>
+                <div class="company-item"><span class="num">2）</span>Arrow Electronics, Inc.（アロー・エレクトロニクス関連の一部拠点）</div>
+                <div class="company-item"><span class="num">3）</span>Avnet, Inc.（アブネット関連の一部アジア拠点）</div>
+            </div>
+            <p style="font-size: 13px; color: #64748b; font-style: italic; margin-top: 10px;">※その他、台湾向けや第三国向けの軍事転用リスクが指摘された電子部品ディストリビューター、産業用精密機器のサプライヤー数社。</p>
+
+            <h2>３．欧州連合</h2>
+            <p style="font-size: 13.5px; color:#475569;">欧州やその他の地域に関しては、主に航空宇宙・防衛産業のサプライチェーンに連なる特殊化学品、先端素材、光学・測定機器の専門商社やメーカーが、商務部公告に基づき個別に注視対象。</p>
+        </div>
+    </div>
+</body>
+</html>

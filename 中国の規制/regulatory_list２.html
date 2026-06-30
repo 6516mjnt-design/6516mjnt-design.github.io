@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. 輸出管制リスト（出口管制清单）</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #b91c1c;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .meta-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        .content-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .info-panel {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+        }
+        .info-panel h4 {
+            margin: 0 0 10px 0;
+            color: #0f172a;
+        }
+        h2 {
+            font-size: 18px;
+            color: #0f172a;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 15px;
+            color: #475569;
+            margin-top: 20px;
+            background-color: #f8fafc;
+            padding: 6px 12px;
+            border-left: 4px solid #94a3b8;
+        }
+        .company-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        @media(min-width: 768px) {
+            .company-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .company-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            display: flex;
+        }
+        .num {
+            font-weight: bold;
+            color: #64748b;
+            margin-right: 10px;
+            min-width: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>2. 輸出管制リスト（出口管制清单）</h1>
+            <div class="meta-info">リストに掲載されている企業</div>
+        </header>
+        <div class="content-box">
+            <div class="info-panel">
+                <h4>【運用特性】</h4>
+                <p style="margin: 0 0 10px 0;">米国のように明確な企業名の一覧（エンティティ・リスト）がすべて常時一般公開されていない。「最終ユーザー・最終用途（End-User / End-Use）制限」に基づき、軍事転用の恐れがある外国企業が実質的な指定対象。また、企業名ではなく「品目（技術や鉱物）」単位で安全保障上のリスト化が行われている。</p>
+                <strong>厳格規制対象品目：</strong>
+                <ul style="margin: 5px 0 0 0; padding-left: 20px;">
+                    <li>先端素材・鉱物： ガリウム、ゲルマニウム、黒鉛（グラファイト）、アンチモンなどの重要鉱物</li>
+                    <li>軍事転用可能技術：ドローン（無人航空機）関連部品、高性能繊維、特定のレーザーや通信機器</li>
+                </ul>
+            </div>
+
+            <h2>１．日本</h2>
+            
+            <h3>【第1弾指定（2026年2月24日公布）】</h3>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">1）</span>防衛大学校（National Defense Academy）</div>
+                <div class="company-item"><span class="num">2）</span>国立研究開発法人宇宙航空研究開発機構（JAXA）</div>
+                <div class="company-item"><span class="num">3）</span>三菱造船株式会社（Mitsubishi Shipbuilding Co., Ltd.）</div>
+                <div class="company-item"><span class="num">4）</span>三菱重工業株式会社（Mitsubishi Heavy Industries, Ltd.）</div>
+                <div class="company-item"><span class="num">5）</span>三菱電機株式会社（Mitsubishi Electric Corporation）</div>
+                <div class="company-item"><span class="num">6）</span>川崎重工業株式会社（Kawasaki Heavy Industries, Ltd.）</div>
+                <div class="company-item"><span class="num">7）</span>IHI aerospace株式会社（IHI Aerospace Co., Ltd.）</div>
+                <div class="company-item"><span class="num">8）</span>株式会社日本製鋼所（The Japan Steel Works, Ltd.）</div>
+                <div class="company-item"><span class="num">9）</span>住友精密工業株式会社（Sumitomo Precision Products Co., Ltd.）</div>
+                <div class="company-item"><span class="num">10）</span>ダイキン工業株式会社（Daikin Industries, Ltd.）</div>
+                <div class="company-item"><span class="num">11）</span>多摩川精機株式会社（Tamagawa Seiki Co., Ltd.）</div>
+                <div class="company-item"><span class="num">12）</span>日本アビオニクス株式会社（Japan Avionics Co., Ltd.）</div>
+                <div class="company-item"><span class="num">13）</span>明星電気株式会社（Meisei Electric Co., Ltd.）</div>
+                <div class="company-item"><span class="num">14）</span>新明和工業株式会社（ShinMaywa Industries, Ltd.）</div>
+                <div class="company-item"><span class="num">15）</span>古河電気工業株式会社（Furukawa Electric Co., Ltd.）</div>
+                <div class="company-item"><span class="num">16）</span>昭和飛行機工業株式会社（Showa Aircraft Industry Co., Ltd.）</div>
+                <div class="company-item"><span class="num">17）</span>株式会社ジャムコ（JAMCO Corporation）</div>
+                <div class="company-item"><span class="num">18）</span>東京計器株式会社（TOKYO KEIKI INC.）</div>
+                <div class="company-item"><span class="num">19）</span>日本無線株式会社（Japan Radio Co., Ltd.）</div>
+                <div class="company-item"><span class="num">20）</span>株式会社エキシヴィ（EXIVI Co., Ltd.）</div>
+            </div>
+
+            <h3>【第2弾指定（2026年6月29日公布追加）】</h3>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">21）</span>防衛研究所（National Institute for Defense Studies）</div>
+                <div class="company-item"><span class="num">22）</span>陸上装備研究所（Ground Systems Research Center）</div>
+                <div class="company-item"><span class="num">23）</span>艦艇装備研究所（Naval Systems Research Center）</div>
+                <div class="company-item"><span class="num">24）</span>航空装备研究所（Air Systems Research Center）</div>
+                <div class="company-item"><span class="num">25）</span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）</div>
+                <div class="company-item"><span class="num">26）</span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）</div>
+                <div class="company-item"><span class="num">27）</span>三菱電機ディフェンス＆スペーステクノロジーズ株式会社（Mitsubishi Electric Defense and Space Technologies Corporation）</div>
+                <div class="company-item"><span class="num">28）</span>三菱電機ソフトウエア株式会社（Mitsubishi Electric Software Corporation）</div>
+                <div class="company-item"><span class="num">29）</span>三菱電機エンジニアリング株式会社（Mitsubishi Electric Engineering Company, Limited）</div>
+                <div class="company-item"><span class="num">30）</span>三菱プレシジョン株式会社（Mitsubishi Precision Company, Limited）</div>
+                <div class="company-item"><span class="num">31）</span>エムエイチアイオーシャニクス株式会社（MHI Oceanics Co., Ltd.）</div>
+                <div class="company-item"><span class="num">32）</span>ＭＨＩさがみハイテック株式会社（MHI Sagami High-tech, Ltd.）</div>
+                <div class="company-item"><span class="num">33）</span>株式会社エムエイチアイロジテック（MHI Logitec Co., Ltd.）</div>
+                <div class="company-item"><span class="num">34）</span>光和興業株式会社（KOWA KOGYO, Ltd.）</div>
+                <div class="company-item"><span class="num">35）</span>菱重特殊車両サービス株式会社（MHI Special Vehicles Parts Supply & Technical Service Co., Ltd.）</div>
+                <div class="company-item"><span class="num">36）</span>ＭＨＩマリテック株式会社（MHI Maritech, Co., Ltd.）</div>
+                <div class="company-item"><span class="num">37）</span>株式会社ケージーエム（Kawajyu Gifu Manufacturing Co., Ltd. / KGM）</div>
+                <div class="company-item"><span class="num">38）</span>日本飛行機株式会社（NIPPI Corporation）</div>
+                <div class="company-item"><span class="num">39）</span>株式会社Fortunio（Fortunio Co., Ltd.）</div>
+                <div class="company-item"><span class="num">40）</span>青木精密工業株式会社（Aoki Seimitsu Kogyo Co., Ltd.）</div>
+            </div>
+
+            <h2>２．アメリカ合衆国</h2>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">1）</span>Aveox, Inc.（アイヴィオックス / モーター・制御技術）</div>
+                <div class="company-item"><span class="num">2）</span>Red Cat Holdings, Inc.（レッドキャット・ホールディングス / ドローン）</div>
+                <div class="company-item"><span class="num">3）</span>Teal Drones, Inc.（ティル・ドローンズ / 軍用ドローン）</div>
+                <div class="company-item"><span class="num">4）</span>IMSAR, LLC（イムサー / レーダー技術）</div>
+                <div class="company-item"><span class="num">5）</span>Jaia Robotics, Inc.（ジェア・ロボティクス / 水中ドローン）</div>
+                <div class="company-item"><span class="num">6）</span>Ball Aerospace & Technologies Corp.（ボール・エアロスペース / 現BAEシステムズ子会社）</div>
+                <div class="company-item"><span class="num">7）</span>Oshkosh Defense, LLC（オシュコシュ・ディフェンス / 軍用車両）</div>
+                <div class="company-item"><span class="num">8）</span>L3Harris Maritime Services, Inc.（L3ハリス・マリティム・サービス / 防衛システム）</div>
+                <div class="company-item"><span class="num">9）</span>MP Materials Corp.（エムピー・マテリアルズ / マウンテンパス鉱山を運営するレアアース大手）</div>
+                <div class="company-item"><span class="num">10）</span>USA Rare Earth, Inc.（米国レアアース社）</div>
+                <div class="company-item" style="grid-column: span 1;"><span class="num">11）</span>General Dynamics 関連28実体（通用動力関連エンティティ）</div>
+            </div>
+
+            <h2>３．欧州連合</h2>
+            <p style="font-size: 14px; color:#475569; margin-bottom: 15px;">2026年4月の第20号公告により、「過去に台湾向け武器販売等に関与した」として、欧州の防衛宇宙・銃器大手およびその関連企業7社（欧州の軍事航空宇宙関連、特殊コンポーネントサプライヤーなど）が一斉指定。</p>
+            <div class="company-grid">
+                <div class="company-item"><span class="num">1）</span>FN Herstal S.A.（FNハースタル / ベルギー：銃器・防衛大手）</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
