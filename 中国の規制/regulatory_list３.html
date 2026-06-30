@@ -3,176 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3. 輸出管制・管控リスト（出口管制管控名单）</title>
+    <title>3. 輸出管制・管控リスト（出口管制管控名单）- 2026年6月最新版</title>
     <style>
         :root {
             --primary-color: #047857;
+            --primary-dark: #065f46;
             --bg-color: #f8fafc;
             --text-color: #1e293b;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --muted: #64748b;
+            --suspended-color: #d97706;
+            --stopped-color: #6b7280;
         }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
         }
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         header {
             background-color: var(--primary-color);
             color: white;
             padding: 30px 20px;
             border-radius: 8px 8px 0 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .meta-info {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #a7f3d0;
-        }
+        header h1 { margin: 0; font-size: 24px; font-weight: 700; }
+        .meta-info { margin-top: 10px; font-size: 14px; color: #a7f3d0; }
         .content-box {
             background: var(--card-bg);
             padding: 40px;
             border-radius: 0 0 8px 8px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
         .info-panel {
-            background-color: #f0fdf4;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-            font-size: 14px;
+            background: #f0fdf4;
             border: 1px solid #a7f3d0;
-            color: #065f46;
+            border-radius: 6px;
+            padding: 18px 20px;
+            font-size: 14px;
+            color: var(--primary-dark);
+            margin-bottom: 28px;
+            line-height: 1.75;
         }
+        /* 凡例 */
+        .legend {
+            display: flex; gap: 20px; flex-wrap: wrap;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 18px;
+            margin-bottom: 28px;
+            font-size: 13px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .dot-active    { background: var(--primary-color); }
+        .dot-suspended { background: var(--suspended-color); }
+        .dot-stopped   { background: var(--stopped-color); }
+
         h2 {
-            font-size: 18px;
-            color: #0f172a;
+            font-size: 18px; color: #0f172a;
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
-            margin-top: 35px;
+            padding-bottom: 7px; margin-top: 38px;
         }
-        h3 {
-            font-size: 15px;
-            margin-top: 20px;
-            background-color: #f8fafc;
-            padding: 6px 12px;
-            border-left: 4px solid var(--primary-color);
-            color: #0f172a;
+
+        /* 公告ブロック */
+        .announcement-block {
+            margin-bottom: 28px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
         }
+        .announcement-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 17px;
+            background: #f1f5f9;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+        .announcement-title { font-size: 13.5px; font-weight: 700; color: #0f172a; }
+        .announcement-date  { font-size: 12px; color: var(--muted); margin-left: auto; }
+        .status-badge {
+            font-size: 11px; font-weight: 700;
+            padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+        }
+        .badge-active    { background: #d1fae5; color: var(--primary-dark); }
+        .badge-suspended { background: #fef3c7; color: #92400e; }
+        .badge-stopped   { background: #f1f5f9; color: var(--stopped-color); text-decoration: line-through; }
+        .announcement-body { padding: 14px 17px; }
+        .status-note {
+            font-size: 12px; padding: 7px 12px; border-radius: 4px; margin-bottom: 10px;
+        }
+        .note-active    { background: #f0fdf4; border-left: 3px solid var(--primary-color); color: var(--primary-dark); }
+        .note-suspended { background: #fffbeb; border-left: 3px solid #d97706; color: #92400e; }
+        .note-stopped   { background: #f8fafc; border-left: 3px solid #9ca3af; color: #6b7280; }
+
         .company-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 8px;
-            margin-top: 15px;
+            display: grid; grid-template-columns: 1fr; gap: 7px;
         }
-        @media(min-width: 768px) {
-            .company-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+        @media(min-width: 768px) { .company-grid { grid-template-columns: 1fr 1fr; } }
         .company-item {
             background: #fff;
-            border: 1px solid #e2e8f0;
-            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            padding: 10px 13px;
             border-radius: 4px;
-            font-size: 13.5px;
-            display: flex;
+            font-size: 13px;
+            display: flex; align-items: flex-start;
         }
         .num {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-right: 10px;
-            min-width: 25px;
+            font-weight: bold; color: var(--primary-color);
+            margin-right: 9px; min-width: 26px; flex-shrink: 0;
+        }
+        .alert-critical {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            border-radius: 0 6px 6px 0;
+            padding: 14px 18px;
+            font-size: 13.5px;
+            color: #991b1b;
+            margin: 18px 0;
+            line-height: 1.8;
+        }
+        .new-badge {
+            display: inline-block;
+            background: #dc2626; color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 2px 7px; border-radius: 3px;
+            margin-left: 8px; vertical-align: middle;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>3. 輸出管制・管控リスト（出口管制管控名单）</h1>
-            <div class="meta-info">リストに掲載されている企業</div>
-        </header>
-        <div class="content-box">
-            <div class="info-panel">
-                <p style="margin:0;">『中華人民共和国出口管制法（輸出管理法）』に基づき、軍事転用の恐れがある物品や技術の取引を制限するために、商務部が指定・注視している企業・団体。米国をはじめとする多国籍企業への指定拡大と並び、日本国内のハイテク、自動車、電機、化学、大学などの研究機関に対しても、「監視対象リスト（監察名単）」などの枠組みを介して実質的な網羅・指定。</p>
-            </div>
+<div class="container">
+    <header>
+        <h1>3. 輸出管制・管控リスト（出口管制管控名单）</h1>
+        <div class="meta-info">中国商務部指定：軍事転用リスクに基づく輸出規制対象実体（2026年6月最新公示反映版）</div>
+    </header>
+    <div class="content-box">
 
-            <h2>１．日本</h2>
-            
-            <h3>【第1弾指定（2026年2月24日公布）】</h3>
-            <div class="company-grid">
-                <div class="company-item"><span class="num">1）</span>株式会社SUBARU（SUBARU Corporation）</div>
-                <div class="company-item"><span class="num">2）</span>富士エアロスペーステクノロジー株式会社（FUJI Aerospace Technology Co., Ltd.）</div>
-                <div class="company-item"><span class="num">3）</span>ENEOS株式会社（ENEOS Corporation）</div>
-                <div class="company-item"><span class="num">4）</span>輸送機工業株式会社（Yusoki Co., Ltd.）</div>
-                <div class="company-item"><span class="num">5）</span>伊藤忠アビエーション株式会社（ITOCHU Aviation Co., Ltd.）</div>
-                <div class="company-item"><span class="num">6）</span>株式会社レダグループホールディングス（Leda Group Holdings Co., Ltd.）</div>
-                <div class="company-item"><span class="num">7）</span>東京科学大学（Institute of Science Tokyo / 旧東京工業大学等）</div>
-                <div class="company-item"><span class="num">8）</span>三菱マテリアル株式会社（Mitsubishi Materials Corporation）</div>
-                <div class="company-item"><span class="num">9）</span>ASPP株式会社（ASPP Co., Ltd.）</div>
-                <div class="company-item"><span class="num">10）</span>八洲電機株式会社（Yashima Denki Co., Ltd.）</div>
-                <div class="company-item"><span class="num">11）</span>住友重機械工業株式会社（Sumitomo Heavy Industries, Ltd.）</div>
-                <div class="company-item"><span class="num">12）</span>TDK株式会社（TDK Corporation）</div>
-                <div class="company-item"><span class="num">13）</span>三井物産エアロスペース株式会社（Mitsui Bussan Aerospace Co., Ltd.）</div>
-                <div class="company-item"><span class="num">14）</span>日野自動車株式会社（Hino Motors, Ltd.）</div>
-                <div class="company-item"><span class="num">15）</span>株式会社トーキン（Tokin Corporation）</div>
-                <div class="company-item"><span class="num">16）</span>日新電機株式会社（Nissin Electric Co., Ltd.）</div>
-                <div class="company-item"><span class="num">17）</span>株式会社サン・テクトロ（Sun Tectro Co., Ltd.）</div>
-                <div class="company-item"><span class="num">18）</span>日東電工株式会社（Nitto Denko Corporation）</div>
-                <div class="company-item"><span class="num">19）</span>日油株式会社（NOF Corporation）</div>
-                <div class="company-item"><span class="num">20）</span>ナカライテスク株式会社（Nacalai Tesque, Inc.）</div>
-            </div>
-
-            <h3>【第2弾指定（2026年6月29日公布追加）】</h3>
-            <div class="company-grid">
-                <div class="company-item"><span class="num">21）</span>株式会社三井E&S（MITSUI E&S Co., Ltd.）</div>
-                <div class="company-item"><span class="num">22）</span>三井物産エアロスペース株式会社 メンテナンスセンター（Mitsui Bussan Aerospace Co., Ltd. ）</div>
-                <div class="company-item"><span class="num">23）</span>Terra Drone株式会社（Terra Drone Corporation）</div>
-                <div class="company-item"><span class="num">24）</span>ACSL株式会社（ACSL Ltd.）</div>
-                <div class="company-item"><span class="num">25）</span>三菱原子燃料株式会社（Mitsubishi Nuclear Fuel Co., Ltd.）</div>
-                <div class="company-item"><span class="num">26）</span>日本原燃株式会社（Japan Nuclear Fuel Limited）</div>
-                <div class="company-item"><span class="num">27）</span>富士通ネットワークソリューションズ株式会社（Fujitsu Network Solutions Limited）</div>
-                <div class="company-item"><span class="num">28）</span>日立高端システム株式会社（Hitachi Advanced Systems Corporation）</div>
-                <div class="company-item"><span class="num">29）</span>小松産機株式会社（Komatsu Industries Corporation）</div>
-                <div class="company-item"><span class="num">30）</span>小松NTC株式会社（Komatsu NTC Ltd.）</div>
-                <div class="company-item"><span class="num">31）</span>沖電気工業株式会社（OKI Electric Industry Co., Ltd.）</div>
-                <div class="company-item"><span class="num">32）</span>OKI通信回声株式会社（OKI Com-Echoes Co., Ltd.）</div>
-                <div class="company-item"><span class="num">33）</span>OKI回路技術株式会社（OKI Circuit Technology Co., Ltd.）</div>
-                <div class="company-item"><span class="num">34）</span>OKIネクステック株式会社（OKI Nextech Co., Ltd.）</div>
-                <div class="company-item"><span class="num">35）</span>沖エンジニアリング株式会社（OKI Engineering Co., Ltd.）</div>
-                <div class="company-item"><span class="num">36）</span>YDKテクノロジーズ株式会社（YDK Technologies Co., Ltd.）</div>
-                <div class="company-item"><span class="num">37）</span>日本電磁測器株式会社（Nihon Denji Sokki Co., Ltd）</div>
-                <div class="company-item"><span class="num">38）</span>豊和工業株式会社（Howa Machinery, Ltd.）</div>
-                <div class="company-item"><span class="num">39）</span>細谷火工株式会社（Hosoya Pyro-Engineering Co., Ltd.）</div>
-                <div class="company-item"><span class="num">40）</span>藤倉航装株式会社（The Fujikura Parachute Co., Ltd.）</div>
-            </div>
-
-            <h2>２．アメリカ合衆国</h2>
-            <p style="font-size: 13.5px; color:#475569; margin-bottom: 15px;">米国企業は、信頼できない実体リストや輸出規制管理リスト（管控名单）に直接入るケースが多いが、迂回輸出の疑いや、エンドユーザー確認の拒否を理由に、以下の流通・コンポーネント企業等が注視リスト（未検証リスト的な位置づけを含む）に掲載。</p>
-            <div class="company-grid">
-                <div class="company-item"><span class="num">1）</span>Caplugs（ケイプラッグス / 緩衝材・保護キャップ大手：のちに一部規制リストへ移行）</div>
-                <div class="company-item"><span class="num">2）</span>Arrow Electronics, Inc.（アロー・エレクトロニクス関連の一部拠点）</div>
-                <div class="company-item"><span class="num">3）</span>Avnet, Inc.（アブネット関連の一部アジア拠点）</div>
-            </div>
-            <p style="font-size: 13px; color: #64748b; font-style: italic; margin-top: 10px;">※その他、台湾向けや第三国向けの軍事転用リスクが指摘された電子部品ディストリビューター、産業用精密機器のサプライヤー数社。</p>
-
-            <h2>３．欧州連合</h2>
-            <p style="font-size: 13.5px; color:#475569;">欧州やその他の地域に関しては、主に航空宇宙・防衛産業のサプライチェーンに連なる特殊化学品、先端素材、光学・測定機器の専門商社やメーカーが、商務部公告に基づき個別に注視対象。</p>
+        <div class="info-panel">
+            『中華人民共和国出口管制法』および『両用物項出口管制条例』に基づき、軍事転用の恐れがある物品・技術の取引を制限するために商務部が指定する企業・団体リスト（管控名単）。<br>
+            米国では「エンティティリスト（Entity List）」に相当。<strong>両用物項の中国からの輸出が全面禁止</strong>される（特殊事情がある場合は商務部への申請が必要）。「不可靠実体清単」とは別制度で、主に最終用途・最終ユーザー管理の観点から指定される。
         </div>
+
+        <div class="legend">
+            <strong style="font-size:12px; color:#475569;">措置ステータス：</strong>
+            <span class="legend-item"><span class="legend-dot dot-active"></span>禁輸措置発動中</span>
+            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中（米中協議による暫定措置）</span>
+            <span class="legend-item"><span class="legend-dot dot-stopped"></span>措置停止（終了）</span>
+        </div>
+
+        <!-- ======== 2026年 対日全面強化公告 ======== -->
+        <div class="alert-critical">
+            <strong>🚨【最重要】2026年第1号公告（2026年1月6日発効）：対日本向け両用物項の全面管制強化</strong><br>
+            すべての両用物項について、<u>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するいかなる最終用途・最終ユーザーへの輸出を全面禁止</u>。物項が管制リストに掲載されているかを問わず、<strong>取引全体・サプライチェーンの軍事転用可能性</strong>が審査対象。2024年の対米管制（第46号公告）に続く国別指向型措置として特筆される。対日輸出に関わるすべての品目で、最終ユーザーの「穿透式核実」（実質的最終用途の突き抜け確認）が求められる。
+        </div>
+
+        <!-- ======== 日本 ======== -->
+        <h2>１．日本（2026年公示分）</h2>
+
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第1弾指定（2026年2月24日公布）</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2026.02.24</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>株式会社SUBARU</div>
+                    <div class="company-item"><span class="num">2）</span>富士エアロスペーステクノロジー株式会社</div>
+                    <div class="company-item"><span class="num">3）</span>ENEOS株式会社</div>
+                    <div class="company-item"><span class="num">4）</span>輸送機工業株式会社</div>
+                    <div class="company-item"><span class="num">5）</span>伊藤忠アビエーション株式会社</div>
+                    <div class="company-item"><span class="num">6）</span>株式会社レダグループホールディングス</div>
+                    <div class="company-item"><span class="num">7）</span>東京科学大学（旧東京工業大学等）</div>
+                    <div class="company-item"><span class="num">8）</span>三菱マテリアル株式会社</div>
+                    <div class="company-item"><span class="num">9）</span>ASPP株式会社</div>
+                    <div class="company-item"><span class="num">10）</span>八洲電機株式会社</div>
+                    <div class="company-item"><span class="num">11）</span>住友重機械工業株式会社</div>
+                    <div class="company-item"><span class="num">12）</span>TDK株式会社</div>
+                    <div class="company-item"><span class="num">13）</span>三井物産エアロスペース株式会社</div>
+                    <div class="company-item"><span class="num">14）</span>日野自動車株式会社</div>
+                    <div class="company-item"><span class="num">15）</span>株式会社トーキン</div>
+                    <div class="company-item"><span class="num">16）</span>日新電機株式会社</div>
+                    <div class="company-item"><span class="num">17）</span>株式会社サン・テクトロ</div>
+                    <div class="company-item"><span class="num">18）</span>日東電工株式会社</div>
+                    <div class="company-item"><span class="num">19）</span>日油株式会社</div>
+                    <div class="company-item"><span class="num">20）</span>ナカライテスク株式会社</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第2弾指定（2026年6月29日公布追加）<span class="new-badge">NEW</span></span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2026.06.29</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">21）</span>株式会社三井E&amp;S</div>
+                    <div class="company-item"><span class="num">22）</span>三井物産エアロスペース株式会社 メンテナンスセンター</div>
+                    <div class="company-item"><span class="num">23）</span>Terra Drone株式会社</div>
+                    <div class="company-item"><span class="num">24）</span>ACSL株式会社</div>
+                    <div class="company-item"><span class="num">25）</span>三菱原子燃料株式会社</div>
+                    <div class="company-item"><span class="num">26）</span>日本原燃株式会社</div>
+                    <div class="company-item"><span class="num">27）</span>富士通ネットワークソリューションズ株式会社</div>
+                    <div class="company-item"><span class="num">28）</span>日立高端システム株式会社</div>
+                    <div class="company-item"><span class="num">29）</span>小松産機株式会社</div>
+                    <div class="company-item"><span class="num">30）</span>小松NTC株式会社</div>
+                    <div class="company-item"><span class="num">31）</span>沖電気工業株式会社</div>
+                    <div class="company-item"><span class="num">32）</span>OKI通信回声株式会社</div>
+                    <div class="company-item"><span class="num">33）</span>OKI回路技術株式会社</div>
+                    <div class="company-item"><span class="num">34）</span>OKIネクステック株式会社</div>
+                    <div class="company-item"><span class="num">35）</span>沖エンジニアリング株式会社</div>
+                    <div class="company-item"><span class="num">36）</span>YDKテクノロジーズ株式会社</div>
+                    <div class="company-item"><span class="num">37）</span>日本電磁測器株式会社</div>
+                    <div class="company-item"><span class="num">38）</span>豊和工業株式会社</div>
+                    <div class="company-item"><span class="num">39）</span>細谷火工株式会社</div>
+                    <div class="company-item"><span class="num">40）</span>藤倉航装株式会社</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======== アメリカ ======== -->
+        <h2>２．アメリカ合衆国（2025年商務部公告指定分）</h2>
+
+        <!-- 第1号公告 2025.01.02 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第1号公告（2025年1月2日）：通用動力等28実体</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2025.01.02</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>General Dynamics（ジェネラル・ダイナミクス）</div>
+                    <div class="company-item"><span class="num">2）</span>L3Harris Technologies（L3ハリス・テクノロジーズ）</div>
+                    <div class="company-item"><span class="num">3）</span>Intelligent Epitaxy Technology（インテリジェントエピタキシー技術）</div>
+                    <div class="company-item"><span class="num">4）</span>Clear Align LLC（クリアアライン）</div>
+                    <div class="company-item"><span class="num">5）</span>Boeing Defense, Space &amp; Security（ボーイング防衛・宇宙・セキュリティ）</div>
+                    <div class="company-item"><span class="num">6）</span>Lockheed Martin Corporation（ロッキード・マーティン本体）</div>
+                    <div class="company-item"><span class="num">7）</span>Raytheon Missiles &amp; Defense（レイセオン・ミサイルズ＆ディフェンス）</div>
+                    <div class="company-item"><span class="num">8）</span>Lockheed Martin Missiles and Fire Control（LM ミサイル＆ファイアコントロール）</div>
+                    <div class="company-item"><span class="num">9）</span>Lockheed Martin Aeronautics（LMエアロノーティクス）</div>
+                    <div class="company-item"><span class="num">10）</span>Raytheon/Lockheed Martin Javelin Joint Venture（ジャベリン合弁）</div>
+                    <div class="company-item"><span class="num">11）</span>Raytheon Missile Systems（レイセオン・ミサイル・システムズ）</div>
+                    <div class="company-item"><span class="num">12）</span>General Dynamics Ordnance and Tactical Systems（GD 軍械・戦術システム）</div>
+                    <div class="company-item"><span class="num">13）</span>General Dynamics Information Technology（GD 情報技術）</div>
+                    <div class="company-item"><span class="num">14）</span>General Dynamics Mission Systems（GD ミッション・システムズ）</div>
+                    <div class="company-item"><span class="num">15）</span>Inter-Coastal Electronics（インターコースタル・エレクトロニクス）</div>
+                    <div class="company-item"><span class="num">16）</span>System Studies &amp; Simulation（システム研究与模擬）</div>
+                    <div class="company-item"><span class="num">17）</span>IronMountain Solutions（アイアンマウンテン・ソリューションズ）</div>
+                    <div class="company-item"><span class="num">18）</span>Applied Technologies Group（応用技術グループ）</div>
+                    <div class="company-item"><span class="num">19）</span>Axient（アクシエント）</div>
+                    <div class="company-item"><span class="num">20）</span>Lockheed Martin Missile System Integration Lab（LM ミサイルシステム統合研究所）</div>
+                    <div class="company-item"><span class="num">21）</span>Lockheed Martin Advanced Technology Laboratories（LM 先端技術研究所）</div>
+                    <div class="company-item"><span class="num">22）</span>Lockheed Martin Ventures（LM ベンチャーズ）</div>
+                    <div class="company-item"><span class="num">23）</span>Anduril Industries（アンドゥリル・インダストリーズ）</div>
+                    <div class="company-item"><span class="num">24）</span>Maritime Tactical Systems（海上戦術システム）</div>
+                    <div class="company-item"><span class="num">25）</span>Pacific Rim Defense（環太平洋防衛）</div>
+                    <div class="company-item"><span class="num">26）</span>AEVEX Aerospace（AEVEXエアロスペース）</div>
+                    <div class="company-item"><span class="num">27）</span>LKD Aerospace（LKDエアロスペース）</div>
+                    <div class="company-item"><span class="num">28）</span>Summit Technologies（サミット・テクノロジーズ）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第13号公告 2025.03.04 → 停止 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第13号公告（2025年3月4日）：レイドス等15実体</span>
+                <span class="status-badge badge-stopped">措置停止（2025年11月10日付）</span>
+                <span class="announcement-date">2025.03.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-stopped">米中吉隆坡経貿磋商の合意に基づき、2025年11月10日をもって措置を停止（終了）。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>Leidos（レイドス）</div>
+                    <div class="company-item"><span class="num">2）</span>Gibbs &amp; Cox, Inc.（ギブス＆コックス / 艦船設計）</div>
+                    <div class="company-item"><span class="num">3）</span>IP Video Market Info, Inc.（IPビデオマーケット）</div>
+                    <div class="company-item"><span class="num">4）</span>Sourcemap, Inc.（ソースマップ / サプライチェーン調査）</div>
+                    <div class="company-item"><span class="num">5）</span>Skydio, Inc.（スカディオ / ドローン）</div>
+                    <div class="company-item"><span class="num">6）</span>Rapid Flight LLC（ラピッドフライト）</div>
+                    <div class="company-item"><span class="num">7）</span>Red Six Solutions（レッドシックス・ソリューションズ）</div>
+                    <div class="company-item"><span class="num">8）</span>Shield AI, Inc.（シールドAI）</div>
+                    <div class="company-item"><span class="num">9）</span>Havoc AI（ハボックAI）</div>
+                    <div class="company-item"><span class="num">10）</span>Neros Technologies（ネロス・テクノロジーズ）</div>
+                    <div class="company-item"><span class="num">11）</span>Group W（グループW）</div>
+                    <div class="company-item"><span class="num">12）</span>AIRCOM, Inc.（エアコム）</div>
+                    <div class="company-item"><span class="num">13）</span>General Atomics Aeronautical Systems（ジェネラル・アトミクス・エアロノーティカル）</div>
+                    <div class="company-item"><span class="num">14）</span>General Dynamics Land Systems（GD ランド・システムズ）</div>
+                    <div class="company-item"><span class="num">15）</span>AeroVironment, Inc.（エアロバイロンメント）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第21号公告 2025.04.04 → 停止 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第21号公告（2025年4月4日）：シエラネバダ等16実体</span>
+                <span class="status-badge badge-suspended">一時停止中（2026年11月まで）</span>
+                <span class="announcement-date">2025.04.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-suspended">米中吉隆坡経貿磋商の合意に基づき、2025年11月10日より1年間（2026年11月まで）措置を停止中。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>Hi-Point Aerotechnologies（ハイポイント・エアロテクノロジーズ）</div>
+                    <div class="company-item"><span class="num">2）</span>Universal Logistics Holdings, Inc.（ユニバーサル・ロジスティクス）</div>
+                    <div class="company-item"><span class="num">3）</span>Source Intelligence, Inc.（ソース・インテリジェンス）</div>
+                    <div class="company-item"><span class="num">4）</span>Coalition for a Prosperous America（繁栄するアメリカのための連合）</div>
+                    <div class="company-item"><span class="num">5）</span>Sierra Nevada Corporation（シエラネバダコーポレーション）</div>
+                    <div class="company-item"><span class="num">6）</span>Edge Autonomy Operations LLC（エッジ・オートノミー）</div>
+                    <div class="company-item"><span class="num">7）</span>Cyberlux Corporation（サイバーラックス）</div>
+                    <div class="company-item"><span class="num">8）</span>Hudson Technologies Co.（ハドソン・テクノロジーズ）</div>
+                    <div class="company-item"><span class="num">9）</span>Saronic Technologies（サロニク・テクノロジーズ / 自律水上艦）</div>
+                    <div class="company-item"><span class="num">10）</span>Oceaneering International（オーシャニアリング・インターナショナル）</div>
+                    <div class="company-item"><span class="num">11）</span>Stick Rudder Enterprises LLC（スティック・ラダー・エンタープライズ）</div>
+                    <div class="company-item"><span class="num">12）</span>Cubic Corporation（キュービック）</div>
+                    <div class="company-item"><span class="num">13）</span>S3 AeroDefense（S3エアロディフェンス）</div>
+                    <div class="company-item"><span class="num">14）</span>TCOM L.P.（特科姆 / テコム有限責任組合）</div>
+                    <div class="company-item"><span class="num">15）</span>Textor Inc.（テキストオーア）</div>
+                    <div class="company-item"><span class="num">16）</span>ACT1 Federal（ACT1フェデラル）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第22号公告 2025.04.09 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第22号公告（2025年4月9日）：テレダイン・ブラウン等12実体</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2025.04.09</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>American Photonics（アメリカン・フォトニクス / 光学技術）</div>
+                    <div class="company-item"><span class="num">2）</span>Novatek, Inc.（ノボテック）</div>
+                    <div class="company-item"><span class="num">3）</span>Echodyne（エコーダイン / 小型レーダー）</div>
+                    <div class="company-item"><span class="num">4）</span>Marvin Engineering Co.（マーヴィン・エンジニアリング / 航空兵器搭載システム）</div>
+                    <div class="company-item"><span class="num">5）</span>Exovera（エクソベラ / 情報解析）</div>
+                    <div class="company-item"><span class="num">6）</span>Teledyne Brown Engineering（テレダイン・ブラウン・エンジニアリング / 宇宙・防衛）</div>
+                    <div class="company-item"><span class="num">7）</span>BRINC Drones（BRINCドローン / 戦術ドローン）</div>
+                    <div class="company-item"><span class="num">8）</span>SYNEXXUS, Inc.（シネクサス / 防衛システム統合）</div>
+                    <div class="company-item"><span class="num">9）</span>Firestorm Labs（ファイアーストーム・ラボ / 自律ドローン）</div>
+                    <div class="company-item"><span class="num">10）</span>Kratos Unmanned Aerial Systems（クレイトス無人航空 / 標的機・自律機）</div>
+                    <div class="company-item"><span class="num">11）</span>Domo Tactical Communications（ドモ・タクティカル・コミュニケーションズ）</div>
+                    <div class="company-item"><span class="num">12）</span>Insitu, Inc.（インシチュ / 固定翼UAS / ボーイング子会社）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第51号公告 2025.09.25 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第51号公告（2025年9月25日）：ハンティントン等3実体</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2025.09.25</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>Huntington Ingalls Industries（ハンティントン・インガルス / 米最大の軍艦建造企業）</div>
+                    <div class="company-item"><span class="num">2）</span>Prairieland Management Group（プレーリーランド・マネジメント・グループ）</div>
+                    <div class="company-item"><span class="num">3）</span>Global Dimensions LLC（グローバル・ディメンションズ）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======== 台湾 ======== -->
+        <h2>３．台湾地区（2025年商務部公告指定分）</h2>
+
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">第35号公告（2025年7月9日）：航空宇宙・造船8実体</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2025.07.09</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>航空工業発展中心（AIDC / 航空宇宙産業開発公社）</div>
+                    <div class="company-item"><span class="num">2）</span>GEOSAT Aerospace &amp; Technology（GEOSATエアロスペース）</div>
+                    <div class="company-item"><span class="num">3）</span>国立中山科学技術研究所（NCSIST）</div>
+                    <div class="company-item"><span class="num">4）</span>JC Technology Co., Ltd.（JCテクノロジー）</div>
+                    <div class="company-item"><span class="num">5）</span>CSBC Corporation Taiwan（台湾国際造船）</div>
+                    <div class="company-item"><span class="num">6）</span>Jong Shyn Shipbuilding Co.（中信造船）</div>
+                    <div class="company-item"><span class="num">7）</span>Jong De Shipbuilding Co.（龍徳造船）</div>
+                    <div class="company-item"><span class="num">8）</span>Gong Wei Co., Ltd.（公準精密）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======== EU ======== -->
+        <h2>４．欧州連合・その他</h2>
+
+        <p style="font-size:13.5px; color:#475569; margin-bottom:14px;">
+            航空宇宙・防衛産業のサプライチェーンに連なる特殊化学品、先端素材、光学・測定機器の専門商社やメーカーが、商務部公告に基づき個別に指定・注視対象となっています。台湾関連の武器販売に関与した欧州企業については「出口管制清单（ファイル2）」側で対応しているものも存在します。
+        </p>
+
     </div>
+</div>
 </body>
 </html>

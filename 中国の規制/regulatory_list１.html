@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1. 信頼できない実体リスト（不可靠实体清单）</title>
+    <title>1. 信頼できない実体リスト（不可靠实体清单）- 2026年6月最新版</title>
     <style>
         :root {
             --primary-color: #991b1b;
+            --primary-light: #fee2e2;
             --bg-color: #f8fafc;
             --text-color: #1e293b;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --muted: #64748b;
+            --active-color: #991b1b;
+            --suspended-color: #d97706;
+            --stopped-color: #6b7280;
         }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -21,7 +26,7 @@
             padding: 0;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -30,122 +35,330 @@
             color: white;
             padding: 30px 20px;
             border-radius: 8px 8px 0 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-        }
-        .meta-info {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #fca5a5;
-        }
+        header h1 { margin: 0; font-size: 24px; font-weight: 700; }
+        .meta-info { margin-top: 10px; font-size: 14px; color: #fca5a5; }
         .content-box {
             background: var(--card-bg);
             padding: 40px;
             border-radius: 0 0 8px 8px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
-        h2 {
-            font-size: 18px;
+
+        /* 措置ステータス凡例 */
+        .legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 28px;
+            font-size: 13px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot {
+            width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+        }
+        .dot-active   { background: var(--active-color); }
+        .dot-suspended{ background: var(--suspended-color); }
+        .dot-stopped  { background: var(--stopped-color); }
+
+        /* 公告ブロック */
+        .announcement-block {
+            margin-bottom: 36px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .announcement-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 18px;
+            background: #f1f5f9;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .announcement-header .status-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .badge-active    { background: #fee2e2; color: var(--active-color); }
+        .badge-suspended { background: #fef3c7; color: #92400e; }
+        .badge-stopped   { background: #f1f5f9; color: var(--stopped-color); text-decoration: line-through; }
+
+        .announcement-title {
+            font-size: 14px;
+            font-weight: 700;
             color: #0f172a;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
-            margin-top: 30px;
         }
-        .company-list {
-            list-style: none;
-            padding-left: 0;
+        .announcement-date {
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: auto;
+        }
+        .announcement-body { padding: 16px 18px; }
+        .status-note {
+            font-size: 12px;
+            padding: 7px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .note-suspended { background: #fffbeb; border-left: 3px solid #d97706; color: #92400e; }
+        .note-stopped   { background: #f8fafc; border-left: 3px solid #9ca3af; color: #6b7280; }
+        .note-active    { background: #fff1f2; border-left: 3px solid var(--active-color); color: var(--active-color); }
+
+        .company-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 7px;
         }
         @media(min-width: 768px) {
-            .company-list {
-                grid-template-columns: 1fr 1fr;
-            }
+            .company-grid { grid-template-columns: 1fr 1fr; }
         }
         .company-item {
             background: #fff;
             border: 1px solid var(--border-color);
-            padding: 12px 18px;
-            border-radius: 6px;
-            font-size: 14px;
+            padding: 10px 13px;
+            border-radius: 4px;
+            font-size: 13px;
             display: flex;
             align-items: flex-start;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         .company-number {
             font-weight: bold;
             color: var(--primary-color);
-            margin-right: 12px;
-            min-width: 25px;
+            margin-right: 9px;
+            min-width: 26px;
+            flex-shrink: 0;
         }
-        .company-name {
-            color: #334155;
-        }
+        .company-name { color: #334155; }
         .special-note {
-            background-color: #fff1f2;
-            border-left: 4px solid var(--primary-color);
-            padding: 15px;
+            background: #fff1f2;
+            border-left: 3px solid var(--primary-color);
+            padding: 8px 11px;
             border-radius: 0 4px 4px 0;
-            font-size: 14px;
-            margin-top: 8px;
+            font-size: 12px;
+            margin-top: 5px;
+            color: #991b1b;
         }
-        .empty-status {
-            color: #64748b;
-            font-style: italic;
-            padding: 5px 0;
+
+        h2 {
+            font-size: 19px;
+            color: #0f172a;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 7px;
+            margin-top: 38px;
         }
+        .empty-status { color: #64748b; font-style: italic; padding: 5px 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>1. 信頼できない実体リスト（不可靠实体清单）</h1>
-            <div class="meta-info">リストに掲載されている企業</div>
-        </header>
-        <div class="content-box">
-            <h2>１．日本</h2>
-            <p class="empty-status">該当なし</p>
+<div class="container">
+    <header>
+        <h1>1. 信頼できない実体リスト（不可靠实体清单）</h1>
+        <div class="meta-info">中国の主権・安全・発展利益を損なう外国の組織・個人に対する制裁制度（2026年6月最新版）</div>
+    </header>
+    <div class="content-box">
 
-            <h2>２．アメリカ合衆国</h2>
-            <ul class="company-list">
-                <li class="company-item"><span class="company-number">1）</span><span class="company-name">Lockheed Martin Corporation（ロッキード・マーティン）</span></li>
-                <li class="company-item"><span class="company-number">2）</span><span class="company-name">Lockheed Martin Missiles and Fire Control（ロッキード・マーティン・ミサイル＆ファイアコントロール）</span></li>
-                <li class="company-item"><span class="company-number">3）</span><span class="company-name">Raytheon Missiles & Defense（レイセオン・ミサイルズ＆ディフェンス ※現RTX子会社）</span></li>
-                <li class="company-item"><span class="company-number">4）</span><span class="company-name">Boeing Defense, Space & Security（ボーイング・ディフェンス・スペース＆セキュリティ）</span></li>
-                <li class="company-item"><span class="company-number">5）</span><span class="company-name">General Atomics Aeronautical Systems（ゼネラル・アトミクス・エアロノーティカル・システムズ）</span></li>
-                <li class="company-item"><span class="company-number">6）</span><span class="company-name">General Dynamics Land Systems（ジェネラル・ダイナミクス・ランド・システムズ）</span></li>
-                <li class="company-item"><span class="company-number">7）</span><span class="company-name">Anduril Industries（アン杜里爾 / 自律防衛技術・AIドローン）</span></li>
-                <li class="company-item"><span class="company-number">8）</span><span class="company-name">Shield AI（護盾人工知能 / 軍用AI・ドローン技術）</span></li>
-                <li class="company-item"><span class="company-number">9）</span><span class="company-name">Sierra Nevada Corporation（内華達山脈公司 / 航空宇宙・防衛）</span></li>
-                <li class="company-item"><span class="company-number">10）</span><span class="company-name">Inter-Coastal Electronics（海岸間電子公司）</span></li>
-                <li class="company-item"><span class="company-number">11）</span><span class="company-name">System Studies & Simulation（系統研究与模擬公司）</span></li>
-                <li class="company-item"><span class="company-number">12）</span><span class="company-name">IronMountain Solutions（鉄山解決方案公司）</span></li>
-                <li class="company-item"><span class="company-number">13）</span><span class="company-name">Applied Technologies Group（応用技術集団）</span></li>
-                <li class="company-item"><span class="company-number">14）</span><span class="company-name">Axient（阿克西恩特）</span></li>
-                <li class="company-item"><span class="company-number">15）</span><span class="company-name">Maritime Tactical Systems（海上戦術系統公司）</span></li>
-                <li class="company-item"><span class="company-number">17）</span><span class="company-name">Cyberlux Corporation（賽博勒ックス）</span></li>
-                <li class="company-item"><span class="company-number">18）</span><span class="company-name">Edge Autonomy Operations（辺縁自治運営公司）</span></li>
-                <li class="company-item"><span class="company-number">19）</span><span class="company-name">Group W</span></li>
-                <li class="company-item"><span class="company-number">20)</span><span class="company-name">Hudson Technologies（ハドソン・テクノロジーズ）</span></li>
-                <li class="company-item"><span class="company-number">21）</span><span class="company-name">Skydio（スカルディオ / ドローン開発）</span></li>
-                <li class="company-item" style="grid-column: span 1;"><span class="company-number">22）</span>
-                    <span class="company-name">
-                        <strong>PVH外資グループ</strong>
-                        <div class="special-note">アパレル。新疆綿のボイコット排除問題を巡り、非軍事企業として初調査・指定対象に。</div>
-                    </span>
-                </li>
-                <li class="company-item"><span class="company-number">23）</span><span class="company-name">Illumina（イルミナ / ゲノム解析大手）</span></li>
-            </ul>
-
-            <h2>３．欧州連合</h2>
-            <p class="empty-status">該当なし</p>
+        <!-- 凡例 -->
+        <div class="legend">
+            <strong style="font-size:12px; color:#475569;">措置ステータス：</strong>
+            <span class="legend-item"><span class="legend-dot dot-active"></span>制裁発動中</span>
+            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中（米中協議による暫定措置）</span>
+            <span class="legend-item"><span class="legend-dot dot-stopped"></span>措置停止（終了）</span>
         </div>
+
+        <!-- ========== 日本 ========== -->
+        <h2>１．日本</h2>
+        <p class="empty-status">該当なし</p>
+
+        <!-- ========== アメリカ ========== -->
+        <h2>２．アメリカ合衆国</h2>
+
+        <!-- 公告1: 2025年2月4日 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕1〜4号公告（2025年2月4日）：対台軍售・防衛関連企業</span>
+                <span class="status-badge badge-active">制裁発動中</span>
+                <span class="announcement-date">2025.02.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">Lockheed Martin Corporation（ロッキード・マーティン）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">Raytheon Missiles &amp; Defense（レイセオン・ミサイルズ＆ディフェンス ※RTX子会社）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">Boeing Defense, Space &amp; Security（ボーイング・ディフェンス）</span></div>
+                    <div class="company-item"><span class="company-number">4）</span><span class="company-name">General Atomics Aeronautical Systems（ゼネラル・アトミクス・エアロノーティカル）</span></div>
+                    <div class="company-item"><span class="company-number">5）</span><span class="company-name">General Dynamics Land Systems（ジェネラル・ダイナミクス・ランド・システムズ）</span></div>
+                    <div class="company-item"><span class="company-number">6）</span><span class="company-name">Anduril Industries（アンドゥリル・インダストリーズ）</span></div>
+                    <div class="company-item"><span class="company-number">7）</span><span class="company-name">Inter-Coastal Electronics（インターコースタル・エレクトロニクス）</span></div>
+                    <div class="company-item"><span class="company-number">8）</span><span class="company-name">System Studies &amp; Simulation（システム研究与模擬公司）</span></div>
+                    <div class="company-item"><span class="company-number">9）</span><span class="company-name">IronMountain Solutions（アイアンマウンテン・ソリューションズ）</span></div>
+                    <div class="company-item"><span class="company-number">10）</span><span class="company-name">Applied Technologies Group（応用技術集団）</span></div>
+                    <div class="company-item"><span class="company-number">11）</span><span class="company-name">Axient（アクシエント）</span></div>
+                    <div class="company-item"><span class="company-number">12）</span><span class="company-name">Maritime Tactical Systems（海上戦術系統公司）</span></div>
+                    <div class="company-item"><span class="company-number">13）</span><span class="company-name">Cyberlux Corporation（サイバーラックス）</span></div>
+                    <div class="company-item"><span class="company-number">14）</span><span class="company-name">Edge Autonomy Operations（エッジ・オートノミー・オペレーションズ）</span></div>
+                    <div class="company-item"><span class="company-number">15）</span><span class="company-name">Group W</span></div>
+                    <div class="company-item"><span class="company-number">16）</span><span class="company-name">Hudson Technologies（ハドソン・テクノロジーズ）</span></div>
+                    <div class="company-item"><span class="company-number">17）</span><span class="company-name">Skydio（スカディオ / ドローン開発）</span></div>
+                    <div class="company-item"><span class="company-number">18）</span><span class="company-name">Sierra Nevada Corporation（シエラネバダコーポレーション）</span></div>
+                    <div class="company-item"><span class="company-number">19）</span><span class="company-name">Shield AI（シールドAI / 軍用AI・ドローン技術）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告2: 2025年2月4日 PVH・Illumina -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕特別公告（2025年2月4日）：非軍事企業への初適用</span>
+                <span class="status-badge badge-active">制裁発動中</span>
+                <span class="announcement-date">2025.02.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item">
+                        <span class="company-number">1）</span>
+                        <span class="company-name">
+                            <strong>PVH Corp.（PVH外資集団）</strong>
+                            <div class="special-note">新疆綿ボイコット問題を巡り、非軍事・アパレル企業として初の調査・指定対象。</div>
+                        </span>
+                    </div>
+                    <div class="company-item">
+                        <span class="company-number">2）</span>
+                        <span class="company-name">
+                            <strong>Illumina（イルミナ）</strong>
+                            <div class="special-note">ゲノム解析・バイオテクノロジー大手。2025年2月指定、3月4日に処理措置公告を適用。</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告3: 2025年3月4日 5号・6号 → 停止 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕5号・6号公告（2025年3月4日）：対台軍售10社</span>
+                <span class="status-badge badge-stopped">措置停止（2025年11月10日付）</span>
+                <span class="announcement-date">2025.03.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-stopped">米中吉隆坡（クアラルンプール）経貿磋商の合意に基づき、2025年11月10日をもって措置を停止（終了）。中国国内企業は取引申請が可能。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">TCOM L.P.（特科姆 / テコム有限責任組合）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">Pacific Rim Defense（環太平洋防務公司）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">Advanced Environmental Technology（先進環境技術公司）</span></div>
+                    <div class="company-item"><span class="company-number">4）</span><span class="company-name">Raytheon Missile Systems（レイセオン・ミサイル・システムズ）</span></div>
+                    <div class="company-item"><span class="company-number">5）</span><span class="company-name">Lockheed Martin Aeronautics（ロッキード・マーティン・エアロノーティクス）</span></div>
+                    <div class="company-item"><span class="company-number">6）</span><span class="company-name">Summit Technologies（サミット・テクノロジーズ）</span></div>
+                    <div class="company-item"><span class="company-number">7）</span><span class="company-name">LKD Aerospace（LKDエアロスペース）</span></div>
+                    <div class="company-item"><span class="company-number">8）</span><span class="company-name">AEVEX Aerospace（AEVEXエアロスペース）</span></div>
+                    <div class="company-item"><span class="company-number">9）</span><span class="company-name">Clear Align LLC（クリアアライン）</span></div>
+                    <div class="company-item"><span class="company-number">10）</span><span class="company-name">Intelligent Epitaxy Technology（インテリジェントエピタキシー技術）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告4: 2025年4月4日 7号 → 一時停止中 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕7号公告（2025年4月4日）：ロッキード系・通用動力系10社</span>
+                <span class="status-badge badge-suspended">一時停止中（2026年11月まで）</span>
+                <span class="announcement-date">2025.04.04</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-suspended">米中ジュネーブ・吉隆坡経貿会談の合意に基づき、2025年11月10日より1年間（2026年11月まで）措置を引き続き停止中。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">Lockheed Martin Missiles and Fire Control（LM ミサイル＆ファイアコントロール）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">Lockheed Martin Aeronautics（LMエアロノーティクス）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">Lockheed Martin Missile System Integration Lab（LM ミサイルシステム統合研究所）</span></div>
+                    <div class="company-item"><span class="company-number">4）</span><span class="company-name">Lockheed Martin Advanced Technology Laboratories（LM 先端技術研究所）</span></div>
+                    <div class="company-item"><span class="company-number">5）</span><span class="company-name">Lockheed Martin Ventures（LM ベンチャーズ）</span></div>
+                    <div class="company-item"><span class="company-number">6）</span><span class="company-name">Raytheon/Lockheed Martin Javelin Joint Venture（ジャベリン合弁事業）</span></div>
+                    <div class="company-item"><span class="company-number">7）</span><span class="company-name">Raytheon Missile Systems（レイセオン・ミサイル・システムズ ※別法人）</span></div>
+                    <div class="company-item"><span class="company-number">8）</span><span class="company-name">General Dynamics Ordnance and Tactical Systems（GD 軍械・戦術システム）</span></div>
+                    <div class="company-item"><span class="company-number">9）</span><span class="company-name">General Dynamics Information Technology（GD 情報技術）</span></div>
+                    <div class="company-item"><span class="company-number">10）</span><span class="company-name">General Dynamics Mission Systems（GD ミッション・システムズ）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告5: 2025年4月9日 8号 → 措置停止 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕8号公告（2025年4月9日）：6社（関税報復対抗措置）</span>
+                <span class="status-badge badge-stopped">措置停止（2025年8月12日付）</span>
+                <span class="announcement-date">2025.04.09</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-stopped">米中スウェーデン（ストックホルム）・ジュネーブ経貿会談の合意に基づき、2025年8月12日をもって措置を停止（終了）。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">Shield AI, Inc.（シールドAI ※2月公告と重複指定）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">Sierra Nevada Corporation（シエラネバダコーポレーション ※2月公告と重複指定）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">Cyberlux Corporation（サイバーラックス ※2月公告と重複指定）</span></div>
+                    <div class="company-item"><span class="company-number">4）</span><span class="company-name">Edge Autonomy Operations LLC（エッジ・オートノミー ※2月公告と重複指定）</span></div>
+                    <div class="company-item"><span class="company-number">5）</span><span class="company-name">Group W（グループW ※2月公告と重複指定）</span></div>
+                    <div class="company-item"><span class="company-number">6）</span><span class="company-name">Hudson Technologies Co.（ハドソン・テクノロジーズ ※2月公告と重複指定）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告6: 2025年9月25日 第9号 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕9号公告（2025年9月25日）：台湾との軍事技術協力3社</span>
+                <span class="status-badge badge-active">制裁発動中</span>
+                <span class="announcement-date">2025.09.25</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-active">台湾との「軍事技術協力」を理由に制裁。現在も措置を発動中。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">Saronic Technologies（サロニクテクノロジーズ / 自律水上艦艇）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">Elcon Inc.（エルコン / 軍用コネクター）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">Oceaneering International（オーシャニアリング・インターナショナル / 海洋工学）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 公告7: 2025年10月9日 第10号 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">〔2025〕10号公告（2025年10月9日）：14社（台湾軍事協力・対中企業圧迫等）</span>
+                <span class="status-badge badge-active">制裁発動中</span>
+                <span class="announcement-date">2025.10.09</span>
+            </div>
+            <div class="announcement-body">
+                <div class="status-note note-active">台湾との軍事技術協力、対中国企業への圧力協力、反中的情報発信等を理由に指定。進出口禁止・中国内新規投資禁止・データ提供禁止を含む。</div>
+                <div class="company-grid">
+                    <div class="company-item"><span class="company-number">1）</span><span class="company-name">Dedrone by Axon（反無人機技術公司 / 反ドローン・台湾軍事協力）</span></div>
+                    <div class="company-item"><span class="company-number">2）</span><span class="company-name">TechInsights（テックインサイツ / 半導体調査・対中企業圧迫）</span></div>
+                    <div class="company-item"><span class="company-number">3）</span><span class="company-name">TechInsights 分支機構①（カナダ本体含む関連9法人・詳細は公告原文参照）</span></div>
+                    <div class="company-item"><span class="company-number">4）</span><span class="company-name">Elbit Systems of America, LLC（エルビット・システムズ・オブ・アメリカ / 防衛電子）</span></div>
+                    <div class="company-item"><span class="company-number">5）</span><span class="company-name">Epirus, Inc.（エピルス / 指向性エネルギー兵器・反ドローン）</span></div>
+                    <div class="company-item"><span class="company-number">6）</span><span class="company-name">AeroVironment, Inc.（エアロバイロンメント / 軍用小型無人機）</span></div>
+                    <div class="company-item"><span class="company-number">7）</span><span class="company-name">Exelis Inc.（エクセリス / 航空電子・防衛電子システム）</span></div>
+                    <div class="company-item"><span class="company-number">8）</span><span class="company-name">Alliant Techsystems Operations LLC（アライアント・テックシステムズ / 弾薬・精密誘導弾）</span></div>
+                    <div class="company-item"><span class="company-number">9）</span><span class="company-name">BAE Systems, Inc.（ベイシステムズ米国法人 / 英BAEの米防衛中核法人）</span></div>
+                    <div class="company-item"><span class="company-number">10）</span><span class="company-name">Teledyne FLIR, LLC（テレダイン・フリア / 赤外線センサー・戦術認識）</span></div>
+                    <div class="company-item"><span class="company-number">11）</span><span class="company-name">VSE Corporation（VSEコーポレーション / 防衛・航空整備サービス）</span></div>
+                    <div class="company-item"><span class="company-number">12）</span><span class="company-name">Cubic Global Defense（キュービック・グローバル・ディフェンス / 訓練システム）</span></div>
+                    <div class="company-item"><span class="company-number">13）</span><span class="company-name">Recorded Future（レコーデッド・フューチャー / 脅威情報・対中企業圧迫）</span></div>
+                    <div class="company-item"><span class="company-number">14）</span><span class="company-name">Halifax International Security Forum（ハリファックス国際安全保障フォーラム / カナダ安保フォーラム）</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== EU ========== -->
+        <h2>３．欧州連合</h2>
+        <p class="empty-status">該当なし（本清単の対象はすべて米国企業。欧州企業への台湾関連制裁は「出口管制管控名单」側で対応。）</p>
+
     </div>
+</div>
 </body>
 </html>
