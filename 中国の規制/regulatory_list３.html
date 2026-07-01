@@ -6,15 +6,14 @@
     <title>3. 注視リスト（关注名单）- 2026年6月最新版</title>
     <style>
         :root {
-            --primary-color: #047857;
-            --primary-dark: #065f46;
+            --primary-color: #92400e;
+            --primary-dark: #78350f;
+            --accent: #d97706;
             --bg-color: #f8fafc;
             --text-color: #1e293b;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
             --muted: #64748b;
-            --suspended-color: #d97706;
-            --stopped-color: #6b7280;
         }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -32,7 +31,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
         header h1 { margin: 0; font-size: 24px; font-weight: 700; }
-        .meta-info { margin-top: 10px; font-size: 14px; color: #a7f3d0; }
+        .meta-info { margin-top: 10px; font-size: 14px; color: #fde68a; }
         .content-box {
             background: var(--card-bg);
             padding: 40px;
@@ -41,51 +40,45 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
         .info-panel {
-            background: #f0fdf4;
-            border: 1px solid #a7f3d0;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
             border-radius: 6px;
             padding: 18px 20px;
             font-size: 14px;
             color: var(--primary-dark);
-            margin-bottom: 28px;
-            line-height: 1.75;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
-        /* 凡例 */
-        .legend {
-            display: flex; gap: 20px; flex-wrap: wrap;
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px 18px;
-            margin-bottom: 28px;
-            font-size: 13px;
+        .info-panel strong { color: #78350f; }
+        .compare-table {
+            width: 100%; border-collapse: collapse;
+            font-size: 13px; margin-bottom: 32px;
         }
-        .legend-item { display: flex; align-items: center; gap: 6px; }
-        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-        .dot-active    { background: var(--primary-color); }
-        .dot-suspended { background: var(--suspended-color); }
-        .dot-stopped   { background: var(--stopped-color); }
-
+        .compare-table th {
+            background: #f1f5f9; padding: 9px 13px;
+            text-align: left; font-weight: 700;
+            border: 1px solid var(--border-color); color: #0f172a;
+        }
+        .compare-table td {
+            padding: 9px 13px; border: 1px solid var(--border-color);
+            vertical-align: top; font-size: 13px;
+        }
+        .compare-table tr:nth-child(even) td { background: #f8fafc; }
         h2 {
             font-size: 18px; color: #0f172a;
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 7px; margin-top: 38px;
         }
-
-        /* 公告ブロック */
         .announcement-block {
             margin-bottom: 28px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
+            border: 1px solid #fde68a;
+            border-radius: 8px; overflow: hidden;
         }
         .announcement-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 17px;
-            background: #f1f5f9;
-            border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 17px;
+            background: #fffbeb;
+            border-bottom: 1px solid #fde68a;
             flex-wrap: wrap;
         }
         .announcement-title { font-size: 13.5px; font-weight: 700; color: #0f172a; }
@@ -93,50 +86,38 @@
         .status-badge {
             font-size: 11px; font-weight: 700;
             padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+            background: #fef3c7; color: #92400e;
         }
-        .badge-active    { background: #d1fae5; color: var(--primary-dark); }
-        .badge-suspended { background: #fef3c7; color: #92400e; }
-        .badge-stopped   { background: #f1f5f9; color: var(--stopped-color); text-decoration: line-through; }
-        .announcement-body { padding: 14px 17px; }
-        .status-note {
-            font-size: 12px; padding: 7px 12px; border-radius: 4px; margin-bottom: 10px;
-        }
-        .note-active    { background: #f0fdf4; border-left: 3px solid var(--primary-color); color: var(--primary-dark); }
-        .note-suspended { background: #fffbeb; border-left: 3px solid #d97706; color: #92400e; }
-        .note-stopped   { background: #f8fafc; border-left: 3px solid #9ca3af; color: #6b7280; }
-
+        .announcement-body { padding: 16px 17px; }
         .company-grid {
             display: grid; grid-template-columns: 1fr; gap: 7px;
         }
         @media(min-width: 768px) { .company-grid { grid-template-columns: 1fr 1fr; } }
         .company-item {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            padding: 10px 13px;
-            border-radius: 4px;
-            font-size: 13px;
-            display: flex; align-items: flex-start;
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 10px 13px; border-radius: 4px;
+            font-size: 13px; display: flex; align-items: flex-start;
         }
-        .num {
-            font-weight: bold; color: var(--primary-color);
-            margin-right: 9px; min-width: 26px; flex-shrink: 0;
-        }
-        .alert-critical {
-            background: #fef2f2;
-            border-left: 4px solid #dc2626;
-            border-radius: 0 6px 6px 0;
-            padding: 14px 18px;
-            font-size: 13.5px;
-            color: #991b1b;
-            margin: 18px 0;
-            line-height: 1.8;
-        }
+        .num { font-weight: bold; color: var(--accent); margin-right: 9px; min-width: 26px; flex-shrink: 0; }
+        .addr { font-size: 11px; color: #94a3b8; display: block; margin-top: 2px; }
         .new-badge {
-            display: inline-block;
-            background: #dc2626; color: white;
+            display: inline-block; background: #dc2626; color: white;
             font-size: 10px; font-weight: 700;
             padding: 2px 7px; border-radius: 3px;
             margin-left: 8px; vertical-align: middle;
+        }
+        .note-box {
+            background: #fffbeb; border-left: 4px solid var(--accent);
+            border-radius: 0 6px 6px 0;
+            padding: 12px 16px; font-size: 13px; color: #78350f; margin: 14px 0;
+        }
+        .source-note {
+            font-size: 11px; color: #94a3b8; text-align: right; margin-top: 14px;
+        }
+        .sector-tag {
+            display: inline-block; font-size: 10px; color: #92400e;
+            background: #fef3c7; padding: 1px 6px; border-radius: 10px;
+            margin-left: 5px; vertical-align: middle;
         }
     </style>
 </head>
@@ -144,286 +125,322 @@
 
  <div style="text-align: right; padding: 10px;">
    <button onclick="window.print()" style="
-     padding: 8px 20px;
-     background-color: #0057b8;
-     color: white;
-     border: none;
-     border-radius: 6px;
-     font-size: 14px;
-     cursor: pointer;
+     padding: 8px 20px; background-color: #0057b8; color: white;
+     border: none; border-radius: 6px; font-size: 14px; cursor: pointer;
    ">🖨️ 印刷</button>
-  </div>
+ </div>
 
 <div class="container">
     <header>
         <h1>3. 注視リスト（关注名单）</h1>
-        <div class="meta-info">中華人民共和国両用物項出口管制条例（2024年）第26条に基づく指定実体（2026年6月最新版）</div>
+        <div class="meta-info">中華人民共和国両用物項出口管制条例（2024年）第26条に基づく審査厳格化対象実体 — 2026年6月最新版（日本企業 計40社）</div>
     </header>
     <div class="content-box">
 
         <div class="info-panel">
-            <strong>关注名单（監視リスト）</strong>とは、最終用途・最終ユーザーの実態が確認できない（現地査察が拒否された、連絡が取れない等）輸入者・エンドユーザーを対象に、商務部が審査を厳格化するリスト。米国の「Unverified List（UVL：未検証リスト）」に近い性質を持つ。<br>
-            「出口管制管控名单」のような<strong>取引の全面禁止ではない</strong>が、掲載実体向けに両用物項を輸出する場合、包括許可の申請・登録及び情報記入方式による輸出証明書の取得が<strong>禁止</strong>され、個別許可申請の際には軍事利用しない旨の誓約書等の提出が求められ、厳格な最終ユーザー・用途審査が実施される。また許可審査期間の法定期限は適用されない（無期限延長可能）。
-        </div>
-        <div class="info-panel" style="background:#fffbeb; border-color:#fde68a; color:#92400e;">
-            <strong>※「格上げ」の仕組みについて：</strong> 「格上げ」の仕組みについて：</strong> 「注視リスト（关注名单）」に掲載された後、一定期間内に疑いが晴れなければ、段階的に「輸出規制コントロールリスト（出口管制管控名单）」へ格上げされる運用がある。ただし条文上「一定期間内に疑いが晴れなければ自動的に格上げされる」旨の直接的な文言が明記されているわけではなく、これは輸出管制法第18条及び両用物項出口管制条例第26条・第28条の組み合わせ、並びに米国UVLからEntity Listへの移行をモデルとした実務上の解釈である。
-<br>
-            <strong>解除：</strong>商務部の核査（実態調査）に協力した場合、申請により移出（解除）が可能（条例第26条）。
-        </div>
-
-        <div class="legend">
-            <strong style="font-size:12px; color:#475569;">措置ステータス：</strong>
-            <span class="legend-item"><span class="legend-dot dot-active"></span>関注対象・審査厳格化中</span>
-            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中（米中協議による暫定措置）</span>
-            <span class="legend-item"><span class="legend-dot dot-stopped"></span>措置停止（終了）</span>
+            <strong>关注名单（注視リスト）</strong>とは、両用物項の最終ユーザー・最終用途が核実（確認）できない企業・団体に対し、輸出許可審査を厳格化するリスト。米国の「Unverified List（UVL）」に近い性質。<strong>「出口管制管控名单（禁輸）」とは異なり、取引自体は禁止されない</strong>が、以下の制限が課される：<br>
+            ① <strong>通用許可・簡易申告（登記填報）による輸出凭証の取得が不可</strong><br>
+            ② 単項許可申請時に<strong>リスク評価報告書</strong>と<strong>軍事利用しない旨の書面誓約</strong>の提出が義務付けられる<br>
+            ③ <strong>許可審査期限の法定上限（条例第17条第1款）が適用されない</strong>（審査が無期限に延長可能）<br>
+            ④ 商務部は<strong>「日本の軍事用途・軍事ユーザー・軍事力向上に資する用途への輸出は不許可」</strong>と明記。実務上は事実上の禁輸に近い効果を持つとされる。<br>
+            <span style="display:block; margin-top:8px;">指定実体が商務部の<strong>核査（実態調査）に協力</strong>した場合、申請により移出（解除）が可能（条例第26条）。</span>
         </div>
 
-        <!-- ======== 2026年 対日全面強化公告 ======== -->
-        <div class="alert-critical">
-            <strong>🚨【最重要】2026年第1号公告（2026年1月6日発効）：対日本向け両用物項の審査厳格化（关注名单指定強化）</strong><br>
-            すべての両用物項について、<u>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するいかなる最終用途・最終ユーザーへの輸出</u>は、包括許可・簡易申告方式を利用できず、個別許可申請時に軍事転用リスク評価及び軍事利用しない旨の誓約書提出等、<strong>厳格な審査</strong>の対象となる（取引自体の全面禁止ではない）。物項が管制リストに掲載されているかを問わず、<strong>取引全体・サプライチェーンの軍事転用可能性</strong>が審査対象。取引の全面禁止を伴う「出口管制管控名单（2024年第46号公告＝対米管制）」とは別に、監視強化措置として運用される。対日輸出に関わるすべての品目で、最終ユーザーの「穿透式核実」（実質的最終用途の突き抜け確認）が求められる。
-        </div>
+        <!-- 管控名单との比較 -->
+        <table class="compare-table">
+            <tr>
+                <th></th>
+                <th>輸出規制コントロールリスト（管控名单 / ファイル2）</th>
+                <th>注視リスト（关注名单 / 本ファイル）</th>
+            </tr>
+            <tr>
+                <td><strong>根拠条文</strong></td>
+                <td>出口管制法第18条・両用物項出口管制条例第28条</td>
+                <td>両用物項出口管制条例第26条</td>
+            </tr>
+            <tr>
+                <td><strong>指定理由</strong></td>
+                <td>軍事転用リスクが高い実体（日本の軍事力向上に参与）</td>
+                <td>最終用途・最終ユーザーの核実（確認）が困難な実体</td>
+            </tr>
+            <tr>
+                <td><strong>輸出禁止</strong></td>
+                <td>✅ 全面禁止（特例申請のみ可）</td>
+                <td>❌ 禁止されない（許可申請は可能）ただし実務上は事実上禁輸</td>
+            </tr>
+            <tr>
+                <td><strong>通用許可・簡易申告</strong></td>
+                <td>利用不可</td>
+                <td>利用不可</td>
+            </tr>
+            <tr>
+                <td><strong>単項許可申請</strong></td>
+                <td>特例として申請可</td>
+                <td>申請可（リスク評価報告書＋書面誓約が必要）</td>
+            </tr>
+            <tr>
+                <td><strong>審査期間上限</strong></td>
+                <td>なし（法定期限不適用）</td>
+                <td>なし（法定期限不適用。無期限延長可能）</td>
+            </tr>
+            <tr>
+                <td><strong>再輸出規制（域外適用）</strong></td>
+                <td>あり（中国原産物品の第三国経由移転も禁止）</td>
+                <td>なし</td>
+            </tr>
+            <tr>
+                <td><strong>解除手続き</strong></td>
+                <td>商務部審査</td>
+                <td>核査協力→申請で移出可（条例第26条）</td>
+            </tr>
+            <tr>
+                <td><strong>格上げ</strong></td>
+                <td>—</td>
+                <td>疑いが晴れない場合、管控名单への格上げの運用あり</td>
+            </tr>
+        </table>
 
-        <!-- ======== 日本 ======== -->
-        <h2>１．日本（2026年公示分）</h2>
+        <!-- ===== 日本・第1回指定（第12号公告） ===== -->
+        <h2>１．日本（第1回指定 / 2026年2月24日）</h2>
+
+        <div class="note-box">
+            2026年2月24日、商務部は管控名单（第11号公告・三菱造船等20社）と同日に本注視リスト（第12号公告・スバル等20社）を発出。<br>
+            対象は「両用物項の最終ユーザー・最終用途が核実できない」企業群。自動車・航空宇宙・電子・素材・化学・商社・大学など民生色が強い業種が中心であり、技術の軍民両用可能性（デュアルユース）を根拠に指定されている。
+        </div>
 
         <div class="announcement-block">
             <div class="announcement-header">
-                <span class="announcement-title">第1弾指定（2026年2月24日公布）</span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
+                <span class="announcement-title">商務部公告2026年第12号（2026年2月24日公布 / 全20実体）</span>
+                <span class="status-badge">審査厳格化中</span>
                 <span class="announcement-date">2026.02.24</span>
             </div>
             <div class="announcement-body">
                 <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>株式会社SUBARU</div>
-                    <div class="company-item"><span class="num">2）</span>富士エアロスペーステクノロジー株式会社</div>
-                    <div class="company-item"><span class="num">3）</span>ENEOS株式会社</div>
-                    <div class="company-item"><span class="num">4）</span>輸送機工業株式会社</div>
-                    <div class="company-item"><span class="num">5）</span>伊藤忠アビエーション株式会社</div>
-                    <div class="company-item"><span class="num">6）</span>株式会社レダグループホールディングス</div>
-                    <div class="company-item"><span class="num">7）</span>東京科学大学（旧東京工業大学等）</div>
-                    <div class="company-item"><span class="num">8）</span>三菱マテリアル株式会社</div>
-                    <div class="company-item"><span class="num">9）</span>ASPP株式会社</div>
-                    <div class="company-item"><span class="num">10）</span>八洲電機株式会社</div>
-                    <div class="company-item"><span class="num">11）</span>住友重機械工業株式会社</div>
-                    <div class="company-item"><span class="num">12）</span>TDK株式会社</div>
-                    <div class="company-item"><span class="num">13）</span>三井物産エアロスペース株式会社</div>
-                    <div class="company-item"><span class="num">14）</span>日野自動車株式会社</div>
-                    <div class="company-item"><span class="num">15）</span>株式会社トーキン</div>
-                    <div class="company-item"><span class="num">16）</span>日新電機株式会社</div>
-                    <div class="company-item"><span class="num">17）</span>株式会社サン・テクトロ</div>
-                    <div class="company-item"><span class="num">18）</span>日東電工株式会社</div>
-                    <div class="company-item"><span class="num">19）</span>日油株式会社</div>
-                    <div class="company-item"><span class="num">20）</span>ナカライテスク株式会社</div>
+                    <div class="company-item">
+                        <span class="num">1）</span>
+                        <span>スバル株式会社（SUBARU Corporation）<span class="sector-tag">自動車</span>
+                        <span class="addr">群馬県太田市スバル町1-1 〒373-8555</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">2）</span>
+                        <span>富士航空宇宙技術株式会社（FUJI Aerospace Technology Co., Ltd.）<span class="sector-tag">航空機部品</span>
+                        <span class="addr">静岡県浜松市中央区高塚町300 〒432-8002</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">3）</span>
+                        <span>ENEOSホールディングス株式会社（ENEOS Corporation）<span class="sector-tag">石油・エネルギー</span>
+                        <span class="addr">東京都千代田区大手町1-1-2 〒100-8162</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">4）</span>
+                        <span>輸送機工業株式会社（Yusoki Co., Ltd.）<span class="sector-tag">特殊車両・輸送機器</span>
+                        <span class="addr">愛知県刈谷市豊田町3-1 〒448-0805</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">5）</span>
+                        <span>伊藤忠航空株式会社（ITOCHU Aviation Co., Ltd.）<span class="sector-tag">航空機商社</span>
+                        <span class="addr">東京都港区赤坂2-14-27 国際新赤坂ビル東館 〒107-0052</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">6）</span>
+                        <span>レダグループホールディングス株式会社（Leda Group Holdings Co., Ltd.）<span class="sector-tag">防衛・セキュリティ</span>
+                        <span class="addr">東京都港区赤坂1-12-32 アーク森ビル 〒107-0052</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">7）</span>
+                        <span>東京科学大学（Institute of Science Tokyo）<span class="sector-tag">大学・研究機関</span>
+                        <span class="addr">東京都目黒区大岡山2-12-1 〒152-8550</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">8）</span>
+                        <span>三菱マテリアル株式会社（Mitsubishi Materials Corporation）<span class="sector-tag">素材・金属</span>
+                        <span class="addr">東京都千代田区大手町1-3-2 〒100-8117</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">9）</span>
+                        <span>ASPP株式会社（ASPP Co., Ltd.）<span class="sector-tag">航空機部品・整備</span>
+                        <span class="addr">東京都港区浜松町2-4-1 世界貿易センタービル 〒105-6139</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">10）</span>
+                        <span>八洲電機株式会社（Yashima Denki Co., Ltd.）<span class="sector-tag">電気・計測</span>
+                        <span class="addr">東京都港区芝浦4-13-23 MS芝浦ビル 〒108-0023</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">11）</span>
+                        <span>住友重機械工業株式会社（Sumitomo Heavy Industries, Ltd.）<span class="sector-tag">重機械・産業機械</span>
+                        <span class="addr">東京都品川区大崎2-1-1 〒141-6025</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">12）</span>
+                        <span>TDK株式会社（TDK Corporation）<span class="sector-tag">電子部品</span>
+                        <span class="addr">東京都中央区日本橋2-13-10 〒103-6128</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">13）</span>
+                        <span>三井物産エアロスペース株式会社（Mitsui Bussan Aerospace Co., Ltd.）<span class="sector-tag">航空宇宙商社</span>
+                        <span class="addr">東京都千代田区丸の内1-8-2 〒100-0005</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">14）</span>
+                        <span>日野自動車株式会社（Hino Motors, Ltd.）<span class="sector-tag">トラック・バス</span>
+                        <span class="addr">東京都日野市日野台3-1-1 〒191-8660</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">15）</span>
+                        <span>東金株式会社（Tokin Corporation）<span class="sector-tag">電子部品・磁性材料</span>
+                        <span class="addr">宮城県仙台市太白区八木山本町1-1 〒982-8510</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">16）</span>
+                        <span>日新電機株式会社（Nissin Electric Co., Ltd.）<span class="sector-tag">電力機器・変電設備</span>
+                        <span class="addr">京都府京都市右京区梅津高畝町47 〒615-8686</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">17）</span>
+                        <span>サン・テクトロ株式会社（Sun Tectro Co., Ltd.）<span class="sector-tag">航空電子・測定器</span>
+                        <span class="addr">東京都大田区羽田旭町11-15 〒144-0042</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">18）</span>
+                        <span>日東電工株式会社（Nitto Denko Corporation）<span class="sector-tag">機能材料・フィルム</span>
+                        <span class="addr">大阪府大阪市北区大深町4-20 〒530-0011</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">19）</span>
+                        <span>日油株式会社（NOF Corporation）<span class="sector-tag">化学・火薬・機能材料</span>
+                        <span class="addr">東京都渋谷区恵比寿4-20-3 〒150-6019</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">20）</span>
+                        <span>ナカライテスク株式会社（Nacalai Tesque, Inc.）<span class="sector-tag">試薬・化学品</span>
+                        <span class="addr">京都府京都市中京区壬生東高田町1-5 〒604-0855</span></span>
+                    </div>
                 </div>
+                <p class="source-note">出典：商務部公告2026年第12号（2026年2月24日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_bac18400512d408a8d4c2f964e36ac11.html</p>
             </div>
+        </div>
+
+        <!-- ===== 日本・第2回指定（第28号公告） ===== -->
+        <h2>２．日本（第2回指定 / 2026年6月29日）</h2>
+
+        <div class="note-box">
+            2026年6月29日、管控名单（第27号公告・防衛研究所等20社）と同日に発出。<br>
+            第1回指定（2月）に続く第2弾。対象は防衛・ドローン・原子力・通信・精密機械・火工品など、より防衛産業に近い業種が目立つ。<span class="new-badge">NEW</span>
         </div>
 
         <div class="announcement-block">
             <div class="announcement-header">
-                <span class="announcement-title">第2弾指定（2026年6月29日公布追加）<span class="new-badge">NEW</span></span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
+                <span class="announcement-title">商務部公告2026年第28号（2026年6月29日公布 / 全20実体）<span class="new-badge">NEW</span></span>
+                <span class="status-badge">審査厳格化中</span>
                 <span class="announcement-date">2026.06.29</span>
             </div>
             <div class="announcement-body">
                 <div class="company-grid">
-                    <div class="company-item"><span class="num">21）</span>株式会社三井E&amp;S</div>
-                    <div class="company-item"><span class="num">22）</span>三井物産エアロスペース株式会社 メンテナンスセンター</div>
-                    <div class="company-item"><span class="num">23）</span>Terra Drone株式会社</div>
-                    <div class="company-item"><span class="num">24）</span>ACSL株式会社</div>
-                    <div class="company-item"><span class="num">25）</span>三菱原子燃料株式会社</div>
-                    <div class="company-item"><span class="num">26）</span>日本原燃株式会社</div>
-                    <div class="company-item"><span class="num">27）</span>富士通ネットワークソリューションズ株式会社</div>
-                    <div class="company-item"><span class="num">28）</span>日立高端システム株式会社</div>
-                    <div class="company-item"><span class="num">29）</span>小松産機株式会社</div>
-                    <div class="company-item"><span class="num">30）</span>小松NTC株式会社</div>
-                    <div class="company-item"><span class="num">31）</span>沖電気工業株式会社</div>
-                    <div class="company-item"><span class="num">32）</span>OKI通信回声株式会社</div>
-                    <div class="company-item"><span class="num">33）</span>OKI回路技術株式会社</div>
-                    <div class="company-item"><span class="num">34）</span>OKIネクステック株式会社</div>
-                    <div class="company-item"><span class="num">35）</span>沖エンジニアリング株式会社</div>
-                    <div class="company-item"><span class="num">36）</span>YDKテクノロジーズ株式会社</div>
-                    <div class="company-item"><span class="num">37）</span>日本電磁測器株式会社</div>
-                    <div class="company-item"><span class="num">38）</span>豊和工業株式会社</div>
-                    <div class="company-item"><span class="num">39）</span>細谷火工株式会社</div>
-                    <div class="company-item"><span class="num">40）</span>藤倉航装株式会社</div>
+                    <div class="company-item">
+                        <span class="num">21）</span>
+                        <span>三井E&amp;S株式会社（MITSUI E&amp;S Co., Ltd.）<span class="sector-tag">造船・機械</span>
+                        <span class="addr">東京都中央区築地5-6-4 〒104-0045</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">22）</span>
+                        <span>三井物産エアロスペース株式会社 メンテナンスセンター（Mitsui Bussan Aerospace Co., Ltd. Maintenance Center）<span class="sector-tag">航空整備</span>
+                        <span class="addr">東京都千代田区丸の内1-8-2 鉄鋼ビルディング22層 〒100-0005</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">23）</span>
+                        <span>Terra Drone株式会社（Terra Drone Corporation）<span class="sector-tag">ドローン</span>
+                        <span class="addr">東京都渋谷区南平台町2-17 A-PLACE渋谷南平台4層 〒150-0036</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">24）</span>
+                        <span>ACSL株式会社（ACSL Ltd.）<span class="sector-tag">ドローン</span>
+                        <span class="addr">東京都江戸川区臨海町3-6-4 Hulic葛西臨海ビル2層 〒134-0086</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">25）</span>
+                        <span>三菱原子燃料株式会社（Mitsubishi Nuclear Fuel Co., Ltd.）<span class="sector-tag">原子燃料</span>
+                        <span class="addr">茨城県那珂郡東海村大字舟石川622-1 〒319-1197</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">26）</span>
+                        <span>日本原燃株式会社（Japan Nuclear Fuel Limited）<span class="sector-tag">核燃料サイクル</span>
+                        <span class="addr">青森県上北郡六ヶ所村大字尾駮字沖付4-108 〒039-3212</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">27）</span>
+                        <span>富士通ネットワークソリューションズ株式会社（Fujitsu Network Solutions Limited）<span class="sector-tag">通信・ネットワーク</span>
+                        <span class="addr">神奈川県川崎市幸区大宮町1-5 JR川崎タワー 〒212-0014</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">28）</span>
+                        <span>日立ハイシステム株式会社（Hitachi Advanced Systems Corporation）<span class="sector-tag">システム・制御</span>
+                        <span class="addr">神奈川県横浜市戸塚区吉田町292 〒244-0817</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">29）</span>
+                        <span>コマツ産機株式会社（Komatsu Industries Corporation）<span class="sector-tag">プレス・板金機械</span>
+                        <span class="addr">石川県金沢市大野町新町1-1 〒920-0225</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">30）</span>
+                        <span>コマツNTC株式会社（Komatsu NTC Ltd.）<span class="sector-tag">工作機械</span>
+                        <span class="addr">富山県南砺市野尻641 〒939-1502</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">31）</span>
+                        <span>沖電気工業株式会社（OKI Electric Industry Co., Ltd.）<span class="sector-tag">通信・電子機器</span>
+                        <span class="addr">東京都港区虎ノ門1-7-12 〒105-8460</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">32）</span>
+                        <span>OKIコムエコーズ株式会社（OKI Com-Echoes Co., Ltd.）<span class="sector-tag">通信機器製造</span>
+                        <span class="addr">静岡県沼津市大諏訪字薊原681-1 〒410-0873</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">33）</span>
+                        <span>OKI回路技術株式会社（OKI Circuit Technology Co., Ltd.）<span class="sector-tag">プリント基板</span>
+                        <span class="addr">山形県鶴岡市宝田1-15-68 〒997-0011</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">34）</span>
+                        <span>OKIネクステック株式会社（OKI Nextech Co., Ltd.）<span class="sector-tag">電子機器製造</span>
+                        <span class="addr">埼玉県所沢市上山口1 〒359-1153</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">35）</span>
+                        <span>沖エンジニアリング株式会社（OKI Engineering Co., Ltd.）<span class="sector-tag">電子機器試験</span>
+                        <span class="addr">東京都練馬区氷川台3-20-16 〒179-0084</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">36）</span>
+                        <span>YDKテクノロジーズ株式会社（YDK Technologies Co., Ltd.）<span class="sector-tag">電子・防衛関連</span>
+                        <span class="addr">東京都渋谷区千駄ヶ谷5-23-13 南新宿JEBL 〒151-0051</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">37）</span>
+                        <span>日本電磁測器株式会社（Nihon Denji Sokki Co., Ltd.）<span class="sector-tag">計測・センサー</span>
+                        <span class="addr">東京都立川市砂川町8-59-2 〒190-0031</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">38）</span>
+                        <span>豊和工業株式会社（Howa Machinery, Ltd.）<span class="sector-tag">工作機械・火器</span>
+                        <span class="addr">愛知県清須市須口1900-1 〒452-8601</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">39）</span>
+                        <span>細谷火工株式会社（Hosoya Pyro-Engineering Co., Ltd.）<span class="sector-tag">火工品・信管</span>
+                        <span class="addr">東京都あきる野市菅生1847 〒197-0801</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">40）</span>
+                        <span>藤倉航装株式会社（The Fujikura Parachute Co., Ltd.）<span class="sector-tag">パラシュート・航空装備</span>
+                        <span class="addr">東京都品川区荏原2-4-46 〒142-0063</span></span>
+                    </div>
                 </div>
+                <p class="source-note">出典：商務部公告2026年第28号（2026年6月29日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_c2ab731429dc4bc3ba8696cd0e6ad857.html</p>
             </div>
         </div>
-
-        <!-- ======== アメリカ ======== -->
-        <h2>２．アメリカ合衆国（2025年商務部公告指定分）</h2>
-
-        <!-- 第1号公告 2025.01.02 -->
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第1号公告（2025年1月2日）：通用動力等28実体</span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
-                <span class="announcement-date">2025.01.02</span>
-            </div>
-            <div class="announcement-body">
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>General Dynamics（ジェネラル・ダイナミクス）</div>
-                    <div class="company-item"><span class="num">2）</span>L3Harris Technologies（L3ハリス・テクノロジーズ）</div>
-                    <div class="company-item"><span class="num">3）</span>Intelligent Epitaxy Technology（インテリジェントエピタキシー技術）</div>
-                    <div class="company-item"><span class="num">4）</span>Clear Align LLC（クリアアライン）</div>
-                    <div class="company-item"><span class="num">5）</span>Boeing Defense, Space &amp; Security（ボーイング防衛・宇宙・セキュリティ）</div>
-                    <div class="company-item"><span class="num">6）</span>Lockheed Martin Corporation（ロッキード・マーティン本体）</div>
-                    <div class="company-item"><span class="num">7）</span>Raytheon Missiles &amp; Defense（レイセオン・ミサイルズ＆ディフェンス）</div>
-                    <div class="company-item"><span class="num">8）</span>Lockheed Martin Missiles and Fire Control（LM ミサイル＆ファイアコントロール）</div>
-                    <div class="company-item"><span class="num">9）</span>Lockheed Martin Aeronautics（LMエアロノーティクス）</div>
-                    <div class="company-item"><span class="num">10）</span>Raytheon/Lockheed Martin Javelin Joint Venture（ジャベリン合弁）</div>
-                    <div class="company-item"><span class="num">11）</span>Raytheon Missile Systems（レイセオン・ミサイル・システムズ）</div>
-                    <div class="company-item"><span class="num">12）</span>General Dynamics Ordnance and Tactical Systems（GD 軍械・戦術システム）</div>
-                    <div class="company-item"><span class="num">13）</span>General Dynamics Information Technology（GD 情報技術）</div>
-                    <div class="company-item"><span class="num">14）</span>General Dynamics Mission Systems（GD ミッション・システムズ）</div>
-                    <div class="company-item"><span class="num">15）</span>Inter-Coastal Electronics（インターコースタル・エレクトロニクス）</div>
-                    <div class="company-item"><span class="num">16）</span>System Studies &amp; Simulation（システム研究与模擬）</div>
-                    <div class="company-item"><span class="num">17）</span>IronMountain Solutions（アイアンマウンテン・ソリューションズ）</div>
-                    <div class="company-item"><span class="num">18）</span>Applied Technologies Group（応用技術グループ）</div>
-                    <div class="company-item"><span class="num">19）</span>Axient（アクシエント）</div>
-                    <div class="company-item"><span class="num">20）</span>Lockheed Martin Missile System Integration Lab（LM ミサイルシステム統合研究所）</div>
-                    <div class="company-item"><span class="num">21）</span>Lockheed Martin Advanced Technology Laboratories（LM 先端技術研究所）</div>
-                    <div class="company-item"><span class="num">22）</span>Lockheed Martin Ventures（LM ベンチャーズ）</div>
-                    <div class="company-item"><span class="num">23）</span>Anduril Industries（アンドゥリル・インダストリーズ）</div>
-                    <div class="company-item"><span class="num">24）</span>Maritime Tactical Systems（海上戦術システム）</div>
-                    <div class="company-item"><span class="num">25）</span>Pacific Rim Defense（環太平洋防衛）</div>
-                    <div class="company-item"><span class="num">26）</span>AEVEX Aerospace（AEVEXエアロスペース）</div>
-                    <div class="company-item"><span class="num">27）</span>LKD Aerospace（LKDエアロスペース）</div>
-                    <div class="company-item"><span class="num">28）</span>Summit Technologies（サミット・テクノロジーズ）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第13号公告 2025.03.04 → 停止 -->
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第13号公告（2025年3月4日）：レイドス等15実体</span>
-                <span class="status-badge badge-stopped">措置停止（2025年11月10日付）</span>
-                <span class="announcement-date">2025.03.04</span>
-            </div>
-            <div class="announcement-body">
-                <div class="status-note note-stopped">米中吉隆坡経貿磋商の合意に基づき、2025年11月10日をもって措置を停止（終了）。</div>
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>Leidos（レイドス）</div>
-                    <div class="company-item"><span class="num">2）</span>Gibbs &amp; Cox, Inc.（ギブス＆コックス / 艦船設計）</div>
-                    <div class="company-item"><span class="num">3）</span>IP Video Market Info, Inc.（IPビデオマーケット）</div>
-                    <div class="company-item"><span class="num">4）</span>Sourcemap, Inc.（ソースマップ / サプライチェーン調査）</div>
-                    <div class="company-item"><span class="num">5）</span>Skydio, Inc.（スカディオ / ドローン）</div>
-                    <div class="company-item"><span class="num">6）</span>Rapid Flight LLC（ラピッドフライト）</div>
-                    <div class="company-item"><span class="num">7）</span>Red Six Solutions（レッドシックス・ソリューションズ）</div>
-                    <div class="company-item"><span class="num">8）</span>Shield AI, Inc.（シールドAI）</div>
-                    <div class="company-item"><span class="num">9）</span>Havoc AI（ハボックAI）</div>
-                    <div class="company-item"><span class="num">10）</span>Neros Technologies（ネロス・テクノロジーズ）</div>
-                    <div class="company-item"><span class="num">11）</span>Group W（グループW）</div>
-                    <div class="company-item"><span class="num">12）</span>AIRCOM, Inc.（エアコム）</div>
-                    <div class="company-item"><span class="num">13）</span>General Atomics Aeronautical Systems（ジェネラル・アトミクス・エアロノーティカル）</div>
-                    <div class="company-item"><span class="num">14）</span>General Dynamics Land Systems（GD ランド・システムズ）</div>
-                    <div class="company-item"><span class="num">15）</span>AeroVironment, Inc.（エアロバイロンメント）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第21号公告 2025.04.04 → 停止 -->
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第21号公告（2025年4月4日）：シエラネバダ等16実体</span>
-                <span class="status-badge badge-suspended">一時停止中（2026年11月まで）</span>
-                <span class="announcement-date">2025.04.04</span>
-            </div>
-            <div class="announcement-body">
-                <div class="status-note note-suspended">米中吉隆坡経貿磋商の合意に基づき、2025年11月10日より1年間（2026年11月まで）措置を停止中。</div>
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>Hi-Point Aerotechnologies（ハイポイント・エアロテクノロジーズ）</div>
-                    <div class="company-item"><span class="num">2）</span>Universal Logistics Holdings, Inc.（ユニバーサル・ロジスティクス）</div>
-                    <div class="company-item"><span class="num">3）</span>Source Intelligence, Inc.（ソース・インテリジェンス）</div>
-                    <div class="company-item"><span class="num">4）</span>Coalition for a Prosperous America（繁栄するアメリカのための連合）</div>
-                    <div class="company-item"><span class="num">5）</span>Sierra Nevada Corporation（シエラネバダコーポレーション）</div>
-                    <div class="company-item"><span class="num">6）</span>Edge Autonomy Operations LLC（エッジ・オートノミー）</div>
-                    <div class="company-item"><span class="num">7）</span>Cyberlux Corporation（サイバーラックス）</div>
-                    <div class="company-item"><span class="num">8）</span>Hudson Technologies Co.（ハドソン・テクノロジーズ）</div>
-                    <div class="company-item"><span class="num">9）</span>Saronic Technologies（サロニク・テクノロジーズ / 自律水上艦）</div>
-                    <div class="company-item"><span class="num">10）</span>Oceaneering International（オーシャニアリング・インターナショナル）</div>
-                    <div class="company-item"><span class="num">11）</span>Stick Rudder Enterprises LLC（スティック・ラダー・エンタープライズ）</div>
-                    <div class="company-item"><span class="num">12）</span>Cubic Corporation（キュービック）</div>
-                    <div class="company-item"><span class="num">13）</span>S3 AeroDefense（S3エアロディフェンス）</div>
-                    <div class="company-item"><span class="num">14）</span>TCOM L.P.（特科姆 / テコム有限責任組合）</div>
-                    <div class="company-item"><span class="num">15）</span>Textor Inc.（テキストオーア）</div>
-                    <div class="company-item"><span class="num">16）</span>ACT1 Federal（ACT1フェデラル）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第22号公告 2025.04.09 -->
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第22号公告（2025年4月9日）：テレダイン・ブラウン等12実体</span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
-                <span class="announcement-date">2025.04.09</span>
-            </div>
-            <div class="announcement-body">
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>American Photonics（アメリカン・フォトニクス / 光学技術）</div>
-                    <div class="company-item"><span class="num">2）</span>Novatek, Inc.（ノボテック）</div>
-                    <div class="company-item"><span class="num">3）</span>Echodyne（エコーダイン / 小型レーダー）</div>
-                    <div class="company-item"><span class="num">4）</span>Marvin Engineering Co.（マーヴィン・エンジニアリング / 航空兵器搭載システム）</div>
-                    <div class="company-item"><span class="num">5）</span>Exovera（エクソベラ / 情報解析）</div>
-                    <div class="company-item"><span class="num">6）</span>Teledyne Brown Engineering（テレダイン・ブラウン・エンジニアリング / 宇宙・防衛）</div>
-                    <div class="company-item"><span class="num">7）</span>BRINC Drones（BRINCドローン / 戦術ドローン）</div>
-                    <div class="company-item"><span class="num">8）</span>SYNEXXUS, Inc.（シネクサス / 防衛システム統合）</div>
-                    <div class="company-item"><span class="num">9）</span>Firestorm Labs（ファイアーストーム・ラボ / 自律ドローン）</div>
-                    <div class="company-item"><span class="num">10）</span>Kratos Unmanned Aerial Systems（クレイトス無人航空 / 標的機・自律機）</div>
-                    <div class="company-item"><span class="num">11）</span>Domo Tactical Communications（ドモ・タクティカル・コミュニケーションズ）</div>
-                    <div class="company-item"><span class="num">12）</span>Insitu, Inc.（インシチュ / 固定翼UAS / ボーイング子会社）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第51号公告 2025.09.25 -->
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第51号公告（2025年9月25日）：ハンティントン等3実体</span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
-                <span class="announcement-date">2025.09.25</span>
-            </div>
-            <div class="announcement-body">
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>Huntington Ingalls Industries（ハンティントン・インガルス / 米最大の軍艦建造企業）</div>
-                    <div class="company-item"><span class="num">2）</span>Prairieland Management Group（プレーリーランド・マネジメント・グループ）</div>
-                    <div class="company-item"><span class="num">3）</span>Global Dimensions LLC（グローバル・ディメンションズ）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ======== 台湾 ======== -->
-        <h2>３．台湾地区（2025年商務部公告指定分）</h2>
-
-        <div class="announcement-block">
-            <div class="announcement-header">
-                <span class="announcement-title">第35号公告（2025年7月9日）：航空宇宙・造船8実体</span>
-                <span class="status-badge badge-active">関注対象・審査厳格化中</span>
-                <span class="announcement-date">2025.07.09</span>
-            </div>
-            <div class="announcement-body">
-                <div class="company-grid">
-                    <div class="company-item"><span class="num">1）</span>航空工業発展中心（AIDC / 航空宇宙産業開発公社）</div>
-                    <div class="company-item"><span class="num">2）</span>GEOSAT Aerospace &amp; Technology（GEOSATエアロスペース）</div>
-                    <div class="company-item"><span class="num">3）</span>国立中山科学技術研究所（NCSIST）</div>
-                    <div class="company-item"><span class="num">4）</span>JC Technology Co., Ltd.（JCテクノロジー）</div>
-                    <div class="company-item"><span class="num">5）</span>CSBC Corporation Taiwan（台湾国際造船）</div>
-                    <div class="company-item"><span class="num">6）</span>Jong Shyn Shipbuilding Co.（中信造船）</div>
-                    <div class="company-item"><span class="num">7）</span>Jong De Shipbuilding Co.（龍徳造船）</div>
-                    <div class="company-item"><span class="num">8）</span>Gong Wei Co., Ltd.（公準精密）</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ======== EU ======== -->
-        <h2>４．欧州連合・その他</h2>
-
-        <p style="font-size:13.5px; color:#475569; margin-bottom:14px;">
-            航空宇宙・防衛産業のサプライチェーンに連なる特殊化学品、先端素材、光学・測定機器の専門商社やメーカーが、商務部公告に基づき個別に指定・注視対象となっています。台湾関連の武器販売に関与した欧州企業については「輸出規制コントロールリスト（出口管制管控名单）」側で対応しているものも存在します。
-        </p>
 
     </div>
 </div>
