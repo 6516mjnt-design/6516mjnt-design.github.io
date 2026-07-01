@@ -7,7 +7,6 @@
     <style>
         :root {
             --primary-color: #1e293b;
-            --accent: #3b82f6;
             --bg-color: #f8fafc;
             --text-color: #1e293b;
             --card-bg: #ffffff;
@@ -15,190 +14,363 @@
             --muted: #64748b;
             --green: #047857;
             --green-light: #d1fae5;
+            --suspended-color: #d97706;
+            --stopped-color: #6b7280;
         }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            margin: 0; padding: 0;
+            background-color: var(--bg-color); color: var(--text-color);
+            line-height: 1.7; margin: 0; padding: 0;
         }
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 8px 8px 0 0;
+            background-color: var(--primary-color); color: white;
+            padding: 30px 20px; border-radius: 8px 8px 0 0;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
         header h1 { margin: 0; font-size: 24px; font-weight: 700; }
         .meta-info { margin-top: 10px; font-size: 14px; color: #cbd5e1; }
         .content-box {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 0 0 8px 8px;
-            border: 1px solid var(--border-color);
+            background: var(--card-bg); padding: 40px;
+            border-radius: 0 0 8px 8px; border: 1px solid var(--border-color);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
         .info-panel {
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 18px 20px;
-            font-size: 14px;
-            color: #334155;
-            margin-bottom: 30px;
-            line-height: 1.75;
+            background: #f8fafc; border: 1px solid var(--border-color);
+            border-radius: 6px; padding: 18px 20px; font-size: 14px;
+            color: #334155; margin-bottom: 28px; line-height: 1.75;
         }
         .info-panel strong { color: #0f172a; }
+        .legend {
+            display: flex; gap: 20px; flex-wrap: wrap;
+            background: #f8fafc; border: 1px solid var(--border-color);
+            border-radius: 6px; padding: 12px 18px; margin-bottom: 28px; font-size: 13px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .dot-active    { background: var(--green); }
+        .dot-suspended { background: var(--suspended-color); }
+        .dot-stopped   { background: var(--stopped-color); }
         h2 {
             font-size: 18px; color: #0f172a;
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 7px; margin-top: 38px;
         }
-        h3 {
-            font-size: 14px; color: #0f172a; margin-top: 24px;
-            background: #f1f5f9;
-            padding: 7px 14px;
-            border-left: 4px solid #475569;
+        .announcement-block {
+            margin-bottom: 24px; border: 1px solid var(--border-color);
+            border-radius: 8px; overflow: hidden;
         }
+        .announcement-header {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 17px; background: #f1f5f9;
+            border-bottom: 1px solid var(--border-color); flex-wrap: wrap;
+        }
+        .announcement-title { font-size: 13.5px; font-weight: 700; color: #0f172a; }
+        .announcement-date  { font-size: 12px; color: var(--muted); margin-left: auto; }
+        .status-badge {
+            font-size: 11px; font-weight: 700;
+            padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+        }
+        .badge-active    { background: var(--green-light); color: var(--green); }
+        .badge-suspended { background: #fef3c7; color: #92400e; }
+        .badge-stopped   { background: #f1f5f9; color: var(--stopped-color); text-decoration: line-through; }
+        .announcement-body { padding: 14px 17px; }
+        .status-note {
+            font-size: 12px; padding: 7px 12px; border-radius: 4px; margin-bottom: 10px;
+        }
+        .note-suspended { background: #fffbeb; border-left: 3px solid #d97706; color: #92400e; }
+        .note-stopped   { background: #f8fafc; border-left: 3px solid #9ca3af; color: #6b7280; }
         .company-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 7px; margin-top: 14px;
+            display: grid; grid-template-columns: 1fr; gap: 7px;
         }
         @media(min-width: 768px) { .company-grid { grid-template-columns: 1fr 1fr; } }
         .company-item {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            padding: 10px 13px;
-            border-radius: 4px;
-            font-size: 13px;
-            display: flex;
-            align-items: flex-start;
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 10px 13px; border-radius: 4px;
+            font-size: 13px; display: flex; align-items: flex-start;
         }
-        .num {
-            font-weight: bold; color: #64748b;
-            margin-right: 9px; min-width: 26px; flex-shrink: 0;
+        .num { font-weight: bold; color: var(--green); margin-right: 9px; min-width: 26px; flex-shrink: 0; }
+        .addr { font-size: 11px; color: #94a3b8; display: block; margin-top: 2px; }
+        .sector-tag {
+            display: inline-block; font-size: 10px; color: var(--green);
+            background: var(--green-light); padding: 1px 6px; border-radius: 10px;
+            margin-left: 5px; vertical-align: middle;
         }
         .alert-critical {
-            background: #fef2f2;
-            border-left: 4px solid #dc2626;
-            border-radius: 0 6px 6px 0;
-            padding: 14px 18px;
-            font-size: 13px;
-            color: #991b1b;
-            margin: 16px 0;
-            line-height: 1.8;
+            background: #fef2f2; border-left: 4px solid #dc2626;
+            border-radius: 0 6px 6px 0; padding: 13px 17px;
+            font-size: 13px; color: #991b1b; margin: 16px 0; line-height: 1.8;
         }
         .new-badge {
-            display: inline-block;
-            background: #dc2626; color: white;
-            font-size: 10px; font-weight: 700;
-            padding: 2px 7px; border-radius: 3px;
-            margin-left: 8px; vertical-align: middle;
+            display: inline-block; background: #dc2626; color: white;
+            font-size: 10px; font-weight: 700; padding: 2px 7px;
+            border-radius: 3px; margin-left: 8px; vertical-align: middle;
         }
-        .badge-active {
-            display: inline-block;
-            background: var(--green-light); color: var(--green);
-            font-size: 11px; font-weight: 700;
-            padding: 3px 9px; border-radius: 20px;
-            margin-left: 8px; vertical-align: middle;
-            white-space: nowrap;
-        }
+        .source-note { font-size: 11px; color: #94a3b8; text-align: right; margin-top: 14px; }
     </style>
 </head>
 <body>
 
  <div style="text-align: right; padding: 10px;">
    <button onclick="window.print()" style="
-     padding: 8px 20px;
-     background-color: #0057b8;
-     color: white;
-     border: none;
-     border-radius: 6px;
-     font-size: 14px;
-     cursor: pointer;
+     padding: 8px 20px; background-color: #0057b8; color: white;
+     border: none; border-radius: 6px; font-size: 14px; cursor: pointer;
    ">🖨️ 印刷</button>
-  </div>
+ </div>
 
 <div class="container">
     <header>
         <h1>2. 輸出規制コントロールリスト（出口管制管控名单）</h1>
-        <div class="meta-info">中華人民共和国両用物項出口管制条例（2024年）第28条及び第29条の5に基づく指定実体 （2026年6月最新版）</div>
+        <div class="meta-info">中華人民共和国出口管制法・両用物項出口管制条例に基づく指定実体 — 日本・EU 2026年6月最新版</div>
     </header>
     <div class="content-box">
 
         <div class="info-panel">
-            <strong>出口管制管控名单</strong>とは、軍事転用の恐れがある両用物項の取引を制限するために商務部が指定する企業・団体のリスト。指定された実体への両用物項の輸出は<strong>全面禁止</strong>（特殊事情がある場合のみ商務部への申請が可能）。<br>
-            あわせて、<strong>国外の組織・個人が中国を原産とする両用品目を掲載者へ移転又は提供することも禁止</strong>する「再輸出規制（域外適用）」が明文化されており、中国国外の第三国間の取引であっても中国原産物品が掲載者に渡ることを禁止・制限できるため、グローバルサプライチェーンに影響を及ぼす。<br>
-            本ファイルは<strong>日本・EU</strong>の指定実体を収載する（監視リスト＝关注名单の指定実体は「3. regulatory_list３.html」を参照）。
+            <strong>出口管制管控名单</strong>とは、軍事転用の恐れがある両用物項の取引を制限するために商務部が指定する企業・団体のリスト。指定された実体への両用物項の輸出は<strong>全面禁止</strong>（特殊事情がある場合のみ商務部への申請が可能）。あわせて、<strong>国外の組織・個人が中国原産の両用品目を掲載者へ移転・提供することも禁止</strong>する再輸出規制（域外適用）が明文化されており、第三国間の取引であっても中国原産物品が掲載者に渡ることを禁止できる。<br>
+            本ファイルは<strong>日本・EU</strong>の指定実体を収載（注視リスト＝关注名单はファイル3参照）。米国・台湾向けの管控名单指定はファイル2では扱わない（別途管理）。
         </div>
 
-        <!-- ========== 対日本 ========== -->
+        <div class="legend">
+            <strong style="font-size:12px; color:#475569;">措置ステータス：</strong>
+            <span class="legend-item"><span class="legend-dot dot-active"></span>禁輸措置発動中</span>
+            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中（米中協議による暫定措置）</span>
+            <span class="legend-item"><span class="legend-dot dot-stopped"></span>措置停止（終了）</span>
+        </div>
+
+        <!-- ========== 日本 ========== -->
         <h2>１．日本</h2>
 
         <div class="alert-critical">
-            <strong>🚨 前提：2026年1月6日 商務部第1号公告（対日両用物項管制の抜本強化）</strong><br>
+            <strong>🚨 前提：2026年第1号公告（2026年1月6日発効）— 対日両用物項の全面管制強化</strong><br>
             すべての両用物項について、<strong>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するあらゆる最終用途・最終ユーザーへの輸出を全面禁止</strong>。物項が管制リストに掲載されているかを問わず、取引全体・サプライチェーンの軍事転用可能性が審査対象。対米管制（2024年第46号公告）に続く国別指向型措置。
         </div>
 
-        <h3>【第1弾指定（商務部公告2026年第11号 / 2026年2月24日公布）】<span class="badge-active">禁輸措置発動中</span></h3>
-        <div class="company-grid">
-            <div class="company-item"><span class="num">1）</span>防衛大学校（National Defense Academy）</div>
-            <div class="company-item"><span class="num">2）</span>国立研究開発法人宇宙航空研究開発機構（JAXA）</div>
-            <div class="company-item"><span class="num">3）</span>三菱造船株式会社</div>
-            <div class="company-item"><span class="num">4）</span>三菱重工業株式会社</div>
-            <div class="company-item"><span class="num">5）</span>三菱電機株式会社</div>
-            <div class="company-item"><span class="num">6）</span>川崎重工業株式会社</div>
-            <div class="company-item"><span class="num">7）</span>IHI aerospace株式会社</div>
-            <div class="company-item"><span class="num">8）</span>株式会社日本製鋼所</div>
-            <div class="company-item"><span class="num">9）</span>住友精密工業株式会社</div>
-            <div class="company-item"><span class="num">10）</span>ダイキン工業株式会社</div>
-            <div class="company-item"><span class="num">11）</span>多摩川精機株式会社</div>
-            <div class="company-item"><span class="num">12）</span>日本アビオニクス株式会社</div>
-            <div class="company-item"><span class="num">13）</span>明星電気株式会社</div>
-            <div class="company-item"><span class="num">14）</span>新明和工業株式会社</div>
-            <div class="company-item"><span class="num">15）</span>古河電気工業株式会社</div>
-            <div class="company-item"><span class="num">16）</span>昭和飛行機工業株式会社</div>
-            <div class="company-item"><span class="num">17）</span>株式会社ジャムコ</div>
-            <div class="company-item"><span class="num">18）</span>東京計器株式会社</div>
-            <div class="company-item"><span class="num">19）</span>日本無線株式会社</div>
-            <div class="company-item"><span class="num">20）</span>株式会社エキシヴィ</div>
+        <!-- 第11号公告 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">商務部公告2026年第11号（2026年2月24日公布 / 全20実体）</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2026.02.24</span>
+            </div>
+            <div class="announcement-body">
+                <p style="font-size:12px; color:#64748b; margin:0 0 12px;">※本公告原文に住所・郵便番号の記載なし。</p>
+                <div class="company-grid">
+                    <div class="company-item">
+                        <span class="num">1）</span>
+                        <span>三菱造船株式会社（Mitsubishi Heavy Industries Shipbuilding Co.）<span class="sector-tag">造船</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">2）</span>
+                        <span>三菱重工航空エンジン株式会社（Mitsubishi Heavy Industries Aero Engines, Ltd.）<span class="sector-tag">航空エンジン</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">3）</span>
+                        <span>三菱重工海洋機械株式会社（Mitsubishi Heavy Industries Marine Machinery &amp; Equipment Co., Ltd.）<span class="sector-tag">海洋機械</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">4）</span>
+                        <span>三菱重工エンジン＆ターボチャージャ株式会社（Mitsubishi Heavy Industries Engine &amp; Turbocharger, Ltd.）<span class="sector-tag">エンジン</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">5）</span>
+                        <span>三菱重工海事システム株式会社（Mitsubishi Heavy Industries Maritime Systems, Ltd.）<span class="sector-tag">海事システム</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">6）</span>
+                        <span>川崎重工業株式会社 航空宇宙システムカンパニー（Kawasaki Heavy Industries Aerospace Systems Company）<span class="sector-tag">航空宇宙</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">7）</span>
+                        <span>川重岐阜エンジニアリング株式会社（KAWAJU Gifu Engineering Co., Ltd.）<span class="sector-tag">航空機部品</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">8）</span>
+                        <span>富士通ディフェンス＆ナショナルセキュリティ株式会社（Fujitsu Defense &amp; National Security, Ltd.）<span class="sector-tag">防衛・セキュリティ</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">9）</span>
+                        <span>IHI原動機株式会社（IHI Power Systems Co., Ltd.）<span class="sector-tag">艦艇エンジン</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">10）</span>
+                        <span>IHIマスターメタル株式会社（IHI Master Metal Co., Ltd.）<span class="sector-tag">特殊金属</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">11）</span>
+                        <span>IHIジェットサービス株式会社（IHI Jet Service Co., Ltd.）<span class="sector-tag">航空エンジン整備</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">12）</span>
+                        <span>IHI宇宙開発株式会社（IHI Aerospace Co., Ltd.）<span class="sector-tag">宇宙・ロケット</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">13）</span>
+                        <span>IHI航空製造株式会社（IHI Aero Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">14）</span>
+                        <span>IHI宇宙エンジニアリング株式会社（IHI Aerospace Engineering Co., Ltd.）<span class="sector-tag">宇宙工学</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">15）</span>
+                        <span>NECネットワーク・センサ株式会社（NEC Network and Sensor Systems, Ltd.）<span class="sector-tag">防衛センサー</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">16）</span>
+                        <span>NECスペーステクノロジー株式会社（NEC Aerospace Systems, Ltd.）<span class="sector-tag">宇宙・防衛</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">17）</span>
+                        <span>日本海洋ユナイテッド株式会社（Japan Marine United Corporation）<span class="sector-tag">造船</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">18）</span>
+                        <span>JMUディフェンスシステムズ株式会社（JMU Defense Systems Co., Ltd.）<span class="sector-tag">艦艇・防衛</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">19）</span>
+                        <span>防衛大学校（National Defense Academy of Japan）<span class="sector-tag">教育・研究</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">20）</span>
+                        <span>国立研究開発法人宇宙航空研究開発機構（JAXA / Japan Aerospace Exploration Agency）<span class="sector-tag">宇宙・航空研究</span></span>
+                    </div>
+                </div>
+                <p class="source-note">出典：商務部公告2026年第11号（2026年2月24日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_b5159a773124428a9813884015d1b8b3.html</p>
+            </div>
         </div>
 
-        <h3>【第2弾指定（商務部公告2026年第27号 / 2026年6月29日公布）】<span class="badge-active">禁輸措置発動中</span><span class="new-badge">NEW</span></h3>
-        <div class="company-grid">
-            <div class="company-item"><span class="num">21）</span>防衛研究所（National Institute for Defense Studies）</div>
-            <div class="company-item"><span class="num">22）</span>陸上装備研究所（Ground Systems Research Center）</div>
-            <div class="company-item"><span class="num">23）</span>艦艇装備研究所（Naval Systems Research Center）</div>
-            <div class="company-item"><span class="num">24）</span>航空装備研究所（Air Systems Research Center）</div>
-            <div class="company-item"><span class="num">25）</span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）</div>
-            <div class="company-item"><span class="num">26）</span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）</div>
-            <div class="company-item"><span class="num">27）</span>三菱電機防衛与宇宙技術株式会社（Mitsubishi Electric Defense and Space Technologies Corporation）</div>
-            <div class="company-item"><span class="num">28）</span>三菱電機ソフトウェア株式会社（Mitsubishi Electric Software Corporation）</div>
-            <div class="company-item"><span class="num">29）</span>三菱電機エンジニアリング株式会社（Mitsubishi Electric Engineering Company, Limited）</div>
-            <div class="company-item"><span class="num">30）</span>三菱精密株式会社（Mitsubishi Precision Company, Limited）</div>
-            <div class="company-item"><span class="num">31）</span>三菱重工海洋技術株式会社（MHI Oceanincs Co., Ltd.）</div>
-            <div class="company-item"><span class="num">32）</span>三菱重工相模高科技株式会社（MHI Sagami High-tech, Ltd.）</div>
-            <div class="company-item"><span class="num">33）</span>三菱重工物流技術株式会社（MHI Logitec Co., Ltd.）</div>
-            <div class="company-item"><span class="num">34）</span>光和興業株式会社（KOWA KOGYO, Ltd.）</div>
-            <div class="company-item"><span class="num">35）</span>菱重特殊車両サービス株式会社（MHI Special Vehicles Parts Supply &amp; Technical Service Co., Ltd.）</div>
-            <div class="company-item"><span class="num">36）</span>三菱重工海事技術株式会社（MHI Maritech, Co., Ltd.）</div>
-            <div class="company-item"><span class="num">37）</span>KGM株式会社（Kawajyu Gifu Manufacturing Co., Ltd.）</div>
-            <div class="company-item"><span class="num">38）</span>日本飛行機株式会社（NIPPI Corporation）</div>
-            <div class="company-item"><span class="num">39）</span>フォルトゥニオ株式会社（Fortunio Co., Ltd.）</div>
-            <div class="company-item"><span class="num">40）</span>青木精密工業株式会社（Aoki Seimitsu Kogyo Co., Ltd.）</div>
+        <!-- 第27号公告 -->
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">商務部公告2026年第27号（2026年6月29日公布 / 全20実体）<span class="new-badge">NEW</span></span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2026.06.29</span>
+            </div>
+            <div class="announcement-body">
+                <div class="company-grid">
+                    <div class="company-item">
+                        <span class="num">21）</span>
+                        <span>防衛研究所（National Institute for Defense Studies）<span class="sector-tag">防衛研究</span>
+                        <span class="addr">東京都新宿区市谷本村町5番1号　〒162-8808</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">22）</span>
+                        <span>陸上装備研究所（Ground Systems Research Center）<span class="sector-tag">防衛研究</span>
+                        <span class="addr">神奈川県相模原市中央区淵野辺2-9-54　〒252-0206</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">23）</span>
+                        <span>艦艇装備研究所（Naval Systems Research Center）<span class="sector-tag">防衛研究</span>
+                        <span class="addr">東京都目黒区中目黒2-2-1　〒153-0061</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">24）</span>
+                        <span>航空装備研究所（Air Systems Research Center）<span class="sector-tag">防衛研究</span>
+                        <span class="addr">東京都立川市栄町1-2-10　〒190-8533</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">25）</span>
+                        <span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）<span class="sector-tag">防衛機器</span>
+                        <span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー1005号　〒141-0032</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">26）</span>
+                        <span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）<span class="sector-tag">防衛商社</span>
+                        <span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー10層　〒141-0032</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">27）</span>
+                        <span>三菱電機防衛与宇宙技術株式会社（Mitsubishi Electric Defense and Space Technologies Corporation）<span class="sector-tag">防衛・宇宙電子</span>
+                        <span class="addr">東京都品川区大崎1-15-9　〒141-0032</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">28）</span>
+                        <span>三菱電機ソフトウェア株式会社（Mitsubishi Electric Software Corporation）<span class="sector-tag">防衛ソフト</span>
+                        <span class="addr">東京都港区浜松町2-4-1 世界貿易センタービルディング南館29層　〒105-5129</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">29）</span>
+                        <span>三菱電機エンジニアリング株式会社（Mitsubishi Electric Engineering Company, Limited）<span class="sector-tag">電機エンジニアリング</span>
+                        <span class="addr">東京都港区芝5-34-2 三田ザ・タワー　〒108-0014</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">30）</span>
+                        <span>三菱精密株式会社（Mitsubishi Precision Company, Limited）<span class="sector-tag">精密機器・慣性航法</span>
+                        <span class="addr">東京都港区港南1-6-41 シーバンスS館8層　〒108-0075</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">31）</span>
+                        <span>三菱重工海洋技術株式会社（MHI Oceanincs Co., Ltd.）<span class="sector-tag">海洋技術</span>
+                        <span class="addr">長崎県諫早市津久葉町6-53　〒854-0065</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">32）</span>
+                        <span>三菱重工相模高科技株式会社（MHI Sagami High-tech, Ltd.）<span class="sector-tag">精密部品</span>
+                        <span class="addr">神奈川県相模原市中央区田名3000番地　〒252-5293</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">33）</span>
+                        <span>三菱重工物流技術株式会社（MHI Logitec Co., Ltd.）<span class="sector-tag">輸送・ロジスティクス</span>
+                        <span class="addr">愛知県小牧市大字東田中1200番地　〒485-0826</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">34）</span>
+                        <span>光和興業株式会社（KOWA KOGYO, Ltd.）<span class="sector-tag">MHI関連</span>
+                        <span class="addr">長崎市出島町1番14号 出島朝日生命青木ビル8層　〒850-0862</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">35）</span>
+                        <span>菱重特殊車両サービス株式会社（MHI Special Vehicles Parts Supply &amp; Technical Service Co., Ltd.）<span class="sector-tag">特殊車両整備</span>
+                        <span class="addr">東京都新宿区片町4番3号（曙橋SHKビル3層）　〒160-0001</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">36）</span>
+                        <span>三菱重工海事技術株式会社（MHI Maritech, Co., Ltd.）<span class="sector-tag">艦船技術</span>
+                        <span class="addr">長崎県長崎市飽の浦町1-1　〒850-8610</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">37）</span>
+                        <span>KGM株式会社（Kawajyu Gifu Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span>
+                        <span class="addr">岐阜県各務原市川崎町1番地　〒504-0971</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">38）</span>
+                        <span>日本飛行機株式会社（NIPPI Corporation）<span class="sector-tag">航空機整備・製造</span>
+                        <span class="addr">神奈川県横浜市金沢区昭和町3175番地　〒236-8540</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">39）</span>
+                        <span>フォルトゥニオ株式会社（Fortunio Co., Ltd.）<span class="sector-tag">防衛関連</span>
+                        <span class="addr">東京都目黒区洗足2-16-19　〒152-0012</span></span>
+                    </div>
+                    <div class="company-item">
+                        <span class="num">40）</span>
+                        <span>青木精密工業株式会社（Aoki Seimitsu Kogyo Co., Ltd.）<span class="sector-tag">精密加工</span>
+                        <span class="addr">埼玉県川口市差間3-38-12　〒333-0816</span></span>
+                    </div>
+                </div>
+                <p class="source-note">出典：商務部公告2026年第27号（2026年6月29日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_df87be1437044874a35f85cf6e076f3d.html</p>
+            </div>
         </div>
 
         <!-- ========== EU ========== -->
         <h2>２．欧州連合</h2>
 
-        <p style="font-size:14px; color:#475569; margin-bottom:14px;">2026年4月の第20号公告により、「過去に台湾向け武器販売等に関与した」として欧州の防衛・宇宙・銃器大手およびその関連企業7社が一斉指定。</p>
-
-        <div class="company-grid">
-            <div class="company-item"><span class="num">1）</span>FN Herstal S.A.（ベルギー：銃器・防衛大手）</div>
-            <div class="company-item"><span class="num">2〜7）</span><span style="color:#64748b; font-style:italic;">欧州防衛宇宙・特殊コンポーネント関連6社（公告原文で詳細確認要）</span></div>
+        <div class="announcement-block">
+            <div class="announcement-header">
+                <span class="announcement-title">商務部公告2026年第20号（2026年4月24日公布 / 全7実体）</span>
+                <span class="status-badge badge-active">禁輸措置発動中</span>
+                <span class="announcement-date">2026.04.24</span>
+            </div>
+            <div class="announcement-body">
+                <p style="font-size:13px; color:#475569; margin:0 0 10px;">「過去に台湾向け武器販売等に関与した」として欧州の防衛・宇宙・銃器大手およびその関連企業7社が一斉指定。</p>
+                <div class="company-grid">
+                    <div class="company-item"><span class="num">1）</span>FN Herstal S.A.（ベルギー：銃器・防衛大手）</div>
+                    <div class="company-item"><span class="num">2〜7）</span><span style="color:#64748b; font-style:italic;">欧州防衛宇宙・特殊コンポーネント関連6社（公告原文で詳細確認要）</span></div>
+                </div>
+                <p class="source-note">出典：商務部公告2026年第20号（2026年4月24日）</p>
+            </div>
         </div>
 
     </div>
