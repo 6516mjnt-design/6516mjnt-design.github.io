@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2. 輸出管制リスト（出口管制清单）- 2026年6月最新版</title>
+    <title>2. 輸出規制コントロールリスト（出口管制管控名单）- 日本・EU 2026年6月最新版</title>
     <style>
         :root {
             --primary-color: #1e293b;
@@ -13,6 +13,8 @@
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
             --muted: #64748b;
+            --green: #047857;
+            --green-light: #d1fae5;
         }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
@@ -60,24 +62,6 @@
             padding: 7px 14px;
             border-left: 4px solid #475569;
         }
-        /* 重要鉱物カード */
-        .grid-3col {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px; margin-top: 14px;
-        }
-        @media(min-width: 768px)  { .grid-3col { grid-template-columns: 1fr 1fr; } }
-        @media(min-width: 1024px) { .grid-3col { grid-template-columns: 1fr 1fr 1fr; } }
-        .item-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            padding: 14px;
-            border-radius: 6px;
-            font-size: 13px;
-        }
-        .item-card strong { color: #0f172a; display: block; margin-bottom: 4px; }
-        .item-card span { color: #64748b; font-size: 12px; display: block; }
-        /* 企業リスト */
         .company-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -97,35 +81,30 @@
             font-weight: bold; color: #64748b;
             margin-right: 9px; min-width: 26px; flex-shrink: 0;
         }
-        /* 重要注記 */
-        .alert-note {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            border-radius: 0 6px 6px 0;
-            padding: 12px 16px;
-            font-size: 13px;
-            color: #1e40af;
-            margin: 12px 0;
-        }
         .alert-critical {
             background: #fef2f2;
             border-left: 4px solid #dc2626;
             border-radius: 0 6px 6px 0;
-            padding: 12px 16px;
+            padding: 14px 18px;
             font-size: 13px;
             color: #991b1b;
-            margin: 12px 0;
+            margin: 16px 0;
+            line-height: 1.8;
         }
         .new-badge {
             display: inline-block;
-            background: #dc2626;
-            color: white;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 3px;
-            margin-left: 8px;
-            vertical-align: middle;
+            background: #dc2626; color: white;
+            font-size: 10px; font-weight: 700;
+            padding: 2px 7px; border-radius: 3px;
+            margin-left: 8px; vertical-align: middle;
+        }
+        .badge-active {
+            display: inline-block;
+            background: var(--green-light); color: var(--green);
+            font-size: 11px; font-weight: 700;
+            padding: 3px 9px; border-radius: 20px;
+            margin-left: 8px; vertical-align: middle;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -145,84 +124,26 @@
 
 <div class="container">
     <header>
-        <h1>2. 輸出管制リスト（出口管制清单）</h1>
-        <div class="meta-info">中華人民共和国出口管制法に基づく「特定物項（重要鉱物・化学物質）」の禁輸・許可制化 および 安全保障指定実体（2026年6月最新版）</div>
+        <h1>2. 輸出規制コントロールリスト（出口管制管控名单）</h1>
+        <div class="meta-info">中華人民共和国両用物項出口管制条例（2024年）第28条及び第29条の5に基づく指定実体 （2026年6月最新版）</div>
     </header>
     <div class="content-box">
 
         <div class="info-panel">
-            中国政府の輸出管制（出口管制）は、企業・団体の指定（エンドユーザー制限）に加え、<strong>「重要鉱物・先端素材・化学物質そのもの」の禁輸・許可制化（物項指定）</strong>が主軸となります。<br>
-            2026年1月には<strong>対日本向け両用物項管制の抜本強化（第1号公告）</strong>が追加されました。以下は2025〜2026年現在の最新公示に基づく完全版です。
-        </div>
-
-        <!-- ========== 物項規制 ========== -->
-        <h2>１．主要管制物項（商務部・海関総署等公告指定品目）</h2>
-
-        <h3>【2025年4月4日指定（第18号公告）：中重稀土】</h3>
-        <div class="grid-3col">
-            <div class="item-card">
-                <strong>中重稀土（中重レアアース）</strong>
-                <span>ジスプロシウム（Dy）、テルビウム（Tb）等。高性能永久磁石・ミサイル誘導・EV駆動モーターに不可欠な特定レアアース物項の輸出を厳格管制。</span>
-            </div>
-        </div>
-
-        <h3>【2025年2月4日指定（第10号公告）：戦略金属5種】</h3>
-        <div class="grid-3col">
-            <div class="item-card">
-                <strong>タングステン（钨）関連物項</strong>
-                <span>超硬工具・軍用弾頭（APDS等）に用いられる高密度金属素材。</span>
-            </div>
-            <div class="item-card">
-                <strong>モリブデン（钼）関連物項</strong>
-                <span>特殊鋼・合金・電子デバイス向け耐熱素材。</span>
-            </div>
-            <div class="item-card">
-                <strong>インジウム（铟）関連物項</strong>
-                <span>透明導電膜（ITO）・次世代半導体向け重要金属。</span>
-            </div>
-            <div class="item-card">
-                <strong>テルル（碲）関連物項</strong>
-                <span>薄膜太陽電池・熱電変換素子向け素材。</span>
-            </div>
-            <div class="item-card">
-                <strong>ビスマス（铋）関連物項</strong>
-                <span>低融点合金・電子材料・鉛代替環境対応素材。</span>
-            </div>
-        </div>
-
-        <h3>【2025年6月23日指定（六部門聯合公告）：麻薬前駆体】</h3>
-        <div class="grid-3col">
-            <div class="item-card">
-                <strong>4-ピペリドン 関連物質</strong>
-                <span>（4-哌啶酮 / 1-叔丁氧羰基-4-哌啶酮）<br>易制毒化学品（麻薬・向精神薬前駆体）として管理リストに追加、輸出許可を厳格化。</span>
-            </div>
-        </div>
-
-        <h3>【既存の重要規制物項（2023〜2024年指定・継続中）】</h3>
-        <div class="grid-3col">
-            <div class="item-card">
-                <strong>アンチモン（锑）関連物項</strong>
-                <span>防炎剤・軍用弾薬・半導体向け重要鉱物。</span>
-            </div>
-            <div class="item-card">
-                <strong>ガリウム・ゲルマニウム</strong>
-                <span>パワー半導体・光通信・赤外線光学レンズの基幹素材。</span>
-            </div>
-            <div class="item-card">
-                <strong>グラファイト（黒鉛）</strong>
-                <span>EV用リチウムイオン電池負極材・宇宙航空用炭素素材。</span>
-            </div>
+            <strong>出口管制管控名单</strong>とは、軍事転用の恐れがある両用物項の取引を制限するために商務部が指定する企業・団体のリスト。指定された実体への両用物項の輸出は<strong>全面禁止</strong>（特殊事情がある場合のみ商務部への申請が可能）。<br>
+            あわせて、<strong>国外の組織・個人が中国を原産とする両用品目を掲載者へ移転又は提供することも禁止</strong>する「再輸出規制（域外適用）」が明文化されており、中国国外の第三国間の取引であっても中国原産物品が掲載者に渡ることを禁止・制限できるため、グローバルサプライチェーンに影響を及ぼす。<br>
+            本ファイルは<strong>日本・EU</strong>の指定実体を収載する（監視リスト＝关注名单の指定実体は「3. regulatory_list３.html」を参照）。
         </div>
 
         <!-- ========== 対日本 ========== -->
-        <h2>２．日本（安全保障措置指定実体 および 対日輸出管制強化）</h2>
+        <h2>１．日本</h2>
 
         <div class="alert-critical">
-            <strong>🚨 2026年1月6日 商務部第1号公告（対日両用物項管制の抜本強化）</strong><br>
-            すべての両用物項について、<strong>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するあらゆる最終用途・最終ユーザーへの輸出を全面禁止</strong>。これは対米管制（2024年第46号公告）に続く国別指向型出口管制であり、輸出管理実務上の最重要措置。物項が管制リストに掲載されているかどうかではなく、<u>取引全体・サプライチェーンの軍事転用可能性</u>が審査対象となる。
+            <strong>🚨 前提：2026年1月6日 商務部第1号公告（対日両用物項管制の抜本強化）</strong><br>
+            すべての両用物項について、<strong>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するあらゆる最終用途・最終ユーザーへの輸出を全面禁止</strong>。物項が管制リストに掲載されているかを問わず、取引全体・サプライチェーンの軍事転用可能性が審査対象。対米管制（2024年第46号公告）に続く国別指向型措置。
         </div>
 
-        <h3>【第1弾指定（2026年2月24日公布・全20実体）】</h3>
+        <h3>【第1弾指定（商務部公告2026年第●号 / 2026年2月24日公布）】<span class="badge-active">禁輸措置発動中</span></h3>
         <div class="company-grid">
             <div class="company-item"><span class="num">1）</span>防衛大学校（National Defense Academy）</div>
             <div class="company-item"><span class="num">2）</span>国立研究開発法人宇宙航空研究開発機構（JAXA）</div>
@@ -246,22 +167,22 @@
             <div class="company-item"><span class="num">20）</span>株式会社エキシヴィ</div>
         </div>
 
-        <h3>【第2弾指定（2026年6月29日公布・全20実体追加）】<span class="new-badge">NEW</span></h3>
+        <h3>【第2弾指定（商務部公告2026年第27号 / 2026年6月29日公布）】<span class="badge-active">禁輸措置発動中</span><span class="new-badge">NEW</span></h3>
         <div class="company-grid">
-            <div class="company-item"><span class="num">21）</span>防衛研究所</div>
-            <div class="company-item"><span class="num">22）</span>陸上装備研究所</div>
-            <div class="company-item"><span class="num">23）</span>艦艇装備研究所</div>
-            <div class="company-item"><span class="num">24）</span>航空装備研究所</div>
-            <div class="company-item"><span class="num">25）</span>日鋼特機株式会社</div>
-            <div class="company-item"><span class="num">26）</span>日鋼YPK商事株式会社</div>
+            <div class="company-item"><span class="num">21）</span>防衛研究所（National Institute for Defense Studies）</div>
+            <div class="company-item"><span class="num">22）</span>陸上装備研究所（Ground Systems Research Center）</div>
+            <div class="company-item"><span class="num">23）</span>艦艇装備研究所（Naval Systems Research Center）</div>
+            <div class="company-item"><span class="num">24）</span>航空装備研究所（Air Systems Research Center）</div>
+            <div class="company-item"><span class="num">25）</span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）</div>
+            <div class="company-item"><span class="num">26）</span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）</div>
             <div class="company-item"><span class="num">27）</span>三菱電機ディフェンス＆スペーステクノロジーズ株式会社</div>
             <div class="company-item"><span class="num">28）</span>三菱電機ソフトウエア株式会社</div>
             <div class="company-item"><span class="num">29）</span>三菱電機エンジニアリング株式会社</div>
-            <div class="company-item"><span class="num">30）</span>三菱プレシジョン株式会社</div>
-            <div class="company-item"><span class="num">31）</span>エムエイチアイオーシャニクス株式会社</div>
-            <div class="company-item"><span class="num">32）</span>ＭＨＩさがみハイテック株式会社</div>
-            <div class="company-item"><span class="num">33）</span>株式会社エムエイチアイロジテック</div>
-            <div class="company-item"><span class="num">34）</span>光和興業株式会社</div>
+            <div class="company-item"><span class="num">30）</span>三菱プレシジョン株式会社（Mitsubishi Precision Company, Limited）</div>
+            <div class="company-item"><span class="num">31）</span>三菱重工海洋技術株式会社（MHI Oceanincs Co., Ltd.）</div>
+            <div class="company-item"><span class="num">32）</span>三菱重工相模高科技株式会社（MHI Sagami High-tech, Ltd.）</div>
+            <div class="company-item"><span class="num">33）</span>三菱重工物流技術株式会社（MHI Logitec Co., Ltd.）</div>
+            <div class="company-item"><span class="num">34）</span>光和興業株式会社（KOWA KOGYO, Ltd.）</div>
             <div class="company-item"><span class="num">35）</span>菱重特殊車両サービス株式会社</div>
             <div class="company-item"><span class="num">36）</span>ＭＨＩマリテック株式会社</div>
             <div class="company-item"><span class="num">37）</span>株式会社ケージーエム</div>
@@ -270,27 +191,8 @@
             <div class="company-item"><span class="num">40）</span>青木精密工業株式会社</div>
         </div>
 
-        <!-- ========== アメリカ ========== -->
-        <h2>３．アメリカ合衆国</h2>
-
-        <div class="alert-note">本セクションは「出口管制管控名単（実体指定）」分。「不可靠实体清单」（別リスト）との重複掲載企業も一部存在。</div>
-
-        <div class="company-grid">
-            <div class="company-item"><span class="num">1）</span>Aveox, Inc.（モーター・制御技術）</div>
-            <div class="company-item"><span class="num">2）</span>Red Cat Holdings, Inc.（軍用ドローン）</div>
-            <div class="company-item"><span class="num">3）</span>Teal Drones, Inc.（軍用ドローン）</div>
-            <div class="company-item"><span class="num">4）</span>IMSAR, LLC（合成開口レーダー技術）</div>
-            <div class="company-item"><span class="num">5）</span>Jaia Robotics, Inc.（水中ドローン）</div>
-            <div class="company-item"><span class="num">6）</span>Ball Aerospace &amp; Technologies Corp.（航空宇宙）</div>
-            <div class="company-item"><span class="num">7）</span>Oshkosh Defense, LLC（軍用車両）</div>
-            <div class="company-item"><span class="num">8）</span>L3Harris Maritime Services, Inc.（海洋システム）</div>
-            <div class="company-item"><span class="num">9）</span>MP Materials Corp.（レアアース採掘大手）</div>
-            <div class="company-item"><span class="num">10）</span>USA Rare Earth, Inc.（米国レアアース）</div>
-            <div class="company-item"><span class="num">11）</span>General Dynamics 関連28実体（通用動力関連グループ）</div>
-        </div>
-
         <!-- ========== EU ========== -->
-        <h2>４．欧州連合</h2>
+        <h2>２．欧州連合</h2>
 
         <p style="font-size:14px; color:#475569; margin-bottom:14px;">2026年4月の第20号公告により、「過去に台湾向け武器販売等に関与した」として欧州の防衛・宇宙・銃器大手およびその関連企業7社が一斉指定。</p>
 
