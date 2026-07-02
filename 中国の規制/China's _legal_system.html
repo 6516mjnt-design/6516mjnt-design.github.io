@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0. 中国の法制度（輸出管理関連）</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0; padding: 0;
+        }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 0.05em; }
+        .meta-info { margin-top: 10px; font-size: 14px; color: #93c5fd; }
+        .content-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        /* ピラミッド図 */
+        .pyramid {
+            margin: 28px 0 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .pyramid-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .pyramid-block {
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 4px;
+            line-height: 1.4;
+        }
+        .pyramid-arrow {
+            font-size: 22px;
+            color: #94a3b8;
+            margin: 2px auto;
+            text-align: center;
+        }
+        .p1 { background: #1e3a8a; width: 260px; }
+        .p2 { background: #1d4ed8; width: 360px; }
+        .p3 { background: #3b82f6; width: 460px; }
+        .p4 { background: #60a5fa; width: 560px; }
+        .p5 { background: #93c5fd; color: #1e3a8a; width: 680px; }
+
+        h2 {
+            font-size: 20px;
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 38px; margin-bottom: 18px;
+        }
+        .law-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 15px 20px;
+            margin: 14px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .law-box p { margin: 0 0 8px; }
+        .law-box p:last-child { margin-bottom: 0; }
+        .law-list {
+            margin: 8px 0 0;
+            padding-left: 20px;
+        }
+        .law-list li { margin-bottom: 4px; font-size: 14px; }
+
+        .tier-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        .badge-1 { background: #1e3a8a; color: white; }
+        .badge-2 { background: #1d4ed8; color: white; }
+        .badge-3 { background: #3b82f6; color: white; }
+        .badge-4 { background: #93c5fd; color: #1e3a8a; }
+
+        .analogy-note {
+            display: inline-block;
+            background: #fef9c3;
+            border: 1px solid #fde047;
+            border-radius: 4px;
+            font-size: 12px;
+            padding: 2px 9px;
+            color: #713f12;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        /* 用語対比表 */
+        .term-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            margin-top: 16px;
+        }
+        .term-table th {
+            background: #f1f5f9;
+            padding: 9px 14px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid var(--border-color);
+            color: #0f172a;
+        }
+        .term-table td {
+            padding: 9px 14px;
+            border: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        .term-table tr:nth-child(even) td { background: #f8fafc; }
+        .term-zh { color: #1d4ed8; font-weight: 700; }
+
+        .list-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .list-title {
+            font-weight: bold; font-size: 15px;
+            color: var(--primary-color); margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+  <div style="text-align: right; padding: 10px;">
+    <button onclick="window.print()" style="
+      padding: 8px 20px; background-color: #0057b8; color: white;
+      border: none; border-radius: 6px; font-size: 14px; cursor: pointer;
+    ">🖨️ 印刷</button>
+  </div>
+
+  <div class="container">
+    <header>
+        <h1>中国の法制度（輸出管理関連）</h1>
+        <div class="meta-info">法令体系の階層構造と商務部公告の位置づけ</div>
+    </header>
+    <div class="content-box">
+
+        <p>中国の法体系における効力の強さは、以下のピラミッド構造になっている。</p>
+
+        <!-- ピラミッド図 -->
+        <div class="pyramid">
+            <div class="pyramid-row"><div class="pyramid-block p1">憲法</div></div>
+            <div class="pyramid-arrow">▼</div>
+            <div class="pyramid-row"><div class="pyramid-block p2">法律（全人代・常務委員会制定）</div></div>
+            <div class="pyramid-arrow">▼</div>
+            <div class="pyramid-row"><div class="pyramid-block p3">行政法規・条例（国務院制定）</div></div>
+            <div class="pyramid-arrow">▼</div>
+            <div class="pyramid-row"><div class="pyramid-block p4">部門規章・弁法・規定（省庁制定）</div></div>
+            <div class="pyramid-arrow">▼</div>
+            <div class="pyramid-row"><div class="pyramid-block p5">商務部公告（通達・個別措置）</div></div>
+        </div>
+
+        <!-- 第1階層 -->
+        <h2><span class="tier-badge badge-1">第１階層</span>法律<span class="analogy-note">日本の「法律」に相当</span></h2>
+        <p>全国人民代表大会またはその常務委員会が制定。商務部公告が実務的な執行を行うにあたり、最大の法的根拠（委任の源泉）となる。</p>
+        <div class="law-box">
+            <ul class="law-list">
+                <li>中華人民共和国 輸出管制法（出口管制法）</li>
+                <li>中華人民共和国 対外貿易法（对外贸易法）</li>
+                <li>中華人民共和国 国家安全法（国家安全法）</li>
+                <li>中華人民共和国 反外国制裁法（反外国制裁法） など</li>
+            </ul>
+        </div>
+        <p style="font-size:14px; color:#475569;">商務部（日本の経済産業省に相当）が独自に「管控名单（コントロールリスト）」や「关注名单（注視リスト）」への掲載、あるいは特定の国への禁輸公告を出す場合、必ずこれらの法律の条文（例：輸出管制法第18条など）を根拠法として引用する。</p>
+
+        <!-- 第2階層 -->
+        <h2><span class="tier-badge badge-2">第２階層</span>行政法規（条例）<span class="analogy-note">日本の「政令（施行令）」に相当</span></h2>
+        <p>法律の下位に位置し、法律の規定をより具体的に実施するための包括的なルール。国務院（中国の中央政府・最高行政機関）が可決・公布し、商務部が実務を執行するための具体的な手続や要件を定める。</p>
+        <div class="law-box">
+            <ul class="law-list">
+                <li>両用品目輸出管理条例（两用物项出口管制条例）— 2024年12月1日施行</li>
+                <li>不可靠実体清单規定（不可靠实体清单规定 / 商務部令2020年第4号） など</li>
+            </ul>
+        </div>
+
+        <!-- 第3階層 -->
+        <h2><span class="tier-badge badge-3">第３階層</span>部門規章<span class="analogy-note">日本の「省令（施行規則）」に相当</span></h2>
+        <p>商務部などの主管部門が、自身の権限の範囲内で制定する管理規則。</p>
+        <div class="law-box">
+            <ul class="law-list">
+                <li>両用品目輸出管理ライセンス管理弁法 などの各種「弁法（办法）」や「規定」</li>
+            </ul>
+        </div>
+
+        <!-- 第4階層：商務部公告 -->
+        <h2><span class="tier-badge badge-4">第４階層</span>商務部公告<span class="analogy-note">日本の「告示」「行政処分」に近い</span></h2>
+        <p>上位の法律や行政法規（条例）で与えられた権限の範囲内で、具体的な品目リストの調整や特定の企業・団体をリストへ指定するといった<strong>「実務上の具体的な執行・行政処分」</strong>を対外的に発表するために使われる形式。常に上位法を根拠として運用される。</p>
+        <div class="law-box" style="background:#fffbeb; border-left-color:#f59e0b;">
+            <p style="margin:0; font-size:14px;"><strong>役割：</strong>ルールに基づいて「具体的に明日から何をどう規制するか」の対象（品目や企業名）をピンポイントで指定する。本リストシリーズ（不可靠实体清单・管控名单・关注名单）への企業指定はすべてこの形式で公示される。</p>
+        </div>
+
+        <!-- 用語対比表 -->
+        <h2>用語の対比（日本語・中国語）</h2>
+        <table class="term-table">
+            <tr>
+                <th>日本語</th>
+                <th>中国語</th>
+                <th>備考</th>
+            </tr>
+            <tr>
+                <td>両用品目</td>
+                <td class="term-zh">两用物项</td>
+                <td>軍民両用（デュアルユース）品目</td>
+            </tr>
+            <tr>
+                <td>輸出管理（規制）</td>
+                <td class="term-zh">出口管制</td>
+                <td>「管制」は管理・制限の意</td>
+            </tr>
+            <tr>
+                <td>リスト（品目一覧）</td>
+                <td class="term-zh">清单 / 目录</td>
+                <td>物品・技術の目録</td>
+            </tr>
+            <tr>
+                <td>リスト（企業などの名簿）</td>
+                <td class="term-zh">名单</td>
+                <td>人・法人の名簿。「清单」とは区別される</td>
+            </tr>
+            <tr>
+                <td>輸出規制コントロールリスト</td>
+                <td class="term-zh">出口管制管控名单</td>
+                <td>両用品目の輸出全面禁止対象（ファイル２）</td>
+            </tr>
+            <tr>
+                <td>注視リスト</td>
+                <td class="term-zh">关注名单</td>
+                <td>審査厳格化対象（ファイル３）</td>
+            </tr>
+            <tr>
+                <td>信頼できない企業リスト</td>
+                <td class="term-zh">不可靠实体清单</td>
+                <td>報復・対抗制裁リスト（ファイル１）</td>
+            </tr>
+            <tr>
+                <td>条例（政令）</td>
+                <td class="term-zh">条例</td>
+                <td>国務院が制定する行政法規</td>
+            </tr>
+            <tr>
+                <td>弁法（省令）</td>
+                <td class="term-zh">办法</td>
+                <td>省庁が制定する部門規章</td>
+            </tr>
+            <tr>
+                <td>告示・行政処分</td>
+                <td class="term-zh">公告</td>
+                <td>商務部が発令する個別指定・執行措置</td>
+            </tr>
+        </table>
+
+    </div>
+  </div>
+</body>
+</html>
