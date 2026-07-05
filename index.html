@@ -16,10 +16,19 @@
       min-height: 100vh;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
+   header {
+    text-align: center;
+    margin: 0 auto 40px auto;
+    max-width: 700px;
+
+    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
+    border: 1px solid #cfd8e6;
+    border-radius: 12px;
+
+    padding: 20px 24px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 
     /* タイトルと画像を中央で横並びにする設定 */
     header .title-container {
@@ -39,18 +48,20 @@
       border: 1px solid #E0FFFF; /* 軽い枠線 *//* スカイブルーに変更 */
     }
 
-    header h1 {
-      font-size: 1.9rem;
+   header h1 {
+      font-size: 2.2rem;
       font-weight: 700;
-      color: #1a1a2e;
-      letter-spacing: 0.05em;
-    }
+      color: #003366;
+      letter-spacing: 0.08em;
+      margin: 0;
+}
 
     header p {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 8px;
-    }
+      font-size: 0.95rem;
+      color: #555;
+      margin: 6px 0;
+      line-height: 1.5;
+}
 
     .grid {
       max-width: 700px;
@@ -79,7 +90,7 @@
     .buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 12px;
       flex: 1;
     }
 
@@ -154,11 +165,11 @@
     }
 
     .divider {
-      width: calc(100% - 112px);
-      margin-left: 112px;
+      width: 100%;
+      margin: 8px 0 8px 164px;
       border: none;
       border-top: 1px solid #dde0ea;
-    }
+}
 
     /* ボタンを縦に並べるためのカスタムクラス */
     .buttons-container {
@@ -187,7 +198,7 @@
       <img src="images/shingo.svg" alt="プロフィール" class="profile-icon">
       <h1>いしちゃんのホームページ</h1>
     </div>
-    <p>最終更新日：2026年7月5日</p>
+    <p>最終更新日：2026年7月6日</p>
     <p>知能とは？AIとは？生物（動物・植物）とは？</p>
   </header>
 
