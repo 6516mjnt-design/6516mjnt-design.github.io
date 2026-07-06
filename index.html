@@ -122,14 +122,7 @@
       align-items: center;
     }
 
-    /* 右側：ボタンエリア全体 */
-    .buttons-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex: 1;
-    }
-
+    /* 右側：ボタンエリア（PCでは横並び、スマホでは縦並びを制御） */
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -137,7 +130,7 @@
       flex: 1;
     }
 
-    /* --- ボタンの共通共通スタイル --- */
+    /* --- ボタンの共通スタイル --- */
     a.button {
       display: flex;
       align-items: center;
@@ -158,30 +151,25 @@
       background-image: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(0,0,0,0.05));
     }
 
-    /* ホバー時の動きを滑らかに統一 */
+    /* ホバー時の動き */
     a.button:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 6px 14px rgba(0,0,0,0.18);
     }
 
     /* --- カラーバリエーション --- */
-    /* 青（デフォルト） */
     a.button { background-color: #0044cc; }
     a.button:hover { background-color: #0033a3; }
 
-    /* 緑 */
     a.button.green { background-color: #00b050; }
     a.button.green:hover { background-color: #00813b; }
 
-    /* ブラウン */
     a.button.brown { background-color: #7b3614; }
     a.button.brown:hover { background-color: #5c2710; }
 
-    /* オリーブ */
     a.button.olive { background-color: #808000; }
     a.button.olive:hover { background-color: #616100; }
 
-    /* ピンク（調整：元の鮮烈なマゼンタから、少し見やすい鮮やかなピンクに変更） */
     a.button.pink { background-color: #e60073; }
     a.button.pink:hover { background-color: #b30059; }
 
@@ -205,24 +193,17 @@
         border-left: 4px solid #2f73c7;
       }
 
-      /* スマホ時、経済安全保障規制の複数行に分かれていたコンテナをリセット */
-      .buttons-container {
+      .buttons {
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        flex-direction: column; /* ★スマホ時はボタンエリアを上から下への縦並びに変更 */
         gap: 12px;
       }
 
-      .buttons {
-        width: 100%;
-      }
-
-      /* ボタンの横幅をスマホ向けに最適化 */
+      /* ボタンの横幅をスマホ向けに完全に最適化 */
       a.button {
-        width: 100%;       /* ★1ボタン1行にして、横幅いっぱいに広げる（文字が絶対に溢れない） */
-        flex: none;
-        font-size: 0.9rem; /* 文字サイズを少しだけ大きくして読みやすく */
-        min-height: 50px;
+        width: 100% !important; /* ★すべてのボタンの横幅を100%に固定して統一 */
+        font-size: 0.9rem;
+        min-height: 52px;
         height: auto;
       }
     }
@@ -283,22 +264,17 @@
 
     <div class="row">
       <div class="category-label">経済安全保障規制</div>
-      <div class="buttons-container">
-        <div class="buttons">
-          <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">オーストラリア<br>グループ規制</a>
-          <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド<br>合成規制</a>
-        </div>
-        <div class="buttons">
-          <a class="button pink" href="中国の規制/※Chinese_regulations.html">中国の規制</a>
-          <a class="button pink" href="米国の規制/※Usa_regulations.html">米国の規制</a>
-        </div>
+      <div class="buttons">
+        <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">オーストラリア<br>グループ規制</a>
+        <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド<br>合成規制</a>
+        <a class="button pink" href="中国の規制/※Chinese_regulations.html">中国の規制</a>
+        <a class="button pink" href="米国の規制/※Usa_regulations.html">米国の規制</a>
       </div>
     </div>
 
     <div class="row">
       <div class="category-label">別２化学品規制</div>
       <div class="buttons">
-        <a class="button brown" href="Appended_Table2.html">別２化学品<br>規制概要</a>
         <a class="button brown" href="treaty-dashboard.html">PICとPOPs<br>規制物質</a>
         <a class="button brown" href="PFAS-related_substances.html">PFAS関連物質</a>
       </div>
