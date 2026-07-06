@@ -6,85 +6,128 @@
   <title>いしちゃんのホームページ</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* --- 基本リセット & 共通設定 --- */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
 
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      background-color: #E0FFFF;/* スカイブルーに変更 */
+      background: linear-gradient(#eef6ff, #ffffff);
+      background-attachment: fixed;
       color: #1a1a2e;
       padding: 40px 20px 60px;
       min-height: 100vh;
     }
 
-   header {
-    text-align: center;
-    margin: 0 auto 40px auto;
-    max-width: 700px;
+    /* --- 印刷ボタン --- */
+    .print-bar {
+      max-width: 750px;
+      margin: 0 auto 15px auto;
+      text-align: right;
+    }
 
-    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
-    border: 1px solid #cfd8e6;
-    border-radius: 12px;
+    .print-button {
+      padding: 8px 20px;
+      background-color: #0057b8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
 
-    padding: 20px 24px;
+    .print-button:hover {
+      background-color: #003d82;
+    }
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
+    /* --- ヘッダー --- */
+    header {
+      text-align: center;
+      margin: 0 auto 30px auto;
+      max-width: 750px;
+      background: linear-gradient(135deg, #0b5cab, #5aa9ff);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 30px 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
 
-    /* タイトルと画像を中央で横並びにする設定 */
     header .title-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px; /* 画像とテキストの間の余白 */
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
-    /* 小さなSVG画像のスタイル */
     header .profile-icon {
-      width: 45px;
-      height: 45px;
+      width: 60px;
+      height: 60px;
       object-fit: cover;
-      border-radius: 50%; /* 丸型にくり抜き */
-      background-color: #E0FFFF;/* スカイブルーに変更 */
-      border: 1px solid #E0FFFF; /* 軽い枠線 *//* スカイブルーに変更 */
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.4);
     }
 
-   header h1 {
-      font-size: 2.2rem;
+    header h1 {
+      font-size: 2rem;
       font-weight: 700;
-      color: #003366;
-      letter-spacing: 0.08em;
-      margin: 0;
-}
+      letter-spacing: 0.05em;
+    }
 
     header p {
       font-size: 0.95rem;
-      color: #555;
-      margin: 6px 0;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 4px 0;
       line-height: 1.5;
-}
+    }
 
+    /* --- グリッド & 行（カード）レイアウト --- */
     .grid {
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
 
+    /* 各カテゴリのカード */
     .row {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      padding: 24px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* 左側：カテゴリラベル */
+    .category-label {
+      width: 180px;
+      min-width: 180px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #003366;
+      text-align: left;
+      border-left: 6px solid #2f73c7;
+      padding-left: 12px;
       display: flex;
       align-items: center;
-      gap: 14px;
     }
 
-    .category-label {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #333;
-      width: 150px;
-      min-width: 150px;
-      text-align: right;
-      padding-right: 8px;
+    /* 右側：ボタンエリア全体 */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
     }
 
     .buttons {
@@ -94,104 +137,91 @@
       flex: 1;
     }
 
+    /* --- ボタンの共通共通スタイル --- */
     a.button {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      width: 140px;
-      height: 40px;
-      flex: 0 0 140px;
-      padding: 4px 8px;
-      background-color: #0033cc;
+      width: 150px;
+      min-height: 54px;
+      padding: 6px 12px;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.75rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
       font-weight: 700;
-      line-height: 1.25;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      transition: background-color 0.2s, transform 0.1s;
-      overflow: hidden;
+      line-height: 1.3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255,255,255,0.15);
+      background-image: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(0,0,0,0.05));
     }
 
+    /* ホバー時の動きを滑らかに統一 */
     a.button:hover {
-      background-color: #00227a;
-      transform: translateY(-1px);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
     }
 
-    a.button.green {
-      background-color: #00b050;
-    }
+    /* --- カラーバリエーション --- */
+    /* 青（デフォルト） */
+    a.button { background-color: #0044cc; }
+    a.button:hover { background-color: #0033a3; }
 
-    a.button.green:hover {
-      background-color: #00813b;
-    }
+    /* 緑 */
+    a.button.green { background-color: #00b050; }
+    a.button.green:hover { background-color: #00813b; }
 
-    /* 生物兵器規制・環境規制物質（ブラウンボタン）用のスタイル */
-    a.button.brown {
-      background-color: #7b3614;
-    }
+    /* ブラウン */
+    a.button.brown { background-color: #7b3614; }
+    a.button.brown:hover { background-color: #5c2710; }
 
-    a.button.brown:hover {
-      background-color: #5c2710;
-    }
+    /* オリーブ */
+    a.button.olive { background-color: #808000; }
+    a.button.olive:hover { background-color: #616100; }
 
-    /* 先端AIへの規制（オリーブボタン）用のスタイル */
-    a.button.olive {
-      background-color: #808000;
-    }
+    /* ピンク（調整：元の鮮烈なマゼンタから、少し見やすい鮮やかなピンクに変更） */
+    a.button.pink { background-color: #e60073; }
+    a.button.pink:hover { background-color: #b30059; }
 
-    a.button.olive:hover {
-      background-color: #708000;
-    }
+    /* --- レスポンシブ対応（スマホ表示） --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+      
+      .row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+      }
 
-  /* 中国の規制（ピンクボタン）用のスタイル */
-    a.button.pink {
-      background-color: #FF00FF;
-    }
+      .category-label {
+        width: 100%;
+        min-width: auto;
+        padding-bottom: 4px;
+        border-left: 4px solid #2f73c7;
+      }
 
-    a.button.pink:hover {
-      background-color: #FF0000;
-    }
+      .buttons {
+        width: 100%;
+      }
 
-    /* AIと人間の知能（グレーボタン）用のスタイルを追加 */
-    a.button.gray {
-      background-color: #a6a6a6; /* グレー */
-      color: #ffffff;
-      cursor: not-allowed; /* マウスホバー時に禁止マークを表示 */
-      pointer-events: none; /* クリックイベントを無効化 */
-      box-shadow: none;
-    }
-
-    .divider {
-      width: 100%;
-      margin: 8px 0 8px 164px;
-      border: none;
-      border-top: 1px solid #dde0ea;
-}
-
-    /* ボタンを縦に並べるためのカスタムクラス */
-    .buttons-container {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      flex: 1;
+      a.button {
+        width: calc(50% - 6px); /* スマホでは2列で綺麗に並ぶように調整 */
+        flex: none;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
-<div style="text-align: right; padding: 10px;">
-  <button onclick="window.print()" style="
-    padding: 8px 20px;
-    background-color: #0057b8;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-  ">🖨️ 印刷</button>
-</div>
+
+  <div class="print-bar">
+    <button class="print-button" onclick="window.print()">🖨️ 印刷</button>
+  </div>
 
   <header>
     <div class="title-container">
@@ -213,8 +243,6 @@
       </div>
     </div>
 
-    <hr class="divider">
-
     <div class="row">
       <div class="category-label">AIと生物学</div>
       <div class="buttons">
@@ -225,18 +253,14 @@
       </div>
     </div>
 
-    <hr class="divider">
-
     <div class="row">
       <div class="category-label">AIと量子論</div>
       <div class="buttons">
         <a class="button" href="Elementary_particles.html">素粒子標準模型</a>
         <a class="button" href="Quantum_behavior.html">量子のふるまい</a>
-        <a class="button" href="量子生物学/※Quantum_biology.html" style="color: yellow;">量子生物学</a>
+        <a class="button" href="量子生物学/※Quantum_biology.html" style="color: #fffb00;">量子生物学</a>
       </div>
     </div>
-
-    <hr class="divider">
 
     <div class="row">
       <div class="category-label">知能について</div>
@@ -246,50 +270,29 @@
       </div>
     </div>
 
-    <hr class="divider">
+    <div class="row">
+      <div class="category-label">経済安全保障規制</div>
+      <div class="buttons-container">
+        <div class="buttons">
+          <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">オーストラリア<br>グループ規制</a>
+          <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">核酸・ペプチド<br>合成規制</a>
+        </div>
+        <div class="buttons">
+          <a class="button pink" href="中国の規制/※Chinese_regulations.html">中国の規制</a>
+          <a class="button pink" href="米国の規制/※Usa_regulations.html">米国の規制</a>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
-     <div class="category-label">経済安全保障規制</div>
-     <div class="buttons-container">
-     <div class="buttons">
-      <a class="button brown" href="Dual-Use-Biological-Equipment_250930.html">
-        オーストラリア<br>グループ規制
-      </a>
-      <a class="button brown" href="Nucleic_acid_and_peptide_synthesis_apparatus_250930.html">
-        核酸・ペプチド<br>合成規制
-      </a>
+      <div class="category-label">別２化学品規制</div>
+      <div class="buttons">
+        <a class="button brown" href="Appended_Table2.html">別２化学品<br>規制概要</a>
+        <a class="button brown" href="treaty-dashboard.html">PICとPOPs<br>規制物質</a>
+        <a class="button brown" href="PFAS-related_substances.html">PFAS関連物質</a>
+      </div>
     </div>
-    <div class="buttons">
-      <a class="button pink" href="中国の規制/※Chinese_regulations.html">
-        中国の規制
-      </a>
-      <a class="button pink" href="米国の規制/※Usa_regulations.html">
-        米国の規制
-      </a>
 
-    </div>
-    </div>
-  </div>
-
-<hr class="divider">
-
-  <div class="row">
-  <div class="category-label">別２化学品規制</div>
-  <div class="buttons">
-    <a class="button brown" href="Appended_Table2.html">
-      別２化学品<br>規制概要
-    </a>
-    <a class="button brown" href="treaty-dashboard.html">
-      PICとPOPs<br>規制物質
-    </a>
-    <a class="button brown" href="PFAS-related_substances.html">
-      PFAS関連物質
-    </a>
-
-  </div>
-</div>
-
-<br>
   </div>
 
 </body>
