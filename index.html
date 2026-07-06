@@ -205,14 +205,25 @@
         border-left: 4px solid #2f73c7;
       }
 
+      /* スマホ時、経済安全保障規制の複数行に分かれていたコンテナをリセット */
+      .buttons-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
       .buttons {
         width: 100%;
       }
 
+      /* ボタンの横幅をスマホ向けに最適化 */
       a.button {
-        width: calc(50% - 6px); /* スマホでは2列で綺麗に並ぶように調整 */
+        width: 100%;       /* ★1ボタン1行にして、横幅いっぱいに広げる（文字が絶対に溢れない） */
         flex: none;
-        font-size: 0.8rem;
+        font-size: 0.9rem; /* 文字サイズを少しだけ大きくして読みやすく */
+        min-height: 50px;
+        height: auto;
       }
     }
   </style>
