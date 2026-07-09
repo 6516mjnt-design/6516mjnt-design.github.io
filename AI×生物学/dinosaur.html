@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恐竜 想像図の今昔</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #2980b9;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 15px 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 6px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-top: 25px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .strong-text {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* タイムライン・画像セクションのスタイル */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .timeline-item {
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .dino-image-container {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .dino-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* 補足トピックのグリッド表示 */
+        .topic-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .topic-card {
+            background-color: #fcfcfc;
+            border: 1px solid #eef2f5;
+            border-radius: 6px;
+            padding: 20px;
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .topic-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>恐竜 想像図の今昔</h1>
+        <p>古生物学は「地質学：化石を発掘して分類する学問」から、最新テクノロジーを駆使して「生物学：絶滅生物の生態や地球環境の歴史を科学的に復元する学問」へ進化。20世紀中頃までと現在（21世紀）の主な違いを紹介します。</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. 研究アプローチ：化石の「外側」から「内側・ミクロの世界」へ</h2>
+            <p>かつては化石の形をじっくり観察し、スケッチを描き、他の化石と見比べる<span class="strong-text">「形態学的な記載（分類）」</span>が中心でした。</p>
+            <p>現在は、医療用や工業用の<span class="strong-text">CTスキャン</span>が導入され、化石を傷つけることなく、岩石の内部にある微細な骨や、恐竜の脳組織の形（脳腔）まで3Dデータで精密に復元できるようになりました。さらに、<span class="strong-text">シンクロトロン放射光</span>などの強力なX線分析により、化石の細胞レベルの構造や、付着した元素の特定まで可能になっています。</p>
+        </section>
+
+        <section>
+            <h2>2. 恐竜のイメージ：「鈍重なトカゲ」から「活動的な鳥の祖先」へ</h2>
+            <p>かつての恐竜像はトカゲやワニのイメージの延長線上にあり、尾を引きずり、冷血動物で動きが鈍く、体色は地味な緑や茶色だと推測されていました。しかし現在の恐竜像は、<span class="strong-text">「鳥類の祖先」</span>としての側面が完全に定着しています。</p>
+            <ul>
+                <li><span class="strong-text">羽毛の発見：</span>中国などで保存状態の良い羽毛恐竜の化石が相次いで見つかりました。</li>
+                <li><span class="strong-text">体色の解明：</span>化石に残された微細な色素細胞（メラノソーム）の形状を現生鳥類と比較することで、具体的な体色（赤茶色や、カササギのような光沢のある黒など）まで科学的に突き止められました。</li>
+                <li><span class="strong-text">生態の復元：</span>骨の組織分析（成長線）から、恐竜が温血動物に近い高い代謝熱を持ち、急速に成長していたことや、尾をピンと上げて活発に走り回っていたことが分かっています。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. テクノロジーの融合：デジタルと分子科学の導入</h2>
+            <p>古生物学は地質学のジャンルでしたが、現在は生物学、化学、情報科学との融合が進んでいます。</p>
+            <ul>
+                <li><span class="strong-text">分子古生物学（古DNA・有機化石）：</span>数万年前の化石（マンモスやネアンデルタール人など）からはDNAが抽出され、ゲノム解析が行われます。数千万年前の恐竜の化石からも、コラーゲンなどのタンパク質断片（アミノ酸）の痕跡を見つける研究が進んでいます。</li>
+                <li><span class="strong-text">バイオメカニクス（生物力学）：</span>3Dモデル化した骨格データに、コンピューター上で筋肉のシミュレーション（有限要素法など）を施すことで、顎の噛む力や走行速度を物理的に計算できるようになりました。</li>
+                <li><span class="strong-text">統計学とAI：</span>地球全体の化石データベース（Paleobiology Databaseなど）を活用し、AIや大規模な統計解析を用いることで、過去数億年の生物多様性の変動や、大量絶滅のメカニズムを地球規模のビッグデータとして解析しています。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. 古生物学における復元図（予想される姿）の変遷</h2>
+            <p>化石の発見と分析技術（CTや化学解析）が進化するたびに、恐竜たちの姿は「より生物らしく、より鳥類に近い姿」へと塗り替えられてきました。有名な恐竜を例に、その変遷を時系列で追っていきます。</p>
+            
+            <div class="timeline-container">
+                
+                <div class="timeline-item">
+                    <h3>1）19世紀中期：巨大な「トカゲやサイ」の時代</h3>
+                    <p>恐竜（Dinosauria）という言葉が作られたばかりの黎明期。当時はまだ断片的な骨しか見つかっておらず、比較対象が現生の爬虫類や哺乳類しかありませんでした。</p>
+                    <p><span class="strong-text">特徴：</span>4本足で地面を這うように歩く、鈍重なトカゲやワニのような姿。またはサイのような皮膚の質感。</p>
+                    <p><span class="strong-text">具体例（イグアノドン）：</span>最初に発見された恐竜の一つですが、当時は「親指の骨」を鼻の上の角だと誤認され、巨大なイグアノナのような姿で復元されました。ロンドンの水晶宮（クリスタル・パレス）に作られた当時の模型が有名です。</p>
+                    
+                    <div class="dino-image-container">
+                        <img src="images/1_イグアノドン.png" alt="イグアノドンの新旧想像図" class="dino-image">
+                        <div class="image-caption">図：イグアノドンの想像図の変遷（最初の想像図 ── 昭和のイメージ）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>2）20世紀前半〜中期：ゴジラ型の「直立・冷血動物」の時代</h3>
+                    <p>骨格全体の化石が見つかり始め、恐竜が2本足で立てることが分かってきました。しかし、まだ「冷血な爬虫類」のイメージが強く、活発には動けないと考えられていました。</p>
+                    <p><span class="strong-text">特徴：</span>尻尾を地面に引きずり、上体を完全に起こした「カンガルー型（ゴジラ型）」の姿勢。動きが遅く、沼地に浸かって身を守っていたと想像されていました。</p>
+                    <p><span class="strong-text">具体例（ティラノサウルス）：</span>20世紀の図鑑や映画（初期のキングコングなど）では、上体を直立させ、尻尾を引きずって歩く怪獣のような姿で描かれていました。</p>
+                    
+                    <div class="dino-image-container">
+                        <img src="images/2_ティラノサウルス.png" alt="ティラノサウルスの姿勢の変遷" class="dino-image">
+                        <div class="image-caption">図：ティラノサウルスの姿勢の変遷（ゴジラ型から前傾姿勢へ）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>3）20世紀後半（1970年代〜）：恐竜ルネサンス「活動的な温血動物」への変革</h3>
+                    <p>1960年代末に小型恐竜「デイノニクス」が発見されたことをきっかけに、「恐竜ルネサンス」と呼ばれる学説の大転換が起きました。恐竜は鳥類の祖先であり、温血動物で、非常に俊敏だったという説が主流になります。</p>
+                    <p><span class="strong-text">特徴：</span>尻尾を地面から高く上げ、頭から尾までが地面と水平になる「前傾姿勢」。これにより、時速数十キロで走る活発なイメージへと一新されました。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>4）21世紀〜現在：「羽毛と色彩」の時代</h3>
+                    <p>中国の遼寧省などで、保存状態が極めて良い「羽毛恐竜」の化石が相次いで発見され、復元図はさらに激変しました。</p>
+                    <p><span class="strong-text">特徴：</span>多くの小型獣脚類（ティラノサウルスの祖先含む）に、毛や羽毛が生えていたことが判明。さらに「メラノソーム（色素細胞）」の解析により、想像ではなく「科学的に裏付けられた体色」で描かれるようになりました。</p>
+                    <p><span class="strong-text">具体例（現在のティラノサウルスやミクロラプトル）：</span>ティラノサウルスも、幼体や一部の近縁種にはフサフサした羽毛があったとされ、一部の復元では「巨大な鳥」や「ダチョウ」を彷彿とさせる姿で描かれます。また、ミクロラプトルなどは「カラスのような光沢のある黒い羽」を持っていたことが分かっています。</p>
+                    
+                    <div class="dino-image-container">
+                        <img src="images/3_シノサウロプテリクス.png" alt="シノサウロプテリクスの化石と羽毛の復元" class="dino-image">
+                        <div class="image-caption">図：シノサウロプテリクス（1996年の羽毛化石発見による復元図の激変）</div>
+                    </div>
+                    
+                    <div class="dino-image-container">
+                        <img src="images/4_スピノサウルス.png" alt="スピノサウルスの復元変遷" class="dino-image">
+                        <div class="image-caption">図：スピノサウルス（2014年・2020年の新発見による、より水生に特化したプロポーションへの変遷）</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>5. 補足：あわせて知っておきたいトピック</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-title">・ブロントサウルス「頭部誤同定」問題</div>
+                    <div>19世紀末、体骨格に別種（カマラサウルス）の頭骨が誤って組み合わされたまま博物館展示・図版が広まり、20世紀を通じてアパトサウルスの異名として扱われていたが、2015年の再検証で独立属として復活した。復元図の誤りが長期間定着した代表例。</div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-title">・恐竜ルネサンスの立役者</div>
+                    <div>古生物学者ロバート・バッカーが著書「The Dinosaur Heresies」（1986年）で恐竜温血動物説を一般読者にも広め、1970年代以降の「活動的な温血動物」への学説転換を決定づけた。</div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-title">・「All Yesterdays」運動（2012年〜）</div>
+                    <div>骨格に皮膚を貼り付けただけの「痩せすぎ（シュリンクラップ）」復元への反省から、現生動物と同様に皮下脂肪や体毛量を厚めに見積もるなど、科学的根拠の範囲内で想像の幅を広げ直す提案が古生物アート界に広がった。</div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-title">・軟組織・皮膚化石の発見</div>
+                    <div>エドモントサウルスの「ミイラ化石（デイニー標本）」などから、鱗の配列や皮膚表面の凹凸が骨だけでなく直接観察できるようになり、羽毛のない部分の質感復元にも役立っている。</div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-title">・AIの活用</div>
+                    <div>統計学・AI解析に加え、近年は機械学習による欠損骨格の自動補完や、生成AIを用いた複数仮説の同時ビジュアル化が、研究段階の復元図作成を支援する試みとして始まっている。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>恐竜想像図の今昔 補足追加 資料より構成</p>
+    </footer>
+
+</body>
+</html>
