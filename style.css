@@ -1,120 +1,202 @@
 /* ==========================================================================
-   共通デザインシステム（style.css）
+   1. 全ページ共通の基本設定
    ========================================================================== */
-
-/* 1. 全体の基準設定（色やフォント） */
-:root {
-  --main-color: #1a365d;       /* 知的なネイビー */
-  --accent-color: #2b6cb0;     /* リンクなどの明るい青 */
-  --bg-color: #f7fafc;         /* 目が疲れない薄い背景 */
-  --text-color: #2d3748;       /* 柔らかい黒 */
-  --border-color: #e2e8f0;     /* 区切り線用の薄いグレー */
-  --card-bg: #ffffff;          /* カードの背景（白） */
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background-color: #f4f6f9; /* 落ち着いた薄いグレーの背景 */
+  color: #333333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 30px 20px;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.7; /* 行間を広げて読みやすく */
+/* 全体を中央に収めるコンテナ（ここをボタンの配置基準にします） */
+.container, .slide-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative; /* 【最重要】印刷ボタンが中央の枠線に揃うように基準化 */
+}
+
+/* ページ最上部のヘッダーデザイン */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+header img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 15px;
+}
+header h1 {
+  font-size: 28px;
+  color: #1a365d;
+  margin: 0 0 12px 0;
+}
+header p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+/* 子ページ用のメインタイトル（画面中央上の文字）の位置微調整 */
+.main-title {
+  font-size: 28px;
+  color: #1a365d;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   2. レイアウト設定（トップページ用・子ページ用の両方を完全にカバー）
+   ========================================================================== */
+
+/* 箱を並べるためのグリッド設定 */
+.category-grid, .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* 各メニューカードの白いボックス */
+.category-card, .card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* カード上部の青いタイトル部分 */
+.category-title, .card-header {
+  background-color: #2b6cb0; /* 綺麗な紺・青色 */
+  color: #ffffff;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: bold;
+}
+/* 子ページのh2やラベルの余白・文字サイズをリセット */
+.card-header h2, .row-label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: inherit;
+  border: none;
+  padding: 0;
+  line-height: inherit;
+}
+
+/* カードの中の一覧を包む枠 */
+.link-list, .card-body, .button-group {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* 子ページの解説文（pタグ）の文字サイズ微調整 */
+.card-body p {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+/* ==========================================================================
+   3. リンク（ボタン風デザイン）の共通設定
+   ========================================================================== */
+
+/* メニューへのリンクをすべて美しいボタン風にする設定 */
+.link-list a, .card-body a, .button-group a {
+  display: block;
+  padding: 10px 14px;
+  background-color: #f8fafc;
+  color: #2b6cb0;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* マウスを乗せたときの動き */
+.link-list a:hover, .card-body a:hover, .button-group a:hover {
+  background-color: #ebf8ff;
+  border-color: #bee3f8;
+  color: #2b6cb0;
+  transform: translateY(-1px);
+}
+
+/* 子ページ内（お釈迦様など）の箇条書き（ul/li）の点が出ないようにリセット */
+.card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.card-body li {
   margin: 0;
   padding: 0;
 }
 
-/* 2. ヘッダーのデザイン（トップの印象を統一） */
-header {
-  background-color: #ffffff;
-  border-bottom: 3px solid var(--main-color);
-  padding: 30px 20px;
-  text-align: center;
-}
+/* ==========================================================================
+   4. 【改善】すべてのページで中央右上にぴったり揃う「印刷ボタン」
+   ========================================================================== */
 
-header img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-header h1 {
-  color: var(--main-color);
-  margin: 0 0 10px 0;
-  font-size: 1.8rem;
-}
-
-header p {
-  margin: 5px 0;
-  color: #718096;
-  font-size: 0.9rem;
-}
-
-/* 3. メインコンテンツのレイアウト（幅を絞って読みやすく） */
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-/* 4. 各ページ共通の見出しルール（AIが勝手に形を変えないように固定） */
-h2 {
-  color: var(--main-color);
-  border-left: 5px solid var(--main-color);
-  padding-left: 15px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-h3 {
-  color: var(--text-color);
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 5px;
-  margin-top: 30px;
-  font-size: 1.2rem;
-}
-
-/* 5. 記事本文や文章のルール */
-p {
-  margin-bottom: 1.5rem;
-}
-
-/* 6. リンクとボタンのルール */
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* 7. カテゴリー分け（インデックス用カード） */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.category-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.category-title {
+.btn-print {
+  position: absolute;    /* .container または .slide-container を基準に絶対配置 */
+  top: -30px;           /* 中央の箱の右上の綺麗な高さに配置 */
+  right: 0;              /* メインコンテンツの右端のラインにぴったり合わせる */
+  
+  /* ボタンをすっきりと小さく洗練されたサイズに */
+  padding: 6px 12px;
+  font-size: 12px;
   font-weight: bold;
-  color: var(--main-color);
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 8px;
-  margin-bottom: 15px;
+  
+  background-color: #6c757d; /* 落ち着いたグレー */
+  color: #ffffff;
+  border: 1px solid #5a6268;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  z-index: 100;
 }
 
-.link-list a {
-  display: block;
-  padding: 6px 0;
-  font-size: 0.95rem;
-  border-bottom: 1px dashed var(--border-color);
+.btn-print:hover {
+  background-color: #495057; /* マウスを乗せたら少し濃く */
+  border-color: #343a40;
+}
+
+/* 一時的に非表示にするための命令 */
+.no-print {
+  display: none !important;
+}
+
+/* ==========================================================================
+   5. 実際に紙へ印刷するときの最適化ルール
+   ========================================================================== */
+@media print {
+  /* 印刷時はボタンや不要要素を自動で非表示 */
+  .no-print, .btn-print, header img {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff;
+    padding: 0;
+  }
+  .category-card, .card {
+    box-shadow: none;
+    border: 1px solid #cbd5e0;
+    page-break-inside: avoid;
+  }
 }

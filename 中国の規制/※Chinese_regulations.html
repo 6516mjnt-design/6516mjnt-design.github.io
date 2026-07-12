@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国の規制</title>
+  <!-- 共通のstyle.cssを読み込んでデザインを統一 -->
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-  <div class="container">
+  <!-- 子ページの共通クラス slide-container を使用して一貫性を保持 -->
+  <div class="slide-container">
 
-    <header>
-      <h1>中国の規制</h1>
-    </header>
+    <!-- 印刷ボタン（共通CSSの absolute 配置により、タイトルの右横に美しく吸着します） -->
+    <button onclick="window.print()" class="btn-print">印刷する</button>
+
+    <div class="main-title">中国の規制</div>
 
     <div class="grid">
 
+      <!-- 法律・法制度関連カード -->
       <div class="card">
         <div class="card-header">
           <h2>法律・法制度関連</h2>
@@ -30,6 +34,7 @@
         </div>
       </div>
 
+      <!-- 企業・団体等 規制リストカード -->
       <div class="card">
         <div class="card-header">
           <h2>企業・団体等 規制リスト</h2>

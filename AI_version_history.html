@@ -9,6 +9,10 @@
   
   <!-- 表のセル枠線をくっきり見やすくするための追加スタイル -->
   <style>
+    /* 印刷ボタンの位置基準を確保 */
+    .container {
+      position: relative;
+    }
     .table-wrap table {
       border-collapse: collapse; /* 隣り合う枠線を重ねて一本にする */
       width: 100%;
@@ -46,6 +50,9 @@
   <!-- 全体をcontainerで囲む -->
   <div class="container">
 
+    <!-- 印刷ボタン（共通CSSの absolute 配置により、ヘッダーの右上にピタッと吸着します） -->
+    <button onclick="window.print()" class="btn-print">印刷する</button>
+
     <!-- ヘッダー部分 -->
     <header>
       <h1>主要AIバージョン履歴</h1>
@@ -79,7 +86,7 @@
       </ul>
     </div>
 
-    <!-- 表部分（各セルに綺麗に枠線がつくようになります） -->
+    <!-- 表部分 -->
     <h2>主要生成AI バージョン変遷レイヤー</h2>
     <div class="table-wrap">
       <table>
