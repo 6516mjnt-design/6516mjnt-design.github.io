@@ -1,0 +1,120 @@
+/* ==========================================================================
+   共通デザインシステム（style.css）
+   ========================================================================== */
+
+/* 1. 全体の基準設定（色やフォント） */
+:root {
+  --main-color: #1a365d;       /* 知的なネイビー */
+  --accent-color: #2b6cb0;     /* リンクなどの明るい青 */
+  --bg-color: #f7fafc;         /* 目が疲れない薄い背景 */
+  --text-color: #2d3748;       /* 柔らかい黒 */
+  --border-color: #e2e8f0;     /* 区切り線用の薄いグレー */
+  --card-bg: #ffffff;          /* カードの背景（白） */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.7; /* 行間を広げて読みやすく */
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. ヘッダーのデザイン（トップの印象を統一） */
+header {
+  background-color: #ffffff;
+  border-bottom: 3px solid var(--main-color);
+  padding: 30px 20px;
+  text-align: center;
+}
+
+header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  color: var(--main-color);
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin: 5px 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+/* 3. メインコンテンツのレイアウト（幅を絞って読みやすく） */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* 4. 各ページ共通の見出しルール（AIが勝手に形を変えないように固定） */
+h2 {
+  color: var(--main-color);
+  border-left: 5px solid var(--main-color);
+  padding-left: 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+  margin-top: 30px;
+  font-size: 1.2rem;
+}
+
+/* 5. 記事本文や文章のルール */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* 6. リンクとボタンのルール */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 7. カテゴリー分け（インデックス用カード） */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.category-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.category-title {
+  font-weight: bold;
+  color: var(--main-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.link-list a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px dashed var(--border-color);
+}

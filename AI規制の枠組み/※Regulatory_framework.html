@@ -1,183 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI規制の枠組み</title>
-    <style>
-        /* パターンB: 画面全体を薄いグレーに設定 */
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* 全体を中央寄せ */
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-        /* 表題：画面上部の中央に配置 */
-        .main-title {
-            font-size: 32px; /* 表題サイズを少し大きく調整 */
-            color: #333333;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 60px; /* ボタン群との間隔をしっかり空ける */
-            width: 100%;
-        }
-        /* パターンB: 背景を透明にし、枠線や影を完全に排除 */
-        .slide-container {
-            background-color: transparent;
-            border: none;
-            box-shadow: none;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* コンテンツ行を中央に寄せる */
-            box-sizing: border-box;
-        }
-        /* 横並びの行（タイトルとボタン群） */
-        .content-row {
-            display: flex;
-            align-items: flex-start; /* ボタンが2行になってもラベルが上端で揃うように調整 */
-            margin-bottom: 30px;
-            width: 100%;
-            justify-content: center;
-        }
-        /* 左側の見出しラベル */
-        .row-label {
-            font-size: 22px; /* 文字サイズを少し大きく調整 */
-            font-weight: bold;
-            color: #333333;
-            width: 150px; /* 幅を固定して綺麗に揃える */
-            padding-right: 20px;
-            border-right: 3px solid #333333;
-            margin-right: 30px;
-            text-align: right;
-            white-space: nowrap;
-            box-sizing: border-box;
-            line-height: 4.7vw; /* ボタンの高さとラベルの中央を合わせるための微調整（PC用） */
-            max-height: 62px;
-        }
-        /* ボタンのラッパー：4つで折り返すよう幅を制限 */
-        .button-group {
-            display: flex;
-            flex-wrap: wrap; /* 5つ目以降の折り返しを許可 */
-            gap: 15px;
-            max-width: 685px; /* ボタン4つ分＋隙間3つ分の幅に制限 (160px * 4 + 15px * 3) */
-            width: 100%;
-            box-sizing: border-box;
-        }
-        /* ボタンの共通スタイル */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* ボタンのサイズを前より一回り大きく指定（横幅160px） */
-            width: 160px; 
-            /* 横:縦＝12:4.7 の比率を完全に維持 */
-            aspect-ratio: 12 / 4.7; 
-            
-            font-size: 12px; /* ボタン内の文字サイズを少し大きく調整 */
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 12px;
-            border: none;
-            outline: none;
-            margin: 0;
-            padding: 0 6px;
-            box-sizing: border-box; /* 枠線と余白の計算を完全統一 */
-            cursor: pointer;
-            transition: background-color 0.2s ease, opacity 0.2s ease;
-            white-space: nowrap;
-            line-height: 1.2;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        .btn:hover {
-            opacity: 0.9;
-        }
-        /* 緑色のリンクボタン（旧 .btn-blue から名称・色を変更） */
-        .btn-blue {
-            background-color: #808000;
-            color: #ffffff;
-        }
-        /* 緑色ボタンのホバー時のカラー設定 */
-        .btn-blue:hover {
-            background-color: #708000;
-            opacity: 1; /* 透明度変化を無効化して指定色を綺麗に見せる場合は 1、併用する場合は削除してください */
-        }
-        /* グレーのボタン */
-        .btn-gray {
-            background-color: #9ea1a6;
-            color: #ffffff;
-            font-family: inherit; /* フォントのズレを防ぐ */
-        }
-
-        /* 💡 スマートフォン・タブレット向けのレスポンシブ対応 */
-        @media (max-width: 850px) {
-            body {
-                padding: 24px 16px;
-            }
-            .main-title {
-                font-size: 26px;
-                margin-bottom: 40px;
-            }
-            /* 縦並びに変更 */
-            .content-row {
-                flex-direction: column;
-                align-items: center;
-                margin-bottom: 40px;
-            }
-            /* 見出しラベルをボタンの上に配置 */
-            .row-label {
-                width: auto;
-                text-align: center;
-                padding-right: 0;
-                border-right: none;
-                margin-right: 0;
-                margin-bottom: 15px;
-                font-size: 20px;
-                border-bottom: 2px solid #333333;
-                padding-bottom: 4px;
-                line-height: normal;
-                max-height: none;
-            }
-            /* ボタン群を中央に寄せ、スマホ用の最大幅に上書き */
-            .button-group {
-                justify-content: center;
-                gap: 12px;
-                max-width: 340px; /* スマホで2列が綺麗に収まる幅 */
-            }
-            /* ボタンの幅を2列（半分）に収まるよう自動調整 */
-            .btn {
-                width: calc(50% - 6px);
-                font-size: 12px; /* 小さな画面でも文字がはみ出ないよう調整 */
-                padding: 0 4px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI規制の枠組み</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<div class="main-title">AI規制の枠組み</div>
+  <div class="container">
 
-<div class="slide-container">
-    
-    <div class="content-row">
-        <div class="row-label">新たな規制</div>
-        <div class="button-group">
-            <a href="Claude_Fable5.html" class="btn btn-blue">Fable5の<br>リリース</a>
-            <a href="ChatGPT_5.6.html" class="btn btn-blue">GPT5.6の<br>リリース</a>
-            <a href="AI_regulation.html" class="btn btn-blue">Fable5の<br>停止と再リリース</a>
-         </div>
+    <header>
+      <h1>AI規制の枠組み</h1>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <h2>新たな規制</h2>
+        </div>
+        <div class="card-body">
+          <p>主要なAIモデルのリリース動向と、それに伴う規制や運用停止・再開の状況についてまとめています。</p>
+          <ul>
+            <li><a href="Claude_Fable5.html">Fable5のリリース</a></li>
+            <li><a href="ChatGPT_5.6.html">GPT5.6のリリース</a></li>
+            <li><a href="AI_regulation.html">Fable5の停止と再リリース</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
 </body>
 </html>

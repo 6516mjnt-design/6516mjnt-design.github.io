@@ -1,634 +1,367 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>主要AIバージョン履歴</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f7f8fa;
-    --bg2: #ffffff;
-    --bg3: #f0f1f5;
-    --line: #e0e2ea;
-    --line2: #d0d3df;
-    --text: #1a1a2e;
-    --text-soft: #4a4a6a;
-    --text-muted: #9090b0;
-    --openai: #10a37f;
-    --openai-bg: rgba(16,163,127,0.08);
-    --openai-line: rgba(16,163,127,0.25);
-    --google: #4285f4;
-    --google-bg: rgba(66,133,244,0.08);
-    --google-line: rgba(66,133,244,0.25);
-    --anthropic: #d97706;
-    --anthropic-bg: rgba(217,119,6,0.08);
-    --anthropic-line: rgba(217,119,6,0.25);
-    --deepseek: #e53e6d;
-    --deepseek-bg: rgba(229,62,109,0.08);
-    --deepseek-line: rgba(229,62,109,0.25);
-    --year-w: 68px;
-    --col-w: 220px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    padding: 3rem 2rem 4rem;
-  }
-
-  /* Header */
-  .header {
-    max-width: 1020px;
-    margin: 0 auto 2.5rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .title-block {}
-
-  .label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 300;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    line-height: 1.1;
-  }
-
-  .date-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid var(--line2);
-    border-radius: 2px;
-    white-space: nowrap;
-  }
-
-  /* Company legend */
-  .legend {
-    max-width: 1020px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    color: var(--text-soft);
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .legend-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-
-  /* Table wrapper */
-  .table-wrap {
-    max-width: 1020px;
-    margin: 0 auto;
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 720px;
-  }
-
-  /* Header row */
-  thead th {
-    padding: 1rem 1.2rem;
-    text-align: left;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--line2);
-    background: var(--bg2);
-    white-space: nowrap;
-  }
-
-  thead th:first-child {
-    width: var(--year-w);
-    color: var(--text-muted);
-    text-align: center;
-    border-right: 1px solid var(--line2);
-  }
-
-  .th-openai   { color: var(--openai);    border-bottom-color: var(--openai-line) !important; }
-  .th-google   { color: var(--google);    border-bottom-color: var(--google-line) !important; }
-  .th-anthropic{ color: var(--anthropic); border-bottom-color: var(--anthropic-line) !important; }
-  .th-deepseek { color: var(--deepseek);  border-bottom-color: var(--deepseek-line) !important; }
-
-  .th-sub {
-    display: block;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-    font-size: 0.62rem;
-    letter-spacing: 0.04em;
-    text-transform: none;
-    opacity: 0.6;
-    margin-top: 0.2rem;
-  }
-
-  /* Body rows */
-  tbody tr {
-    border-bottom: 1px solid var(--line);
-    transition: background 0.15s;
-  }
-
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(0,0,0,0.02); }
-
-  /* Special rows */
-  tr.special-row td {
-    background: rgba(0,0,0,0.015);
-    font-style: italic;
-  }
-
-  td {
-    padding: 0.9rem 1.2rem;
-    vertical-align: top;
-    font-size: 0.78rem;
-    line-height: 1.7;
-    border-right: 1px solid var(--line);
-  }
-
-  td:last-child { border-right: none; }
-
-  /* Year cell */
-  .td-year {
-    text-align: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    vertical-align: middle;
-    white-space: nowrap;
-    background: var(--bg2);
-    border-right: 1px solid var(--line2) !important;
-    letter-spacing: 0.02em;
-  }
-
-  /* Model entries */
-  .entry {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .entry:last-child { margin-bottom: 0; }
-
-  .model-name {
-    font-weight: 500;
-    font-size: 0.8rem;
-    color: var(--text);
-  }
-
-  .model-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-  }
-
-  /* Color tags per company */
-  .tag {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.58rem;
-    padding: 0.1rem 0.4rem;
-    border-radius: 2px;
-    letter-spacing: 0.04em;
-    margin-right: 0.3rem;
-    vertical-align: middle;
-  }
-
-  .tag-openai    { background: var(--openai-bg);    color: var(--openai);    border: 1px solid var(--openai-line); }
-  .tag-google    { background: var(--google-bg);    color: var(--google);    border: 1px solid var(--google-line); }
-  .tag-anthropic { background: var(--anthropic-bg); color: var(--anthropic); border: 1px solid var(--anthropic-line); }
-  .tag-deepseek  { background: var(--deepseek-bg);  color: var(--deepseek);  border: 1px solid var(--deepseek-line); }
-
-  .empty-cell {
-    color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-  }
-
-  /* Footnote */
-  .footnote {
-    max-width: 1020px;
-    margin: 1.2rem auto 0;
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.02em;
-    padding-left: 0.5rem;
-    border-left: 2px solid var(--line2);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主要AIバージョン履歴</title>
+  <!-- 共通のCSSファイルを読み込む -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- 表のセル枠線をくっきり見やすくするための追加スタイル -->
+  <style>
+    .table-wrap table {
+      border-collapse: collapse; /* 隣り合う枠線を重ねて一本にする */
+      width: 100%;
+      margin-top: 15px;
+    }
+    .table-wrap th, 
+    .table-wrap td {
+      border: 1px solid #ccc; /* すべてのセルの周囲に薄いグレーの枠線を引く */
+      padding: 12px;          /* セル内の文字にゆとりを持たせる */
+      vertical-align: top;    /* セル内の文字を上に揃える */
+    }
+    .table-wrap th {
+      background-color: #f5f5f5; /* 見出し列の背景をほんのりグレーにして区別 */
+      font-weight: bold;
+    }
+    .td-year {
+      background-color: #fafafa; /* 年代の列の背景を少し変えて見やすく */
+      font-weight: bold;
+      white-space: nowrap;      /* 年代が途中で改行されないようにする */
+    }
+    .entry {
+      margin-bottom: 8px;       /* 同じセル内に複数のモデルがある場合の行間 */
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #eee; /* モデル同士の区切り線 */
+    }
+    .entry:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;      /* 最後のモデルには区切り線を入れない */
+    }
+  </style>
 </head>
 <body>
-<div style="text-align: right; padding: 10px;">
-  <button onclick="window.print()" style="
-    padding: 8px 20px;
-    background-color: #0057b8;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-  ">🖨️ 印刷</button>
-</div>
 
-<div class="header">
-  <div class="title-block">
-    <div class="label">AI Version History</div>
-    <h1>主要AIバージョン履歴</h1>
+  <!-- 全体をcontainerで囲む -->
+  <div class="container">
+
+    <!-- ヘッダー部分 -->
+    <header>
+      <h1>主要AIバージョン履歴</h1>
+      <p>作成日：2026年7月12日</p>
+      <p>AI Version History</p>
+    </header>
+
+    <!-- 凡例部分 -->
+    <div class="category-card" style="margin-bottom: 30px;">
+      <div class="category-title">対象企業・モデル</div>
+      <ul>
+        <li>OpenAI (ChatGPT)</li>
+        <li>Google (Gemini)</li>
+        <li>Anthropic (Claude)</li>
+        <li>DeepSeek / 深度求索</li>
+      </ul>
+    </div>
+
+    <!-- 歴史的背景 -->
+    <h2>AIと科学の発展史（前史）</h2>
+    <div class="category-card" style="line-height: 1.8; margin-bottom: 40px;">
+      <ul>
+        <li><strong>1920s:</strong> 1925年 ハイゼンベルクの行列方程式 / 1926年 シュレディンガーの波動方程式</li>
+        <li><strong>1940s～50s:</strong> 1943年 シュレディンガーの「生命とは何か」（DNAの構造を『非周期性結晶』と命名） / 1953年 DNA2重らせん構造（『生命とは何か』から影響を受ける）</li>
+        <li><strong>1950s～70s (第１次AIブーム):</strong> 1956年 ダートマス会議（AIの概念が確立） / 1957年 パーセプトロンモデル</li>
+        <li><strong>1980s～90s (第２次AIブーム):</strong> 1982年 ホップフィールドネットワーク（ジョン・ホップフィールド） / 1986年 誤差逆伝播法</li>
+        <li><strong>2000s～10s (第３次AIブーム):</strong> 2006年 ディープラーニング（ジェフリー・ヒントン） / 2015年 AlphaGo</li>
+        <li><strong>2017年:</strong> Googleの研究者が、ニューラルネットワーク構造の「トランスフォーマー」を発表</li>
+        <li><strong>2020年:</strong> OpenAIの研究者が「スケーリング則」を発表</li>
+        <li><strong>2020s～ (第４次AIブーム):</strong> 生成AI・個別化AIの時代へ</li>
+      </ul>
+    </div>
+
+    <!-- 表部分（各セルに綺麗に枠線がつくようになります） -->
+    <h2>主要生成AI バージョン変遷レイヤー</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>年</th>
+            <th>ChatGPT (OpenAI)</th>
+            <th>Gemini (Google)</th>
+            <th>Claude (Anthropic)</th>
+            <th>DeepSeek (深度求索)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- 2018-20 -->
+          <tr>
+            <td class="td-year">2018–20</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-1 / GPT-2 / GPT-3</span>
+              </div>
+            </td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <!-- 2022 -->
+          <tr>
+            <td class="td-year">2022</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-3.5</span>
+                <span class="model-date">Nov 30 — 一般公開</span>
+              </div>
+            </td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <!-- 2023 -->
+          <tr>
+            <td class="td-year">2023</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-4</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-4 Turbo</span>
+                <span class="model-date">Nov</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Bard / PaLM 2</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 1.0</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude 1</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude 2</span>
+                <span class="model-date">Jul</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude 2.1</span>
+                <span class="model-date">Nov</span>
+              </div>
+            </td>
+            <td>—</td>
+          </tr>
+
+          <!-- 2024 -->
+          <tr>
+            <td class="td-year">2024</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-4o</span>
+                <span class="model-date">May</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">o1</span>
+                <span class="model-date">Sep</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Gemini 1.5 Pro</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 1.5 Flash</span>
+                <span class="model-date">May</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 2.0 Flash</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude 3</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude 3.5 Sonnet</span>
+                <span class="model-date">Jun</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude 3.5 Sonnet v2</span>
+                <span class="model-date">Oct</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">DeepSeek V3</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 2025 -->
+          <tr>
+            <td class="td-year">2025</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-4.5</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5</span>
+                <span class="model-date">Aug</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5.1</span>
+                <span class="model-date">Nov</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5.2</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Gemini 2.5 Pro</span>
+                <span class="model-date">Jun</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 3 Pro</span>
+                <span class="model-date">Nov</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 3 Flash</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude 3.7 Sonnet</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude 4</span>
+                <span class="model-date">May</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Opus 4.5</span>
+                <span class="model-date">Nov</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">DeepSeek R1</span>
+                <span class="model-date">Jan</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">DeepSeek V3.2</span>
+                <span class="model-date">Dec</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 2026 -->
+          <tr>
+            <td class="td-year">2026</td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-5.3</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5.4</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5.5</span>
+                <span class="model-date">Apr</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">GPT-5.6</span>
+                <span class="model-date">Jun限定公開</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Gemini 3.1 Pro</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 3.1 Flash Lite</span>
+                <span class="model-date">Mar</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 3.5 Flash</span>
+                <span class="model-date">May</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Gemini 3.5 Pro</span>
+                <span class="model-date">Jun限定公開</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude Opus 4.6</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Sonnet 4.6</span>
+                <span class="model-date">Feb</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Mythos Preview</span>
+                <span class="model-date">Apr — 一般非公開</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Opus 4.7</span>
+                <span class="model-date">Apr</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Opus 4.8</span>
+                <span class="model-date">May</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">
+                  <a href="Claude_Fable5.html">Claude Fable 5</a>
+                </span>
+                <span class="model-date">Jun（6月9日リリース）</span>
+              </div>
+              <div class="entry">
+                <span class="model-name">Claude Sonnet 5</span>
+                <span class="model-date">Jun</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">DeepSeek V4</span>
+                <span class="model-date">Apr</span>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 注釈・フッター部分 -->
+    <h3>注記・補足情報</h3>
+    <p>※１ DeepSeek は中国製であり、プログラムはオープンソース。中国のZ.aiは、2026年6月17日に、オープンモデルのGLM-5.2をリリース。一方、米国3社製はすべてクローズドソース。</p>
+    <p>※２ 2024年度のノーベル物理学賞（AIの基礎となる「機械学習」）は、ジョン・ホップフィールド、ジェフリー・ヒントンが選出された。また、ノーベル化学賞（AIによる「タンパク質の構造予測・設計」）は、デミス・ハサビス、ジョン・ジャンパー、デビッド・ベイカーが選出された。</p>
+    <p>※３ 2026年6月9日（米国時間）にClaude Mythos 5 & Fable 5 同時リリース。Fableは、Mythosの「一般公開版」。6月12日（米国時間）に米国政府が「輸出規制指令」を発動。全ユーザーへの提供停止。</p>
+    <p>※４ その他のAIを網羅的に確認する場合は、AIのPoe（ポー）が参考になる。<a href="https://poe.com/">https://poe.com/</a></p>
+
   </div>
-  <div class="date-tag">作成日：2026年7月6日</div>
-</div>
-
-<div class="legend">
-  <div class="legend-item"><span class="legend-dot" style="background:var(--openai)"></span>OpenAI</div>
-  <div class="legend-item"><span class="legend-dot" style="background:var(--google)"></span>Google</div>
-  <div class="legend-item"><span class="legend-dot" style="background:var(--anthropic)"></span>Anthropic</div>
-  <div class="legend-item"><span class="legend-dot" style="background:var(--deepseek)"></span>DeepSeek（深度求索）</div>
-</div>
-
-<div class="table-wrap">
-<table>
-  <thead>
-     <tr>
-      <th>年</th>
-      <th class="th-openai">ChatGPT<span class="th-sub">OpenAI</span></th>
-      <th class="th-google">Gemini<span class="th-sub">Google</span></th>
-      <th class="th-anthropic"><a href="recursive_self-improvement.html" class="th-link">Claude<span class="th-sub">Anthropic</span></a></th>
-      <th class="th-deepseek">DeepSeek<span class="th-sub">深度求索</span></th>
-    </tr>
-  </thead>
-  <tbody>
-
-   <!-- 1920s -->
-    <tr class="special-row">
-      <td class="td-year">1920s</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        1925　ハイゼンベルクの行列方程式　1926　シュレディンガーの波動方程式
-      </td>
-
-    <!-- 1940s～50s -->
-    <tr class="special-row">
-      <td class="td-year">1940s～50s</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        1943　シュレディンガーの「生命とは何か」（DNAの構造を『非周期性結晶』と命名 ）　1953　DNA2重らせん構造（『生命とは何か』から影響を受ける）
-      </td>
-    </tr>
-
-    <!-- 1950s～70s -->
-    <tr class="special-row">
-      <td class="td-year">1950s～70s</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        第１次AIブーム／1956　ダートマス会議(AIの概念が確立)　1957　パーセプトロンモデル　
-      </td>
-    </tr>
-
-    <!-- 1980s～90s -->
-    <tr class="special-row">
-      <td class="td-year">1980s～90s</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        第２次AIブーム／1982　ホップフィールドネットワーク（ジョン・ホップフィールド）　1986　誤差逆伝播法
-      </td>
-    </tr>
-
-　　<!-- 2000s～10s -->
-    <tr class="special-row">
-      <td class="td-year">2000s～10s</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        第３次AIブーム／2006　ディープラーニング（ジェフリー・ヒントン）　2015　AlphaGo
-      </td>
-    </tr>
-
-    <!-- 2017 -->
-    <tr class="special-row">
-      <td class="td-year">2017</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        Googleの研究者が、ニューラルネットワーク構造のトランスフォーマー発表
-      </td>
-    </tr>
-
-    <!-- 2018-20 -->
-    <tr>
-      <td class="td-year">2018–20</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-1 / GPT-2 / GPT-3</span>
-        </div>
-      </td>
-      <td><span class="empty-cell">—</span></td>
-      <td><span class="empty-cell">—</span></td>
-      <td><span class="empty-cell">—</span></td>
-    </tr>
-
-    <!-- 2020 -->
-    <tr class="special-row">
-      <td class="td-year">2020</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        OpenAIの研究者が、スケーリング則を発表
-      </td>
-    </tr>
-
-　　 <!-- 2020s～ -->
-    <tr class="special-row">
-      <td class="td-year">2020s～</td>
-      <td colspan="4" style="color:var(--text-soft); font-size:0.78rem;">
-        第４次AIブーム／生成AI・個別化AI
-      </td>
-    </tr>
-
-    <!-- 2022 -->
-    <tr>
-      <td class="td-year">2022</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-3.5</span>
-          <span class="model-date">Nov 30 — <span style="color:#dc2626;font-weight:500;">一般公開</span></span>
-        </div>
-      </td>
-      <td><span class="empty-cell">—</span></td>
-      <td><span class="empty-cell">—</span></td>
-      <td><span class="empty-cell">—</span></td>
-    </tr>
-
-    <!-- 2023 -->
-    <tr>
-      <td class="td-year">2023</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-4</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-4 Turbo</span>
-          <span class="model-date">Nov</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Bard / PaLM 2</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 1.0</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Claude 1</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude 2</span>
-          <span class="model-date">Jul</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude 2.1</span>
-          <span class="model-date">Nov</span>
-        </div>
-      </td>
-      <td><span class="empty-cell">—</span></td>
-    </tr>
-
-    <!-- 2024 -->
-    <tr>
-      <td class="td-year">2024 ※2</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-4o</span>
-          <span class="model-date">May</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">o1</span>
-          <span class="model-date">Sep</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Gemini 1.5 Pro</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 1.5 Flash</span>
-          <span class="model-date">May</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 2.0 Flash</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Claude 3</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude 3.5 Sonnet</span>
-          <span class="model-date">Jun</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude 3.5 Sonnet v2</span>
-          <span class="model-date">Oct</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">DeepSeek V3</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-    </tr>
-
-    <!-- 2025 -->
-    <tr>
-      <td class="td-year">2025</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-4.5</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5</span>
-          <span class="model-date">Aug</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5.1</span>
-          <span class="model-date">Nov</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5.2</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Gemini 2.5 Pro</span>
-          <span class="model-date">Jun</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 3 Pro</span>
-          <span class="model-date">Nov</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 3 Flash</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Claude 3.7 Sonnet</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude 4</span>
-          <span class="model-date">May</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude Opus 4.5</span>
-          <span class="model-date">Nov</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">DeepSeek R1</span>
-          <span class="model-date">Jan</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">DeepSeek V3.2</span>
-          <span class="model-date">Dec</span>
-        </div>
-      </td>
-    </tr>
-
-    <!-- 2026 -->
-    <tr>
-      <td class="td-year">2026</td>
-      <td>
-        <div class="entry">
-          <span class="model-name">GPT-5.3</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5.4</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5.5</span>
-          <span class="model-date">Apr</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">GPT-5.6</span>
-          <span class="model-date">Jun限定公開　リリース未定</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Gemini 3.1 Pro</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 3.1 Flash Lite</span>
-          <span class="model-date">Mar</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 3.5 Flash</span>
-          <span class="model-date">May</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Gemini 3.5 Pro</span>
-          <span class="model-date">Jun限定公開　Julリリース</span>
-        </div>
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">Claude Opus 4.6</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude Sonnet 4.6</span>
-          <span class="model-date">Feb</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude <span style="color:#dc2626;font-weight:500;">Mythos</span>Preview </span>
-          <span class="model-date">Apr — <span style="color:#dc2626;font-weight:500;">一般非公開</span></span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude Opus 4.7</span>
-          <span class="model-date">Apr</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude Opus 4.8</span>
-          <span class="model-date">May</span>
-        </div>
-        <div class="entry">
-         <span class="model-name">
-         <a href="Claude_Fable5.html" style="color: inherit; text-decoration: underline; font-weight: 500;">Claude Fable 5</a>, Claude Mythos 5
-         </span>
-        <span class="model-date">Jun（6月9日リリース。6月12日提供停止。7月1日再リリース）</span>
-        </div>
-        <div class="entry">
-          <span class="model-name">Claude Sonnet 5</span>
-          <span class="model-date">Jun</span>
-        </div>
-
-      </td>
-      <td>
-        <div class="entry">
-          <span class="model-name">DeepSeek V4</span>
-          <span class="model-date">Apr</span>
-        </div>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
-</div>
-
-<p class="footnote">※１ &nbsp;DeepSeek は中国製であり、プログラムはオープンソース。中国のZ.aiは、2026年6月17日に、オープンモデルのGLM-5.2をリリース。一方、米国3社製はすべてクローズドソース。</p>
-<p class="footnote" style="margin-top:0.6rem;">※２ &nbsp;2024年度のノーベル物理学賞（AIの基礎となる「機械学習」）は、ジョン・ホップフィールド、ジェフリー・ヒントンが選出された。また、ノーベル化学賞（AIによる「タンパク質の構造予測・設計」）は、デミス・ハサビス、ジョン・ジャンパー、デビッド・ベイカーが選出された。</p>
-<p class="footnote" style="margin-top:0.6rem;">※３ 2026年6月9日（米国時間）にClaude　Mythos 5 & Fable 5 同時リリース。Fableは、Mythosの「一般公開版」。6月12日（米国時間）に米国政府が「輸出規制指令」を発動。全ユーザーへの提供停止。</p>
-<p class="footnote" style="margin-top:0.6rem;">※４ その他のAIを網羅的に確認する場合は、AIのPoe（ポー）が参考になる。<a href="https://poe.com/">https://poe.com/</a></p>
 
 </body>
 </html>
