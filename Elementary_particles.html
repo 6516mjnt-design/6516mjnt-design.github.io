@@ -2,35 +2,31 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>素粒子標準理論（標準模型）</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-            line-height: 1.8;
-            color: #1e293b;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background-color: #ffffff;
-        }
+        /* ==========================================================================
+           このページ専用の追加スタイル（style.css にない素粒子解説用パーツ）
+           配色は style.css のテーマカラー（紺 #1a365d / 青 #2b6cb0）に統一
+           ========================================================================== */
         h1 {
             font-size: 24pt;
-            color: #0f172a;
-            border-bottom: 3px solid #2563eb;
+            color: #1a365d;
+            border-bottom: 3px solid #2b6cb0;
             padding-bottom: 10px;
-            margin-bottom: 30px;
         }
         h2 {
             font-size: 16pt;
-            color: #1e3a8a;
-            border-left: 5px solid #2563eb;
+            color: #1a365d;
+            border-left: 5px solid #2b6cb0;
             padding-left: 12px;
             margin-top: 40px;
             margin-bottom: 20px;
         }
         .intro {
             font-size: 11pt;
-            background-color: #f8fafc;
+            background-color: #f4f6f9;
             border: 1px solid #e2e8f0;
             padding: 15px 20px;
             border-radius: 8px;
@@ -46,14 +42,14 @@
         .particle-title {
             font-weight: bold;
             font-size: 12pt;
-            color: #0f172a;
+            color: #1a365d;
             margin-bottom: 10px;
         }
-        ul {
+        .particle-box ul {
             margin: 0;
             padding-left: 20px;
         }
-        li {
+        .particle-box li {
             margin-bottom: 8px;
         }
         .force-item {
@@ -62,7 +58,7 @@
         }
         .force-name {
             font-weight: bold;
-            color: #2563eb;
+            color: #2b6cb0;
         }
         .image-container {
             margin-top: 50px;
@@ -87,55 +83,62 @@
 </head>
 <body>
 
-    <h1>素粒子標準理論（標準模型）</h1>
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
 
-    <div class="intro">
-        <p><strong>概要：</strong>この宇宙を構成する素粒子の現代物理学の基本理論。</p>
-    </div>
+        <header>
+            <h1>素粒子標準理論（標準模型）</h1>
+        </header>
 
-    <h2>1. 標準理論の構成粒子（計17種類）</h2>
-    <p>標準理論では、粒子を大きく「物質を構成する粒子」と「力を媒介する粒子」の2つに分類。それに質量を与える「ヒッグス粒子」を加えた合計17種類の素粒子で成り立つ。</p>
+        <div class="intro">
+            <p><strong>概要：</strong>この宇宙を構成する素粒子の現代物理学の基本理論。</p>
+        </div>
 
-    <div class="particle-box">
-        <div class="particle-title">① 物質粒子（フェルミオン：12種類）</div>
-        <p>物質を形作る基本的な粒子で、それぞれ6種類の「クォーク」と「レプトン」に分かれる。</p>
-        <ul>
-            <li><strong>クォーク（6種類）：</strong>アップ、ダウン、チャーム、ストレンジ、トップ、ボトム</li>
-            <li><strong>レプトン（6種類）：</strong>電子、ミュー粒子、タウ粒子、およびそれらに対応する3種類のニュートリノ</li>
-        </ul>
-    </div>
+        <h2>1. 標準理論の構成粒子（計17種類）</h2>
+        <p>標準理論では、粒子を大きく「物質を構成する粒子」と「力を媒介する粒子」の2つに分類。それに質量を与える「ヒッグス粒子」を加えた合計17種類の素粒子で成り立つ。</p>
 
-    <div class="particle-box">
-        <div class="particle-title">② 力を媒介する粒子（ゲージボソン：4種類）</div>
-        <p>素粒子間に働く3つの力を伝える役割を持つ。</p>
-        <ul>
-            <li><strong>光子 (γ)：</strong>電磁気力を伝える</li>
-            <li><strong>ウィークボソン (W, Z)：</strong>弱い力（放射性崩壊などに関与）を伝える</li>
-            <li><strong>グルーオン (g)：</strong>強い力（クォークを結びつける）を伝える</li>
-        </ul>
-    </div>
+        <div class="particle-box">
+            <div class="particle-title">① 物質粒子（フェルミオン：12種類）</div>
+            <p>物質を形作る基本的な粒子で、それぞれ6種類の「クォーク」と「レプトン」に分かれる。</p>
+            <ul>
+                <li><strong>クォーク（6種類）：</strong>アップ、ダウン、チャーム、ストレンジ、トップ、ボトム</li>
+                <li><strong>レプトン（6種類）：</strong>電子、ミュー粒子、タウ粒子、およびそれらに対応する3種類のニュートリノ</li>
+            </ul>
+        </div>
 
-    <div class="particle-box">
-        <div class="particle-title">③ 質量を与える粒子（ヒッグス粒子：1種類）</div>
-        <p>すべての素粒子に質量を与える起源とされる粒子。2012年に欧州原子核研究機構（CERN）の実験でその存在が確認された。</p>
-    </div>
+        <div class="particle-box">
+            <div class="particle-title">② 力を媒介する粒子（ゲージボソン：4種類）</div>
+            <p>素粒子間に働く3つの力を伝える役割を持つ。</p>
+            <ul>
+                <li><strong>光子 (γ)：</strong>電磁気力を伝える</li>
+                <li><strong>ウィークボソン (W, Z)：</strong>弱い力（放射性崩壊などに関与）を伝える</li>
+                <li><strong>グルーオン (g)：</strong>強い力（クォークを結びつける）を伝える</li>
+            </ul>
+        </div>
 
-    <h2>2. 理論が扱う「3つの力」</h2>
-    <p>自然界には4つの基本的な力があるが、標準理論は重力を除く3つの力を量子力学的に記述。</p>
-    
-    <div class="force-item">
-        <span class="force-name">● 電磁気の相互作用：</span>プラスとマイナスの電荷の間に働く電磁気力。
-    </div>
-    <div class="force-item">
-        <span class="force-name">● 強い相互作用：</span>原子核の中で陽子と中性子を結びつける強い力。
-    </div>
-    <div class="force-item">
-        <span class="force-name">● 弱い相互作用：</span>原子核の崩壊（ベータ崩壊など）を引き起こす弱い力。
-    </div>
+        <div class="particle-box">
+            <div class="particle-title">③ 質量を与える粒子（ヒッグス粒子：1種類）</div>
+            <p>すべての素粒子に質量を与える起源とされる粒子。2012年に欧州原子核研究機構（CERN）の実験でその存在が確認された。</p>
+        </div>
 
-    <div class="image-container">
-        <img src="images/standard_model.png" alt="標準模型 構成粒子一覧">
-        <div class="image-caption">図：標準模型の構成粒子一覧</div>
+        <h2>2. 理論が扱う「3つの力」</h2>
+        <p>自然界には4つの基本的な力があるが、標準理論は重力を除く3つの力を量子力学的に記述。</p>
+
+        <div class="force-item">
+            <span class="force-name">● 電磁気の相互作用：</span>プラスとマイナスの電荷の間に働く電磁気力。
+        </div>
+        <div class="force-item">
+            <span class="force-name">● 強い相互作用：</span>原子核の中で陽子と中性子を結びつける強い力。
+        </div>
+        <div class="force-item">
+            <span class="force-name">● 弱い相互作用：</span>原子核の崩壊（ベータ崩壊など）を引き起こす弱い力。
+        </div>
+
+        <div class="image-container">
+            <img src="images/standard_model.png" alt="標準模型 構成粒子一覧">
+            <div class="image-caption">図：標準模型の構成粒子一覧</div>
+        </div>
+
     </div>
 
 </body>
