@@ -4,25 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI と 人間の知能 について</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
+        /* ==========================================================================
+           このページ専用の追加スタイル（style.css にないQ&A表現用）
+           配色は style.css のテーマカラー（紺 #1a365d / 青 #2b6cb0）を基調に調整
+           ========================================================================== */
         header {
             border-bottom: 2px solid #333;
             padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-size: 24px;
-            margin: 0 0 10px 0;
-            color: #111;
         }
         .date {
             font-size: 14px;
@@ -37,13 +27,13 @@
         }
         .question {
             background-color: #f0f4f8;
-            border-left: 4px solid #0056b3;
+            border-left: 4px solid #2b6cb0;
             padding: 15px 20px;
             margin-bottom: 25px;
             font-weight: bold;
         }
         .question-title {
-            color: #0056b3;
+            color: #2b6cb0;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -62,12 +52,12 @@
             border-bottom: 1px solid #ddd;
             padding-bottom: 8px;
             margin-top: 30px;
-            color: #222;
+            color: #1a365d;
         }
         h3 {
             font-size: 16px;
             margin-top: 20px;
-            color: #444;
+            color: #2b6cb0;
         }
         ul {
             margin-top: 5px;
@@ -118,7 +108,7 @@
         }
         .overall-summary h2 {
             margin-top: 0;
-            color: #1e4620;
+            color: #1a365d;
             border-bottom: 2px solid #ccecd8;
         }
         .overall-summary ul {
@@ -142,10 +132,13 @@
 </head>
 <body>
 
-<header>
-    <h1>AI と 人間の知能 について</h1>
-    <div class="date">2026年7月4日</div>
-</header>
+<div class="container">
+    <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+    <header>
+        <h1>AI と 人間の知能 について</h1>
+        <div class="date">2026年7月4日</div>
+    </header>
 
 <div class="overall-summary">
     <h2>問１～問５</h2>
@@ -598,6 +591,8 @@
             <li><strong>未解決の核心：</strong>「絶対的な上限」が具体的にどの高さ（人間を遥かに超越した先か、あるいはすぐ手前か）にあるのかは、知能の定義にも依存し、現代科学・AI理論における最大の未解決問題の一つである。</li>
         </ul>
     </div>
+    </div>
+
 </div>
 
 </body>
