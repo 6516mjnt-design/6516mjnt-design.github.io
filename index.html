@@ -5,13 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>いしちゃんのホームページ</title>
   <link rel="stylesheet" href="style.css">
-</head>
+
+ <style>
+    /* ボタンがあった元の場所（右端など）のレイアウトはそのまま維持する */
+    .btn-print {
+      display: inline-block;
+    }
+
+    /* ボタンの「見た目」と「文字（アイコン）」を完全に透明にして消し去る */
+    button.btn-print {
+      background: transparent !important;
+      background-image: none !important;
+      color: transparent !important;      /* 文字（化けているアイコン）を透明にする */
+      border: none !important;             /* 枠線を完全に消す */
+      font-size: 0 !important;             /* 文字の大きさをゼロにする */
+      width: 0 !important;                 /* 横幅をゼロにする */
+      height: 0 !important;                /* 高さをゼロにする */
+      padding: 0 !important;               /* 余白をゼロにする */
+      margin: 0 !important;                /* 外側の余白をゼロにする */
+      pointer-events: none !important;     /* クリックもできないようにする */
+    }
+
+    /* 前後にくっつくパーツも完全に消滅させる */
+    button.btn-print::before, 
+    button.btn-print::after {
+      content: none !important;
+      display: none !important;
+    }
+  </style>
+
+ </head>
 <body>
 
   <header>
     <img alt="プロフィール" src="images/shingo.svg">
     <h1>いしちゃんのホームページ</h1>
-    <p>最終更新日：2026年7月12日</p>
+    <p>最終更新日：2026年7月13日</p>
     <p>知能とは？AIとは？生物（動物・植物）とは？</p>
     <p>項目名の右に※がある場合は、下位の目次にリンクします</p>
   </header>
