@@ -140,6 +140,56 @@
 
       <div class="card">
         <div class="card-header">
+          <h2>1-2｜限月とSQ ―「いつ」を管理する仕組み</h2>
+        </div>
+        <div class="card-body">
+          <p>オプションには必ず「満期日」があり、この満期の区分を<strong>限月（げんげつ）</strong>と呼ぶ。同じ権利行使価格・コール/プットでも、限月が違えば別銘柄として扱われる。</p>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>粒度</th>
+                  <th>内容</th>
+                  <th>日経225オプションでの位置づけ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>マンスリー（月次限月）</strong></td>
+                  <td>毎月第2金曜日が満期日</td>
+                  <td>基本となる限月。もっとも流動性が集中しやすい</td>
+                </tr>
+                <tr>
+                  <td><strong>クオータリー（3・6・9・12月限）</strong></td>
+                  <td>四半期ごとの限月。先物とオプションが同時に清算される</td>
+                  <td>「メジャーSQ」と呼ばれ、相場が動意づきやすい</td>
+                </tr>
+                <tr>
+                  <td><strong>ウィークリー（週次限月）</strong></td>
+                  <td>第2金曜日以外の毎週金曜日が満期日</td>
+                  <td>短期イベント（経済指標・金融政策会合等）向けの低プレミアム限月</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>日経225オプションでは、これらを組み合わせて<strong>常時27限月</strong>が並行して上場されている（8年先までの6・12月限16本＋1年6か月先までの3・9月限3本＋直近の毎月限8本）。一方、個別株オプション（かぶオプ）は流動性が薄いため<strong>常時4限月</strong>に絞って上場されている。</p>
+
+          <div class="highlight-box">
+            <strong>なぜ複数の限月があるのか：</strong><br>
+            投資家ごとにヘッジ・投資したい期間（数日〜数年）が異なるため。また、満期が来て消滅するポジションを次の限月へ乗り換える<strong>ロールオーバー</strong>を絶やさず行えるようにするためでもある。限月が多いほど選択肢は広がるが、出来高がその分散ってしまうため、市場の厚み（流動性）とのバランスで本数が決まる。
+          </div>
+
+          <div class="highlight-box" style="border-left-color: #2b6cb0;">
+            <strong>SQとの関係：</strong><br>
+            「限月」は満期の<em>区分</em>そのもの、「SQ（Special Quotation）」はその限月が満期を迎える際の<em>清算価格・清算日</em>を指す言葉。「限月＝SQ」ではなく、各限月にそれぞれ固有のSQが対応している、という関係になる。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
           <h2>2｜オプション取引の基本の4パターン</h2>
         </div>
         <div class="card-body">
@@ -248,7 +298,68 @@
 
       <div class="card">
         <div class="card-header">
-          <h2>5｜決済方法は2つだけ</h2>
+          <h2>5｜プレミアムはどう決まるか</h2>
+        </div>
+        <div class="card-body">
+          <p>オプション価格（プレミアム）は、次の2つの要素の合計で成り立つ。</p>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>要素</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>本質的価値</strong></td>
+                  <td>「今すぐ権利行使したらいくら得か」を示す価値。<br>
+                    コールなら「日経225の現在値－権利行使価格」、プットなら「権利行使価格－日経225の現在値」（マイナスの場合は0）</td>
+                </tr>
+                <tr>
+                  <td><strong>時間的価値</strong></td>
+                  <td>満期までにまだ有利な方向へ動くかもしれない「可能性」に対する価値。満期までの残存日数が長いほど、また予想される値動きの大きさ（インプライド・ボラティリティ）が高いほど大きくなる</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>状態</th>
+                  <th>意味</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>ITM（イン・ザ・マネー）</strong></td>
+                  <td>本質的価値がプラスの状態。権利行使すれば得になる</td>
+                </tr>
+                <tr>
+                  <td><strong>ATM（アット・ザ・マネー）</strong></td>
+                  <td>権利行使価格と現在値がほぼ同じ状態</td>
+                </tr>
+                <tr>
+                  <td><strong>OTM（アウト・オブ・ザ・マネー）</strong></td>
+                  <td>本質的価値がゼロの状態。プレミアムは時間的価値のみで構成される</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="highlight-box">
+            <strong>タイムディケイとインプライド・ボラティリティ（IV）：</strong><br>
+            時間的価値は満期が近づくほど減っていく（タイムディケイ）。また、相場の先行き不透明感が強まる（IVが上がる）ほど、時間的価値・プレミアム全体が膨らむ。日経平均VI（日経平均ボラティリティー・インデックス）は、この市場が織り込んでいるIVを指数化したもので、日経225オプションの価格から逆算して算出されている。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>6｜決済方法は2つだけ</h2>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -288,7 +399,45 @@
 
       <div class="card">
         <div class="card-header">
-          <h2>6｜具体例で数字を追ってみる</h2>
+          <h2>7｜権利行使のルール：いつ権利行使できるか</h2>
+        </div>
+        <div class="card-body">
+          <p>「満期日にしか権利行使できないか」「満期前でも自由に権利行使できるか」は、対象によって異なる。この違いをタイプで区別する。</p>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>タイプ</th>
+                  <th>権利行使できるタイミング</th>
+                  <th>該当する商品の例</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>ヨーロピアンタイプ</strong></td>
+                  <td>満期日（SQ日）にのみ権利行使可能。実際には自動で判定されるため、投資家が自分で行使を判断する必要はない</td>
+                  <td>日経225オプション、TOPIXオプション、個別株オプション（かぶオプ）</td>
+                </tr>
+                <tr>
+                  <td><strong>アメリカンタイプ</strong></td>
+                  <td>取引開始日から満期日まで、いつでも権利行使が可能</td>
+                  <td>米国株オプション、JGB先物オプション</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="highlight-box">
+            <strong>実務上の注意：</strong><br>
+            日経225オプションのようなヨーロピアンタイプは、途中でポジションをやめたい場合は「①転売・買戻し」で決済する（権利行使はできない）。一方、米国株オプションのようなアメリカンタイプは、満期を待たずに権利行使される（＝割り当てを受ける）可能性があるため、オプションの売り手はそのリスクも織り込んでおく必要がある。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>8｜具体例で数字を追ってみる</h2>
         </div>
         <div class="card-body">
           <p><strong>銘柄：</strong>日経225オプション 2015年6月限 権利行使価格 20,000円 コール オプション価格 500円<br>
@@ -371,7 +520,7 @@
 
       <div class="card">
         <div class="card-header">
-          <h2>7｜実務で気をつけるポイント</h2>
+          <h2>9｜実務で気をつけるポイント</h2>
         </div>
         <div class="card-body">
           <ul>
@@ -381,13 +530,54 @@
             <li style="margin-bottom: 8px;">取引単位はオプション価格の1,000倍。少額のオプション価格でも実際の取引価額・損益は大きくなる。</li>
             <li style="margin-bottom: 8px;">権利行使には別途手数料がかかる。権利放棄には手数料がかからない。満期日は自動的に有利な方が選択される。</li>
             <li style="margin-bottom: 8px;">限月の満期日は原則その月の第2金曜日、Weekly限月はその週の金曜日。カレンダーで事前に確認しておく。</li>
+            <li style="margin-bottom: 8px;">日経225オプションはヨーロピアンタイプ（満期日のみ権利行使可）。米国株オプション等のアメリカンタイプとはルールが異なる点に注意。</li>
+            <li style="margin-bottom: 8px;">「売り」を行う場合は証拠金が必須。相場急変時やIV上昇時に必要証拠金が増える（追証リスク）ため、余力を厚めに確保する。</li>
           </ul>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h2>8｜用語早見表</h2>
+          <h2>10｜証拠金の考え方（売り方のみ必要）</h2>
+        </div>
+        <div class="card-body">
+          <p>オプションの「買い方」は、あらかじめオプション価格（プレミアム）を全額支払うだけなので証拠金は不要。一方「売り方」は、権利を引き受ける義務を負うため、その義務を履行できる担保として証拠金の差し入れが必須になる。</p>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>要因</th>
+                  <th>証拠金への影響</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>原資産（日経225）の価格変動</td>
+                  <td>値動きが大きい・売建てが不利な方向に動くほど、必要証拠金は増加する</td>
+                </tr>
+                <tr>
+                  <td>ボラティリティ（IV）の上昇</td>
+                  <td>先行き不透明感が強まるほど、想定される損失幅が広がり証拠金も増加する</td>
+                </tr>
+                <tr>
+                  <td>満期までの残存期間</td>
+                  <td>残存期間が長いほど、その間に相場が動く余地が大きいため証拠金は高くなりやすい</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="highlight-box">
+            <strong>実務上の注意：</strong><br>
+            必要証拠金は日々の値洗いで変動する。相場が急変すると証拠金が不足し、追加の差し入れ（追証）が必要になることがある。期日までに証拠金を差し入れられない場合、強制的にポジションが決済されることもあるため、「売り」を行う場合は余力を厚めに確保しておくことが重要。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>11｜用語早見表</h2>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -430,6 +620,34 @@
                 <tr>
                   <td><strong>タイムディケイ</strong></td>
                   <td>満期日が近づくにつれてオプションの時間的価値が減少していく現象</td>
+                </tr>
+                <tr>
+                  <td><strong>限月（げんげつ）</strong></td>
+                  <td>満期の区分。同じ権利行使価格でも限月が違えば別銘柄として扱われる</td>
+                </tr>
+                <tr>
+                  <td><strong>本質的価値</strong></td>
+                  <td>今すぐ権利行使した場合に得られる価値（ITMの場合のみプラス）</td>
+                </tr>
+                <tr>
+                  <td><strong>時間的価値</strong></td>
+                  <td>満期までに有利な方向へ動く可能性に対する価値。残存日数・IVに応じて変動</td>
+                </tr>
+                <tr>
+                  <td><strong>インプライド・ボラティリティ（IV）</strong></td>
+                  <td>市場が織り込んでいる、将来の値動きの大きさの予想値。プレミアムの水準に直結する</td>
+                </tr>
+                <tr>
+                  <td><strong>ヨーロピアンタイプ</strong></td>
+                  <td>満期日にのみ権利行使できるタイプ。日経225オプション等はこちら</td>
+                </tr>
+                <tr>
+                  <td><strong>アメリカンタイプ</strong></td>
+                  <td>満期日までいつでも権利行使できるタイプ。米国株オプション等はこちら</td>
+                </tr>
+                <tr>
+                  <td><strong>証拠金</strong></td>
+                  <td>オプションの「売り方」が義務履行の担保として差し入れる保証金。相場変動やIVの上昇で増減する</td>
                 </tr>
               </tbody>
             </table>
