@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投資の分類と投資信託の基本</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- 印刷ボタン -->
+    <button class="btn-print" onclick="window.print()">このページを印刷</button>
+
+    <header>
+      <h1>投資の分類</h1>
+      <p>資産形成の基本となる「投資の全体像」と「投資信託の分類」を分かりやすく整理しています。</p>
+    </header>
+
+    <!-- ==========================================
+         セクション1：投資の基本分類（4つの視点）
+         ========================================== -->
+    <h2 class="main-title"></h2>
+    
+    <!-- gridクラスを使わず、display: flex; flex-direction: column; で完全に縦1列に並べます -->
+    <div style="display: flex; flex-direction: column; gap: 25px; margin-bottom: 50px; width: 100%;">
+      
+      <!-- 1. 投資対象による分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>1. 投資対象（資産）による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>何を保有するかによる最も基本的な分類です。伝統的資産とオルタナティブ資産に分かれます。</p>
+          <ul>
+            <li>
+              <strong>伝統的資産（ペーパーアセット中心）</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 6px; padding-left: 10px; line-height: 1.8;">
+                <div><strong>株式：</strong></div>
+                <div style="margin-bottom: 8px;">企業の成長や業績向上による値上がり益（キャピタルゲイン）や配当（インカムゲイン）を狙う。</div>
+                
+                <div><strong>債券：</strong></div>
+                <div style="margin-bottom: 8px;">国や企業にお金を貸し出し、定期的な利子と満期時の元本償還を得る。比較的安全性が高い。</div>
+                
+                <div><strong>現金・預貯金：</strong></div>
+                <div>厳密には投資ではありませんが、インフレ対策や流動性確保のための基礎資産。</div>
+              </div>
+            </li>
+            <li style="margin-top: 15px;">
+              <strong>オルタナティブ資産（代替資産）</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 6px; padding-left: 10px; line-height: 1.8;">
+                <div><strong>不動産（実物・REIT）：</strong></div>
+                <div style="margin-bottom: 8px;">土地や建物を購入し、賃料収入や売却益を狙う。</div>
+                
+                <div><strong>コモディティ（商品）：</strong></div>
+                <div style="margin-bottom: 8px;">金（ゴールド）、原油、穀物など。物価上昇（インフレ）に強い特性がある。</div>
+                
+                <div><strong>暗号資産（仮想通貨）：</strong></div>
+                <div>ビットコインなど。法的な位置づけや値動きの荒さから、投機的側面が強い。</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. 収益の得方による分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>2. 収益の得方（リターンの源泉）による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>投資からどのように利益を得るかによる分類。バランス良く組み合わせることが重要。</p>
+          <ul>
+            <li>
+              <strong>インカムゲイン（利益還元・利回り重視）</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 6px; padding-left: 10px; line-height: 1.8;">
+                <div><strong>特徴：</strong></div>
+                <div style="margin-bottom: 8px;">資産を保有しているだけで定期的に入ってくる安定した収入。</div>
+                <div><strong>具体例：</strong></div>
+                <div>株式の配当金、債券の利子、不動産の家賃収入。</div>
+              </div>
+            </li>
+            <li style="margin-top: 15px;">
+              <strong>キャピタルゲイン（値上がり益重視）</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 6px; padding-left: 10px; line-height: 1.8;">
+                <div><strong>特徴：</strong></div>
+                <div style="margin-bottom: 8px;">資産を購入した価格よりも高く売却することで得られる売買差益。</div>
+                <div><strong>具体例：</strong></div>
+                <div>安く買った株が高値になった時の売却益、不動産の転売益。</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. 投資期間による分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>3. 投資期間による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>時間の軸による分類。期間が長くなるほど、複利の効果を活かしやすくなる。</p>
+          <ul>
+            <li>
+              <strong>短期投資：</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 4px; padding-left: 10px; margin-bottom: 12px;">
+                数日〜数ヶ月（数秒〜数分も含む）。デイトレードやスイングトレード。市場の短期的な歪みや需給で利益を狙う（投機的側面が強い）。
+              </div>
+            </li>
+            <li>
+              <strong>中期投資：</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 4px; padding-left: 10px; margin-bottom: 12px;">
+                1年〜数年。企業の業績サイクルや、特定の経済テーマ（半導体、EVなど）のトレンドに乗る投資。
+              </div>
+            </li>
+            <li>
+              <strong>長期投資：</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                10年〜数十年。企業の根本的な価値成長や、世界経済全体の拡大（GDP成長）に賭ける。積立投資などに最適。
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. 分析アプローチによる分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>4. 分析アプローチ（銘柄選定の手法）による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>特に株式投資などで、どうやって投資先を決めるかという戦略上の分類。</p>
+          <ul>
+            <li>
+              <strong>ファンダメンタルズ分析：</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 4px; padding-left: 10px; margin-bottom: 12px;">
+                企業の財務状況（PBR、PER、自己資本比率など）や、売上・利益の成長性、国の経済指標などを基に、本質的な「企業価値」を測って投資する手法。
+              </div>
+            </li>
+            <li>
+              <strong>テクニカル分析：</strong>
+              <div style="font-size: 13px; color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                過去の株価の値動きを記録した「チャート」や出来高などのデータを分析し、投資家の心理や売買のタイミング（トレンド）を予測して投資する手法。
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 投資と投機の違い -->
+    <div class="card" style="margin-bottom: 60px; border-left: 5px solid #2b6cb0;">
+      <div class="card-header" style="background-color: #1a365d;">
+        <h2>5. 「投資」と「投機」の違い</h2>
+      </div>
+      <div class="card-body" style="flex-direction: column; display: flex; gap: 15px;">
+        <div style="background-color: #f8fafc; padding: 15px; border-radius: 6px;">
+          <h3 style="margin-top: 0; color: #2b6cb0; font-size: 15px; margin-bottom: 6px;">投資</h3>
+          <p style="font-size: 13.5px; margin: 0;">経済の成長や企業の価値向上にお金を投じて長期的に分配を得る。</p>
+        </div>
+        <div style="background-color: #f8fafc; padding: 15px; border-radius: 6px;">
+          <h3 style="margin-top: 0; color: #c53030; font-size: 15px; margin-bottom: 6px;">投機</h3>
+          <p style="font-size: 13.5px; margin: 0;">市場の価格変動だけを利用して短期間で資金を奪い合う（ゼロサムゲームに近い）。</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ==========================================
+         セクション2：投資信託（投信）の分類
+         ========================================== -->
+    <hr style="border: 0; border-top: 1px solid #cbd5e0; margin-bottom: 50px;">
+    
+    <h2 class="main-title">（補足）投資信託（投信）の分類</h2>
+
+    <!-- こちらもgridクラスを使わず、display: flex; flex-direction: column; で縦1列に並べます -->
+    <div style="display: flex; flex-direction: column; gap: 25px; width: 100%;">
+
+      <!-- 1. 投資対象（資産）による分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>1. 投資対象（資産）による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>投資信託は、組み入れる資産によって分類されます。</p>
+          <ul style="font-size: 13px;">
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>１）株式型：</strong><br>
+              値上がり益（キャピタルゲイン）を重視。リターンは大きいが、価格変動リスクも高い。
+            </li>
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>２）債券型：</strong><br>
+              国や企業が発行する債券を中心に運用。利子収入ベースのため比較的値動きが安定。
+            </li>
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>３）不動産（REIT）型：</strong><br>
+              オフィスビルや商業施設などの賃料収入を分配するタイプ。
+            </li>
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>４）コモディティ（商品）型：</strong><br>
+              金や原油などの現物資産に投資。
+            </li>
+            <li>
+              <strong>５）バランス型：</strong><br>
+              株式、債券、不動産などをあらかじめ決まった比率でブレンドして運用する。
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. 投資地域による分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>2. 投資地域による分類</h2>
+        </div>
+        <div class="card-body">
+          <p>為替変動リスクの有無に直結します。</p>
+          <ul style="font-size: 13px;">
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>１）国内（日本）：</strong><br>
+              為替の影響を直接受けない。比較的マイルド。
+            </li>
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>２）先進国：</strong><br>
+              米国や欧州など。市場の透明性や流動性が高い。為替リスクあり。中〜高リターン。
+            </li>
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>３）新興国：</strong><br>
+              アジア、中南米、アフリカなど。高い成長力。為替・政治リスク大。ハイリスク・ハイリターン。
+            </li>
+            <li>
+              <strong>４）グローバル（全世界）：</strong><br>
+              日本を含む、または除く全世界に分散投資。中〜長期の分散に適する。
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. 運用スタイルによる分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>3. 運用スタイルによる分類</h2>
+        </div>
+        <div class="card-body">
+          <p>ファンドマネージャーがどのように銘柄を選定し、目標（ベンチマーク）に対してどう挑むかによる分類です。コスト（信託報酬）にも大きな差が出ます。</p>
+          <ul style="font-size: 13px;">
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>１）インデックス型（パッシブ運用）：</strong>
+              <div style="color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                ・<strong>特徴：</strong>日経平均株価やS&P500といった特定の指数（ベンチマーク）に連動する成果を目指す。<br>
+                ・<strong>コスト：</strong>極めて低い（信託報酬が年0.1%を切るものも多数）。
+              </div>
+            </li>
+            <li>
+              <strong>２）アクティブ型：</strong>
+              <div style="color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                ・<strong>特徴：</strong>ファンドマネージャーが独自に企業分析。ベンチマークを上回る成績（超過収益）を目指す。<br>
+                ・<strong>コスト：</strong>高め（年1.0%〜2.0%程度）。
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. 購入・換金の仕組みによる分類 -->
+      <div class="card">
+        <div class="card-header">
+          <h2>4. 購入・換金の仕組みによる分類</h2>
+        </div>
+        <div class="card-body">
+          <p>「投資信託」と呼んでいるものの多くはオープン型ですが、市場で直接取引するタイプもあります。</p>
+          <ul style="font-size: 13px;">
+            <li style="border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 8px;">
+              <strong>１）契約型投資信託（一般の投信）：</strong>
+              <div style="color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                ・<strong>追加型（オープン型）：</strong>運用期間中、いつでも原則として追加購入や解約ができる最も一般的なタイプ。<br>
+                ・<strong>単位型（ユニット型）：</strong>当初の募集期間のみ購入でき、運用開始後は追加購入ができないタイプ。
+              </div>
+            </li>
+            <li>
+              <strong>２）上場投資信託（ETF）：</strong>
+              <div style="color: #4a5568; margin-top: 4px; padding-left: 10px;">
+                取引所に上場しており、株式と全く同じようにリアルタイム of 市場価格で売買できる投資信託。一般の投信に比べて保有コストがさらに低い傾向がある。
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5. 選び方のポイント -->
+    <div class="card" style="margin-top: 40px; border-left: 5px solid #4a5568;">
+      <div class="card-header" style="background-color: #2d3748;">
+        <h2>💡 ５．選び方のポイント</h2>
+      </div>
+      <div class="card-body">
+        <p style="font-size: 14.5px; margin: 0; line-height: 1.7;">
+          安定性を重視するなら<strong>「国内・先進国の債券型」</strong>、長期で資産を成長させたいなら<strong>「全世界や米国の株式インデックス型」</strong>といったように、これらのタイプを掛け合わせてご自身の投資方針を決めていくのが基本となる。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
