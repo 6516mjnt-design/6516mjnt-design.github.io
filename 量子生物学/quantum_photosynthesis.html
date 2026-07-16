@@ -5,501 +5,584 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>光合成と量子コヒーレンス効果</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap');
-
-  :root {
-    --bg: #f8f9fc;
-    --surface: #ffffff;
-    --surface2: #f1f5f9;
-    --border: #e2e8f0;
-    --accent-green: #059669;
-    --accent-green-light: #d1fae5;
-    --accent-blue: #2563eb;
-    --accent-blue-light: #dbeafe;
-    --accent-gold: #d97706;
-    --accent-gold-light: #fef3c7;
-    --accent-purple: #7c3aed;
-    --accent-purple-light: #ede9fe;
-    --accent-red: #dc2626;
-    --text: #1e293b;
-    --text-mid: #475569;
-    --text-dim: #94a3b8;
-    --shadow: 0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.04);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  /* --- Photosystem.html に合わせた全体スタイル --- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 300;
-    line-height: 1.85;
-    padding: 2rem 1rem 4rem;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .page-header {
-    border-bottom: 2px solid var(--accent-green);
-    padding-bottom: 1.2rem;
-    margin-bottom: 2.5rem;
-  }
-  .page-eyebrow {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent-green);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-  .page-title {
-    font-size: clamp(1.3rem, 4vw, 1.9rem);
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.3;
-  }
-
-  .section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.6rem;
-    margin-bottom: 1.8rem;
-    box-shadow: var(--shadow);
-  }
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--accent-green);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .section h2 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.8rem;
-  }
-  .section p {
-    font-size: 0.92rem;
-    color: var(--text-mid);
-    line-height: 1.9;
-    margin-bottom: 0.7rem;
-  }
-  .section p:last-child { margin-bottom: 0; }
-
-  .lead {
-    font-size: 0.95rem;
-    color: var(--text);
-    line-height: 1.9;
-    background: var(--accent-green-light);
-    border-left: 3px solid var(--accent-green);
-    padding: 1rem 1.2rem;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 1rem;
-  }
-
-  .hl-green  { color: var(--accent-green);  font-weight: 700; }
-  .hl-blue   { color: var(--accent-blue);   font-weight: 700; }
-  .hl-gold   { color: var(--accent-gold);   font-weight: 700; }
-  .hl-purple { color: var(--accent-purple); font-weight: 700; }
-  .hl-red    { color: var(--accent-red);    font-weight: 700; }
-
-  .footnote-box {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    margin-top: 1.2rem;
-    font-size: 0.83rem;
-    color: var(--text-mid);
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background: #f5f5f0;
+    color: #1a1a1a;
+    font-size: 15px;
     line-height: 1.8;
   }
-  .footnote-box .fn-title {
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    font-size: 0.86rem;
+
+  /* ヘッダー */
+  header {
+    background: #1a2340;
+    color: #e8e8e0;
+    padding: 2rem 2rem 1.5rem;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.3rem;
+  }
+  header p {
+    font-size: 0.85rem;
+    color: #9aa3b8;
   }
 
+  /* ナビゲーション */
+  nav {
+    background: #232e4a;
+    padding: 0.6rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: #9aa3b8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #e8e8e0; }
+
+  /* メインコンテンツ */
+  main {
+    max-width: 820px;
+    margin: 2rem auto;
+    padding: 0 1.25rem 3rem;
+  }
+
+  .intro {
+    background: #fff;
+    border: 1px solid #e0dfd8;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    font-size: 0.93rem;
+    color: #444;
+  }
+
+  section { margin-bottom: 2.5rem; }
+
+  /* セクションヘッダー */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1.5px solid #1a2340;
+    padding-bottom: 0.4rem;
+  }
+  .section-num {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background: #1a2340;
+    border-radius: 4px;
+    padding: 1px 8px;
+    letter-spacing: 0.05em;
+  }
+  .section-header h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1a2340;
+  }
+  .section-header .sub {
+    font-size: 0.85rem;
+    color: #7a7a70;
+    font-style: italic;
+  }
+
+  /* カードデザイン */
+  .card {
+    background: #fff;
+    border: 1px solid #e0dfd8;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+  .card p { font-size: 0.92rem; color: #333; }
+  .card .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #7a7a70;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* カード種類ごとの左アクセント */
+  .card-ps2    { border-left: 3px solid #2e7d52; } /* 緑 */
+  .card-ps1    { border-left: 3px solid #2055a0; } /* 青 */
+  .card-key    { border-left: 3px solid #7a4ab0; } /* 紫 */
+  .card-amber  { border-left: 3px solid #e0a040; } /* 琥珀・ゴールド */
+  .card-red    { border-left: 3px solid #7a1a1a; } /* 赤 */
+
+  /* インライン要素 */
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .badge-green  { background: #d6edd9; color: #1d5c2a; }
+  .badge-blue   { background: #d4e4f8; color: #1a3c78; }
+  .badge-purple { background: #ede9fe; color: #7c3aed; }
+
+  /* アイテム行リスト */
+  .item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .item-row:last-child { margin-bottom: 0; }
+
+  .item-label {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 3px;
+    white-space: nowrap;
+    text-align: center;
+    min-width: 75px;
+  }
+  .item-label.green  { background: #d6edd9; color: #1d5c2a; }
+  .item-label.blue   { background: #d4e4f8; color: #1a3c78; }
+  .item-label.purple { background: #ede9fe; color: #5b21b6; }
+  .item-label.amber  { background: #fff3e0; color: #7a4a08; }
+  .item-label.red    { background: #fde0e0; color: #7a1a1a; }
+  .item-text { font-size: 0.9rem; color: #333; }
+
+  /* 2カラムレイアウト */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    margin-top: 0.8rem;
+    margin: 0.8rem 0;
   }
   @media (max-width: 580px) { .two-col { grid-template-columns: 1fr; } }
 
-  .card {
+  /* 直感的なアナロジー（Photosystem.html の summary-box のアレンジ） */
+  .analogy-box {
+    background: #eef3fb;
+    border: 1px solid #b0c8e8;
     border-radius: 8px;
-    padding: 0.9rem 1rem;
-    font-size: 0.85rem;
-    line-height: 1.75;
-    color: var(--text-mid);
+    padding: 1.1rem 1.4rem;
+    font-size: 0.92rem;
+    color: #1a2a4a;
+    margin: 1rem 0;
   }
-  .card-title { font-weight: 700; margin-bottom: 0.4rem; font-size: 0.88rem; }
-  .card.classical { background: #fff5f5; border: 1px solid #fecaca; }
-  .card.classical .card-title { color: var(--accent-red); }
-  .card.quantum   { background: #f0fdf4; border: 1px solid #a7f3d0; }
-  .card.quantum   .card-title { color: var(--accent-green); }
-  .card.blue-card { background: var(--accent-blue-light); border: 1px solid #bfdbfe; }
-  .card.blue-card .card-title { color: var(--accent-blue); }
-  .card.purple-card { background: var(--accent-purple-light); border: 1px solid #ddd6fe; }
-  .card.purple-card .card-title { color: var(--accent-purple); }
-
-  .bullet-list { list-style: none; padding: 0; margin: 0.5rem 0 0.8rem; }
-  .bullet-list li {
-    padding: 0.2rem 0 0.2rem 1.2rem;
-    position: relative;
+  .analogy-title {
+    font-weight: bold;
+    color: #2055a0;
+    margin-bottom: 0.4rem;
     font-size: 0.9rem;
-    color: var(--text-mid);
-  }
-  .bullet-list li::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    color: var(--accent-green);
-    font-weight: 700;
   }
 
+  /* 脚注エリア */
+  .footnote-box {
+    background: #fff;
+    border: 1px solid #e0dfd8;
+    border-radius: 8px;
+    padding: 1.1rem 1.4rem;
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  .footnote-box .fn-title {
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 0.6rem;
+    font-size: 0.88rem;
+    border-bottom: 1px dashed #d0cfc8;
+    padding-bottom: 0.3rem;
+  }
+
+  /* 図・キャプション */
+  .sub-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1a2340;
+    margin: 1.5rem 0 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed #d0cfc8;
+  }
   .fig-caption {
-    font-size: 0.78rem;
-    color: var(--text-dim);
+    font-size: 0.82rem;
+    color: #666;
     text-align: center;
     margin-top: 0.8rem;
-    line-height: 1.65;
+    line-height: 1.7;
     padding: 0 0.5rem;
   }
 
-  .analogy {
-    background: var(--accent-blue-light);
-    border-left: 3px solid var(--accent-blue);
-    border-radius: 0 8px 8px 0;
-    padding: 0.9rem 1.1rem;
-    margin: 1rem 0 0.5rem;
-    font-size: 0.88rem;
-    color: var(--text);
-    line-height: 1.8;
-  }
-  .analogy-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--accent-blue);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-  }
-
+  /* キャンバスパネル */
   canvas { width: 100%; display: block; border-radius: 6px; }
-  .canvas-panel { border-radius: 8px; padding: 0.9rem; border: 1px solid var(--border); }
-  .canvas-panel.classical { background: #fff8f8; }
+  .canvas-panel {
+    border-radius: 8px;
+    padding: 0.9rem;
+    border: 1px solid #e0dfd8;
+  }
+  .canvas-panel.classical { background: #fff8h8; background-color: #fff8f8; }
   .canvas-panel.quantum   { background: #f6fffe; }
   .panel-title {
-    font-size: 0.8rem; font-weight: 700;
-    text-align: center; margin-bottom: 0.6rem;
-    padding: 0.25rem 0.5rem; border-radius: 4px; display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.6rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
   }
-  .canvas-panel.classical .panel-title { background: #fee2e2; color: var(--accent-red); }
-  .canvas-panel.quantum   .panel-title { background: #d1fae5; color: var(--accent-green); }
+  .canvas-panel.classical .panel-title { background: #fde0e0; color: #7a1a1a; }
+  .canvas-panel.quantum   .panel-title { background: #d6edd9; color: #1d5c2a; }
 
-  svg text { font-family: 'Noto Sans JP', sans-serif; }
+  /* ハイライト・強調テキスト */
+  .hl-green  { color: #1d5c2a; font-weight: 700; }
+  .hl-blue   { color: #1a3c78; font-weight: 700; }
+  .hl-purple { color: #5b21b6; font-weight: 700; }
+  .hl-gold   { color: #7a4a08; font-weight: 700; }
+  .hl-red    { color: #7a1a1a; font-weight: 700; }
 
-  .sub-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--accent-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 1.2rem 0 0.6rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px dashed var(--border);
+  /* フッター */
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #aaa;
+    padding: 1.5rem;
+    border-top: 1px solid #e0dfd8;
+    margin-top: 2.5rem;
   }
 </style>
 </head>
 <body>
 
-<!-- ページヘッダー -->
-<header class="page-header">
-  <div class="page-eyebrow">Quantum Biology — 量子生物学</div>
-  <div class="page-title">光合成と量子コヒーレンス効果</div>
+<header>
+  <h1>光合成と量子コヒーレンス効果</h1>
+  <p>量子生物学 ― 高効率エネルギー伝達の仕組みのまとめ</p>
 </header>
 
-<!-- ====== 概要 ====== -->
-<div class="section">
-  <div class="section-label">Overview — 概要</div>
-  <div class="lead">
-    植物や光合成細菌は、受け取った光エネルギーをほぼ<span class="hl-green">100%近い効率</span>で「反応中心<sup>※1</sup>」に届ける。この驚異的な高効率は、古典物理学的な拡散では説明できず、<span class="hl-blue">量子コヒーレンス効果</span>によって実現されていると考えられている。
-  </div>
-  <p>この現象を理解するには、「光アンテナ複合体」「量子ウォーク」「ENAQT」という3つの概念を順に理解することが重要である。</p>
+<nav>
+  <a href="#overview">概要</a>
+  <a href="#step1">Step 1: 光アンテナ複合体</a>
+  <a href="#step2">Step 2: 量子ウォーク</a>
+  <a href="#step3">Step 3: ENAQT</a>
+  <a href="#summary">全体のまとめ</a>
+</nav>
 
-  <!-- 脚注 ※1 -->
-  <div class="footnote-box">
-    <div class="fn-title">※1　光合成における「反応中心」とは</div>
-    「反応中心」は、光合成で光エネルギーを化学エネルギーに変換する中核部位であって、主にタンパク質と光合成色素（クロロフィルなど）で構成されている。クロロフィルなどの色素「アンテナ」が光を集め、「反応中心」へエネルギーを伝達。「反応中心」で電子が励起・放出され、水から有機物を合成するためのATPやNADPHが作られる。
-  </div>
-</div>
+<main>
 
-<!-- ====== Step 1: 光アンテナ複合体 ====== -->
-<div class="section">
-  <div class="section-label">Step 1 — 光アンテナ複合体</div>
-  <h2>１．光子吸収（光アンテナ複合体：FMOなど）</h2>
-  <p>
-    クロロフィル分子が数個〜数十個集まった「アンテナ」が光をキャッチし吸収する。クロロフィルの個々の分子は互いに近接しており、
-    <span class="hl-purple">「量子力学的結合<sup>※2</sup>」</span>している。
-  </p>
-  <p>
-    この「量子力学的結合」は、共有結合や水素結合とは根本的に異なる。クロロフィル同士は<strong>物理的には離れた別々の分子</strong>であり、結合しているのは原子ではなく<span class="hl-purple">「励起状態」そのもの</span>である。
-  </p>
+  <section id="overview">
+    <div class="intro">
+      植物や光合成細菌は、受け取った光エネルギーをほぼ<span class="hl-green">100%近い効率</span>で「反応中心」に届ける。この驚異的な高効率は、古典物理学的な拡散では説明できず、<span class="hl-blue">量子コヒーレンス効果</span>によって実現されていると考えられている。
+    </div>
+    
+    <div class="card">
+      <div class="label">学びのロードマップ</div>
+      <p style="font-size:0.9rem; color:#444;">この不可思議な高効率伝達のからくりを紐解くために、以下の3つのステップを順に見ていく。</p>
+      <div style="margin-top: 0.6rem;">
+        <div class="item-row">
+          <span class="item-label purple">Step 1</span>
+          <span class="item-text"><strong>光アンテナ複合体（FMO）</strong>による励起状態の量子力学的結合</span>
+        </div>
+        <div class="item-row">
+          <span class="item-label green">Step 2</span>
+          <span class="item-text"><strong>量子ウォーク（Quantum Walk）</strong>による波の並列経路探索</span>
+        </div>
+        <div class="item-row">
+          <span class="item-label amber">Step 3</span>
+          <span class="item-text"><strong>ENAQT（ノイズ支援量子輸送）</strong>による常温下でのコヒーレンス補助</span>
+        </div>
+      </div>
+    </div>
 
-  <!-- FMO図 -->
-  <div class="sub-label">図 １ — FMO複合体とエネルギー傾斜</div>
-  <div style="max-width:500px;margin:0 auto;">
-    <svg viewBox="0 0 480 285" style="width:100%;display:block;">
-      <defs>
-        <radialGradient id="gg" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#059669" stop-opacity="0.22"/>
-          <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="go" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#d97706" stop-opacity="0.28"/>
-          <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="bl"><feGaussianBlur stdDeviation="3"/></filter>
-        <marker id="arF" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-          <polygon points="0 0,8 3,0 6" fill="#94a3b8"/>
-        </marker>
-      </defs>
-      <!-- 軸 -->
-      <text x="12" y="20" fill="#94a3b8" font-size="10" font-family="Space Mono">E (eV)</text>
-      <line x1="30" y1="15" x2="30" y2="258" stroke="#e2e8f0" stroke-width="1.5" marker-end="url(#arF)"/>
-      <text x="5" y="60"  fill="#94a3b8" font-size="9">高</text>
-      <text x="5" y="248" fill="#94a3b8" font-size="9">低</text>
-      <!-- BChl 1 高E -->
-      <ellipse cx="240" cy="50" rx="28" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="240" y="55" fill="#1d4ed8" font-size="11" text-anchor="middle" font-weight="bold">BChl 1</text>
-      <text x="240" y="30" fill="#94a3b8" font-size="9" text-anchor="middle">光吸収（高E）</text>
-      <circle cx="240" cy="50" r="28" fill="none" stroke="#2563eb" stroke-width="0.8" opacity="0">
-        <animate attributeName="r" from="28" to="55" dur="2.5s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" from="0.45" to="0" dur="2.5s" repeatCount="indefinite"/>
-      </circle>
-      <!-- BChl 2 -->
-      <ellipse cx="340" cy="82" rx="28" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="340" y="87" fill="#1d4ed8" font-size="11" text-anchor="middle" font-weight="bold">BChl 2</text>
-      <!-- BChl 3 -->
-      <ellipse cx="382" cy="132" rx="28" ry="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-      <text x="382" y="137" fill="#6d28d9" font-size="11" text-anchor="middle" font-weight="bold">BChl 3</text>
-      <!-- BChl 4 -->
-      <ellipse cx="140" cy="100" rx="28" ry="18" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="140" y="105" fill="#1d4ed8" font-size="11" text-anchor="middle" font-weight="bold">BChl 4</text>
-      <!-- BChl 5 -->
-      <ellipse cx="98" cy="155" rx="28" ry="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-      <text x="98" y="160" fill="#6d28d9" font-size="11" text-anchor="middle" font-weight="bold">BChl 5</text>
-      <!-- BChl 6 -->
-      <ellipse cx="160" cy="192" rx="28" ry="18" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-      <text x="160" y="197" fill="#6d28d9" font-size="11" text-anchor="middle" font-weight="bold">BChl 6</text>
-      <!-- BChl 7 最低E -->
-      <ellipse cx="240" cy="228" rx="32" ry="20" fill="#ecfdf5" stroke="#059669" stroke-width="2.5"/>
-      <text x="240" y="233" fill="#047857" font-size="11" text-anchor="middle" font-weight="bold">BChl 3/7</text>
-      <ellipse cx="240" cy="228" rx="32" ry="20" fill="url(#gg)" filter="url(#bl)"/>
-      <!-- 反応中心 -->
-      <ellipse cx="240" cy="268" rx="42" ry="13" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
-      <text x="240" y="272" fill="#b45309" font-size="11" text-anchor="middle" font-weight="bold">★ 反応中心</text>
-      <ellipse cx="240" cy="268" rx="42" ry="13" fill="url(#go)" filter="url(#bl)"/>
-      <!-- 転送経路 -->
-      <g opacity="0.35" stroke-dasharray="4,3">
-        <line x1="240" y1="68"  x2="240" y2="208" stroke="#059669" stroke-width="1.5"/>
-        <line x1="340" y1="100" x2="260" y2="213" stroke="#059669" stroke-width="1"/>
-        <line x1="140" y1="118" x2="213" y2="213" stroke="#059669" stroke-width="1"/>
-        <line x1="382" y1="150" x2="272" y2="215" stroke="#7c3aed" stroke-width="1"/>
-        <line x1="98"  y1="173" x2="206" y2="214" stroke="#7c3aed" stroke-width="1"/>
-        <line x1="160" y1="210" x2="202" y2="228" stroke="#7c3aed" stroke-width="1"/>
-      </g>
-      <!-- エネルギー傾斜 -->
-      <path d="M 46 55 L 46 248" stroke="#d97706" stroke-width="1.8" marker-end="url(#arF)" opacity="0.45"/>
-      <text x="49" y="152" fill="#d97706" font-size="9" opacity="0.65">エネルギー</text>
-      <text x="49" y="165" fill="#d97706" font-size="9" opacity="0.65">降り坂</text>
-    </svg>
-  </div>
-  <p class="fig-caption">
-    FMO複合体の模式図。7個のBChl（バクテリオクロロフィルは、紅色光合成細菌などの光合成生物が持つ特有の光合成色素（細菌型葉緑素））が<span class="hl-purple">エネルギー傾斜</span>を形成し、励起エネルギーは量子波として複数経路を同時に伝わり<span class="hl-gold">反応中心（※１）</span>へ到達する。
-  </p>
+    <div class="footnote-box">
+      <div class="fn-title">補足：光合成における「反応中心」とは</div>
+      「反応中心」は、光合成で光エネルギーを化学エネルギーに変換する中核部位であって、主にタンパク質と光合成色素（クロロフィルなど）で構成されている。クロロフィルなどの色素「アンテナ」が光を集め、「反応中心」へエネルギーを伝達。「反応中心」で電子が励起・放出され、水から有機物を合成するためのATPやNADPHが作られる。
+    </div>
+  </section>
 
-  <!-- 脚注 ※2 -->
-  <div class="footnote-box">
-    <div class="fn-title">※2　クロロフィル分子の「量子力学的結合」とは</div>
-    <p style="margin-bottom:0.6rem;">
-      クロロフィル同士は共有結合も水素結合もしない。物理的には離れた別々の分子であり、<strong>「励起状態」が結合</strong>している。
+  <section id="step1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>光子吸収</h2>
+      <span class="sub">光アンテナ複合体と量子力学的結合</span>
+    </div>
+
+    <div class="card card-ps1">
+      <div class="label">アンテナと励起状態</div>
+      <p>
+        クロロフィル分子が数個〜数十個集まった「アンテナ」が光をキャッチし吸収する。クロロフィルの個々の分子は互いに近接しており、<span class="hl-purple">「量子力学的結合」</span>をしている。
+      </p>
+      <p style="margin-top:0.5rem; font-size:0.88rem; color:#555;">
+        この「量子力学的結合」は、共有結合や水素結合とは根本的に異なる。クロロフィル同士は<strong>物理的には離れた別々の分子</strong>であり、結合しているのは原子ではなく<span class="hl-purple">「励起状態」そのもの</span>である。
+      </p>
+    </div>
+
+    <div class="sub-label">図 1 — FMO複合体とエネルギー傾斜</div>
+    <div style="max-width:500px; margin:1rem auto; background:#fff; padding:1rem; border:1px solid #e0dfd8; border-radius:8px;">
+      <svg viewBox="0 0 480 285" style="width:100%; display:block;">
+        <defs>
+          <radialGradient id="gg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2e7d52" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#2e7d52" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="go" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e0a040" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#e0a040" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="bl"><feGaussianBlur stdDeviation="3"/></filter>
+          <marker id="arF" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#94a3b8"/>
+          </marker>
+        </defs>
+        <text x="12" y="20" fill="#94a3b8" font-size="10" font-family="sans-serif">E (eV)</text>
+        <line x1="30" y1="15" x2="30" y2="258" stroke="#e0dfd8" stroke-width="1.5" marker-end="url(#arF)"/>
+        <text x="5" y="60"  fill="#94a3b8" font-size="9">高</text>
+        <text x="5" y="248" fill="#94a3b8" font-size="9">低</text>
+        <ellipse cx="240" cy="50" rx="28" ry="18" fill="#eff6ff" stroke="#2055a0" stroke-width="1.5"/>
+        <text x="240" y="54" fill="#1a3c78" font-size="11" text-anchor="middle" font-weight="bold">BChl 1</text>
+        <text x="240" y="30" fill="#94a3b8" font-size="9" text-anchor="middle">光吸収（高E）</text>
+        <circle cx="240" cy="50" r="28" fill="none" stroke="#2055a0" stroke-width="0.8" opacity="0">
+          <animate attributeName="r" from="28" to="55" dur="2.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="0.45" to="0" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <ellipse cx="340" cy="82" rx="28" ry="18" fill="#eff6ff" stroke="#2055a0" stroke-width="1.5"/>
+        <text x="340" y="86" fill="#1a3c78" font-size="11" text-anchor="middle" font-weight="bold">BChl 2</text>
+        <ellipse cx="382" cy="132" rx="28" ry="18" fill="#f5f3ff" stroke="#7a4ab0" stroke-width="1.5"/>
+        <text x="382" y="136" fill="#5b21b6" font-size="11" text-anchor="middle" font-weight="bold">BChl 3</text>
+        <ellipse cx="140" cy="100" rx="28" ry="18" fill="#eff6ff" stroke="#2055a0" stroke-width="1.5"/>
+        <text x="140" y="104" fill="#1a3c78" font-size="11" text-anchor="middle" font-weight="bold">BChl 4</text>
+        <ellipse cx="98" cy="155" rx="28" ry="18" fill="#f5f3ff" stroke="#7a4ab0" stroke-width="1.5"/>
+        <text x="98" y="159" fill="#5b21b6" font-size="11" text-anchor="middle" font-weight="bold">BChl 5</text>
+        <ellipse cx="160" cy="192" rx="28" ry="18" fill="#f5f3ff" stroke="#7a4ab0" stroke-width="1.5"/>
+        <text x="160" y="196" fill="#5b21b6" font-size="11" text-anchor="middle" font-weight="bold">BChl 6</text>
+        <ellipse cx="240" cy="228" rx="32" ry="20" fill="#e8f5e9" stroke="#2e7d52" stroke-width="2.5"/>
+        <text x="240" y="232" fill="#1d5c2a" font-size="11" text-anchor="middle" font-weight="bold">BChl 3/7</text>
+        <ellipse cx="240" cy="228" rx="32" ry="20" fill="url(#gg)" filter="url(#bl)"/>
+        <ellipse cx="240" cy="268" rx="42" ry="13" fill="#fff3e0" stroke="#e0a040" stroke-width="2"/>
+        <text x="240" y="272" fill="#7a4a08" font-size="11" text-anchor="middle" font-weight="bold">★ 反応中心</text>
+        <ellipse cx="240" cy="268" rx="42" ry="13" fill="url(#go)" filter="url(#bl)"/>
+        <g opacity="0.35" stroke-dasharray="4,3">
+          <line x1="240" y1="68"  x2="240" y2="208" stroke="#2e7d52" stroke-width="1.5"/>
+          <line x1="340" y1="100" x2="260" y2="213" stroke="#2e7d52" stroke-width="1"/>
+          <line x1="140" y1="118" x2="213" y2="213" stroke="#2e7d52" stroke-width="1"/>
+          <line x1="382" y1="150" x2="272" y2="215" stroke="#7a4ab0" stroke-width="1"/>
+          <line x1="98"  y1="173" x2="206" y2="214" stroke="#7a4ab0" stroke-width="1"/>
+          <line x1="160" y1="210" x2="202" y2="228" stroke="#7a4ab0" stroke-width="1"/>
+        </g>
+        <path d="M 46 55 L 46 248" stroke="#e0a040" stroke-width="1.8" marker-end="url(#arF)" opacity="0.45"/>
+        <text x="49" y="152" fill="#e0a040" font-size="9" opacity="0.65" font-weight="bold">エネルギー</text>
+        <text x="49" y="165" fill="#e0a040" font-size="9" opacity="0.65" font-weight="bold">降り坂</text>
+      </svg>
+    </div>
+    <p class="fig-caption">
+      FMO複合体の模式図。7個のBChl（バクテリオクロロフィル：光合成細菌型葉緑素）が<span class="hl-purple">エネルギー傾斜</span>を形成。励起エネルギーは量子波として複数経路を同時に伝達し、最も効率良く<span class="hl-gold">反応中心</span>へ到達する。
     </p>
+
+    <div class="footnote-box">
+      <div class="fn-title">コラム：クロロフィル分子の「量子力学的結合」とは</div>
+      <p style="margin-bottom:0.6rem;">
+        クロロフィル同士は共有結合も水素結合もしない。物理的には離れた別々の分子であり、<strong>「励起状態」が結合</strong>している。
+      </p>
+      <div class="two-col">
+        <div class="card card-red" style="margin-bottom:0;">
+          <div class="label" style="color:#7a1a1a;">① 光を吸収する前</div>
+          各クロロフィルは独立した基底状態。分子Aと分子Bは別々に存在。
+        </div>
+        <div class="card card-ps2" style="margin-bottom:0;">
+          <div class="label" style="color:#1d5c2a;">② 光を吸収した瞬間</div>
+          励起（エネルギー）が「AにもBにも<span class="hl-green">同時にある</span>」という重ね合わせ状態に。これを<strong>励起子（エキシトン）</strong>と呼ぶ。
+        </div>
+      </div>
+      <p style="margin-top:0.8rem; font-size:0.82rem;">
+        <strong>離れているのに結合できる理由：</strong>分子間距離が数nm〜十数nmのとき、電磁的な相互作用（双極子-双極子相互作用）が働く。量子力学の文脈では「どちらが励起されているか」という情報自体が重ね合わさることを可能にする。つまり、<span class="hl-purple">エネルギーの「在り処」が確定していない</span>ことが本質である。
+      </p>
+    </div>
+  </section>
+
+  <section id="step2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>量子ウォーク</h2>
+      <span class="sub">Quantum Walk による並列経路探索</span>
+    </div>
+
+    <div class="card card-ps2">
+      <div class="label">エネルギー励起の「重ね合わせ」</div>
+      <p>
+        エネルギー励起が「波」として振る舞い、複数の分子に<span class="hl-green">同時に存在する重ね合わせ状態</span>になる。これにより以下のような卓越した性質を示す。
+      </p>
+      <div style="margin-top:0.6rem;">
+        <div class="item-row">
+          <span class="item-label green">経路の並列探索</span>
+          <span class="item-text">すべての到達候補経路を一瞬にして同時に探索できる。</span>
+        </div>
+        <div class="item-row">
+          <span class="item-label red">障害物の回避</span>
+          <span class="item-text">エネルギー伝達の障害となる行き止まりを素早く回避可能。</span>
+        </div>
+        <div class="item-row">
+          <span class="item-label blue">最適ルートの収束</span>
+          <span class="item-text">最も損失が小さく効率的なルートへ自然とエネルギーが集中する。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-label">図 2 — エネルギー転送の比較（シミュレーション）</div>
     <div class="two-col">
-      <div class="card classical">
-        <div class="card-title">① 光を吸収する前</div>
-        各クロロフィルは独立した基底状態。分子Aと分子Bは別々に存在。
+      <div class="canvas-panel classical">
+        <div class="panel-title">🎲 古典的転送（ランダムウォーク）</div>
+        <canvas id="classicalCanvas" height="155"></canvas>
       </div>
-      <div class="card quantum">
-        <div class="card-title">② 光を吸収した瞬間</div>
-        励起（エネルギー）が「AにもBにも<span class="hl-green">同時にある</span>」という重ね合わせ状態に。これを<strong>励起子（エキシトン）</strong>と呼ぶ。
+      <div class="canvas-panel quantum">
+        <div class="panel-title">🌊 量子コヒーレンス転送（量子ウォーク）</div>
+        <canvas id="quantumCanvas" height="155"></canvas>
       </div>
     </div>
-    <p style="margin-top:0.8rem;">
-      <strong>離れているのに結合できる理由：</strong>分子間距離が数nm〜十数nmのとき、電磁的な相互作用（双極子-双極子相互作用）が働く。量子力学の文脈では「どちらが励起されているか」という情報自体が重ね合わさることを可能にする。つまり、<span class="hl-purple">エネルギーの「在り処」が確定していない</span>ことが本質である。
+    <p class="fig-caption">
+      <span class="hl-red">古典的転送：</span>エネルギーが一つの分子からランダムに「飛ぶ」。経路を一つずつ探索するため遅く損失が大きい。<br>
+      <span class="hl-green">量子コヒーレンス転送：</span>励起状態が波として複数の経路を同時に伝わる。反応中心への最短経路に収束しやすい。
     </p>
-  </div>
-</div>
 
-<!-- ====== Step 2: 量子ウォーク ====== -->
-<div class="section">
-  <div class="section-label">Step 2 — 量子ウォーク</div>
-  <h2>２．量子ウォーク（Quantum Walk）</h2>
-  <p>
-    エネルギー励起が「波」として振る舞い、複数の分子に<span class="hl-green">同時に存在する重ね合わせ状態</span>になる。これにより：
-  </p>
-  <ul class="bullet-list">
-    <li>経路を「並列探索」できる</li>
-    <li>行き止まりを素早く避けられる</li>
-    <li>最も効率的なルートに収束しやすい</li>
-  </ul>
-
-  <!-- アニメーション図 -->
-  <div class="sub-label">図 ２ — エネルギー転送の比較（アニメーション）</div>
-  <div class="two-col">
-    <div class="canvas-panel classical">
-      <div class="panel-title">🎲 古典的転送（ランダムウォーク）</div>
-      <canvas id="classicalCanvas" height="155"></canvas>
+    <div class="analogy-box">
+      <div class="analogy-title">🌊 直感的なアナロジー — 波が港に入るイメージ</div>
+      古典的転送は「ボートが1本の水路をランダムに進む」のに対して、量子コヒーレント転送は「波紋が全ての水路に<span class="hl-blue">同時に広がり</span>、最も深い（エネルギーが低い）反応中心に<span class="hl-blue">自然と収束する</span>」ようなイメージ。
     </div>
-    <div class="canvas-panel quantum">
-      <div class="panel-title">🌊 量子コヒーレンス転送（量子ウォーク）</div>
-      <canvas id="quantumCanvas" height="155"></canvas>
+  </section>
+
+  <section id="step3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>ENAQT</h2>
+      <span class="sub">ノイズ支援量子輸送（Environment-Assisted Quantum Transport）</span>
     </div>
-  </div>
-  <p class="fig-caption">
-    <span class="hl-red">古典的転送：</span>エネルギーが一つの分子からランダムに「飛ぶ」。経路を一つずつ探索するため遅く損失が大きい。<br>
-    <span class="hl-green">量子コヒーレンス転送：</span>励起状態が波として複数の経路を同時に伝わる。反応中心（※１）への最短経路に収束しやすい。
-  </p>
 
-  <!-- 直感的アナロジー -->
-  <div class="analogy">
-    <div class="analogy-label">🌊 直感的なアナロジー — 波が港に入るイメージ</div>
-    古典的転送は「ボートが1本の水路をランダムに進む」のに対して、量子コヒーレント転送は「波紋が全ての水路に<span class="hl-blue">同時に広がり</span>、最も深い（エネルギーが低い）反応中心に<span class="hl-blue">自然と収束する</span>」ようなイメージ。
-  </div>
-
-  <!-- 比較カード -->
-  <div class="two-col">
-    <div class="card classical">
-      <div class="card-title">🎲 古典的転送</div>
-      ボールが一段ずつ階段を降りる。一つの経路をランダムに選ぶため、遅く損失が大きい。
+    <div class="card card-amber">
+      <div class="label">ノイズが効率を助ける逆説</div>
+      <p>
+        常温・湿潤環境では通常、熱ノイズがコヒーレンスを壊すはずである。しかし2007年のFleming・Engelらの実験（FMO複合体）で、<span class="hl-gold">ある程度のノイズがむしろ量子コヒーレンスを助ける</span>ことが示された。
+      </p>
+      <p style="margin-top:0.5rem; font-size:0.88rem; color:#555;">
+        これを<strong>ENAQT（Environment-Assisted Quantum Transport）</strong>と呼ぶ。環境の不規則な揺らぎが、励起が一箇所に「行き詰まる」現象（アンダーソン局在）を上手く解消するゲートの役割を果たす。
+      </p>
     </div>
-    <div class="card quantum">
-      <div class="card-title">🌊 量子コヒーレンス転送</div>
-      波が全ての経路を同時に伝わる。複数経路の重ね合わせにより、高速・高効率で反応中心へ到達。
+
+    <div class="sub-label">図 3 — ENAQT：環境ノイズと転送効率の関係</div>
+    <div style="background:#fff; border:1px solid #e0dfd8; border-radius:8px; padding:1rem; margin:1rem 0;">
+      <svg viewBox="0 0 480 220" style="width:100%; display:block;">
+        <defs>
+          <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#2055a0"/>
+            <stop offset="45%"  stop-color="#2e7d52"/>
+            <stop offset="100%" stop-color="#7a1a1a"/>
+          </linearGradient>
+          <marker id="arE" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#94a3b8"/>
+          </marker>
+        </defs>
+        <line x1="50" y1="170" x2="440" y2="170" stroke="#e0dfd8" stroke-width="1.5" marker-end="url(#arE)"/>
+        <line x1="50" y1="20"  x2="50"  y2="175" stroke="#e0dfd8" stroke-width="1.5"/>
+        <text x="245" y="200" fill="#666" font-size="11" text-anchor="middle" font-weight="bold">環境ノイズ（熱揺らぎ）の強さ</text>
+        <text x="20"  y="95"  fill="#666" font-size="11" text-anchor="middle" transform="rotate(-90,20,95)" font-weight="bold">転送効率</text>
+        <text x="50"  y="185" fill="#94a3b8" font-size="10" text-anchor="middle">少ない</text>
+        <text x="440" y="185" fill="#94a3b8" font-size="10" text-anchor="middle">多い</text>
+        <text x="38"  y="35"  fill="#94a3b8" font-size="10" text-anchor="middle">高</text>
+        <text x="38"  y="165" fill="#94a3b8" font-size="10" text-anchor="middle">低</text>
+        <path d="M 60,155 C 100,130 130,40 200,32 C 240,28 270,35 320,75 C 360,105 400,145 430,162"
+              fill="none" stroke="url(#cg)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="200" cy="32" r="5" fill="#2e7d52"/>
+        <line x1="200" y1="32" x2="200" y2="170" stroke="#2e7d52" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+        <text x="200" y="18" fill="#2e7d52" font-size="10" text-anchor="middle" font-weight="bold">最適ノイズ</text>
+        <rect x="55"  y="60" width="92" height="32" rx="4" fill="#e3eefb" stroke="#6090d0" stroke-width="1"/>
+        <text x="101" y="74" fill="#1a3c78" font-size="9" text-anchor="middle">量子コヒーレンス</text>
+        <text x="101" y="86" fill="#1a3c78" font-size="9" text-anchor="middle">支配（局在化）</text>
+        <rect x="328" y="90" width="102" height="32" rx="4" fill="#fde0e0" stroke="#7a1a1a" stroke-width="1"/>
+        <text x="379" y="104" fill="#7a1a1a" font-size="9" text-anchor="middle">熱ノイズ過多</text>
+        <text x="379" y="116" fill="#7a1a1a" font-size="9" text-anchor="middle">（デコヒーレンス）</text>
+        <rect x="200" y="55" width="90" height="32" rx="4" fill="#e8f5e9" stroke="#5ab06a" stroke-width="1.5"/>
+        <text x="245" y="69" fill="#1d5c2a" font-size="9" text-anchor="middle" font-weight="bold">ENAQT領域</text>
+        <text x="245" y="81" fill="#1d5c2a" font-size="9" text-anchor="middle">（最高効率）</text>
+        <line x1="200" y1="120" x2="200" y2="106" stroke="#e0a040" stroke-width="1.5" marker-end="url(#arE)"/>
+        <text x="200" y="136" fill="#7a4a08" font-size="9" text-anchor="middle" font-weight="bold">← 生体温度（常温）</text>
+      </svg>
     </div>
-  </div>
-</div>
+    <p class="fig-caption">
+      ノイズが<span class="hl-blue">ゼロ</span>だと励起が一つの分子に局在化（アンダーソン局在）。<br>
+      ノイズが<span class="hl-red">多すぎる</span>とコヒーレンスが破壊（デコヒーレンス）される。<br>
+      <span class="hl-green">適度なノイズ（常温の生体温度付近）</span>が「行き詰まり」を適宜リセットし、最高効率を実現（ENAQT）。
+    </p>
+  </section>
 
-<!-- ====== Step 3: ENAQT ====== -->
-<div class="section">
-  <div class="section-label">Step 3 — ENAQT</div>
-  <h2>３．ENAQT（ノイズ支援量子輸送）</h2>
-  <p>
-    常温・湿潤環境では通常、熱ノイズがコヒーレンスを壊すはずである。しかし2007年のFleming・Engelらの実験（FMO複合体）で、<span class="hl-gold">ある程度のノイズがむしろ量子コヒーレンスを助ける</span>ことが示された。
-  </p>
-  <p>
-    これを<strong>ENAQT（Environment-Assisted Quantum Transport）</strong>と呼ぶ。環境の揺らぎが「行き詰まり」を解消するゲートの役割を果たす。
-  </p>
+  <section id="summary">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>全体の流れ</h2>
+      <span class="sub">仕組みのまとめ</span>
+    </div>
 
-  <!-- ENAQTグラフ -->
-  <div class="sub-label">図 3 — ENAQT：ノイズが効率を助ける逆説</div>
-  <svg viewBox="0 0 480 220" style="width:100%;display:block;">
-    <defs>
-      <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stop-color="#2563eb"/>
-        <stop offset="45%"  stop-color="#059669"/>
-        <stop offset="100%" stop-color="#dc2626"/>
-      </linearGradient>
-      <marker id="arE" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-        <polygon points="0 0,8 3,0 6" fill="#94a3b8"/>
-      </marker>
-    </defs>
-    <line x1="50" y1="170" x2="440" y2="170" stroke="#e2e8f0" stroke-width="1.5" marker-end="url(#arE)"/>
-    <line x1="50" y1="20"  x2="50"  y2="175" stroke="#e2e8f0" stroke-width="1.5"/>
-    <text x="245" y="200" fill="#94a3b8" font-size="11" text-anchor="middle">環境ノイズ（熱揺らぎ）の強さ</text>
-    <text x="20"  y="95"  fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90,20,95)">転送効率</text>
-    <text x="50"  y="185" fill="#94a3b8" font-size="10" text-anchor="middle">少ない</text>
-    <text x="440" y="185" fill="#94a3b8" font-size="10" text-anchor="middle">多い</text>
-    <text x="38"  y="35"  fill="#94a3b8" font-size="10" text-anchor="middle">高</text>
-    <text x="38"  y="165" fill="#94a3b8" font-size="10" text-anchor="middle">低</text>
-    <path d="M 60,155 C 100,130 130,40 200,32 C 240,28 270,35 320,75 C 360,105 400,145 430,162"
-          fill="none" stroke="url(#cg)" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="200" cy="32" r="5" fill="#059669"/>
-    <line x1="200" y1="32" x2="200" y2="170" stroke="#059669" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
-    <text x="200" y="18" fill="#059669" font-size="10" text-anchor="middle" font-weight="bold">最適ノイズ</text>
-    <rect x="55"  y="60" width="92" height="32" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
-    <text x="101" y="74" fill="#2563eb" font-size="9" text-anchor="middle">量子コヒーレンス</text>
-    <text x="101" y="86" fill="#2563eb" font-size="9" text-anchor="middle">支配（局在化）</text>
-    <rect x="328" y="90" width="102" height="32" rx="4" fill="#fff5f5" stroke="#fecaca" stroke-width="1"/>
-    <text x="379" y="104" fill="#dc2626" font-size="9" text-anchor="middle">熱ノイズ過多</text>
-    <text x="379" y="116" fill="#dc2626" font-size="9" text-anchor="middle">（デコヒーレンス）</text>
-    <rect x="200" y="55" width="90" height="32" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
-    <text x="245" y="69" fill="#059669" font-size="9" text-anchor="middle" font-weight="bold">ENAQT領域</text>
-    <text x="245" y="81" fill="#059669" font-size="9" text-anchor="middle">（最高効率）</text>
-    <line x1="200" y1="120" x2="200" y2="106" stroke="#d97706" stroke-width="1.5" marker-end="url(#arE)"/>
-    <text x="200" y="136" fill="#d97706" font-size="9" text-anchor="middle">← 生体温度（常温）</text>
-  </svg>
-  <p class="fig-caption">
-    ノイズが<span class="hl-blue">ゼロ</span>だと励起が一つの分子に局在化（アンダーソン局在）。
-    ノイズが<span class="hl-red">多すぎる</span>とコヒーレンスが破壊される。
-    <span class="hl-green">適度なノイズ</span>が「行き詰まり」を解消し最高効率を実現する——これがENAQT。生体の常温はこの最適点付近に位置すると考えられている。
-  </p>
-</div>
+    <div style="background:#fff; border:1px solid #e0dfd8; border-radius:8px; padding:1.2rem; margin-bottom:1rem;">
+      <svg viewBox="0 0 480 172" style="width:100%; display:block;">
+        <defs>
+          <marker id="ar3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0,8 3,0 6" fill="#2e7d52"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="55" width="90"  height="56" rx="8" fill="#e3eefb"  stroke="#2055a0" stroke-width="1.5"/>
+        <text x="55"  y="79"  fill="#1a3c78" font-size="10" text-anchor="middle" font-weight="bold">① 光子吸収</text>
+        <text x="55"  y="94"  fill="#444" font-size="9"  text-anchor="middle">クロロフィルが</text>
+        <text x="55"  y="106" fill="#444" font-size="9"  text-anchor="middle">励起される</text>
+        <line x1="100" y1="83" x2="127" y2="83" stroke="#2e7d52" stroke-width="1.5" marker-end="url(#ar3)"/>
 
-<!-- ====== まとめ ====== -->
-<div class="section">
-  <div class="section-label">Summary — 仕組みのまとめ</div>
-  <h2>図 4 — 全体の流れ</h2>
-  <svg viewBox="0 0 480 172" style="width:100%;display:block;">
-    <defs>
-      <marker id="ar3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-        <polygon points="0 0,8 3,0 6" fill="#059669"/>
-      </marker>
-    </defs>
-    <rect x="10"  y="55" width="90"  height="56" rx="8" fill="#eff6ff"  stroke="#2563eb" stroke-width="1.5"/>
-    <text x="55"  y="79"  fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">① 光子吸収</text>
-    <text x="55"  y="94"  fill="#475569" font-size="9"  text-anchor="middle">クロロフィルが</text>
-    <text x="55"  y="106" fill="#475569" font-size="9"  text-anchor="middle">励起される</text>
-    <line x1="100" y1="83" x2="127" y2="83" stroke="#059669" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <rect x="127" y="42" width="100" height="80" rx="8" fill="#f5f3ff" stroke="#7a4ab0" stroke-width="1.5"/>
+        <text x="177" y="68"  fill="#5b21b6" font-size="10" text-anchor="middle" font-weight="bold">② 量子コヒーレンス</text>
+        <text x="177" y="83"  fill="#444" font-size="9"  text-anchor="middle">励起が複数分子に</text>
+        <text x="177" y="95"  fill="#444" font-size="9"  text-anchor="middle">「同時に」存在</text>
+        <text x="177" y="111" fill="#7a4ab0" font-size="9"  text-anchor="middle">（量子ウォーク）</text>
+        <line x1="227" y1="83" x2="252" y2="83" stroke="#2e7d52" stroke-width="1.5" marker-end="url(#ar3)"/>
 
-    <rect x="127" y="42" width="100" height="80" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
-    <text x="177" y="68"  fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">② 量子コヒーレンス</text>
-    <text x="177" y="83"  fill="#475569" font-size="9"  text-anchor="middle">励起が複数分子に</text>
-    <text x="177" y="95"  fill="#475569" font-size="9"  text-anchor="middle">「同時に」存在</text>
-    <text x="177" y="111" fill="#7c3aed" font-size="9"  text-anchor="middle">（量子ウォーク）</text>
-    <line x1="227" y1="83" x2="252" y2="83" stroke="#059669" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <rect x="252" y="42" width="100" height="80" rx="8" fill="#fff3e0" stroke="#e0a040" stroke-width="1.5"/>
+        <text x="302" y="68"  fill="#7a4a08" font-size="10" text-anchor="middle" font-weight="bold">③ ENAQT</text>
+        <text x="302" y="83"  fill="#444" font-size="9"  text-anchor="middle">熱ノイズが</text>
+        <text x="302" y="95"  fill="#444" font-size="9"  text-anchor="middle">局在化を解消</text>
+        <text x="302" y="111" fill="#e0a040" font-size="9"  text-anchor="middle">（最適ノイズ）</text>
+        <line x1="352" y1="83" x2="377" y2="83" stroke="#2e7d52" stroke-width="1.5" marker-end="url(#ar3)"/>
 
-    <rect x="252" y="42" width="100" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
-    <text x="302" y="68"  fill="#b45309" font-size="10" text-anchor="middle" font-weight="bold">③ ENAQT</text>
-    <text x="302" y="83"  fill="#475569" font-size="9"  text-anchor="middle">熱ノイズが</text>
-    <text x="302" y="95"  fill="#475569" font-size="9"  text-anchor="middle">局在化を解消</text>
-    <text x="302" y="111" fill="#d97706" font-size="9"  text-anchor="middle">（最適ノイズ）</text>
-    <line x1="352" y1="83" x2="377" y2="83" stroke="#059669" stroke-width="1.5" marker-end="url(#ar3)"/>
+        <rect x="377" y="55" width="95"  height="56" rx="8" fill="#e8f5e9" stroke="#2e7d52" stroke-width="2"/>
+        <text x="424" y="79"  fill="#1d5c2a" font-size="10" text-anchor="middle" font-weight="bold">④ 反応中心</text>
+        <text x="424" y="94"  fill="#444" font-size="9"  text-anchor="middle">〜100%効率で</text>
+        <text x="424" y="106" fill="#444" font-size="9"  text-anchor="middle">エネルギー到達</text>
 
-    <rect x="377" y="55" width="95"  height="56" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
-    <text x="424" y="79"  fill="#047857" font-size="10" text-anchor="middle" font-weight="bold">④ 反応中心</text>
-    <text x="424" y="94"  fill="#475569" font-size="9"  text-anchor="middle">〜100%効率で</text>
-    <text x="424" y="106" fill="#475569" font-size="9"  text-anchor="middle">エネルギー到達</text>
+        <rect x="58" y="145" width="364" height="22" rx="6" fill="#e8f5e9" stroke="#5ab06a" stroke-width="1"/>
+        <text x="240" y="161" fill="#1d5c2a" font-size="11" text-anchor="middle" font-weight="bold">
+          量子コヒーレンス × ENAQT ＝ 100%近いエネルギー転送効率を実現
+        </text>
+      </svg>
+    </div>
 
-    <rect x="58" y="145" width="364" height="22" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
-    <text x="240" y="161" fill="#047857" font-size="11" text-anchor="middle" font-weight="bold">
-      量子コヒーレンス × ENAQT ＝ 100%近いエネルギー転送効率を実現
-    </text>
-  </svg>
+    <div class="analogy-box">
+      常温という「ゆらぐ環境」をデメリットとせず、むしろそれを利用してエネルギー損失をゼロに近づける。生命が30億年以上の歳月をかけて進化させてきた、最も洗練されたナノテクノロジーが、この量子力学と熱力学のハイブリッド構造なのである。
+    </div>
+  </section>
 
-</div>
+</main>
+
+<footer>
+  いしちゃんのホームページ ― 生物基礎メモ
+</footer>
 
 <script>
-// ===== アニメーション（白背景）=====
+// ===== アニメーション（背景をいしちゃんホームページ風のカラーに対応）=====
 function setupCanvas(id) {
   const c = document.getElementById(id);
   const dpr = window.devicePixelRatio || 1;
@@ -534,7 +617,7 @@ function drawClassical(canvas) {
       if(pi<path.length-1){
         const a=nodes[path[pi]],b=nodes[path[pi+1]];
         ctx.beginPath(); ctx.moveTo(a.x*W,a.y*H); ctx.lineTo(b.x*W,b.y*H);
-        ctx.strokeStyle='rgba(220,38,38,0.22)'; ctx.lineWidth=1.2; ctx.stroke();
+        ctx.strokeStyle='rgba(122,26,26,0.22)'; ctx.lineWidth=1.2; ctx.stroke();
       }
     });
     nodes.forEach((n,i)=>{
@@ -542,21 +625,21 @@ function drawClassical(canvas) {
       ctx.beginPath();
       if(i===target){
         ctx.arc(x,y,13,0,Math.PI*2);
-        ctx.fillStyle='rgba(217,119,6,0.12)'; ctx.fill();
-        ctx.strokeStyle='#d97706'; ctx.lineWidth=2; ctx.stroke();
-        ctx.fillStyle='#b45309'; ctx.font='bold 11px monospace';
+        ctx.fillStyle='rgba(224,160,64,0.12)'; ctx.fill();
+        ctx.strokeStyle='#e0a040'; ctx.lineWidth=2; ctx.stroke();
+        ctx.fillStyle='#7a4a08'; ctx.font='bold 11px monospace';
         ctx.textAlign='center'; ctx.fillText('★',x,y+4);
       } else {
         ctx.arc(x,y,8,0,Math.PI*2);
-        ctx.fillStyle=visited.includes(i)?'#fee2e2':'#f1f5f9';
+        ctx.fillStyle=visited.includes(i)?'#fde0e0':'#f5f5f0';
         ctx.fill();
-        ctx.strokeStyle=visited.includes(i)?'#dc2626':'#cbd5e1';
+        ctx.strokeStyle=visited.includes(i)?'#7a1a1a':'#cbd5e1';
         ctx.lineWidth=1.5; ctx.stroke();
       }
     });
     const cn=nodes[cur];
     ctx.beginPath(); ctx.arc(cn.x*W,cn.y*H,10,0,Math.PI*2);
-    ctx.fillStyle='#dc2626'; ctx.fill();
+    ctx.fillStyle='#7a1a1a'; ctx.fill();
 
     t++;
     if(t%28===0){
@@ -590,13 +673,13 @@ function drawQuantum(canvas) {
         if(Math.hypot(a.x-b.x,a.y-b.y)<0.5){
           ctx.beginPath(); ctx.moveTo(a.x*W,a.y*H); ctx.lineTo(b.x*W,b.y*H);
           const p=0.07+0.05*Math.sin(t*0.05+i);
-          ctx.strokeStyle=`rgba(5,150,105,${p})`; ctx.lineWidth=0.8; ctx.stroke();
+          ctx.strokeStyle=`rgba(46,125,82,${p})`; ctx.lineWidth=0.8; ctx.stroke();
         }
       }
     }
     waves.forEach(w=>{
       ctx.beginPath(); ctx.arc(w.x,w.y,w.r,0,Math.PI*2);
-      ctx.strokeStyle=`rgba(5,150,105,${w.alpha})`;
+      ctx.strokeStyle=`rgba(46,125,82,${w.alpha})`;
       ctx.lineWidth=1.2; ctx.stroke();
       w.r+=2.2; w.alpha-=0.018;
     });
@@ -608,15 +691,15 @@ function drawQuantum(canvas) {
       ctx.beginPath();
       if(i===target){
         ctx.arc(x,y,14,0,Math.PI*2);
-        ctx.fillStyle=`rgba(5,150,105,${0.18+0.08*Math.abs(ph)})`; ctx.fill();
-        ctx.strokeStyle='#059669'; ctx.lineWidth=2.5; ctx.stroke();
-        ctx.fillStyle='#047857'; ctx.font='bold 12px monospace';
+        ctx.fillStyle=`rgba(46,125,82,${0.18+0.08*Math.abs(ph)})`; ctx.fill();
+        ctx.strokeStyle='#2e7d52'; ctx.lineWidth=2.5; ctx.stroke();
+        ctx.fillStyle='#1d5c2a'; ctx.font='bold 12px monospace';
         ctx.textAlign='center'; ctx.fillText('★',x,y+4);
       } else {
         const r=6+2*Math.abs(ph);
         ctx.arc(x,y,r,0,Math.PI*2);
-        ctx.fillStyle=`rgba(124,58,237,${0.09+0.07*Math.abs(ph)})`; ctx.fill();
-        ctx.strokeStyle=`rgba(124,58,237,${0.45+0.3*Math.abs(ph)})`;
+        ctx.fillStyle=`rgba(122,74,176,${0.09+0.07*Math.abs(ph)})`; ctx.fill();
+        ctx.strokeStyle=`rgba(122,74,176,${0.45+0.3*Math.abs(ph)})`;
         ctx.lineWidth=1.5; ctx.stroke();
       }
     });
