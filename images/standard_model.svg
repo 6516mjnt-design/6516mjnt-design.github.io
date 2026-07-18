@@ -1,0 +1,188 @@
+<svg width="680" height="880" viewBox="0 0 680 880" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>電荷・スピン・質量・色荷を含む素粒子標準模型の詳細図</title>
+<desc>クォーク・レプトン・ゲージボゾン・ヒッグス粒子について、電荷、スピン、質量、色荷の有無を一覧にした図</desc>
+<style>
+text { font-family: Arial, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #2C2C2A; }
+.th { font-size: 14px; font-weight: 700; }
+.ts { font-size: 12px; font-weight: 400; }
+.box-purple { fill: #EEEDFE; stroke: #534AB7; }
+.box-teal { fill: #E1F5EE; stroke: #0F6E56; }
+.box-coral { fill: #FAECE7; stroke: #993C1D; }
+.box-amber { fill: #FAEEDA; stroke: #854F0B; }
+.title-purple { fill: #3C3489; }
+.title-teal { fill: #085041; }
+.title-coral { fill: #712B13; }
+.title-amber { fill: #633806; }
+</style>
+<rect x="0" y="0" width="680" height="880" fill="#ffffff"/>
+
+<text class="ts" x="135" y="55" text-anchor="middle">第1世代</text>
+<text class="ts" x="340" y="55" text-anchor="middle">第2世代</text>
+<text class="ts" x="545" y="55" text-anchor="middle">第3世代</text>
+
+<!-- Up-type quarks -->
+<g class="box-purple">
+  <rect x="40" y="65" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="135" y="86" text-anchor="middle">u</text>
+  <text class="ts title-purple" x="135" y="102" text-anchor="middle">アップクォーク</text>
+  <text class="ts title-purple" x="135" y="118" text-anchor="middle">電荷 +2/3</text>
+  <text class="ts title-purple" x="135" y="134" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="135" y="150" text-anchor="middle">2.2 MeV</text>
+  <text class="ts title-purple" x="135" y="166" text-anchor="middle">色荷あり</text>
+</g>
+<g class="box-purple">
+  <rect x="245" y="65" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="340" y="86" text-anchor="middle">c</text>
+  <text class="ts title-purple" x="340" y="102" text-anchor="middle">チャームクォーク</text>
+  <text class="ts title-purple" x="340" y="118" text-anchor="middle">電荷 +2/3</text>
+  <text class="ts title-purple" x="340" y="134" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="340" y="150" text-anchor="middle">1.27 GeV</text>
+  <text class="ts title-purple" x="340" y="166" text-anchor="middle">色荷あり</text>
+</g>
+<g class="box-purple">
+  <rect x="450" y="65" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="545" y="86" text-anchor="middle">t</text>
+  <text class="ts title-purple" x="545" y="102" text-anchor="middle">トップクォーク</text>
+  <text class="ts title-purple" x="545" y="118" text-anchor="middle">電荷 +2/3</text>
+  <text class="ts title-purple" x="545" y="134" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="545" y="150" text-anchor="middle">173 GeV</text>
+  <text class="ts title-purple" x="545" y="166" text-anchor="middle">色荷あり</text>
+</g>
+
+<!-- Down-type quarks -->
+<g class="box-purple">
+  <rect x="40" y="191" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="135" y="212" text-anchor="middle">d</text>
+  <text class="ts title-purple" x="135" y="228" text-anchor="middle">ダウンクォーク</text>
+  <text class="ts title-purple" x="135" y="244" text-anchor="middle">電荷 -1/3</text>
+  <text class="ts title-purple" x="135" y="260" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="135" y="276" text-anchor="middle">4.7 MeV</text>
+  <text class="ts title-purple" x="135" y="292" text-anchor="middle">色荷あり</text>
+</g>
+<g class="box-purple">
+  <rect x="245" y="191" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="340" y="212" text-anchor="middle">s</text>
+  <text class="ts title-purple" x="340" y="228" text-anchor="middle">ストレンジクォーク</text>
+  <text class="ts title-purple" x="340" y="244" text-anchor="middle">電荷 -1/3</text>
+  <text class="ts title-purple" x="340" y="260" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="340" y="276" text-anchor="middle">95 MeV</text>
+  <text class="ts title-purple" x="340" y="292" text-anchor="middle">色荷あり</text>
+</g>
+<g class="box-purple">
+  <rect x="450" y="191" width="190" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-purple" x="545" y="212" text-anchor="middle">b</text>
+  <text class="ts title-purple" x="545" y="228" text-anchor="middle">ボトムクォーク</text>
+  <text class="ts title-purple" x="545" y="244" text-anchor="middle">電荷 -1/3</text>
+  <text class="ts title-purple" x="545" y="260" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-purple" x="545" y="276" text-anchor="middle">4.18 GeV</text>
+  <text class="ts title-purple" x="545" y="292" text-anchor="middle">色荷あり</text>
+</g>
+
+<!-- Charged leptons -->
+<g class="box-teal">
+  <rect x="40" y="317" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="135" y="338" text-anchor="middle">e⁻</text>
+  <text class="ts title-teal" x="135" y="354" text-anchor="middle">電子</text>
+  <text class="ts title-teal" x="135" y="370" text-anchor="middle">電荷 -1</text>
+  <text class="ts title-teal" x="135" y="386" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="135" y="402" text-anchor="middle">0.511 MeV</text>
+</g>
+<g class="box-teal">
+  <rect x="245" y="317" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="340" y="338" text-anchor="middle">μ⁻</text>
+  <text class="ts title-teal" x="340" y="354" text-anchor="middle">ミュー粒子</text>
+  <text class="ts title-teal" x="340" y="370" text-anchor="middle">電荷 -1</text>
+  <text class="ts title-teal" x="340" y="386" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="340" y="402" text-anchor="middle">105.7 MeV</text>
+</g>
+<g class="box-teal">
+  <rect x="450" y="317" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="545" y="338" text-anchor="middle">τ⁻</text>
+  <text class="ts title-teal" x="545" y="354" text-anchor="middle">タウ粒子</text>
+  <text class="ts title-teal" x="545" y="370" text-anchor="middle">電荷 -1</text>
+  <text class="ts title-teal" x="545" y="386" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="545" y="402" text-anchor="middle">1.777 GeV</text>
+</g>
+
+<!-- Neutrinos -->
+<g class="box-teal">
+  <rect x="40" y="429" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="135" y="450" text-anchor="middle">νe</text>
+  <text class="ts title-teal" x="135" y="466" text-anchor="middle">電子ニュートリノ</text>
+  <text class="ts title-teal" x="135" y="482" text-anchor="middle">電荷 0</text>
+  <text class="ts title-teal" x="135" y="498" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="135" y="514" text-anchor="middle">極めて小さい</text>
+</g>
+<g class="box-teal">
+  <rect x="245" y="429" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="340" y="450" text-anchor="middle">νμ</text>
+  <text class="ts title-teal" x="340" y="466" text-anchor="middle">ミューニュートリノ</text>
+  <text class="ts title-teal" x="340" y="482" text-anchor="middle">電荷 0</text>
+  <text class="ts title-teal" x="340" y="498" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="340" y="514" text-anchor="middle">極めて小さい</text>
+</g>
+<g class="box-teal">
+  <rect x="450" y="429" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-teal" x="545" y="450" text-anchor="middle">ντ</text>
+  <text class="ts title-teal" x="545" y="466" text-anchor="middle">タウニュートリノ</text>
+  <text class="ts title-teal" x="545" y="482" text-anchor="middle">電荷 0</text>
+  <text class="ts title-teal" x="545" y="498" text-anchor="middle">スピン 1/2</text>
+  <text class="ts title-teal" x="545" y="514" text-anchor="middle">極めて小さい</text>
+</g>
+
+<!-- Gauge bosons -->
+<g class="box-coral">
+  <rect x="45" y="567" width="140" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-coral" x="115" y="588" text-anchor="middle">g</text>
+  <text class="ts title-coral" x="115" y="604" text-anchor="middle">グルーオン</text>
+  <text class="ts title-coral" x="115" y="620" text-anchor="middle">電荷 0</text>
+  <text class="ts title-coral" x="115" y="636" text-anchor="middle">スピン 1</text>
+  <text class="ts title-coral" x="115" y="652" text-anchor="middle">0 (質量なし)</text>
+  <text class="ts title-coral" x="115" y="668" text-anchor="middle">色荷あり</text>
+</g>
+<g class="box-coral">
+  <rect x="195" y="567" width="140" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-coral" x="265" y="588" text-anchor="middle">γ</text>
+  <text class="ts title-coral" x="265" y="604" text-anchor="middle">光子</text>
+  <text class="ts title-coral" x="265" y="620" text-anchor="middle">電荷 0</text>
+  <text class="ts title-coral" x="265" y="636" text-anchor="middle">スピン 1</text>
+  <text class="ts title-coral" x="265" y="652" text-anchor="middle">0 (質量なし)</text>
+</g>
+<g class="box-coral">
+  <rect x="345" y="567" width="140" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-coral" x="415" y="588" text-anchor="middle">W</text>
+  <text class="ts title-coral" x="415" y="604" text-anchor="middle">W粒子</text>
+  <text class="ts title-coral" x="415" y="620" text-anchor="middle">電荷 ±1</text>
+  <text class="ts title-coral" x="415" y="636" text-anchor="middle">スピン 1</text>
+  <text class="ts title-coral" x="415" y="652" text-anchor="middle">80.4 GeV</text>
+</g>
+<g class="box-coral">
+  <rect x="495" y="567" width="140" height="112" rx="8" stroke-width="1"/>
+  <text class="th title-coral" x="565" y="588" text-anchor="middle">Z</text>
+  <text class="ts title-coral" x="565" y="604" text-anchor="middle">Z粒子</text>
+  <text class="ts title-coral" x="565" y="620" text-anchor="middle">電荷 0</text>
+  <text class="ts title-coral" x="565" y="636" text-anchor="middle">スピン 1</text>
+  <text class="ts title-coral" x="565" y="652" text-anchor="middle">91.2 GeV</text>
+</g>
+
+<!-- Higgs boson -->
+<g class="box-amber">
+  <rect x="245" y="699" width="190" height="98" rx="8" stroke-width="1"/>
+  <text class="th title-amber" x="340" y="720" text-anchor="middle">H</text>
+  <text class="ts title-amber" x="340" y="736" text-anchor="middle">ヒッグス粒子</text>
+  <text class="ts title-amber" x="340" y="752" text-anchor="middle">電荷 0</text>
+  <text class="ts title-amber" x="340" y="768" text-anchor="middle">スピン 0</text>
+  <text class="ts title-amber" x="340" y="784" text-anchor="middle">125.25 GeV</text>
+</g>
+
+<!-- Legend -->
+<rect x="60" y="828" width="14" height="14" rx="3" fill="#7F77DD"/>
+<text class="ts" x="80" y="839">クォーク</text>
+<rect x="170" y="828" width="14" height="14" rx="3" fill="#1D9E75"/>
+<text class="ts" x="190" y="839">レプトン</text>
+<rect x="280" y="828" width="14" height="14" rx="3" fill="#D85A30"/>
+<text class="ts" x="300" y="839">ゲージボゾン</text>
+<rect x="420" y="828" width="14" height="14" rx="3" fill="#BA7517"/>
+<text class="ts" x="440" y="839">ヒッグス粒子</text>
+<text class="ts" x="60" y="862">各枠は上から:電荷・スピン・質量(・色荷)の順。色荷はクォークとグルーオンのみ持つ</text>
+</svg>
