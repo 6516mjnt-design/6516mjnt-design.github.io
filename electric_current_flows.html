@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電線に電流が流れる仕組み</title>
+    <!-- 既存のCSSをそのまま読み込みます（書き換え不要） -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>電線に電流が流れる仕組み</h1>
+            <p>電気エネルギー伝達の真実とマクスウェル方程式が示す標準的理解</p>
+        </header>
+
+        <!-- 既存CSSの .card-body ルールを利用して全体を縦並びに維持 -->
+        <main class="card-body" style="padding: 0; gap: 25px;">
+            
+            <!-- 項目1：一般的なイメージと実際の姿 -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>一般的なイメージと実際の姿</h2>
+                </div>
+                <div class="card-body">
+                    <p>多くの人は「電子が水道管の水のように電線の中を勢いよく流れて、そのエネルギーが運ばれる」とイメージしますが、正確ではありません。</p>
+                    <p>「電線に電流が流れる」という現象は、実際には二つの異なるレベルの話が同時に起きているのです。</p>
+                </div>
+            </section>
+
+            <!-- 項目2：電子の移動速度と電気が一瞬でつく理由 -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>1. 電子の移動速度（ドリフト速度）と「一瞬」でつく理由</h2>
+                </div>
+                <div class="card-body">
+                    <p>電線の中を実際に電子が移動する速度は、電流が数A程度なら<strong>毎秒わずか数mm～数cm程度</strong>です。</p>
+                    <p>銅線の中の自由電子はもともと熱運動でランダムに高速（秒速数百km）で飛び回っていますが、電場によって生じる「全体としての片寄った移動（ドリフト）」は非常にゆっくりです。</p>
+                    <p>スイッチを入れると電球はほぼ瞬時に光ります。これは電子そのものが瞬間移動するからではなく、<strong>電場が電線に沿ってほぼ光速で伝わり、電線中のすべての電子がほぼ同時に動き始めるから</strong>です。</p>
+                    <p>水道管に例えると、水がすでにパイプいっぱいに満たされている状態でポンプを押すと、蛇口側の水がすぐに出てくるのと似ています（水分子自体が遠くから移動してくるわけではありません）。</p>
+                </div>
+            </section>
+
+            <!-- 項目3：エネルギーは電線の"中"を通っていない -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>3. エネルギーは電線の"中"を通っていない</h2>
+                </div>
+                <div class="card-body">
+                    <p>電気エネルギーは、電線の内部（電子の流れ）を通って運ばれているのではなく、<strong>電線の周囲の空間にある電磁場を通って伝わります</strong>。</p>
+                    <p>これはポインティングベクトル（Poynting vector, <em>S = E × H</em>）で表される、電磁場が運ぶエネルギーの流れです。</p>
+                    <ul>
+                        <li><strong>磁場 (H) の発生:</strong> 電線には電流によって磁場が発生します。</li>
+                        <li><strong>電場 (E) の発生:</strong> 電線の抵抗や電位差によって電場が発生します。</li>
+                        <li><strong>エネルギーの流れ:</strong> この2つが外積を作ることで、電線を取り囲む空間にエネルギーの流れ（ポインティングベクトル）が生じ、電源から負荷（電球など）へエネルギーが運ばれます。</li>
+                    </ul>
+                    <p>電子自体は電荷を運ぶ「媒介」ではありますが、エネルギーの主な伝達経路は導体の外側の場だということです。</p>
+                    
+                    <!-- 【追加】外部SVGファイルの読み込みエリア -->
+                    <div style="text-align: center; margin-top: 15px;">
+                        <img src="images/poynting_vector_wire_energy_flow.svg" alt="ポインティングベクトルと電磁場のエネルギー流" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 項目4：まとめ -->
+            <section class="card">
+                <div class="card-header">
+                    <h2>2つのレベルにおける現象のまとめ</h2>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <strong>電荷の移動（電流）：</strong><br>
+                                電子が電線内部をゆっくりドリフト（数mm～cm/秒）
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <strong>エネルギーの伝達：</strong><br>
+                                電線を取り巻く電磁場（ポインティングベクトル）が伝わる（ほぼ光速）
+                            </a>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 15px;">電磁気学（マクスウェル方程式）を学ぶと、この「場を通じたエネルギー伝達」という見方がむしろ標準的な理解であることがわかります。</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
