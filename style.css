@@ -177,11 +177,6 @@ header p {
   border-color: #343a40;
 }
 
-/* 一時的に非表示にするための命令 */
-.no-print {
-  display: none !important;
-}
-
 /* ==========================================================================
    5. 実際に紙へ印刷するときの最適化ルール
    ========================================================================== */
@@ -190,6 +185,10 @@ header p {
   .no-print, .btn-print, header img {
     display: none !important;
   }
+
+  /* ★ここに移動すれば、画面表示時は消えず、印刷するときだけ消えるようになります */
+  /* .no-print { display: none !important; } は上の行に含まれているのでこれでOKです */
+
   body {
     background-color: #ffffff;
     padding: 0;
