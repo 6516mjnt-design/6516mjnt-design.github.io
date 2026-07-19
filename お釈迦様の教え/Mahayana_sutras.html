@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大乗経典リスト と 教相判釈（五時八教）</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 既存のCSSを変更しない前提で、縦並びにするための補助スタイルをHTML側にのみ追記 */
+        .vertical-box {
+            display: block;
+            width: 100%;
+        }
+        .vertical-box .card {
+            margin-bottom: 25px; /* グリッドのgapの代わりにマージンで余白を確保 */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,10 +23,11 @@
             <p>5つの系統について、初期から中期、そして密教へと展開した主要な経典を系統ごとに網羅</p>
         </header>
 
-        <!-- 印刷ボタン (CSSで定義されているスタイル用) -->
+        <!-- 印刷ボタン -->
         <button class="btn-print" onclick="window.print()">印刷する</button>
 
-        <main class="grid">
+        <!-- 既存CSSのgridクラスを使わず、縦に並ぶブロック要素として配置 -->
+        <main class="vertical-box">
             <!-- 1. 般若経系 -->
             <section class="card">
                 <div class="card-header">
@@ -28,8 +39,8 @@
                         <li><a href="#"><strong>『八千頌般若経』</strong>：最も古くに成立した般若経。</a></li>
                         <li><a href="#"><strong>『金剛般若経』</strong>：中国や日本の禅宗で特に重んじられる経典。</a></li>
                         <li><a href="#"><strong>『般若心経』</strong>：大般若経のエッセンスを極限まで凝縮した大衆的な経典。</a></li>
-                        <li><a href="#"><strong>『大品般若経』</strong>：大規模な般若経の代表。</a></li>
-                        <li><a href="#"><strong>『大般若波羅蜜多経』</strong>：玄奘三蔵がこれらを全600巻に集大成したもの。</a></li>
+                        <li><a href="#"><strong>『大品般若経』</strong>：大規模な般若経の代表.</a></li>
+                        <li><a href="#"><strong>『大般若波羅蜜多経』</strong>：玄奘三蔵がこれらを全 600 巻に集大成したもの。</a></li>
                         <li><a href="#"><strong>『維摩経』</strong>：在家の信者である維摩詰を主人公とする経典。</a></li>
                     </ul>
                 </div>
@@ -61,8 +72,8 @@
                     <p>仏の悟りの世界（宇宙的広がり）や、世界は心の働きが作り出したものであるという「唯識」を説く経典群。</p>
                     <ul>
                         <li><a href="#"><strong>『大方広仏華厳経』</strong>：通称『華厳経』。</a></li>
-                        <li><a href="#"><strong>『十地経』</strong>：華厳経の一部。菩薩が修行する10の段階を説く。</a></li>
-                        <li><a href="#"><strong>『入法界品』</strong>：善財童子が53人の知識を訪ねて旅をする物語。</a></li>
+                        <li><a href="#"><strong>『十地経』</strong>：華厳経の一部。菩薩が修行する 10 の段階を説く。</a></li>
+                        <li><a href="#"><strong>『入法界品』</strong>：善財童子が 53 人の知識を訪ねて旅をする物語。</a></li>
                         <li><a href="#"><strong>『解深密経』</strong>：唯識思想の根本となった中期大乗経典。</a></li>
                         <li><a href="#"><strong>『大乗阿毘達磨経』</strong>：唯識の学派を発展させた重要経典。</a></li>
                         <li><a href="#"><strong>『楞伽経』</strong>：禅宗などにも影響を与えた経典。</a></li>
@@ -78,10 +89,10 @@
                 <div class="card-body">
                     <p>他力（阿弥陀仏の誓願）によって、苦しみのない清らかな世界（極楽浄土）へ往生することを説く経典群。</p>
                     <ul>
-                        <li><a href="#"><strong>『仏説無量寿経』</strong>：阿弥陀仏の48の願いと四十八願を説く。</a></li>
+                        <li><a href="#"><strong>『仏説無量寿経』</strong>：阿弥陀仏の 48 の願いと四十八願を説く。</a></li>
                         <li><a href="#"><strong>『仏説観無量寿経』</strong>：浄土を心に思い描く具体的な瞑想法を説く。</a></li>
                         <li><a href="#"><strong>『仏説阿弥陀経』</strong>：極楽浄土の美しい様子と、念仏の功徳を説く。</a></li>
-                        <li><a href="#"><strong>『般舟三昧経』</strong>：瞑想の中で現在在世の仏にまみえる方法を説く古い経典。</a></li>
+                        <li><a href="#"><strong>『般舟三昧経']</strong>：瞑想の中で現在在世の仏にまみえる方法を説く古い経典。</a></li>
                     </ul>
                 </div>
             </section>
@@ -115,7 +126,8 @@
         </p>
 
         <div class="main-title" style="font-size: 18px; text-align: left; margin-bottom: 15px; border-left: 4px solid #2b6cb0; padding-left: 10px;">1. 五時の体系（釈迦の生涯の5つの時期）</div>
-        <main class="grid" style="margin-bottom: 40px;">
+        
+        <main class="vertical-box" style="margin-bottom: 40px;">
             <section class="card">
                 <div class="card-header" style="background-color: #2c5282;">
                     <h2>① 華厳時（けごんじ）［最初の21日間］</h2>
@@ -173,7 +185,8 @@
         </main>
 
         <div class="main-title" style="font-size: 18px; text-align: left; margin-bottom: 15px; border-left: 4px solid #2b6cb0; padding-left: 10px;">2. 八教の体系（説法の「方法」と「内容」）</div>
-        <main class="grid" style="margin-bottom: 40px;">
+        
+        <main class="vertical-box" style="margin-bottom: 40px;">
             <section class="card">
                 <div class="card-header" style="background-color: #4a5568;">
                     <h2>化儀（けぎ）の四教：説法のスタイル</h2>
@@ -196,7 +209,7 @@
                 <div class="card-body">
                     <p style="font-size: 13px; margin-bottom: 10px; color: #718096;">経典に書かれている思想の深さを4つのグレードに分けたもの。</p>
                     <ul>
-                        <li><a href="#"><strong>1. 三蔵教（さんぞうきょう）</strong>：小乗仏教の教え。自分だけの悟りを目指す。</a></li>
+                        <li><a href="#"><strong>1. 三蔵教（さんぞうきょう）</strong>：小乗仏教の教え. 自分だけの悟りを目指す。</a></li>
                         <li><a href="#"><strong>2. 通教（つうきょう）</strong>：小乗と大乗の共通の橋渡しとなる教え。「空」の入り口。</a></li>
                         <li><a href="#"><strong>3. 別教（べっきょう）</strong>：大乗の菩薩だけを対象にした特別な教え。</a></li>
                         <li><a href="#"><strong>4. 円教（えんきょう）</strong>：すべてが完全に融和した最高の教え（法華経）。</a></li>
