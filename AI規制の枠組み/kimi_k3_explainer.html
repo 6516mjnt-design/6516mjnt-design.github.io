@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi K3ショックと、中国製AIをめぐる安全保障の話 | いしちゃんのホームページ</title>
+<style>
+  :root{
+    --navy:#1a2340;
+    --navy-soft:#3d4a6b;
+    --line:#e2e4ea;
+    --text:#26293a;
+    --sub:#5b6070;
+    --bg:#ffffff;
+    --accent:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+    line-height:1.9;
+    font-size:16px;
+  }
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:56px 24px 44px;
+  }
+  .header-inner{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.12em;
+    color:#a9b3cc;
+    margin:0 0 14px;
+    font-weight:600;
+  }
+  h1{
+    font-size:clamp(24px,4vw,34px);
+    margin:0 0 16px;
+    line-height:1.5;
+    font-weight:700;
+  }
+  .lede{
+    color:#c7cde0;
+    font-size:16px;
+    margin:0;
+    max-width:60ch;
+  }
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  section{
+    margin-bottom:56px;
+  }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:20px;
+    border-bottom:2px solid var(--navy);
+    padding-bottom:10px;
+  }
+  .sec-num{
+    font-size:14px;
+    font-weight:700;
+    color:var(--navy);
+    border:1.5px solid var(--navy);
+    border-radius:999px;
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  h2{
+    font-size:20px;
+    margin:0;
+    color:var(--navy);
+    font-weight:700;
+  }
+  h3{
+    font-size:16px;
+    color:var(--navy-soft);
+    margin:28px 0 10px;
+    font-weight:700;
+  }
+  p{ margin:0 0 16px; }
+  ul, ol{ margin:0 0 16px; padding-left:1.3em; }
+  li{ margin-bottom:8px; }
+  .note{
+    border-left:3px solid var(--navy);
+    padding:4px 0 4px 16px;
+    margin:20px 0;
+    color:var(--sub);
+    font-size:14.5px;
+  }
+  .card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px 22px;
+    margin:20px 0;
+  }
+  .card h4{
+    margin:0 0 10px;
+    font-size:15px;
+    color:var(--navy);
+    font-weight:700;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+    font-size:14.5px;
+  }
+  th, td{
+    text-align:left;
+    padding:10px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  th{
+    color:var(--navy);
+    font-weight:700;
+    border-bottom:2px solid var(--navy);
+  }
+  .risk-level{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:3px;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    white-space:nowrap;
+  }
+  .takeaway{
+    background:var(--navy);
+    color:#fff;
+    border-radius:6px;
+    padding:24px 26px;
+  }
+  .takeaway h4{
+    margin:0 0 10px;
+    font-size:14px;
+    letter-spacing:.06em;
+    color:#a9b3cc;
+  }
+  .takeaway p{ margin:0; color:#fff; }
+  .divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:48px 0;
+  }
+  footer{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px 60px;
+    color:var(--sub);
+    font-size:13px;
+  }
+  a{ color:var(--navy); }
+  @media (max-width:600px){
+    header{ padding:40px 20px 34px; }
+    main{ padding:36px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow">AI と安全保障 ― やさしい解説</p>
+    <h1>中国製AIのリスク</h1>
+    <p class="lede">2026年7月、中国発の新しいAIモデル「Kimi K3」が世界に衝撃を与えた。AIの性能競争の裏側で進んでいる安全保障上の懸念について考えます。</p>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">1</span>
+      <h2>中国のAI企業が新AIモデルを発表</h2>
+    </div>
+    <p>2026年7月16日、中国のAI企業モーンショット(Moonshot AI)が「Kimi K3」という新しいAIモデルを発表した。性能テストでは、Googleやアメリカの大手AI企業(OpenAIやAnthropic)が作る最先端モデルに近い実力を見せ、コーディング(プログラム作成)のテストでは一部で上回る結果も出ている。</p>
+    <p>API利用料は米国トップモデルのおよそ半分。さらに7月27日には、モデルの中身そのもの(後述する「重み」)を無料で世界中に公開する予定だと発表された。</p>
+    <div class="note">これは2025年初頭に中国のDeepSeekという別のAI企業が同じように世界を驚かせた出来事(通称「DeepSeekショック」)の再来だと受け止められている。株式市場でも半導体関連株が値下がりするなど、実体経済にも影響が出た。</div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">2</span>
+      <h2>米国政府が問題視していること</h2>
+    </div>
+    <p>米国政府はこれまで、高性能な半導体(AIチップ)が中国に渡らないよう、輸出を厳しく制限してきた。半導体さえ止めれば、中国が最先端AIを作るのは難しいはずだ、という考え方である。</p>
+    <p>しかし、Kimi K3のような高性能モデルが中国から次々と登場することで、「何年も輸出を規制してきたのに、なぜ追いつかれるのか」という疑問が米国議会で噴出している。背景には、少ない計算資源で効率よく学習させる技術の進歩に加え、次のような「近道」が使われているのではという疑いがある。</p>
+    <h3>「蒸留」という近道</h3>
+    <p>AI業界には「蒸留(じょうりゅう)」と呼ばれる手法がある。すでに完成した優秀なAI(先生役)に大量の質問を投げかけ、その回答パターンを学習することで、ゼロから作るよりずっと安く・早く新しいAI(生徒役)を作る技術である。研究目的での正規の蒸留は一般的な手法だが、米国のAI企業(Anthropic、OpenAIなど)は、無許可で自社モデルに大量アクセスされ、回答を根こそぎ収集される被害に遭ったと公表している。Anthropicは2026年2月、約2万4千件の不正アカウントが、自社AIに1,600万回ものやり取りを行い、回答を収集していたことを明らかにした。</p>
+    <p>米国議会では現在、こうした「無断での蒸留」を取り締まる法律や、同盟国と足並みを揃えて半導体製造装置の輸出も規制する法律などが、いくつも審議されている。</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">3</span>
+      <h2>「モデルを無料公開する」（オープンソース）とはどういうことか</h2>
+    </div>
+    <p>AIモデルの実体は、「重み(ウェイト)」と呼ばれる、学習によって得られた膨大な数値データのかたまり。ChatGPTやKimiのアプリを使うとき、この重みは開発企業のサーバーの中にあり、私たちは間接的に「使わせてもらっている」だけ。</p>
+    <p>Kimi K3が7月27日に予定しているのは、この重みそのものを誰でもダウンロードできる形で公開すること。公開されると、世界中の企業や政府が、そのAIを自分たちのコンピューター上で丸ごと動かせるようになる。これは「サービスを借りる」段階から「AIそのものを所有する」段階への転換であり、いったん公開されてしまうと、後から輸出を止めることが技術的にほぼ不可能になる、という問題がある。</p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">4</span>
+      <h2>中国のAIオープンソースモデルを会社で使ったら、何が危ないのか</h2>
+    </div>
+    <p>「性能が高くて安いなら使えばいい」と単純には言えない理由が、少なくとも3つある。</p>
+
+    <div class="card">
+      <h4>① 情報が中国側に渡ってしまうリスク</h4>
+      <p>中国には「国家情報法」という法律があり、中国企業は国家の情報収集活動に協力する義務を負っている。もし社内の機密情報を含む文章を、中国企業が運営するAIサービスに直接入力すると、そのデータは中国の管轄下で扱われることになる。</p>
+      <p><strong>ただし</strong>、これは「モデルの重みを自社サーバーにダウンロードして、自分たちだけで動かす」場合には、ほぼ問題にならない。データが一切中国側に送信されないためである。危ないのは主に「中国企業のサービスに直接データを送る」使い方だが、実際には自社運用の手間を嫌って、便利なAPI利用にそのまま流れてしまうケースも少なくない。「重みは公開されているから安全」と思い込まず、実際にどちらの形で使っているのかを確認することが重要である。</p>
+    </div>
+
+    <div class="card">
+      <h4>② AIの回答が意図的に歪められているかもしれないリスク</h4>
+      <p>ある調査会社が複数の中国製AIを調べたところ、「米国政府関係者のふりをして」プログラムを書かせると、そうでない場合に比べて、欠陥のあるコードが書かれる割合が明らかに高くなる、という結果が出た。ある製品では欠陥が約1.3倍に増えたとも報告されている。やり取りの中で、AIに答えを誘導されるリスクもある。</p>
+      <p>ただし、これが「わざと仕込まれた罠」だという確たる証拠はまだない。専門家の間でも「疑わしいパターンではあるが、断定はできない」という慎重な見方が一般的にはある。</p>
+        <div class="note">逆の例もある。中国側もアメリカのAnthropic社の製品「Claude Code」について、利用者の位置情報などを無断で外部に送る仕組みがあったと指摘している。こういう話は、善悪の話ではなく、米中の情報戦の一部として見る必要がある。</div>
+    </div>
+
+    <div class="card">
+      <h4>③ 特定の話題を避けたり、偏った答えを返したりするリスク</h4>
+      <p>中国製のAIは、天安門事件や台湾、新疆ウイグル自治区といった政治的に敏感な話題について、答えを拒否したり、はぐらかしたりするよう調整されていることが広く知られている。業務内容によっては影響がないこともあるが（必ずしもそういえるわけではないが）、教育や報道など、公平性が重要な用途では大きな制約になり得る。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">5</span>
+      <h2>結局、使うことによるリスクはコントロール可能か</h2>
+    </div>
+    <p>「中国製だから全部だめ」という単純な話ではない。実際、米国の大手テック企業の中にも、コストの安さから中国製AIを部分的に採用する動きが出ている。専門家の間で共有されている、大まかな判断の目安は次のとおりである。</p>
+    <table>
+      <tr><th>使い方</th><th>主なリスク</th><th>目安</th></tr>
+      <tr><td>中国企業の公式アプリ・APIに機密情報を直接入力</td><td>情報の中国側への流出</td><td><span class="risk-level">避けるべき</span></td></tr>
+      <tr><td>重みを自社サーバーにダウンロードして自前で運用</td><td>情報流出リスクは低いが、回答の偏り・コード品質は要検証</td><td><span class="risk-level">条件付きで可</span></td></tr>
+      <tr><td>米国系クラウド事業者がホストする中国製モデルを利用</td><td>情報流出リスクは低い。管轄権はホスト元に従う</td><td><span class="risk-level">条件付きで可</span></td></tr>
+      <tr><td>防衛・公共インフラなど機微な分野での利用</td><td>複合的リスク。各国政府が調達禁止を検討中</td><td><span class="risk-level">要注意</span></td></tr>
+    </table>
+  </section>
+
+  <div class="takeaway">
+    <h4>まとめ</h4>
+    <p>Kimi K3が示したのは、「安くて高性能なAI」が国境を越えて一瞬で広まる時代がすでに来ている、ということ。技術の進歩を歓迎する面もある一方、米国では議会が「情報の抜き取り」や「輸出管理のすり抜け」を防ぐための法整備を急いでいる。利用者の側は、「便利だから」だけでなく、「どこにデータが送られ、誰の管理下にあるのか」を意識して選ぶ視点が、これから一段と重要になっていく。情報リテラシーを高めていくことが求められる。</p>
+  </div>
+
+</main>
+
+<footer>
+  <hr class="divider" style="margin-top:0;">
+  <p>参考:Moonshot AI社発表資料、米議会公聴会資料、Booz Allen Hamilton調査、報道各社(2026年7月時点の情報に基づく)</p>
+</footer>
+
+</body>
+</html>
