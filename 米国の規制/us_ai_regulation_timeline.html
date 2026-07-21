@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米国のAI規制推移</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+        }
+
+        .lead-box {
+            background-color: #ebf5fb;
+            border-left: 4px solid #2980b9;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 500;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #fdfefe;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f2f4f4;
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        tr:hover {
+            background-color: #fcfcfc;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 20px 10px; }
+            .container { padding: 20px; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid var(--border-color); margin-bottom: 15px; border-radius: 6px; background: #fff; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 35%; }
+            td:before { position: absolute; top: 12px; left: 15px; width: 30%; padding-right: 10px; white-space: nowrap; font-weight: bold; color: var(--secondary-color); }
+            td:nth-of-type(1):before { content: "時期"; }
+            td:nth-of-type(2):before { content: "出来事・政策・法令名"; }
+            td:nth-of-type(3):before { content: "概要・影響"; }
+            td:last-child { border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>米国のAI規制推移</h1>
+    
+    <div class="lead-box">
+        更新日：2026年7月21日<br>
+        連邦政府の規制緩和・統一基準志向と州レベルでの独自規制強化、先端モデルに対する安全・地政学リスク管理が交差する米国のAI規制の動向。
+    </div>
+
+    <h2>１．連邦レベルの推移</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">時期</th>
+                <th style="width: 32%;">出来事・政策・法令名</th>
+                <th style="width: 48%;">概要・影響</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2022年10月</td>
+                <td><strong>「AI権利章典の青写真」公表（OSTP）</strong></td>
+                <td>法的拘束力なし。AIの設計・使用・展開に関する5原則を提示。</td>
+            </tr>
+            <tr>
+                <td>2023年10月</td>
+                <td><strong>バイデン大統領令14110号 / 半導体対中輸出規制強化</strong></td>
+                <td>EO14110は国内向け：連邦機関にガイダンス・標準策定を義務付け、大規模AI開発者に安全性テスト結果の共有を要求。並行して対中輸出規制（NVIDIA等の先端AIチップの対中輸出制限、迂回ルート阻止）も強化された。</td>
+            </tr>
+            <tr>
+                <td>2024年2月</td>
+                <td><strong>NIST内にAISIC設立</strong></td>
+                <td>大統領令14110号に基づく標準策定組織。</td>
+            </tr>
+            <tr>
+                <td>2025年1月20日</td>
+                <td><strong>トランプ政権発足</strong></td>
+                <td>就任直後にEO14110を撤回。</td>
+            </tr>
+            <tr>
+                <td>2025年1月23日</td>
+                <td><strong>大統領令14179号「米国のAIリーダーシップに対する障壁の除去」</strong></td>
+                <td>AI開発を阻害する行政規制の精査・削減を指示。規制緩和路線の起点。</td>
+            </tr>
+            <tr>
+                <td>2025年5月22日</td>
+                <td><strong>下院がOne Big Beautiful Bill Act可決</strong><br><small>（賛成215・反対214）</small></td>
+                <td>予算調整法案に「施行から10年間、州・地方自治体によるAI規制の執行を禁止」する条項を含む。</td>
+            </tr>
+            <tr>
+                <td>2025年7月1日</td>
+                <td><strong>上院がAI規制モラトリアム条項を削除</strong></td>
+                <td>賛成99・反対1の圧倒的多数で否決。</td>
+            </tr>
+            <tr>
+                <td>2025年7月4日</td>
+                <td><strong>OBBB法成立（AI条項なし）</strong></td>
+                <td>州のAI関連法はそのまま有効に。</td>
+            </tr>
+            <tr>
+                <td>2025年7月</td>
+                <td><strong>「AI競争に勝つ：米国のAIアクションプラン」発表</strong></td>
+                <td>EO14179に基づく政策文書。AIを地政学的な戦略資産と位置づけ、米国規格の国際標準化を志向。</td>
+            </tr>
+            <tr>
+                <td>2025年12月11日</td>
+                <td><strong>大統領令14365号「Ensuring a National Policy Framework for Artificial Intelligence」</strong></td>
+                <td>州のAI規制を「パッチワーク」として問題視し、連邦統一基準を志向。<br>
+                ①DOJに90日以内（2026年1月10日期限）のAI訴訟タスクフォース設置<br>
+                ②商務省に90日以内（2026年3月11日期限）の州法「Onerous」評価レポート提出<br>
+                ③FTCによる政策声明<br>
+                ④「Onerous」認定州へのBEAD（ブロードバンド普及）補助金制限、を指示。子どもの安全に関する州法は適用除外。</td>
+            </tr>
+            <tr>
+                <td>2026年1月9日</td>
+                <td><strong>DOJ「AI訴訟タスクフォース」設置</strong></td>
+                <td>司法長官パム・ボンディがメモで設置。州のAI規制を「州際通商の不当な制限」「修正第1条違反（強制的開示）」等の理由で提訴する任務。（2026年7月時点でまだ提訴実績はなし）。</td>
+            </tr>
+            <tr>
+                <td>2026年3月11日（期限）</td>
+                <td><strong>商務省「Onerous」州法評価レポート（期限徒過・未公表）</strong></td>
+                <td>EO14365が定めた提出期限だったが、2026年7月時点でも正式なレポートは公表されていない（複数の法律事務所解説記事が「期限を過ぎても現れていない」と指摘）。コロラド州AI法や、カリフォルニア州SB53・AB2013、ニューヨーク州RAISE法などが対象候補として名指し。</td>
+            </tr>
+            <tr>
+                <td>2026年7月1日／7日</td>
+                <td><strong>FTCが「AI精度の抑制」に関する政策声明案を公表</strong></td>
+                <td>EO14365に基づき、AI事業者が州法遵守等を理由に出力を誘導・調整する行為をFTC法5条の「不公正・欺瞞的行為」に該当しうるとする理論を提示。コロラド州の改正AI法を名指しで問題視。意見募集は2026年7月31日まで。</td>
+            </tr>
+            <tr>
+                <td>2026年4月</td>
+                <td><strong>Anthropic「Claude Mythos Preview」発表</strong></td>
+                <td>高度なサイバー攻撃能力が確認され、政府によるAIモデルの公開前審査の議論が本格化する契機に。</td>
+            </tr>
+            <tr>
+                <td>2026年5月21日</td>
+                <td><strong>サイバーセキュリティ関連大統領令（署名式）→ 直前で撤回</strong></td>
+                <td>公開90日前の政府事前審査を義務付ける案。イーロン・マスク、マーク・ザッカーバーグ等の反対で署名式が急遽キャンセル。</td>
+            </tr>
+            <tr>
+                <td>2026年6月2日</td>
+                <td><strong>改訂版AI大統領令に署名</strong></td>
+                <td>最先端AIモデルの一般公開30日前までの政府への情報提供・事前検証への「自主的協力」を要請。NSAベンチマーク、AIサイバーセキュリティ・クリアリングハウス設置等を含む。ライセンス制は導入せず。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>２．州レベルの主な動き</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">時期</th>
+                <th style="width: 32%;">出来事・政策・法令名</th>
+                <th style="width: 48%;">概要・影響</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024年5月〜10月</td>
+                <td><strong>コロラド州AI法（SB24-205）制定 / カリフォルニア州の一連の法制定</strong></td>
+                <td>コロラド州：米国初の包括的AI規制法とされる。高リスクAIの開発者・利用者にリスク評価、影響評価、消費者通知、アルゴリズム差別の禁止を義務付け。<br>
+                カリフォルニア州：ディープフェイク対策法（SB 942）、学習データ透明性法（AB 2013）等を相次いで可決。</td>
+            </tr>
+            <tr>
+                <td>2025年5月7日</td>
+                <td><strong>ユタ州「AI消費者保護改正法（SB226）」施行</strong></td>
+                <td>全米初の包括的AI消費者保護法。AI使用の明示義務化、誤情報による損害への企業責任を明確化。</td>
+            </tr>
+            <tr>
+                <td>2025年12月19日</td>
+                <td><strong>ニューヨーク州「RAISE法」署名</strong><br><small>（2026年3月に改正）</small></td>
+                <td>重大インシデントの72時間以内報告義務、違反時最大300万ドルの民事制裁金等。</td>
+            </tr>
+            <tr>
+                <td>2026年1月1日</td>
+                <td><strong>テキサス州「TRAIGA（HB149）」施行 / カリフォルニア州「SB53」施行</strong></td>
+                <td>テキサス州「責任あるAIガバナンス法（TRAIGA／HB149）」：政府・地方自治体のAI利用における目的・方法・影響の明示義務、ディープフェイクや児童性的搾取コンテンツ等の重大リスクAIの禁止、規制サンドボックス設置。<br>
+                カリフォルニア州「Transparency in Frontier AI Act（SB53）」：開発者に透明性レポート・安全インシデント報告を義務付け。</td>
+            </tr>
+            <tr>
+                <td>2026年2月頃</td>
+                <td><strong>コロラド州AI法（SB24-205）の執行が訴訟により一時停止</strong></td>
+                <td>xAIが提訴し、DOJが支持する形で介入。同法の施行日はそれ以前に2度延期されていた。</td>
+            </tr>
+            <tr>
+                <td>2026年5月</td>
+                <td><strong>コロラド州、AI法を「廃止・再制定」</strong></td>
+                <td>ポリス知事がSB 26-189（Automated Decision-Making Technology Act）に署名。旧SB24-205が定めていたアルゴリズム差別防止義務・必須バイアス監査を撤廃し、消費者への通知・透明性を軸とした枠組みに置き換え。新法の雇用主向け義務は2027年1月1日から。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>３．地政学リスク対策：先端モデルの輸出管理ケーススタディ（Fable 5 / Mythos 5）</h2>
+    <div class="grid-container">
+        <div class="card">
+            <p>「連邦vs州」の政治対立とは別に、最先端モデル自体を対象にした具体的な輸出管理の発動事例として、2026年6月のAnthropic「Claude Fable 5」「Claude Mythos 5」を巡る一件がある。</p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">時期</th>
+                <th style="width: 32%;">出来事・政策・法令名</th>
+                <th style="width: 48%;">概要・影響</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2026年6月9日</td>
+                <td><strong>Fable 5・Mythos 5発表</strong></td>
+                <td>Anthropicが最上位モデル群を発表。同一モデルをベースに、Mythos 5はサイバー・バイオ・LLM研究領域での追加の安全対策を伴うFable 5より制限が緩い版という位置づけ。Mythos 5は「Project Glasswing」の下、少数の信頼された組織に限定提供。</td>
+            </tr>
+            <tr>
+                <td>2026年6月12日</td>
+                <td><strong>商務省が輸出管理を適用、全世界でサービス一時停止</strong></td>
+                <td>Amazonの研究者がFable 5の安全対策を回避する手法（ジェイルブレイク）を発見し、脆弱性の特定やエクスプロイトコードの生成が可能なことが判明したことが契機。輸出管理規則は「どの外国籍者がその技術にアクセスできるか」を制限するもので、即時発効かつリアルタイムでの国籍確認が不可能だったため、Anthropicは全ユーザー向けにアクセスを停止。</td>
+            </tr>
+            <tr>
+                <td>2026年6月26日</td>
+                <td><strong>Mythos 5、一部の米国組織向けに提供再開（政府承認）</strong></td>
+                <td>商務長官ハワード・ラトニックの承認による。</td>
+            </tr>
+            <tr>
+                <td>2026年6月30日</td>
+                <td><strong>商務省が両モデルへの輸出管理を解除</strong></td>
+                <td>商務省がAnthropicと連携してFable 5を分析・承認したことによる（商務長官発表）。</td>
+            </tr>
+            <tr>
+                <td>2026年7月1日</td>
+                <td><strong>Fable 5、全世界で提供再開 / Mythos 5、対象を順次拡大</strong></td>
+                <td>Claude Platform、Claude.ai、Claude Code、Claude Cowork等で復旧。AWS・Google Cloud・Microsoft Foundry上のアクセスも順次再開。Mythos 5はGlasswingプログラムを通じて国内外のパートナーへ提供対象を拡大予定。</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
