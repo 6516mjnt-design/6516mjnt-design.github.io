@@ -78,8 +78,6 @@
         .status-note {
             font-size: 12px; padding: 7px 12px; border-radius: 4px; margin-bottom: 10px;
         }
-        .note-suspended { background: #fffbeb; border-left: 3px solid #d97706; color: #92400e; }
-        .note-stopped   { background: #f8fafc; border-left: 3px solid #9ca3af; color: #6b7280; }
         .company-grid {
             display: grid; grid-template-columns: 1fr; gap: 7px;
         }
@@ -126,14 +124,13 @@
     <div class="content-box">
 
         <div class="info-panel">
-            <strong>出口管制管控名单</strong>とは、軍事転用の恐れがある両用物項の取引を制限するために商務部が指定する企業・団体のリスト。指定された実体への両用物項の輸出は<strong>全面禁止</strong>（特殊事情がある場合のみ商務部への申請が可能）。あわせて、<strong>国外の組織・個人が中国原産の両用品目を掲載者へ移転・提供することも禁止</strong>する再輸出規制（域外適用）が明文化されており、第三国間の取引であっても中国原産物品が掲載者に渡ることを禁止できる。<br>
-            本ファイルは<strong>日本・EU</strong>の指定実体を収載（注視リスト＝关注名单はファイル3参照）。米国・台湾向けの管控名单指定はファイル2では扱わない（別途管理）。
+            <strong>出口管制管控名单</strong>とは、軍事転用の恐れがある両用物項の取引を制限するために商務部が指定する企業・団体のリスト。指定された実体への両用物項の輸出は<strong>全面禁止</strong>（特殊事情がある場合のみ商務部への申請が可能）。あわせて、<strong>国外の組織・個人が中国原産の両用品目を掲載者へ移転・提供することも禁止</strong>する再輸出規制（域外適用）が明文化されており、第三国間の取引であっても中国原産物品が掲載者に渡ることを禁止できる。
         </div>
 
         <div class="legend">
             <strong style="font-size:12px; color:#475569;">措置ステータス：</strong>
             <span class="legend-item"><span class="legend-dot dot-active"></span>禁輸措置発動中</span>
-            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中（米中協議による暫定措置）</span>
+            <span class="legend-item"><span class="legend-dot dot-suspended"></span>一時停止中</span>
             <span class="legend-item"><span class="legend-dot dot-stopped"></span>措置停止（終了）</span>
         </div>
 
@@ -142,7 +139,7 @@
 
         <div class="alert-critical">
             <strong>🚨 前提：2026年第1号公告（2026年1月6日発効）— 対日両用物項の全面管制強化</strong><br>
-            すべての両用物項について、<strong>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するあらゆる最終用途・最終ユーザーへの輸出を全面禁止</strong>。物項が管制リストに掲載されているかを問わず、取引全体・サプライチェーンの軍事転用可能性が審査対象。対米管制（2024年第46号公告）に続く国別指向型措置。
+            すべての両用物項について、<strong>日本の軍事ユーザー・軍事用途、および日本の軍事力強化に資するあらゆる最終用途・最終ユーザーへの輸出を全面禁止</strong>。物項が管制リストに掲載されているかを問わず、取引全体・サプライチェーンの軍事転用可能性が審査対象。
         </div>
 
         <!-- 第11号公告 -->
@@ -155,86 +152,26 @@
             <div class="announcement-body">
                 <p style="font-size:12px; color:#64748b; margin:0 0 12px;">※本公告原文に住所・郵便番号の記載なし。</p>
                 <div class="company-grid">
-                    <div class="company-item">
-                        <span class="num">1）</span>
-                        <span>三菱造船株式会社（Mitsubishi Heavy Industries Shipbuilding Co.）<span class="sector-tag">造船</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">2）</span>
-                        <span>三菱重工航空エンジン株式会社（Mitsubishi Heavy Industries Aero Engines, Ltd.）<span class="sector-tag">航空エンジン</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">3）</span>
-                        <span>三菱重工海洋機械株式会社（Mitsubishi Heavy Industries Marine Machinery &amp; Equipment Co., Ltd.）<span class="sector-tag">海洋機械</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">4）</span>
-                        <span>三菱重工エンジン＆ターボチャージャ株式会社（Mitsubishi Heavy Industries Engine &amp; Turbocharger, Ltd.）<span class="sector-tag">エンジン</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">5）</span>
-                        <span>三菱重工海事システム株式会社（Mitsubishi Heavy Industries Maritime Systems, Ltd.）<span class="sector-tag">海事システム</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">6）</span>
-                        <span>川崎重工業株式会社 航空宇宙システムカンパニー（Kawasaki Heavy Industries Aerospace Systems Company）<span class="sector-tag">航空宇宙</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">7）</span>
-                        <span>川重岐阜エンジニアリング株式会社（KAWAJU Gifu Engineering Co., Ltd.）<span class="sector-tag">航空機部品</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">8）</span>
-                        <span>富士通ディフェンス＆ナショナルセキュリティ株式会社（Fujitsu Defense &amp; National Security, Ltd.）<span class="sector-tag">防衛・セキュリティ</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">9）</span>
-                        <span>IHI原動機株式会社（IHI Power Systems Co., Ltd.）<span class="sector-tag">艦艇エンジン</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">10）</span>
-                        <span>IHIマスターメタル株式会社（IHI Master Metal Co., Ltd.）<span class="sector-tag">特殊金属</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">11）</span>
-                        <span>IHIジェットサービス株式会社（IHI Jet Service Co., Ltd.）<span class="sector-tag">航空エンジン整備</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">12）</span>
-                        <span>IHI宇宙開発株式会社（IHI Aerospace Co., Ltd.）<span class="sector-tag">宇宙・ロケット</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">13）</span>
-                        <span>IHI航空製造株式会社（IHI Aero Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">14）</span>
-                        <span>IHI宇宙エンジニアリング株式会社（IHI Aerospace Engineering Co., Ltd.）<span class="sector-tag">宇宙工学</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">15）</span>
-                        <span>NECネットワーク・センサ株式会社（NEC Network and Sensor Systems, Ltd.）<span class="sector-tag">防衛センサー</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">16）</span>
-                        <span>NECスペーステクノロジー株式会社（NEC Aerospace Systems, Ltd.）<span class="sector-tag">宇宙・防衛</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">17）</span>
-                        <span>日本海洋ユナイテッド株式会社（Japan Marine United Corporation）<span class="sector-tag">造船</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">18）</span>
-                        <span>JMUディフェンスシステムズ株式会社（JMU Defense Systems Co., Ltd.）<span class="sector-tag">艦艇・防衛</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">19）</span>
-                        <span>防衛大学校（National Defense Academy of Japan）<span class="sector-tag">教育・研究</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">20）</span>
-                        <span>国立研究開発法人宇宙航空研究開発機構（JAXA / Japan Aerospace Exploration Agency）<span class="sector-tag">宇宙・航空研究</span></span>
-                    </div>
+                    <div class="company-item"><span class="num">1）</span><span>三菱造船株式会社（Mitsubishi Heavy Industries Shipbuilding Co.）<span class="sector-tag">造船</span></span></div>
+                    <div class="company-item"><span class="num">2）</span><span>三菱重工航空エンジン株式会社（Mitsubishi Heavy Industries Aero Engines, Ltd.）<span class="sector-tag">航空エンジン</span></span></div>
+                    <div class="company-item"><span class="num">3）</span><span>三菱重工海洋機械株式会社（Mitsubishi Heavy Industries Marine Machinery &amp; Equipment Co., Ltd.）<span class="sector-tag">海洋機械</span></span></div>
+                    <div class="company-item"><span class="num">4）</span><span>三菱重工エンジン＆ターボチャージャ株式会社（Mitsubishi Heavy Industries Engine &amp; Turbocharger, Ltd.）<span class="sector-tag">エンジン</span></span></div>
+                    <div class="company-item"><span class="num">5）</span><span>三菱重工海事システム株式会社（Mitsubishi Heavy Industries Maritime Systems, Ltd.）<span class="sector-tag">海事システム</span></span></div>
+                    <div class="company-item"><span class="num">6）</span><span>川崎重工業株式会社 航空宇宙システムカンパニー（Kawasaki Heavy Industries Aerospace Systems Company）<span class="sector-tag">航空宇宙</span></span></div>
+                    <div class="company-item"><span class="num">7）</span><span>川重岐阜エンジニアリング株式会社（KAWAJU Gifu Engineering Co., Ltd.）<span class="sector-tag">航空機部品</span></span></div>
+                    <div class="company-item"><span class="num">8）</span><span>富士通ディフェンス＆ナショナルセキュリティ株式会社（Fujitsu Defense &amp; National Security, Ltd.）<span class="sector-tag">防衛・セキュリティ</span></span></div>
+                    <div class="company-item"><span class="num">9）</span><span>IHI原動機株式会社（IHI Power Systems Co., Ltd.）<span class="sector-tag">艦艇エンジン</span></span></div>
+                    <div class="company-item"><span class="num">10）</span><span>IHIマスターメタル株式会社（IHI Master Metal Co., Ltd.）<span class="sector-tag">特殊金属</span></span></div>
+                    <div class="company-item"><span class="num">11）</span><span>IHIジェットサービス株式会社（IHI Jet Service Co., Ltd.）<span class="sector-tag">航空エンジン整備</span></span></div>
+                    <div class="company-item"><span class="num">12）</span><span>IHI宇宙開発株式会社（IHI Aerospace Co., Ltd.）<span class="sector-tag">宇宙・ロケット</span></span></div>
+                    <div class="company-item"><span class="num">13）</span><span>IHI航空製造株式会社（IHI Aero Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span></span></div>
+                    <div class="company-item"><span class="num">14）</span><span>IHI宇宙エンジニアリング株式会社（IHI Aerospace Engineering Co., Ltd.）<span class="sector-tag">宇宙工学</span></span></div>
+                    <div class="company-item"><span class="num">15）</span><span>NECネットワーク・センサ株式会社（NEC Network and Sensor Systems, Ltd.）<span class="sector-tag">防衛センサー</span></span></div>
+                    <div class="company-item"><span class="num">16）</span><span>NECスペーステクノロジー株式会社（NEC Aerospace Systems, Ltd.）<span class="sector-tag">宇宙・防衛</span></span></div>
+                    <div class="company-item"><span class="num">17）</span><span>日本海洋ユナイテッド株式会社（Japan Marine United Corporation）<span class="sector-tag">造船</span></span></div>
+                    <div class="company-item"><span class="num">18）</span><span>JMUディフェンスシステムズ株式会社（JMU Defense Systems Co., Ltd.）<span class="sector-tag">艦艇・防衛</span></span></div>
+                    <div class="company-item"><span class="num">19）</span><span>防衛大学校（National Defense Academy of Japan）<span class="sector-tag">教育・研究</span></span></div>
+                    <div class="company-item"><span class="num">20）</span><span>国立研究開発法人宇宙航空研究開発機構（JAXA / Japan Aerospace Exploration Agency）<span class="sector-tag">宇宙・航空研究</span></span></div>
                 </div>
                 <p class="source-note">出典：商務部公告2026年第11号（2026年2月24日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_b5159a773124428a9813884015d1b8b3.html</p>
             </div>
@@ -249,106 +186,26 @@
             </div>
             <div class="announcement-body">
                 <div class="company-grid">
-                    <div class="company-item">
-                        <span class="num">21）</span>
-                        <span>防衛研究所（National Institute for Defense Studies）<span class="sector-tag">防衛研究</span>
-                        <span class="addr">東京都新宿区市谷本村町5番1号 〒162-8808</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">22）</span>
-                        <span>陸上装備研究所（Ground Systems Research Center）<span class="sector-tag">防衛研究</span>
-                        <span class="addr">神奈川県相模原市中央区淵野辺2-9-54 〒252-0206</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">23）</span>
-                        <span>艦艇装備研究所（Naval Systems Research Center）<span class="sector-tag">防衛研究</span>
-                        <span class="addr">東京都目黒区中目黒2-2-1 〒153-0061</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">24）</span>
-                        <span>航空装備研究所（Air Systems Research Center）<span class="sector-tag">防衛研究</span>
-                        <span class="addr">東京都立川市栄町1-2-10 〒190-8533</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">25）</span>
-                        <span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）<span class="sector-tag">防衛機器</span>
-                        <span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー1005号 〒141-0032</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">26）</span>
-                        <span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）<span class="sector-tag">防衛商社</span>
-                        <span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー10層 〒141-0032</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">27）</span>
-                        <span>三菱電機防衛与宇宙技術株式会社（Mitsubishi Electric Defense and Space Technologies Corporation）<span class="sector-tag">防衛・宇宙電子</span>
-                        <span class="addr">東京都品川区大崎1-15-9 〒141-0032</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">28）</span>
-                        <span>三菱電機ソフトウェア株式会社（Mitsubishi Electric Software Corporation）<span class="sector-tag">防衛ソフト</span>
-                        <span class="addr">東京都港区浜松町2-4-1 世界貿易センタービルディング南館29層 〒105-5129</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">29）</span>
-                        <span>三菱電機エンジニアリング株式会社（Mitsubishi Electric Engineering Company, Limited）<span class="sector-tag">電機エンジニアリング</span>
-                        <span class="addr">東京都港区芝5-34-2 三田ザ・タワー 〒108-0014</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">30）</span>
-                        <span>三菱精密株式会社（Mitsubishi Precision Company, Limited）<span class="sector-tag">精密機器・慣性航法</span>
-                        <span class="addr">東京都港区港南1-6-41 シーバンスS館8層 〒108-0075</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">31）</span>
-                        <span>三菱重工海洋技術株式会社（MHI Oceanincs Co., Ltd.）<span class="sector-tag">海洋技術</span>
-                        <span class="addr">長崎県諫早市津久葉町6-53 〒854-0065</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">32）</span>
-                        <span>三菱重工相模高科技株式会社（MHI Sagami High-tech, Ltd.）<span class="sector-tag">精密部品</span>
-                        <span class="addr">神奈川県相模原市中央区田名3000番地 〒252-5293</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">33）</span>
-                        <span>三菱重工物流技術株式会社（MHI Logitec Co., Ltd.）<span class="sector-tag">輸送・ロジスティクス</span>
-                        <span class="addr">愛知県小牧市大字東田中1200番地 〒485-0826</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">34）</span>
-                        <span>光和興業株式会社（KOWA KOGYO, Ltd.）<span class="sector-tag">MHI関連</span>
-                        <span class="addr">長崎市出島町1番14号 出島朝日生命青木ビル8層 〒850-0862</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">35）</span>
-                        <span>菱重特殊車両サービス株式会社（MHI Special Vehicles Parts Supply &amp; Technical Service Co., Ltd.）<span class="sector-tag">特殊車両整備</span>
-                        <span class="addr">東京都新宿区片町4番3号（曙橋SHKビル3層） 〒160-0001</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">36）</span>
-                        <span>三菱重工海事技術株式会社（MHI Maritech, Co., Ltd.）<span class="sector-tag">艦船技術</span>
-                        <span class="addr">長崎県長崎市飽の浦町1-1 〒850-8610</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">37）</span>
-                        <span>KGM株式会社（Kawajyu Gifu Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span>
-                        <span class="addr">岐阜県各務原市川崎町1番地 〒504-0971</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">38）</span>
-                        <span>日本飛行機株式会社（NIPPI Corporation）<span class="sector-tag">航空機整備・製造</span>
-                        <span class="addr">神奈川県横浜市金沢区昭和町3175番地 〒236-8540</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">39）</span>
-                        <span>フォルトゥニオ株式会社（Fortunio Co., Ltd.）<span class="sector-tag">防衛関連</span>
-                        <span class="addr">東京都目黒区洗足2-16-19 〒152-0012</span></span>
-                    </div>
-                    <div class="company-item">
-                        <span class="num">40）</span>
-                        <span>青木精密工業株式会社（Aoki Seimitsu Kogyo Co., Ltd.）<span class="sector-tag">精密加工</span>
-                        <span class="addr">埼玉県川口市差間3-38-12 〒333-0816</span></span>
-                    </div>
+                    <div class="company-item"><span class="num">21）</span><span>防衛研究所（National Institute for Defense Studies）<span class="sector-tag">防衛研究</span><span class="addr">東京都新宿区市谷本村町5番1号 〒162-8808</span></span></div>
+                    <div class="company-item"><span class="num">22）</span><span>陸上装備研究所（Ground Systems Research Center）<span class="sector-tag">防衛研究</span><span class="addr">神奈川県相模原市中央区淵野辺2-9-54 〒252-0206</span></span></div>
+                    <div class="company-item"><span class="num">23）</span><span>艦艇装備研究所（Naval Systems Research Center）<span class="sector-tag">防衛研究</span><span class="addr">東京都目黒区中目黒2-2-1 〒153-0061</span></span></div>
+                    <div class="company-item"><span class="num">24）</span><span>航空装備研究所（Air Systems Research Center）<span class="sector-tag">防衛研究</span><span class="addr">東京都立川市栄町1-2-10 〒190-8533</span></span></div>
+                    <div class="company-item"><span class="num">25）</span><span>日鋼特機株式会社（NIKKO TOKKI Co., Ltd.）<span class="sector-tag">防衛機器</span><span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー1005号 〒141-0032</span></span></div>
+                    <div class="company-item"><span class="num">26）</span><span>日鋼YPK商事株式会社（NIKKO-YPK SHOJI Co., Ltd.）<span class="sector-tag">防衛商社</span><span class="addr">東京都品川区大崎1-11-1 ゲートシティ大崎ウエストタワー10層 〒141-0032</span></span></div>
+                    <div class="company-item"><span class="num">27）</span><span>三菱電機防衛与宇宙技術株式会社（Mitsubishi Electric Defense and Space Technologies Corporation）<span class="sector-tag">防衛・宇宙電子</span><span class="addr">東京都品川区大崎1-15-9 〒141-0032</span></span></div>
+                    <div class="company-item"><span class="num">28）</span><span>三菱電機ソフトウェア株式会社（Mitsubishi Electric Software Corporation）<span class="sector-tag">防衛ソフト</span><span class="addr">東京都港区浜松町2-4-1 世界貿易センタービルディング南館29層 〒105-5129</span></span></div>
+                    <div class="company-item"><span class="num">29）</span><span>三菱電機エンジニアリング株式会社（Mitsubishi Electric Engineering Company, Limited）<span class="sector-tag">電機エンジニアリング</span><span class="addr">東京都港区芝5-34-2 三田ザ・タワー 〒108-0014</span></span></div>
+                    <div class="company-item"><span class="num">30）</span><span>三菱精密株式会社（Mitsubishi Precision Company, Limited）<span class="sector-tag">精密機器・慣性航法</span><span class="addr">東京都港区港南1-6-41 シーバンスS館8層 〒108-0075</span></span></div>
+                    <div class="company-item"><span class="num">31）</span><span>三菱重工海洋技術株式会社（MHI Oceanincs Co., Ltd.）<span class="sector-tag">海洋技術</span><span class="addr">長崎県諫早市津久葉町6-53 〒854-0065</span></span></div>
+                    <div class="company-item"><span class="num">32）</span><span>三菱重工相模高科技株式会社（MHI Sagami High-tech, Ltd.）<span class="sector-tag">精密部品</span><span class="addr">神奈川県相模原市中央区田名3000番地 〒252-5293</span></span></div>
+                    <div class="company-item"><span class="num">33）</span><span>三菱重工物流技術株式会社（MHI Logitec Co., Ltd.）<span class="sector-tag">輸送・ロジスティクス</span><span class="addr">愛知県小牧市大字東田中1200番地 〒485-0826</span></span></div>
+                    <div class="company-item"><span class="num">34）</span><span>光和興業株式会社（KOWA KOGYO, Ltd.）<span class="sector-tag">MHI関連</span><span class="addr">長崎市出島町1番14号 出島朝日生命青木ビル8層 〒850-0862</span></span></div>
+                    <div class="company-item"><span class="num">35）</span><span>菱重特殊車両サービス株式会社（MHI Special Vehicles Parts Supply &amp; Technical Service Co., Ltd.）<span class="sector-tag">特殊車両整備</span><span class="addr">東京都新宿区片町4番3号（曙橋SHKビル3層） 〒160-0001</span></span></div>
+                    <div class="company-item"><span class="num">36）</span><span>三菱重工海事技術株式会社（MHI Maritech, Co., Ltd.）<span class="sector-tag">艦船技術</span><span class="addr">長崎県長崎市飽の浦町1-1 〒850-8610</span></span></div>
+                    <div class="company-item"><span class="num">37）</span><span>KGM株式会社（Kawajyu Gifu Manufacturing Co., Ltd.）<span class="sector-tag">航空機部品製造</span><span class="addr">岐阜県各務原市川崎町1番地 〒504-0971</span></span></div>
+                    <div class="company-item"><span class="num">38）</span><span>日本飛行機株式会社（NIPPI Corporation）<span class="sector-tag">航空機整備・製造</span><span class="addr">神奈川県横浜市金沢区昭和町3175番地 〒236-8540</span></span></div>
+                    <div class="company-item"><span class="num">39）</span><span>フォルトゥニオ株式会社（Fortunio Co., Ltd.）<span class="sector-tag">防衛関連</span><span class="addr">東京都目黒区洗足2-16-19 〒152-0012</span></span></div>
+                    <div class="company-item"><span class="num">40）</span><span>青木精密工業株式会社（Aoki Seimitsu Kogyo Co., Ltd.）<span class="sector-tag">精密加工</span><span class="addr">埼玉県川口市差間3-38-12 〒333-0816</span></span></div>
                 </div>
                 <p class="source-note">出典：商務部公告2026年第27号（2026年6月29日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_df87be1437044874a35f85cf6e076f3d.html</p>
             </div>
@@ -365,17 +222,17 @@
                 <span class="announcement-date">2026.04.24</span>
             </div>
             <div class="announcement-body">
-                <p style="font-size:13px; color:#475569; margin:0 0 10px;">「過去に台湾向け武器販売等に関与した」として欧州の防衛・宇宙・銃器大手およびその関連企業7社が一斉指定。</p>
+                <p style="font-size:13px; color:#475569; margin:0 0 10px;">「中国の主権および安全利益を害した」としてEU企業7社が指定。</p>
                 <div class="company-grid">
                     <div class="company-item"><span class="num">1）</span><span>FN Herstal S.A.（ベルギー）<span class="sector-tag">銃器・防衛</span></span></div>
-                    <div class="company-item"><span class="num">2）</span><span>John Cockerill Defense S.A.（ベルギー）<span class="sector-tag">防衛システム</span></span></div>
-                    <div class="company-item"><span class="num">3）</span><span>Escribano Mechanical &amp; Engineering S.L.（スペイン）<span class="sector-tag">防衛電子・精密機械</span></span></div>
-                    <div class="company-item"><span class="num">4）</span><span>Expal Systems S.A.U.（スペイン）<span class="sector-tag">弾薬・防衛システム</span></span></div>
-                    <div class="company-item"><span class="num">5）</span><span>Dassault Aviation S.A.（フランス）<span class="sector-tag">航空宇宙・防衛</span></span></div>
-                    <div class="company-item"><span class="num">6）</span><span>Thales Group（フランス）<span class="sector-tag">防衛エレクトロニクス</span></span></div>
-                    <div class="company-item"><span class="num">7）</span><span>MBDA France S.A.S.（フランス）<span class="sector-tag">ミサイルシステム</span></span></div>
+                    <div class="company-item"><span class="num">2）</span><span>Exail SAS（フランス）<span class="sector-tag">防衛・ロボティクス</span></span></div>
+                    <div class="company-item"><span class="num">3）</span><span>Dassault Aviation SA（フランス）<span class="sector-tag">航空宇宙・防衛</span></span></div>
+                    <div class="company-item"><span class="num">4）</span><span>Thales SA（フランス）<span class="sector-tag">防衛エレクトロニクス</span></span></div>
+                    <div class="company-item"><span class="num">5）</span><span>Naval Group SA（フランス）<span class="sector-tag">造船・防衛</span></span></div>
+                    <div class="company-item"><span class="num">6）</span><span>Safran SA（フランス）<span class="sector-tag">航空宇宙・防衛</span></span></div>
+                    <div class="company-item"><span class="num">7）</span><span>Escribano Mechanical & Engineering SL（スペイン）<span class="sector-tag">防衛システム</span></span></div>
                 </div>
-                <p class="source-note">出典：商務部公告2026年第20号（2026年4月24日）</p>
+                <p class="source-note">出典：商務部公告2026年第20号（2026年4月24日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_cbb5d167f9004a58aee4b7a0f260c078.html</p>
             </div>
         </div>
 
@@ -387,24 +244,24 @@
                 <span class="announcement-date">2026.07.24</span>
             </div>
             <div class="announcement-body">
-                <p style="font-size:13px; color:#475569; margin:0 0 10px;">対台湾武器売却関与および地域安全保障を損なう安全保障上のリスクを理由として、EUの防衛・技術・通信関連14社が追加指定。</p>
+                <p style="font-size:13px; color:#475569; margin:0 0 10px;">「中国の主権および安全利益を害した」としてEU防衛・技術関連14社が追加指定。</p>
                 <div class="company-grid">
-                    <div class="company-item"><span class="num">8）</span><span>Hensoldt AG（ドイツ）<span class="sector-tag">防衛センサー・レーダー</span></span></div>
-                    <div class="company-item"><span class="num">9）</span><span>Diehl Defence GmbH &amp; Co. KG（ドイツ）<span class="sector-tag">防衛・誘導弾</span></span></div>
-                    <div class="company-item"><span class="num">10）</span><span>Rohde &amp; Schwarz GmbH &amp; Co. KG（ドイツ）<span class="sector-tag">通信・電子機器</span></span></div>
-                    <div class="company-item"><span class="num">11）</span><span>Renk AG（ドイツ）<span class="sector-tag">駆動技術・防衛コンポーネント</span></span></div>
-                    <div class="company-item"><span class="num">12）</span><span>Safran S.A.（フランス）<span class="sector-tag">航空宇宙・防衛</span></span></div>
-                    <div class="company-item"><span class="num">13）</span><span>Naval Group S.A.（フランス）<span class="sector-tag">艦艇造船・防衛</span></span></div>
-                    <div class="company-item"><span class="num">14）</span><span>KNDS France S.A.S.（旧 Nexter Systems）（フランス）<span class="sector-tag">陸上防衛装備</span></span></div>
-                    <div class="company-item"><span class="num">15）</span><span>Leonardo S.p.A.（イタリア）<span class="sector-tag">航空宇宙・防衛・安全保障</span></span></div>
-                    <div class="company-item"><span class="num">16）</span><span>Fincantieri S.p.A.（イタリア）<span class="sector-tag">造船・防衛艦艇</span></span></div>
-                    <div class="company-item"><span class="num">17）</span><span>Elettronica S.p.A.（イタリア）<span class="sector-tag">電子戦システム</span></span></div>
-                    <div class="company-item"><span class="num">18）</span><span>Indra Sistemas S.A.（スペイン）<span class="sector-tag">防衛・ITシステム</span></span></div>
-                    <div class="company-item"><span class="num">19）</span><span>Navantia S.A. S.M.E.（スペイン）<span class="sector-tag">艦艇造船・防衛</span></span></div>
-                    <div class="company-item"><span class="num">20）</span><span>Saab AB（スウェーデン）<span class="sector-tag">航空宇宙・防衛</span></span></div>
-                    <div class="company-item"><span class="num">21）</span><span>Patria Oyj（フィンランド）<span class="sector-tag">防衛・航空メンテナンス</span></span></div>
+                    <div class="company-item"><span class="num">8）</span><span>Diehl Defence GmbH & Co. KG（ドイツ）<span class="sector-tag">防衛・誘導弾</span></span></div>
+                    <div class="company-item"><span class="num">9）</span><span>Hensoldt AG（ドイツ）<span class="sector-tag">防衛センサー・レーダー</span></span></div>
+                    <div class="company-item"><span class="num">10）</span><span>Rohde & Schwarz GmbH & Co. KG（ドイツ）<span class="sector-tag">通信・計測機器</span></span></div>
+                    <div class="company-item"><span class="num">11）</span><span>Renk Group AG（ドイツ）<span class="sector-tag">駆動技術・防衛コンポーネント</span></span></div>
+                    <div class="company-item"><span class="num">12）</span><span>KNDS France SAS（フランス）<span class="sector-tag">陸上防衛システム</span></span></div>
+                    <div class="company-item"><span class="num">13）</span><span>MBDA France SAS（フランス）<span class="sector-tag">ミサイルシステム</span></span></div>
+                    <div class="company-item"><span class="num">14）</span><span>Leonardo S.p.A.（イタリア）<span class="sector-tag">航空宇宙・防衛</span></span></div>
+                    <div class="company-item"><span class="num">15）</span><span>Fincantieri S.p.A.（イタリア）<span class="sector-tag">造船・防衛艦艇</span></span></div>
+                    <div class="company-item"><span class="num">16）</span><span>Elettronica S.p.A.（イタリア）<span class="sector-tag">電子戦システム</span></span></div>
+                    <div class="company-item"><span class="num">17）</span><span>Indra Sistemas S.A.（スペイン）<span class="sector-tag">防衛・ITシステム</span></span></div>
+                    <div class="company-item"><span class="num">18）</span><span>Navantia S.A. S.M.E.（スペイン）<span class="sector-tag">造船・防衛</span></span></div>
+                    <div class="company-item"><span class="num">19）</span><span>Saab AB（スウェーデン）<span class="sector-tag">航空宇宙・防衛</span></span></div>
+                    <div class="company-item"><span class="num">20）</span><span>Patria Oyj（フィンランド）<span class="sector-tag">防衛・航空整備</span></span></div>
+                    <div class="company-item"><span class="num">21）</span><span>John Cockerill Defense S.A.（ベルギー）<span class="sector-tag">防衛システム</span></span></div>
                 </div>
-                <p class="source-note">出典：商務部公告2026年第30号（2026年7月24日）</p>
+                <p class="source-note">出典：商務部公告2026年第30号（2026年7月24日）<br>https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_2c9a32aa73bf4f5ea80ffa83e62fb259.html</p>
             </div>
         </div>
 
