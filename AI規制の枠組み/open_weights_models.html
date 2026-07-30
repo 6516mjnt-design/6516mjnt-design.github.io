@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オープンウェイトモデルに関するアンソロピックの見解</title>
+<style>
+  :root{
+    --navy:#1a2340;
+    --navy-soft:#3d4a6b;
+    --line:#e2e4ea;
+    --text:#26293a;
+    --sub:#5b6070;
+    --bg:#ffffff;
+    --accent:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+    line-height:1.9;
+    font-size:16px;
+  }
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:56px 24px 44px;
+  }
+  .header-inner{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.12em;
+    color:#a9b3cc;
+    margin:0 0 14px;
+    font-weight:600;
+  }
+  h1{
+    font-size:clamp(22px,4vw,32px);
+    margin:0 0 16px;
+    line-height:1.5;
+    font-weight:700;
+  }
+  .lede{
+    color:#c7cde0;
+    font-size:16px;
+    margin:0;
+    max-width:60ch;
+  }
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  section{
+    margin-bottom:40px;
+  }
+  h2{
+    font-size:20px;
+    margin:32px 0 16px;
+    color:var(--navy);
+    font-weight:700;
+    border-bottom:2px solid var(--navy);
+    padding-bottom:8px;
+  }
+  h3{
+    font-size:16px;
+    color:var(--navy-soft);
+    margin:24px 0 10px;
+    font-weight:700;
+  }
+  p{ margin:0 0 16px; }
+  ul, ol{ margin:0 0 16px; padding-left:1.3em; }
+  li{ margin-bottom:8px; }
+  .note{
+    border-left:3px solid var(--navy);
+    padding:4px 0 4px 16px;
+    margin:20px 0;
+    color:var(--sub);
+    font-size:14.5px;
+    background:#f8f9fa;
+  }
+  .card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px 22px;
+    margin:20px 0;
+  }
+  .card h4{
+    margin:0 0 10px;
+    font-size:15px;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:48px 0;
+  }
+  footer{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 24px 60px;
+    color:var(--sub);
+    font-size:13.5px;
+  }
+  footer ol{
+    padding-left:1.2em;
+  }
+  footer li{
+    margin-bottom:12px;
+  }
+  a{ 
+    color:var(--navy);
+    word-break:break-all;
+  }
+  @media (max-width:600px){
+    header{ padding:40px 20px 34px; }
+    main{ padding:36px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <p class="eyebrow"><a href="https://www.anthropic.com/news/position-open-weights-models" style="color:#a9b3cc; text-decoration:underline;">https://www.anthropic.com/news/position-open-weights-models</a></p>
+    <h1>オープンウェイトモデルに関するアンソロピックの見解</h1>
+    <p class="lede">2026年7月27日<br>アンソロピックCEO、ダリオ・アモデイによる投稿</p>
+  </div>
+</header>
+
+<main>
+
+  <p>ここ数日、特に中国製のオープンウェイトモデルについて多くの議論が交わされています。報道によると、一部の米国当局者は、米国企業による中国製オープンウェイトモデルの使用を禁止することを検討しているとのことです。これに対し、多くのテクノロジー企業がオープンウェイトモデルを支持する書簡（<a href="https://www.axios.com/2026/07/20/ai-us-china-open-source-kimi" target="_blank" rel="noopener">https://www.axios.com/2026/07/20/ai-us-china-open-source-kimi</a>）に署名し、中にはAnthropicが自社の事業を守るためにオープンウェイトモデルを禁止しようとしていると非難する声さえ上がっています。私の過去の記事を読んだことがある方なら、私がそのような禁止措置を有効な手段とは考えていないことをご存知でしょうが、誤解のないよう明確に述べておきます。Anthropicはオープンウェイトモデルの禁止を提唱したことは一度もありません。</p>
+
+  <p>危険な機能を持たないオープンウェイトモデルは公共財である。実行に必要な計算コスト以外に費用はかからず、企業、開発者、研究者に価値を提供する。</p>
+
+  <p>保護主義的な禁止措置では、私の最も深刻な国家安全保障上の懸念は解消されません。具体的には、二つの悪夢のようなシナリオを懸念しています。これらは6か月前に書いたエッセイ「テクノロジーの思春期」 （<a href="https://darioamodei.com/essay/the-adolescence-of-technology" target="_blank" rel="noopener">https://darioamodei.com/essay/the-adolescence-of-technology</a>）で述べたもので、私は長年にわたり一貫してこれらの立場を貫いてきました。</p>
+
+  <div class="card">
+    <h4>１．私が最も懸念しているのは、</h4>
+    <p>権威主義的な政府（中国共産党（CCP）だけではないが、CCPが明らかに最も有能な脅威である）が、米国が構築したAIモデルよりも強力なAIモデルを構築し、それを利用して恒久的な軍事的優位性を獲得したり、自国民に対する極めて深刻な弾圧を実行したりするリスクです。この懸念は米国政府内で広く共有されています。バンス副大統領は昨年パリで、「権威主義的な政権はAIを盗み、軍事、情報、監視能力を強化するために利用している」と警告し、情報機関の2026年年次脅威評価（<a href="https://archive.dni.gov/files/ODNI/documents/assessments/ATA-2026-Unclassified-Report.pdf" target="_blank" rel="noopener">https://archive.dni.gov/files/ODNI/documents/assessments/ATA-2026-Unclassified-Report.pdf</a>）では、「他の世界の大国によるAIの急速な進歩は、米国の経済競争力と国家安全保障上の優位性を脅かしている」と結論付けています。これらのモデルが公開されるかどうか、また米国企業が利用するかどうかは関係ありません。実際、最も危険なモデルは、秘密裏に訓練され、ドローンで使用するために人民解放軍に、監視と弾圧のために国家安全省にのみ渡されるモデルかもしれません。</p>
+  </div>
+
+  <div class="card">
+    <h4>２．私の第二の懸念は、</h4>
+    <p>強力なAIモデルがサイバー攻撃や生物兵器攻撃を実行するために悪用されるリスク、および深刻なアライメントの問題（<a href="https://time.com/article/2026/07/24/openai-hugging-face-attack/" target="_blank" rel="noopener">https://time.com/article/2026/07/24/openai-hugging-face-attack/</a>）を抱える可能性があることです。オープンウェイトモデルは、中国製であろうと他の国製であろうと関係なく、ガードレールを適用したり使用状況を監視したりすることが非常に困難であり、一度ウェイトが解放されると取り消すことができないため、クローズドモデルよりも潜在的に高いリスクをもたらします。しかし、米国企業によるこれらのモデルの使用を禁止しても、このリスクに対処することはできません。なぜなら、悪意のある行為者は正当な米国企業である可能性は低いからです。米国のAI企業を競争から保護することになりますが、それは私の目的ではありません。</p>
+  </div>
+
+  <p>これらの懸念に対処するため、私は以下の3つの措置を支持します。これらは私自身とAnthropicが一貫して提唱してきたものです。</p>
+
+  <ul>
+    <li>
+      <strong>我々は中国に高性能チップやチップ製造装置を販売すべきではなく、横行する密輸や、そのようなチップを入手するために用いられる抜け穴を徹底的に取り締まるべきです。</strong><br>
+      中国（<a href="https://www.justice.gov/opa/pr/three-charged-conspiring-unlawfully-divert-cutting-edge-us-artificial-intelligence" target="_blank" rel="noopener">https://www.justice.gov/opa/pr/three-charged-conspiring-unlawfully-divert-cutting-edge-us-artificial-intelligence</a>）は国内生産能力が限られているため、スケーリング法則（<a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener">https://arxiv.org/abs/2001.08361</a>）により、米国製チップなしでは米国よりも高性能なモデルを構築することはできません。これは脅威1を阻止する最も効率的かつ直接的な方法であり、米国法の及ばないモデルの育成を阻害することで、間接的に脅威2の解決にもつながります。
+    </li>
+    <li>
+      <strong>我々は産業規模の蒸留操作（<a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks" target="_blank" rel="noopener">https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks</a>）を取り締まるべきだ。</strong><br>
+      蒸留は、ゼロからモデルをトレーニングするよりもはるかに計算効率の良いプロセスである。これにより、中国は通常のチップ数では不可能なほど優れたモデルを構築でき、チップ禁止を部分的に回避できる。蒸留によって中国共産党が米国と同等またはそれ以上のAI能力を獲得できるわけではないが、中国の最先端技術を米国の最先端技術から数ヶ月以内にまで近づけることができる。確かに、これらの操作を実行している企業の多くはオープンウェイトモデルを公開しているが、オープンウェイトは、最先端技術で米国を追い抜こうとする権威主義国家によって操作が支援されているという事実に比べればはるかに重要ではない。我々はこの行動を抑止するための政策介入を行うべきだ。オープンウェイトモデルを全面的に禁止することは、正しい解決策でもなければ、我々が求めてきたものでもない。
+    </li>
+    <li>
+      <strong>十分な能力を持つモデルはすべて、オープンモデルとクローズドモデルを問わず、安全性テストを受けるべきです。</strong><br>
+      脅威2に対処する最善の方法は、リリース前にサイバー、生物学的、およびアライメントのリスクについてモデルを直接テストすることです。この考えは実際にはほぼ合意に達していると思います。ここ数ヶ月、トランプ政権がこの方向に動いたこと、そして、最も能力の高いモデルについては、その原産国やオープンかクローズドかに関わらず、そのようなテストを適用するという最近の業界提案（<a href="https://demishassabis.substack.com/p/a-framework-for-frontier-ai-and-the-dawning-of-a-new-age" target="_blank" rel="noopener">https://demishassabis.substack.com/p/a-framework-for-frontier-ai-and-the-dawning-of-a-new-age</a>）（スタートアップや学術機関のモデルなど、能力の低いモデルは完全に除外）に勇気づけられています。オープンモデルがリスクを高めるかどうか、またそのリスクを軽減できるかどうかは、事前に決定するのではなく、テストから明らかになるべきことです。そして、AE StudioとAnthropicによるモジュール式トレーニング戦略（<a href="https://alignment.anthropic.com/2026/modular-pretraining/" target="_blank" rel="noopener">https://alignment.anthropic.com/2026/modular-pretraining/</a>）に関する最近の研究など、オープンウェイトモデルの安全性を向上させる有望な方法があるかもしれません。効果的なテストを行うには、グローバルなテストが必要であり、中国共産党（CCP）も賛同する必要があることに注意してください。これは実際に可能かもしれないと私は考えています。私が著書『テクノロジーの思春期』で書いたように、AIによる生物兵器の防止に関する限定的な協力は、中国の利益にもなるため、可能かもしれません。
+    </li>
+  </ul>
+
+  <p>ここで、公開書簡（<a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf" target="_blank" rel="noopener">https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf</a>）について触れたいと思います。私はその内容の多くに同意します。オープンウェイトはAI経済へのアクセスを拡大し、少なくとも一部のユースケースでは競争を強化し、顧客により大きな制御権を与えます。蒸留に関する懸念は、私が上で述べたのと同じ措置である、的を絞った法的および商業的枠組みを通じて対処されるべきです。しかし、オープンウェイトモデルが必ずしも安全対策の開発を容易にする、あるいは機能への広範なアクセスが必ずしも攻撃者よりも防御者を有利にする、という書簡の主張には同意できません。少なくとも私には、その逆が真実である可能性が高いように思えます。例えば、生物学において攻撃者と防御者の間に強い非対称性が生じることを懸念しています。十分な能力を持つモデルは、広く入手可能な材料を使ってパンデミックレベルのウイルスを迅速に兵器化できる可能性がある一方で、これらの病原体に対する防御は、最良の場合でも数年かかる運用上の課題となる可能性があります（オペレーション・ワープ・スピードで見たように）。このような疑問は、事前に想定するのではなく、厳密なリリース前テストによって経験的に答えられるべきです。</p>
+
+  <p>私とAnthropicの立場を要約すると、私たちはオープンウェイトモデルというカテゴリー全体を禁止することを提唱したことも、現在も提唱しているわけでもありません。むしろ、強力なチップが権威主義的な人物の手に渡らないようにすること、工業規模の蒸留を阻止すること、そしてオープンウェイトモデルとクローズドウェイトモデルを問わず、十分な性能を持つすべてのモデルに対して安全性のテストを義務付けることに焦点を当てるべきです。</p>
+
+  <div class="note">
+    7月28日編集：引用されているモジュール型トレーニング戦略に関する研究は、AnthropicとAE Studio（<a href="https://ae.studio/" target="_blank" rel="noopener">https://ae.studio/</a>）の共同研究であることを追記しました。
+  </div>
+
+</main>
+
+<footer>
+  <hr class="divider">
+  <p><strong>脚注</strong></p>
+  <ol>
+    <li>権力掌握のための悪用に関する議論と生物学的リスクに関する議論については、それぞれ当該論文の第3節と第2節を参照のこと。</li>
+    <li>英国AIセキュリティ研究所のこの報告書（<a href="https://www.aisi.gov.uk/blog/how-far-behind-the-frontier-are-leading-open-weight-models-on-cyber" target="_blank" rel="noopener">https://www.aisi.gov.uk/blog/how-far-behind-the-frontier-are-leading-open-weight-models-on-cyber</a>）を特に参照してください。「これらの利点の根底にあるオープン性は、クローズドモデルの開発者が不正使用の検出と阻止、脆弱性の発生に伴うセキュリティ対策の反復、ユーザーアクセスの制御、モデルの撤回などに利用できる多くの安全対策を排除します。オープンウェイトモデルがリリースされると、これらの選択肢は永久に失われます。セキュリティ対策が削除され、コピーがダウンロード、再配布され、監視の及ばないプライベートシステムで実行される可能性があります。したがって、高度なサイバー能力を持つモデルなど、危険な機能を備えたモデルの場合、オープンウェイトのリリースは、永続的かつ不可逆的な不正使用のリスクを生み出します。」</li>
+    <li>米国司法省からのその他の報告書については、こちら（<a href="https://www.justice.gov/opa/pr/chinese-national-and-two-us-citizens-charged-conspiring-smuggle-artificial-intelligence" target="_blank" rel="noopener">https://www.justice.gov/opa/pr/chinese-national-and-two-us-citizens-charged-conspiring-smuggle-artificial-intelligence</a>）、こちら（<a href="https://www.justice.gov/opa/pr/us-citizens-and-chinese-nationals-arrested-exporting-artificial-intelligence-technology" target="_blank" rel="noopener">https://www.justice.gov/opa/pr/us-citizens-and-chinese-nationals-arrested-exporting-artificial-intelligence-technology</a>）、およびこちら（<a href="https://www.justice.gov/opa/pr/us-authorities-shut-down-major-china-linked-ai-tech-smuggling-network" target="_blank" rel="noopener">https://www.justice.gov/opa/pr/us-authorities-shut-down-major-china-linked-ai-tech-smuggling-network</a>）をご覧ください。</li>
+    <li>Anthropicでは、自社の取り組みを通じて、産業規模の不正利用を徹底的に取り締まることに尽力しています。具体的には、当社のモデルを不正に利用するアカウントを特定し、ブロックするなどの対策を講じています。しかし、これは容易ではありません。例えば、不正利用が相当規模で行われた後でなければ、該当するアカウントを特定できないことが多く、また、不正利用には、常に変化する標的となる多数の偽アカウントの作成が伴う場合が少なくありません。個々の企業の取り組みだけでは、この問題を完全に解決することはできません。だからこそ、私たちはこの問題に関する政策策定を求めているのです。</li>
+    <li>生物学的脅威と攻撃・防御のバランスに関するより詳細な議論については、 『技術の思春期』の第2章（<a href="https://darioamodei.com/essay/the-adolescence-of-technology#2-a-surprising-and-terrible-empowerment" target="_blank" rel="noopener">https://darioamodei.com/essay/the-adolescence-of-technology#2-a-surprising-and-terrible-empowerment</a>）を参照してください 。要約すると、私が現在生物学において私たちを安全に保つと考えているのは、「防御者」でも、材料の入手可能性でもなく、知的能力と壊滅的な危害を加えたいという欲求との間の負の相関関係です。インターネット検索やDNA合成といった以前の技術は、この相関関係を打破するほど強力ではありませんでしたが、AIが現在の進歩速度で非常に近い将来それを成し遂げるのではないかと懸念しています。別の言い方をすれば、十分に強力な技術はあらゆる障壁を取り除き、攻撃者と防御者のどちらが本質的に構造的な優位性を持っているかを明らかにしますが、生物学においては、それが攻撃者であると私は懸念しています。</li>
+  </ol>
+</footer>
+
+</body>
+</html>
