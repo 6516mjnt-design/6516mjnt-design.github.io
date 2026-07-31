@@ -10,52 +10,49 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/5-9.css">
 
- <style>
-    /* ボタンがあった元の場所（右端など）のレイアウトはそのまま維持する */
+<style>
     .btn-print {
       display: inline-block;
     }
 
-    /* ボタンの「見た目」と「文字（アイコン）」を完全に透明にして消し去る */
     button.btn-print {
       background: transparent !important;
       background-image: none !important;
-      color: transparent !important;      /* 文字（化けているアイコン）を透明にする */
-      border: none !important;             /* 枠線を完全に消す */
-      font-size: 0 !important;             /* 文字の大きさをゼロにする */
-      width: 0 !important;                 /* 横幅をゼロにする */
-      height: 0 !important;                /* 高さをゼロにする */
-      padding: 0 !important;               /* 余白をゼロにする */
-      margin: 0 !important;                /* 外側の余白をゼロにする */
-      pointer-events: none !important;     /* クリックもできないようにする */
+      color: transparent !important;
+      border: none !important;
+      font-size: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      pointer-events: none !important;
     }
 
-    /* 前後にくっつくパーツも完全に消滅させる */
     button.btn-print::before, 
     button.btn-print::after {
       content: none !important;
       display: none !important;
     }
 
-    /* ==============================================================
-       5-9.css の #wrapper は本来「1コンテンツを画面中央に配置する」
-       ためのテンプレート用スタイル（display:flex; justify-content:center;
-       align-items:center;）。このページは複数カードのグリッドレイアウト
-       のため、flexによる中央寄せは無効化し、position/z-index による
-       「粒子背景の上にコンテンツを重ねる」効果だけを活かす。
-       ============================================================== */
     #wrapper{
       display: block;
       text-align: initial;
       color: initial;
     }
 
-    /* header内のテキスト（タイトル・更新日・説明文）を白抜きにする */
     header, header * {
       color: #fff !important;
     }
-  </style>
 
+   /* html/bodyには触らず、専用の背景レイヤーを一枚敷く */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: #020E34;
+  z-index: -2;
+}
+  </style>
  </head>
 <body>
 
@@ -67,7 +64,7 @@
     <header>
       
       <h1>いしちゃんのホームページ</h1>
-      <p class="update-date">最終更新日：2026年7月30日</p>
+      <p class="update-date">最終更新日：2026年7月31日</p>
       <p class="site-desc">知能とは？AIとは？生物（動物・植物）とは？</p>
       <p class="disclaimer">記載内容には、誤りがある場合があります。気づきがあれば修正します。</p>
     </header>
