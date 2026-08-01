@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Engineering</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, "Liberation Mono", Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="
+    padding: 8px 20px;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  ">🖨️ 印刷</button>
+</div>
+
+    <header>
+        <h1>Loop Engineering</h1>
+        <p class="meta">2026年8月1日更新</p>
+    </header>
+
+    <main>
+        <h2>1. エグゼクティブ・サマリー</h2>
+        <p class="lead">人間がAIプロンプトを叩くのをやめ、「AIが目標達成まで自律して試行・評価・修正を繰り返す仕組み（Loop）」を設計・構築する手法。</p>
+        
+        <div class="tech-note">
+            <ul>
+                <li><span class="method-name">本質的なパラダイムシフト：</span><br>「上手なプロンプトを書く人（Prompt Engineer）」から「自動で回る工場を構築する人（Loop Engineer）」へ、IT人材の価値とレバレッジの支点が移動している。</li>
+                <li><span class="method-name">成功の絶対条件：</span><br>「検証可能性（証拠）」と「停止条件」。検証できないタスクをLoopに載せると、高速でエラーや粗悪な成果物を量産する装置と化す。</li>
+                <li><span class="method-name">最大の倫理的リスク：</span><br>システムが勝手に回ることで生じる「理解の負債（コードのブラックボックス化）」や「認知的降伏（思考停止）」に注意が必要。</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>2. 背景：AIパラダイムの4世代変遷</h2>
+        <p>AIの活用手法は下図のように進化してきたが、重要なのは「前の世代が消えるのではなく、最新世代の“パーツ”として内包される」という点。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>世代</th>
+                    <th>AIパラダイム</th>
+                    <th>人間の役割</th>
+                    <th>主な技術・概念</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>第1世代</strong></td>
+                    <td>Prompting</td>
+                    <td>手動でプロンプトを入力し指示する</td>
+                    <td>プロンプトテクニック</td>
+                </tr>
+                <tr>
+                    <td><strong>第2世代</strong></td>
+                    <td>Context</td>
+                    <td>適切な背景情報やファイルを提示する</td>
+                    <td>RAG、コンテキスト拡張</td>
+                </tr>
+                <tr>
+                    <td><strong>第3世代</strong></td>
+                    <td>Harness</td>
+                    <td>単一エージェントを安全に動かすガードレールを作る</td>
+                    <td>ガードレール、安全装置</td>
+                </tr>
+                <tr>
+                    <td><strong>第4世代</strong></td>
+                    <td>Loop</td>
+                    <td>エージェントを自動的に回すシステム（工場）を設計する</td>
+                    <td>ループエンジニアリング</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            Harnessは「1台の機械を安全に動かす安全装置」、Loopは「工場全体を自動で稼働させる生産管理システム」。
+        </blockquote>
+
+        <hr>
+
+        <h2>3. Loopを構成する 6つのコアモジュール</h2>
+        <p>Addy Osmani氏の定義に基づく、Loopに必要な6つの構成要素。</p>
+
+<pre>
+ 　[ 1. Automations (起動) ] ── (トリガー)
+               ▼
+  　Loop 内部空間
+   　[ 2. Worktrees (環境分離) ]  [ 3. Skills    (知識チップ) ]   [ 4. Sub-agents(相互牽制) ]                 
+   　[ 5. Connectors(外部操作) ] 　[ 6. Memory    (外部状態記録) ] ──最重要!  
+</pre>
+
+        <ul>
+            <li><strong>1. Automations（ハートビート / 起動装置）：</strong> CI失敗やIssue作成などをトリガーに、人間を介さず自律起動する。</li>
+            <li><strong>2. Worktrees（防護壁 / 秘密分離）：</strong> ブランチ分離などにより、複数エージェント並列稼働時の競合・事故を防ぐ。</li>
+            <li><strong>3. Skills（知識チップ / 共有知）：</strong> プロジェクト固有の構築手順や「過去踏んだ罠」などを記述したルールファイル（例: <code>.claude/skills/build.md</code>）。</li>
+            <li><strong>4. Sub-agents（相互牽制メカニズム）：</strong> 「実装担当」と「粗探し・レビュー担当」を分け、成果物のクオリティを客観的に評価する。</li>
+            <li><strong>5. Connectors（腕 / 外部連携）：</strong> MCP（Model Context Protocol）等を介し、GitHub/Linear/Slack等へ直接アクション（PR作成、チケット更新、通知）を起こす。</li>
+            <li><strong>6. Memory（状態保持 / 永続化）※最重要：</strong> Markdownやタスクボードによる外部状態の保持。モデルは忘れてもリポジトリは忘れないため、再起動時のゼロリセットを防ぐ。</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. 実践：検証可能なループの 5ステップ方法論</h2>
+        <p>Loopを「便利な乱数発生機」にしないための実践ステップ。</p>
+
+        <div class="tech-note">
+            <ol>
+                <li><strong>Step 1: 目標契約 (完了基準の定義)</strong><br>定量化された受け入れ基準（例：エラー率 < 0.1%、P95レスポンス < 1.5s）を設定する。数値化できないものは原則Loopに載せない。</li>
+                <li><strong>Step 2: Agent実行 (計画・ツール呼び出し・実行)</strong><br>タスクを分解し、並列インスタンスや適切なツール（エディタ、ターミナル、検索等）を活用して進める。</li>
+                <li><strong>Step 3: 証拠フィードバック (ログ・テスト・スクショ)</strong><br>AIの「できました」は一切信用せず、テスト結果・実行ログ・スクリーンショット・CIステータスなどの客観的証拠を提出させる。</li>
+                <li><strong>Step 4: 停止条件判定 (デリバリー / ロールバック / 移送)</strong><br>以下の4パターンで終了処理を行う。
+                    <ul>
+                        <li><strong>合格：</strong> 基準クリア ➔ 自動デリバリー</li>
+                        <li><strong>ロールバック：</strong> リスク検知・目標離脱 ➔ 変更取り消し</li>
+                        <li><strong>人間に引き渡し：</strong> 判定不能・重大判断 ➔ エスカレーション</li>
+                        <li><strong>タイムアウト：</strong> ラウンド上限超え ➔ 中断してレポート出力</li>
+                    </ul>
+                </li>
+                <li><strong>Step 5: 経験の還元 (Skills・ルール更新)</strong><br>成功・失敗パターンを <code>Skills</code> やルールにフィードバックし、次回の精度とスピードを向上させる。</li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <h2>5. チーム導入：6つのステップとゴー/ノーゴー判定</h2>
+        <h3>導入の 6ステップ</h3>
+        <ol>
+            <li><strong>タスク選定：</strong> 小さく定量化できるもの（CI赤信号の修復、ログ点検、テスト補完等）から開始。</li>
+            <li><strong>目標契約の記述：</strong> 入力・出力・定量合格基準・禁止事項を定義。</li>
+            <li><strong>ツール接続：</strong> リポジトリ、テスト環境、MCP、Issueトラッカーに接続。</li>
+            <li><strong>センサー追加 ＆ 【品質ゲート #1】：</strong> 証拠（ログ・スクショ等）が揃わなければ次に進ませない。</li>
+            <li><strong>停止条件設定 ＆ 【品質ゲート #2】：</strong> タイムアウトや人間への引き渡しラインを厳格化。</li>
+            <li><strong>経験の蓄積：</strong> ルールやevalケースを更新し、組織知化する。</li>
+        </ol>
+
+        <hr>
+
+        <h2>6. 潜む 3つの危険な罠（注意点）</h2>
+        <p>ループエンジニアリングがスムーズに回れば回るほど、人間側のリスクが高まる。</p>
+
+        <h4>① 検証の死角（Blind Spot of Verification）</h4>
+        <p>「完了（Done）」はAIの自己申告になりがち。証拠（Evidence）を強制出力させないLoopは、ただの「自信過剰な乱数発生機」になる。</p>
+
+        <h4>② 理解の負債（Comprehension Debt）</h4>
+        <p>人間がコードを書かないため、システム全体の構造理解から離脱していく。後で障害対応をする際、誰が書いたかわからないコードの山と向き合うことになる。</p>
+
+        <h4>③ 認知的降伏（Cognitive Surrender）</h4>
+        <p>「AIがそう言っているから」と自身の批判的思考を放棄し、提案を呑んでしまう現象。定期的に自身のレビュー基準を言語化して解毒する必要がある。</p>
+
+        <hr>
+
+        <h2>7. まとめ</h2>
+        <p>ループエンジニアリングの難しさは「1つの答えを出すこと」ではなく、「正解を出し続ける機械（メカニズム）を作ること」にある。今後のエンジニアの差別化は、仕事をAIに丸投げすることではなく、業務の本質を深く理解したうえで「堅牢で検証可能なLoop」を組み上げられるかに依存する。</p>
+    </main>
+
+</body>
+</html>
