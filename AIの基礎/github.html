@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub 導入ガイド</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, "Liberation Mono", Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+        code {
+            background-color: #edf2f7;
+            color: #2d3748;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="
+    padding: 8px 20px;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  ">🖨️ 印刷</button>
+</div>
+
+    <header>
+        <h1>GitHub 導入ガイド</h1>
+        <p class="meta">2026年8月1日更新</p>
+    </header>
+
+    <main>
+        <h2>1. エグゼクティブ・サマリー</h2>
+        <p class="lead">アカウント作成からリポジトリ管理、GitHub Desktopの活用、チームでのブランチ運用・プルリクエストまで、個人およびチームでの実践的なGit/GitHub活用プロセス。</p>
+        
+        <div class="tech-note">
+            <ul>
+                <li><span class="method-name">ステップバイステップ設計：</span><br>アカウント登録・Web操作から、GUIツール（GitHub Desktop）やCLI環境へのスムーズなステップアップ構造。</li>
+                <li><span class="method-name">安全なチーム開発の実践：</span><br><code>main</code> ブランチを守るための「ブランチ作成 → プルリクエスト → レビュー → マージ」ワークフローの徹底。</li>
+                <li><span class="method-name">同期と競合防止：</span><br>作業開始時の <code>Fetch/Pull origin</code> や不要ブランチの削除による、常に最新・清潔なコードベースの維持。</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>2. 背景：GitHub利用手順の全貌</h2>
+        <p>GitHubの導入から高度な活用法までの全体像と各段階の役割です。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>フェーズ</th>
+                    <th>操作・タスク</th>
+                    <th>主要な機能・コマンド</th>
+                    <th>目的・主な役割</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>第1段階</strong></td>
+                    <td>アカウント作成</td>
+                    <td>Sign up, メール認証</td>
+                    <td>GitHubの各種サービス・Web機能の利用準備</td>
+                </tr>
+                <tr>
+                    <td><strong>第2段階</strong></td>
+                    <td>リポジトリ作成</td>
+                    <td>New repository, Public/Private</td>
+                    <td>コードやプロジェクトファイルを安全に保管・共有</td>
+                </tr>
+                <tr>
+                    <td><strong>第3段階</strong></td>
+                    <td>Web上での編集</td>
+                    <td>Create new file, Commit changes</td>
+                    <td>Git操作なしで手軽にファイル更新・記録</td>
+                </tr>
+                <tr>
+                    <td><strong>第4段階</strong></td>
+                    <td>ローカルPC連携</td>
+                    <td>GitHub Desktop / Git CLI</td>
+                    <td>PC上の開発環境とリモート保管庫を相互同期</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            リポジトリは「コードの保存庫」。チーム開発では直書きせず、自分専用の「ブランチ」を作って安全に作業するのが鉄則。
+        </blockquote>
+
+        <hr>
+
+        <h2>3. アカウント作成とリポジトリの準備</h2>
+        <p>アカウント登録から最初の保存庫（リポジトリ）構築までの詳細手順です。</p>
+
+        <h3>1. GitHubアカウントを作成する</h3>
+        <ol>
+            <li><a href="https://github.com/">GitHub公式サイト</a> にアクセスし、「Sign up」をクリックします。</li>
+            <li>メールアドレス、パスワード、ユーザー名（GitHub上での表示名）を入力します。</li>
+            <li>登録したメールアドレスに送られてくる認証コードを入力すればアカウント作成完了です（無料プランで十分活用できます）。</li>
+        </ol>
+
+        <h3>2. リポジトリ（保存庫）を作成する</h3>
+        <ol>
+            <li>ログイン後、画面右上にある「+」アイコンをクリックし、「New repository」を選択します。</li>
+            <li><strong>Repository name</strong> にプロジェクト名（例: <code>my-first-project</code>）を入力します。</li>
+            <li>公開設定を選びます：
+                <ul>
+                    <li><strong>Public：</strong> 誰でも閲覧可能（ポートフォリオや学習記録向け）</li>
+                    <li><strong>Private：</strong> 自分や招待した人だけが閲覧可能（非公開の練習・仕事向け）</li>
+                </ul>
+            </li>
+            <li>「Add a README file」にチェックを入れる（概要説明ファイルが自動作成されます）。</li>
+            <li>ページ下の「Create repository」ボタンを押すと、リポジトリが作成されます。</li>
+        </ol>
+
+        <h3>3. 最初のファイルをWeb上で作成・編集してみる</h3>
+        <ol>
+            <li>作成したリポジトリの画面で「Add file」→「Create new file」を選択します。</li>
+            <li>ファイル名（例: <code>index.html</code> や <code>README.md</code>）を入力し、下のテキストボックスにコードや説明文を書きます。</li>
+            <li>編集が終わったら、右上の「Commit changes...」ボタンを押します。</li>
+            <li>変更メッセージ（例: <code>初回ファイルの追加</code> など）を入力し、再度「Commit changes」をクリックすれば保存（コミット）完了です。</li>
+        </ol>
+
+        <hr>
+
+        <h2>4. 実践：ローカルPC環境との連携</h2>
+        <p>本格的に自分のパソコン（ローカル環境）でコードを書いてGitHubに送信する方法です。</p>
+
+        <div class="tech-note">
+            <h4>初学者におすすめ：GitHub Desktop</h4>
+            <p>コマンド操作を使わず、画面上のマウス操作だけでGitHubへのアップロード（Push）や取り込み（Pull）ができる公式ソフトです。（<a href="https://desktop.github.com/">desktop.github.com</a> から入手可能）</p>
+
+            <h4>コマンド（ターミナル / Git CLI）で操作する場合</h4>
+<pre>
+1. PCに Git (https://git-scm.com/) をインストールします。
+2. ターミナルで `git clone [リポジトリのURL]` を実行してPCにダウンロードします。
+3. 編集後、`git add .` ➔ `git commit -m "メッセージ"` ➔ `git push` の順で送信します。
+</pre>
+        </div>
+
+        <hr>
+
+        <h2>5. GitHub Desktop による基本ワークフロー 4ステップ</h2>
+        <p>GitHub Desktopを使って日常的に共有・更新を行う基本の流れです。</p>
+
+        <div class="tech-note">
+            <ol>
+                <li><strong>Step 1: アプリ準備・ログイン（初期設定）</strong><br>公式サイトからインストール後、アプリを起動し「Sign in to GitHub.com」をクリックしてブラウザでログイン認証を行います。</li>
+                <li><strong>Step 2: リポジトリをPCにダウンロード（Clone）</strong><br>「Clone a repository from the Internet...」を選択し、作業したいリポジトリと保存先（Local path）を確認して「Clone」を押します。</li>
+                <li><strong>Step 3: ファイルの追加・編集</strong><br>「Show in Finder / Explorer」で専用フォルダを開き、ファイルを保存・編集します。アプリに戻ると変更が自動で検出されます。</li>
+                <li><strong>Step 4: 変更の記録と送信（Commit & Push）</strong><br>画面左下にタイトル（例：<code>トップページを作成</code>）を入力して「Commit to main」を押し、最後に画面上の「Push origin」を押して送信完了です。</li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <h2>6. 複数人でのチーム開発とブランチ運用</h2>
+        <p>本番コード（<code>main</code>）を直接書き換えず、安全にチームで開発を進める手順です。</p>
+
+        <h3>1. 新しいブランチ（Branch）を作成する</h3>
+        <p>本番コードに影響を与えない自分専用の作業スペースを作ります。</p>
+        <ol>
+            <li>画面上の「Current Branch」をクリックし、右上の「New Branch」を押します。</li>
+            <li>作業内容がわかる名前（例: <code>feature-add-header</code> や <code>fix-login-bug</code>）を入力し、「Create Branch」をクリックします。</li>
+            <li>「Publish branch」ボタンが表示されたらクリックしてWeb上にも送信します。</li>
+        </ol>
+
+        <h3>2. ファイルを編集してコミット・プッシュする</h3>
+        <p>PC上のフォルダでファイルを編集・保存後、GitHub Desktopでメッセージを入力して「Commit to [ブランチ名]」➔「Push origin」を押します。</p>
+
+        <h3>3. プルリクエスト（Pull Request）を作成する</h3>
+        <ol>
+            <li>「Create Pull Request」という青いボタンをクリックしてブラウザを開きます。</li>
+            <li>「何を」「なぜ」変更したかをタイトルと説明文に記載します。</li>
+            <li>必要に応じて右側の「Reviewers」に確認メンバーを指定し、「Create pull request」を押します。</li>
+        </ol>
+
+        <h3>4. レビュー・マージ（Merge）を行う</h3>
+        <ol>
+            <li>メンバーの確認後、問題がなければGitHub画面上の「Merge pull request」➔「Confirm merge」をクリックして <code>main</code> へ合体させます。</li>
+            <li>使い終わったブランチは「Delete branch」ボタンで削除して整理します。</li>
+            <li>GitHub Desktopに戻り、「Current Branch」を <code>main</code> に切り替えて「Fetch origin（または Pull origin）」を押し、最新コードをダウンロードします。</li>
+        </ol>
+
+        <hr>
+
+        <h2>7. 潜む 3つの危険な罠（注意点）</h2>
+        <p>チーム開発でミスを防ぐために気を付けるべきポイントです。</p>
+
+        <h4>① mainブランチでの直接作業（Direct Commit on Main）</h4>
+        <p>ブランチを切らずに <code>main</code> を直接変更すると、動作確認前のコードで本番環境が破損したり、他の人の作業と激しく競合する原因になります。</p>
+
+        <h4>② Fetch/Pullの失念による競合（Stale Local Branch）</h4>
+        <p>作業を開始する前にリモートの最新状態を取り込まないと、古いコードをベースに作業してしまうことになり、マージ時に複雑なコンフリクト（衝突）が発生します。</p>
+
+        <h4>③ 肥大化したプルリクエスト（Giant Pull Request）</h4>
+        <p>複数の変更や巨大な修正を1つのプルリクエストに詰め込むと、レビュアーの負担が激増し、不具合の見落としに繋がります。「1タスク1プルリクエスト」を徹底しましょう。</p>
+
+        <hr>
+
+        <h2>8. まとめ</h2>
+        <p>GitHub活用の要点は「小さなコミット」と「ブランチを使った安全な運用」にあります。まずはWeb上やGitHub Desktopで基本操作に慣れ、チーム開発でのプルリクエスト運用へと段階的に移行していくことで、安全で効率的なコード管理を実現できます。</p>
+    </main>
+
+</body>
+</html>
