@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIAの製品ラインナップと対中輸出管理</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: #fff;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; padding: 10px;">
+        <button onclick="window.print()" style="
+            padding: 8px 20px;
+            background-color: #0057b8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        ">🖨️ 印刷</button>
+    </div>
+
+    <header>
+        <h1>NVIDIAの製品ラインナップと対中輸出管理</h1>
+        <p class="meta">2026年8月2日更新</p>
+    </header>
+
+    <main>
+        <h2>1. NVIDIA製品ラインナップ 時系列整理表</h2>
+        <p><strong>区分：</strong> DC＝データセンター無印（グローバル向け）／ CN＝中国専用コンプライアンス品／ SC＝Superchip（Grace統合）</p>
+        <p>輸出管理ステータスは米国EAR（該非判定の実務上は対中規制の適用有無）を基準に記載。細かいECCN分類は別途要確認。</p>
+        
+        <div class="tech-note">
+            <p style="margin-bottom: 0;"><strong>メンテナンス用メモ：</strong> 新しい規制イベントや製品発表があれば、該当セクションの表に行を追加する形で更新する。特にH200・Rubin世代の対中ステータスは政策変更が頻繁なため、規制イベント年表を随時更新する。</p>
+        </div>
+
+        <h3>Ampereアーキテクチャ</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">時期</th>
+                    <th style="width: 15%;">製品名</th>
+                    <th style="width: 10%;">区分</th>
+                    <th style="width: 30%;">主要スペック概要</th>
+                    <th style="width: 30%;">輸出管理ステータスの推移</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2020年5月</td>
+                    <td>A100</td>
+                    <td>DC</td>
+                    <td>HBM2e、NVLink 600GB/s</td>
+                    <td>2022年8月、BISが対中・対露に新規ライセンス要件を発表（無許可輸出不可に）</td>
+                </tr>
+                <tr>
+                    <td>2022年11月</td>
+                    <td>A800</td>
+                    <td>CN</td>
+                    <td>A100のNVLink帯域を400GB/sに制限した中国向け仕様</td>
+                    <td>2023年10月のBIS新規則（TPP/性能密度基準）で輸出禁止に</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Hopperアーキテクチャ</h3>
+        <p>H100は2022年にTSMC 4Nプロセスで登場し、第4世代Tensor CoreとFP8対応のTransformer Engineが特徴で、性能基準の起点となりました。H200はHBM3eへのアップグレードで帯域幅が4.8TB/sに向上した以外、CUDAコア数やTensor Core世代はH100と同一です。2026年時点でH100は「バリュー層」的位置づけとなり、レンタル価格は2023年ピークから64〜75%下落しています。</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">時期</th>
+                    <th style="width: 15%;">製品名</th>
+                    <th style="width: 10%;">区分</th>
+                    <th style="width: 30%;">主要スペック概要</th>
+                    <th style="width: 30%;">輸出管理ステータスの推移</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2022年9月</td>
+                    <td>H100</td>
+                    <td>DC</td>
+                    <td>TSMC 4N、FP8対応Transformer Engine、HBM3 80GB</td>
+                    <td>2022年8月時点で既に対中・対露ライセンス要件の対象</td>
+                </tr>
+                <tr>
+                    <td>2023年3月</td>
+                    <td>H800</td>
+                    <td>CN</td>
+                    <td>H100のインターコネクト帯域を約300GB/sに制限した中国向け仕様（Alibaba/Baidu/Tencent等が採用、DeepSeekの学習にも使用）</td>
+                    <td>2023年10月のBIS新規則で輸出禁止に</td>
+                </tr>
+                <tr>
+                    <td>2023年8月</td>
+                    <td>GH200 (Grace Hopper Superchip)</td>
+                    <td>SC</td>
+                    <td>Grace CPU＋Hopper GPU統合、HBM3e</td>
+                    <td>H100と同様の規制枠組み</td>
+                </tr>
+                <tr>
+                    <td>2023年10月</td>
+                    <td>（規制イベント）BIS新規則</td>
+                    <td>—</td>
+                    <td>性能・性能密度を新基準に採用し、A800/H800/L40/L40S/RTX 4090を対中輸出禁止に追加</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>2023年11月</td>
+                    <td>H200</td>
+                    <td>DC</td>
+                    <td>業界初のHBM3e採用、141GB／4.8TB/s帯域、2024年Q2出荷開始</td>
+                    <td>対中輸出は原則禁止（後述の2025年末〜2026年の政策転換まで）</td>
+                </tr>
+                <tr>
+                    <td>2023年11月発表／2024年Q2出荷</td>
+                    <td>H20 / L20 / L2</td>
+                    <td>CN</td>
+                    <td>2023年10月規則に適合させた中国専用コンプライアンス品。H20はH100比で大幅に性能を落とした仕様</td>
+                    <td>2025年4月にライセンス要件化により事実上禁止→2025年7月にライセンス許可再開という往復あり</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Blackwellアーキテクチャ</h3>
+        <p>B300（Blackwell Ultra）はFP4密演算で15petaFLOPS、HBM3e 288GB、帯域幅8TB/s、TDP1,400W。GB300 NVL72ラックは1.1exaFLOPS（FP4）で、GB200 NVL72の約1.5倍の性能です。現在の量産主力はBlackwell Ultra B300で、Hopper系（H100/H200）も既存インフラ顧客向けに継続生産中。次世代のVera Rubinは2026年6月1日のGTC台北で量産開始が確認され、パートナー向け供給は2026年後半から開始予定です。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">時期</th>
+                    <th style="width: 15%;">製品名</th>
+                    <th style="width: 10%;">区分</th>
+                    <th style="width: 30%;">主要スペック概要</th>
+                    <th style="width: 30%;">輸出管理ステータスの推移</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024年3月</td>
+                    <td>Blackwellアーキテクチャ発表（GTC）</td>
+                    <td>—</td>
+                    <td>B100/B200/GB200を発表</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>2024年後半</td>
+                    <td>B100 / GB200</td>
+                    <td>DC/SC</td>
+                    <td>B100はH100と同ラックで置換可能な空冷設計</td>
+                    <td>対中輸出禁止（Blackwell世代は一貫して禁輸）</td>
+                </tr>
+                <tr>
+                    <td>2025年初頭</td>
+                    <td>B200</td>
+                    <td>DC</td>
+                    <td>208B トランジスタ、FP4 20petaFLOPS、H100比2.5倍(訓練)/5倍(推論)</td>
+                    <td>対中輸出禁止</td>
+                </tr>
+                <tr>
+                    <td>2025年3月（GTC）</td>
+                    <td>B300 / GB300（Blackwell Ultra）</td>
+                    <td>DC/SC</td>
+                    <td>FP4密演算15petaFLOPS、HBM3e 288GB、8TB/s、1,400W。GB300 NVL72は1.1exaFLOPS(FP4)</td>
+                    <td>対中輸出禁止（現在も継続）</td>
+                </tr>
+                <tr>
+                    <td>2025年（H20と同時期）</td>
+                    <td>B40 / RTX PRO 6000D</td>
+                    <td>CN</td>
+                    <td>HBMを排したGDDR7専用のBlackwell中国向け仕様（コンプライアンス品として投入）</td>
+                    <td>2025年9月、中国側（SAMR）がセキュリティ懸念を理由に購入禁止を発表（米側規制ではなく中国側による事実上のブロック）</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Rubin（次世代）</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">時期</th>
+                    <th style="width: 15%;">製品名</th>
+                    <th style="width: 10%;">区分</th>
+                    <th style="width: 30%;">主要スペック概要</th>
+                    <th style="width: 30%;">輸出管理ステータスの推移</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2026年6月1日</td>
+                    <td>Vera Rubin（GTC台北で量産開始確認）</td>
+                    <td>DC/SC</td>
+                    <td>HBM4 288GB/GPU、13TB/s、NVL144ラックで3.6exaFLOPS(FP4)</td>
+                    <td>現時点で対中輸出可否の公式判断は未発表。Blackwellと同様の禁輸対象になる可能性が高いとみられる</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>規制イベント年表（製品非依存・対中規制の政策推移）</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">日付</th>
+                    <th style="width: 75%;">イベント</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2022年8月</td>
+                    <td>BISがA100/H100等の対中・対露ライセンス要件を発表</td>
+                </tr>
+                <tr>
+                    <td>2023年10月</td>
+                    <td>BISが性能・性能密度基準の新規則を発表、A800/H800/L40/L40S/RTX4090等を追加禁止</td>
+                </tr>
+                <tr>
+                    <td>2025年1月</td>
+                    <td>バイデン政権が「AI Diffusion」暫定最終規則（IFR）を公表（3層国別枠組み）</td>
+                </tr>
+                <tr>
+                    <td>2025年4月</td>
+                    <td>トランプ政権がH20など「コンプライアンス品」も含めライセンス要件化（事実上の再禁輸）</td>
+                </tr>
+                <tr>
+                    <td>2025年7月</td>
+                    <td>H20（およびAMD MI308）のライセンス許可再開</td>
+                </tr>
+                <tr>
+                    <td>2025年9月</td>
+                    <td>中国SAMRがNVIDIAのMellanox買収時の独禁法上のコミットメント違反を予備認定。同時期にB40を中国側が事実上ブロック</td>
+                </tr>
+                <tr>
+                    <td>2025年12月9日</td>
+                    <td>トランプ大統領がH200の対中輸出を承認する方針を発表（Blackwellは除外）</td>
+                </tr>
+                <tr>
+                    <td>2026年1月13〜15日</td>
+                    <td>BISがH200・AMD MI325Xの対中輸出審査を「原則拒否」→「ケースバイケース審査」に変更する規則を正式化。25%関税、最終用途証明義務、上限約100万個相当の枠を設定</td>
+                </tr>
+                <tr>
+                    <td>2026年1月21〜22日</td>
+                    <td>下院外交委員会がAI OVERWATCH法案（Blackwell級を最低2年禁輸、議会に拒否権）を42対2で可決</td>
+                </tr>
+                <tr>
+                    <td>2026年6月1日</td>
+                    <td>BISが、中国本社／親会社が中国の企業には国外拠点経由でも先端AIチップの輸出許可が必要である旨のガイダンスを再確認（Blackwell級の域外流出への網かけ強化）</td>
+                </tr>
+                <tr>
+                    <td>2026年7月中旬</td>
+                    <td>H200の対中輸出が限定的に開始（商務省高官が下院で確認）</td>
+                </tr>
+                <tr>
+                    <td>2026年7月22日</td>
+                    <td>ホワイトハウスOSTPが、Moonshot AIによるタイ経由GB300アクセス・Anthropic Fable蒸留の疑惑を公表（Kimi K3問題）</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>現状ステータス早見表（2026年8月2日時点）</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 45%;">ステータス</th>
+                    <th style="width: 55%;">該当製品</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>対中輸出：原則禁止（一貫）</strong></td>
+                    <td>B100, B200, B300, GB200, GB300（Blackwell世代全般）</td>
+                </tr>
+                <tr>
+                    <td><strong>対中輸出：ケースバイケース審査で一部再開</strong></td>
+                    <td>H200, （AMD MI325X）</td>
+                </tr>
+                <tr>
+                    <td><strong>対中輸出：中国側の事情で頓挫</strong></td>
+                    <td>B40 / RTX PRO 6000D（中国SAMRが購入をブロック）</td>
+                </tr>
+                <tr>
+                    <td><strong>対中輸出：完全禁止（2023年10月〜）</strong></td>
+                    <td>A800, H800, L40, L40S, RTX 4090</td>
+                </tr>
+                <tr>
+                    <td><strong>対中輸出：ライセンス制の下で往復した経緯あり</strong></td>
+                    <td>H20, L20, L2</td>
+                </tr>
+                <tr>
+                    <td><strong>対中輸出：Blackwellと同様の禁輸が想定される（未確定）</strong></td>
+                    <td>Vera Rubin世代</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>2. Kimi K3・タイ経由GB300蒸留疑惑</h2>
+        <p class="lead">2026年7月22日、ホワイトハウス科学技術政策局（OSTP）のマイケル・クラシオス局長が、Moonshot AI社がNvidia GB300搭載サーバーを取得し、さらにタイに設置されたGB300にアクセスして自社モデルを訓練した可能性が高いとSNS上で主張した。これは米国の対中先端半導体輸出規制および米国AI企業の利用規約に明確に違反するとの指摘。</p>
+
+        <h3>主張の内容</h3>
+        <p>クラシオス氏は、Moonshot AIがタイ経由でBlackwell世代のGB300（対中販売禁止対象）にアクセスし、Anthropicの「Fable」モデルを蒸留してKimi K3を構築したと主張。「複数のアクセス経路を検知回避のため頻繁に切り替える、洗練された内製の蒸留プラットフォームを構築した」とより具体的な指摘もしている。</p>
+
+        <h3>別ルートのチップ供給</h3>
+        <p>一方でK3を支える約2万個のチップはアリババ経由で供給されたHopper世代（H200とみられる）で、Blackwellではないとの報道もあり、アリババ側は「H200搭載コンピューティングの供給」を否定しつつ、2万個規模の取り決め自体は否定していない状況です。GB300タイ経由説とアリババH200供給説は、別々のルートとして並行して報じられている。</p>
+
+        <h3>証拠面での論点</h3>
+        <p>AnthropicはMoonshotによる大規模な（数百万件規模の）Claude蒸留キャンペーンを過去に文書化していますが、AnthropicもホワイトハウスもそれをFable5やKimi K3と直接結びつける証拠は公表していない。Fable5が一般公開されたのは7月1日、Kimi K3のリリースは7月16日で、この15日間という短さから、K3の全体的な能力をFable蒸留だけで説明するのは技術的に困難との指摘があり、輸出管理違反（チップ調達経路）の方が法的により立証しやすい論点とされている。</p>
+
+        <h3>現在の対応状況</h3>
+        <ul>
+            <li><strong>商務省産業安全保障局（BIS）：</strong> Nvidia Blackwellの輸出違反の可能性を調査中で、Jensen Huang CEOはルトニック商務長官らと協議を継続。</li>
+            <li><strong>財務省（ベッセント財務長官）：</strong> 検知回避を伴う組織的な蒸留が知的財産窃取に該当する場合、制裁やエンティティリスト指定もあり得ると警告。</li>
+            <li><strong>中国商務部（MOFCOM）：</strong> これを「AIヘゲモニズム」と反発、米中間の政治的対立に発展。</li>
+            <li><strong>実務上のジレンマ：</strong> Kimi K3はオープンウェイトとしてすでに世界に配布済みで、仮に制裁が科されてもモデル重みの回収は不可能という課題が指摘されている。</li>
+        </ul>
+
+        <h3>実務上の含意（該非判定・コンプライアンス視点）</h3>
+        <blockquote style="margin-top: 1.5rem;">
+            <p>今回の事案は、以下の異なる性質の論点が一つの政治的主張の中で結びつけられている点が特徴である。</p>
+            <ul>
+                <li>現物のBlackwell系チップの物理的な域外持ち出し・第三国（タイ）でのリモートアクセス利用という古典的な輸出管理の脱法スキーム</li>
+                <li>生成AIモデルの「蒸留」というソフトウェア的手法によるIP流用</li>
+            </ul>
+            <p style="margin-bottom: 0;">両者を一つの政治的主張として結びつけることは、実際に立証された行為がどれかを曖昧にする恐れがあるとの専門家の指摘もあり、現時点（8月2日）では正式な摘発・処分には至っていない「疑惑」段階と捉えるのが妥当である。</p>
+        </blockquote>
+    </main>
+</body>
+</html>
