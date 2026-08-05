@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* ==========================================================================
+   base.css
+   全ページ共通の基本設定（body・見出し・本文・リストなど）
+   ここは「レイアウト部品」ではなく素のHTMLタグのスタイルだけを書く場所。
+   ページ固有の見た目を変えたいときは、まず variables.css の値を疑うこと。
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  line-height: 1.7;
+  margin: 0;
+  padding: 30px 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--color-navy-800);
+  border-bottom: 3px solid var(--color-gray-900);
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-navy-800);
+  border-bottom: 1px solid var(--color-gray-300);
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--color-gray-900);
+  margin-top: 20px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  color: var(--color-green);
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+ul, ol {
+  margin-bottom: 1.2rem;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--color-blue-light);
+}
+
+blockquote {
+  background: var(--color-gray-100);
+  border-left: 5px solid var(--color-blue-light);
+  margin: 1.5rem 0;
+  padding: 15px 20px;
+  font-style: normal;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-gray-300);
+  margin: var(--space-section) 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+th, td {
+  border: 1px solid var(--color-gray-200);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-gray-50);
+}

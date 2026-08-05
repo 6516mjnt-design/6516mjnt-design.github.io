@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* ==========================================================================
+   variables.css
+   サイト全体で使う「色・余白・フォント」の一覧（デザイントークン）
+   ここの値を変えるだけで全ページのデザインが一括で変わります。
+   新しい色を増やすときは、まずここに追加してから components.css で使うこと。
+   ========================================================================== */
+
+:root {
+  /* ---- ベースカラー（ネイビー系・見出しやヘッダーに使用） ---- */
+  --color-navy-900: #1a2340; /* 最も濃いネイビー（ヘッダー背景など） */
+  --color-navy-800: #1a365d; /* 見出し文字色 */
+  --color-navy-700: #1a3c78;
+
+  /* ---- アクセントカラー（バッジ・カード見出し・リンクなど） ---- */
+  --color-blue:       #2b6cb0;
+  --color-blue-light: #3182ce;
+  --color-green:       #2e7d52;
+  --color-green-dark:  #1d5c2a;
+  --color-amber:       #e0a040;
+  --color-red:         #991b1b;
+  --color-red-dark:    #7a1a1a;
+
+  /* ---- グレースケール（本文・枠線・背景） ---- */
+  --color-gray-900: #2d3748;
+  --color-gray-700: #4a5568;
+  --color-gray-500: #64748b;
+  --color-gray-400: #94a3b8;
+  --color-gray-300: #cbd5e0;
+  --color-gray-200: #e2e8f0;
+  --color-gray-100: #f1f5f9;
+  --color-gray-50:  #f8fafc;
+  --color-white:    #ffffff;
+
+  /* ---- テキスト色 ---- */
+  --text-body:  #333333;
+  --text-muted: #555555;
+
+  /* ---- 背景色 ---- */
+  --bg-page: #f4f6f9;
+
+  /* ---- フォント ---- */
+  --font-base: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+
+  /* ---- 角丸・影・余白（数値を統一することでカードやボックスの見た目を揃える） ---- */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --space-section: 40px;
+  --space-card-pad: 18px;
+
+  /* ---- コンテンツ幅 ---- */
+  --content-width: 1000px;
+  --content-width-article: 800px;
+}

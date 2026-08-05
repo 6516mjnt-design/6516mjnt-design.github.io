@@ -1,0 +1,217 @@
+@charset "utf-8";
+/* ==========================================================================
+   components.css
+   ページ内で繰り返し使う「部品」のスタイル。
+   新しい部品が3ページ以上で必要になったら、ここに追加する。
+   1ページでしか使わない見た目は、ここに足さずそのページのHTML内
+   <style>で最小限だけ書く（＝ここは「使い回すもの」専用）。
+   ========================================================================== */
+
+/* ---------- 全体を中央に収めるコンテナ ---------- */
+.container,
+.slide-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 記事系ページ（800px幅）用 */
+.article-container {
+  max-width: var(--content-width-article);
+  margin: 0 auto;
+}
+
+/* ---------- ページ最上部のヘッダー ---------- */
+header {
+  text-align: center;
+  margin-bottom: var(--space-section);
+}
+header img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 15px;
+}
+header h1 {
+  font-size: 28px;
+  color: var(--color-navy-800);
+  margin: 0 0 12px 0;
+  border-bottom: none;
+}
+header p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: var(--color-gray-700);
+}
+
+/* 子ページ用メインタイトル */
+.main-title {
+  font-size: 28px;
+  color: var(--color-navy-800);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: var(--space-section);
+  width: 100%;
+}
+
+.subtitle,
+.lead-text {
+  text-align: center;
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-section);
+}
+
+/* ---------- グリッド（カードを並べる） ---------- */
+.category-grid,
+.grid,
+.grid2,
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* ---------- カード ---------- */
+.category-card,
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-gray-200);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title,
+.card-header {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 14px var(--space-card-pad);
+  font-weight: bold;
+}
+
+.card-body {
+  padding: var(--space-card-pad);
+}
+
+.card-sidebar {
+  background: var(--color-gray-50);
+  border-left: 3px solid var(--color-blue);
+  padding: var(--space-card-pad);
+}
+
+/* ---------- バッジ（色は下の modifier で切り替える） ---------- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background-color: var(--color-gray-500);
+}
+.badge-blue,
+.blue   { background-color: var(--color-blue); color: var(--color-white); }
+.badge-green,
+.green  { background-color: var(--color-green); color: var(--color-white); }
+.badge-amber,
+.amber  { background-color: var(--color-amber); color: var(--color-navy-900); }
+.badge-red,
+.red    { background-color: var(--color-red); color: var(--color-white); }
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* ---------- 章番号つき見出し（section-num + section-title） ---------- */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-section);
+  margin-bottom: 16px;
+}
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-navy-900);
+  color: var(--color-white);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 1.3rem;
+  color: var(--color-navy-800);
+  font-weight: bold;
+}
+
+/* ---------- 注釈・補足ボックス ---------- */
+.note,
+.note-box,
+.tech-note,
+.summary-box,
+.content-box {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin-top: 1.5rem;
+}
+
+/* ---------- メタ情報（日付・出典など） ---------- */
+.meta,
+.meta-info {
+  text-align: right;
+  color: var(--color-gray-500);
+  font-size: 0.9rem;
+}
+.meta-val {
+  color: var(--text-body);
+  font-weight: bold;
+}
+.label {
+  color: var(--color-gray-500);
+  font-size: 0.85rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-red);
+}
+.intro {
+  color: var(--color-gray-700);
+  margin-bottom: var(--space-section);
+}
+
+/* ---------- 印刷ボタン ---------- */
+.btn-print {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-navy-800);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.btn-print:hover {
+  background-color: var(--color-navy-900);
+}
+
+/* 印刷時はボタン類を隠す */
+@media print {
+  .btn-print { display: none; }
+}
