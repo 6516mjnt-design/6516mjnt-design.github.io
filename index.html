@@ -46,6 +46,38 @@
       color: #fff !important;
     }
 
+    /* 題字グラデーションアニメーション */
+    header h1.site-title {
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      background: linear-gradient(
+        90deg,
+        #4f7cff 0%,
+        #7fd8ff 25%,
+        #ffd76a 50%,
+        #7fd8ff 75%,
+        #4f7cff 100%
+      );
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+      animation: flowGradient 6s linear infinite;
+    }
+
+    @keyframes flowGradient {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      header h1.site-title {
+        animation: none;
+        background-position: 0% 50%;
+      }
+    }
+
    /* html/bodyには触らず、専用の背景レイヤーを一枚敷く */
 body::before{
   content: "";
@@ -65,7 +97,7 @@ body::before{
 
     <header>
       
-      <h1>いしちゃんのホームページ</h1>
+      <h1 class="site-title">いしちゃんのホームページ</h1>
       <p class="update-date">最終更新日：2026年8月7日</p>
       <p class="site-desc">知能とは？AIとは？生物（動物・植物）とは？</p>
       <p class="disclaimer">記載内容には、誤りがある場合があります。気づきがあれば修正します。</p>
