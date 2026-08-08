@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
+    <style>
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 700px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,8 +27,8 @@
         <button onclick="window.print()" class="btn-print">印刷する</button>
 
         <div class="main-title">AIと投資</div>
-        
-        <div class="grid">
+
+        <div class="grid grid-2col">
             <div class="card">
                 <div class="card-header">
                     <h2>資産運用</h2>
@@ -26,10 +38,20 @@
                     <a href="nisa.html">NISA</a>
                     <a href="option.html">オプション取引</a>
                     <a href="Asset_Management.html">定年後の資産運用</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>AI投資</h2>
+                </div>
+                <div class="card-body">
+                    <a href="AI_Finance_Market.html">AIによる投資の最前線</a>
                     <a href="AI_Fund.html">AIファンドの失敗</a>
                 </div>
             </div>
         </div>
+
     </div>
 
 </body>
