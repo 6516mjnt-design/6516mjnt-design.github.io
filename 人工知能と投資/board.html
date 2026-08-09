@@ -196,6 +196,21 @@
   .chip.up{background:var(--up-bg); color:var(--up);}
   .chip.down{background:var(--down-bg); color:var(--down);}
 
+  /* screenshot figure */
+  .fig{
+    background:var(--surface); border:1px solid var(--line); border-radius:6px;
+    padding:14px; margin:14px 0 20px;
+  }
+  .fig img{
+    display:block; width:100%; height:auto; border-radius:4px;
+    border:1px solid var(--line);
+  }
+  .fig figcaption{
+    font-size:12px; color:var(--ink-faint); margin-top:10px;
+    padding-top:10px; border-top:1px solid var(--line);
+    line-height:1.7;
+  }
+
   /* paragraph-style blocks (7-x free text) */
   .pblock{
     background:var(--surface); border:1px solid var(--line); border-radius:6px;
@@ -290,6 +305,10 @@
       <div class="sub">
         <div class="sub-head"><span class="sub-id">1-1</span><h3>歩み値から読み取れる情報</h3></div>
         <div class="sub-note">歩み値は板読みトレードに不可欠なツール。板の変化だけでは分からない「実際の売買成立の様子」を歩み値で確認する。</div>
+        <figure class="fig">
+          <img src="../images/歩み値と板.png" alt="歩み値と板のサンプル画面（日本製鉄 5401）" loading="lazy">
+          <figcaption>サンプル：歩み値（左）と板（右）の実例（日本製鉄 5401 東証プライム）。左は約定ごとの時刻・出来高・約定値、右は値段別の売数量・買数量を示す。</figcaption>
+        </figure>
         <div class="clist" data-group="1-1">
           <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">アップティック・ダウンティックの確認</div><div class="item-note">売り板に買い注文がぶつかって成立=<span class="chip up">アップティック</span>（買い優勢の可能性）。買い板に売り注文がぶつかって成立=<span class="chip down">ダウンティック</span>（売り優勢の可能性）</div></div></label>
           <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口注文か小口注文かの判別</div><div class="item-note">大口1件の大量注文は小口の集合より圧倒的に強い。小口が活発に売買した価格は意識しておく</div></div></label>
