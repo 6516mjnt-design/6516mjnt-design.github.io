@@ -46,18 +46,13 @@
   @media (max-width: 900px){
     .shell{grid-template-columns: 1fr;}
     .sidenav{
-      position: relative; /* 固定を解除 */
-      top: auto; 
-      height: auto; 
-      width: 100%;
+      position: static;      /* stickyを解除し、スマホで画面に固定されないようにする */
+      height: auto;          /* 高さを自動調整 */
       border-right: none; 
       border-bottom: 1px solid var(--line);
       padding: 20px;
-      z-index: 10; 
-      background: var(--bg);
     }
-    main{padding: 20px 20px 60px;} /* 本文と目次が重ならないよう調整 */
-}
+  }
 
   /* ---------- sidenav: styled as a 気配ボード ---------- */
   .sidenav{
