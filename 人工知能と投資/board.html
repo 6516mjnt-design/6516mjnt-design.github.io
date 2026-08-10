@@ -43,11 +43,16 @@
     max-width:1180px;
     margin:0 auto;
   }
+  
+  /* スマホ・タブレット表示（900px以下）のレイアウト修正 */
   @media (max-width: 900px){
-    .shell{grid-template-columns: 1fr;}
+    .shell{
+      display: block; /* グリッドを解除して通常のブロック流れにする */
+    }
     .sidenav{
-      position: static;      /* stickyを解除し、スマホで画面に固定されないようにする */
-      height: auto;          /* 高さを自動調整 */
+      position: static !important; /* 確実に固定を解除 */
+      height: auto !important;     /* 高さを自動に */
+      width: 100%;
       border-right: none; 
       border-bottom: 1px solid var(--line);
       padding: 20px;
@@ -289,7 +294,7 @@
       <div class="callout-row">
         <div class="callout">
           <h4>本資料の位置づけ</h4>
-          <p>書籍「板読みデイトレード術／けむ著」で紹介されている板読み手法、小技、トレード戦略を、公開情報および書評・要約記事に基づいて実戦チェックリストとして整理した。書籍本文の直接引用ではなく、手法の概念をアクショナブルな形式に再構成した。正確な理解のためには、原本の参照をすること。</p>
+          <p>書籍「板読みデイトレード術／けむ著」で紹介されている板読み手法、小技、トレード戦略を、公開情報および書評・要約記事に基づいて実戦チェックリストとして整理した[cite: 2]。書籍本文の直接引用ではなく、手法の概念をアクショナブルな形式に再構成した。正確な理解のためには、原本の参照をすること。</p>
         </div>
         <div class="callout">
           <h4>免責事項</h4>
@@ -299,7 +304,7 @@
 
       <div class="callout legal" style="margin-top:14px;">
         <h4>重要・法的注意事項</h4>
-        <p>見せ板（相場操縦目的の虚偽注文）を出す行為は金融商品取引法で禁止されており、る違法とな。本資料は第三者の板の変化を観察・判断するためのチェックリストであり、不公正取引を推奨するものではない。また、空売り規制の回避を目的とした取引は推奨しない。両建て・空売りについては、証券会社と取引所の最新ルールに従うこと。</p>
+        <p>見せ板（相場操縦目的の虚偽注文）を出す行為は金融商品取引法で禁止されており、違法となる。本資料は第三者の板の変化を観察・判断するためのチェックリストであり、不公正取引を推奨するものではない。また、空売り規制の回避を目的とした取引は推奨しない。両建て・空売りについては、証券会社と取引所の最新ルールに従うこと。</p>
       </div>
     </div>
 
@@ -313,33 +318,33 @@
         <div class="sub-note">歩み値は板読みトレードに不可欠なツール。板の変化だけでは分からない「実際の売買成立の様子」を歩み値で確認する。</div>
         <figure class="fig">
           <img src="../images/歩み値と板.png" alt="歩み値と板のサンプル画面（日本製鉄 5401）" loading="lazy">
-          <figcaption>サンプル：歩み値（左）と板（右）の実例（日本製鉄 5401 東証プライム）。左は約定ごとの時刻・出来高・約定値、右は値段別の売数量・買数量を示す。</figcaption>
+          <figcaption>サンプル：歩み値（左）と板（右）の実例（日本製鉄 5401 東証プライム）。左は約定ごとの時刻・出来高・約定値、右は値段別の売数量・買数量を示す[cite: 2]。</figcaption>
         </figure>
         <div class="clist" data-group="1-1">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">アップティック・ダウンティックの確認</div><div class="item-note">売り板に買い注文がぶつかって成立=<span class="chip up">アップティック</span>（買い優勢の可能性）。買い板に売り注文がぶつかって成立=<span class="chip down">ダウンティック</span>（売り優勢の可能性）</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口注文か小口注文かの判別</div><div class="item-note">大口1件の大量注文は小口の集合より圧倒的に強い。小口が活発に売買した価格は意識しておく</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板が消えた原因の確認</div><div class="item-note">注文が取り消されて板が消えたのか、売買が成立して板が消えたのかを歩み値で判別。同じ板の変化でも意味が大きく異なる</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">具体的な板の変化パターンの把握</div><div class="item-note">板の変化がどのように起きたかを時系列で追跡し、需給の推移を把握する</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">アップティック・ダウンティックの確認</div><div class="item-note">売り板に買い注文がぶつかって成立=<span class="chip up">アップティック</span>（買い優勢の可能性）。買い板に売り注文がぶつかって成立=<span class="chip down">ダウンティック</span>（売り優勢の可能性）[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口注文か小口注文かの判別</div><div class="item-note">大口1件の大量注文は小口の集合より圧倒的に強い。小口が活発に売買した価格は意識しておく[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板が消えた原因の確認</div><div class="item-note">注文が取り消されて板が消えたのか、売買が成立して板が消えたのかを歩み値で判別。同じ板の変化でも意味が大きく異なる[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">具体的な板の変化パターンの把握</div><div class="item-note">板の変化がどのように起きたかを時系列で追跡し、需給の推移を把握する[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">1-2</span><h3>基本的な印象の探り方（4ステップ①～④）</h3></div>
         <div class="clist" data-group="4-2">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">① 配置から印象を探る</div><div class="item-note">買い板と売り板の枚数に差がある場合、板の厚い方が優勢という印象</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">② 変化から印象を探る</div><div class="item-note">板の枚数が増える→強い印象。板の枚数が減る→弱い印象</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">③ 売買の成立から印象を探る</div><div class="item-note"><span class="chip up">アップティック</span>で売買成立→買いが優勢。<span class="chip down">ダウンティック</span>で売買成立→売りが優勢</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">④ 後から出た注文を考慮して印象を探る</div><div class="item-note">強弱の印象は後から出てきた注文によって上書きされる。最後の注文を重視</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">① 配置から印象を探る</div><div class="item-note">買い板と売り板の枚数に差がある場合、板の厚い方が優勢という印象[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">② 変化から印象を探る</div><div class="item-note">板の枚数が増える→強い印象。板の枚数が減る→弱い印象[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">③ 売買の成立から印象を探る</div><div class="item-note"><span class="chip up">アップティック</span>で売買成立→買いが優勢。<span class="chip down">ダウンティック</span>で売買成立→売りが優勢[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">④ 後から出た注文を考慮して印象を探る</div><div class="item-note">強弱の印象は後から出てきた注文によって上書きされる。最後の注文を重視[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">1-3</span><h3>大口注文と小口注文の見方</h3></div>
         <div class="clist" data-group="1-3">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">小口の感情面への注目</div><div class="item-note">大口よりも小口の方が感情で動きやすい。小口が活発に売買した価格は意識しておく</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口1件の強さの認識</div><div class="item-note">成立枚数が同じ場合、大口注文1件の方が小口注文の集合より圧倒的に強い</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">「手応えがつく」場面の把握</div><div class="item-note">大口注文が入ると「手応えがつく」ことが多い。支える売買には崩れてほしくない理由がある</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">薄い先頭指値の成立しやすさ</div><div class="item-note">先頭指値板が他の板と比べて薄い場合、売りと買いが交錯し、その価格で売買が盛んに行われる</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">小口の感情面への注目</div><div class="item-note">大口よりも小口の方が感情で動きやすい。小口が活発に売買した価格は意識しておく[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口1件の強さの認識</div><div class="item-note">成立枚数が同じ場合、大口注文1件の方が小口注文の集合より圧倒的に強い[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">「手応えがつく」場面の把握</div><div class="item-note">大口注文が入ると「手応えがつく」ことが多い。支える売買には崩れてほしくない理由がある[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">薄い先頭指値の成立しやすさ</div><div class="item-note">先頭指値板が他の板と比べて薄い場合、売りと買いが交錯し、その価格で売買が盛んに行われる[cite: 2]</div></div></label>
         </div>
       </div>
     </section>
@@ -352,100 +357,100 @@
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-1</span><h3>見せ板の判断と活用</h3></div>
         <div class="clist" data-group="2-1">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の存在確認</div><div class="item-note">買う気のない大口の買い注文により、買いが厚い印象を与えて株価を上げようとしている場合がある</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の目的達成後の動き</div><div class="item-note">見せ板が目的を達成すると、株価が急落することも考えられる。消去タイミングに警戒</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板が消えた後の投げ売り</div><div class="item-note">腰の座っていない買いは、見せ板が消えた途端に投げやすい。投げる注文の枚数も大方見当がつく</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板消去後の逆手取り</div><div class="item-note">貸借銘柄→ドテンを狙う。非貸借銘柄→リバウンドを狙う。ただし冷静に手法として成り立つか慎重に検証する</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">実際の板を見ながら見せ板パターンを学習</div><div class="item-note">見せ板がどのような場面で出てくるか、背後にある心理と動きを実板で確認・学習する</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の存在確認</div><div class="item-note">買う気のない大口の買い注文により、買いが厚い印象を与えて株価を上げようとしている場合がある[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の目的達成後の動き</div><div class="item-note">見せ板が目的を達成すると、株価が急落することも考えられる。消去タイミングに警戒[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板が消えた後の投げ売り</div><div class="item-note">腰の座っていない買いは、見せ板が消えた途端に投げやすい。投げる注文の枚数も大方見当がつく[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板消去後の逆手取り</div><div class="item-note">貸借銘柄→ドテンを狙う。非貸借銘柄→リバウンドを狙う。ただし冷静に手法として成り立つか慎重に検証する[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">実際の板を見ながら見せ板パターンを学習</div><div class="item-note">見せ板がどのような場面で出てくるか、背後にある心理と動きを実板で確認・学習する[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-2</span><h3>空振り注文と板の厚み変化</h3></div>
         <div class="clist" data-group="2-2">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空振り注文の読み方</div><div class="item-note"><span class="chip up">アップティック</span>に置かれた大口の売りが、<span class="chip down">ダウンティック</span>にぶつけようとして空振りした指値の残りかを判別</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板が厚い→薄くなる時の注文殺到</div><div class="item-note">板が分厚い状態から薄くなると、一気に注文が殺到する。タイミングが遅れると空振りする</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売り板食い尽くし直後のタイミング</div><div class="item-note">売り板が厚い→薄くなり全て食われた直後にアップティックを取りに行くのでは遅い場合がある</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空振り注文の読み方</div><div class="item-note"><span class="chip up">アップティック</span>に置かれた大口の売りが、<span class="chip down">ダウンティック</span>にぶつけようとして空振りした指値の残りかを判別[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板が厚い→薄くなる時の注文殺到</div><div class="item-note">板が分厚い状態から薄くなると、一気に注文が殺到する。タイミングが遅れると空振りする[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売り板食い尽くし直後のタイミング</div><div class="item-note">売り板が厚い→薄くなり全て食われた直後にアップティックを取りに行くのでは遅い場合がある[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-3</span><h3>注文の積極性を読む</h3></div>
         <div class="clist" data-group="2-3">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">積極的な注文の判別</div><div class="item-note">積極的な注文=腰が座っている可能性が高い。成行や食い気の注文に注目</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">消極的な注文の判別</div><div class="item-note">消極的な注文=腰が座っておらず、すぐ降りてしまう可能性が高い</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">積極的な注文の判別</div><div class="item-note">積極的な注文=腰が座っている可能性が高い。成行や食い気の注文に注目[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">消極的な注文の判別</div><div class="item-note">消極的な注文=腰が座っておらず、すぐ降りてしまう可能性が高い[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-4</span><h3>空売りの識別と需給読み</h3></div>
         <div class="clist" data-group="2-4">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">アップティックの売り注文の性質</div><div class="item-note"><span class="chip up">アップティック</span>の売りには全種類の空売りの可能性がある（ディーラー以外規制なし）</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ダウンティック50単位以上の売り</div><div class="item-note"><span class="chip down">ダウンティック</span>に50単位以上の売り注文は個人・ディーラーともにできない→実需の売りと判断</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売りの買い戻し需要の認識</div><div class="item-note">空売りの注文は将来的な買い戻し需要になる。信用取組にも影響する</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">日常的な空売りvs実需の売り意識</div><div class="item-note">普段からその売りが空売りなのか実需の売りなのかを意識しておく</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">アップティックの売り注文の性質</div><div class="item-note"><span class="chip up">アップティック</span>の売りには全種類の空売りの可能性がある（ディーラー以外規制なし）[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ダウンティック50単位以上の売り</div><div class="item-note"><span class="chip down">ダウンティック</span>に50単位以上の売り注文は個人・ディーラーともにできない→実需の売りと判断[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売りの買い戻し需要の認識</div><div class="item-note">空売りの注文は将来的な買い戻し需要になる。信用取組にも影響する[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">日常的な空売りvs実需の売り意識</div><div class="item-note">普段からその売りが空売りなのか実需の売りなのかを意識しておく[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-5</span><h3>「強くない=弱い」の判断</h3></div>
-        <div class="sub-note">買いが入ると思われる場面で買いが入らない場合、ニュートラルに見えても「弱い」と判断する。以下の場面で買いが入っても、それだけで強いとは言えない。</div>
+        <div class="sub-note">買いが入ると思われる場面で買いが入らない場合、ニュートラルに見えても「弱い」と判断する。以下の場面で買いが入っても、それだけで強いとは言えない[cite: 2]。</div>
         <div class="clist" data-group="2-5">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">厚い売り板がようやく食われた後</div><div class="item-note">ずっと蓋をしていた厚い売り板を、ようやく誰かが食ってくれた直後</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売り物が枯れてきた後</div><div class="item-note">次から次へと湧いて出てきた売り物が、ようやく枯れてきた後</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">先物反転時の連動待ち</div><div class="item-note">先物の下げにつられて下げていたが、先物が反転し出した後</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">膠着後に大口買いが入った時</div><div class="item-note">ずっと膠着状態だったところに、突然大口の買いが入った時</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">強くない場面での待機買い確認</div><div class="item-note">上記の場面で入る買いは「待っていた買い」が入って初めて強い。しばらく時間を置いてから入る買いは腰が座っていない可能性がある</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">厚い売り板がようやく食われた後</div><div class="item-note">ずっと蓋をしていた厚い売り板を、ようやく誰かが食ってくれた直後[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売り物が枯れてきた後</div><div class="item-note">次から次へと湧いて出てきた売り物が、ようやく枯れてきた後[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">先物反転時の連動待ち</div><div class="item-note">先物の下げにつられて下げていたが、先物が反転し出した後[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">膠着後に大口買いが入った時</div><div class="item-note">ずっと膠着状態だったところに、突然大口の買いが入った時[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">強くない場面での待機買い確認</div><div class="item-note">上記の場面で入る買いは「待っていた買い」が入って初めて強い。しばらく時間を置いてから入る買いは腰が座っていない可能性がある[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-6</span><h3>板の厚い方向への値動き</h3></div>
         <div class="clist" data-group="2-6">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">株価は板の厚い方に動く原則の確認</div><div class="item-note">板の厚い方に値動きする傾向がある。しばらく板が崩れず均衡を保つことが条件</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口の買い支えパターン</div><div class="item-note">大口は少しずつ出てくる売り注文を買うことができる。均衡状態が続くほど厚い方へ動きやすい</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">厚さが大きく異なる均衡状態の監視</div><div class="item-note">売り板と買い板の厚さが大きく異なり、その状態で長く均衡している場合→板の厚い方に動くことが多い</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">株価は板の厚い方に動く原則の確認</div><div class="item-note">板の厚い方に値動きする傾向がある。しばらく板が崩れず均衡を保つことが条件[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口の買い支えパターン</div><div class="item-note">大口は少しずつ出てくる売り注文を買うことができる。均衡状態が続くほど厚い方へ動きやすい[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">厚さが大きく異なる均衡状態の監視</div><div class="item-note">売り板と買い板の厚さが大きく異なり、その状態で長く均衡している場合→板の厚い方に動くことが多い[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-7</span><h3>売買が出やすい価格帯の特定</h3></div>
-        <div class="sub-note">チャート派が注目する価格（移動平均、新高値・安値、VWAP）を参考に、買いが入りやすい価格・売りが入りやすい価格・攻防が盛んな価格を予測します。</div>
+        <div class="sub-note">チャート派が注目する価格（移動平均、新高値・安値、VWAP）を参考に、買いが入りやすい価格・売りが入りやすい価格・攻防が盛んな価格を予測する[cite: 2]。</div>
         <div class="clist" data-group="2-7">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこりができた価格の把握</div><div class="item-note">「やられた」「買わされた」と感じる価格。しこりができた価格には売り物が出やすい。しこり玉の出来高をこなして初めて上昇可能</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこり玉の枚数確認</div><div class="item-note">しこり玉の枚数を確認すると、2度目以降のブレイク時にどの程度の出来高をこなせばよいかの目安になる</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">買いそびれた価格の把握</div><div class="item-note">「買いたかったのに買えなかった」価格に再び戻ったとき、再び買い注文が入りやすい</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売りが出やすい価格・買いが出やすい価格の事前予測</div><div class="item-note">しこり価格と買いそびれ価格を覚えておくと、売買が出やすい価格を事前に予測できる</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこりができた価格の把握</div><div class="item-note">「やられた」「買わされた」と感じる価格。しこりができた価格には売り物が出やすい。しこり玉の出来高をこなして初めて上昇可能[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこり玉の枚数確認</div><div class="item-note">しこり玉の枚数を確認すると、2度目以降のブレイク時にどの程度の出来高をこなせばよいかの目安になる[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">買いそびれた価格の把握</div><div class="item-note">「買いたかったのに買えなかった」価格に再び戻ったとき、再び買い注文が入りやすい[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">売りが出やすい価格・買いが出やすい価格の事前予測</div><div class="item-note">しこり価格と買いそびれ価格を覚えておくと、売買が出やすい価格を事前に予測できる[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-8</span><h3>寄り付き前の成行注文の確認</h3></div>
         <div class="clist" data-group="2-8">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">9時前の成行注文の確認</div><div class="item-note">9時前の板で成行注文が多いと、9時の時点で気配値は下がる。スプレッドが空いている銘柄では急落</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">持ち越し注文の取り消しパターン</div><div class="item-note">前夜の成行注文が寄り付き前に取り消されても、需要としては残っている。寄り付き後に再注文が出ることが多い</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">9時前の成行注文の確認</div><div class="item-note">9時前の板で成行注文が多いと、9時の時点で気配値は下がる。スプレッドが空いている銘柄では急落[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">持ち越し注文の取り消しパターン</div><div class="item-note">前夜の成行注文が寄り付き前に取り消されても、需要としては残っている。寄り付き後に再注文が出ることが多い[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-9</span><h3>注文テクニック</h3></div>
         <div class="clist" data-group="2-9">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ポジションの分割建て</div><div class="item-note">ポジションは2〜3回程度に分けて作る。薄い先頭指値板では小分けに出すと成立しやすい</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">手の内を見せない注文方法</div><div class="item-note">まだ売りたい/買いたい場合は手の内を見せない。買いは<span class="chip up">アップティック</span>にぶつけ、売りは<span class="chip down">ダウンティック</span>にぶつける</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口と小口の使い分け</div><div class="item-note">大口注文と複数の小口注文では板に与える印象が全く違う。状況に応じて使い分ける</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ポジションの分割建て</div><div class="item-note">ポジションは2〜3回程度に分けて作る。薄い先頭指値板では小分けに出すと成立しやすい[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">手の内を見せない注文方法</div><div class="item-note">まだ売りたい/買いたい場合は手の内を見せない。買いは<span class="chip up">アップティック</span>にぶつけ、売りは<span class="chip down">ダウンティック</span>にぶつける[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">大口と小口の使い分け</div><div class="item-note">大口注文と複数の小口注文では板に与える印象が全く違う。状況に応じて使い分ける[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">2-10</span><h3>銘柄選びと雰囲気管理</h3></div>
         <div class="clist" data-group="2-10">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ランキングから盛り上がり銘柄を探す</div><div class="item-note">当日盛り上がっている銘柄をランキングから探す</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">流動性の高い銘柄を選ぶ</div><div class="item-note">比較的売買代金が大きく、流動性の高い銘柄を探す</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の配置をひたすら探す</div><div class="item-note">対象銘柄を片っ端から打ち込み、見せ板の配置を探す</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">数ティック抜きの繰り返し</div><div class="item-note">手堅く数ティック抜きを繰り返す。トレード資金を他の勉強・経験に活用</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">雰囲気悪化銘柄への対応</div><div class="item-note">一度雰囲気が悪くなった銘柄は再び盛り上がるまで時間がかかる。自分で相場を冷やさない</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ストップ高での引け間際の売り警戒</div><div class="item-note">ストップ高で高値に張り付いていた銘柄に、引けに大量の売り注文が出ることがある</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">非貸借銘柄の売りの読み方</div><div class="item-note">非貸借銘柄で「誰が得をするのか」不明な売りが出た場合、深読みしても何も起こらないことが多い</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ランキングから盛り上がり銘柄を探す</div><div class="item-note">当日盛り上がっている銘柄をランキングから探す[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">流動性の高い銘柄を選ぶ</div><div class="item-note">比較的売買代金が大きく、流動性の高い銘柄を探す[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の配置をひたすら探す</div><div class="item-note">対象銘柄を片っ端から打ち込み、見せ板の配置を探す[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">数ティック抜きの繰り返し</div><div class="item-note">手堅く数ティック抜きを繰り返す。トレード資金を他の勉強・経験に活用[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">雰囲気悪化銘柄への対応</div><div class="item-note">一度雰囲気が悪くなった銘柄は再び盛り上がるまで時間がかかる。自分で相場を冷やさない[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ストップ高での引け間際の売り警戒</div><div class="item-note">ストップ高で高値に張り付いていた銘柄に、引けに大量の売り注文が出ることがある[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">非貸借銘柄の売りの読み方</div><div class="item-note">非貸借銘柄で「誰が得をするのか」不明な売りが出た場合、深読みしても何も起こらないことが多い[cite: 2]</div></div></label>
         </div>
       </div>
     </section>
@@ -453,35 +458,35 @@
     <!-- ============ 第6章 ============ -->
     <section class="section" id="ch6">
       <div class="section-head"><span class="chnum">CH.3</span><h2>小技紹介</h2></div>
-      <p class="desc">板読みに直接関連するもの以外の「ちょっとした小技」。両建てを活用した空売り規制の回避や余力の繰越といった実務テクニック。</p>
+      <p class="desc">板読みに直接関連するもの以外の「ちょっとした小技」。両建てを活用した空売り規制の回避や余力の繰越といった実務テクニック[cite: 2]。</p>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">3-1</span><h3>両建ての活用</h3></div>
-        <div class="sub-note">両建てを活用することで、空売りに関する規制を回避しつつ、利益を固定したままポジションを維持できる。</div>
+        <div class="sub-note">両建てを活用することで、空売りに関する規制を回避しつつ、利益を固定したままポジションを維持できる[cite: 2]。</div>
         <div class="clist" data-group="3-1">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">両建ての基本手順</div><div class="item-note">買い建て→利確価格で返済ではなく新規空売りポジションを入れる。これにより利益がプラスのまま固定される</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">新規売り建禁止後の対応</div><div class="item-note">新規売り建禁止が入った後でも、両建てを使えば空売りと同じように売りから入れる</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売り規制の回避（時間面）</div><div class="item-note">両建てを活用して空売り規制に引っかからないようにする（時間の面で回避）</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売り規制の回避（枚数面）</div><div class="item-note">両建てを活用して空売り規制に引っかからないようにする（枚数の面で回避）</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">両建ての基本手順</div><div class="item-note">買い建て→利確価格で返済ではなく新規空売りポジションを入れる。これにより利益がプラスのまま固定される[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">新規売り建禁止後の対応</div><div class="item-note">新規売り建禁止が入った後でも、両建てを使えば空売りと同じように売りから入れる[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売り規制の回避（時間面）</div><div class="item-note">両建てを活用して空売り規制に引っかからないようにする（時間の面で回避）[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売り規制の回避（枚数面）</div><div class="item-note">両建てを活用して空売り規制に引っかからないようにする（枚数の面で回避）[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">3-2</span><h3>両建て使用時の注意点</h3></div>
         <div class="clist" data-group="3-2">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">預金拘束の確認</div><div class="item-note">両建てにより信用取引の保証金が拘束される。拘束額を把握しておく</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">金利等の諸経費の確認</div><div class="item-note">両建ての保有期間にかかる金利等の諸経費を計算し、メリットが上回るか確認</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">経費対効果の十分な検討</div><div class="item-note">両建てを使うだけのメリットがあるか、諸経費を含めて十分に考慮する</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">預金拘束の確認</div><div class="item-note">両建てにより信用取引の保証金が拘束される。拘束額を把握しておく[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">金利等の諸経費の確認</div><div class="item-note">両建ての保有期間にかかる金利等の諸経費を計算し、メリットが上回るか確認[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">経費対効果の十分な検討</div><div class="item-note">両建てを使うだけのメリットがあるか、諸経費を含めて十分に考慮する[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">3-3</span><h3>余力の繰越</h3></div>
         <div class="clist" data-group="3-3">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">翌日トレード銘柄の両建て</div><div class="item-note">翌日にデイトレードする予定の銘柄を両建てしておく</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">信用余力の動きの理解</div><div class="item-note">当日にポジションを建てた時点で建てた金額分だけ余力消費。当日返済しても余力は戻らない。持ち越した場合は返済した時点で余力回復</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">両建てを使った余力持ち越し</div><div class="item-note">両建てを使えば翌日に余力を持ち越したかのような使い方が可能。ただし諸経費がかかる</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">通常デイトレとの取引手順の違い</div><div class="item-note">通常：新規買い→返済売り。両建て持ち越し：返済買い→返済売り（逆も可）</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">翌日トレード銘柄の両建て</div><div class="item-note">翌日にデイトレードする予定の銘柄を両建てしておく[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">信用余力の動きの理解</div><div class="item-note">当日にポジションを建てた時点で建てた金額分だけ余力消費。当日返済しても余力は戻らない。持ち越した場合は返済した時点で余力回復[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">両建てを使った余力持ち越し</div><div class="item-note">両建てを使えば翌日に余力を持ち越したかのような使い方が可能。ただし諸経費がかかる[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">通常デイトレとの取引手順の違い</div><div class="item-note">通常：新規買い→返済売り。両建て持ち越し：返済買い→返済売り（逆も可）[cite: 2]</div></div></label>
         </div>
       </div>
     </section>
@@ -489,50 +494,50 @@
     <!-- ============ 第7章 ============ -->
     <section class="section" id="ch7">
       <div class="section-head"><span class="chnum">CH.4</span><h2>実際のトレード紹介</h2></div>
-      <p class="desc">実際のトレード4例から抽出される実戦的な考え方と戦略を示す。ギャップダウン幅の想定、基準価格の設定、損切りの考え方など。</p>
+      <p class="desc">実際のトレード4例から抽出される実戦的な考え方と戦略を示す。ギャップダウン幅の想定、基準価格の設定、損切りの考え方など[cite: 2]。</p>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">4-1</span><h3>ギャップダウンと心理的価格帯</h3></div>
         <div class="clist" data-group="4-1">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ギャップダウン幅の想定</div><div class="item-note">ギャップダウン幅はボラティリティの幅を目安にする</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">含み益→含み損切り替わり価格の把握</div><div class="item-note">含み益から含み損に切り替わるラインは、大衆心理的に売りが出やすい。事前に把握</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ギャップダウン幅の想定</div><div class="item-note">ギャップダウン幅はボラティリティの幅を目安にする[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">含み益→含み損切り替わり価格の把握</div><div class="item-note">含み益から含み損に切り替わるラインは、大衆心理的に売りが出やすい。事前に把握[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">4-2</span><h3>基準価格を使った短期的な心理読み</h3></div>
         <div class="clist" data-group="4-2">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">基準価格の設定</div><div class="item-note">基準となる価格を決める（例：特売り後の寄り付き価格）。基準価格を決めることで短期的な心理読みがしやすくなる</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読むのは2〜3手分だけ</div><div class="item-note">先読みは2〜3手分にとどめる。欲張らないことが重要</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読んだ後の動きの確認</div><div class="item-note">2〜3手読んだ後は実際の動きを見て、欲張らずに手仕舞う</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">基準価格の設定</div><div class="item-note">基準となる価格を決める（例：特売り後の寄り付き価格）。基準価格を決めることで短期的な心理読みがしやすくなる[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読むのは2〜3手分だけ</div><div class="item-note">先読みは2〜3手分にとどめる。欲張らないことが重要[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読んだ後の動きの確認</div><div class="item-note">2〜3手読んだ後は実際の動きを見て、欲張らずに手仕舞う[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">4-3</span><h3>仮説立案とPTSの活用</h3></div>
         <div class="clist" data-group="4-3">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">仮説立案時のバイアス回避</div><div class="item-note">仮説を立てて売買する場合、その仮説にバイアスをかけすぎない。判断を誤る可能性があるため、実際の動きは中立的な視点で見る</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">強烈な買い気配での引け確認</div><div class="item-note">強烈な買い気配で引けると、PTSも高値で推移することが多く、翌日の寄り付きでギャップアップしやすい</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">仮説立案時のバイアス回避</div><div class="item-note">仮説を立てて売買する場合、その仮説にバイアスをかけすぎない。判断を誤る可能性があるため、実際の動きは中立的な視点で見る[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">強烈な買い気配での引け確認</div><div class="item-note">強烈な買い気配で引けると、PTSも高値で推移することが多く、翌日の寄り付きでギャップアップしやすい[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">4-4</span><h3>損切り・カットの考え方</h3></div>
         <div class="clist" data-group="4-4">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">最初の一手が間違いの場合の即カット</div><div class="item-note">最初の一手が間違っていると思ったら、カットするときは即カットする</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">1ティックカット・同値カットの活用</div><div class="item-note">著者は1ティックカットまたは同値でのカットが多い。小さな損切りを素早く実行</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠が崩れたら即カット</div><div class="item-note">エントリーの根拠が崩れた場合は即カットする。根拠を明確にしておくことが前提</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">カットラインの変更禁止</div><div class="item-note">最初に買うラインでカットラインを決めた場合、実際にその価格で買えなかったとしてもカットラインを変えてはいけない</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">損益への執着の排除</div><div class="item-note">今プラスかマイナスかは自分以外の人は全く興味がない。現在の損益に自分だけがこだわっていることを認識する</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">最初の一手が間違いの場合の即カット</div><div class="item-note">最初の一手が間違いと思ったら、カットするときは即カットする[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">1ティックカット・同値カットの活用</div><div class="item-note">著者は1ティックカットまたは同値でのカットが多い。小さな損切りを素早く実行[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠が崩れたら即カット</div><div class="item-note">エントリーの根拠が崩れた場合は即カットする。根拠を明確にしておくことが前提[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">カットラインの変更禁止</div><div class="item-note">最初に買うラインでカットラインを決めた場合、実際にその価格で買えなかったとしてもカットラインを変えてはいけない[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">損益への執着の排除</div><div class="item-note">今プラスかマイナスかは自分以外の人は全く興味がない。現在の損益に自分だけがこだわっていることを認識する[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><span class="sub-id">4-5</span><h3>根拠を維持したまま見届ける</h3></div>
         <div class="clist" data-group="4-5">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠が生きている場合の見届け</div><div class="item-note">入った根拠がまだ生きているのに降りるのは「なんとなく」入ったトレードになってしまう。根拠の行方をしっかり見届ける</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">不安だけを理由に降りない</div><div class="item-note">入った後で不安になったからといって、一貫性のないトレードにしない。今後のトレードのためにも根拠の行方を見届ける</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠崩壊時の即カット</div><div class="item-note">INの根拠が崩れた場合は即カットする。根拠が崩れていない場合は、不安だけを理由に降りない</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠が生きている場合の見届け</div><div class="item-note">入った根拠がまだ生きているのに降りるのは「なんとなく」入ったトレードになってしまう。根拠の行方をしっかり見届ける[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">不安だけを理由に降りない</div><div class="item-note">入った後で不安になったからといって、一貫性のないトレードにしない。今後のトレードのためにも根拠の行方を見届ける[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠崩壊時の即カット</div><div class="item-note">INの根拠が崩れた場合は即カットする。根拠が崩れていない場合は、不安だけを理由に降りない[cite: 2]</div></div></label>
         </div>
       </div>
     </section>
@@ -540,63 +545,63 @@
     <!-- ============ 毎朝チェックリスト ============ -->
     <section class="section" id="morning">
       <div class="section-head"><span class="chnum">AM</span><h2>毎朝チェックリスト（実用サマリー）</h2></div>
-      <p class="desc">トレード開始前に毎朝確認すべき項目をまとめた。日々のルーティンに活用すること。</p>
+      <p class="desc">トレード開始前に毎朝確認すべき項目をまとめた[cite: 2]。日々のルーティンに活用すること。</p>
 
       <div class="sub">
         <div class="sub-head"><h3>【トレード前準備】</h3></div>
         <div class="clist" data-group="am-1">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ランキングから盛り上がり銘柄を確認</div><div class="item-note">当日の値動きが活発な銘柄をリストアップ</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">流動性の高い銘柄を選定</div><div class="item-note">売買代金が大きく、板が厚い銘柄を優先</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">貸借銘柄か非貸借銘柄かを確認</div><div class="item-note">戦略（ドテン/リバウンド）の選択に影響</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">PTS（夜間取引）の動きを確認</div><div class="item-note">強烈な買い気配で引けた場合→翌日ギャップアップの可能性</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ランキングから盛り上がり銘柄を確認</div><div class="item-note">当日の値動きが活発な銘柄をリストアップ[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">流動性の高い銘柄を選定</div><div class="item-note">売買代金が大きく、板が厚い銘柄を優先[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">貸借銘柄か非貸借銘柄かを確認</div><div class="item-note">戦略（ドテン/リバウンド）の選択に影響[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">PTS（夜間取引）の動きを確認</div><div class="item-note">強烈な買い気配で引けた場合→翌日ギャップアップの可能性[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><h3>【環境認識・価格帯把握】</h3></div>
         <div class="clist" data-group="am-2">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">移動平均・新高値/安値・VWAPの確認</div><div class="item-note">チャート派が注目する価格を把握し、攻防が盛んな価格を予測</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこりができた価格の把握</div><div class="item-note">「やられた」「買わされた」価格。売り物が出やすい</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">買いそびれた価格の把握</div><div class="item-note">「買いたかったのに買えなかった」価格。再び買いが入りやすい</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">含み益→含み損の切り替わり価格の確認</div><div class="item-note">大衆心理的に売りが出やすいライン</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">基準価格を設定</div><div class="item-note">特売り後の寄り付き価格などを基準に短期的な心理読みを行う</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ギャップダウン幅の想定</div><div class="item-note">ボラティリティの幅を目安に下値を想定</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">移動平均・新高値/安値・VWAPの確認</div><div class="item-note">チャート派が注目する価格を把握し、攻防が盛んな価格を予測[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">しこりができた価格の把握</div><div class="item-note">「やられた」「買わされた」価格。売り物が出やすい[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">買いそびれた価格の把握</div><div class="item-note">「買いたかったのに買えなかった」価格。再び買いが入りやすい[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">含み益→含み損の切り替わり価格の確認</div><div class="item-note">大衆心理的に売りが出やすいライン[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">基準価格を設定</div><div class="item-note">特売り後の寄り付き価格などを基準に短期的な心理読みを行う[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ギャップダウン幅の想定</div><div class="item-note">ボラティリティの幅を目安に下値を想定[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><h3>【寄り付き前（8:30〜9:00）】</h3></div>
         <div class="clist" data-group="am-3">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">9時前の成行注文の確認</div><div class="item-note">成行注文が多い→気配値が下がる。取り消されても需要は残存</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">スプレッドの空き具合を確認</div><div class="item-note">スプレッドが空いている銘柄では急落の可能性</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">寄り付き前の板の厚み比較</div><div class="item-note">買い板と売り板の枚数差から優勢な方向を印象判断</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">9時前の成行注文の確認</div><div class="item-note">成行注文が多い→気配値が下がる。取り消されても需要は残存[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">スプレッドの空き具合を確認</div><div class="item-note">スプレッドが空いている銘柄では急落の可能性[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">寄り付き前の板の厚み比較</div><div class="item-note">買い板と売り板の枚数差から優勢な方向を印象判断[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><h3>【トレード中のリアルタイム確認】</h3></div>
         <div class="clist" data-group="am-4">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">歩み値を必ず併用</div><div class="item-note"><span class="chip up">アップティック</span>/<span class="chip down">ダウンティック</span>、大口/小口、成立/取消しを確認</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">印象の4ステップ確認</div><div class="item-note">①配置→②変化→③売買成立→④後から出た注文で印象を更新</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の存在を常に疑う</div><div class="item-note">不自然に厚い板は見せ板の可能性。消去後の動きを想定</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">「強くない=弱い」の判断</div><div class="item-note">買いが入るべき場面で買いが入らない→弱いと判断</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板の厚い方向への値動きを意識</div><div class="item-note">均衡状態が続く場合、厚い方に動く可能性が高い</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売りか実需の売りかを意識</div><div class="item-note"><span class="chip down">ダウンティック</span>50単位以上の売り=実需の売り</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">注文の積極性を読む</div><div class="item-note">積極的注文=腰が座っている。消極的注文=すぐ降りる可能性</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">自分で相場を冷やさない</div><div class="item-note">雰囲気が悪くなった銘柄は離れる。無理に盛り上げようとしない</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">歩み値を必ず併用</div><div class="item-note"><span class="chip up">アップティック</span>/<span class="chip down">ダウンティック</span>、大口/小口、成立/取消しを確認[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">印象の4ステップ確認</div><div class="item-note">①配置→②変化→③売買成立→④後から出た注文で印象を更新[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">見せ板の存在を常に疑う</div><div class="item-note">不自然に厚い板は見せ板の可能性。消去後の動きを想定[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">「強くない=弱い」の判断</div><div class="item-note">買いが入るべき場面で買いが入らない→弱いと判断[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">板の厚い方向への値動きを意識</div><div class="item-note">均衡状態が続く場合、厚い方に動く可能性が高い[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">空売りか実需の売りかを意識</div><div class="item-note"><span class="chip down">ダウンティック</span>50単位以上の売り=実需の売り[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">注文の積極性を読む</div><div class="item-note">積極的注文=腰が座っている。消極的注文=すぐ降りる可能性[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">自分で相場を冷やさない</div><div class="item-note">雰囲気が悪くなった銘柄は離れる。無理に盛り上げようとしない[cite: 2]</div></div></label>
         </div>
       </div>
 
       <div class="sub">
         <div class="sub-head"><h3>【エントリー・決済のルール】</h3></div>
         <div class="clist" data-group="am-5">
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠を明確にする</div><div class="item-note">なぜエントリーするかの根拠を事前に明確化</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ポジションは2〜3回に分割</div><div class="item-note">一気に大きな注文を出さず、小分けに出す</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">カットラインを決めたら変更しない</div><div class="item-note">買えなかった価格であってもカットラインは変えない</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠が崩れたら即カット</div><div class="item-note">1ティックカット・同値カットで素早く撤退</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠が生きていれば不安で降りない</div><div class="item-note">根拠の行方をしっかり見届ける。欲張らない</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読むのは2〜3手分だけ</div><div class="item-note">先読みしすぎず、実際の動きを中立的に見る</div></div></label>
-          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">損益への執着を排除</div><div class="item-note">他人は自分の損益に興味がないことを認識</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠を明確にする</div><div class="item-note">なぜエントリーするかの根拠を事前に明確化[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">ポジションは2〜3回に分割</div><div class="item-note">一気に大きな注文を出さず、小分けに出す[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">カットラインを決めたら変更しない</div><div class="item-note">買えなかった価格であってもカットラインは変えない[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">INの根拠が崩れたら即カット</div><div class="item-note">1ティックカット・同値カットで素早く撤退[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">根拠が生きていれば不安で降りない</div><div class="item-note">根拠の行方をしっかり見届ける。欲張らない[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">読むのは2〜3手分だけ</div><div class="item-note">先読みしすぎず、実際の動きを中立的に見る[cite: 2]</div></div></label>
+          <label class="citem"><input type="checkbox"><div class="body"><div class="item-title">損益への執着を排除</div><div class="item-note">他人は自分の損益に興味がないことを認識[cite: 2]</div></div></label>
         </div>
       </div>
     </section>
@@ -604,7 +609,7 @@
     <!-- ============ 出典 ============ -->
     <section class="sources" id="sources">
       <h2>出典・参考文献</h2>
-      <p style="font-size:12.5px; color:var(--ink-dim); margin-bottom:18px;">本チェックリストは以下の公開情報に基づいて作成した。</p>
+      <p style="font-size:12.5px; color:var(--ink-dim); margin-bottom:18px;">本チェックリストは以下の公開情報に基づいて作成した[cite: 2]。</p>
       <ol>
         <li>けむ。著『投資家心理を読み切る板読みデイトレード術 ～「5％」であり続けるための考え方～』（Modern Alchemists Series No. 89、パンローリング、2010年）<br><a href="https://www.amazon.co.jp/dp/4775990969" target="_blank" rel="noopener">https://www.amazon.co.jp/dp/4775990969</a></li>
         <li>書評「板読みデイトレード術 を読んで」— 思考と読書【お金・健康・人間関係 編】（第4章〜第7章の詳細要約）<br><a href="https://thinkandreading.hatenablog.com/entry/ItayomiDayTrade" target="_blank" rel="noopener">https://thinkandreading.hatenablog.com/entry/ItayomiDayTrade</a></li>
@@ -614,7 +619,6 @@
         <li>「板読みデイトレード術 5%であり続けるための考え方」— 株の投資と投機ブログ<br><a href="https://investconsume.com/itayomi-daytrading/" target="_blank" rel="noopener">https://investconsume.com/itayomi-daytrading/</a></li>
         <li>国立国会図書館 書誌情報<br><a href="https://ndlsearch.ndl.go.jp/books/R100000002-I000010848384" target="_blank" rel="noopener">https://ndlsearch.ndl.go.jp/books/R100000002-I000010848384</a></li>
       </ol>
-    
     </section>
 
   </main>
