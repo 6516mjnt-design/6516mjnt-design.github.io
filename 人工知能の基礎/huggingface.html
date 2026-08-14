@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugging Face 導入ガイド</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, "Liberation Mono", Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+        code {
+            background-color: #edf2f7;
+            color: #2d3748;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; padding: 10px;">
+        <button onclick="window.print()" style="
+            padding: 8px 20px;
+            background-color: #0057b8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        ">🖨️ 印刷</button>
+    </div>
+
+    <header>
+        <h1>Hugging Face 導入ガイド</h1>
+        <p class="meta">2026年8月14日更新</p>
+    </header>
+
+    <main>
+        <h2>1. エグゼクティブ・サマリー</h2>
+        <p class="lead">Hugging Faceは、200万を超えるAIモデルと50万件以上のデータセットを集約した世界最大級のAI共有プラットフォームです。「AI・機械学習版のGitHub」として、開発者や研究者がAIモデルやデータを共有・活用する標準的な環境となっています。</p>
+
+        <div class="tech-note">
+            <ul>
+                <li><span class="method-name">開発時間の短縮：</span><br>ゼロからAIを学習させる必要がなく、すでに公開されている高品質なモデルをすぐ利用・調整可能。</li>
+                <li><span class="method-name">コスト削減：</span><br>オープンソースのモデルを活用するため、高額な自社開発コストを大幅に抑制。</li>
+                <li><span class="method-name">誰でも無料で体験：</span><br>基本的なモデルの閲覧・ダウンロード、コミュニティ利用は無料。ブラウザ上の「Spaces」で即座にAIデモを試行可能。</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>2. 主な機能と役割</h2>
+        <p>Hugging Faceを構成する主要な3つの機能とその目的です。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>機能名</th>
+                    <th>概要</th>
+                    <th>主な役割・特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hugging Face Hub</strong></td>
+                    <td>モデル・データセットの共有プラットフォーム</td>
+                    <td>AIモデルファイル、データセット、説明書（Model Card）を公開・共有する場所</td>
+                </tr>
+                <tr>
+                    <td><strong>Transformers</strong></td>
+                    <td>オープンソース・ライブラリ</td>
+                    <td>Pythonコード数行で、公開されている最先端AIモデルをダウンロードし自作プログラムで実行</td>
+                </tr>
+                <tr>
+                    <td><strong>Spaces</strong></td>
+                    <td>Webデモ実行環境</td>
+                    <td>環境構築不要で、ブラウザ上で最新AI（画像生成・チャットなど）のデモをその場で試せる機能</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            Hugging Faceは「AI・機械学習版のGitHub」。テキスト生成、画像生成、音声認識など多様な最先端AIモデルが無料で公開されています。
+        </blockquote>
+
+        <hr>
+
+        <h2>3. 初心者向け使い方：3ステップ</h2>
+        <p>プログラミング（Pythonなど）の知識がなくても、「Spaces」機能を使ってブラウザ上で最新AIを無料体験できます。</p>
+
+        <h3>1. サイトにアクセスする</h3>
+        <p><a href="https://huggingface.co/" target="_blank">Hugging Face公式サイト</a> を開きます。アカウント作成（サインアップ）をしなくても、デモ画面を触るだけならそのまま利用可能です。</p>
+
+        <h3>2. 「Spaces」メニューを開く</h3>
+        <p>画面上部にある「Spaces（スペース）」タブをクリックします。世界中の開発者が作った「画面をポチポチ押すだけで動くAIアプリ」が何万個も並んでいます。</p>
+
+        <h3>3. ランキングや検索から好きなAIを選ぶ</h3>
+        <p>「Trending（トレンド）」に並んでいる人気のAIや、検索窓から興味のあるAIを選んでクリックします。</p>
+        <ul>
+            <li><strong>例：「画像を作りたい」</strong> ➔ <code>Stable Diffusion</code> と検索</li>
+            <li><strong>例：「背景を消したい」</strong> ➔ <code>Background Removal</code> と検索</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. 今すぐ試せる！AIデモ一覧</h2>
+        <p>Hugging Faceの「Spaces」には、日常の作業を効率化できる実用的なAIデモが数多く公開されています。</p>
+
+        <h3>🎥 クリエイティブ系デモ</h3>
+        <div class="tech-note">
+            <h4>AIdeaLab-VideoJP（動画生成）</h4>
+            <p>日本語のプロンプトを入力するだけで、短い動画を生成できる日本発のAIモデル。著作権に配慮した学習データを使用しており、商用利用も可能な点が特徴です。</p>
+
+            <h4>EpicrealismXL（画像生成）</h4>
+            <p>実写のような極めてリアルな画像を生成することに特化したAI。アーティストのインスピレーションやマーケティング用のビジュアル作成に活用されています。</p>
+
+            <h4>Stable Diffusion 3（画像生成AI）</h4>
+            <p>テキストボックスに英語（例: <code>a cute cat wearing a space suit</code>）を入力して「Generate」ボタンを押すだけで、クオリティの高い画像が作れます。</p>
+
+            <h4>RMBG（写真の背景を一瞬で消去）</h4>
+            <p>自分のパソコンやスマホにある画像をドラッグ＆ドロップするだけで、人物や商品の背景をきれいに切り抜いてくれます。</p>
+
+            <h4>Anime（顔をアニメ風）</h4>
+            <p>人物の写真をアニメ調のイラスト画像に変換します。</p>
+        </div>
+
+        <h3>✍️ 文章・翻訳系デモ</h3>
+        <div class="tech-note">
+            <h4>HuggingChat（対話型AI）</h4>
+            <p>ChatGPTのようにブラウザ上で直接AIとチャットができるデモです。</p>
+
+            <h4>文書要約・翻訳デモ（Summarization）</h4>
+            <p>ニュース記事やブログなどの長い文章を自動で短くまとめたり、多言語に翻訳したりするツールです。特定のモデルが「日本語の文書要約でどの程度の精度が出るか」を、コードを書かずに素早く検証するのにも便利です。高性能なGPUなどの環境構築が一切不要で利用できます。</p>
+        </div>
+
+        <h3>🎧 音声・その他のデモ</h3>
+        <div class="tech-note">
+            <h4>Podcastify（記事の音声化）</h4>
+            <p>任意の記事を読み込ませて、ポッドキャストのような音声コンテンツに変換するAIデモです。</p>
+
+            <h4>音声認識（文字起こし）</h4>
+            <p>音声データをアップロードするだけで、即座にテキスト化してくれます。</p>
+        </div>
+
+        <hr>
+
+        <h2>5. 次のステップ（少し慣れてきたら）</h2>
+        <p>「Pythonのプログラミングを勉強中」「アプリを開発してみたい」という場合は、<code>Transformers</code> ライブラリを使用することで、数行のコードを書くだけで自作プログラムからAIを動かせるようになります。</p>
+
+<pre><code># Pythonでの基本的なコード例（Transformersライブラリの使用）
+from transformers import pipeline
+
+# パイプラインの作成（例：感情分析モデル）
+classifier = pipeline("sentiment-analysis")
+result = classifier("Hugging Face makes AI accessible to everyone!")
+
+print(result)
+</code></pre>
+
+        <hr>
+
+        <h2>6. まとめ</h2>
+        <p>Hugging Faceは、AI開発・検証のハードルを劇的に下げるプラットフォームです。まずはブラウザから「Spaces」のデモに触れて体験し、必要に応じてコードでの組み込みへと進めることで、手軽かつスピーディーに最先端AI技術を自社の業務やプロダクトに導入できます。</p>
+    </main>
+</body>
+</html>
