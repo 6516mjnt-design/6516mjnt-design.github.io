@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAB AI報告書 要約 | 化学兵器不拡散に向けた新時代の幕開け</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #2b6cb0;
+      --accent-color: #d69e2e;
+      --danger-color: #e53e3e;
+      --success-color: #38a169;
+      --bg-light: #f7fafc;
+      --card-bg: #ffffff;
+      --text-main: #2d3748;
+      --text-muted: #718096;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.7;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* Header (Simple & White Background) */
+    header {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      padding: 32px 28px 24px 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      border-bottom: 3px solid var(--primary-color);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #ebf8ff;
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 4px;
+      border: 1px solid #bee3f8;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .meta-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .meta-info a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    .meta-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .lead-box {
+      border-left: 4px solid var(--secondary-color);
+      background-color: #ebf8ff;
+      padding: 20px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: var(--secondary-color);
+      margin: 20px 0 10px 0;
+    }
+
+    /* Milestones Timeline */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      margin: 16px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+    }
+
+    .timeline-date {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-right: 8px;
+    }
+
+    /* Quote Box */
+    .quote-box {
+      background-color: #fffaf0;
+      border: 1px solid #feebc8;
+      border-left: 4px solid var(--accent-color);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #744210;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 12px 16px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f7fafc;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f7fafc;
+    }
+
+    /* Feature Cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .feature-card {
+      padding: 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .feature-card.positive {
+      background-color: #f0fff4;
+      border-color: #c6f6d5;
+    }
+
+    .feature-card.negative {
+      background-color: #fff5f5;
+      border-color: #fed7d7;
+    }
+
+    .feature-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .positive .feature-title { color: var(--success-color); }
+    .negative .feature-title { color: var(--danger-color); }
+
+    /* Red Flag List */
+    .red-flags {
+      background-color: #fff5f5;
+      border: 1px solid #fed7d7;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .red-flags h4 {
+      color: var(--danger-color);
+      margin-bottom: 10px;
+    }
+
+    .red-flags ul {
+      padding-left: 20px;
+    }
+
+    .red-flags li {
+      margin-bottom: 6px;
+    }
+
+    /* Message Box */
+    .message-box {
+      background-color: #f7fafc;
+      border-left: 4px solid var(--primary-color);
+      padding: 20px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      body { padding: 40px 20px; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header Section (Without blue background) -->
+  <header>
+    <span class="badge">SAB (科学諮問委員会) 提言要約</span>
+    <h1>化学兵器不拡散に向けた新時代の幕開け</h1>
+    <div class="subtitle">～化学兵器禁止条約のTWG(技術作業部会)からの提言～</div>
+    <div class="meta-info">
+      <div><strong>発表日:</strong> 2026年3月3日（要約作成日: 2026年8月14日）</div>
+      <div><strong>元ニュース:</strong> <a href="https://www.opcw.org/media-centre/news/2026/03/opcw-releases-landmark-report-ai-and-chemical-weapons-convention" target="_blank" rel="noopener">OPCW Release[cite: 1]</a></div>
+      <div><strong>カテゴリ:</strong> <a href="https://www.opcw.org/media-centre/news/category/51" target="_blank" rel="noopener">OPCW Media Centre</a></div>
+    </div>
+  </header>
+
+  <!-- Overview Section -->
+  <div class="card">
+    <div class="lead-box">
+      <p>TWG（Technical Working Group: 技術作業部会。様々なプロジェクトで政策や技術的な検討を行うグループ。）報告書（2026年3月3日）の内容要約。</p>
+      <p style="margin-top: 10px;">AI技術の加速度的な進展は、化学兵器の国際的な検証活動に不可避なパラダイムシフトにつながる。AIはもはや「周辺的な問題」ではなく、化学兵器禁止条約（CWC）履行の根幹を左右する「重要課題」である。</p>
+    </div>
+    <p>AIは高度なデータ分析や査察の高度化という「多大な恩恵」をもたらす一方で、毒性物質の設計障壁を劇的に下げ、専門知識の「脱技能化（deskilling）」を加速させる「二面性」がある。</p>
+    <p style="margin-top: 8px;">この戦略的現実に適応できないことは、潜在的な脅威となるだけでなく、条約履行における制度的脆弱性を放置することに他ならない。</p>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="card">
+    <h2>1. なぜ今、AIと化学兵器不拡散を考えるのか</h2>
+    <p>人工知能（AI）は今、科学研究のあり方を根底から覆そうとしている。この技術革新は、平和のための「化学研究」と、人類の脅威となる「化学兵器」において、これまでにないリスクがある。</p>
+    <p style="margin-top: 8px;">OPCW事務局長は、この急速な進化に対応するため、科学諮問委員会（SAB）の下に「AIに関する臨時作業部会（TWG）」を設置した。</p>
+
+    <h3>OPCWによる技術監視のマイルストーン</h3>
+    <ul class="timeline">
+      <li class="timeline-item"><span class="timeline-date">2012年:</span> データの増大と化学物質データベースのグローバルな共有が、将来の検証活動に影響を与えることを認識。</li>
+      <li class="timeline-item"><span class="timeline-date">2017年:</span> ブラジルで開催されたワークショップにて、化学セキュリティを強化するためのAIの応用可能性を議論。</li>
+      <li class="timeline-item"><span class="timeline-date">2018年:</span> SABが第4回再検討会議に対し、ビッグデータ、インフォマティクス、AIを専門的に評価し続けるよう勧告。</li>
+      <li class="timeline-item"><span class="timeline-date">2022-2023年:</span> 第5回再検討会議にて、AIによる化学合成の加速がもたらす機会とリスクを注視することを決定。</li>
+      <li class="timeline-item"><span class="timeline-date">2026年3月:</span> AIに関する臨時作業部会（TWG）が、包括的な報告書（SAB/REP/1/26）を発表。</li>
+    </ul>
+
+    <div class="quote-box">
+      「もしAIが、熟練の化学者が数年を要するような新しい分子をわずか数秒で設計したとしたら、その結果に対する責任は一体誰が負うべきか？ プログラマーか、化学者でしょうか、それともAI自身か？」
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="card">
+    <h2>2. 化学研究を加速させるAI：主要技術の整理</h2>
+    <p>現代の化学において、AIは単なる計算機ではなく、実験の計画から実行までを担うツールへと進化している。</p>
+
+    <h3>化学空間を導く「GPS」：合成とレトロ合成</h3>
+    <p>従来の合成計画は研究者の経験と文献調査に依存していたが、AI支援型ツールは「GPS」のように膨大なデータから目的地（ターゲット分子）への最適なルートを瞬時にマッピングする。</p>
+
+    <h3>自動化ラボの進化：クラウド型と自律型</h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>クラウド・ラボ (Cloud Labs)</th>
+            <th>自律走行ラボ (SDL: Self-driving Labs)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>アクセスモデル</strong></td>
+            <td>サービス型（ウェブ経由で世界中から遠隔操作）</td>
+            <td>所有・設置型（特定の施設に物理的に構築）</td>
+          </tr>
+          <tr>
+            <td><strong>AIの関与度</strong></td>
+            <td>実行指示の自動化が中心</td>
+            <td>意思決定の完全自動化（閉ループ実験）</td>
+          </tr>
+          <tr>
+            <td><strong>主な特徴</strong></td>
+            <td>24時間365日、どこからでも実験が可能</td>
+            <td>AIが自ら実験結果を分析し、次の実験を自動計画</td>
+          </tr>
+          <tr>
+            <td><strong>メリット</strong></td>
+            <td>高価な設備を持たない研究者にも機会を提供</td>
+            <td>閉ループ実験により発見プロセスを極限まで加速</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="card">
+    <h2>3. AIがもたらす不拡散活動の効率化（正の側面）</h2>
+    <div class="feature-grid">
+      <div class="feature-card positive">
+        <div class="feature-title">1) 申告処理の自動化と「機関の記憶」の構築</div>
+        <p>過去数十年の申告データをデジタル化・構造化し、長期的なトレンドや矛盾を自動検知。「機関の記憶（Institutional Memory）」を構築し、見えにくくなる不正の兆候を捉える。</p>
+      </div>
+
+      <div class="feature-card positive">
+        <div class="feature-title">2) XR（拡張現実）による高度な訓練</div>
+        <p>危険な化学物質や複雑なプラントでの作業を仮想空間でシミュレーション。査察官は物理的リスクなしに実戦レベルの能力を磨くことができる。</p>
+      </div>
+
+      <div class="feature-card positive">
+        <div class="feature-title">3) データ融合による多角的な検知</div>
+        <p>衛星画像、化学センサー、オープンソース情報をAIで統合。複数データの融合により、単一装置では見逃す微細な異常を高精度に識別する。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="card">
+    <h2>4. AIがもたらす新たなリスクと課題（負の側面）</h2>
+    <div class="feature-grid">
+      <div class="feature-card negative">
+        <div class="feature-title">1) 脱技能化（Deskilling）</div>
+        <p>熟練した知見をAIが肩代わりし、詳細な手順を提示するため、高度な専門知識を持たない者でも機微な物質を設計・製造できるリスクが生じる。</p>
+      </div>
+
+      <div class="feature-card negative">
+        <div class="feature-title">2) エージェンティックAI（自律型エージェント）</div>
+        <p>抽象的な指示に対し、AIが人間の介入なしに自律的に戦略を試し、解決策を見つけ出してしまう。</p>
+      </div>
+
+      <div class="feature-card negative">
+        <div class="feature-title">3) プラットフォームの匿名性とブラックボックス化</div>
+        <p>本人確認が不十分なオープンソースモデルや匿名クラウド・ラボが悪用され、監視の届かないところで不法な活動が進む懸念。</p>
+      </div>
+    </div>
+
+    <div class="red-flags">
+      <h4>⚠️ AI悪用の「レッドフラグ」（懸念される予兆）</h4>
+      <ul>
+        <li>正当な目的（学術・産業）がない状態での、スケジュール化された化学物質や類似体の合成指示。</li>
+        <li>合成プラットフォームにおける、通常の研究プロセスとは明らかに異なる異常なプロセス。</li>
+        <li>匿名APIを用いた、毒性データや反応条件など機微情報への繰り返しのアクセス。</li>
+        <li>新しい前駆体や中間体を用いた、異常に迅速なプロトタイピング（試作）の試み。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="card">
+    <h2>5. 未来への処方箋：国際協力と責任ある技術利用</h2>
+    <ul style="padding-left: 20px;">
+      <li style="margin-bottom: 12px;">
+        <strong>1) 継続的なモニタリング:</strong> 最新のAI動向を常に注視し、その影響を評価し続ける体制を維持する。
+      </li>
+      <li style="margin-bottom: 12px;">
+        <strong>2) 「ツウィニング（Twinning）」の推進:</strong> 先進国と途上国がパートナーシップを組み、AIを安全に使いこなす知識やベストプラクティスを共有して世界の安全水準を底上げする。
+      </li>
+      <li style="margin-bottom: 12px;">
+        <strong>3) 責任あるAIガバナンスへの参画:</strong> 開発者、化学者、軍縮専門家が対話し、AI倫理に基づいた適切な「ガードレール」を設計・運用する。
+      </li>
+    </ul>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="card">
+    <h2>6. 未来の科学者へのメッセージ</h2>
+    <div class="message-box">
+      <p>科学技術の進歩を止めることはできない。しかし、その技術を「命を救う薬」にするか「命を奪う武器」にするかは、それを使う人間の知性と倫理に委ねられている。</p>
+      <p style="margin-top: 12px;">化学を学ぶとき、その強力な道具が社会にどのような影響を与えるかを常に自分自身に問い直すことが求められる。技術への深い理解と、平和への揺るぎない責任感こそが、AI時代の化学安全保障を支える唯一の道である。</p>
+      <p style="margin-top: 12px; font-weight: bold; color: var(--primary-color);">技術の進化をただ見守る時代は終わった。OPCWはAIを最大限に活用し、そのリスクを能動的に管理する姿勢を明確に打ち出すべきである。</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 OPCW SAB Technical Working Group Report Summary</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
