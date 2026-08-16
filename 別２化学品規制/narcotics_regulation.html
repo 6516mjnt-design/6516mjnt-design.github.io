@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻薬新条約 第12条 附表及び国内法規制について</title>
+    <style>
+        /* ==========================================================================
+           デザイン・スタイル設定（共通スタイルに準拠）
+           ========================================================================== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        header {
+            border-bottom: 3px solid #1a365d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1a365d;
+            font-size: 26px;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+        .date {
+            font-size: 14px;
+            color: #718096;
+        }
+        .section {
+            background-color: #fff;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+        .part-header {
+            background-color: #1a365d;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        h2 {
+            font-size: 18px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            color: #1a365d;
+        }
+        h3 {
+            font-size: 16px;
+            margin-top: 25px;
+            color: #2b6cb0;
+        }
+        p {
+            margin: 12px 0;
+        }
+        ul, ol {
+            margin-top: 8px;
+            margin-bottom: 15px;
+            padding-left: 22px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .overall-summary {
+            background-color: #eef7f2;
+            border: 1px solid #ccecd8;
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .overall-summary h2 {
+            margin-top: 0;
+            color: #1a365d;
+            border-bottom: 2px solid #ccecd8;
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            background: linear-gradient(transparent 60%, #fff3b3 0%);
+        }
+        .concept-box {
+            background-color: #f0f4f8;
+            border-left: 4px solid #2b6cb0;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .btn-print {
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+        }
+        .btn-print:hover {
+            background-color: #1a365d;
+        }
+        
+        /* リスト・グリッドスタイル */
+        .substance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 10px 20px;
+            margin-top: 15px;
+        }
+        .substance-item {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .substance-num {
+            font-weight: bold;
+            color: #2b6cb0;
+            min-width: 35px;
+            flex-shrink: 0;
+        }
+        .substance-name {
+            color: #2d3748;
+            word-break: break-all;
+        }
+
+        /* テーブルスタイル */
+        .regulation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .regulation-table th, .regulation-table td {
+            border: 1px solid #cbd5e0;
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .regulation-table th {
+            background-color: #1a365d;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .regulation-table tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+        .agency-tag {
+            display: inline-block;
+            background-color: #2b6cb0;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background-color: #fff; padding: 0; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+    <header>
+        <h1>麻薬新条約 第12条 附表及び日本の法令規制</h1>
+        <div class="date">CND67（2024年12月03日）に基づく物質一覧及び輸出入規制</div>
+    </header>
+
+    <div class="overall-summary">
+        <h2>はじめに・概要</h2>
+        <p>国際的な麻薬新条約（第12条 附表）の指定に基づき、日本国内においても<span class="highlight">「麻薬及び向精神薬取締法」</span>および<span class="highlight">「外国為替及び外国貿易法（輸出貿易管理令）」</span>等によって麻薬向精神薬原料等の輸出入規制が実施されています。</p>
+        
+        <div class="concept-box">
+            <p style="margin:0; font-weight: bold; text-align: center;">
+                日本の関連法令
+            </p>
+            <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 14px; color: #2d3748;">
+                <li>輸出貿易管理令別表第2及び別表第7の規定に基づき貨物を定める省令</li>
+                <li>輸出貿易管理令 別表第2 21の3項</li>
+                <li>麻薬及び向精神薬取締法施行令・同施行規則</li>
+            </ul>
+        </div>
+        
+        <p><strong>注1：</strong> 物質名の前の数字は、「麻薬又は向精神薬の輸出承認について」の別紙第1のリストの番号（計34物質）。</p>
+        <p><strong>注2：</strong> 麻薬向精神薬原料のうち、より麻薬又は向精神薬への加工が容易であるもの若しくは麻薬又は向精神薬の不正な製造に必要不可欠であるものについては、麻薬及び向精神薬取締法施行令で<span class="highlight">「特定麻薬向精神薬原料」</span>に指定されています。</p>
+    </div>
+
+    <!-- 附表Ⅰ -->
+    <div class="part-header">１．附表Ⅰ　麻向法「特定麻薬向精神薬原料」（26物質）</div>
+    <div class="section">
+        <p>※輸入国へ事前通告（輸出前通告）の対象となる物質です。</p>
+        
+        <div class="substance-grid">
+            <div class="substance-item"><span class="substance-num">１．</span><span class="substance-name">N-アセチルアントラニル酸</span></div>
+            <div class="substance-item"><span class="substance-num">３．</span><span class="substance-name">4－アニリノピペリジン（4-AP）</span></div>
+            <div class="substance-item"><span class="substance-num">４．</span><span class="substance-name">4－アニリノ－1－フェネチルピペリジン (ANPP)</span></div>
+            <div class="substance-item"><span class="substance-num">６．</span><span class="substance-name">イソサフロール</span></div>
+            <div class="substance-item"><span class="substance-num">９．</span><span class="substance-name">エチル＝２―メチル―３―（３，４―メチレンジオキシフェニル）オキシラン―２―カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">10．</span><span class="substance-name">エルゴタミン</span></div>
+            <div class="substance-item"><span class="substance-num">11．</span><span class="substance-name">エルゴメトリン</span></div>
+            <div class="substance-item"><span class="substance-num">13．</span><span class="substance-name">過マンガン酸カリウム</span></div>
+            <div class="substance-item"><span class="substance-num">14．</span><span class="substance-name">サフロール</span></div>
+            <div class="substance-item"><span class="substance-num">15．</span><span class="substance-name">1,1-ジメチルエチル＝4-アニリノピペリジン-1-カルボキシラート (1-BOC-4-AP)</span></div>
+            <div class="substance-item"><span class="substance-num">16．</span><span class="substance-name">1,1―ジメチルエチル＝ピペリジン―４―オン―１―カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">17．</span><span class="substance-name">1,1‐ジメチルエチル＝２‐メチル‐３‐（３，４‐メチレンジオキシフェニル）オキシラン‐２‐カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">20．</span><span class="substance-name">ピペリジン―４―オン</span></div>
+            <div class="substance-item"><span class="substance-num">21．</span><span class="substance-name">ピペロナール</span></div>
+            <div class="substance-item"><span class="substance-num">22．</span><span class="substance-name">N-フェニル-N-(ピペリジン-4-イル)プロパンアミド (ノルフェンタニル)</span></div>
+            <div class="substance-item"><span class="substance-num">23．</span><span class="substance-name">1－フェネチルピペリジン－4－オン (NPP)</span></div>
+            <div class="substance-item"><span class="substance-num">24．</span><span class="substance-name">ブチル＝２―メチル―３―（３，４―メチレンジオキシフェニル）オキシラン―２―カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">25．</span><span class="substance-name">プロピル＝２―メチル―３―（３，４―メチレンジオキシフェニル）オキシラン―２―カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">26．－</span><span class="substance-name">無水酢酸</span></div>
+            <div class="substance-item"><span class="substance-num">27．</span><span class="substance-name">1―メチルエチル＝２―メチル―３―（３，４―メチレンジオキシフェニル）オキシラン―２―カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">28．</span><span class="substance-name">1―メチルプロピル＝２―メチル―３―（３，４‐メチレンジオキシフェニル）オキシランー２－カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">29．</span><span class="substance-name">２―メチルプロピル＝２―メチル―３―（３，４‐メチレンジオキシフェニル）オキシランー２－カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">30．</span><span class="substance-name">メチル＝2-メチル-3-（3,4-メチレンジオキシフェニル）-オキシラン-2-カルボキシラート</span></div>
+            <div class="substance-item"><span class="substance-num">31．</span><span class="substance-name">2-メチル-3-（3,4-メチレンジオキシフェニル)-オキシラン-2-カルボン酸</span></div>
+            <div class="substance-item"><span class="substance-num">32．</span><span class="substance-name">3,4－ﾒﾁﾚﾝｼﾞｵｷｼﾌｪﾆﾙ－2－ﾌﾟﾛﾊﾟﾉﾝ</span></div>
+            <div class="substance-item"><span class="substance-num">33．</span><span class="substance-name">リゼルギン酸</span></div>
+        </div>
+    </div>
+
+    <!-- 附表Ⅱ -->
+    <div class="part-header">２．附表Ⅱ　麻向法「麻薬向精神薬原料」（8物質）</div>
+    <div class="section">
+        <div class="substance-grid">
+            <div class="substance-item"><span class="substance-num">２．</span><span class="substance-name">アセトン</span></div>
+            <div class="substance-item"><span class="substance-num">５．</span><span class="substance-name">アントラニル酸</span></div>
+            <div class="substance-item"><span class="substance-num">７．</span><span class="substance-name">エチルエーテル</span></div>
+            <div class="substance-item"><span class="substance-num">８．</span><span class="substance-name">メチルエチルケトン</span></div>
+            <div class="substance-item"><span class="substance-num">12．</span><span class="substance-name">塩酸</span></div>
+            <div class="substance-item"><span class="substance-num">18．</span><span class="substance-name">トルエン</span></div>
+            <div class="substance-item"><span class="substance-num">19．</span><span class="substance-name">ピペリジン</span></div>
+            <div class="substance-item"><span class="substance-num">34．</span><span class="substance-name">硫酸</span></div>
+        </div>
+    </div>
+
+    <!-- 輸出入規制に関する関係機関 -->
+    <div class="part-header">３．輸出入規制に関する関係機関及び手続き</div>
+    <div class="section">
+        <p>対象物質の輸出入に関しては、関係機関（経済産業省、厚生労働省、税関）においてそれぞれ以下の規制手続が定められています。</p>
+
+        <table class="regulation-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">関係機関・根拠法令</th>
+                    <th style="width: 20%;">公布日 / 施行日</th>
+                    <th style="width: 27%;">輸出規制</th>
+                    <th style="width: 28%;">輸入規制</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="agency-tag">経済産業省</span><br>
+                        <strong>輸出貿易管理令</strong><br>
+                        <span style="font-size:12px; color:#718096;">（別表第2及び別表第7の規定に基づき貨物を定める省令）</span>
+                    </td>
+                    <td>
+                        <strong>公布日:</strong> 2025年3月7日<br>
+                        <strong>施行日:</strong> 2025年3月17日
+                    </td>
+                    <td>
+                        <strong>輸出承認</strong><br>
+                        34品目
+                    </td>
+                    <td>
+                        <span style="color:#718096;">（輸入承認制度なし）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="agency-tag">厚生労働省</span><br>
+                        <strong>麻薬及び向精神薬取締法</strong><br>
+                        <span style="font-size:12px; color:#718096;">（施行規則）</span>
+                    </td>
+                    <td>
+                        <strong>公布日:</strong> 2024年7月31日<br>
+                        <strong>施行日:</strong> 2024年8月30日
+                    </td>
+                    <td>
+                        ・<strong>麻薬等原料輸出業者届出</strong>（34品目）<br>
+                        ・<strong>輸出の届出</strong>（26品目）
+                    </td>
+                    <td>
+                        ・<strong>麻薬等原料輸入業者届出</strong>（34品目）<br>
+                        ・<strong>輸入の届出</strong>（26品目）
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="agency-tag">税関</span><br>
+                        <strong>関税法</strong>
+                    </td>
+                    <td>
+                        －
+                    </td>
+                    <td>
+                        ・輸出承認証の確認<br>
+                        ・届出の確認
+                    </td>
+                    <td>
+                        ・届出の確認
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
