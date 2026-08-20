@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AIの無料枠比較</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="
+    padding: 8px 20px;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  ">🖨️ 印刷</button>
+</div>
+
+    <header>
+        <h1>生成AIの無料枠比較</h1>
+        <p class="meta">2026年8月20日時点</p>
+    </header>
+
+    <main>
+        <p class="lead">生成AIの特徴を知ったうえで使いこなすこと。<br>短期間でアップデートされるので、この比較も定期的に見直しが必要。</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>AIツール</th>
+                    <th>1回・1日あたりのテキスト利用回数</th>
+                    <th>無料で使える標準モデル</th>
+                    <th>ファイル添付・画像生成の制限</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ChatGPT</strong></td>
+                    <td>完全無制限</td>
+                    <td>GPT-5.6 Luna</td>
+                    <td>・ファイル添付：1日3ファイルまで<br>・画像生成（DALL-E 3）：1日数枚程度</td>
+                </tr>
+                <tr>
+                    <td><strong>Gemini</strong></td>
+                    <td>実質無制限</td>
+                    <td>Gemini 3.5 Flash</td>
+                    <td>・ファイル／画像：容量内なら何枚でも可<br>・Googleドライブ／YouTube等とのシームレス連携</td>
+                </tr>
+                <tr>
+                    <td><strong>Claude</strong></td>
+                    <td>5時間に約15〜40回<br>（※長文を読み込ませると数回で即ロック）</td>
+                    <td>Claude 5 Sonnet</td>
+                    <td>・ファイル添付：1通あたり最大5ファイルまで<br>・※混雑時間帯は自動で回数上限がさらに低下</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>おすすめの使い分けガイド</h2>
+
+        <div class="tech-note">
+            <h3>何回も喋りたいなら：ChatGPT</h3>
+            <p><span class="method-name">理由：</span>最新のフラッグシップモデル「GPT-5.6 Luna」を使った通常のテキストチャットであれば、5時間ごとの回数制限が撤廃（無制限化）された。</p>
+        </div>
+
+        <div class="tech-note">
+            <h3>大量の資料や画像・動画を読み込ませたいなら：Gemini</h3>
+            <p><span class="method-name">理由：</span>2026年に入り標準モデルが「Gemini 3.5 Flash」に進化したため、処理速度と文字読み取り（OCR）精度が向上しました。ChatGPTのように「1日3ファイルまで」というファイル数制限がないため、PDF資料や画像データの分析に最適。</p>
+        </div>
+
+        <div class="tech-note">
+            <h3>回数は少なくていいから最高峰の文章・コードを作りたいなら：Claude</h3>
+            <p><span class="method-name">理由：</span>最新の「Claude 5 Sonnet」は非常に頭が良いですが、自律思考システム（適応型思考）が裏で多く動くため、5時間に15〜40回という無料枠の消費が旧世代よりもかなり早くなっている。長文のコードや長編小説を貼り付けると3〜5回でロックされるため、ここぞという時のピンポイント使いが推奨される。</p>
+        </div>
+    </main>
+
+</body>
+</html>
