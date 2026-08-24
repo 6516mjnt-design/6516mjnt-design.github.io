@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>背景ローテーション プレビュー</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background-color: #020E34; }
+  #particles-js { position: fixed; inset: 0; z-index: 0; }
+  .panel {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    background: rgba(2, 14, 52, 0.75);
+    border: 1px solid rgba(127, 216, 255, 0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: sans-serif;
+    max-width: 320px;
+  }
+  .panel h1 { font-size: 15px; margin: 0 0 6px; }
+  .panel p { font-size: 12px; margin: 0 0 10px; opacity: 0.8; line-height: 1.5; }
+  .btns { display: flex; flex-wrap: wrap; gap: 6px; }
+  .btns button {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #4f7cff;
+    background: transparent;
+    color: #7fd8ff;
+    cursor: pointer;
+  }
+  .btns button.active { background: #4f7cff; color: #fff; }
+  .btns button:hover { background: rgba(79, 124, 255, 0.3); }
+</style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <div class="panel">
+    <h1>背景ローテーション プレビュー</h1>
+    <p id="status">読み込み中...</p>
+    <div class="btns" id="btns"></div>
+  </div>
+
+  <script src="js/particles.js"></script>
+  <script src="js/background-rotator.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      var r = window.bgRotator;
+      if (!r) return;
+
+      var status = document.getElementById("status");
+      var btns = document.getElementById("btns");
+
+      function render(activeIndex) {
+        status.textContent = "今週(ISO第" + r.weekNumber + "週)の演出：" +
+          r.presetNames[r.currentIndex] + " ／ 下のボタンで他の演出も確認できます";
+        btns.innerHTML = "";
+        r.presetNames.forEach(function (name, i) {
+          var b = document.createElement("button");
+          b.textContent = (i + 1) + ". " + name;
+          if (i === activeIndex) b.classList.add("active");
+          b.onclick = function () {
+            r.apply(i);
+            render(i);
+          };
+          btns.appendChild(b);
+        });
+      }
+
+      render(r.currentIndex);
+    });
+  </script>
+
+</body>
+</html>

@@ -40,6 +40,14 @@
       display: block;
       text-align: initial;
       color: initial;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* particles背景のz-indexをマイナス値ではなくプラスの小さい値に固定
+       （一部のブラウザ環境でマイナスz-indexが描画されない不具合への対応） */
+    #particles-js {
+      z-index: 0 !important;
     }
 
     header, header * {
@@ -98,7 +106,7 @@ body::before{
     <header>
       
       <h1 class="site-title">いしちゃんのホームページ</h1>
-      <p class="update-date">最終更新日：2026年8月23日</p>
+      <p class="update-date">最終更新日：2026年8月24日</p>
       <p class="site-desc">知能とは？AIとは？生物（動物・植物）とは？</p>
       <p class="disclaimer">記載内容には、誤りがある場合があります。気づきがあれば修正します。</p>
     </header>
@@ -179,10 +187,10 @@ body::before{
 
   </div><!-- /#wrapper -->
 
-  <!--==============particles.js 本体ライブラリ（CDN）===============-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <!--==============particles.js の設定ファイル===============-->
-  <script src="js/5-9.js"></script>
+  <!--==============particles.js 本体ライブラリ（サイト内に同梱）===============-->
+  <script src="js/particles.js"></script>
+  <!--==============particles.js の設定（週番号で自動ローテーション）===============-->
+  <script src="js/background-rotator.js"></script>
 
 </body>
 </html>

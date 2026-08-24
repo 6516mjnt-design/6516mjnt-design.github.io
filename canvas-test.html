@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>canvas描画テスト</title>
+<style>
+  body { background-color: #020E34; color: #fff; font-family: sans-serif; padding: 20px; }
+  canvas { border: 2px solid #7fd8ff; background: #000; }
+</style>
+</head>
+<body>
+  <p>下に赤い四角が見えていれば、canvas描画は正常です。</p>
+  <canvas id="c" width="300" height="300"></canvas>
+
+  <script>
+    var ctx = document.getElementById('c').getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.fillRect(20, 20, 200, 200);
+    document.title = "描画完了";
+  </script>
+</body>
+</html>
