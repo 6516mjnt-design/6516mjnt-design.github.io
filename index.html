@@ -50,6 +50,35 @@
       z-index: 0 !important;
     }
 
+    /* BGM再生トグルボタン */
+    #bgm-toggle {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(127, 216, 255, 0.4);
+      background: rgba(2, 14, 52, 0.7);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #bgm-toggle:hover {
+      background: rgba(79, 124, 255, 0.4);
+    }
+    #bgm-toggle.bgm-needs-tap {
+      animation: bgmPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes bgmPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(127, 216, 255, 0.5); }
+      50% { box-shadow: 0 0 0 8px rgba(127, 216, 255, 0); }
+    }
+
     header, header * {
       color: #fff !important;
     }
@@ -108,7 +137,7 @@ body::before{
       <h1 class="site-title">いしちゃんのホームページ</h1>
       <p class="update-date">最終更新日：2026年8月25日</p>
       <p class="site-desc">知能とは？AIとは？生物（動物・植物）とは？</p>
-      <p class="disclaimer">記載内容には、誤りがある場合があります。気づきがあれば修正します。</p>
+      <p class="disclaimer">記載内容には、誤りがある場合があります。気づきがあれば修正します。右下にある音響ボタンを押すとBGMが流れます。</p>
     </header>
 
     <div class="container">
@@ -191,6 +220,10 @@ body::before{
   <script src="js/particles.js"></script>
   <!--==============particles.js の設定（週番号で自動ローテーション）===============-->
   <script src="js/background-rotator.js"></script>
+  <!--==============BGM再生用===============-->
+  <audio id="bgm-player" preload="auto"></audio>
+  <button id="bgm-toggle" aria-label="音楽を再生/停止" aria-pressed="false">🔈</button>
+  <script src="js/bgm-rotator.js"></script>
 
 </body>
 </html>
