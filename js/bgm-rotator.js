@@ -55,6 +55,13 @@
     }
   }
 
+  /* ---------- 指定した曲を再生する（確認・切替用） ---------- */
+  function playTrack(index) {
+    audio.src = tracks[index];
+    audio.currentTime = 0;
+    audio.play().then(function () { setButtonState(true); });
+  }
+
   if (btn) {
     btn.addEventListener("click", function () {
       if (audio.paused) {
@@ -73,7 +80,8 @@
     tracks: tracks,
     weekNumber: weekNumber,
     selectedTrack: selectedTrack,
-    audio: audio
+    audio: audio,
+    playTrack: playTrack
   };
 
 })();

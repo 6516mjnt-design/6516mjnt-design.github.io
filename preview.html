@@ -67,6 +67,12 @@
     <div class="btns" id="btns"></div>
   </div>
 
+  <div class="panel" style="top: 360px;">
+    <h1>BGM プレビュー</h1>
+    <p id="bgm-status">読み込み中...</p>
+    <div class="btns" id="bgm-btns"></div>
+  </div>
+
   <audio id="bgm-player" preload="auto"></audio>
   <button id="bgm-toggle" aria-label="音楽を再生/停止" aria-pressed="false">🔈</button>
 
@@ -98,6 +104,33 @@
       }
 
       render(r.currentIndex);
+    });
+
+    window.addEventListener("load", function () {
+      var m = window.bgmRotator;
+      if (!m) return;
+
+      var bgmStatus = document.getElementById("bgm-status");
+      var bgmBtns = document.getElementById("bgm-btns");
+      var currentBgmIndex = m.tracks.indexOf(m.selectedTrack);
+
+      function renderBgm(activeIndex) {
+        bgmStatus.textContent = "今週(ISO第" + m.weekNumber + "週)の曲：" +
+          (activeIndex + 1) + "曲目 ／ 下のボタンで他の曲も試聴できます";
+        bgmBtns.innerHTML = "";
+        m.tracks.forEach(function (track, i) {
+          var b = document.createElement("button");
+          b.textContent = (i + 1) + "曲目";
+          if (i === activeIndex) b.classList.add("active");
+          b.onclick = function () {
+            m.playTrack(i);
+            renderBgm(i);
+          };
+          bgmBtns.appendChild(b);
+        });
+      }
+
+      renderBgm(currentBgmIndex);
     });
   </script>
 
