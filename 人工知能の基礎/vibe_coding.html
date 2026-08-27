@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイブコーディング</title>
+        <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+<style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, "Liberation Mono", Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="
+    padding: 8px 20px;
+    background-color: #0057b8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  ">🖨️ 印刷</button>
+</div>
+
+    <header>
+        <h1>バイブコーディング</h1>
+        <p class="meta">2026年8月27日更新</p>
+    </header>
+
+    <main>
+        <h2>1. バイブコーディングとは</h2>
+        <p class="lead">AIコーディングアシスタントに自然言語で指示を出し、コードの細部を自分で書くのではなく「雰囲気（vibe）」や意図を伝えながら開発を進める手法。</p>
+
+        <div class="tech-note">
+            <ul>
+                <li><span class="method-name">プロンプト駆動：</span><br>関数名や実装詳細を細かく指定せず、「〜という機能が欲しい」という要求ベースで進める。</li>
+                <li><span class="method-name">高速な反復：</span><br>生成→実行→エラー確認→修正、というループを素早く回す。</li>
+                <li><span class="method-name">動くかどうかを重視：</span><br>コードを読むことよりも、特にプロトタイピングや個人開発で「動くかどうか」を優先する。</li>
+                <li><span class="method-name">人間の役割の変化：</span><br>コードを書く役割から、方向性を決めてチェックするレビュアー兼ディレクターへシフトする。</li>
+            </ul>
+        </div>
+
+        <p>一方で、生成されたコードの構造やセキュリティを理解せずに進めると、後で保守できないコードになるリスクもあるため、理解しながらステップバイステップで進めることが肝要。</p>
+
+        <hr>
+
+        <h2>2. スキルを向上させるために必要なこと</h2>
+
+        <div class="tech-note">
+            <ol>
+                <li><strong>プロンプトの解像度を上げる</strong><br>曖昧な依頼（「いい感じにして」）ではなく、制約・入出力・エッジケースを明示する。期待する技術スタックやコーディング規約を最初に伝える。</li>
+                <li><strong>コードを読む力を維持する</strong><br>AIが生成したコードを「動いたからOK」で終わらせず、なぜそう書かれたか理解する。特にセキュリティに関わる部分（認証、外部入力の扱いなど）は必ず自分で検証する。</li>
+                <li><strong>反復とテストの型を持つ</strong><br>小さい単位で生成→テスト→コミットを繰り返す。テストコードもAIに書かせて、リグレッションを防ぐ仕組みを作る。</li>
+                <li><strong>バージョン管理を徹底する</strong><br>Gitでこまめにコミットし、AIの誤った変更をすぐ戻せるようにする。</li>
+                <li><strong>段階的に「委ねる範囲」を広げる</strong><br>最初は1関数単位、慣れたらファイル単位、さらにマルチファイル・アーキテクチャ設計まで委ねる練習をする。</li>
+                <li><strong>失敗パターンを蓄積する</strong><br>AIが苦手なタスク（複雑な状態管理、パフォーマンス最適化など）を経験的に把握し、そこは自分で介入する。</li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <h2>3. 素人でも最低限身につけておくとよいスキル</h2>
+        <p>土台となる最低限の知識があるかどうかで、AIとのやり取りの効率もコストも大きく変わる。以下、優先度順に挙げる。</p>
+
+        <h3>必須レベル（ここがないと詰まりやすい）</h3>
+        <div class="tech-note">
+            <ol>
+                <li><strong>コマンドライン（ターミナル）の基本操作</strong><br><code>cd</code>、<code>ls</code>、ファイルの実行方法くらいは分かるようにする。これが分からないと、AIが「ターミナルでこれを実行してください」と言っても対応できない。</li>
+                <li><strong>Gitの最低限の使い方</strong><br><code>git init</code>、<code>add</code>、<code>commit</code>、<code>push</code>、<code>pull</code>。AIが壊したコードを元に戻せるだけで、心理的な安心感とコスト削減が段違い。</li>
+                <li><strong>コードを「読んで大まかに理解する」力</strong><br>書けなくてもいい。ただし「このコードは何をしているか」を大まかに追える程度。エラーメッセージを読んで、どこで何が起きているかの見当がつくレベル。</li>
+                <li><strong>プログラミングの基本概念</strong><br>変数、条件分岐（if）、繰り返し（for/while）、関数の考え方。これがあると指示が的確になり、AIとの無駄なやり取り（＝トークン消費＝コスト）が減る。</li>
+            </ol>
+        </div>
+
+        <h3>あるとかなり楽になるレベル</h3>
+        <div class="tech-note">
+            <ol start="5">
+                <li><strong>開発環境の基礎知識</strong><br>ローカル環境とは何か、サーバーとは何か、ポート番号とは何か、という程度の地図。VS Codeなどエディタの基本操作。</li>
+                <li><strong>デバッグの考え方</strong><br>エラーが出たときに「どこまでは動いていたか」を切り分ける思考法。AIに丸投げする前に「ここまでは確認した」と伝えられると、やり取りの往復が減る＝コスト削減。</li>
+                <li><strong>簡単なHTML/CSSの読解</strong><br>Web系を触るなら、タグの意味や構造くらいは分かると、AIの出力を検証しやすい。</li>
+            </ol>
+        </div>
+
+        <h3>コスト面での実践的なコツ</h3>
+        <ul>
+            <li><span class="method-name">無料枠・低コストのツールから始める：</span>Claude.aiのブラウザ版やGitHub Copilotの無料枠、ローカルLLMなど、まずは課金前に慣れる。</li>
+            <li><span class="method-name">小さいタスクから練習する：</span>いきなり大きなアプリを作らず、100行以内のスクリプトで「指示→生成→修正」のループに慣れる。</li>
+            <li><span class="method-name">プロンプトを使い回せる形にストックする：</span>うまくいった指示の型をメモしておくと、次回の試行錯誤（＝コスト）が減る。</li>
+            <li><span class="method-name">無駄なAPIコールを避ける：</span>エラーの原因を自分である程度切り分けてからAIに聞くと、やり取りの回数が減る。</li>
+        </ul>
+
+        <blockquote>
+            「コードを書ける」より「コードを読める・状況を説明できる・元に戻せる」の3つが揃っていれば、素人でも十分バイブコーディングを回せる。逆にこの3つが欠けていると、AIとの往復が増えてコストも時間もかさみやすい。
+        </blockquote>
+
+        <hr>
+
+        <h2>4. 輸出管理に関するグローバル監視システムの設計の検討</h2>
+
+        <h3>テーマ設定の考え方</h3>
+        <ul>
+            <li>情報源が構造化されている（HTML/PDF/RSSなど機械的に取得できる）</li>
+            <li>更新頻度が読める（毎日/週次/月次など、監視のリズムが作れる）</li>
+            <li>自分が「変化に気づく価値」を判断できる領域（専門知識があるから、AIが拾ったノイズと本当に重要な変化を見分けられる）</li>
+        </ul>
+
+        <div class="tech-note">
+            <h4>ステップ1：単一ソースの定点観測（最も簡単）</h4>
+            <ul>
+                <li>METIの「安全保障貿易管理」お知らせページの更新チェッカー
+                    <ul>
+                        <li>ページを定期取得→前回とのdiffを取る→変化があればメール/Slack通知</li>
+                        <li>技術要素：HTTP取得、簡単な文字列比較、通知API</li>
+                        <li>難易度：★☆☆☆☆（数十行のスクリプト）</li>
+                    </ul>
+                </li>
+                <li>CISTECニュースやAustralia Groupの公式サイトの更新監視
+                    <ul>
+                        <li>同じ仕組みを別ソースに横展開するだけなので、1個目より格段に楽</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>ステップ1をまず1つ、1〜2週間以内に「実際に自分宛に通知が届く」ところまで完成させる。METIのお知らせページなど、日常的にチェックしているソースを1つ選ぶのが良い。</p>
+
+            <h4>ステップ2：複数ソースの統合と分類</h4>
+            <ul>
+                <li>輸出管理関連の複数サイト（METI、CISTEC、外務省、米国BIS/EAR、EU規則）を横断的に巡回し、1つのダッシュボードにまとめる
+                    <ul>
+                        <li>技術要素：スケジューラ（定期実行）、簡易DB（SQLiteなど）、簡単なWeb UI</li>
+                        <li>「新着一覧」が一画面に出るだけでも実務的な価値がかなり高い</li>
+                        <li>既に持っている中国側リストとの連携もここで活きる</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>ステップ3：分類・要約の自動化</h4>
+            <ul>
+                <li>収集した更新情報をAI（Claude API）に投げて、「該非判定に影響しそうか」「新規規制品目か」などを自動タグ付けする
+                    <ul>
+                        <li>技術要素：API連携、プロンプト設計、簡単なルールベース分類との組み合わせ</li>
+                        <li>ここから「情報収集」→「一次スクリーニング」まで自動化でき、体感的な効果が大きい</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>ステップ4：横断的な関連付け・変化検知</h4>
+            <ul>
+                <li>国ごとの規制リスト（中国の管制清単、米国のEntity List、EUの制裁リストなど）を突き合わせ、同一企業・技術が複数リストに新規追加されたときにアラートを出す
+                    <ul>
+                        <li>技術要素：エンティティ名の名寄せ（表記ゆれ処理）、簡易的な関連グラフ</li>
+                        <li>難易度が上がる分、既存の専門知識がフルに活きる領域</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4>ステップ5：グローバル監視システムへの統合（最終形）</h4>
+            <ul>
+                <li>上記の各モジュールを、既に設計済みの監視システムのコンポーネントとして統合</li>
+                <li>ローカルPCでの定期実行＋将来的なクラウド移行を見据えた構成</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>5. まとめ</h2>
+        <p>バイブコーディングは「素人だからできない」ものではなく、最低限の土台（コマンドライン・Git・コードを読む力・基本概念）を整えたうえで、小さく検証可能なテーマから始めることが上達の近道。輸出管理という専門領域は情報源の構造化・更新頻度・専門知識による価値判断の3条件を満たしており、ステップ1〜5の段階的な取り組みでシステム化しやすいテーマである。</p>
+    </main>
+
+</body>
+</html>
