@@ -88,18 +88,18 @@
 
   h1 span { color: var(--accent1); }
 
-  .subtitle {
+  .page-header .subtitle {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: #c9cedb !important;
     font-weight: 300;
     margin-bottom: 24px;
   }
 
-  .meta-row {
+  .page-header .meta-row {
     display: flex; align-items: center; gap: 20px;
     font-family: 'Space Mono', monospace;
     font-size: 11px;
-    color: var(--text-dim);
+    color: #c9cedb !important;
   }
 
   .meta-dot {
@@ -111,6 +111,25 @@
   @keyframes pulse {
     0%,100% { opacity: 1; transform: scale(1); }
     50% { opacity: .4; transform: scale(.7); }
+  }
+
+  .page-header .last-updated {
+    position: absolute;
+    top: 24px; left: 48px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #e8eaf0 !important;
+    letter-spacing: .05em;
+    text-align: left;
+    z-index: 1;
+  }
+
+  .page-header .last-updated span {
+    color: var(--accent1) !important;
+  }
+
+  @media (max-width: 900px) {
+    .page-header .last-updated { position: static; margin: 0 24px 12px; text-align: left; }
   }
 
   /* ── legend ── */
@@ -143,9 +162,9 @@
     min-width: 1100px;
   }
 
-  thead th {
+  table thead th {
     background: var(--surface2);
-    color: var(--text-secondary);
+    color: #e8eaf0 !important;
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     font-weight: 400;
@@ -320,6 +339,7 @@
 <body>
 
 <header class="page-header">
+  <p class="last-updated">最終更新日：<span>2026年8月28日</span></p>
   <p class="eyebrow">Research Timeline — Synthetic Biology × AI</p>
   <h1>AI×合成生物学の<span>技術進展</span>と規制</h1>
   <p class="subtitle">2000年代〜2026年 ／ 主要ブレイクスルーと輸出管理・バイオセキュリティの動向</p>
@@ -469,7 +489,9 @@
       </td>
       <td>最新の「拡散モデル（Diffusion Model）」をコアに採用。タンパク質単体にとどまらず、DNA、RNA、化学物質（化合物・リガンド）、イオンなど、「生命のすべての分子の相互作用と複合体構造」を同一システムで高精度に生成・予測する段階へ創発。2024年ノーベル化学賞の決定打となる。</td>
       <td>複雑な細胞内シグナルを制御する分子標的薬の自動設計や、核酸医薬の最適化、特定の環境下でのみ駆動する人工酵素の創出など、バイオものづくりのパラダイムが「実験主導」から「デジタル主導」へ完全移行。</td>
-      <td>OPCWの科学諮問委員会（SAB）に「AIに関する臨時作業部会（TWG on AI）」が設置され集中議論。AIが規制リスト（CWC表物質）を迂回する「新しい合成経路」を勝手に最適化・創発するため、現物や静的な禁止リストによる輸出管理が機能不全に陥り始める。</td>
+      <td>OPCWの科学諮問委員会（SAB）に「AIに関する臨時作業部会（TWG on AI）」が設置され集中議論。AIが規制リスト（CWC表物質）を迂回する「新しい合成経路」を勝手に最適化・創発するため、現物や静的な禁止リストによる輸出管理が機能不全に陥り始める。
+        <p>同作業部会は2026年3月3日に最終報告書を公表し、AIを検証・産業慣行・人材育成・国際安全保障に関わる「横断的課題」と位置づけ。以降もOPCWはソウル（2026年4月）や中国（2025〜2026年）での能力構築ワークショップを重ね、AIの化学分野への浸透を継続的に監視する体制へ移行。</p>
+      </td>
     </tr>
 
     <!-- 2026年 -->
@@ -490,9 +512,15 @@
       <td class="dir-cell">
         <div class="dir-badge">自律的試行錯誤と動的制御</div>
       </td>
-      <td>AIが細胞全体の振る舞いを予測・シミュレートする「仮想細胞（Virtual Cell）」が本格化。さらに、AIの設計からロボットによる自動実験、結果のフィードバックまでを人間を介さず高速ループ（クローズドループ）させる自律型ラボが登場。</td>
+      <td>AIが細胞全体の振る舞いを予測・シミュレートする「仮想細胞（Virtual Cell）」が本格化。さらに、AIの設計からロボットによる自動実験、結果のフィードバックまでを人間を介さず高速ループ（クローズドループ）させる自律型ラボが登場。
+        <p>Arc Institute主催「Virtual Cell Challenge」には114カ国から5,000人超が参加。Chan Zuckerberg Initiativeは仮想細胞シミュレーションを検証シグナルとして学習する推論モデル「rBio」や3億細胞規模の仮想細胞アトラスを公開するなど、複数機関が競う開発競争が加速。ただし多くのモデルが未知の摂動への汎化やバッチ効果の混入といった課題を残しており、「精度そのものより、何を検証シグナルにするか」が焦点になりつつある。</p>
+        <p>2026年8月27日、Anthropicは「自律型ラボ」を具体化する動きとして、AIエージェントが顕微鏡・液体ハンドラー・ロボットアームなど実験機器を安全に操作するための共通仕様「Model Hardware Standard（MHS）」の研究プレビューを公開（HHMI Janelia Research Campusと共同開発、「機器接続のUSB-C」と説明）。Genentechでの創薬実験やHHMI Janeliaでの画像実験（数週間→1日に短縮）で実証済み。現状は科学研究機関・先端製造業者向けの限定提供だが、将来的にオープンソース化予定で、AIによる実験機器の直接制御が業界横断の標準へ向かう最初の一歩となる可能性がある。</p>
+      </td>
       <td>医療・環境・素材分野での超高速な実証実験と、オーダーメイド型バイオ製品のオンデマンド生産の実現。</td>
-      <td>「予測・完全制御の不可能性」を科学的前提とし、撲滅型規制から免疫型の「動的ロバストネス」へ。DNA委託合成の現場における「スクリーニング（物質化のチョークポイント監視）」の国際標準化。AIの思考プロセス（Chain of Thought）監視による行動の検知強化。</td>
+      <td>「予測・完全制御の不可能性」を科学的前提とし、撲滅型規制から免疫型の「動的ロバストネス」へ。DNA委託合成の現場における「スクリーニング（物質化のチョークポイント監視）」の国際標準化。AIの思考プロセス（Chain of Thought）監視による行動の検知強化。
+        <p>2026年6月、主要AI企業CEO・生命科学研究者・元政府高官を含む幅広い連合が、核酸合成のスクリーニングと記録保持の義務化を求める公開書簡を米議会に提出。米上院でも「核酸標準バイオセキュリティ法案（S.3029）」「2026年バイオセキュリティ近代化・イノベーション法案（S.3741）」の審議が進み、業界自主規制（IGSCプロトコル）中心の体制から法制化への転換点を迎えている。責任の所在は合成受託企業側に置かれ、AIモデル自体への直接規制ではない点が論点。</p>
+        <p>AIが実験機器を直接操作するMHSのような標準の登場は、EUの機械指令（Machinery Regulation、2027年1月20日からAIベースの安全機能を適用対象に含める）のような「AIによる物理機器制御」自体を規制する新しい枠組みとも関連。バイオ・合成生物学分野では、AIが設計するだけでなく機器操作まで担うことで、輸出管理上の「技術（技術データ）」と「現物（機器）」の境界がさらに曖昧になる点が今後の論点となりうる。</p>
+      </td>
     </tr>
 
   </tbody>
