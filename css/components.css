@@ -254,20 +254,58 @@ header p {
 }
 
 /* ---------- 英語版バッジ・言語切り替えリンク ---------- */
+/* 一覧・ハブページで「本文リンク＋ENバッジ」を横並びにするための行 */
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.link-row > a:not(.lang-badge) {
+  flex: 1;
+}
+
+/* ENバッジ自体（英語ページへの独立したリンク） */
 .lang-badge {
   display: inline-block;
-  padding: 2px 9px;
+  flex: none;
+  padding: 3px 10px;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: bold;
   color: var(--color-white);
   background-color: var(--color-green);
   letter-spacing: 0.5px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
 }
-/* 一覧・ハブページのリンクの中に置いた場合は右端に寄せる */
-.link-list a .lang-badge,
-.card-body a .lang-badge {
-  float: right;
+.lang-badge:hover {
+  background-color: var(--color-green-dark);
+  color: var(--color-white);
+}
+/* .link-list a / .card-body a は要素+クラスで .lang-badge 単体より詳細度が高く、
+   border・角丸・文字サイズ等を上書きしてしまうため、ここで全項目を明示的に指定し直す */
+.link-list a.lang-badge,
+.card-body a.lang-badge {
+  display: inline-block;
+  flex: none;
+  padding: 3px 10px;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.link-list a.lang-badge:hover,
+.card-body a.lang-badge:hover {
+  background-color: var(--color-green-dark);
+  color: var(--color-white);
+  border-color: transparent;
+  transform: none;
 }
 
 .lang-nav {
