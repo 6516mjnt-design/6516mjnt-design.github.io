@@ -253,6 +253,39 @@ header p {
   margin-bottom: var(--space-section);
 }
 
+/* ---------- 英語版バッジ・言語切り替えリンク ---------- */
+.lang-badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  letter-spacing: 0.5px;
+}
+/* 一覧・ハブページのリンクの中に置いた場合は右端に寄せる */
+.link-list a .lang-badge,
+.card-body a .lang-badge {
+  float: right;
+}
+
+.lang-nav {
+  text-align: right;
+  margin-bottom: 18px;
+  font-size: 0.85rem;
+}
+.lang-nav a {
+  color: var(--color-blue);
+  text-decoration: none;
+  border: 1px solid var(--color-blue);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+}
+.lang-nav a:hover {
+  background-color: #ebf8ff;
+}
+
 /* ---------- 印刷ボタン ---------- */
 .btn-print {
   position: absolute;
