@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIAのGPUアーキテクチャの進化</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #1a365d;
+            border-bottom: 3px solid #1a365d;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: #fff;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; padding: 10px;">
+        <button onclick="window.print()" style="
+            padding: 8px 20px;
+            background-color: #0057b8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        ">🖨️ 印刷</button>
+    </div>
+
+    <header>
+        <h1>NVIDIAのGPUアーキテクチャの進化</h1>
+        <p class="meta">2026年8月31日更新</p>
+    </header>
+
+    <main>
+        <p class="lead">「リアルな画面を高速で描画するための技術（GPU）が、偶然にもAIの計算に最適な構造だった」ことから始まった。</p>
+        <p>NVIDIAは、「ディスプレイにより滑らかで美しい映像を映したい」というゲーマーやクリエイターの需要に応え続けた。その結果として進化したGPUの並列計算能力とAI専用コアが、現在のChatGPTに代表される生成AIや、自動運転、医療AIなどを支える世界最強のインフラ（H100やBlackwellなどのデータセンター向けAIチップ）へと直接つながる。</p>
+        <p>最初に、ディスプレイ技術やグラフィックスの進化について、次に、GPUアーキテクチャ（モデル）の進化についてみていく。</p>
+
+        <hr>
+
+        <h2>１．ディスプレイ技術やグラフィックスの進化</h2>
+
+        <h3>1) 3DグラフィックスとAIの合流</h3>
+        <p>ディスプレイに美しい3D映像を映すには、画面内にある数百万個のピクセル（画素）の色や光の計算を、同時に超高速で行う必要がある。CPUが少数の複雑な計算を得意とするのに対し、GPUは「単純な計算を、何千ものコアで同時に一斉処理する（並列計算）」のが得意。2010年代に爆発的な進化を遂げたディープラーニング（深層学習）も、「膨大なデータの掛け算と足し算を同時に一斉処理する」という、3Dグラフィックスと全く同じ計算構造を持っていた。これにより、GPUがAIのエンジンとして脚光を浴びる。</p>
+
+        <h3>2) ハードウェアへのAI専用コアの搭載</h3>
+        <p>ディスプレイの描画をさらに進化させるため、グラフィックボードの構造そのものをAI向けに変革した。それが2018年の「GeForce RTX 20シリーズ（Turing世代）」から搭載された「Tensor（テンサー）コア」。</p>
+        <p>グラフィックスの次世代技術「レイトレーシング（リアルな光の表現）」を処理するため、AI専用の計算回路として搭載された。一般的なPC向けのグラフィックボード（GPU）そのものが、強力なAI研究・開発の機材となった。</p>
+
+        <h3>3) ディスプレイ技術におけるAIの活用</h3>
+        <p>「AIを使ってディスプレイの表示パフォーマンスを劇的に上げる」という逆方向の寄与（グラフィックスへのAI還元）も行っている。その代表例がDLSS（Deep Learning Super Sampling）。</p>
+        <p>ゲーム画面をあえて低い解像度（例: 1080p）で描画してGPUの負荷を下げた後、NVIDIAのスーパーコンピューターで学習させたAIが、ディスプレイに映す瞬間に高解像度（例: 4K）へと美しく超解像・補完する。AIが「前のフレーム」と「次のフレーム」を分析し、その間にある存在しないフレームを丸ごとAIが生成してディスプレイに出力します。これにより、ゲームのフレームレートが2倍〜4倍に跳ね上がった。</p>
+
+        <h3>4) 自動運転やロボティクスへの応用（画面の「描画」から「認識」へ）</h3>
+        <p>ディスプレイに3D空間を「描く」ために培った空間認識や物理演算の技術は、AIが現実世界を「理解する」ためのシミュレーション技術へと発展した。自動運転車や産業用ロボットのAIを賢くするため、現実そっくりの高精細な3D空間（デジタルツイン）をGPUで作る。その中でAIに何百万キロもの走行テストやピッキングの練習をさせることで、現実世界の危険を伴わずにAIを高速で進化させている。</p>
+
+        <hr>
+
+        <h2>２．GPUアーキテクチャ（モデル）の進化</h2>
+
+        <h3>1) 2016年〜 Pascal（パスカル）世代</h3>
+        <div class="tech-note">
+            <p><strong>代表的なGPU:</strong> <span class="method-name">GeForce GTX 1080 / 1080 Ti</span></p>
+            <ul>
+                <li><strong>ディスプレイ:</strong> 4K解像度でのゲーミングや、黎明期の本格的なVR（仮想現実）ヘッドセットを実用的なフレームレートで駆動できるようになった。</li>
+                <li><strong>AI進化:</strong> 深層学習（ディープラーニング）の計算に初めて本格的に最適化された。世界中のAI研究者がこのGPUを並べて実験を行い、初期の画像認識AIや翻訳AIが実用化された。</li>
+            </ul>
+        </div>
+
+        <h3>2) 2018年〜 Turing（チューリング）世代</h3>
+        <div class="tech-note">
+            <p><strong>代表的なGPU:</strong> <span class="method-name">GeForce RTX 2080</span>（モデル名が「GTX」から「RTX」へ変更）</p>
+            <ul>
+                <li><strong>ディスプレイ:</strong> レイトレーシング（光の物理シミュレーション）の実時間処理に世界で初めて成功した。水面の反射やガラスの透過が現実さながらに描画できるようになった。</li>
+                <li><strong>AI進化:</strong> AI専用の計算回路「Tensorコア」をGPUに初めて搭載しました。これにより、AIが低解像度映像を高精細化する「DLSS 1.0 / 2.0」が実現し、グラフィックスとAIが初めて融合した。</li>
+            </ul>
+        </div>
+
+        <h3>3) 2020年〜 Ampere（アンペア）世代</h3>
+        <div class="tech-note">
+            <p><strong>代表的なGPU:</strong> <span class="method-name">GeForce RTX 3080</span> / <span class="method-name">データセンター向け A100</span></p>
+            <ul>
+                <li><strong>ディスプレイ:</strong> 8K解像度での表示・プレイや、144Hzを大きく超える360Hzといった超高リフレッシュレート（eスポーツ仕様）のディスプレイ駆動が現実のものとなった。</li>
+                <li><strong>AI進化:</strong> A100チップが世界中のデータセンターに導入された。これにより計算能力が爆発的に向上し、「ChatGPT（GPT-3.5）」をはじめとする大規模言語モデル（LLM）の訓練が完了し、現在の生成AIブームが到来した。</li>
+            </ul>
+        </div>
+
+        <h3>4) 2022年〜 Ada Lovelace（エイダ・ラブレス）世代</h3>
+        <div class="tech-note">
+            <p><strong>代表的なGPU:</strong> <span class="method-name">GeForce RTX 4080 / 4090</span></p>
+            <ul>
+                <li><strong>ディスプレイ:</strong> 「DLSS 3（フレーム生成）」の実現です。AIが過去のフレームから「未来の1コマ」を丸ごと予測して描き出すことで、ゲームの描画速度が人間の限界を超えて最大4倍に跳ね上がった。</li>
+                <li><strong>AI進化:</strong> 個人用のデスクトップPC（ローカル環境）でも、画像生成AI（Stable Diffusionなど）や、軽量な対話型AIを数秒でサクサク動かすことが可能になった。</li>
+            </ul>
+        </div>
+
+        <h3>5) 2023年〜2026年 Hopper / Blackwell（ホッパー / ブラックウェル）世代</h3>
+        <div class="tech-note">
+            <p><strong>代表的なGPU:</strong> データセンター向け <span class="method-name">H100</span>、そして最新の <span class="method-name">Blackwell B200</span> など</p>
+            <ul>
+                <li><strong>ディスプレイ:</strong> ゲーム領域では「DLSS 3.5（レイ再構成）」により、光の描写そのものをAIに任せることで、映画品質のグラフィックを家庭用ディスプレイにリアルタイム出力できるようになった。</li>
+                <li><strong>AI進化:</strong> マルチモーダルAI（テキスト・音声・映像を同時に理解するAI）が完成。数兆個のパラメータを持つ超巨大AIのリアルタイム対話（GPT-4oや最新の対話型AIモデル）や、複雑な推論を行うAI、そして街全体を自律走行する自動運転AIの頭脳として完全に定着した。</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>モデル進化がもたらした計算力のマイルストーン</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">世代</th>
+                    <th style="width: 20%;">時期</th>
+                    <th style="width: 60%;">主な到達点・ブレイクスルー</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pascal</strong></td>
+                    <td>2016年〜</td>
+                    <td>画像認識の実用化</td>
+                </tr>
+                <tr>
+                    <td><strong>Turing</strong></td>
+                    <td>2018年〜</td>
+                    <td>レイトレーシング実現</td>
+                </tr>
+                <tr>
+                    <td><strong>Ampere</strong></td>
+                    <td>2020年〜</td>
+                    <td>ChatGPT等の生成AIが誕生</td>
+                </tr>
+                <tr>
+                    <td><strong>Ada / Hopper</strong></td>
+                    <td>2022年〜2023年</td>
+                    <td>AIによる映像の「コマ丸ごと生成」</td>
+                </tr>
+                <tr>
+                    <td><strong>Blackwell</strong></td>
+                    <td>2024年〜2026年</td>
+                    <td>数兆パラメータ超巨大AIのリアルタイム推論</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <blockquote>
+            <p><strong>まとめ：</strong></p>
+            <p style="margin-bottom: 0;">NVIDIAのモデルが進歩するたびに、画面の向こう側の世界は「人間が1コマずつ描く世界」から「AIがリアルタイムに世界を予測・生成してディスプレイに映し出す世界」へと変貌した。</p>
+        </blockquote>
+    </main>
+</body>
+</html>
