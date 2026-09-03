@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI機能別比較マトリクス</title>
+  <!-- 共通のCSSファイルを読み込む -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <!-- 表のセル枠線をくっきり見やすくするための追加スタイル -->
+  <style>
+    /* 印刷ボタンの位置基準を確保 */
+    .container {
+      position: relative;
+    }
+    .table-wrap table {
+      border-collapse: collapse; /* 隣り合う枠線を重ねて一本にする */
+      width: 100%;
+      margin-top: 15px;
+    }
+    .table-wrap th,
+    .table-wrap td {
+      border: 1px solid #ccc; /* すべてのセルの周囲に薄いグレーの枠線を引く */
+      padding: 12px;          /* セル内の文字にゆとりを持たせる */
+      vertical-align: top;    /* セル内の文字を上に揃える */
+    }
+    .table-wrap th {
+      background-color: #f5f5f5; /* 見出し列の背景をほんのりグレーにして区別 */
+      font-weight: bold;
+    }
+    .td-feature {
+      background-color: #fafafa; /* 機能名の列の背景を少し変えて見やすく */
+      font-weight: bold;
+      white-space: nowrap;      /* 機能名が途中で改行されないようにする */
+    }
+    .entry {
+      margin-bottom: 8px;       /* 同じセル内に複数の項目がある場合の行間 */
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #eee; /* 項目同士の区切り線 */
+    }
+    .entry:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;      /* 最後の項目には区切り線を入れない */
+    }
+    .na {
+      color: #999;
+    }
+    .feature-desc {
+      display: block;
+      font-weight: normal;
+      font-size: 0.8em;
+      color: #777;
+      white-space: normal;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 全体をcontainerで囲む -->
+  <div class="container">
+
+    <!-- ヘッダー部分 -->
+    <header>
+      <h1>AI機能別比較マトリクス</h1>
+      <p>作成日：2026年9月3日（拡張版）</p>
+      <p>AI Feature Comparison Matrix</p>
+    </header>
+
+    <!-- 凡例部分 -->
+    <div class="category-card" style="margin-bottom: 30px;">
+      <div class="category-title">対象企業・製品</div>
+      <ul>
+        <li>🟢 OpenAI（ChatGPT）</li>
+        <li>🔵 Google（Gemini）</li>
+        <li>🟠 Anthropic（Claude）</li>
+      </ul>
+    </div>
+
+    <!-- 表部分 -->
+    <h2>機能別比較マトリクス（2026年9月3日時点）</h2>
+    <p style="margin-bottom: 10px; color: #555;">各機能名の下に、初めて見る方向けの簡単な説明を添えています。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>AI機能（縦軸）</th>
+            <th>🟢 OpenAI</th>
+            <th>🔵 Google</th>
+            <th>🟠 Anthropic</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- 主要LLMモデル -->
+          <tr>
+            <td class="td-feature">主要LLMモデル
+              <span class="feature-desc">頭脳にあたる中核AI。他の全機能はこの上に載る</span>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">GPT-5.6</span>
+                <span class="model-date">Sol／Terra／Lunaの3階層</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Gemini 3.8 Flash／3.5 Flash-Lite</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude Sonnet 5／Opus 5／Haiku 4.5</span>
+                <span class="model-date">上位にMythos／Fable系</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- テキスト・対話 -->
+          <tr>
+            <td class="td-feature">テキスト・対話
+              <span class="feature-desc">いわゆる「チャットで質問に答える」基本機能</span>
+            </td>
+            <td>
+              <div class="entry">ChatGPT（メモリ・カスタム指示対応）</div>
+            </td>
+            <td>
+              <div class="entry">Geminiアプリ（Live対話・要約）</div>
+            </td>
+            <td>
+              <div class="entry">Claude（自然な長文対話、日本語品質に強み）</div>
+            </td>
+          </tr>
+
+          <!-- 画像・動画生成 -->
+          <tr>
+            <td class="td-feature">画像・動画生成
+              <span class="feature-desc">文章から絵や映像を作る機能</span>
+            </td>
+            <td>
+              <div class="entry">GPT Image 2、Sora 2／Sora 2 Pro</div>
+            </td>
+            <td>
+              <div class="entry">Imagen系、Veo 3.1</div>
+            </td>
+            <td>
+              <div class="entry na">非対応（画像・動画生成機能は提供せず）</div>
+            </td>
+          </tr>
+
+          <!-- 音声認識・会話 -->
+          <tr>
+            <td class="td-feature">音声認識・会話
+              <span class="feature-desc">声で話しかけて、声で返してくれる機能</span>
+            </td>
+            <td>
+              <div class="entry">Whisper、GPT-Live</div>
+            </td>
+            <td>
+              <div class="entry">Google翻訳、Gemini Live</div>
+            </td>
+            <td>
+              <div class="entry na">音声機能は非搭載（外部連携のみ）</div>
+            </td>
+          </tr>
+
+          <!-- プログラミング支援 -->
+          <tr>
+            <td class="td-feature">プログラミング支援
+              <span class="feature-desc">プログラムのコードを書く・直すのを手伝う機能</span>
+            </td>
+            <td>
+              <div class="entry">GitHub Copilot、Codex（GPT-5.6 Sol搭載）</div>
+            </td>
+            <td>
+              <div class="entry">Gemini Code Assist</div>
+            </td>
+            <td>
+              <div class="entry">Claude Code、Artifacts</div>
+            </td>
+          </tr>
+
+          <!-- 開発エージェント基盤（CLI/IDE） -->
+          <tr>
+            <td class="td-feature">開発エージェント基盤（CLI／IDE）
+              <span class="feature-desc">プログラマー向け。ターミナルやエディタ上で自律的にコード作業を行う</span>
+            </td>
+            <td>
+              <div class="entry">Codex CLI</div>
+            </td>
+            <td>
+              <div class="entry">Gemini CLI／Google Antigravity</div>
+            </td>
+            <td>
+              <div class="entry">Claude Code（CLI／VS Code／JetBrains）</div>
+            </td>
+          </tr>
+
+          <!-- 自律型AIエージェント（業務代行） -->
+          <tr>
+            <td class="td-feature">自律型AIエージェント（業務代行）
+              <span class="feature-desc">「この資料を作って」と頼むと、複数の作業を自分で進めて仕上げてくれる機能</span>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">ChatGPT Work</span><br>
+                文書・スライド作成、複数ファイル横断分析を自律実行
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Gemini Spark</span><br>
+                Google Workspace・Gmail等と連携し24時間稼働
+              </div>
+            </td>
+            <td>
+              <div class="entry">
+                <span class="model-name">Claude Cowork</span><br>
+                ローカルファイル操作、レポート作成、定期タスクを自律実行
+              </div>
+            </td>
+          </tr>
+
+          <!-- ブラウザエージェント -->
+          <tr>
+            <td class="td-feature">ブラウザエージェント
+              <span class="feature-desc">AIが人の代わりにWebブラウザを操作し、検索・予約・入力などを行う機能</span>
+            </td>
+            <td>
+              <div class="entry">
+                Chrome拡張＋ChatGPTデスクトップアプリ内のエージェント機能<br>
+                <span class="feature-desc" style="margin-top:2px;">専用ブラウザ「ChatGPT Atlas」は2026年8月に提供終了、機能を統合</span>
+              </div>
+            </td>
+            <td>
+              <div class="entry">Gemini in Chrome／Auto browse（Chrome本体に統合、Google AI Pro/Ultra向け）</div>
+            </td>
+            <td>
+              <div class="entry">Claude in Chrome（拡張機能、有料プラン向け）</div>
+            </td>
+          </tr>
+
+          <!-- オフィス連携 -->
+          <tr>
+            <td class="td-feature">オフィス連携
+              <span class="feature-desc">Word・Excel・PowerPoint・メールなど、日常業務のアプリの中で直接AIを使える機能</span>
+            </td>
+            <td>
+              <div class="entry">Microsoft 365 Copilot（GPT-5.6搭載、Word/Excel/PowerPoint/Outlook）</div>
+            </td>
+            <td>
+              <div class="entry">Gemini in Workspace（Gmail／Docs／Sheets／Slides）</div>
+            </td>
+            <td>
+              <div class="entry">Claude for Excel／PowerPoint／Word／Outlook（4アプリで文脈を共有）</div>
+            </td>
+          </tr>
+
+          <!-- カスタムAI・エージェント作成 -->
+          <tr>
+            <td class="td-feature">カスタムAI・エージェント作成
+              <span class="feature-desc">自分専用の「特化型AI」を、プログラミングなしで作れる機能</span>
+            </td>
+            <td>
+              <div class="entry">Custom GPTs</div>
+            </td>
+            <td>
+              <div class="entry">Gems</div>
+            </td>
+            <td>
+              <div class="entry">Projects、カスタムスキル</div>
+            </td>
+          </tr>
+
+          <!-- 検索・回答エンジン -->
+          <tr>
+            <td class="td-feature">検索・回答エンジン
+              <span class="feature-desc">Google検索のように、最新情報を調べて答えてくれる機能</span>
+            </td>
+            <td>
+              <div class="entry">SearchGPT（リアルタイム検索統合）</div>
+            </td>
+            <td>
+              <div class="entry">AI Overviews（Google検索統合）</div>
+            </td>
+            <td>
+              <div class="entry na">独立した検索エンジンは未提供（Web検索は補助機能）</div>
+            </td>
+          </tr>
+
+          <!-- データ分析・予測 -->
+          <tr>
+            <td class="td-feature">データ分析・予測
+              <span class="feature-desc">表やデータをAIに読み込ませて、グラフ化や分析をしてもらう機能</span>
+            </td>
+            <td>
+              <div class="entry">Advanced Data Analysis（旧Code Interpreter）</div>
+            </td>
+            <td>
+              <div class="entry">BigQuery ML／Vertex AI</div>
+            </td>
+            <td>
+              <div class="entry">Code実行機能・財務分析対応（Opus系が強み）</div>
+            </td>
+          </tr>
+
+          <!-- 音楽・音声生成 -->
+          <tr>
+            <td class="td-feature">音楽・音声生成
+              <span class="feature-desc">文章や指示から音楽・楽曲を作る機能</span>
+            </td>
+            <td>
+              <div class="entry na">非対応（音楽生成機能は提供せず）</div>
+            </td>
+            <td>
+              <div class="entry">Lyria（音楽生成モデル）</div>
+            </td>
+            <td>
+              <div class="entry na">非対応（音楽生成機能は提供せず）</div>
+            </td>
+          </tr>
+
+          <!-- ロボティクス -->
+          <tr>
+            <td class="td-feature">ロボティクス
+              <span class="feature-desc">AIが実際のロボットの動作を制御する分野</span>
+            </td>
+            <td>
+              <div class="entry na">非注力</div>
+            </td>
+            <td>
+              <div class="entry">Gemini Robotics-ER</div>
+            </td>
+            <td>
+              <div class="entry na">非提供</div>
+            </td>
+          </tr>
+
+          <!-- リアルタイム音声API -->
+          <tr>
+            <td class="td-feature">リアルタイム音声API
+              <span class="feature-desc">開発者向け。アプリに「AIとリアルタイム音声で会話する」機能を組み込むための部品</span>
+            </td>
+            <td>
+              <div class="entry">Realtime API</div>
+            </td>
+            <td>
+              <div class="entry">Live API</div>
+            </td>
+            <td>
+              <div class="entry na">非提供</div>
+            </td>
+          </tr>
+
+          <!-- 開発者向けAPI基盤 -->
+          <tr>
+            <td class="td-feature">開発者向けAPI基盤
+              <span class="feature-desc">他社のアプリやサービスにAIを組み込むための土台</span>
+            </td>
+            <td>
+              <div class="entry">OpenAI API</div>
+            </td>
+            <td>
+              <div class="entry">Google AI Studio／Vertex AI</div>
+            </td>
+            <td>
+              <div class="entry">Claude Platform（旧Anthropic Console）、MCP規格</div>
+            </td>
+          </tr>
+
+          <!-- エンタープライズ管理基盤 -->
+          <tr>
+            <td class="td-feature">エンタープライズ管理基盤
+              <span class="feature-desc">企業が組織全体でAIを安全に導入・管理するための仕組み（権限管理・監査ログ等）</span>
+            </td>
+            <td>
+              <div class="entry">ChatGPT Enterprise</div>
+            </td>
+            <td>
+              <div class="entry">Gemini Enterprise Agent Platform</div>
+            </td>
+            <td>
+              <div class="entry">Claude Enterprise（SSO／SCIM／監査ログ）</div>
+            </td>
+          </tr>
+
+          <!-- ハードウェア -->
+          <tr>
+            <td class="td-feature">ハードウェア
+              <span class="feature-desc">AIを組み込んだ専用の機器・端末</span>
+            </td>
+            <td>
+              <div class="entry">専用デバイス開発中（旧io社買収案件）</div>
+            </td>
+            <td>
+              <div class="entry">Pixel等、自社端末へのAI統合</div>
+            </td>
+            <td>
+              <div class="entry na">非提供</div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 各社の特徴 -->
+    <h2>各社の特徴（要点）</h2>
+    <div class="category-card" style="line-height: 1.8; margin-bottom: 30px;">
+      <ul>
+        <li><strong>🟢 OpenAI：</strong> テキスト・画像・動画・音声すべてに参入する全方位型。2026年7月に一般提供が始まったGPT-5.6はSol・Terra・Lunaの3階層構成。ChatGPT Workはコーディングエージェント「Codex」をデスクトップに統合し、文書・スライド作成やファイル横断分析を自律実行する。</li>
+        <li><strong>🔵 Google：</strong> Google検索・Gmail・Workspace・Androidとの連携が最大の強み。Gemini Sparkは2026年5月発表、7月末から日本のGoogle AI Proユーザーにも展開。</li>
+        <li><strong>🟠 Anthropic：</strong> 画像・動画・音声生成には参入せず、テキストの論理思考・コード生成・長文読解にリソースを集中。Claude Coworkは2026年1月発表・4月に全有料プランで一般提供開始、ターミナル操作不要でローカルファイルの整理やレポート作成を自律実行する。</li>
+      </ul>
+    </div>
+
+    <!-- 注釈・フッター部分 -->
+    <h3>注記・補足情報</h3>
+    <p>※１ 本表は2026年9月3日時点の情報に基づく。各社ともモデル・機能のアップデート頻度が高いため、最新情報は各社公式サイト（openai.com、gemini.google.com、claude.com）でご確認ください。</p>
+    <p>※２ 「非対応／非提供」はその企業が現時点でその機能を一般提供していないことを示す。開発中・非公開ベータの場合もあるため、将来変わる可能性がある。</p>
+    <p>※３ ChatGPT Atlas（OpenAI専用ブラウザ）は2026年8月9日に提供終了し、ブラウジング機能はChatGPTデスクトップアプリとChrome拡張機能に統合された。</p>
+
+  </div>
+
+</body>
+</html>
