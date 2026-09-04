@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NVIDIAのGPUアーキテクチャの進化</title>
+    <title>NVIDIAのGPUアーキテクチャの進化とCUDAという最大の武器</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
@@ -108,6 +108,36 @@
         tr:nth-child(even) {
             background-color: #f8fafc;
         }
+        /* --- CUDAセクション用の強調スタイル --- */
+        .cuda-highlight {
+            background-color: #fffaf0;
+            border: 1px solid #f0d9a8;
+            border-left: 5px solid #dd6b20;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 1.5rem 0;
+        }
+        .cuda-highlight h4 {
+            color: #dd6b20;
+        }
+        .flywheel {
+            background-color: #fff;
+            border: 1px dashed #dd6b20;
+            border-radius: 6px;
+            padding: 20px 25px;
+            margin: 1.5rem 0;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .flywheel .step {
+            padding: 6px 0;
+        }
+        .flywheel .arrow {
+            text-align: center;
+            color: #dd6b20;
+            font-size: 1.2rem;
+            margin: 2px 0;
+        }
     </style>
 </head>
 <body>
@@ -124,18 +154,54 @@
     </div>
 
     <header>
-        <h1>NVIDIAのGPUアーキテクチャの進化</h1>
-        <p class="meta">2026年8月31日更新</p>
+        <h1>NVIDIAのGPUアーキテクチャの進化とCUDAという最大の武器</h1>
+        <p class="meta">2026年9月4日更新</p>
     </header>
 
     <main>
-        <p class="lead">「リアルな画面を高速で描画するための技術（GPU）が、偶然にもAIの計算に最適な構造だった」ことから始まった。</p>
-        <p>NVIDIAは、「ディスプレイにより滑らかで美しい映像を映したい」というゲーマーやクリエイターの需要に応え続けた。その結果として進化したGPUの並列計算能力とAI専用コアが、現在のChatGPTに代表される生成AIや、自動運転、医療AIなどを支える世界最強のインフラ（H100やBlackwellなどのデータセンター向けAIチップ）へと直接つながる。</p>
-        <p>最初に、ディスプレイ技術やグラフィックスの進化について、次に、GPUアーキテクチャ（モデル）の進化についてみていく。</p>
+        <p class="lead">「リアルな画面を高速で描画するための技術（GPU）が、偶然にもAIの計算に最適な構造だった」ことから始まった。そして、その計算力を誰もが使えるようにした「CUDA」の存在こそが、NVIDIAが圧倒的な強さを発揮している最大の要因である。</p>
+        <p>NVIDIAは、「ディスプレイにより滑らかで美しい映像を映したい」というゲーマーやクリエイターの需要に応え続けた。その結果として進化したGPUの並列計算能力とAI専用コアが、現在のChatGPTに代表される生成AIや、自動運転、医療AIなどを支える世界最強のインフラ（H100やBlackwellなどのデータセンター向けAIチップ）へと直接つながる。しかし、その並列計算力がどれほど強力でも、それを世界中のプログラマーや科学者が「使いこなせる」形にしなければ意味がない。その橋渡し役を担ったのが、2006年に登場した開発環境「CUDA」である。</p>
+        <p>まず、NVIDIAの独占的な地位を支える最大の要因であるCUDAについて。次に、ディスプレイ技術やグラフィックスの進化について。最後に、GPUアーキテクチャ（モデル）の進化についてみていく。</p>
 
         <hr>
 
-        <h2>１．ディスプレイ技術やグラフィックスの進化</h2>
+        <h2>１．CUDAの存在 ― NVIDIAが圧倒的な強さを発揮している最大の要因</h2>
+        <p>CUDA（クーダ：Compute Unified Device Architecture）とは、NVIDIAが開発したGPUを「画面出力（画面描写）」以外の大規模な計算にも使えるようにする無料のシステム（開発環境）のこと。2006年に登場し、現在のAIブームや科学技術計算を影で支える最大の立役者である。</p>
+
+        <h3>1) なぜCUDAが必要だったのか？</h3>
+        <p>GPUは「3Dゲームの画面をきれいに、滑らかに映すこと」を目的に作られたパーツであった。その中身は「大量の単純計算を同時にこなす超強力な計算機」である。</p>
+        <p>科学者は「このパワーを数式やシミュレーションの計算に使いたい」と考えたが、そのためには複雑な「画面描写用の特殊なプログラム言語」にわざわざ翻訳して計算させる必要があり、非常に扱いづらいものであった。</p>
+        <p>そこでNVIDIAは、「世界中のプログラマーが使い慣れている『C言語』などの一般的な言葉で、直接GPUに計算を命令できるようにしよう」とCUDAを開発した。これにより、GPUの汎用化（GPGPU）が一気に進んだ。</p>
+
+        <h3>2) CUDAの主な仕組みと特徴</h3>
+        <div class="tech-note">
+            <ul>
+                <li>CPUが数個〜数十個のコアで1つずつ重い処理をするのに対し、GPUには数千個の小さなコアがある。CUDAはこの数千個のコアに対して「全員一斉にこの計算を解け！」と効率よく命令を分配する。</li>
+                <li>C, C++, Fortranに加え、現在AI開発で主流の<span class="method-name">Python</span>からも簡単に呼び出せる。</li>
+                <li>ディープラーニング（深層学習）を劇的に高速化する<span class="method-name">cuDNN</span>や、高度な数学計算を行う<span class="method-name">cuBLAS</span>など、インストールするだけで使える高性能ツール群が最初からセットになっている。</li>
+            </ul>
+        </div>
+
+        <h3>3) なぜCUDAが「NVIDIAの最強の武器」と言われるのか？</h3>
+        <p>現在、AMDやIntelなども高性能なGPUを作っているが、AI業界では依然としてNVIDIAが独占状態である。その理由は、性能差だけでなく「CUDAによる強力な囲い込み（エコシステム）」にある。</p>
+
+        <div class="cuda-highlight">
+            <h4>【他社が追いつけない壁】</h4>
+            <div class="flywheel">
+                <div class="step">① 世界中のAI研究者・開発者がCUDAを使ってプログラムを書く</div>
+                <div class="arrow">↓</div>
+                <div class="step">② ChatGPTや画像生成AIなどの有名なAI基盤が「CUDA専用（NVIDIA製GPU）」で動くようになる</div>
+                <div class="arrow">↓</div>
+                <div class="step">③ 他社（AMDなど）が安くて高性能なGPUを出しても、プログラムがそのまま動かないため誰も買わない</div>
+                <div class="arrow">↓</div>
+                <div class="step">④ 結局みんなNVIDIAのGPUを買い、さらにCUDAの利用者が増える（①へ戻るループ）</div>
+            </div>
+            <p style="margin-bottom: 0;">15年以上の歳月をかけて世界中のエンジニアがCUDAを使ってシステムを構築してきたため、「AIをやるならNVIDIA以外に選択肢がない」という絶対的な標準（デファクトスタンダード）が完成している。</p>
+        </div>
+
+        <hr>
+
+        <h2>２．ディスプレイ技術やグラフィックスの進化</h2>
 
         <h3>1) 3DグラフィックスとAIの合流</h3>
         <p>ディスプレイに美しい3D映像を映すには、画面内にある数百万個のピクセル（画素）の色や光の計算を、同時に超高速で行う必要がある。CPUが少数の複雑な計算を得意とするのに対し、GPUは「単純な計算を、何千ものコアで同時に一斉処理する（並列計算）」のが得意。2010年代に爆発的な進化を遂げたディープラーニング（深層学習）も、「膨大なデータの掛け算と足し算を同時に一斉処理する」という、3Dグラフィックスと全く同じ計算構造を持っていた。これにより、GPUがAIのエンジンとして脚光を浴びる。</p>
@@ -153,7 +219,7 @@
 
         <hr>
 
-        <h2>２．GPUアーキテクチャ（モデル）の進化</h2>
+        <h2>３．GPUアーキテクチャ（モデル）の進化</h2>
 
         <h3>1) 2016年〜 Pascal（パスカル）世代</h3>
         <div class="tech-note">
@@ -202,7 +268,7 @@
 
         <hr>
 
-        <h2>モデル進化がもたらした計算力のマイルストーン</h2>
+        <h2>モデル進化とCUDAがもたらした計算力のマイルストーン</h2>
         <table>
             <thead>
                 <tr>
@@ -212,6 +278,11 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td><strong>CUDA</strong></td>
+                    <td>2006年〜</td>
+                    <td>GPUの汎用化（GPGPU）を実現し、以後すべての世代のAI活用を支える土台を確立</td>
+                </tr>
                 <tr>
                     <td><strong>Pascal</strong></td>
                     <td>2016年〜</td>
@@ -242,7 +313,7 @@
 
         <blockquote>
             <p><strong>まとめ：</strong></p>
-            <p style="margin-bottom: 0;">NVIDIAのモデルが進歩するたびに、画面の向こう側の世界は「人間が1コマずつ描く世界」から「AIがリアルタイムに世界を予測・生成してディスプレイに映し出す世界」へと変貌した。</p>
+            <p style="margin-bottom: 0;">NVIDIAのモデルが進歩するたびに、画面の向こう側の世界は「人間が1コマずつ描く世界」から「AIがリアルタイムに世界を予測・生成してディスプレイに映し出す世界」へと変貌した。しかし、この計算力を各世代のハードウェアだけでなく、世界中の研究者・開発者が実際に使いこなせる形にしたのは、2006年に生まれたCUDAである。ハードウェアの進化とCUDAというソフトウェア・エコシステムが両輪となって、他社が容易には追いつけない「NVIDIA一強」の構造を作り上げている。</p>
         </blockquote>
     </main>
 </body>
