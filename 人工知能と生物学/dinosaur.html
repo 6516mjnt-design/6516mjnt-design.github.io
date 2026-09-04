@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>恐竜 想像図の今昔</title>
-        <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-<style>
-    header h1 {
-      color: #fff;
-      border-bottom: none;
-    }
+    <title>時代の変身と現実の認識 — 恐竜の姿と宇宙年齢の変遷 —</title>
+    <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #2980b9;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #319795;
+            --bg-color: #f7fafc;
             --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -32,25 +30,26 @@
 
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: #fff;
-            padding: 40px 20px;
+            color: #ffffff;
+            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            border-bottom: none;
+            color: #ffffff;
         }
 
-        header p {
-            margin: 15px 0 0 0;
+        header p.subtitle {
+            margin: 15px auto 0;
             font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0.95;
+            max-width: 850px;
+            line-height: 1.6;
         }
 
         main {
@@ -59,12 +58,26 @@
             padding: 0 20px;
         }
 
+        .intro-box {
+            background-color: #ebf8ff;
+            border-left: 6px solid var(--secondary-color);
+            padding: 20px 25px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .intro-box p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
         section {
             background-color: var(--card-bg);
             border-radius: 8px;
-            padding: 30px;
+            padding: 35px;
             margin-bottom: 40px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
         }
 
         h2 {
@@ -72,15 +85,18 @@
             border-left: 6px solid var(--accent-color);
             padding-left: 15px;
             margin-top: 0;
-            font-size: 1.8rem;
-            border-bottom: 1px solid #eee;
+            font-size: 1.75rem;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
         }
 
         h3 {
             color: var(--secondary-color);
             font-size: 1.3rem;
-            margin-top: 25px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
         }
 
         ul {
@@ -88,24 +104,32 @@
         }
 
         li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .strong-text {
             font-weight: bold;
-            color: var(--accent-color);
+            color: var(--secondary-color);
         }
 
-        /* タイムライン・画像セクションのスタイル */
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* 恐竜タイムライン */
         .timeline-container {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 30px;
+            margin-top: 20px;
         }
 
         .timeline-item {
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 30px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 25px;
         }
 
         .timeline-item:last-child {
@@ -116,10 +140,10 @@
         .dino-image-container {
             text-align: center;
             margin: 20px 0;
-            background-color: #fafafa;
+            background-color: #f7fafc;
             padding: 15px;
             border-radius: 6px;
-            border: 1px solid #eee;
+            border: 1px solid var(--border-color);
         }
 
         .dino-image {
@@ -131,9 +155,37 @@
 
         .image-caption {
             font-size: 0.9rem;
-            color: #666;
+            color: #718096;
             margin-top: 10px;
             font-style: italic;
+        }
+
+        /* 宇宙年齢テーブル */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #edf2f7;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7fafc;
         }
 
         /* 補足トピックのグリッド表示 */
@@ -141,14 +193,15 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            margin-top: 20px;
         }
 
         .topic-card {
-            background-color: #fcfcfc;
-            border: 1px solid #eef2f5;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 20px;
-            border-top: 3px solid var(--secondary-color);
+            border-top: 4px solid var(--secondary-color);
         }
 
         .topic-title {
@@ -160,15 +213,15 @@
 
         footer {
             text-align: center;
-            padding: 20px;
-            color: #777;
+            padding: 30px 20px;
+            color: #718096;
             font-size: 0.9rem;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid var(--border-color);
             margin-top: 60px;
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 1.8rem; }
             section { padding: 20px; }
         }
     </style>
@@ -176,49 +229,37 @@
 <body>
 
     <header>
-        <h1>恐竜 想像図の今昔</h1>
-        <p>古生物学は「地質学：化石を発掘して分類する学問」から、最新テクノロジーを駆使して「生物学：絶滅生物の生態や地球環境の歴史を科学的に復元する学問」へ進化。20世紀中頃までと現在（21世紀）の主な違いを紹介します。</p>
+        <h1>時代の変遷と現実の認識</h1>
+        <p class="subtitle">恐竜の姿と宇宙年齢の変遷</p>
     </header>
 
     <main>
-        <section>
-            <h2>1. 研究アプローチ：化石の「外側」から「内側・ミクロの世界」へ</h2>
-            <p>かつては化石の形をじっくり観察し、スケッチを描き、他の化石と見比べる<span class="strong-text">「形態学的な記載（分類）」</span>が中心でした。</p>
-            <p>現在は、医療用や工業用の<span class="strong-text">CTスキャン</span>が導入され、化石を傷つけることなく、岩石の内部にある微細な骨や、恐竜の脳組織の形（脳腔）まで3Dデータで精密に復元できるようになりました。さらに、<span class="strong-text">シンクロトロン放射光</span>などの強力なX線分析により、化石の細胞レベルの構造や、付着した元素の特定まで可能になっています。</p>
-        </section>
+        <div class="intro-box">
+            <p>科学の歴史は、新たな発見やテクノロジーの導入によって従来の「常識」が覆される歴史でもあります。本稿では、最新科学によってイメージが劇的に変わった<strong>「恐竜の姿」</strong>と、観測精度の向上に伴い正確さを増してきた<strong>「宇宙の年齢」</strong>の2つの文脈から、現実の認識の塗り替え（変遷）を検証します。</p>
+        </div>
 
+        <!-- 第一部：恐竜の姿の変遷 -->
         <section>
-            <h2>2. 恐竜のイメージ：「鈍重なトカゲ」から「活動的な鳥の祖先」へ</h2>
-            <p>かつての恐竜像はトカゲやワニのイメージの延長線上にあり、尾を引きずり、冷血動物で動きが鈍く、体色は地味な緑や茶色だと推測されていました。しかし現在の恐竜像は、<span class="strong-text">「鳥類の祖先」</span>としての側面が完全に定着しています。</p>
+            <h2>Ⅰ. 恐竜の姿：イメージの変遷と古生物学の進化</h2>
+            <p>古生物学はかつて「化石を発掘して分類する地質学の一分野」でしたが、最新テクノロジーの導入により「絶滅生物の生態や地球環境の歴史を科学的に復元する生物学」へと劇的な進化を遂げています。</p>
+
+            <h3>1. 研究アプローチ：化石の「外側」から「内側・ミクロの世界」へ</h3>
+            <p>かつては化石の外形を観察・スケッチし分類する<span class="strong-text">「形態学的な記載」</span>が中心でした。現在は、医療・工業用<span class="strong-text">CTスキャン</span>により化石内部の微細な骨や脳腔の3D復元が可能となり、<span class="strong-text">シンクロトロン放射光</span>によるX線分析で細胞レベルの構造や元素特定まで行われています。</p>
+
+            <h3>2. 恐竜像の変遷：「鈍重なトカゲ」から「活動的な鳥の祖先」へ</h3>
+            <p>初期の恐竜像はワニやトカゲの延長で、尾を引きずり動かない冷血動物と見なされていましたが、現在は<span class="strong-text">「鳥類の祖先」</span>として完全に定着しています。</p>
             <ul>
-                <li><span class="strong-text">羽毛の発見：</span>中国などで保存状態の良い羽毛恐竜の化石が相次いで見つかりました。</li>
-                <li><span class="strong-text">体色の解明：</span>化石に残された微細な色素細胞（メラノソーム）の形状を現生鳥類と比較することで、具体的な体色（赤茶色や、カササギのような光沢のある黒など）まで科学的に突き止められました。</li>
-                <li><span class="strong-text">生態の復元：</span>骨の組織分析（成長線）から、恐竜が温血動物に近い高い代謝熱を持ち、急速に成長していたことや、尾をピンと上げて活発に走り回っていたことが分かっています。</li>
+                <li><span class="strong-text">羽毛の発見：</span>保存状態の良い羽毛恐竜化石が相次いで発見されました。</li>
+                <li><span class="strong-text">体色の解明：</span>色素細胞（メラノソーム）の形状比較から、具体的な体色（赤茶色や光沢のある黒など）が科学的に解明されました。</li>
+                <li><span class="strong-text">生態の復元：</span>骨の成長線分析などから、温血動物に近い高い代謝熱をもち、活発に動いていたことが判明しています。</li>
             </ul>
-        </section>
 
-        <section>
-            <h2>3. テクノロジーの融合：デジタルと分子科学の導入</h2>
-            <p>古生物学は地質学のジャンルでしたが、現在は生物学、化学、情報科学との融合が進んでいます。</p>
-            <ul>
-                <li><span class="strong-text">分子古生物学（古DNA・有機化石）：</span>数万年前の化石（マンモスやネアンデルタール人など）からはDNAが抽出され、ゲノム解析が行われます。数千万年前の恐竜の化石からも、コラーゲンなどのタンパク質断片（アミノ酸）の痕跡を見つける研究が進んでいます。</li>
-                <li><span class="strong-text">バイオメカニクス（生物力学）：</span>3Dモデル化した骨格データに、コンピューター上で筋肉のシミュレーション（有限要素法など）を施すことで、顎の噛む力や走行速度を物理的に計算できるようになりました。</li>
-                <li><span class="strong-text">統計学とAI：</span>地球全体の化石データベース（Paleobiology Databaseなど）を活用し、AIや大規模な統計解析を用いることで、過去数億年の生物多様性の変動や、大量絶滅のメカニズムを地球規模のビッグデータとして解析しています。</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>4. 古生物学における復元図（予想される姿）の変遷</h2>
-            <p>化石の発見と分析技術（CTや化学解析）が進化するたびに、恐竜たちの姿は「より生物らしく、より鳥類に近い姿」へと塗り替えられてきました。有名な恐竜を例に、その変遷を時系列で追っていきます。</p>
-            
+            <h3>3. 古生物学における復元図（予想される姿）の時系列変遷</h3>
             <div class="timeline-container">
-                
                 <div class="timeline-item">
                     <h3>1）19世紀中期：巨大な「トカゲやサイ」の時代</h3>
-                    <p>恐竜（Dinosauria）という言葉が作られたばかりの黎明期。当時はまだ断片的な骨しか見つかっておらず、比較対象が現生の爬虫類や哺乳類しかなかった。</p>
-                    <p><span class="strong-text">特徴：</span>4本足で地面を這うように歩く、鈍重なトカゲやワニのような姿。またはサイのような皮膚の質感。</p>
-                    <p><span class="strong-text">具体例（イグアノドン）：</span>最初に発見された恐竜の一つ。「親指の骨」を鼻の上の角だと誤認され、巨大なイグアノナのような姿で復元された。ロンドンの水晶宮（クリスタル・パレス）に作られた当時の模型が有名です。</p>
-                    
+                    <p>恐竜（Dinosauria）という概念の黎明期。断片的な骨しか見つかっておらず、現生爬虫類や哺乳類をモデルとしました。</p>
+                    <p><span class="strong-text">具体例（イグアノドン）：</span>親指の骨を鼻の角と誤認し、巨大なイグアナのような4本足の姿で復元されました（ロンドンの水晶宮模型など）。</p>
                     <div class="dino-image-container">
                         <img src="images/1_イグアノドン.png" alt="イグアノドンの新旧想像図" class="dino-image">
                         <div class="image-caption">図：イグアノドンの想像図の変遷（過去（左）から現在（右）のイメージ）</div>
@@ -227,10 +268,8 @@
 
                 <div class="timeline-item">
                     <h3>2）20世紀前半〜中期：ゴジラ型の「直立・冷血動物」の時代</h3>
-                    <p>骨格全体の化石が見つかり始め、恐竜が2本足で立てることが分かってきた。まだ「冷血な爬虫類」のイメージが強く、活発には動けないと考えられていた。</p>
-                    <p><span class="strong-text">特徴：</span>尻尾を地面に引きずり、上体を完全に起こした「カンガルー型（ゴジラ型）」の姿勢。動きが遅く、沼地に浸かって身を守っていたと想像されていた。</p>
-                    <p><span class="strong-text">具体例（ティラノサウルス）：</span>20世紀の図鑑や映画（初期のキングコングなど）では、上体を直立させ、尻尾を引きずって歩く怪獣のような姿で描かれていた。</p>
-                    
+                    <p>直立姿勢が判明したものの冷血イメージが強く、尾を引きずって上体を起こす「カンガルー型（ゴジラ型）」として描かれました。</p>
+                    <p><span class="strong-text">具体例（ティラノサウルス）：</span>怪獣のような直立姿勢で、沼地に身を潜めるイメージが定着していました。</p>
                     <div class="dino-image-container">
                         <img src="images/2_ティラノサウルス.png" alt="ティラノサウルスの姿勢の変遷" class="dino-image">
                         <div class="image-caption">図：ティラノサウルスの姿勢の変遷（過去（左）から現在（右）のイメージ）</div>
@@ -238,101 +277,130 @@
                 </div>
 
                 <div class="timeline-item">
-                    <h3>3）20世紀後半（1970年代〜）：恐竜ルネサンス「活動的な温血動物」への変革</h3>
-                    <p>1960年代末に小型恐竜「デイノニクス」が発見されたことをきっかけに、「恐竜ルネサンス」と呼ばれる学説の大転換が起きた。恐竜は鳥類の祖先であり、温血動物で、非常に俊敏だったという説が主流になる。</p>
-                    <p><span class="strong-text">特徴：</span>尻尾を地面から高く上げ、頭から尾までが地面と水平になる「前傾姿勢」。これにより、時速数十キロで走る活発なイメージへと一新された。</p>
+                    <h3>3）20世紀後半（1970年代〜）：恐竜ルネサンス「活動的な温血動物」へ</h3>
+                    <p>小型恐竜「デイノニクス」の発見を機に学説が大転換。尾を水平に上げ、俊敏に走る「前傾姿勢」の温血動物像へと一新されました。</p>
                 </div>
 
                 <div class="timeline-item">
                     <h3>4）21世紀〜現在：「羽毛と色彩」の時代</h3>
-                    <p>中国の遼寧省などで、保存状態が極めて良い「羽毛恐竜」の化石が相次いで発見され、復元図はさらに激変した。</p>
-                    <p><span class="strong-text">特徴：</span>多くの小型獣脚類（ティラノサウルスの祖先含む）に、毛や羽毛が生えていたことが判明。さらに「メラノソーム（色素細胞）」の解析により、想像ではなく「科学的に裏付けられた体色」で描かれるようになった。</p>
-                    <p><span class="strong-text">具体例（現在のティラノサウルスやミクロラプトル）：</span>ティラノサウルスも、幼体や一部の近縁種にはフサフサした羽毛があったとされ、一部の復元では「巨大な鳥」や「ダチョウ」を彷彿とさせる姿で描かれる。また、ミクロラプトルなどは「カラスのような光沢のある黒い羽」を持っていたことが分かっている。</p>
-                    
+                    <p>中国の羽毛恐竜化石やメラノソーム解析により、科学的裏付けに基づく色彩と羽毛を持つ復元図へ激変しました。</p>
+                    <p><span class="strong-text">具体例：</span>ティラノサウルス幼体の羽毛復元や、ミクロラプトルの光沢ある黒い羽など。</p>
                     <div class="dino-image-container">
                         <img src="images/3_シノサウロプテリクス.png" alt="シノサウロプテリクスの化石と羽毛の復元" class="dino-image">
-                        <div class="image-caption">図：シノサウロプテリクス（1996年の羽毛化石発見による復元図の激変）（過去（左）から現在（右）のイメージ）</div>
+                        <div class="image-caption">図：シノサウロプテリクス（1996年の羽毛化石発見による復元図の激変）</div>
                     </div>
-                    
                     <div class="dino-image-container">
                         <img src="images/4_スピノサウルス.png" alt="スピノサウルスの復元変遷" class="dino-image">
-                        <div class="image-caption">図：スピノサウルス（2014年・2020年の新発見による、より水生に特化したプロポーションへの変遷）（過去（左）から現在（右）のイメージ）</div>
+                        <div class="image-caption">図：スピノサウルス（2014年・2020年の新発見による、より水生に特化したスタイルへの変遷）</div>
                     </div>
                 </div>
-
             </div>
+
+            <h3>4. 恐竜研究におけるAI（人工知能）の導入効果</h3>
+            <p>AI for Science の導入により、発掘から復元、シミュレーションに至る研究全体の高速化・精密化が進んでいます。</p>
+            <ul>
+                <li><span class="strong-text">化石クリーニングと発掘の自動化：</span>CTデータからAIが骨と岩石を識別し、自動削開や微小化石の短時間判定を実現。</li>
+                <li><span class="strong-text">3Dモデルによる骨格復元：</span>地圧で歪んだ化石の形状修正や、欠損部位の機械学習による自動補完。</li>
+                <li><span class="strong-text">バイオメカニクス（生物力学）：</span>骨格データと強化学習を用いた動作シミュレーションで、走速や咬合力をリアルに算出。</li>
+                <li><span class="strong-text">未発見エリアの予測：</span>衛星画像や地質データを解析し、化石埋蔵の可能性が高い地層を予測。</li>
+            </ul>
         </section>
 
+        <!-- 第二部：宇宙年齢の変遷 -->
         <section>
-            <h2>5. 補足：あわせて知っておきたいトピック</h2>
+            <h2>Ⅱ. 宇宙年齢：観測精度向上による認識の変遷</h2>
+            <p>宇宙の年齢推定もまた、観測機器と技術の進歩によって大きく塗り替えられてきた代表例です。2000年代初頭の「137億年」から現在の「138億年」への微修正は、現代の精密宇宙論を象徴しています。</p>
+
+            <h3>1. 宇宙年齢推定の時系列変遷</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>時代</th>
+                            <th>推定された宇宙年齢</th>
+                            <th>主な根拠と背景</th>
+                            <th>発生した問題点・課題</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1929年〜1930年代</strong></td>
+                            <td>約20億年</td>
+                            <td>ハッブルによる銀河の赤方偏移（膨張）の初観測。</td>
+                            <td>地球の岩石の年齢（約30億年超）より若いという致命的矛盾（最初の宇宙年齢問題）。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1950年代</strong></td>
+                            <td>約100億〜200億年</td>
+                            <td>セファイド変光星の「種類の誤り」に気づき、距離ハシゴを修正。</td>
+                            <td>観測誤差が大きく正確な値を絞り込めず論争へ。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1990年代前半</strong></td>
+                            <td>約80億〜120億年</td>
+                            <td>ハッブル宇宙望遠鏡（HST）によりハッブル定数の測定精度向上。</td>
+                            <td>最古の球状星団の年齢（140億〜160億年）より若くなり第二の宇宙年齢問題が発生。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1998年</strong></td>
+                            <td>約130億〜140億年</td>
+                            <td>遠方超新星観測から宇宙の加速膨張（ダークエネルギー）を発見。</td>
+                            <td>計算上の年齢が引き伸ばされ、球状星団の年齢との矛盾が解消。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2003年</strong></td>
+                            <td>137億年 (±2億年)</td>
+                            <td>WMAP衛星による宇宙マイクロ波背景放射（CMB）の全天観測。</td>
+                            <td>ダークマターやエネルギーの割合が明確化し、精密宇宙論が確立。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2013年〜現在</strong></td>
+                            <td>138億年 (137.99±0.21億年)</td>
+                            <td>プランク衛星による超高解像度のCMB観測。</td>
+                            <td>WMAPより膨張速度が僅かに遅く見積もられ、年齢が約1億年延びて138億年に定着。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. 最近の変遷（137億年から138億年への変化）</h3>
+            <p>観測の「解像度」が上がったことにより、2000年代の137億年から2010年代の138億年へと修正されました。</p>
+            <ul>
+                <li><span class="strong-text">WMAP衛星（2003年）：</span>CMBの温度のムラからハッブル定数を「約71 km/s/Mpc」と算出し、宇宙年齢を<strong>137億年</strong>と推定。</li>
+                <li><span class="strong-text">プランク衛星（2013年）：</span>より高精度な観測により、ハッブル定数が「約67.4 km/s/Mpc」と推定され、宇宙の膨張スピードが「想定よりややゆっくり」であることが判明。</li>
+                <li><span class="strong-text">年齢が伸びた理由：</span>膨張速度が遅いということは、現在の大きさに達するまでに長い時間を要したことを意味するため、年齢が約1億年引き上げられて<strong>138億年（137.99億年）</strong>となりました。</li>
+            </ul>
+
+            <h3>3. 2020年代：最新動向と「ハッブル張力」によるさらなる変動</h3>
+            <p>現在、天文学界は<span class="strong-text">「ハッブル張力（Hubble Tension）」</span>と呼ばれる新たな課題に直面しており、今後宇宙年齢の認識がさらに変動する可能性を秘めています。</p>
+            <ul>
+                <li><span class="strong-text">JWST（ジェイムズ・ウェッブ宇宙望遠鏡）による観測：</span>初期宇宙のCMBデータから導く年齢は「138億年」ですが、JWSTなどが近傍の星や超新星を直接観測すると「より速く膨張している（＝ cosmic age は130億〜134億年ほどで若い）」という矛盾するデータが得られます。</li>
+                <li><span class="strong-text">理論の限界と新たな可能性：</span>138億年は宇宙の標準模型（<span class="math">&Lambda;</span>CDMモデル）を前提としますが、JWSTは想定以上に早期に形成された成熟巨大銀河を相次いで発見しており、初期宇宙の進化論や未知の物理学（ダークエネルギーの変動等）の導入が議論されています。</li>
+            </ul>
+        </section>
+
+        <!-- 補足・まとめ -->
+        <section>
+            <h2>Ⅲ. 補足：あわせて知っておきたいトピック</h2>
             <div class="topic-grid">
                 <div class="topic-card">
                     <div class="topic-title">・ブロントサウルス「頭部誤同定」問題</div>
-                    <div>19世紀末、体骨格に別種（カマラサウルス）の頭骨が誤って組み合わされたまま博物館展示・図版が広まり、20世紀を通じてアパトサウルスの異名として扱われていたが、2015年の再検証で独立属として復活した。復元図の誤りが長期間定着した代表例。</div>
+                    <div>19世紀末に別種の頭骨が誤結合されたまま定着し、長年アパトサウルスの異名とされていましたが、2015年の再検証で独立属として復活。復元図の錯覚・誤解が長期定着した典型例です。</div>
                 </div>
                 <div class="topic-card">
                     <div class="topic-title">・恐竜ルネサンスの立役者</div>
-                    <div>古生物学者ロバート・バッカーが著書「The Dinosaur Heresies」（1986年）で恐竜温血動物説を一般読者にも広め、1970年代以降の「活動的な温血動物」への学説転換を決定づけた。</div>
+                    <div>ロバート・バッカーが『The Dinosaur Heresies』（1986年）等で温血説を一般に広め、1970年代以降の動的な恐竜像への転換を決定づけました。</div>
                 </div>
                 <div class="topic-card">
                     <div class="topic-title">・「All Yesterdays」運動（2012年〜）</div>
-                    <div>骨格に皮膚を貼り付けただけの「痩せすぎ（シュリンクラップ）」復元への反省から、現生動物と同様に皮下脂肪や体毛量を厚めに見積もるなど、科学的根拠の範囲内で想像の幅を広げ直す提案が古生物アート界に広がった。</div>
+                    <div>骨に皮を貼っただけの骨感度の高い「シュリンクラップ」復元を反省し、現生動物のような皮下脂肪や組織量を考慮した科学的想像の幅を広げる運動が広がっています。</div>
                 </div>
-                <div class="topic-card">
-                    <div class="topic-title">・軟組織・皮膚化石の発見</div>
-                    <div>エドモントサウルスの「ミイラ化石（デイニー標本）」などから、鱗の配列や皮膚表面の凹凸が骨だけでなく直接観察できるようになり、羽毛のない部分の質感復元にも役立っている。</div>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-title">・AIの活用</div>
-                    <div>統計学・AI解析に加え、近年は機械学習による欠損骨格の自動補完や、生成AIを用いた複数仮説の同時ビジュアル化が、研究段階の復元図作成を支援する試みとして始まっている。</div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2>6. 恐竜をはじめとする古生物学の研究におけるAI（人工知能）の導入効果</h2>
-            <p>古生物学は「職人の経験と直感」に支えられてきた学問ですが、近年はAI（AI for Science）の導入により、発掘から復元、シミュレーションに至るまでの研究プロセス全体が加速しつつあります。</p>
-
-            <h3>1）化石クリーニングと発掘の自動化</h3>
-            <p>発掘された岩石から化石を傷つけずに取り出す「クリーニング」は、極めて高度な技術と膨大な時間を要する作業です。</p>
-            <ul>
-                <li><span class="strong-text">AIプリパレーター（自動掘削システム）：</span>岩石のCTスキャン画像から、どこに骨があり、どこからが岩石かをAIが正確に識別する。このデータを基にロボットアームを制御し、自動でクリーニングを行う技術開発が進められている。</li>
-                <li><span class="strong-text">微小化石の自動検出：</span>恐竜が生きていた時代の環境を知る手がかりとなる「微化石（放散虫や花粉など）」を、顕微鏡画像からAIが自動で見つけ出し、種類を鑑定・分類。人間が数日かけていた作業をわずか数時間に短縮できる。</li>
-            </ul>
-
-            <h3>2）3Dモデルによる「骨格復元」と欠損補完</h3>
-            <p>発見される恐竜の化石が、完全に揃っているケースは極めて稀で、大半は一部が欠けていたり、地圧で歪んだりしています。</p>
-            <ul>
-                <li><span class="strong-text">デジタル変形修正：</span>地層の中で押しつぶされて歪んでしまった骨のCTデータを、AIが本来の解剖学的な形状を推測して元の形にデジタル復元する。</li>
-                <li><span class="strong-text">欠損部の予測：</span>近縁種のデータを学習したAIが、失われた部位（例えば右足の化石から左足の形状を推測するなど）を高い精度で補完し、より正確な全身骨格の復元を可能にする。</li>
-            </ul>
-
-            <h3>3）バイオメカニクス（生物体力学）による生態・運動の再現</h3>
-            <p>「この恐竜はどれくらいの速度で走れたのか？」「どれほどの噛む力があったのか？」という謎に対して、AIはシミュレーターとして機能します。</p>
-            <ul>
-                <li><span class="strong-text">筋肉・動作のシミュレーション：</span>骨の形状やアタッチメント（筋肉の付着痕）のデータをAIに読み込ませ、深層学習や強化学習を用いて「最も効率的な歩行・走行パターン」を導き出す。これにより、従来の推測よりも格段にリアルな恐竜の運動能力が算出できる。</li>
-            </ul>
-
-            <h3>4）進化の系統樹や「形作り」の数理モデリング</h3>
-            <p>恐竜がどのように進化し、鳥類へとつながっていったのかを解き明かす分類学でもAIが活用できます。</p>
-            <ul>
-                <li><span class="strong-text">系統解析の高速化：</span>膨大な骨の特徴データをAIに学習させ、人間では気づきにくい微細な形状パターンの類似性を発見し、より正確な系統樹（進化の歴史）を構築する。</li>
-                <li><span class="strong-text">形態形成の解明：</span>生物の「形」が作られるメカニズムを画像から逆算し、数理モデルを提案するAI技術もあり、恐竜のトサカや装甲、羽毛がどのように進化・形成されたかの理論的アプローチを支える。</li>
-            </ul>
-
-            <h3>5）地層データからの「未発見フィールド」の予測</h3>
-            <ul>
-                <li><span class="strong-text">発掘ポイントの選定：</span>衛星画像、地質図、過去の発掘データなどをAIに統合・分析させることで、「まだ化石が見つかっていないが、恐竜化石が埋蔵されている可能性が極めて高い地層（ピンポイントなエリア）」を予測し、発掘調査の成功率を高める。</li>
-            </ul>
-
-            <div class="topic-card">
-                <div class="topic-title">まとめ</div>
-                <div>恐竜研究は「職人の経験と直感」に支えられていたが、AI（AI for Science）の導入によって「発掘・処理の高速化」「デジタルでの正確な復元」「動的な生態シミュレーション」が可能になる。研究者は「仮説の検証」や「新たな進化理論の構築」といった、より本質的な考察に集中できるようになると期待される。</div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>恐竜想像図の今昔 補足追加 資料より構成</p>
+        <p>時代の変遷と現実の認識 — 恐竜の姿および宇宙年齢の変遷資料より再構成</p>
     </footer>
 
 </body>
