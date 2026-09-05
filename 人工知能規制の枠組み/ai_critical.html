@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIの「Critical」について — GPT-6 Astra と Claude Mythos 5.1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            border-bottom: 3px solid #1a365d;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 5px;
+            border-bottom: none;
+        }
+        .meta-info {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        .lead-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: #e6f2ff;
+            padding: 15px;
+            border-left: 5px solid #0056b3;
+            margin-bottom: 30px;
+            border-radius: 0 4px 4px 0;
+        }
+        h2 {
+            color: #222;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+        h3 {
+            color: #444;
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        td.label-col {
+            width: 18%;
+            background-color: #f7f7f7;
+            font-weight: bold;
+            color: #555;
+        }
+        .status-ok {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .status-switch {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        blockquote {
+            background-color: #f0f0f0;
+            border-left: 4px solid #666;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        .alert-box {
+            background-color: #fff5f5;
+            border-left: 5px solid #dc3545;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+        .boomerang-box {
+            background-color: #fffbeb;
+            border-left: 5px solid #d97706;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+        .access-box {
+            background-color: #f0f7f4;
+            border-left: 5px solid #0f9d58;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AIの「Critical」について</h1>
+        <div class="meta-info">GPT-6 Astra と Claude Mythos 5.1 の場合</div>
+    </header>
+
+    <div class="lead-text">
+        自律的なサイバーセキュリティ攻撃・防御能力を備えた超高性能フロンティアAIモデル。両社ともに、開発や公開の面で何らかの制限を課されることとなった。
+    </div>
+
+    <h2>１．概要</h2>
+    <p>両モデルの最大の特徴は、人間の指示を介さずに、実在するシステムの未公開の脆弱性（ゼロデイ）を自力で発見・利用し、攻撃コード（エクスプロイト）を生成・実行できる点にある。</p>
+    <p>この強力な能力ゆえに、両社ともに開発・公開の面で何らかの制限を受けることになった。OpenAIの Astra は、同社の安全基準（Preparedness Framework）において、サイバー領域で初めて最高警戒水準である「Critical（重大）」判定に達したモデルとして注目を集めている。</p>
+
+    <h2>２．「Critical」の定義は業界で統一されているのか</h2>
+    <p>結論から言うと、業界横断で統一された定義や、政府・ISOのような第三者機関による公式基準は<strong>存在しない</strong>。各AI開発企業が自社の安全性フレームワークの中で独自に「Critical」相当の概念を定めており、呼び方も判定基準も企業ごとに異なる。</p>
+
+    <table>
+        <tr>
+            <th>組織 / フレームワーク</th>
+            <th>用語</th>
+            <th>定義の考え方</th>
+        </tr>
+        <tr>
+            <td class="label-col">OpenAI<br><small>Preparedness Framework</small></td>
+            <td>Critical capability</td>
+            <td>危険度を「High」と「Critical」の2段階に整理。Highは既存の深刻な被害経路を増幅しうる能力、Criticalは前例のない新たな深刻被害の経路をもたらしうる能力で、開発段階から安全対策が必須となる。サイバー領域では「人間の介入なしに、多くの強固な実システムへゼロデイ攻撃を発見・悪用できる」水準が目安とされる。</td>
+        </tr>
+        <tr>
+            <td class="label-col">Google DeepMind<br><small>Frontier Safety Framework</small></td>
+            <td>Critical Capability Level（CCL）</td>
+            <td>「Critical」は単独の危険度ラベルというより、「対策を講じなければ深刻な被害の重大リスクをもたらしうる能力の閾値」を指す枠組みの名称。CBRN・サイバー・自律性・ML R&D・有害な説得など、領域ごとに個別のCCLを設定する方式。</td>
+        </tr>
+        <tr>
+            <td class="label-col">Anthropic<br><small>Responsible Scaling Policy</small></td>
+            <td>Capability Threshold / ASL</td>
+            <td>実は「Critical」という言葉自体を使っていない。代わりに「Capability Threshold」と「ASL（AI Safety Level）1〜4」という独自の段階を採用。サイバー領域では、新規なゼロデイ脆弱性チェーンの発見や大規模ネットワーク侵入の自動化を大幅に補助できる能力が閾値に相当する。</td>
+        </tr>
+        <tr>
+            <td class="label-col">Amazon<br><small>Frontier Model Safety Framework</small></td>
+            <td>Critical</td>
+            <td>中程度の技能を持つ攻撃者に対し、公開されている手法やツールを超える実質的な能力向上（uplift）を与えられる水準と定義。</td>
+        </tr>
+    </table>
+
+    <p>つまり「モデルの能力が一定の閾値を超えると、通常の商用リリースの枠組みでは扱えず、より強い安全対策や開発停止・輸出管理の対象になりうる」という考え方自体は各社で収斂しているが、それを何と呼ぶか、閾値をどこに置くか、判定プロセスをどう設計するかは各企業の自主的な判断に委ねられている。</p>
+
+    <h2>３．Astra と Mythos の比較一覧</h2>
+    <table>
+        <tr>
+            <th>評価項目</th>
+            <th>OpenAI「GPT-6 Astra」</th>
+            <th>Anthropic「Claude Mythos 5.1」</th>
+        </tr>
+        <tr>
+            <td class="label-col">開発元</td>
+            <td>OpenAI</td>
+            <td>Anthropic</td>
+        </tr>
+        <tr>
+            <td class="label-col">リスク評価</td>
+            <td><span class="status-switch">最高度「Critical（重大）」に初到達</span></td>
+            <td>米政府と連携が必要なレベルの「輸出制限」対象</td>
+        </tr>
+        <tr>
+            <td class="label-col">主な実証実績</td>
+            <td>
+                ・ブラウザのサンドボックス（隔離空間）の完全突破<br>
+                ・一般ユーザーからrootへの権限昇格チェーン構築
+            </td>
+            <td>
+                ・OpenBSDの27年越しのバグ発見<br>
+                ・FreeBSDのRCE（遠隔コード実行）脆弱性発見
+            </td>
+        </tr>
+        <tr>
+            <td class="label-col">コーディング能力<br><small>(Terminal-Bench 4.0)</small></td>
+            <td>非公表（タスク速度は前世代比でほぼ倍増）</td>
+            <td>60.9%（Fable 5.1 の55.8%を凌駕）</td>
+        </tr>
+        <tr>
+            <td class="label-col">サイバー防御能力<br><small>(不正アクセスの拒否率)</small></td>
+            <td><span class="status-ok">91.5%</span>（前作Solの59%から大幅改善）</td>
+            <td>セーフガード介入による誤発動を60%削減</td>
+        </tr>
+        <tr>
+            <td class="label-col">提供ステータス</td>
+            <td>2026年9月3日に正式発表。一般API/UIへ順次展開、最上位機能は「Daybreak Blue」限定</td>
+            <td>2026年9月1日に5.1発表。公的な一般公開はされず「Project Glasswing」限定</td>
+        </tr>
+    </table>
+
+    <h2>４．主要な違いと注目ポイント</h2>
+
+    <h3>① Astra の「Critical」判定が意味すること</h3>
+    <div class="alert-box">
+        <p>Astra は評価中に2件のゼロデイ脆弱性を発見し、実際にサンドボックスを脱出してホスト上でコマンドを実行するハッキングを成功させた。</p>
+        <p>OpenAIは一度開発を一時停止し、自律的な危険行動を検知した瞬間にモデルを自動でシャットダウンする強力なセーフガード（ブレーキ）を組み込んだ上でリリースした。</p>
+    </div>
+
+    <h3>② Mythos がもたらした規制への影響</h3>
+    <div class="boomerang-box">
+        <p>先にプレビューが登場した Mythos の驚異的なハッキング能力は、ホワイトハウスや米当局を驚かせ、業界への監視強化や輸出制限のきっかけとなった。</p>
+        <p>Mythos 5.1 では、さらにコーディングの自律性が高まっている。</p>
+    </div>
+
+    <h2>５．利用アクセスの違い</h2>
+    <div class="access-box">
+        <p><strong>GPT-6 Astra：</strong> 制限付きのフィルターをかけた状態で一般の ChatGPT Plus/Pro や API に展開され始めたが、フル機能のサイバー能力は防御目的の認定組織（Daybreak Blue）にしか解放されない。</p>
+        <p><strong>Claude Mythos 5.1：</strong> 米政府や検証済みの特定防衛組織（Project Glasswing）のみに完全にアクセスが限定されており、一般ユーザーは利用できない状況である。</p>
+    </div>
+
+    <blockquote>
+        両モデルに共通するのは、自律的なサイバー攻撃・防御能力の高さゆえに、通常の商用リリースの枠組みでは扱いきれず、政府レベルの関与や輸出管理という形での制限を受けた点である。
+    </blockquote>
+
+</body>
+</html>
