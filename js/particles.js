@@ -377,6 +377,11 @@ var pJS = function(tag_id, params){
       this.shape = shape_type;
     }
 
+    if(this.shape == 'leaf' || this.shape == 'petal'){
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotation_speed = (Math.random() - 0.5) * 0.06;
+    }
+
     if(this.shape == 'image'){
       var sh = pJS.particles.shape;
       this.img = {
@@ -458,6 +463,43 @@ var pJS = function(tag_id, params){
         );
       break;
 
+      /* 葉っぱ：先の尖った葉の形＋中心の葉脈で「葉」だとひと目で分かるように */
+      case 'leaf':
+        pJS.canvas.ctx.save();
+        pJS.canvas.ctx.translate(p.x, p.y);
+        pJS.canvas.ctx.rotate(p.rotation);
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.moveTo(0, -radius*1.3);
+        pJS.canvas.ctx.bezierCurveTo(radius*1.1, -radius*0.7, radius*1.0, radius*0.9, 0, radius*1.3);
+        pJS.canvas.ctx.bezierCurveTo(-radius*1.0, radius*0.9, -radius*1.1, -radius*0.7, 0, -radius*1.3);
+        pJS.canvas.ctx.closePath();
+        pJS.canvas.ctx.fill();
+        pJS.canvas.ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+        pJS.canvas.ctx.lineWidth = Math.max(radius*0.1, 0.6);
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.moveTo(0, -radius*1.15);
+        pJS.canvas.ctx.lineTo(0, radius*1.15);
+        pJS.canvas.ctx.stroke();
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.restore();
+      break;
+
+      /* 花びら：根本が細く、先端に桜のような切れ込みのある丸い形 */
+      case 'petal':
+        pJS.canvas.ctx.save();
+        pJS.canvas.ctx.translate(p.x, p.y);
+        pJS.canvas.ctx.rotate(p.rotation);
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.moveTo(0, 0);
+        pJS.canvas.ctx.bezierCurveTo(radius*1.05, -radius*0.15, radius*1.1, -radius*0.95, radius*0.4, -radius*1.4);
+        pJS.canvas.ctx.quadraticCurveTo(0, -radius*1.0, -radius*0.4, -radius*1.4);
+        pJS.canvas.ctx.bezierCurveTo(-radius*1.1, -radius*0.95, -radius*1.05, -radius*0.15, 0, 0);
+        pJS.canvas.ctx.closePath();
+        pJS.canvas.ctx.fill();
+        pJS.canvas.ctx.beginPath();
+        pJS.canvas.ctx.restore();
+      break;
+
       case 'image':
 
         function draw(){
@@ -523,6 +565,11 @@ var pJS = function(tag_id, params){
         var ms = pJS.particles.move.speed/2;
         p.x += p.vx * ms;
         p.y += p.vy * ms;
+      }
+
+      /* leaf / petal tumbling in the wind */
+      if(p.shape == 'leaf' || p.shape == 'petal'){
+        p.rotation += p.rotation_speed;
       }
 
       /* change opacity status */

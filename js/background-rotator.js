@@ -113,12 +113,12 @@
     retina_detect: true
   };
 
-  // 6. 花吹雪（桜色のふわふわした粒子）
+  // 6. 花吹雪（桜色の花びらの形がふわふわ舞う）
   const presetSakura = {
     particles: {
       number: { value: 130, density: { enable: true, value_area: 800 } },
       color: { value: ["#ffb7c5", "#ffd9e2", "#ff8fa3"] },
-      shape: { type: "circle" },
+      shape: { type: "petal" },
       opacity: { value: 0.95, random: true },
       size: { value: 7.5, random: true },
       line_linked: { enable: false },
@@ -208,15 +208,36 @@
     retina_detect: true
   };
 
+  // 11. 若葉舞う（緑・黄緑の葉っぱの形が斜めの風にくるくる舞う。花吹雪と混同しないよう色も形も分離）
+  const presetAutumnWind = {
+    particles: {
+      number: { value: 110, density: { enable: true, value_area: 800 } },
+      color: { value: ["#6fae4a", "#8fce5c", "#b3d94a", "#4f8f3d", "#d4e06b"] },
+      shape: { type: "leaf" },
+      opacity: { value: 0.85, random: true },
+      size: { value: 7, random: true },
+      line_linked: { enable: false },
+      move: { enable: true, speed: 3, direction: "bottom-left", random: true, straight: false, out_mode: "out" }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+      modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+    },
+    retina_detect: true
+  };
+
   /* ---------- プリセット一覧（増やしたい場合はここに push） ---------- */
   const presets = [
     presetNetwork, presetStars, presetBubbles, presetSnow, presetFireworks,
-    presetSakura, presetAurora, presetDigitalRain, presetGeometric, presetConfetti
+    presetSakura, presetAurora, presetDigitalRain, presetGeometric, presetConfetti,
+    presetAutumnWind
   ];
 
   const presetNames = [
     "ネットワーク", "星空", "泡", "雪", "花火風",
-    "花吹雪", "オーロラ", "デジタルレイン", "幾何学模様", "コンフェッティ"
+    "花吹雪", "オーロラ", "デジタルレイン", "幾何学模様", "コンフェッティ",
+    "若葉舞う"
   ];
 
   /* ---------- 指定したプリセットを適用する（確認・切替用） ---------- */
