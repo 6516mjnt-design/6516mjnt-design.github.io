@@ -27,35 +27,6 @@
     color: #6b7280;
     font-size: 13px;
   }
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    margin-bottom: 18px;
-  }
-  .stat {
-    background: #fff;
-    padding: 14px 16px;
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    border-left: 4px solid #0f766e;
-  }
-  .stat .label {
-    font-size: 11px;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .stat .value {
-    font-size: 22px;
-    font-weight: 700;
-    color: #134e4a;
-    margin-top: 4px;
-  }
-  .stat.rotterdam { border-left-color: #c2410c; }
-  .stat.stockholm { border-left-color: #1d4ed8; }
-  .stat.adopted   { border-left-color: #15803d; }
-  .stat.review    { border-left-color: #ca8a04; }
 
   .controls {
     background: #fff;
@@ -64,7 +35,7 @@
     margin-bottom: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     align-items: end;
   }
@@ -156,6 +127,7 @@
   }
   .badge-adopted   { background: #d1fae5; color: #065f46; }
   .badge-recommend { background: #dbeafe; color: #1e40af; }
+  .badge-upcoming  { background: #ede9fe; color: #5b21b6; border: 1px solid #c4b5fd; }
   .badge-review    { background: #fef3c7; color: #92400e; }
   .badge-rejected  { background: #fee2e2; color: #991b1b; }
 
@@ -180,23 +152,11 @@
   <h1>ロッテルダム条約とストックホルム条約の規制物質状況</h1>
   <div class="subtitle">
     ロッテルダム条約（CRC／附属書III）・ストックホルム条約（POPRC／附属書A）対象物質の審査状況
-    <br><span style="color:#0f766e;font-weight:600">最終更新: BRS COPs-12（2025年4–5月）／POPRC-21（2025年9–10月）／CRC-21（2025年9月）の結果を反映</span>
+    <br><span style="color:#0f766e;font-weight:600">最終更新: BRS COPs-12（2025年4–5月）の結果を反映。CRC-22（2026年9月15–18日）・POPRC-22（2026年9月21–25日、いずれもローマ）の暫定議題・作業文書に基づき審査予定物質を追記</span>
   </div>
 </header>
 
-<div class="stats">
-  <div class="stat"><div class="label">登録物質 合計</div><div class="value" id="statTotal">0</div></div>
-  <div class="stat rotterdam"><div class="label">ロッテルダム条約</div><div class="value" id="statRotterdam">0</div></div>
-  <div class="stat stockholm"><div class="label">ストックホルム条約</div><div class="value" id="statStockholm">0</div></div>
-  <div class="stat adopted"><div class="label">採択済み</div><div class="value" id="statAdopted">0</div></div>
-  <div class="stat review"><div class="label">審査中・勧告済み</div><div class="value" id="statPending">0</div></div>
-</div>
-
 <div class="controls">
-  <div class="field">
-    <label for="search">検索（物質名・CAS番号・備考）</label>
-    <input type="search" id="search" placeholder="例: PFOA, 1763-23-1, 石綿">
-  </div>
   <div class="field">
     <label for="filterTreaty">条約</label>
     <select id="filterTreaty">
@@ -209,7 +169,8 @@
     <label for="filterStatus">ステータス</label>
     <select id="filterStatus">
       <option value="all">すべて</option>
-      <option value="review">審査中</option>
+      <option value="upcoming">CRC-22／POPRC-22で審査</option>
+      <option value="review">審査中（次回会合未定）</option>
       <option value="recommend">勧告済み</option>
       <option value="adopted">採択済み</option>
       <option value="rejected">否決</option>
@@ -262,6 +223,8 @@
   <div class="note">
     ※ データはBRS事務局・各COP/CRC/POPRC会合の公開資料（IISD Earth Negotiations Bulletin、ECHA、pic.int、pops.int 等）に基づく。<br>
     ※ <strong>2025年COP-12のハイライト</strong>: ストックホルム条約附属書Aに <em>クロルピリホス・MCCPs・LC-PFCAs</em> の3物質を新規収載。ロッテルダム条約附属書IIIに <em>カルボスルファン・フェンチオン</em>（ULV製剤）を収載（2025年10月22日発効）。一方、水銀・臭化メチル・クロルピリホス（ロッテルダム）は合意得られず。<br>
+    ※ <strong>CRC-22（2026年9月15–18日、ローマ）予告</strong>: メチルパラチオンの決定指針文書（DGD）案を作成しCOP-13へ送付予定。新規に<em>アトラジン・アジンホスエチル・エンドリン・鉛クロメート類・メホスホラン・メソミル・ホスファミドン・プロトエート</em>の8候補物質（通知22件）を審査。CRC-21から継続審査中の<em>カルバリル・フェナミホス・フェントエート・プロフェノホス・プロチオホス・キナルホス</em>も結論待ち。<br>
+    ※ <strong>POPRC-22（2026年9月21–25日、ローマ）予告</strong>: PBDD/Fs・PXDD/Fsの改訂リスクプロファイル案を審議。新規提案として、ノルウェー提案の<em>デカブロモジフェニルエタン（DBDPE）</em>とEU提案の<em>TBPH（テトラブロモフタル酸ビス（2-エチルヘキシル)）</em>の附属書A/B/C収載を検討。MCCPs（濃度基準・適用除外の見直し）、LC-PFCAs／PFOA／PFHxSの対象物質リスト更新の会期間作業も継続。<br>
     ※ 列ヘッダーをクリックでソート（再クリックで昇順／降順切替）。最新の正式情報は <a href="http://www.pic.int" target="_blank" rel="noopener">pic.int</a> ／ <a href="http://www.pops.int" target="_blank" rel="noopener">pops.int</a> を参照。
   </div>
 </div>
@@ -330,11 +293,11 @@ const rotterdamData = [
     nameJa: 'メチルパラチオン',
     cas: '298-00-0',
     startYear: 2003,
-    status: 'adopted', statusLabel: '採択済み',
-    copDecision: 'COP-03（2006）附属書III収載',
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: 'COP-03（2006）附属書III収載（SHPFとして）',
     poprcDecision: '',
-    crcDecision: 'CRC-21（2025年9月）農薬としての広域収載を勧告',
-    note: '既にSHPFとしてAnnex III収載済。CRC-21で広範な収載を新たに勧告、COP-13へ送付予定。'
+    crcDecision: 'CRC-21（2025年9月）農薬としての広域収載を勧告／CRC-22（2026年9月）決定指針文書（DGD）案を作成',
+    note: '既にSHPFとしてAnnex III収載済だが、それとは別に農薬区分での広範な収載をCRC-21で新たに勧告。CRC-22でDGD案（UNEP/FAO/RC/CRC.22/3）を作成中で、完成後にCOP-13へ送付予定。'
   },
   {
     nameEn: 'Mercury (and mercury compounds)',
@@ -406,23 +369,210 @@ const rotterdamData = [
     nameEn: 'Acetochlor',
     nameJa: 'アセトクロール',
     cas: '34256-82-1',
-    startYear: 2024,
-    status: 'review', statusLabel: '審査中',
-    copDecision: '',
+    startYear: 2017,
+    status: 'rejected', statusLabel: '否決',
+    copDecision: 'COP-09〜12（2019・2022・2023・2025）いずれもコンセンサス不成立',
     poprcDecision: '',
-    crcDecision: 'CRC審査継続中',
-    note: 'クロロアセトアミド系除草剤。'
+    crcDecision: 'CRC-13（2017年10月）附属書III収載を勧告／CRC-14（2018年9月）DGD採択',
+    note: 'クロロアセトアミド系除草剤。CRC勧告から8年以上、COPで4回連続して合意に至らず。水銀・臭化メチル・クロルピリホス・クリソタイル・パラコートと同様の長期塩漬け案件。'
   },
   {
-    nameEn: 'Dichlorvos / Fenamiphos / Chlorothalonil / Diazinon / Methiocarb / Methomyl',
-    nameJa: 'ジクロルボス／フェナミホス／クロロタロニル／ダイアジノン／メチオカルブ／メソミル',
-    cas: '複数',
+    nameEn: 'Dichlorvos',
+    nameJa: 'ジクロルボス（DDVP）',
+    cas: '62-73-7',
     startYear: 2025,
     status: 'review', statusLabel: '審査中',
     copDecision: '',
     poprcDecision: '',
     crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認',
-    note: '第二地域からの通報受領後に勧告手続へ。'
+    note: '有機リン系殺虫剤。第二地域からの通報受領後に勧告手続へ。CRC-22の議題には含まれず。'
+  },
+  {
+    nameEn: 'Chlorothalonil',
+    nameJa: 'クロロタロニル',
+    cas: '1897-45-6',
+    startYear: 2025,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認',
+    note: '有機塩素系殺菌剤。第二地域からの通報受領後に勧告手続へ。CRC-22の議題には含まれず。'
+  },
+  {
+    nameEn: 'Diazinon',
+    nameJa: 'ダイアジノン',
+    cas: '333-41-5',
+    startYear: 2025,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認',
+    note: '有機リン系殺虫剤。第二地域からの通報受領後に勧告手続へ。CRC-22の議題には含まれず。'
+  },
+  {
+    nameEn: 'Methiocarb',
+    nameJa: 'メチオカルブ',
+    cas: '2032-65-7',
+    startYear: 2025,
+    status: 'review', statusLabel: '審査中',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認',
+    note: 'カルバメート系殺虫剤。第二地域からの通報受領後に勧告手続へ。CRC-22の議題には含まれず。'
+  },
+  {
+    nameEn: 'Atrazine',
+    nameJa: 'アトラジン',
+    cas: '1912-24-9',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: 'トリアジン系除草剤。ボスニア・ヘルツェゴビナ／トルコ（欧州地域）、ウルグアイ（中南米地域）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Azinphos-ethyl',
+    nameJa: 'アジンホスエチル',
+    cas: '2642-71-9',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '有機リン系殺虫剤。イラン・タイ（アジア地域）、トルコ（欧州地域）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Endrin',
+    nameJa: 'エンドリン',
+    cas: '72-20-8',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '有機塩素系殺虫剤。インドネシア（アジア）、エクアドル・ガイアナ・ウルグアイ（中南米）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Lead chromates',
+    nameJa: '鉛クロメート類',
+    cas: '12656-85-8, 1344-37-2, 7758-97-6',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '工業化学品（顔料）。カメルーン・モロッコ（アフリカ）、スイス（欧州）、オーストラリア（南西太平洋）から最終規制措置通報。8候補物質中唯一の工業化学品。'
+  },
+  {
+    nameEn: 'Mephosfolan',
+    nameJa: 'メホスホラン',
+    cas: '950-10-7',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '有機リン系殺虫剤。タイ（アジア）、トルコ（欧州）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Methomyl',
+    nameJa: 'メソミル',
+    cas: '16752-77-5',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）附属書II基準を満たすと確認／CRC-22（2026年9月）新規審査予定',
+    note: 'カルバメート系殺虫剤。タイ（アジア）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Phosphamidon',
+    nameJa: 'ホスファミドン',
+    cas: '13171-21-6',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '有機リン系殺虫剤。中国・インドネシア（アジア）、チリ（中南米）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Prothoate',
+    nameJa: 'プロトエート',
+    cas: '2275-18-5',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-22（2026年9月）新規審査予定',
+    note: '有機リン系殺虫剤。タイ（アジア）、トルコ（欧州）から最終規制措置通報。'
+  },
+  {
+    nameEn: 'Carbaryl',
+    nameJa: 'カルバリル',
+    cas: '63-25-2',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: 'カルバメート系殺虫剤。モザンビークから最終規制措置通報。'
+  },
+  {
+    nameEn: 'Fenamiphos',
+    nameJa: 'フェナミホス',
+    cas: '22224-92-6',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: '有機リン系殺線虫剤。モザンビーク、EUから最終規制措置通報。'
+  },
+  {
+    nameEn: 'Phenthoate',
+    nameJa: 'フェントエート',
+    cas: '2597-03-7',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: '有機リン系殺虫剤。'
+  },
+  {
+    nameEn: 'Profenofos',
+    nameJa: 'プロフェノホス',
+    cas: '41198-08-7',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: '有機リン系殺虫剤。'
+  },
+  {
+    nameEn: 'Prothiofos',
+    nameJa: 'プロチオホス',
+    cas: '34643-46-4',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: '有機リン系殺虫剤。'
+  },
+  {
+    nameEn: 'Quinalphos',
+    nameJa: 'キナルホス',
+    cas: '13593-03-8',
+    startYear: 2025,
+    status: 'upcoming', statusLabel: 'CRC-22で審査',
+    copDecision: '',
+    poprcDecision: '',
+    crcDecision: 'CRC-21（2025年9月）審議未了／CRC-22（2026年9月）で継続審査',
+    note: '有機リン系殺虫剤。'
   },
 ];
 
@@ -445,7 +595,7 @@ const stockholmData = [
     startYear: 2021,
     status: 'adopted', statusLabel: '採択済み',
     copDecision: 'COP-12（2025年5月）附属書A収載・複数の適用除外あり',
-    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告',
+    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告／POPRC-22（2026年9月）濃度基準・適用除外の見直しに関する付託事項（ToR）審査を継続',
     crcDecision: '',
     note: '可塑剤・難燃剤・金属加工油。塩素含有率45%未満MCCPsの生産は段階的削減対象。'
   },
@@ -456,7 +606,7 @@ const stockholmData = [
     startYear: 2021,
     status: 'adopted', statusLabel: '採択済み',
     copDecision: 'COP-12（2025年5月）附属書A収載・適用除外あり',
-    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告',
+    poprcDecision: 'POPRC-20（2024）附属書A収載を勧告／POPRC-22（2026年9月）PFOA・PFHxSと合わせた対象物質リストの改訂版を審査予定',
     crcDecision: '',
     note: '半導体（5年）、内燃機関船舶・生産終了車両用部品（2041年または使用終了まで）等の特定例外。'
   },
@@ -500,7 +650,7 @@ const stockholmData = [
     startYear: 2017,
     status: 'adopted', statusLabel: '採択済み',
     copDecision: 'COP-10（2022）附属書A収載・適用除外なし',
-    poprcDecision: 'POPRC-15（2019）勧告',
+    poprcDecision: 'POPRC-15（2019）勧告／POPRC-22（2026年9月）対象物質リスト改訂版を審査予定',
     crcDecision: '',
     note: 'PFAS。塩・関連物質も対象。'
   },
@@ -511,7 +661,7 @@ const stockholmData = [
     startYear: 2015,
     status: 'adopted', statusLabel: '採択済み',
     copDecision: 'COP-09（2019）附属書A収載',
-    poprcDecision: 'POPRC-12（2016）勧告',
+    poprcDecision: 'POPRC-12（2016）勧告／POPRC-22（2026年9月）対象物質リスト改訂版を審査予定',
     crcDecision: '',
     note: 'PFAS。撥水剤・フッ素ポリマー助剤として広く使用。'
   },
@@ -560,15 +710,48 @@ const stockholmData = [
     note: '発泡ポリスチレン用難燃剤。'
   },
   {
-    nameEn: 'Polybrominated and mixed polybrominated/chlorinated dioxins and furans (PBDD/Fs, PXDD/Fs)',
-    nameJa: 'ポリ臭素化ジベンゾ-p-ジオキシンおよびジベンゾフラン類、ポリ臭素化／塩素化混合ジベンゾ-p-ジオキシン類およびジベンゾフラン類',
-    cas: '複数',
+    nameEn: 'Polybrominated dibenzo-p-dioxins and dibenzofurans (PBDD/Fs)',
+    nameJa: 'ポリ臭素化ジベンゾ-p-ジオキシンおよびジベンゾフラン類（PBDD/Fs）',
+    cas: '50585-41-6（2,3,7,8-TeBDD）／67733-57-7（2,3,7,8-TeBDF）',
     startYear: 2023,
-    status: 'review', statusLabel: '審査中',
+    status: 'upcoming', statusLabel: 'POPRC-22で審査',
     copDecision: '',
-    poprcDecision: 'POPRC-21（2025年9–10月）リスクプロファイル草案合意未到達／会期間作業継続',
+    poprcDecision: 'POPRC-21（2025年9–10月）リスクプロファイル草案合意未到達・会期間作業部会設置／POPRC-22（2026年9月）改訂リスクプロファイル案を審議予定',
     crcDecision: '',
-    note: '人健康への長距離移動影響の追加情報収集を継続。'
+    note: '臭素系難燃剤の非意図的副生成物。異性体は最大75(PBDD)+135(PBDF)種存在し、単一の技術混合物CASはないため、条約文書が指標異性体とする2,3,7,8-四臭素化異性体のCASを記載。長距離移動性と人健康への影響の関連についてAnnex E情報の追加提出を招請済み。'
+  },
+  {
+    nameEn: 'Mixed polybrominated/chlorinated dibenzo-p-dioxins and dibenzofurans (PXDD/Fs)',
+    nameJa: 'ポリ臭素化／塩素化混合ジベンゾ-p-ジオキシン類およびジベンゾフラン類（PXDD/Fs）',
+    cas: '該当なし（約4,600種の異性体の総称。単一の指標CASなし）',
+    startYear: 2023,
+    status: 'upcoming', statusLabel: 'POPRC-22で審査',
+    copDecision: '',
+    poprcDecision: 'POPRC-21（2025年9–10月）リスクプロファイル草案合意未到達・会期間作業部会設置／POPRC-22（2026年9月）改訂リスクプロファイル案を審議予定',
+    crcDecision: '',
+    note: '臭素・塩素混合系の非意図的副生成物（PBCDD 1,550種＋PBCDF 3,050種）。PBDD/Fsと同一のリスクプロファイル文書で並行審議。長距離移動性と人健康への影響の関連についてAnnex E情報の追加提出を招請済み。'
+  },
+  {
+    nameEn: 'Decabromodiphenylethane (DBDPE) and related substance',
+    nameJa: 'デカブロモジフェニルエタン（DBDPE）及び関連物質',
+    cas: '84852-53-9',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'POPRC-22で審査',
+    copDecision: '',
+    poprcDecision: 'POPRC-22（2026年9月）附属書A/B/C収載提案を新規審議予定',
+    crcDecision: '',
+    note: 'ノルウェー政府による収載提案。臭素系難燃剤（デカBDEの代替物質）。'
+  },
+  {
+    nameEn: 'Bis(2-ethylhexyl) tetrabromophthalate (TBPH)',
+    nameJa: 'テトラブロモフタル酸ビス（2-エチルヘキシル）（TBPH）',
+    cas: '26040-51-7',
+    startYear: 2026,
+    status: 'upcoming', statusLabel: 'POPRC-22で審査',
+    copDecision: '',
+    poprcDecision: 'POPRC-22（2026年9月）附属書A/B/C収載提案を新規審議予定',
+    crcDecision: '',
+    note: 'EUによる収載提案。異性体・組み合わせを含む。臭素系難燃剤。'
   },
 ];
 
@@ -579,7 +762,7 @@ const sortState = {
 };
 
 // status はステータスの意味順で並べる
-const statusOrder = { adopted: 1, recommend: 2, review: 3, rejected: 4 };
+const statusOrder = { adopted: 1, recommend: 2, upcoming: 3, review: 4, rejected: 5 };
 
 function compareValues(va, vb, key) {
   if (key === 'status') {
@@ -593,6 +776,7 @@ function statusBadgeClass(status) {
   return {
     adopted: 'badge-adopted',
     recommend: 'badge-recommend',
+    upcoming: 'badge-upcoming',
     review: 'badge-review',
     rejected: 'badge-rejected',
   }[status] || '';
@@ -607,15 +791,9 @@ function renderTable(treaty) {
   const ss = sortState[treaty];
   let rows = sourceData.slice();
 
-  const q = document.getElementById('search').value.trim().toLowerCase();
   const fStatus = document.getElementById('filterStatus').value;
   rows = rows.filter(d => {
     if (fStatus !== 'all' && d.status !== fStatus) return false;
-    if (q) {
-      const blob = (d.nameEn + ' ' + d.nameJa + ' ' + d.cas + ' ' + d.note + ' ' +
-                    d.copDecision + ' ' + d.poprcDecision + ' ' + d.crcDecision).toLowerCase();
-      if (!blob.includes(q)) return false;
-    }
     return true;
   });
 
@@ -663,15 +841,6 @@ function renderAll() {
   renderTable('stockholm');
 }
 
-function renderStats() {
-  const all = [...rotterdamData, ...stockholmData];
-  document.getElementById('statTotal').textContent = all.length;
-  document.getElementById('statRotterdam').textContent = rotterdamData.length;
-  document.getElementById('statStockholm').textContent = stockholmData.length;
-  document.getElementById('statAdopted').textContent = all.filter(d => d.status === 'adopted').length;
-  document.getElementById('statPending').textContent = all.filter(d => d.status === 'review' || d.status === 'recommend').length;
-}
-
 function attachSortHandlers(treaty) {
   document.querySelectorAll(`#${treaty}Table thead th`).forEach(th => {
     th.addEventListener('click', () => {
@@ -690,10 +859,8 @@ function attachSortHandlers(treaty) {
 
 attachSortHandlers('rotterdam');
 attachSortHandlers('stockholm');
-renderStats();
 renderAll();
 
-document.getElementById('search').addEventListener('input', renderAll);
 document.getElementById('filterTreaty').addEventListener('change', renderAll);
 document.getElementById('filterStatus').addEventListener('change', renderAll);
 </script>
