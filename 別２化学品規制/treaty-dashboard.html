@@ -84,7 +84,16 @@
     border-collapse: collapse;
     font-size: 13px;
     min-width: 1200px;
+    table-layout: fixed;
   }
+  /* ロッテルダム・ストックホルム両テーブルで列幅を揃える（列構成が同一のため） */
+  table th:nth-child(1), table td:nth-child(1) { width: 19%; }
+  table th:nth-child(2), table td:nth-child(2) { width: 12%; }
+  table th:nth-child(3), table td:nth-child(3) { width: 8%; }
+  table th:nth-child(4), table td:nth-child(4) { width: 11%; }
+  table th:nth-child(5), table td:nth-child(5) { width: 15%; }
+  table th:nth-child(6), table td:nth-child(6) { width: 17%; }
+  table th:nth-child(7), table td:nth-child(7) { width: 18%; }
   thead th {
     background: #134e4a;
     color: #fff;
@@ -115,7 +124,7 @@
 
   .name-en { font-weight: 600; color: #111827; }
   .name-ja { font-size: 12px; color: #6b7280; margin-top: 2px; }
-  .cas { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12px; color: #4b5563; white-space: nowrap; }
+  .cas { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12px; color: #4b5563; white-space: normal; word-break: break-word; }
 
   .badge {
     display: inline-block;
@@ -189,8 +198,7 @@
           <th data-sort="startYear">審査開始<span class="sort-arrow"></span></th>
           <th data-sort="status">ステータス<span class="sort-arrow"></span></th>
           <th data-sort="copDecision">COP決定<span class="sort-arrow"></span></th>
-          <th data-sort="poprcDecision">POPRC決定<span class="sort-arrow"></span></th>
-          <th data-sort="crcDecision">CRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="crcOrPoprc">CRC又はPOPRC決定<span class="sort-arrow"></span></th>
           <th data-sort="note">備考<span class="sort-arrow"></span></th>
         </tr>
       </thead>
@@ -211,8 +219,7 @@
           <th data-sort="startYear">審査開始<span class="sort-arrow"></span></th>
           <th data-sort="status">ステータス<span class="sort-arrow"></span></th>
           <th data-sort="copDecision">COP決定<span class="sort-arrow"></span></th>
-          <th data-sort="poprcDecision">POPRC決定<span class="sort-arrow"></span></th>
-          <th data-sort="crcDecision">CRC決定<span class="sort-arrow"></span></th>
+          <th data-sort="crcOrPoprc">CRC又はPOPRC決定<span class="sort-arrow"></span></th>
           <th data-sort="note">備考<span class="sort-arrow"></span></th>
         </tr>
       </thead>
@@ -755,6 +762,19 @@ const stockholmData = [
   },
 ];
 
+// CRC決定・POPRC決定を1つの列にまとめる
+function mergeCrcPoprc(dataset) {
+  dataset.forEach(d => {
+    if (d.crcDecision && d.poprcDecision) {
+      d.crcOrPoprc = d.crcDecision + '／' + d.poprcDecision;
+    } else {
+      d.crcOrPoprc = d.crcDecision || d.poprcDecision || '';
+    }
+  });
+}
+mergeCrcPoprc(rotterdamData);
+mergeCrcPoprc(stockholmData);
+
 // 各テーブルのソート状態
 const sortState = {
   rotterdam: { column: null, dir: 'asc' },
@@ -813,8 +833,7 @@ function renderTable(treaty) {
       <td>${d.startYear}</td>
       <td><span class="badge ${statusBadgeClass(d.status)}">${d.statusLabel}</span></td>
       <td>${cellOrDash(d.copDecision)}</td>
-      <td>${cellOrDash(d.poprcDecision)}</td>
-      <td>${cellOrDash(d.crcDecision)}</td>
+      <td>${cellOrDash(d.crcOrPoprc)}</td>
       <td>${d.note}</td>
     </tr>
   `).join('');
