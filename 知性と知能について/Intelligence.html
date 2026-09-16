@@ -131,6 +131,58 @@
             font-family: Consolas, Monaco, monospace;
             font-size: 90%;
         }
+
+        /* ==========================================================================
+           AGI HUB 外部参照セクション
+           既存本文は保持し、外部情報への入口だけを追加
+           ========================================================================== */
+        .external-research {
+            background: #f7f9fc;
+            border: 1px solid #d9e2ec;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        .external-research h2 {
+            margin-top: 0;
+        }
+        .external-note {
+            background: #fff;
+            border-left: 4px solid #718096;
+            padding: 12px 16px;
+            margin: 18px 0;
+        }
+        .research-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .research-link {
+            display: block;
+            background: #fff;
+            border: 1px solid #d9e2ec;
+            border-radius: 6px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: #1a365d;
+        }
+        .research-link:hover {
+            border-color: #2b6cb0;
+            background: #f0f6ff;
+        }
+        .research-link strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #2b6cb0;
+        }
+        .research-link span {
+            display: block;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
     </style>
 </head>
 <body>
@@ -140,7 +192,7 @@
 
     <header>
         <h1>AI と 人間の知能 について</h1>
-        <div class="date">2026年7月14日</div>
+        <div class="date">更新日：2026年9月16日</div>
     </header>
 
 <div class="overall-summary">
@@ -703,6 +755,111 @@
             <li><strong>エージェント的知能：</strong>AIは強化学習を通じて、内部に複数の仮想エージェントを立て議論・検証させる「社会性の内部化」こそが推論精度を最大化する形式であることを自ら発見した。</li>
             <li><strong>ガバナンスの要諦：</strong>個別AIの「しつけ（RLHF）」による親子モデルは限界に達しており、「ケンタウルス」型組織におけるスロット設計と相互監視の「制度的アラインメント」が安全性の鍵となる。</li>
             <li><strong>人類の新たな役割：</strong>知能はネットワークの中にしか存在しない以上、人類の役割は監視者ではなく、文化というバトンを渡す「制度の設計者」「責任ある先代」である。</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="external-research">
+    <h2>現在のAGI議論を追う — 外部研究マップ</h2>
+
+    <p>
+        このページでは、これまで「知能とは何か」「AGIからASIへどう進むのか」
+        「集合知・複数的な知能とは何か」を考えてきました。
+        ここでは、その議論を現在進行形の研究・論考につなぐための外部参照先（AGI　HUB）をまとめます。
+    </p>
+
+    <div class="external-note">
+        <strong>使い方：</strong>
+        ここに内容を転載するのではなく、AGIに関する議論の変化を追うための入口として利用します。
+        外部サイトは更新されるため、最新の内容はリンク先で確認します。
+        また、そこに掲載される予測・シナリオ・提言は、それぞれの著者や組織の見解として読むことにします。
+    </div>
+
+    <h3>1. AGIとは何か</h3>
+    <p>
+        AGIの定義、実現時期、社会への影響など、現在の議論の前提を確認する入口です。
+    </p>
+
+    <div class="research-links">
+        <a class="research-link" href="https://agi-hub.ai/agi-intro" target="_blank" rel="noopener noreferrer">
+            <strong>AGI入門</strong>
+            <span>AGI（汎用人工知能）の定義、到来時期、社会的影響についての入門資料。</span>
+        </a>
+
+        <a class="research-link" href="https://agi-hub.ai/research" target="_blank" rel="noopener noreferrer">
+            <strong>AGI HUB — リサーチ一覧</strong>
+            <span>AGI、知能爆発、AIアライメント、ガバナンス、タイムラインなどを横断して追う。</span>
+        </a>
+    </div>
+
+    <h3>2. 「AGI → ASI」の進展をどう考えるか</h3>
+    <p>
+        本ページの問4で扱っている「スケーリング」「再帰的自己改善」「集合知」などの論点を、
+        現在のAGI議論と照らし合わせるための参照先です。
+    </p>
+
+    <div class="research-links">
+        <a class="research-link" href="https://agi-hub.ai/research" target="_blank" rel="noopener noreferrer">
+            <strong>知能・技術・産業爆発</strong>
+            <span>AGI以後に知能・技術・産業が加速するという議論を、条件や帰結を含めて追う。</span>
+        </a>
+
+        <a class="research-link" href="https://agi-hub.ai/research" target="_blank" rel="noopener noreferrer">
+            <strong>タイムライン・予想</strong>
+            <span>AGIの到来時期に関する予測と、その後の振り返りを確認する。</span>
+        </a>
+    </div>
+
+    <h3>3. 集合知・AIエージェント社会を考える</h3>
+    <p>
+        本ページの問7では、知能を単一のAIではなく、
+        人間・AI・エージェントの相互作用からなる「社会的な複数性」として考えています。
+        この視点は、今後のAI能力進化を観測する際にも重要な観察対象になります。
+    </p>
+
+    <div class="external-note">
+        <strong>観測ポイント：</strong>
+        「一つのAIがどれだけ賢くなったか」だけでなく、
+        「複数のAIが組み合わさると、何ができるようになるか」を別の軸として追う。
+        これは今後の「AI能力の進化」の具体的事例を追加していく際にも利用できます。
+    </div>
+
+    <h3>4. AIアライメント・リスク・ガバナンス</h3>
+    <p>
+        能力が高くなるほど、「何ができるか」と「何をするよう設計されているか」を
+        分けて観測する必要があります。AGI HUBでは、AIアライメント、
+        AIリスク、ガバナンスなどをまとめて追うことができます。
+    </p>
+
+    <div class="research-links">
+        <a class="research-link" href="https://agi-hub.ai/research" target="_blank" rel="noopener noreferrer">
+            <strong>AIリスク・アライメント・ガバナンス</strong>
+            <span>アラインメント、AIリスク、制度・国際協調などに関する論考を追う。</span>
+        </a>
+    </div>
+
+    <h3>5. AI 2040 — シナリオとして読む</h3>
+    <p>
+        「AI 2040」は、超知能の開発時期や国際協調について一つの将来シナリオと提言を提示する資料です。
+        AGI HUB自身が、これは将来の実像についての最善の予測ではなく、
+        政策提言を伝え、ストレステストするためのシナリオだと説明しています。
+        したがって、このページでは「予測」ではなく「一つのシナリオ」として参照します。
+    </p>
+
+    <div class="research-links">
+        <a class="research-link" href="https://agi-hub.ai/ai-2040-ja/" target="_blank" rel="noopener noreferrer">
+            <strong>AI 2040 日本語版</strong>
+            <span>超知能後の世界と国際協調についてのシナリオ・Plan A。</span>
+        </a>
+    </div>
+
+    <div class="summary">
+        <div class="summary-title">この外部参照を置く意味</div>
+        <ul>
+            <li><strong>本文：</strong>「知能とは何か」「どこまで進めるのか」「集合知とは何か」を考える。</li>
+            <li><strong>外部研究：</strong>現在、世界でどのようなAGI論・予測・安全性議論が進んでいるかを追う。</li>
+            <li><strong>AI進化観測：</strong>外部の議論をそのまま結論にせず、実際のAI能力の変化と照合する。</li>
         </ul>
     </div>
 </div>
