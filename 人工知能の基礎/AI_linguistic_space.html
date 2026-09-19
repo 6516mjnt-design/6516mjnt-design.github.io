@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIは何語で「考えて」いるのか ― 言語を越える内部表現</title>
+<style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #111;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 20px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lede {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .note, .card {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+        }
+        .method-name, .badge {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        .badge {
+            display: inline;
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            font-size: inherit;
+        }
+        .grid {
+            display: block;
+        }
+        .flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 1.5rem 0;
+        }
+        .box {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 10px 14px;
+            text-align: center;
+            min-width: 135px;
+        }
+        .arrow {
+            color: #3182ce;
+            font-size: 1.4rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.2rem;
+            background-color: #fff;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        .small {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 18px;
+            border-top: 1px solid #ddd;
+            color: #777;
+            font-size: 0.85rem;
+        }
+        code {
+            background: #f1f5f9;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        @media print {
+            body {
+                background-color: #fff;
+                max-width: none;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 14px; }
+            h1 { font-size: 1.7rem; }
+            h2 { font-size: 1.3rem; }
+            .flow { align-items: stretch; }
+            .box { width: 100%; }
+            .arrow { transform: rotate(90deg); }
+            table { font-size: 0.9rem; display: block; overflow-x: auto; }
+        }
+</style>
+</head>
+<body>
+<div class="print-button" style="text-align: right; padding: 10px;">
+  <button onclick="window.print()" style="padding: 8px 20px; background-color: #0057b8; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">🖨️ 印刷</button>
+</div>
+<header>
+  <h1>AIは何語で「考えて」いるのか<br>― 言語を越える内部表現</h1>
+  <p class="meta">AI進化観測｜AIの内部表現</p>
+</header>
+
+<main>
+  <p class="lede">
+    「日本語で質問すると、AIはいったん英語に翻訳してから考える」という説明は、少なくとも現在の研究成果をそのまま表すものではありません。
+    より慎重に言えば、AIの内部には、入力された言語そのものとは別の、複数の概念や特徴を表す数値的な内部表現が形成されており、
+    異なる言語の入力で一部の内部表現が共有されることが観測されています。
+  </p>
+
+  <div class="note">
+    <strong>このページのポイント</strong><br>
+    Claudeでは、英語・フランス語・中国語で同じ概念を尋ねたとき、共通する内部特徴が働くことが具体的に調べられています。
+    一方、OpenAIについてもGPT-4の内部表現から多数の「特徴」を抽出する研究がありますが、
+    Claudeと同じ方法で「多言語の共通回路」を直接示した公開研究とは区別する必要があります。
+  </div>
+
+  <h2>1．Claudeで実際に観測されたこと</h2>
+  <p>
+    Anthropicは2025年3月、Claude 3.5 Haikuを対象に、モデル内部の情報の流れを追跡する研究を公表しました。
+    「smallの反対は？」という単純な問いを英語・フランス語・中国語などで与えたところ、
+    「小さい」「反対」といった概念に対応する共通の内部特徴が活動し、そこから「大きい」に対応する概念が導かれ、
+    最終的な出力が質問の言語に合わせられる様子が調べられました。
+  </p>
+  <p>
+    Anthropicはこの結果について、言語を越えて共有される<strong>conceptual space（概念的な空間）</strong>を示す証拠だと説明しています。
+    また、より大きなモデルほど言語間で共有される特徴の割合が高くなったと報告しています。
+  </p>
+
+  <div class="flow">
+    <div class="box">日本語<br>「小さいの反対は？」</div>
+    <div class="arrow">→</div>
+    <div class="box">内部表現<br>「小ささ」「反対」</div>
+    <div class="arrow">→</div>
+    <div class="box">内部表現<br>「大きさ」</div>
+    <div class="arrow">→</div>
+    <div class="box">日本語の出力<br>「大きい」</div>
+  </div>
+
+  <p class="small">
+    ※これは説明用の模式図です。実際のモデル内部に、この順番で単純な4段階の処理が存在すると確定したという意味ではありません。
+  </p>
+
+  <hr>
+  <h2>2．ではOpenAIのGPTも同じなのか</h2>
+  <p>
+    <strong>「かなり近い現象がある」と考える根拠はあります。ただし、「Claudeと同じことがOpenAIについて実証された」とまでは言えません。</strong>
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="badge">OpenAI｜GPT-4</span>
+      <h3>内部の「特徴」を抽出</h3>
+      <p>
+        OpenAIは2024年、GPT-4の内部表現をスパースオートエンコーダで分解し、
+        約1,600万個の特徴を抽出したと報告しました。これらの特徴の中には、人間が解釈しやすい概念に対応しているように見えるものがあります。
+      </p>
+    </div>
+    <div class="card">
+      <span class="badge">OpenAI｜Embedding</span>
+      <h3>意味を数値ベクトルで表す</h3>
+      <p>
+        OpenAIのEmbeddingでは、テキストを数値ベクトルとして表し、
+        意味的な関連性を距離・類似度として扱えます。
+        これは「言葉そのもの」だけでなく、意味関係を数値空間で扱う考え方と整合します。
+      </p>
+    </div>
+    <div class="card">
+      <span class="badge">OpenAI｜注意点</span>
+      <h3>まだ内部計算の全体像は不明</h3>
+      <p>
+        OpenAI自身も、抽出した特徴がモデル内部でどのように計算され、
+        後段でどのように利用されるのかについて、さらに研究が必要だと明記しています。
+      </p>
+    </div>
+  </div>
+
+  <hr>
+  <h2>3．ClaudeとGPTを同じ表で見ると</h2>
+  <table>
+    <thead>
+      <tr><th>観点</th><th>Claude</th><th>GPT / OpenAI</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>内部の概念・特徴</td>
+        <td>解釈可能な特徴と、それらを結ぶ回路を追跡する研究がある</td>
+        <td>GPT-4から多数の内部特徴を抽出する研究がある</td>
+      </tr>
+      <tr>
+        <td>多言語で共有される内部表現</td>
+        <td>英語・フランス語・中国語などで共通する特徴を具体的に調査</td>
+        <td>多言語能力は確認されているが、今回のClaude研究と同じ形での公開実証とは区別が必要</td>
+      </tr>
+      <tr>
+        <td>「意味の空間」という見方</td>
+        <td>Anthropicがconceptual spaceとして説明</td>
+        <td>内部特徴・embeddingなど、数値的な表現空間を扱う研究がある</td>
+      </tr>
+      <tr>
+        <td>内部処理の完全な理解</td>
+        <td>まだ不完全</td>
+        <td>OpenAI自身が、特徴の計算・利用について未解明部分が大きいと説明</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>4．「AIは英語で考えている」はどう扱うべきか</h2>
+  <p>
+    現時点では、この言い方は単純化しすぎています。
+    AIの内部処理を「日本語 → 英語 → 推論 → 日本語」という一本の翻訳経路として考えるより、
+    <strong>入力された言語から、多数の数値的な内部表現・特徴が形成され、それらが計算され、最後に出力言語に応じた表現が生成される</strong>
+    と考える方が、公開されている研究と整合的です。
+  </p>
+
+  <div class="note">
+    <strong>重要な注意</strong><br>
+    「概念空間」という言葉を使っても、それだけでAIが人間と同じように「意味を考えている」と証明されたわけではありません。
+    どの特徴がどの計算に使われ、どのような因果関係で出力につながるのかは、現在も研究対象です。
+  </div>
+
+  <hr>
+  <h2>5．AI進化観測で見るべきポイント</h2>
+  <p>
+    このテーマは「AIは何語で考えるか」という問いだけで追うより、
+    <strong>言語を越えた内部表現が、どこまで形成され、どのような計算に利用されるようになったか</strong>
+    を追う方が、AI能力の進化を観測しやすいテーマです。
+  </p>
+
+  <table>
+    <thead><tr><th>観測項目</th><th>見る質問</th></tr></thead>
+    <tbody>
+      <tr><td>言語横断性</td><td>同じ概念を異なる言語で入力したとき、共通する内部特徴が確認できるか？</td></tr>
+      <tr><td>概念表現</td><td>単語ではなく、意味・関係・抽象概念に対応する特徴を追跡できるか？</td></tr>
+      <tr><td>推論への利用</td><td>内部の概念表現が、次の推論段階を実際に因果的に決めているか？</td></tr>
+      <tr><td>規模との関係</td><td>モデルが大きくなると、言語横断的な共有や多段推論は増えるか？</td></tr>
+      <tr><td>解釈可能性</td><td>内部表現を人間がどこまで追跡・検証できるようになったか？</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <h2>6．現時点での結論</h2>
+  <p>
+    <strong>Claudeについては、「複数言語にまたがって共有される概念的な内部表現」が具体的に観測されています。</strong>
+    <br>
+    <strong>OpenAIについても、GPT-4の内部に人間が解釈可能な特徴・概念に対応する内部表現が存在することを調べる研究があります。</strong>
+    <br>
+    ただし、OpenAIについて「日本語・英語・中国語が同じ内部回路を通って概念空間で処理される」というClaudeと同型の公開実証がある、とまでは現段階では書かない方が正確です。
+  </p>
+
+  <p>
+    したがって、このページでは<strong>「Claudeだけの特殊現象」ではなく、「AIの内部表現を理解するための具体的な研究事例としてClaudeを中心に、GPTにも関連研究がある」</strong>
+    という位置づけにしています。
+  </p>
+
+  <footer>
+    <strong>参考資料</strong><br>
+    Anthropic, “Tracing the thoughts of a large language model” (2025-03-27).<br>
+    OpenAI, “Extracting Concepts from GPT-4” (2024-06-06).<br>
+    OpenAI, “ベクトル埋め込み / Embeddings”.<br>
+    OpenAI Help Center, “How can I use the OpenAI API with text in different languages?”<br><br>
+    このページは、上記研究の内容をAI進化観測用に整理したものです。研究が進展した場合は、該当箇所に事例を追加してください。
+  </footer>
+</main>
+</body>
+</html>
