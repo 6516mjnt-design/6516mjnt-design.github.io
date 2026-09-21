@@ -121,7 +121,7 @@ body::after{
     color:var(--gold-soft);
     letter-spacing:.22em;
     text-shadow:0 0 18px rgba(239,205,119,.45),0 2px 12px #000;
-    font-size:clamp(30px,4vw,30px);
+    font-size:clamp(30px,4vw,36px);
     font-weight:600;
     margin:18px 0 48px;
 }
@@ -181,7 +181,12 @@ body::after{
 }
 @media (max-width:700px){
     .slide-container{padding:28px 4vw 50px}
-    .main-title::before,.main-title::after{margin:0 9px}
+    .main-title{
+        font-size:clamp(24px,7vw,30px);
+        letter-spacing:.12em;
+        white-space:nowrap;
+    }
+    .main-title::before,.main-title::after{margin:0 5px}
 }
 
 /* 印刷時は幻想的な動き・背景を抑制 */
