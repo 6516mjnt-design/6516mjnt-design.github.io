@@ -8,8 +8,345 @@
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
+
+<style>
+:root{
+    --gold:#d9b76b;
+    --gold-soft:#f1d99a;
+    --ink:#eee7d4;
+    --muted:#b8ad92;
+    --glass:rgba(18,16,28,.52);
+    --line:rgba(222,190,112,.28);
+}
+
+/* 仏教的・幻想的な背景 */
+html,body{
+    min-height:100%;
+}
+body{
+    margin:0;
+    color:var(--ink);
+    background:
+        radial-gradient(circle at 50% 18%, rgba(226,194,111,.18), transparent 24%),
+        radial-gradient(circle at 15% 75%, rgba(93,73,145,.22), transparent 30%),
+        radial-gradient(circle at 85% 65%, rgba(48,94,118,.18), transparent 28%),
+        linear-gradient(145deg,#080b18 0%,#111126 48%,#070b16 100%);
+    overflow-x:hidden;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:-20%;
+    pointer-events:none;
+    opacity:.42;
+    background:
+        repeating-radial-gradient(circle at 50% 42%,
+            transparent 0 105px,
+            rgba(218,186,105,.055) 106px 108px,
+            transparent 109px 155px);
+    animation:mandala 45s linear infinite;
+}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,.48) 100%),
+        linear-gradient(180deg,rgba(255,255,255,.025),transparent 30%,rgba(0,0,0,.16));
+}
+@keyframes mandala{
+    from{transform:rotate(0deg) scale(1)}
+    to{transform:rotate(360deg) scale(1.08)}
+}
+
+/* 背景の光粒子 */
+.dharma-particles{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+.dharma-particles i{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:rgba(244,216,139,.8);
+    box-shadow:0 0 10px rgba(244,216,139,.75);
+    animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+    0%{transform:translate3d(0,20vh,0) scale(.5);opacity:0}
+    12%{opacity:.8}
+    75%{opacity:.55}
+    100%{transform:translate3d(var(--drift),-115vh,0) scale(1.25);opacity:0}
+}
+
+/* 中央の蓮華のような光 */
+.dharma-aura{
+    position:fixed;
+    left:50%;
+    top:35%;
+    width:330px;
+    height:330px;
+    transform:translate(-50%,-50%);
+    z-index:0;
+    pointer-events:none;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(245,218,145,.22) 0,
+        rgba(205,164,91,.08) 24%,
+        transparent 67%);
+    filter:blur(2px);
+    animation:aura 7s ease-in-out infinite;
+}
+@keyframes aura{
+    0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.65}
+    50%{transform:translate(-50%,-50%) scale(1.12);opacity:1}
+}
+
+/* メインコンテンツ */
+.slide-container{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    box-sizing:border-box;
+    padding:42px 5vw 70px;
+}
+.main-title{
+    position:relative;
+    text-align:center;
+    color:var(--gold-soft);
+    letter-spacing:.22em;
+    text-shadow:0 0 18px rgba(239,205,119,.45),0 2px 12px #000;
+    font-size:clamp(30px,4vw,48px);
+    font-weight:600;
+    margin:18px 0 48px;
+}
+.main-title::before,
+.main-title::after{
+    content:"☸";
+    display:inline-block;
+    margin:0 22px;
+    font-size:.58em;
+    opacity:.65;
+    animation:wheel 12s linear infinite;
+}
+@keyframes wheel{to{transform:rotate(360deg)}}
+
+.grid{
+    position:relative;
+    z-index:2;
+}
+.card{
+    background:linear-gradient(145deg,rgba(30,27,43,.70),rgba(8,12,25,.62));
+    border:1px solid var(--line);
+    box-shadow:
+        0 16px 45px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,238,187,.08),
+        0 0 28px rgba(181,139,65,.045);
+    backdrop-filter:blur(9px);
+    -webkit-backdrop-filter:blur(9px);
+    transition:transform .5s ease, border-color .5s ease, box-shadow .5s ease;
+}
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(238,205,126,.55);
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.45),
+        0 0 32px rgba(216,179,92,.13);
+}
+.card-header{
+    border-bottom:1px solid rgba(220,187,105,.16);
+}
+.card-header h2{
+    color:#ead9ac;
+    text-shadow:0 0 12px rgba(232,203,130,.18);
+}
+.card-body a{
+    color:#d8d0bc;
+    transition:color .3s ease, padding-left .3s ease;
+}
+.card-body a:hover{
+    color:#ffe7a5;
+    padding-left:7px;
+    text-shadow:0 0 10px rgba(241,211,137,.32);
+}
+.btn-print{
+    position:relative;
+    z-index:5;
+    opacity:.78;
+}
+@media (max-width:700px){
+    .slide-container{padding:28px 4vw 50px}
+    .main-title::before,.main-title::after{margin:0 9px}
+}
+
+/* 印刷時は幻想的な動き・背景を抑制 */
+@media print{
+    body{background:#fff;color:#111}
+    body::before,body::after,.dharma-particles,.dharma-aura,.dharma-sun{display:none}
+    .card{background:#fff;box-shadow:none;border:1px solid #bbb}
+    .main-title{color:#222;text-shadow:none}
+}
+
+/* --- リンクを読みやすく、仏教的な金色の札へ --- */
+.card-body a{
+    display:block;
+    box-sizing:border-box;
+    color:#f2dfb0 !important;
+    background:rgba(19,22,39,.78) !important;
+    border:1px solid rgba(222,190,112,.22);
+    border-radius:10px;
+    text-decoration:none;
+    text-shadow:0 1px 5px rgba(0,0,0,.8);
+    box-shadow:inset 0 1px 0 rgba(255,244,202,.06),
+               0 5px 16px rgba(0,0,0,.18);
+}
+.card-body a:hover{
+    color:#fff0bd !important;
+    background:rgba(62,49,35,.82) !important;
+    border-color:rgba(242,211,135,.55);
+    padding-left:7px;
+    text-shadow:0 0 12px rgba(255,220,137,.5);
+}
+
+/* --- 太陽の光を強める --- */
+.dharma-sun{
+    position:fixed;
+    left:50%;
+    top:28%;
+    width:620px;
+    height:620px;
+    transform:translate(-50%,-50%);
+    z-index:0;
+    pointer-events:none;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,
+            rgba(255,246,194,.42) 0%,
+            rgba(247,210,119,.28) 10%,
+            rgba(232,184,76,.14) 25%,
+            rgba(214,159,49,.055) 43%,
+            transparent 69%);
+    filter:blur(1px);
+    animation:sunBreath 8s ease-in-out infinite;
+}
+.dharma-sun::before{
+    content:"";
+    position:absolute;
+    inset:-230px;
+    border-radius:50%;
+    background:repeating-conic-gradient(
+        from 0deg,
+        rgba(246,211,126,.055) 0deg 3deg,
+        transparent 3deg 15deg
+    );
+    -webkit-mask-image:radial-gradient(circle, transparent 0 30%, #000 57%, transparent 72%);
+    mask-image:radial-gradient(circle, transparent 0 30%, #000 57%, transparent 72%);
+    animation:sunRays 70s linear infinite;
+}
+.dharma-sun::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:180px;
+    height:180px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(255,251,220,.75) 0%,
+        rgba(255,224,131,.35) 35%,
+        rgba(239,189,75,.08) 70%,
+        transparent 100%);
+    filter:blur(7px);
+}
+@keyframes sunBreath{
+    0%,100%{opacity:.72;transform:translate(-50%,-50%) scale(.94)}
+    50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+}
+@keyframes sunRays{
+    to{transform:rotate(360deg)}
+}
+
+/* 既存の中央光を太陽の位置に合わせて少し上へ */
+.dharma-aura{
+    top:28%;
+    opacity:.45;
+}
+
+
+/* --- BGM操作パネル --- */
+.bgm-panel{
+    position:fixed;
+    right:24px;
+    top:22px;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 10px;
+    border:1px solid rgba(230,198,119,.30);
+    border-radius:14px;
+    background:rgba(10,13,27,.62);
+    box-shadow:0 8px 28px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,244,202,.08);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+.bgm-button{
+    border:0;
+    border-radius:9px;
+    padding:9px 13px;
+    cursor:pointer;
+    color:#f4dfaa;
+    background:rgba(83,61,31,.62);
+    font-size:14px;
+    letter-spacing:.04em;
+    box-shadow:inset 0 1px 0 rgba(255,245,210,.08);
+    transition:.3s ease;
+}
+.bgm-button:hover{
+    background:rgba(121,87,40,.72);
+    color:#fff0bd;
+    box-shadow:0 0 18px rgba(239,199,105,.18);
+}
+.bgm-label{
+    color:#cfc3a5;
+    font-size:12px;
+    white-space:nowrap;
+}
+@media (max-width:700px){
+    .bgm-panel{right:12px;top:12px}
+    .bgm-label{display:none}
+}
+@media print{
+    .bgm-panel{display:none}
+}
+
+</style>
+
 </head>
 <body>
+
+<div class="dharma-sun" aria-hidden="true"></div>
+<div class="dharma-aura"></div>
+<div class="dharma-particles" aria-hidden="true">
+    <i style="left:5%;--drift:35px;animation-duration:17s;animation-delay:-8s"></i>
+    <i style="left:13%;--drift:-25px;animation-duration:23s;animation-delay:-15s"></i>
+    <i style="left:22%;--drift:45px;animation-duration:19s;animation-delay:-4s"></i>
+    <i style="left:31%;--drift:-35px;animation-duration:26s;animation-delay:-18s"></i>
+    <i style="left:42%;--drift:28px;animation-duration:21s;animation-delay:-11s"></i>
+    <i style="left:51%;--drift:-42px;animation-duration:18s;animation-delay:-3s"></i>
+    <i style="left:61%;--drift:32px;animation-duration:25s;animation-delay:-17s"></i>
+    <i style="left:70%;--drift:-30px;animation-duration:20s;animation-delay:-7s"></i>
+    <i style="left:79%;--drift:40px;animation-duration:24s;animation-delay:-20s"></i>
+    <i style="left:89%;--drift:-38px;animation-duration:18s;animation-delay:-12s"></i>
+    <i style="left:96%;--drift:25px;animation-duration:22s;animation-delay:-5s"></i>
+</div>
+
 
     <div class="slide-container">
         <button onclick="window.print()" class="btn-print">印刷する</button>
@@ -67,5 +404,31 @@
                 </div>
             </div>
 
-        </div> </div> </body>
+        </div> </div> 
+<!-- BGM：HTMLと同じ階層にある「audio」フォルダのmp3を再生 -->
+<div class="bgm-panel" aria-label="BGM操作">
+    <button class="bgm-button" id="bgmButton" type="button">▶ 再生</button>
+</div>
+
+<audio id="bgm" loop preload="auto">
+    <source src="../audio/bgm101.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(function(){
+    const audio = document.getElementById('bgm');
+    const button = document.getElementById('bgmButton');
+    audio.volume = 0.28;
+
+    button.addEventListener('click', async function(){
+        try {
+            await audio.play();
+        } catch(e) {
+            button.textContent = '▶ 再生';
+        }
+    });
+})();
+</script>
+
+</body>
 </html>
