@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIニュース自動追跡システムの構築</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white py-12 px-4 shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center space-x-3 text-indigo-400 text-sm font-semibold tracking-wider uppercase mb-2">
+                <i class="fa-solid fa-microchip"></i>
+                <span>開発ノート / システム設計</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+                AIニュース自動追跡システムの構築
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl">
+                「単なる件数記録」から「LLMによる週次要約」へ。ノイズを排除し、情報過多に陥らずに主要トレンドを効率把握するための検証フェーズ記録。
+               検討期間が終了したら結果を公開予定。
+            </p>
+            <div class="mt-6 flex flex-wrap gap-4 text-xs text-slate-400 border-t border-slate-800 pt-4">
+                <span><i class="fa-regular fa-calendar-check mr-1"></i> ステータス: 試行運用中</span>
+                <span><i class="fa-solid fa-code-branch mr-1"></i> データソース: 日本経済新聞 (nikkei.com)</span>
+                <span><i class="fa-solid fa-rotate mr-1"></i> 更新周期: 毎日自動収集 / 30日ローテーション</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+
+        <!-- Section 1: 目的と運用の課題意識 -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4 flex items-center border-b pb-3 border-slate-100">
+                <i class="fa-solid fa-bullseye text-indigo-600 mr-3"></i>
+                1. 構築の目的と運用の課題意識
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div class="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-md">
+                    <h3 class="font-bold text-rose-900 text-sm mb-2 flex items-center">
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i>当初検討していた手法の問題点
+                    </h3>
+                    <ul class="text-xs text-rose-800 space-y-1.5 list-disc list-inside">
+                        <li>５紙を跨ぐ検索ではPR記事や市況・株価などの「ノイズ」が多発する</li>
+                        <li>単に「記事件数」をカウントするだけでは定性的なトレンドが見えない</li>
+                        <li>日々何十件もの記事タイトルを目視確認・分類するのは持続不可能</li>
+                    </ul>
+                </div>
+                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-md">
+                    <h3 class="font-bold text-emerald-900 text-sm mb-2 flex items-center">
+                        <i class="fa-solid fa-circle-check mr-2"></i>本システムの目指す形
+                    </h3>
+                    <ul class="text-xs text-emerald-800 space-y-1.5 list-disc list-inside">
+                        <li>情報の網羅性の高い日本経済新聞（`nikkei.com`）情報を一本化して収集する</li>
+                        <li>収集とデータ整理（30日後の自動破棄）は GitHub Actions で完全自動化する</li>
+                        <li>週末に集約されたタイトル群を LLM（Gemini等）で週次要約しインサイト抽出する</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: システム構成とワークフロー -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center border-b pb-3 border-slate-100">
+                <i class="fa-solid fa-diagram-project text-indigo-600 mr-3"></i>
+                2. システム構成と運用ワークフロー
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Flow Chart Item 1 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shrink-0">
+                        01
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">日次自動収集（GitHub Actions / Python）</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                            毎日定時にスクリプトが起動。Google News RSS経由で日経新聞内の重要AI発表記事（新モデル・新機能等）を取得。
+                        </p>
+                    </div>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-medium">完全自動</span>
+                </div>
+
+                <!-- Flow Chart Item 2 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shrink-0">
+                        02
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">CSV積載 ＆ 30日自動ローテーション</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                            タイトル群を番号付き改行テキストとして `ai_news_stats.csv` に追加（約100件/日）。30日を超過した古い履歴はスクリプト側で自動破棄し、データ膨張を防止。
+                        </p>
+                    </div>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-medium">メンテナンスフリー</span>
+                </div>
+
+                <!-- Flow Chart Item 3 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shrink-0">
+                        03
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-slate-900 text-sm sm:text-base">週1回の LLM（AI）による要約・インサイト抽出</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                            週末に1週間分（過去7行）のタイトル欄をコピーし、LLMにプロンプト投入。「今週の重要トピック Top 3〜5」を抽出し整理する。
+                        </p>
+                    </div>
+                    <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-medium">週1回（数分）</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 情報過多・取りこぼし対策（技術的ポイント） -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4 flex items-center border-b pb-3 border-slate-100">
+                <i class="fa-solid fa-shield-halved text-indigo-600 mr-3"></i>
+                3. 設計上の工夫と取りこぼし防止（仕様検討）
+            </h2>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-700">
+                <div class="p-4 bg-indigo-50/50 rounded-lg border border-indigo-100">
+                    <h3 class="font-bold text-indigo-950 mb-1 flex items-center">
+                        <i class="fa-solid fa-filter text-indigo-600 mr-2"></i> 厳選した検索クエリのチューニング
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        主要ベンダー名（OpenAI, ChatGPT, Gemini, Claude, Copilot, Meta等）と「新モデル」「新機能」「発表」などのキーワードを組み合わせつつ、<code>-intitle:株 -intitle:市況 -intitle:PR -intitle:プレスリリース</code> により宣伝・市況ノイズを徹底排除。
+                    </p>
+                </div>
+
+                <div class="p-4 bg-indigo-50/50 rounded-lg border border-indigo-100">
+                    <h3 class="font-bold text-indigo-950 mb-1 flex items-center">
+                        <i class="fa-solid fa-list-ol text-indigo-600 mr-2"></i> RSS取得件数上限（100件）と関連度順アルゴリズム
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Google News RSSは注目度・関連度の高い記事を上位に優先配置する仕様であるため、100件の上限が存在しても「最重要ニュース」が下位に追いやられて漏れるリスクは極めて低い。また、日経新聞に絞り込んだことで1日の該当数は通常数件〜十数件程度に収まり、取得漏れを抑え込んでいる。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: 実装コード仕様（Python） -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mb-4 flex items-center border-b pb-3 border-slate-100">
+                <i class="fa-solid fa-code text-indigo-600 mr-3"></i>
+                4. 現在稼働中のコアスクリプト (`script.py`)
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                取得したデータをLLMへ渡しやすくするため、番号付き改行形式でCSVに格納し、30日以上の過去データを安全にパージするロジックを含んでいます。
+            </p>
+
+            <div class="relative bg-slate-900 text-slate-100 rounded-lg p-4 overflow-x-auto text-xs font-mono">
+<pre><code>import datetime
+import urllib.parse
+import feedparser
+import pandas as pd
+
+PAPERS = {"nikkei": "nikkei.com"}
+KEYWORDS = '(OpenAI OR ChatGPT OR Gemini OR Claude OR Copilot OR Meta OR Anthropic OR "生成AI" OR "LLM") (intitle:"新モデル" OR intitle:"新機能" OR intitle:"発表" OR intitle:"リリース" OR intitle:"公開") -intitle:株 -intitle:市況 -intitle:PR -intitle:プレスリリース -intitle:無料'
+CSV_FILENAME = "ai_news_stats.csv"
+RETENTION_DAYS = 30  # 30日分のみ保持
+
+def collect_daily_ai_stats():
+    today = datetime.date.today().strftime("%Y-%m-%d")
+    search_query = f"{KEYWORDS} site:{PAPERS['nikkei']} when:1d"
+    feed = feedparser.parse(f"https://news.google.com/rss/search?q={urllib.parse.quote(search_query)}&hl=ja&gl=JP&ceid=JP:ja")
+    
+    unique_titles = list(dict.fromkeys([entry.title for entry in feed.entries]))
+    formatted_titles = "\n".join([f"{i+1}. {t}" for i, t in enumerate(unique_titles)]) if unique_titles else "なし"
+    
+    return {"date": today, "nikkei_count": len(unique_titles), "nikkei_titles": formatted_titles}
+
+def save_to_csv_with_cleanup(data_dict):
+    df_new = pd.DataFrame([data_dict])
+    try:
+        df_existing = pd.read_csv(CSV_FILENAME)
+        df_updated = pd.concat([df_existing, df_new], ignore_index=True).drop_duplicates(subset=["date"], keep="last")
+    except (FileNotFoundError, pd.errors.EmptyDataError):
+        df_updated = df_new
+        
+    df_updated['date_dt'] = pd.to_datetime(df_updated['date'], errors='coerce')
+    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=RETENTION_DAYS)
+    df_filtered = df_updated[df_updated['date_dt'] >= cutoff_date].copy().drop(columns=['date_dt'])
+    df_filtered.to_csv(CSV_FILENAME, index=False, encoding="utf-8-sig")
+
+if __name__ == "__main__":
+    save_to_csv_with_cleanup(collect_daily_ai_stats())</code></pre>
+            </div>
+        </section>
+
+        <!-- Section 5: 今後の展望と他テーマへの横展開 -->
+        <section class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white p-6 sm:p-8 rounded-xl shadow-md">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4 flex items-center border-b border-indigo-800 pb-3">
+                <i class="fa-solid fa-rocket text-indigo-400 mr-3"></i>
+                5. 今後の展望と別テーマへの横展開計画
+            </h2>
+            <p class="text-xs sm:text-sm text-indigo-200 leading-relaxed mb-6">
+                現在の「自動収集＋30日パージ＋LLM要約」という基本設計を確立したうえで、システム運用の安定度を見極めた後、同様のフレームワークを用いて別重要テーマへの応用を展開予定。
+            </p>
+
+            <div class="bg-slate-800/80 border border-indigo-700/50 p-4 sm:p-5 rounded-lg space-y-2">
+                <div class="text-xs font-semibold uppercase text-indigo-400 tracking-wider">次回展開候補テーマ</div>
+                <h3 class="text-base sm:text-lg font-bold text-white">「日米中における安全保障輸出管理・経済安全保障」</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                    米国のBIS規制、中国の両用物資規制、日本の外為法改正などをタイムリーに情報発信する。検索クエリを <code>(日本 OR 米国 OR 中国 OR BIS OR 外為法) (intitle:"輸出管理" OR intitle:"輸出規制" OR intitle:"経済安全保障" OR ...)</code> にカスタマイズし、別リポジトリ／別チャットにて構築・試行を推進する。
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-200 text-center text-xs text-slate-500">
+        <p>© AI News Tracker System Construction Notes. Powered by Python, GitHub Actions & LLM Integration.</p>
+    </footer>
+
+</body>
+</html>
