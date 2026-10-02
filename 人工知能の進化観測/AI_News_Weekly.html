@@ -20,14 +20,14 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans leading-relaxed p-4 sm:p-6">
 
-<div class="max-w-4xl mx-auto space-y-12">
+<div class="max-w-4xl mx-auto space-y-10">
 
     <!-- ================================================================= -->
     <!-- MAIN SECTION: AI News Weekly Report                               -->
     <!-- ================================================================= -->
     <main>
         <!-- Header -->
-        <header class="bg-slate-900 text-white p-6 sm:p-8 rounded-xl shadow-lg mb-8">
+        <header class="bg-slate-900 text-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
             <div class="flex items-center space-x-2 text-indigo-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
                 <i class="fa-solid fa-newspaper"></i>
                 <span>Weekly Digest</span>
@@ -110,120 +110,150 @@
     <!-- ================================================================= -->
     <!-- DIVIDER SECTION                                                   -->
     <!-- ================================================================= -->
-    <div class="relative py-4">
+    <div class="relative py-2">
         <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t-2 border-dashed border-indigo-200"></div>
+            <div class="w-full border-t border-slate-300"></div>
         </div>
         <div class="relative flex justify-center">
-            <span class="bg-slate-50 px-4 text-xs font-bold text-indigo-600 tracking-wider uppercase border border-indigo-200 rounded-full py-1">
-                <i class="fa-solid fa-circle-info mr-1"></i> 備考 / システム仕様
+            <span class="bg-slate-50 px-3 text-xs text-slate-500 font-medium">
+                補足・システム構成メモ
             </span>
         </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- APPENDIX SECTION: AI News Automation Architecture                -->
+    <!-- APPENDIX SECTION: System Note (Subdued Style)                    -->
     <!-- ================================================================= -->
-    <aside class="space-y-8">
+    <aside class="space-y-6">
 
-        <!-- Note Banner -->
-        <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-6 rounded-xl shadow-md">
-            <div class="flex items-center space-x-2 text-indigo-400 text-xs font-semibold tracking-wider uppercase mb-1">
-                <i class="fa-solid fa-microchip"></i>
-                <span>システム背景 / 開発ノート</span>
+        <!-- Modest Note Banner -->
+        <div class="bg-slate-100 border border-slate-200 text-slate-700 p-4 rounded-lg">
+            <div class="flex items-center space-x-2 text-slate-500 text-xs font-semibold uppercase mb-1">
+                <i class="fa-solid fa-code text-slate-400"></i>
+                <span>備考</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-bold mb-2">【備考】AIニュース自動追跡＆週次要約システムの構築仕様</h2>
-            <p class="text-slate-300 text-xs sm:text-sm">
-                本レポートは、「単なる件数記録」から「LLMによる構造化・週次インサイト抽出」へ進化させた自動集約システムによって作成されています。以下はノイズ排除および自動処理のアーキテクチャ概要です。
+            <h2 class="text-sm font-bold text-slate-800 mb-1">本レポートの生成ロジックと自動収集フロー</h2>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                本ページは、日常のニュース収集・ノイズフィルタリングからLLMによるトピック整理までの自動化手順を検証・運用するテストレポートです。以下に集約パイプラインの構成と検索設計を記録しています。
             </p>
         </div>
 
         <!-- Section 1: 目的と課題意識 -->
-        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-3 flex items-center border-b pb-2">
-                <i class="fa-solid fa-bullseye text-indigo-600 mr-2"></i>
-                1. 構築の目的と運用の課題意識
+        <section class="bg-white p-5 rounded-lg border border-slate-200 text-xs">
+            <h3 class="font-bold text-slate-800 text-xs sm:text-sm mb-3 flex items-center border-b pb-2">
+                <i class="fa-solid fa-bullseye text-slate-500 mr-2"></i>
+                1. 運用背景とノイズ削減
             </h3>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-rose-50 border-l-4 border-rose-500 p-3 rounded-r-md">
-                    <h4 class="font-bold text-rose-900 text-xs mb-1 flex items-center">
-                        <i class="fa-solid fa-triangle-exclamation mr-1.5"></i>従来型情報収集の課題・ノイズ
+            <div class="grid md:grid-cols-2 gap-3">
+                <div class="bg-slate-50 border border-slate-200 p-3 rounded">
+                    <h4 class="font-bold text-slate-700 mb-1 flex items-center">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 mr-1.5"></i>従来収集におけるノイズ
                     </h4>
-                    <ul class="text-xs text-rose-800 space-y-1 list-disc list-inside">
-                        <li>週数百件規模の記事件数を目視確認するのは持続不可能</li>
-                        <li>PR記事・市況・株価・プレスリリース等のノイズが多発</li>
-                        <li>単なる件数推移だけでは定性的な技術・規制シフトが見えない</li>
+                    <ul class="text-slate-600 space-y-1 list-disc list-inside">
+                        <li>週数百件単位の記事件数を個別確認・分類する負担</li>
+                        <li>株価・市況・個別製品のPR・プレスリリースなどのノイズ混入</li>
                     </ul>
                 </div>
-                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-md">
-                    <h4 class="font-bold text-emerald-900 text-xs mb-1 flex items-center">
-                        <i class="fa-solid fa-circle-check mr-1.5"></i>本システムの到達点・解決策
+                <div class="bg-slate-50 border border-slate-200 p-3 rounded">
+                    <h4 class="font-bold text-slate-700 mb-1 flex items-center">
+                        <i class="fa-solid fa-check text-emerald-600 mr-1.5"></i>本パイプラインでの対策
                     </h4>
-                    <ul class="text-xs text-emerald-800 space-y-1 list-disc list-inside">
-                        <li>主要メディアのAI関連記事（約700〜800件/週）を自動クローリング</li>
-                        <li>検索クエリの精緻化と除外フィルタ（-intitle:株等）でノイズ削減</li>
-                        <li>LLM（Gemini等）で3大トピックに自動再整理・要約・リンク紐付け</li>
+                    <ul class="text-slate-600 space-y-1 list-disc list-inside">
+                        <li>主要一般紙・経済紙・専門Webメディアの自動集約</li>
+                        <li>日本語・英語の両対応および概念・トレンドキーワードの最適化</li>
+                        <li>LLMを活用した主要3トピックへの構造化と要約整理</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: パイプライン -->
-        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-4 flex items-center border-b pb-2">
-                <i class="fa-solid fa-diagram-project text-indigo-600 mr-2"></i>
-                2. システム構成とパイプライン処理
+        <!-- Section 2: 検索キーワード・クエリ設計（詳細） -->
+        <section class="bg-white p-5 rounded-lg border border-slate-200 text-xs">
+            <h3 class="font-bold text-slate-800 text-xs sm:text-sm mb-3 flex items-center border-b pb-2">
+                <i class="fa-solid fa-filter text-slate-500 mr-2"></i>
+                2. 収集キーワード（`script.py`）と収集対象メディアの仕様
             </h3>
-            <div class="space-y-4">
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                    <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0">01</div>
+            <p class="text-slate-600 mb-3 leading-relaxed">
+                RSSとの高い互換性と安定取得を確保するため、シンプルな論理和（OR条件）で日英の先端トレンドキーワードを網羅しつつ、ノイズ排除を行っています。
+            </p>
+            
+            <div class="space-y-3">
+                <!-- クエリ構成要素1: 追跡キーワード -->
+                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                    <h4 class="font-bold text-slate-700 mb-1">【指定キーワード群（日英対応）】</h4>
+                    <p class="text-slate-600 leading-relaxed font-mono text-[11px] bg-white p-2 rounded border border-slate-200 mb-1.5">
+                        OpenAI, ChatGPT, Gemini, Anthropic, Claude, Copilot, LLM, 生成AI, 人工知能, フィジカルAI, スーパーインテリジェンス (ASI), 超人工知能, AI安全, AI規制
+                    </p>
+                    <p class="text-slate-500">主要ベンダー・モデル名に加え、次世代の「スーパーインテリジェンス」や「フィジカルAI」、ガバナンス・安全枠組みに関する言及を確実に集約します。</p>
+                </div>
+
+                <!-- クエリ構成要素2: 収集対象メディア -->
+                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                    <h4 class="font-bold text-slate-700 mb-1">【主な収集対象メディア】</h4>
+                    <p class="text-slate-600 leading-relaxed font-mono text-[11px] bg-white p-2 rounded border border-slate-200 mb-1.5">
+                        [新聞・一般紙・経済紙] 読売新聞, 朝日新聞, 日本経済新聞, 毎日新聞, 産経新聞 ほか<br>
+                        [IT・テクノロジーメディア] ITmedia, GIGAZINE, CNET Japan, WIRED, Forbes Japan ほか
+                    </p>
+                    <p class="text-slate-500">主要新聞メディアの外交・政策・社会面報道と、IT専門メディアの最先端技術ニュースを並行してカバーします。</p>
+                </div>
+
+                <!-- クエリ構成要素3: ノイズ除外 -->
+                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                    <h4 class="font-bold text-slate-700 mb-1">【除外パラメータ】</h4>
+                    <p class="text-slate-600 leading-relaxed font-mono text-[11px] bg-white p-2 rounded border border-slate-200 mb-1.5">
+                        -intitle:株 -intitle:市況 -intitle:株価 -intitle:決算 -intitle:PR -intitle:プレスリリース -intitle:キャンペーン
+                    </p>
+                    <p class="text-slate-500">毎日の株式市況レポート、企業の決算数値、単なる製品宣伝セミナーやPR記事をタイトル判定で自動除外します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: パイプライン概要 -->
+        <section class="bg-white p-5 rounded-lg border border-slate-200 text-xs">
+            <h3 class="font-bold text-slate-800 text-xs sm:text-sm mb-3 flex items-center border-b pb-2">
+                <i class="fa-solid fa-diagram-project text-slate-500 mr-2"></i>
+                3. パイプライン概要
+            </h3>
+            <div class="space-y-2.5">
+                <div class="flex items-start gap-2.5 p-2.5 bg-slate-50 rounded border border-slate-100">
+                    <span class="font-mono text-xs font-bold text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">01</span>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm">日次自動収集（Google News RSS / GitHub Actions）</h4>
-                        <p class="text-xs text-slate-600 mt-0.5">GitHub Actionsが毎日定時に自動起動。主要メディアから最新記事タイトル・URLを自動抽出。</p>
+                        <span class="font-bold text-slate-800">日次自動収集：</span>
+                        <span class="text-slate-600">GitHub Actionsにより `script.py` を毎日実行し、各種RSSフィードから該当ニュースのタイトル・URLを取得。</span>
                     </div>
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                    <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0">02</div>
+                <div class="flex items-start gap-2.5 p-2.5 bg-slate-50 rounded border border-slate-100">
+                    <span class="font-mono text-xs font-bold text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">02</span>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm">データ蓄積 ＆ 30日ローテーション管理</h4>
-                        <p class="text-xs text-slate-600 mt-0.5">取得データを重複除外しながら保存。ストレージ膨張を防ぐため30日超過分は自動パージ。</p>
+                        <span class="font-bold text-slate-800">蓄積・ローテーション：</span>
+                        <span class="text-slate-600">URLベースで重複排除を行いながら保存。ストレージ肥大化を防ぐため、30日を超えた過去データは自動破棄。</span>
                     </div>
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                    <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shrink-0">03</div>
+                <div class="flex items-start gap-2.5 p-2.5 bg-slate-50 rounded border border-slate-100">
+                    <span class="font-mono text-xs font-bold text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">03</span>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm">LLMによるカテゴリ再分類 ＆ HTMLレポート生成</h4>
-                        <p class="text-xs text-slate-600 mt-0.5">集約データ（約700〜800件/週）をLLMに投入し、「モデル」「安保・外交」「産業・権利」へ自動構造化。</p>
+                        <span class="font-bold text-slate-800">要約・HTML化：</span>
+                        <span class="text-slate-600">1週間分の集約データをLLMへ投入し、3大トピックへの分類・要約と元記事リンクの紐付けを行ってHTML化。</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3 & 4: クエリと今後の展開 -->
-        <section class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
-                <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center">
-                    <i class="fa-solid fa-filter text-indigo-600 mr-2"></i>検索クエリの工夫
-                </h3>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    主要AIベンダー名や重要キーワードを包含しつつ、<code>-intitle:株 -intitle:市況 -intitle:PR -intitle:プレスリリース</code> を付与することで商業的ノイズを遮断。
-                </p>
-            </div>
-            <div class="bg-indigo-950 text-white p-5 rounded-xl shadow-sm">
-                <h3 class="font-bold text-indigo-300 text-sm mb-2 flex items-center">
-                    <i class="fa-solid fa-rocket text-indigo-400 mr-2"></i>他テーマへの横展開計画
-                </h3>
-                <p class="text-xs text-indigo-200 leading-relaxed">
-                    本枠組みを応用し、「日米中における安全保障輸出管理・経済安全保障（BIS規制・外為法等）」を対象とした自動追跡システムへの拡張を計画しています。
-                </p>
-            </div>
+        <!-- Section 4: 今後の展開 -->
+        <section class="bg-slate-100 p-4 rounded-lg border border-slate-200 text-xs">
+            <h3 class="font-bold text-slate-800 mb-1 flex items-center">
+                <i class="fa-solid fa-arrow-right-from-bracket text-slate-500 mr-1.5"></i>4. 今後の展開・他分野への応用
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+                本収集・フィルタリング構成の有効性を検証しつつ、今後は「安全保障・輸出管理（BIS規制・経済安保等）」や「エネルギー政策」など、特定の政策・国際情勢テーマへの横展開を計画しています。
+            </p>
         </section>
 
     </aside>
 
     <!-- Footer -->
-    <footer class="text-center pt-8 border-t border-slate-200 text-xs text-slate-500">
-        <p>© 2026 AI News Digest System | 自動収集・集約データベース ＆ システムアーキテクチャ</p>
+    <footer class="text-center pt-6 border-t border-slate-200 text-xs text-slate-400">
+        <p>© 2026 AI News Digest System</p>
     </footer>
 
 </div>
