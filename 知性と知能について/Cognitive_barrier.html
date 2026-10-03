@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人間の認知の壁 — 数式は現実の「要約」</title>
+    <!-- MathJax for rendering mathematical expressions -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #319795;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --highlight-bg: #ebf8ff;
+            --highlight-border: #3182ce;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .meta-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.15rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        .intro-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--highlight-border);
+            padding: 18px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 30px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        ol, ul {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .steps-list li {
+            margin-bottom: 12px;
+        }
+
+        .case-study {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .case-study h3 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #edf2f7;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f7fafc;
+        }
+
+        .references {
+            background-color: #f8fafc;
+            padding: 20px 25px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .references ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .references li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px 20px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            table, th, td {
+                display: block;
+                width: 100%;
+            }
+            th {
+                display: none;
+            }
+            td {
+                border: none;
+                position: relative;
+                padding-left: 40%;
+                margin-bottom: 6px;
+            }
+            td:before {
+                position: absolute;
+                top: 12px;
+                left: 10px;
+                width: 35%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+                color: var(--primary-color);
+            }
+            td:nth-of-type(1):before { content: "論点"; }
+            td:nth-of-type(2):before { content: "項目"; }
+            td:nth-of-type(3):before { content: "外部研究・資料"; }
+            td:nth-of-type(4):before { content: "確認状況"; }
+            tr {
+                margin-bottom: 15px;
+                border-bottom: 2px solid var(--border-color);
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>人間の認知の壁と拡張可能性</h1>
+        <div class="subtitle">数式は現実の「要約」であって現実そのものではない</div>
+        <div class="meta-date">更新日：2026年10月3日</div>
+    </header>
+
+    <div class="intro-box">
+        <p>「人間が自然を理解するとき、どの程度まで自然そのものを記述できているのか」という問いを扱う。本報告書では、歴史・哲学的な問題設定と、AI・科学研究の具体例を示す。さらに、挙げた事例のうち、公開された一次資料・研究論文等で示し、どこまでが研究で実証され、どこからが解釈なのかを区別する。</p>
+        <p>中心的な見方は、<strong>「数式は現実そのものではなく、人間が扱える形式への翻訳・圧縮である」</strong>というものだ。ただし、これは物理学で確立した定理ではなく、本報告書では『科学的に有力な問題設定・解釈』として扱う。AIが人間とは異なる内部表現を獲得できることを示す研究は、この問題設定を具体的に検討する材料になる。</p>
+    </div>
+
+    <h2>主要な論点（五段階整理）</h2>
+    <ol class="steps-list">
+        <li>自然現象は、人間の感覚器官・記憶・計算能力だけでは直接扱えないほど複雑である。</li>
+        <li>科学は、現象を少数の変数・法則・統計量などに変換することで、予測と説明を可能にしてきた。</li>
+        <li>この変換は強力である一方、元データの一部を捨てる「圧縮」になる場合がある。</li>
+        <li>AIは、従来の人間向け表現にあらかじめ合わせず、画像・場・高次元データから有効な内部表現を探索できる。</li>
+        <li>したがってAIは、人間が見落としてきた情報や変数を発見する可能性がある。しかし、AIの予測性能と科学的理解は同一ではなく、検証可能な説明への翻訳が重要になる。</li>
+    </ol>
+
+    <h2>「数式＝現実の圧縮」という考え方の位置づけ</h2>
+    <p>落下運動を重力加速度や二次関数で表す例から、ニュートン力学、相対性理論、量子力学へと話を広げる。これを「情報圧縮」という観点から整理した。ただし、『圧縮だから誤り』という意味ではない。ニュートン力学は現在でも日常的な速度・重力・長さの範囲で非常に有効であり、一般相対論との関係では適用範囲を持つ近似として理解できる。</p>
+    <p>したがって、より正確には「科学理論は対象世界を、特定の目的に十分な情報を残した記述形式へ写像する」と表現した方がよい。この観点では、プトレマイオスの周転円モデルのように、世界についての解釈が不十分でも予測には利用できる場合がある。『予測が当たること』と『対象を正しく理解していること』を区別する必要が生じる。</p>
+
+    <h2>AIが人間とは異なる変数を見つける――最も直接的な研究事例</h2>
+
+    <div class="case-study">
+        <h3>１）二重振り子と炎</h3>
+        <p>Columbia Engineeringの研究では、物理学の知識を明示的に与えず、動画から現象を記述する最小限の状態変数の数を推定するAIが試された。既知の二重振り子では、物理学的には4つの状態変数が必要であるのに対し、AIの推定は4.7だった。さらに未知の対象として炎の動画を与えると24変数が得られ、研究者はその変数が人間にとって直感的な物理量と単純には対応しないことを報告している。</p>
+        <p>『AIは人間がまだ名前を付けていない変数を使う可能性がある』ということ。同じ観測対象を表現する際に、人間とは異なる潜在変数の取り方が可能であること、アンドそれが予測に役立つ場合がある。</p>
+    </div>
+
+    <div class="case-study">
+        <h3>２）SciNet――観測データから物理概念を抽出する</h3>
+        <p>ItenらのSciNet研究（Physical Review Letters, 2020）は、ニューラルネットワークに観測データを入力し、予測に必要な独立な物理パラメータを抽出する枠組みを研究した。研究の目的は、単なる入出力予測ではなく、物理学者がモデルを作るときの『必要な変数を見つける』過程の一部を機械学習で扱うことにある。「人間が使う概念を前提にしない科学的表現」という論点がある。</p>
+    </div>
+
+    <div class="case-study">
+        <h3>３）宇宙観測――要約統計から「場」そのものへ</h3>
+        <p>宇宙観測データを従来の低次元な要約統計へ圧縮するのではなく、画像・場そのものを直接扱う「field-level inference（フィールドレベル推論）」である。宇宙論では、パワースペクトルなどの要約統計に変換することで解析を容易にする一方、その過程で非ガウス性などの情報が失われる可能性がある。</p>
+        <p>2025年のレビュー的講義資料では、field-level inferenceが未圧縮に近いマップから宇宙論パラメータを推定し、従来の要約統計による解析で失われ得る情報を利用する枠組みとして整理してる。また2026年の研究では、Euclidデータを用いたfield-level inferenceによって原始非ガウス性や宇宙初期条件を推定する研究もある。『人間向け要約による情報損失を減らす』という問題設定は、現在の宇宙論研究の実際の研究潮流とも整合する。</p>
+    </div>
+
+    <div class="case-study">
+        <h3>４）流体・ナビエ–ストークス――探索空間そのものを広げるAI</h3>
+        <p>物理情報ニューラルネットワークなどを使ってナビエ–ストークス方程式の特異的な挙動を探索した研究がある。2025年に報じられた研究では、深層学習を用いて流体方程式に現れる不安定な特異性が調べられた。</p>
+        <p>AIが人間に代わって既存の方程式を単に計算するだけではなく、人間が解析的に十分探索できなかった領域を、数値計算と学習を組み合わせて調べる道具になりつつある。</p>
+    </div>
+
+    <div class="case-study">
+        <h3>５）ハッブル宇宙望遠鏡――「認知の壁」には量的な壁もある</h3>
+        <p>AnomalyMatchを用いた研究では、ハッブル・レガシー・アーカイブの約1億個の画像切り出しを2～3日で探索し、86個の新しい重力レンズ候補、18個のジェリーフィッシュ銀河、417個の合体・相互作用銀河などを抽出した。「体力の壁」を非常に明瞭に示す事例である。</p>
+        <p>AIが人間が時間的・物量的に全データを調べることができないという制約を取り除き、その結果として『人間なら見なかったかもしれない対象』を候補として提示できるようにした点に価値がある。</p>
+    </div>
+
+    <div class="case-study">
+        <h3>６）科学基盤モデル――人間の言葉ではなく物理データを学ぶ</h3>
+        <p>Polymathic AIのThe Wellは、流体、天体物理など複数の物理現象を含む15TB規模のシミュレーションデータセットとして公開されている。同プロジェクトのWalrusなどは、自然言語のWebテキストではなく、物理シミュレーションを中心に学習する科学基盤モデルという方向を示している。AIを『人間の文章を要約する機械』から『物理世界のデータを直接学習するモデル』へ広げる動きとして注目される。</p>
+        <p>シミュレーションの前提・近似・データ生成過程を引き継ぐため、『シミュレーション上の宇宙を現実と取り違える危険』は重要な検証課題として残る。</p>
+    </div>
+
+    <h2>予測と理解は同じなのか</h2>
+    <p>AIが高精度で予測できても、その内部表現を人間が理解できるとは限らない。一方で、科学の歴史を考えると、理解とは必ずしも人間が日常言語で直感的に説明できることだけではない。数式、テンソル、確率分布なども、長い学習を経て科学者の共通言語になってきた。</p>
+    <p>したがって、現段階では『AIは理解している／していない』と二択で決めるより、①予測性能、②再現性、③因果的妥当性、④新しいデータへの一般化、⑤既知理論との整合性、⑥人間が検証可能な説明、を分けて評価する方が科学的に適切である。2025～2026年の解釈可能機械学習のレビューでも、モデルの性能と人間にとっての理解可能性の間にはギャップがあることが主要課題として扱われている。</p>
+
+    <h2>「ゲーデルから物理学の限界へ」は慎重に扱うべき</h2>
+    <p>ゲーデルの不完全性定理から、人間が物理法則を完全に記述することにも限界がある。しかし、不完全性定理は特定の数学的形式体系についての定理であり、『物理学には必ず説明不能な現象が存在する』ことを直接証明するものではない。したがって、『認識論的な類推・仮説』として扱い、科学的証明としては扱うわけではない。</p>
+
+    <h2>数式は「現実そのもの」ではないが、それでも科学の強力な言語である</h2>
+    <p>数式を単なる『不完全な要約』と見るのも適切ではない。数式は、目的に応じて重要な不変量・対称性・因果構造などを抽出するための非常に強力な表現だからである。問題は、何を残し、何を捨てたかが常に明示されるとは限らない点にある。</p>
+    <p>AIが高次元データから人間とは異なる潜在表現を見つけ、それが予測・実験・理論形成に有効であるなら、その表現自体が新しい科学概念の候補になる。人間はそれを既存の数学や新しい数学へ翻訳していくことになる。</p>
+
+    <h2>現時点での統合結論</h2>
+    <ol>
+        <li>「科学理論は現実をそのまま写すのではなく、目的に応じて重要な情報を抽出した表現である」という見方は、科学史・統計的推論・AIによる科学研究をつなぐ有効な視点である。</li>
+        <li>AI研究には、人間があらかじめ定義した物理量に依存せず、観測データから別の潜在変数を探索する実例が存在する。二重振り子・炎の研究とSciNetはその具体例である。</li>
+        <li>宇宙論のfield-level inferenceは、従来の要約統計による情報圧縮を避け、より高次元の観測情報を直接利用しようとする実際の研究潮流である。</li>
+        <li>AIの価値は『人間より賢い答えを出す』ことだけではなく、人間が量的・認知的に探索できなかった領域を探索し、人間がまだ持っていない概念候補を提示することにある。</li>
+        <li>それを科学的発見と呼ぶためには、予測精度だけでなく、再現性・検証可能性・一般化・因果的妥当性・説明可能性を確認する必要がある。</li>
+        <li>今後の焦点は「AIが人間の認知限界を超えたか」という二択ではなく、「AIが発見した人間には理解しにくい表現を、どのように検証し、新しい科学言語へ変換するか」に移る。</li>
+    </ol>
+
+    <h2>論点と研究資料の対応</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>論点</th>
+                <th>項目</th>
+                <th>外部研究・資料</th>
+                <th>確認状況</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AIが人間と異なる変数を使う</td>
+                <td>二重振り子4.7、炎24変数</td>
+                <td>Columbia Engineering / Nature Computational Science関連研究</td>
+                <td>具体的事例を確認</td>
+            </tr>
+            <tr>
+                <td>物理概念をデータから抽出</td>
+                <td>SciNet</td>
+                <td>Iten et al., PRL 124, 010508 (2020)</td>
+                <td>研究論文を確認</td>
+            </tr>
+            <tr>
+                <td>要約統計による情報損失</td>
+                <td>CMB・角度パワースペクトル</td>
+                <td>Field-level inferenceの研究・講義資料</td>
+                <td>研究潮流として確認</td>
+            </tr>
+            <tr>
+                <td>大規模天文データ探索</td>
+                <td>Hubble / AnomalyMatch</td>
+                <td>O’Ryan & Gómez, Astronomy & Astrophysics (2025)</td>
+                <td>論文を確認</td>
+            </tr>
+            <tr>
+                <td>物理データを学ぶ基盤モデル</td>
+                <td>Polymathic AI / Walrus</td>
+                <td>The Well / Polymathic AI公開資料</td>
+                <td>公開資料を確認</td>
+            </tr>
+            <tr>
+                <td>ナビエ–ストークスの特異性探索</td>
+                <td>PINNs等</td>
+                <td>2025年の研究報道・研究プロジェクト</td>
+                <td>「問題解決」とは扱わない</td>
+            </tr>
+            <tr>
+                <td>AIの説明可能性</td>
+                <td>XAI・人間への翻訳</td>
+                <td>2025～2026年の解釈可能MLレビュー</td>
+                <td>研究分野として確認</td>
+            </tr>
+            <tr>
+                <td>ゲーデル→物理限界</td>
+                <td>推論</td>
+                <td>ゲーデル定理そのものとの区別が必要</td>
+                <td>類推として扱う</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>主要参考文献・研究資料</h2>
+    <div class="references">
+        <ul>
+            <li><strong>Iten, R., Metger, T., Wilming, H., del Rio, L., & Renner, R. (2020).</strong> Discovering Physical Concepts with Neural Networks. <em>Physical Review Letters</em>, 124, 010508. (SciNet)</li>
+            <li><strong>Qin, Y. et al. (2022).</strong> Columbia Engineering / Nature Computational Science関連研究：動画から物理系の最小状態変数を探索する研究。二重振り子4.7、炎24変数の事例。</li>
+            <li><strong>Leclercq, F. (2025).</strong> Field-level inference in cosmology. <em>SciPost Physics Lecture Notes</em> / arXiv:2509.13435.</li>
+            <li><strong>Andrews, A. et al. (2026).</strong> Euclid: Field-level inference of primordial non-Gaussianity and cosmic initial conditions. <em>Astronomy & Astrophysics</em>, 711, A94.</li>
+            <li><strong>O’Ryan, D. & Gómez, P. (2025).</strong> Identifying astrophysical anomalies in 99.6 million source cutouts from the Hubble legacy archive using AnomalyMatch. <em>Astronomy & Astrophysics</em>, 704, A227.</li>
+            <li><strong>Polymathic AI.</strong> The Well: 15TB collection of physics simulation datasets; Walrus等の物理基盤モデル関連公開資料.</li>
+            <li><strong>Xu, B. & Yang, G. (2024/2025).</strong> Interpretability research of deep learning: A literature survey. <em>Information Fusion</em>.</li>
+            <li><strong>Fridkin, S. & Bendersky, M. (2026).</strong> Interpretable Machine Learning: A Comprehensive Review of Foundations, Methods, and the Path Forward. <em>WIREs Data Mining and Knowledge Discovery</em>.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
