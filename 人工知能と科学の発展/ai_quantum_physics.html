@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIが挑む量子論</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        /* ==========================================================================
+           このページ専用の追加スタイル（タイムライン・カード表現用）
+           配色は添付デザインのテーマカラー（紺 #1a365d / 青 #2b6cb0）に統一
+           ========================================================================== */
+
+        .source-info {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .source-info a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid #94a3b8;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #94a3b8;
+            border: 2px solid #ffffff;
+        }
+
+        .timeline-item.active::before {
+            background-color: #2b6cb0;
+        }
+
+        .timeline .meta {
+            font-size: 0.875rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .timeline h2 {
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .timeline p {
+            margin: 0 0 12px 0;
+            color: #4a5568;
+        }
+
+        .comparison-box {
+            background-color: #f4f6f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag-theory {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .tag-tech {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .alert-text {
+            color: #1E3A8A;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .sources-list {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 1.2em;
+        }
+
+        .sources-list a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            .timeline-item::before {
+                background-color: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+        <header>
+            <h1>AIが挑む量子論</h1>
+            <div class="source-info">
+                <div><strong>作成日:</strong> 2026年10月4日時点の整理</div>
+                <div><strong>主なテーマ:</strong> ニューラルネットワーク量子状態、量子もつれ自動設計、量子誤り訂正、少数学科多体問題</div>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="meta">2017年</div>
+                <h2>ニューラルネットワーク量子状態（NQS）の提唱</h2>
+                <p>Giuseppe Carleo と Matthias Troyer によって、人工ニューラルネットワークを用いて多体量子系の波動関数を直接表現する手法「ニューラルネットワーク量子状態（NQS）」が提唱された。</p>
+                <p>量子力学における「粒子の増加に伴い状態空間が指数関数的に増大する（指数の壁）」という長年の問題に対し、ディープラーニングの表現力を活用してアプローチする大きなパラダイムシフトとなった。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2018年～2021年</div>
+                <h2>AIによる量子実験系の自動設計と発見</h2>
+                <p>ウィーン大学の Anton Zeilinger らの研究チームが、強化学習や探索アルゴリズム（Melvin や Teiko など）を開発。人間の直感では発想が難しい「複雑な高次元量子もつれ状態」を生成する光学実験系をAIが自動設計した。</p>
+                <p>AIが提案した異例な光学素子配置が実際の実験室で組み上げられ、未知の量子状態の生成に成功するなど、理論と実験の橋渡し役としてAIが機能し始めた。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2022年～2024年</div>
+                <h2>量子誤り訂正（QEC）とシミュレーションの高度化</h2>
+                <p>Google Quantum AI や DeepMind などのグループが、強化学習を用いて量子実機のノイズ（デコヒーレンス）を抑制する「リアルタイム誤り訂正制御」の技術を開発・実証した。</p>
+                <p>また、強相関電子系や高温超伝導の解明に向け、AIを統合したテンソルネットワーク法や量子モンテカルロ法が進化し、物質内部での電子挙動のシミュレーション精度が飛躍的に向上した。</p>
+            </div>
+
+            <div class="timeline-item active">
+                <div class="meta">2026年9月</div>
+                <h2>転機：FewBodyNetによる精密多体解析モデリング</h2>
+                <p>電気通信大学などの研究チームが、連続空間におけるボース粒子多体系問題をディープラーニングで解析するモデル「FewBodyNet」を発表した。</p>
+                <p>従来は解法が極めて限定されていたエフィモフ状態（Efimov state）などの複雑な量子多体状態において、基底状態だけでなく第一励起状態まで極めて高い精度で導出することに成功し、基礎物理学における計算手法の新展開を示した。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        1. 基礎物理理論への貢献（NQS・多体問題）
+                        <span class="tag-theory">基礎物理学</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        波動関数の近似精度が極限まで高まり、これまで計算不可能だった強相関系や高温超伝導メカニズムの解明、原子核・分子レベルのシミュレーションが現実的になりつつあります。
+                    </p>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        2. 量子技術・デバイスへの貢献（QEC・回路設計）
+                        <span class="tag-tech">量子技術</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        量子誤り訂正（QEC）のリアルタイム最適化や、量子もつれ制御アルゴリズムの自動創出により、実用的な量子コンピュータ（FTQC）実現へのハードルが急速に下がっています。
+                    </p>
+                    <div class="alert-text">
+                        <strong>💡 ポイント：</strong> 単なる計算の高速化ではなく、AI自体の「モデル表現力」を活用して量子状態そのものを捕捉し、新たな物理現象や解法を見つけ出すフェーズに入っています。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">全体像</div>
+                <h2>現時点での見方と今後の展望</h2>
+                <div class="comparison-box">
+                    <div class="comparison-title">確立されつつあるアプローチ</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        人間の直感だけに頼らない「AI主導の量子実験設計」と「ニューラルネットワークによる高精度な波動関数表現」が標準的なツールとして定着しています。
+                    </p>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-title">今後の双方向の進化（AI ⇄ Quantum）</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        AIが量子デバイスの発展を加速させ、完成した量子デバイス上で「量子機械学習（QML）」が動作することで、相互に発展を爆発させるシナジーが期待されています。
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">参考</div>
+                <h2>関連文献・情報源</h2>
+                <ul class="sources-list">
+                    <li><a href="https://journals.aps.org/science/abstract/10.1126/science.aag2648" target="_blank" rel="noopener noreferrer">Solving the quantum many-body problem with artificial neural networks (Science, 2017 / Carleo & Troyer)</a></li>
+                    <li><a href="https://www.nature.com/articles/s41586-022-05410-w" target="_blank" rel="noopener noreferrer">Real-time quantum error correction with neural networks (Nature, 2022)</a></li>
+                    <li><a href="https://www.uec.ac.jp/" target="_blank" rel="noopener noreferrer">電気通信大学 研究プレスリリース：FewBodyNetによる連続空間ボース粒子系の多体量子状態解析（2026年9月）</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=WoMitMc895A" target="_blank" rel="noopener noreferrer">Top 15 New AI and Quantum Computing Breakthroughs of 2026（YouTube）</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
