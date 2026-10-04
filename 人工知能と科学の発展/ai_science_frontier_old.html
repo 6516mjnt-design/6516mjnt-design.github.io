@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIが挑む物理学・生物学）</title>
+    <title>AIが挑んだ難問・追加編（物理・数学・生物）</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
@@ -149,10 +149,10 @@
         <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
 
         <header>
-            <h1>AIがむ物理学・生物学</h1>
+            <h1>AIが挑んだ難問・追加編（物理・数学・生物）</h1>
             <div class="source-info">
                 <div><strong>作成日:</strong> 2026年10月4日時点の公開情報</div>
-                <div><strong>位置づけ:</strong> 物理と生物学の事例。数学の事例（リーマン予想の関連結果、Borsuk の問題など）は、数学のページにまとめた。大半は企業や論文著者の発表段階で、独立した検証が済んでいないものを含む。</div>
+                <div><strong>位置づけ:</strong> 「AIと数学難問への取り組み（時系列）」に載せなかった事例の補足。大半は企業や論文著者の発表段階で、独立した検証が済んでいないものを含む。</div>
             </div>
         </header>
 
@@ -195,7 +195,59 @@
                 <p>エモリー大などの研究が、物質の第四の状態であるプラズマ（ダストプラズマ）で、粒子同士の相互作用を支配する、これまで知られていなかった規則をAIの手法で見つけたと報告した。今回調べた中では、新しい物理に最も近い例である。</p>
             </div>
 
+            <div class="timeline-item">
+                <div class="meta">2026年5月｜数学</div>
+                <h2>Borsuk の問題：反例の次元が63に</h2>
+                <p>GPT-5.5 Pro の支援で、Borsuk の予想が成り立たない最小の次元が63次元に下がった（321点の配置）。8月の arXiv 論文でも、同規模の構成が GPT-5.6 Sol の生成だと明記されている。</p>
+                <p>同じ頃の arXiv 論文は、Erdős–Sárközy–Szemerédi 問題（1196、1217）や原始集合予想（164）などが、AIの支援で証明されたと報告している。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年7月頃｜数学・統計学</div>
+                <h2>約30年来の予想の反証と、未確認の主張</h2>
+                <p>ペンシルベニア大の教授が GPT-5.6 Sol Pro を使い、Benjamini–Hochberg 法に関する約30年来の予想を、約90分で反証した。前世代の GPT-5.5 は、20時間かけても有効な解を出せなかった。ただし、既知の手法を新しく組み合わせた答えだという指摘もある。</p>
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        サイクル二重被覆予想
+                        <span class="tag-ai">未確認の主張</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        GPT-5.6 Sol Ultra が証明を出したとする文書が公開された。しかし掲示板では、証明の確認自体が同じモデルで行われた点などに疑問が出ている。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 留意点：</strong> 数学者による独立した確認は、現時点で確認できていない。
+                    </div>
+                </div>
+            </div>
+
             <div class="timeline-item active">
+                <div class="meta">2026年8月10日｜数学</div>
+                <h2>リーマン予想の関連結果：零点の割合の下限</h2>
+                <p>Anthropic が、未公開版の Claude が、ゼータ関数の非自明な零点のうち、臨界線上にあると証明された割合の下限を、41.6%から67.2%に引き上げたと発表した。この下限の改善としては、史上最大の一度の前進と報じられている。</p>
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        1. 検証の状況
+                        <span class="tag-human">人間による確認：一部</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        証明は Lean で形式検証された。Brian Conrey 氏と Dan Goldston 氏が論文を査読した。
+                    </p>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        2. できていないこと
+                        <span class="tag-ai">AI（未公開モデル）</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        リーマン予想そのものの証明ではない。Anthropic 自身も、この手法が証明に至るとは見込んでいない。モデルの重みや実行記録が非公開のため、独立した再現はできない。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 出典上の注意：</strong> Anthropic の自社モデルによる発表である。元の発表と第三者の評価の両方を確認すること。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
                 <div class="meta">2026年8月7日～9月1日｜物理</div>
                 <h2>N=4 超対称ヤン–ミルズ理論の9ループ計算</h2>
                 <p>理論物理学者の Matt von Hippel 氏が8月7日に、LLM への課題として、N=4 超対称ヤン–ミルズ理論を9ループまで計算できるかと提起した。Anthropic の物理学者が Claude Fable 5.1 を使い、6粒子（ヘキサゴン）振幅を9ループまで計算した。専門家の Lance Dixon 氏が9月1日に解を受け取って検証し、正しいと確認した。計算費用は数千ドル程度だった。</p>
@@ -211,6 +263,12 @@
                         <strong>⚠️ 出典上の注意：</strong> この成果も Anthropic 側のものである。
                     </div>
                 </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年9月｜数学</div>
+                <h2>ミレニアム問題のほかの問題</h2>
+                <p>OpenAI のナビエ–ストークス方程式の主張に続き、Hodge 予想や BSD 予想の解決をうかがわせる噂が出た。しかし、Clay の公式リストでは、BSD、Hodge、P対NP、リーマン、ヤン–ミルズの5問は未解決のままである。ヤン–ミルズ質量ギャップには、公開されたAIの試みがまだない。</p>
             </div>
 
             <div class="timeline-item">
@@ -233,12 +291,12 @@
                     </p>
                 </div>
                 <div class="comparison-box">
-                    <div class="comparison-title">出典上の注意</div>
+                    <div class="comparison-title">数学について</div>
                     <p style="font-size: 0.9rem; margin-bottom: 0;">
-                        本ページの内容は報道、各社の発表、論文に基づく。
+                        形式検証や外部の査読を伴う成果と、企業の発表の段階にとどまる主張が混ざっている。検証の有無を区別して読む必要がある。
                     </p>
                     <div class="alert-text">
-                        <strong>⚠️ 留意点：</strong> Anthropic 自身の成果（9ループ計算、酵素の発見）には、同社の発表に依存する部分が大きい。
+                        <strong>⚠️ 出典上の注意：</strong> 本ページの内容は報道、各社の発表、論文に基づく。Anthropic 自身の成果（リーマン予想の下限、9ループ計算、酵素の発見）には、同社の発表に依存する部分が大きい。
                     </div>
                 </div>
             </div>
@@ -253,6 +311,12 @@
                     <li><a href="https://time.news/ai-newton-independently-derives-laws-of-physics-for-peking-university-researchers/" target="_blank" rel="noopener noreferrer">AI-Newton Independently Derives Laws of Physics（Time News）</a></li>
                     <li><a href="https://www.sciencedaily.com/releases/2026/04/260422044635.htm" target="_blank" rel="noopener noreferrer">AI just discovered new physics in the fourth state of matter（ScienceDaily）</a></li>
                     <li><a href="https://bigthink.com/starts-with-a-bang/ai-first-breakthrough-theoretical-physics/" target="_blank" rel="noopener noreferrer">AI makes its first meaningful breakthrough in theoretical physics（Big Think）</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Borsuk%27s_conjecture" target="_blank" rel="noopener noreferrer">Borsuk's conjecture（Wikipedia）</a> / <a href="https://arxiv.org/pdf/2608.12561" target="_blank" rel="noopener noreferrer">An AI Generated Counterexample to Borsuk Problem in Dimension 63（arXiv）</a></li>
+                    <li><a href="https://arxiv.org/pdf/2608.24961" target="_blank" rel="noopener noreferrer">The Gold Rush in AI4Math: Where Are We Now?（arXiv）</a></li>
+                    <li><a href="https://the-decoder.com/gpt-5-6-sol-reportedly-disproves-a-30-year-old-statistics-conjecture-in-90-minutes-after-humans-couldnt-crack-it/" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol reportedly disproves a 30-year-old statistics conjecture（The Decoder）</a></li>
+                    <li><a href="https://news.ycombinator.com/item?id=48863490" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol Ultra produces proof of the Cycle Double Cover Conjecture（Hacker News）</a></li>
+                    <li><a href="https://cryptobriefing.com/claude-riemann-zeta-lower-bound-67-percent/" target="_blank" rel="noopener noreferrer">Claude advances lower bound for Riemann zeta function to 67%（Crypto Briefing）</a> / <a href="https://aiweekly.co/alerts/anthropic-unreleased-claude-improves-zeta-bound-to-672" target="_blank" rel="noopener noreferrer">Unreleased Claude Improves Zeta Bound to 67.2%（AI Weekly）</a></li>
+                    <li><a href="https://kingy.ai/millennium-prize-problems-ai/" target="_blank" rel="noopener noreferrer">Millennium Prize Problems and AI（Kingy AI）</a> / <a href="https://explainx.ai/blog/millennium-prize-problems-ai-solved-fact-check-2026" target="_blank" rel="noopener noreferrer">The 7 Millennium Prize Problems: What AI Has Actually Solved（explainx.ai）</a></li>
                     <li><a href="https://phys.org/news/2026-09-anthropic-touts-ai-biology-discovery.html" target="_blank" rel="noopener noreferrer">Anthropic touts AI-led biology discovery（Phys.org）</a></li>
                     <li><a href="https://oerlive.com/technology/top-5-interesting-things-ai-did-this-month-september-2026-edition/" target="_blank" rel="noopener noreferrer">Top 5 Interesting Things AI Did This Month – September 2026（OERLive）</a></li>
                 </ul>
