@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIと数学難問への取り組み（時系列）</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        /* ==========================================================================
+           このページ専用の追加スタイル（style.css にないタイムライン表現用）
+           配色は style.css のテーマカラー（紺 #1a365d / 青 #2b6cb0）に統一
+           ========================================================================== */
+
+        .source-info {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .source-info a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid #94a3b8;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #94a3b8;
+            border: 2px solid #ffffff;
+        }
+
+        .timeline-item.active::before {
+            background-color: #2b6cb0;
+        }
+
+        .timeline .meta {
+            font-size: 0.875rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .timeline h2 {
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .timeline p {
+            margin: 0 0 12px 0;
+            color: #4a5568;
+        }
+
+        .comparison-box {
+            background-color: #f4f6f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag-human {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .tag-ai {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .alert-text {
+            color: #B91C1C;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .sources-list {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 1.2em;
+        }
+
+        .sources-list a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            .timeline-item::before {
+                background-color: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+        <header>
+            <h1>AIと数学難問への取り組み（時系列）</h1>
+            <div class="source-info">
+                <div><strong>作成日:</strong> 2026年10月4日時点の公開情報</div>
+                <div><strong>主な出典:</strong> Epoch AI、Quanta Magazine、Scientific American、Terence Tao氏の投稿、各社発表への報道ほか（末尾に一覧）</div>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="meta">2024年7月</div>
+                <h2>国際数学オリンピック（IMO）：銀メダル相当</h2>
+                <p>Google DeepMind の AlphaProof と AlphaGeometry 2 が28点で銀メダル相当に達した。ただし、問題文を形式言語に翻訳する作業は人間の専門家が行っていた。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2025年7月</div>
+                <h2>IMO 2025：金メダル水準（35/42）</h2>
+                <p>Google DeepMind の Gemini Deep Think は、IMO 側の公式採点で35点（金メダルの境界）を得た。OpenAI の実験モデルも同じ35点だったが、こちらは元IMOメダリストらによる採点である。</p>
+                <p>同大会では、26人の高校生の参加者がAIより高い得点を取っており、満点者の発想力にはまだ及ばないとも評された。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2025年10月～12月</div>
+                <h2>Erdős問題への関与が始まる</h2>
+                <p>10月以降、AIの助けで約100問のErdős問題が「解決」欄に移ったが、その大半は、過去の文献から見落とされた解を掘り起こす、強化版の文献検索だった。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年1月</div>
+                <h2>Erdős問題：ほぼ自律的な解決の最初の例</h2>
+                <p>1月上旬、Erdős問題 #728 が、Harmonic 社の Aristotle（Lean による形式証明）でほぼ自律的に解決された。Terence Tao 氏は、既存の文献で同じ結果が見つからない点を含め、これを節目と位置づけた。#397 は GPT-5.2 Pro が証明し、Aristotle が Lean 化して Tao 氏が受け入れた。ただし Tao 氏は、標準的な手法で解ける「最も低い所の果実」だと強調している。</p>
+                <p><strong>1月23日:</strong> 研究レベルの難問を集めた FrontierMath の Tier 4 で、GPT-5.2 Pro が31%（従来の最高は19%）を記録した。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年3月～4月</div>
+                <h2>自律型エージェントの評価と、慎重な見方</h2>
+                <p>DeepMind の Aletheia は、Erdős問題のデータベースで未解決とされていた700問に適用された。意味のある正答は13問で、著者ら自身が、解決された問題の多くは長く放置されていただけで、実際には初等的だったと述べ、数学的な重要性への過剰な期待を戒めている。</p>
+                <p><strong>4月:</strong> GPT-5.5 Pro が FrontierMath（初版）の Tier 4 で39.6%に達し、当時の最高を更新した。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年5月</div>
+                <h2>転機：中心的な未解決問題を、汎用モデルが自律的に解く</h2>
+                <p><strong>5月20日:</strong> OpenAI が、1946年の Erdős 予想（単位距離問題に関連する離散幾何の中心的予想）を、内部の汎用推論モデルが反証したと発表した。数学専用に訓練された仕組みではなく、探索の足場も使っていないとされる。OpenAI は、分野の中心にある著名な未解決問題がAIによって自律的に解かれた最初の例だと位置づけた。外部の数学者がこの結果を検討し、高く評価している。</p>
+                <p><strong>5月21日:</strong> DeepMind が AlphaProof Nexus（Gemini と Lean を組み合わせたエージェント）を発表した。未解決のErdős問題353問のうち9問、OEIS の予想492件のうち44件を、Lean で検証可能な形で解いたとしている。1問あたりの推論コストは数百ドル程度とされる。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年6月</div>
+                <h2>FrontierMath の改訂（v2）</h2>
+                <p>6月12日、Epoch AI が FrontierMath の第2版を公開した。問題数は338問（Tier 1〜3 が295問、Tier 4 が43問）で、誤りの訂正を含む大規模な見直しだった。評価は非公開の問題で行われる。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年7月</div>
+                <h2>IMO 2026 の満点と、ヤコビアン予想の反例</h2>
+                <p><strong>IMO 2026（上海）:</strong> Huawei の Celia と、小紅書（RedNote）の dots-note-3.0 が42/42の満点を得た。大会の公式の手続きでの満点としては初めてと報じられている。他にも満点の主張が4件あるが、これは投資家による自己採点で、Claude ベースのエージェントが採点した。</p>
+                <p><strong>7月19〜20日:</strong> Anthropic の研究者 Levent Alpöge 氏が、1939年に提起されたヤコビアン予想の3変数での反例を発表し、Claude Fable 5 が見つけたとした。ヤコビアン行列式が定数 −2 で、単射でない多項式写像である。写像が正しいことは、数式による検算で独立に確認できる。一方、モデルの対話記録は公開されておらず、発見の経緯は第三者には確認できない。2次元の場合は未解決のままである。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年8月</div>
+                <h2>OpenAI の「10の進展」と、オイラー方程式の爆発</h2>
+                <p><strong>8月1〜2日:</strong> OpenAI が未公開の Astra 系モデルによる、数学と理論計算機科学の未解決問題10件の進展を、249ページの原稿と Lean 4 の形式証明で公表した。Erdős問題3件を含む。いずれも査読は未了である。</p>
+                <p><strong>8月12日:</strong> FrontierMath: Open Problems で、位数668の Hadamard 行列の問題が「AIによる解決」と記録された。同サイトは「AIによる解決」の基準を、解の核心となる発想をAIが明確に出したことと、高く設定している。</p>
+                <p><strong>8月15日:</strong> NYU の Tristan Buckmaster 氏と Alpöge 氏が、AIの支援で3次元オイラー方程式の有限時間爆発を証明した（Lean で検証済みと報じられている）。この件は、翌月のナビエ–ストークス方程式をめぐる論争の背景になる。</p>
+                <p>この頃、Epoch の研究者らが、2026年8月時点で未解決のErdős問題68問からなるベンチマーク FrontierMath Erdős を提案した。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年9月上旬</div>
+                <h2>FrontierMath Tier 4 の飽和</h2>
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        FrontierMath Tier 4（v2、43問）の報告値
+                        <span class="tag-ai">9月3日時点</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        GPT-6 Astra が97.6%（OpenAI の発表値）、Claude Fable 5 / 5.1 が87.8%、GPT-5.6 Sol が83.0%。OpenAI はこの層を「飽和した」としている。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 留意点：</strong> Astra の値は企業の報告で、独立した実行は9月3日時点で公表されていない。Tier 4 は43問しかなく、1問で約2.3ポイント動くため、数ポイントの差は統計的に有意とは限らない。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item active">
+                <div class="meta">2026年9月8日～10月</div>
+                <h2>ナビエ–ストークス方程式：主張と、未確定の検証</h2>
+                <p><strong>9月8日:</strong> OpenAI が、3次元ナビエ–ストークス方程式が有限時間で特異性（爆発）を生じうる、とする証明を内部モデルが出したと発表した。166ページの文書と、約616,000行の Lean コードが付く。最大約1万のエージェントが並行して働き、約88時間で到達したという。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        1. OpenAI の主張
+                        <span class="tag-ai">AI（内部モデル）</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        Clay 研究所のミレニアム問題のうち、外力のある設定（4つの定式化のうち C・D）で、滑らかさが破れることの証明。Lean による形式検証つき。OpenAI は、100万ドルの賞金は請求しないとしている。
+                    </p>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        2. 検証と論争の状況
+                        <span class="tag-human">人間による確認：未了</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        Clay の Martin Bridson 所長は評価を「急がず、徹底的に」行うとした。9月11日には、問題が解決された可能性があるとして、正式な検証プロセスを始めたと報じられている。Clay の規則では、査読誌への掲載から少なくとも2年と、数学界での一般的な受容が要る。
+                    </p>
+                    <p style="font-size: 0.9rem; margin: 8px 0 0 0;">
+                        Buckmaster 氏は、OpenAI が自分たちの未発表の手法を知ってから取り組んだと主張し、OpenAI は否定している。さらに、共同公表の交渉で Alpöge 氏の所属を理由に名前を外すよう求められたとも述べている。Alpöge 氏は Anthropic の社員で、利害関係が重なる点に注意が必要である。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 現状：</strong> 10月2日時点でも、Clay はミレニアム問題としてナビエ–ストークス方程式を未解決のままリストに載せている。
+                    </div>
+                </div>
+
+                <p style="margin-top: 15px;"><strong>9月16日:</strong> FrontierMath: Open Problems が方針を変更し、人間がAIを反復的に指揮して解いた問題に「人間＋AI」という区分を新設した。現在の解決数は、難度別に、やや興味深い 5/22、堅実な結果 2/18、大きな進展 1/6、画期的 1/3 である。</p>
+                <p><strong>9月21日:</strong> OpenAI は、同じ内部モデルが100以上の未解決問題をさらに解いたと主張した。データセットは付いていない。同日、プリンストン高等研究所に、数学とAIに関する9人の諮問グループを設けた。出版してから検証するという数学の慣行から外れた発表だという批判も出ている。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">全体像</div>
+                <h2>現時点での見方</h2>
+                <div class="comparison-box">
+                    <div class="comparison-title">確認されていること</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        IMO は2026年に満点（公式の手続きで）に達し、研究レベルの問題を集めたベンチマークは飽和に近づいている。ヤコビアン予想の3次元の反例のように、第三者が数式で確かめられる成果も出た。
+                    </p>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-title">未確定のこと</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        OpenAI のナビエ–ストークス方程式の証明や「100問以上」の主張、Astra の Tier 4 の値は、企業の発表の段階で、独立した検証や査読は終わっていない。これまでのErdős問題の「解決」の多くは、長く放置されていた問題や、文献に既出の解だったことも分かっている。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 出典上の注意：</strong> 本ページの内容は報道、各社の発表、論考に基づく。日付や数値は出典ごとに数日のずれがある場合がある（例：OpenAI のナビエ–ストークス方程式に関する発表は9月8日と9日の両方で報じられている）。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">参考</div>
+                <h2>出典一覧</h2>
+                <ul class="sources-list">
+                    <li><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener noreferrer">An OpenAI model has disproved a central conjecture in discrete geometry（OpenAI）</a></li>
+                    <li><a href="https://www.sciencenews.org/article/ai-guardrails-erdos-math-problem" target="_blank" rel="noopener noreferrer">An AI math breakthrough sparks calls for new guardrails（Science News）</a></li>
+                    <li><a href="https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/" target="_blank" rel="noopener noreferrer">Why the Legendary Erdős Problems Are Falling to AI（Quanta Magazine）</a></li>
+                    <li><a href="https://www.scientificamerican.com/article/ai-uncovers-solutions-to-erdos-problems-moving-closer-to-transforming-math/" target="_blank" rel="noopener noreferrer">AI uncovers solutions to Erdős problems（Scientific American）</a></li>
+                    <li><a href="https://arxiv.org/pdf/2601.07421" target="_blank" rel="noopener noreferrer">Resolution of Erdős Problem #728: a writeup of Aristotle's Lean proof（arXiv）</a></li>
+                    <li><a href="https://mathstodon.xyz/@tao/115855840223258103" target="_blank" rel="noopener noreferrer">Terence Tao 氏の投稿（Mathstodon）</a></li>
+                    <li><a href="https://www.eweek.com/news/gpt-5-2-just-solved-a-30-year-math-problem/" target="_blank" rel="noopener noreferrer">GPT-5.2 Just Solved a 30-Year Math Problem（eWeek）</a></li>
+                    <li><a href="https://math.berkeley.edu/~fengt/Aletheia.pdf" target="_blank" rel="noopener noreferrer">Towards Autonomous Mathematics Research（DeepMind / Aletheia）</a></li>
+                    <li><a href="https://officechai.com/ai/google-deepminds-alphaproof-nexus-agent-has-solved-9-open-erdos-problems-at-a-cost-of-a-few-hundred-dollars-each/" target="_blank" rel="noopener noreferrer">AlphaProof Nexus Has Solved 9 Open Erdős Problems（OfficeChai）</a></li>
+                    <li><a href="https://epochai.substack.com/p/new-record-on-frontiermath-tier-4" target="_blank" rel="noopener noreferrer">New record on FrontierMath Tier 4（Epoch AI）</a></li>
+                    <li><a href="https://epoch.ai/frontiermath/open-problems" target="_blank" rel="noopener noreferrer">FrontierMath: Open Problems（Epoch AI）</a></li>
+                    <li><a href="https://aiwiki.ai/wiki/frontiermath" target="_blank" rel="noopener noreferrer">FrontierMath（aiwiki.ai）</a> / <a href="https://systems-analysis.info/eng/FrontierMath" target="_blank" rel="noopener noreferrer">FrontierMath Benchmark（systems-analysis.info）</a></li>
+                    <li><a href="https://www.digitalapplied.com/blog/imo-2026-perfect-scores-ai-benchmark-saturation" target="_blank" rel="noopener noreferrer">Four AIs Scored a Perfect 42/42 on IMO 2026（Digital Applied）</a></li>
+                    <li><a href="https://www.scmp.com/tech/article/3361482/worlds-first-ai-model-earn-perfect-score-maths-olympiad-comes-chinas-rednote" target="_blank" rel="noopener noreferrer">RedNote's AI model is first to achieve flawless score at maths Olympiad（SCMP）</a></li>
+                    <li><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noopener noreferrer">Gemini Deep Think officially achieves gold-medal standard at the IMO（Google DeepMind）</a></li>
+                    <li><a href="https://hyper.ai/en/stories/020c7626bd2412c4953bc6db62867cce" target="_blank" rel="noopener noreferrer">AI Finds Potential Counterexample to 87-Year Jacobian Conjecture（HyperAI）</a> / <a href="https://kingy.ai/blog/claude-fable-jacobian-conjecture-counterexample/" target="_blank" rel="noopener noreferrer">Claude Fable and the Jacobian Conjecture: Evidence &amp; Limits（kingy.ai）</a></li>
+                    <li><a href="https://arxiv.org/pdf/2609.17795" target="_blank" rel="noopener noreferrer">An elementary way to find a counterexample to the Jacobian Conjecture（van den Essen, arXiv）</a></li>
+                    <li><a href="https://thequantuminsider.com/2026/08/04/openai-says-next-generation-model-solved-10-major-open-problems-in-quantum-complexity-mathematics/" target="_blank" rel="noopener noreferrer">OpenAI Says Next-Generation Model Solved 10 Major Open Problems（The Quantum Insider）</a></li>
+                    <li><a href="https://tech-insider.org/openai-100-math-problems-solved-24-days-2026/" target="_blank" rel="noopener noreferrer">OpenAI Claims 100+ Math Problems Solved in 24 Days（Tech Insider）</a></li>
+                    <li><a href="https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/" target="_blank" rel="noopener noreferrer">OpenAI says it cracked Navier-Stokes（Fortune）</a></li>
+                    <li><a href="https://www.scientificamerican.com/article/openai-claims-blockbuster-math-breakthrough-amid-swirl-of-controversy/" target="_blank" rel="noopener noreferrer">OpenAI claims blockbuster math breakthrough amid swirl of controversy（Scientific American）</a></li>
+                    <li><a href="https://www.implicator.ai/clay-institute-navier-stokes-openai-proof-claim/" target="_blank" rel="noopener noreferrer">Clay Institute Won't Call Navier-Stokes Solved After OpenAI Proof Claim（Implicator.ai）</a></li>
+                    <li><a href="https://manlius.substack.com/p/no-ai-hasnt-officially-solved-navierstokes" target="_blank" rel="noopener noreferrer">No, AI hasn't officially solved Navier–Stokes. Yet（Manlius）</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy" target="_blank" rel="noopener noreferrer">Navier–Stokes priority controversy（Wikipedia）</a></li>
+                    <li><a href="https://arxiv.org/pdf/2609.25050" target="_blank" rel="noopener noreferrer">FrontierMath Erdős（arXiv）</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

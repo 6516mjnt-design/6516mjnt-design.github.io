@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIと暗号解読の動向（時系列）</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        /* ==========================================================================
+           このページ専用の追加スタイル（style.css にないタイムライン表現用）
+           配色は style.css のテーマカラー（紺 #1a365d / 青 #2b6cb0）に統一
+           ========================================================================== */
+
+        .source-info {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .source-info a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid #94a3b8;
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #94a3b8;
+            border: 2px solid #ffffff;
+        }
+
+        .timeline-item.active::before {
+            background-color: #2b6cb0;
+        }
+
+        .timeline .meta {
+            font-size: 0.875rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .timeline h2 {
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            color: #1a365d;
+        }
+
+        .timeline p {
+            margin: 0 0 12px 0;
+            color: #4a5568;
+        }
+
+        .comparison-box {
+            background-color: #f4f6f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag-human {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .tag-ai {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .alert-text {
+            color: #B91C1C;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .sources-list {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 1.2em;
+        }
+
+        .sources-list a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            .timeline-item::before {
+                background-color: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+        <header>
+            <h1>AIと暗号解読の動向（時系列）</h1>
+            <div class="source-info">
+                <div><strong>作成日:</strong> 2026年10月4日時点の公開情報</div>
+                <div><strong>主な出典:</strong> Matthew Green氏ブログ、Schneier on Security、The Hacker News、PostQuantum.com ほか（末尾に一覧）</div>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="meta">2019年～2022年</div>
+                <h2>機械学習による暗号解読の萌芽</h2>
+                <p>2019年、Gohr氏がブロック暗号 Speck32/64 に対し、ニューラルネットで暗号文ペアの識別と鍵回復の効率化を示した。ResNet ベースのモデルが従来の機械学習手法を上回った。</p>
+                <p>2022年には SALSA が発表された。Transformer に剰余算を学習させ、統計的な解析手法と組み合わせて、格子暗号の基礎である LWE 問題を攻撃する手法である。ただし当時は、現実の LWE 暗号を攻撃できるとは主張されていなかった。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2023年～2025年</div>
+                <h2>格子暗号（LWE）への機械学習攻撃の改良</h2>
+                <p>2023年に SALSA VERDE（疎な小さい秘密鍵向け）と Salsapicante（二値の秘密鍵向け、ACM CCS '23）が続いた。2024年の Salsa Fresca は改良を示したが、著者らは現行の標準方式を脅かさないとしている。</p>
+                <p>2025年10月には、モジュラー LWE に対する非モジュラー攻撃 NoMod が arXiv に掲載された。2025年後半、Anthropic のレッドチームは、スマートコントラクトの攻撃コードを約1.22ドルの API 費用で生成できることを示した（暗号そのものではなく、実装・コードの脆弱性の話）。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年4月～7月上旬</div>
+                <h2>実装バグ発見への展開と、慎重論</h2>
+                <p><strong>4月5日:</strong> Ledger の CTO が、AI は暗号そのものを破っているわけではないと警告した。懸念は、AI が生成する脆弱なコードが増えることにある。</p>
+                <p><strong>5月14日:</strong> HAWK が NIST の追加署名方式の第3ラウンドに進んだ。格子ベースでは唯一の候補だった。</p>
+                <p><strong>7月7日:</strong> zkSecurity の調査チームが AI による監査を Cloudflare の暗号ライブラリ CIRCL に適用し、7件の実際のバグを確認した。すべて修正済みである。</p>
+            </div>
+
+            <div class="timeline-item active">
+                <div class="meta">2026年6月～7月29日</div>
+                <h2>転機：AIが数学的な暗号解析で成果を出す</h2>
+                <p><strong>6月:</strong> Anthropic が HAWK チームに通知した（HAWK 開発側も結果の検証に協力したとされる）。</p>
+                <p><strong>7月28日:</strong> Anthropic が、未公開モデル Claude Mythos Preview による2つの成果と、評価用ベンチマーク CryptanalysisBench を公表した。論文では、モデルが既知の結果の導出にとどまらず、SpoC AEAD の設計上の欠陥を突く鍵回復攻撃なども生成したと報告されている。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        1. HAWK（NIST の PQC 署名候補）
+                        <span class="tag-ai">格子暗号</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        約60時間で欠陥を発見。2年間・2ラウンドの専門家レビューを通過していたとされる。格子構造の自己同型という対称性を突く攻撃で、完全な鍵回復の対象は、実運用のパラメータではなくチャレンジ用の HAWK-256 だった。
+                    </p>
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">
+                        2. 7ラウンド AES
+                        <span class="tag-ai">共通鍵暗号</span>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        「Möbius Bridge」という手法で、既存の最良の攻撃を200〜800倍高速化した。ただし 2<sup>105</sup> の選択平文を要する研究用の想定で、10ラウンドの完全な AES には影響しない。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 留意点：</strong> いずれも実運用中のシステムには影響しない。HAWK は未標準化の候補、AES は段数を減らした研究用の構成である。
+                    </div>
+                </div>
+
+                <p style="margin-top: 15px;"><strong>7月29日:</strong> HAWK チームは、攻撃でブロックサイズが約半分になると確認し、NIST の標準化プロセスから撤回した。パラメータを倍にする対策では競争力を失うため、撤回を選んだとされる。NIST は同日、候補ページを更新した。同日、Matthew Green 氏は、AI が既存の暗号解析を理解し、新しい攻撃に統合し、拡張できるようになったと整理した。一方で「まだ超人的な暗号解読ではない」とも述べている。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">2026年8月～10月</div>
+                <h2>余波と対応論</h2>
+                <p><strong>9月4日:</strong> PostQuantumSecurity.org が整理記事を公開した。NIST は、HAWK の件が最終化済みの PQC 標準に影響しないと明確化したとのこと。ML-KEM、ML-DSA、SLH-DSA、Falcon、実運用の AES への影響はないとする解説もある。</p>
+                <p><strong>9月上旬～中旬:</strong> 別の脆弱性として、LLM API が返す暗号化された推論ブロックが、暗号を破らずに別の文脈へ転用され、内部の推論内容が再構成されたと報じられた。暗号の強度とシステム全体の安全性は別問題だという論点である。</p>
+                <p><strong>10月2日:</strong> 暗号アジリティ（アルゴリズムを素早く差し替える能力）の議論が広がっている。暗号の部品表（CBOM）で、どのシステムがどのアルゴリズムに依存するかを把握することが重要だと報じられた。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">全体像</div>
+                <h2>現時点での見方</h2>
+                <div class="comparison-box">
+                    <div class="comparison-title">確認されていること</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        AI が実運用中の暗号を破った事例は確認されていない。報告されているのは、未標準化の候補方式と、ラウンド数を減らした AES である。
+                    </p>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-title">変わりつつあること</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        問題の中心が、攻撃の発見から検証へ移りうるという見方が出ている。標準化審査に AI を組み込むべきだという議論もある。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 出典上の注意：</strong> 7月の成果は Anthropic の自社モデルによる発表に基づく。独立した検証は、Matthew Green 氏の解説や HAWK チーム自身の確認などに限られる。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">参考</div>
+                <h2>出典一覧</h2>
+                <ul class="sources-list">
+                    <li><a href="https://blog.cryptographyengineering.com/2026/07/29/some-notes-about-anthropics-new-results/" target="_blank" rel="noopener noreferrer">Some thoughts about Anthropic's new cryptanalysis results（Matthew Green）</a></li>
+                    <li><a href="https://www.schneier.com/blog/archives/2026/07/measuring-llms-ability-to-perform-cryptanalysis.html" target="_blank" rel="noopener noreferrer">Measuring LLMs' Ability to Perform Cryptanalysis（Schneier on Security）</a></li>
+                    <li><a href="https://thehackernews.com/2026/07/claude-ai-just-cracked-post-quantum.html" target="_blank" rel="noopener noreferrer">Claude AI Just Cracked a Post-Quantum Test Scheme…（The Hacker News）</a></li>
+                    <li><a href="https://postquantum.com/security-pqc/ai-cryptanalysis-hawk-aes/" target="_blank" rel="noopener noreferrer">AI Broke a NIST Candidate. Not Your Encryption（PostQuantum.com）</a></li>
+                    <li><a href="https://www.postquantumsecurity.org/publications/ai_pqc_signature.html" target="_blank" rel="noopener noreferrer">HAWK Withdrawn After an AI-Discovered Attack（PostQuantumSecurity.org）</a></li>
+                    <li><a href="https://quantumzeitgeist.com/anthropic-ai-cryptanalysis-compresses-flaw-finding/" target="_blank" rel="noopener noreferrer">AI Cryptanalysis Compresses Flaw-finding Time From Months To Hours（Quantum Zeitgeist）</a></li>
+                    <li><a href="https://www.qnulabs.com/blog/ai-cryptanalysis-what-cisos-should-do" target="_blank" rel="noopener noreferrer">AI Cryptanalysis: Why CISOs Need Crypto Agility（QNu Labs）</a></li>
+                    <li><a href="https://blog.zksecurity.xyz/posts/circl-bugs/" target="_blank" rel="noopener noreferrer">AI meets Cryptography 1: What AI Found in Cloudflare's CIRCL（zkSecurity）</a></li>
+                    <li><a href="https://blockeden.xyz/blog/2026/05/07/ledger-cto-ai-breaking-crypto-security-llm-exploits" target="_blank" rel="noopener noreferrer">The $1.22 Hack（BlockEden.xyz）</a></li>
+                    <li><a href="https://dispersive.io/blog/a-new-ai-vulnerability-exposes-the-security-gap-that-pqc-wont-fix" target="_blank" rel="noopener noreferrer">A New AI Vulnerability Exposes the Security Gap That PQC Won't Fix（Dispersive）</a></li>
+                    <li><a href="https://arxiv.org/abs/2207.04785" target="_blank" rel="noopener noreferrer">SALSA（arXiv）</a> / <a href="https://arxiv.org/pdf/2402.01082" target="_blank" rel="noopener noreferrer">Salsa Fresca（arXiv）</a> / <a href="https://arxiv.org/pdf/2510.02162" target="_blank" rel="noopener noreferrer">NoMod（arXiv）</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
