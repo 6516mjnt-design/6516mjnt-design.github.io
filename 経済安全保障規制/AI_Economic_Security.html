@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIオーケストレーションシステムと経済安全保障</title>
 <style>
   :root {
@@ -85,62 +86,77 @@
     .page { box-shadow: none; margin: 0; padding: 0 8mm; }
   }
 
-/* ===== スマートフォン閲覧用の読みやすさ改善 ===== */
+
+/* ===== スマートフォン閲覧用：文字を明確に大きくする ===== */
 @media screen and (max-width: 700px) {
-  html { font-size: 100%; }
-  body {
-    font-size: 17px;
-    line-height: 1.9;
+  html {
+    font-size: 18px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
+
+  body {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.9;
+  }
+
   .page {
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 24px 18px 40px;
+    padding: 22px 16px 42px;
     box-shadow: none;
   }
+
   h1.title {
-    font-size: 1.65rem;
-    line-height: 1.45;
-    margin-bottom: 10px;
+    font-size: 1.55rem;
+    line-height: 1.5;
+    margin: 0 0 12px;
   }
+
   p.subtitle {
     font-size: 1.08rem;
-    line-height: 1.65;
-    margin-bottom: 20px;
+    line-height: 1.7;
+    margin: 0 0 22px;
   }
+
   .lede {
-    padding: 16px 16px;
+    padding: 16px 15px;
     font-size: 1rem;
-    line-height: 1.85;
-    margin-bottom: 26px;
-  }
-  h2 {
-    font-size: 1.38rem;
-    line-height: 1.5;
-    margin: 34px 0 14px;
-  }
-  h3 {
-    font-size: 1.15rem;
-    line-height: 1.55;
-    margin: 24px 0 9px;
-  }
-  p, li {
-    font-size: 1.04rem;
     line-height: 1.9;
+    margin-bottom: 28px;
   }
-  ul, ol {
+
+  h2 {
+    font-size: 1.35rem;
+    line-height: 1.55;
+    margin: 36px 0 16px;
+  }
+
+  h3 {
+    font-size: 1.12rem;
+    line-height: 1.6;
+    margin: 26px 0 10px;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+    line-height: 1.95;
+  }
+
+  ul,
+  ol {
     margin-left: 1.35em;
   }
+
   blockquote {
     font-size: 1rem;
-    line-height: 1.85;
-    padding: 13px 15px;
+    line-height: 1.9;
+    padding: 14px 14px;
   }
 }
-
 </style>
 </head>
 <body>
