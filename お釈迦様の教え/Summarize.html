@@ -107,6 +107,66 @@
     font-weight: bold;
     color: #1a202c;
   }
+
+  /* スマホ表示最適化 */
+  @media screen and (max-width: 700px) {
+    html { font-size: 17px; }
+    body {
+      font-size: 1rem;
+      line-height: 1.85;
+      -webkit-text-size-adjust: 100%;
+    }
+    .container {
+      padding: 18px 14px;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+    .doc-title {
+      font-size: 1.55rem;
+      line-height: 1.45;
+      padding-bottom: 9px;
+      margin-bottom: 16px;
+    }
+    .intro-block {
+      padding: 13px 14px;
+      margin-bottom: 20px;
+    }
+    .intro-block p,
+    .section-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    h1 {
+      font-size: 1.25rem;
+      line-height: 1.55;
+      margin-top: 25px;
+      margin-bottom: 9px;
+    }
+    p { font-size: 1rem; line-height: 1.85; }
+    li { font-size: 1rem; line-height: 1.75; margin-bottom: 5px; }
+
+    /* 表は無理に縮小せず、横スクロールで読みやすさを確保 */
+    table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: normal;
+      margin-bottom: 18px;
+    }
+    table thead, table tbody { min-width: 680px; display: table; width: 100%; }
+    th, td {
+      font-size: 1rem;
+      line-height: 1.7;
+      padding: 10px 11px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    html { font-size: 16.5px; }
+    .container { padding-left: 11px; padding-right: 11px; }
+    .doc-title { font-size: 1.42rem; }
+  }
+
 </style>
 </head>
 <body>
