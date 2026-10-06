@@ -85,62 +85,61 @@
     .page { box-shadow: none; margin: 0; padding: 0 8mm; }
   }
 
-  /* スマホ表示最適化 */
-  @media screen and (max-width: 700px) {
-    html { font-size: 17px; }
-    body {
-      font-size: 1rem;
-      line-height: 1.9;
-      -webkit-text-size-adjust: 100%;
-    }
-    .page {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      padding: 28px 18px 36px;
-      box-shadow: none;
-    }
-    h1.title {
-      font-size: 1.55rem;
-      line-height: 1.45;
-      margin-bottom: 9px;
-    }
-    p.subtitle {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .lede {
-      padding: 14px 15px;
-      font-size: 1rem;
-      line-height: 1.85;
-      margin-bottom: 24px;
-    }
-    h2 {
-      font-size: 1.3rem;
-      line-height: 1.5;
-      margin-top: 32px;
-      margin-bottom: 13px;
-    }
-    h3 {
-      font-size: 1.1rem;
-      line-height: 1.55;
-      margin-top: 24px;
-      margin-bottom: 9px;
-    }
-    p, li, blockquote {
-      font-size: 1rem;
-      line-height: 1.9;
-    }
-    ul, ol { margin-left: 1.35em; }
-    li { margin-bottom: 7px; }
-    blockquote { padding: 11px 14px; }
+/* ===== スマートフォン閲覧用の読みやすさ改善 ===== */
+@media screen and (max-width: 700px) {
+  html { font-size: 100%; }
+  body {
+    font-size: 17px;
+    line-height: 1.9;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
-  @media screen and (max-width: 400px) {
-    html { font-size: 16.5px; }
-    .page { padding-left: 15px; padding-right: 15px; }
-    h1.title { font-size: 1.42rem; }
+  .page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 24px 18px 40px;
+    box-shadow: none;
   }
+  h1.title {
+    font-size: 1.65rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+  p.subtitle {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .lede {
+    padding: 16px 16px;
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 26px;
+  }
+  h2 {
+    font-size: 1.38rem;
+    line-height: 1.5;
+    margin: 34px 0 14px;
+  }
+  h3 {
+    font-size: 1.15rem;
+    line-height: 1.55;
+    margin: 24px 0 9px;
+  }
+  p, li {
+    font-size: 1.04rem;
+    line-height: 1.9;
+  }
+  ul, ol {
+    margin-left: 1.35em;
+  }
+  blockquote {
+    font-size: 1rem;
+    line-height: 1.85;
+    padding: 13px 15px;
+  }
+}
 
 </style>
 </head>
