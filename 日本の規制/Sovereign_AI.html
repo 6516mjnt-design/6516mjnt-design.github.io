@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ソブリンAIの解説および日本における現状</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        /* ページ全体の基本スタイル */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333333;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        /* タイトルと見出し */
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #1a365d;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #2c5282;
+            background-color: #ebf8ff;
+            padding: 8px 15px;
+            border-left: 5px solid #2b6cb0;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 15px;
+            color: #2d3748;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        /* リストとテキスト */
+        p {
+            margin: 10px 0;
+        }
+
+        ul, ol {
+            margin: 10px 0 20px 25px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 注記・解説用ボックス */
+        blockquote, .note-box {
+            background-color: #f7fafc;
+            border-left: 4px solid #cbd5e0;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #4a5568;
+            border-radius: 0 4px 4px 0;
+        }
+
+        blockquote p, .note-box p {
+            margin: 5px 0;
+        }
+
+        /* 表 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f7fafc;
+            color: #2d3748;
+            width: 25%;
+        }
+
+        td {
+            color: #4a5568;
+        }
+
+        /* 印刷時の最適化設定 */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            h2 {
+                page-break-before: always;
+            }
+            blockquote, .note-box, tr {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>日本のソブリンAI（Sovereign AI）</h1>
+    <div class="subtitle">概念の基本概要と日本における取り組みの現状</div>
+
+    <p>ソブリンAI（Sovereign AI／デジタル主権に基づくAI）は、自国のインフラ、データ、人材、文化、法規制を用いて、AIを主権的・主体的に開発・運用する能力や概念を指します。</p>
+    <p>特定国のプラットフォーム企業（主に米国のビッグテック）へのAI依存が深まることで生じるリスクを回避し、国家としての技術的自立や経済・安全保障上の主導権を確保する動きとして世界的に加速しています。</p>
+
+    <h2>I. ソブリンAIの基礎概要</h2>
+    <p>ソブリンAIの主な目的は、自国のデータと言語・文化の保全、安全保障上の自立、そして自国産業の活性化です。</p>
+    <ul>
+        <li><strong>データ・文化主権の確保：</strong> 特定国のAIモデルに過度に依存すると、自国固有の言語・文化・価値観が十分に反映されず、文化的な偏りが生じるリスクがあります。また、国内データや機密情報が他国に漏洩・吸収される防衛策にもなります。</li>
+        <li><strong>安全保障・サプライチェーンリスクの回避：</strong> 行政、防衛、インフラなどの重要基盤で海外製AIのみを使用していると、国際情勢の緊張や輸出規制などでサービス停止・アクセス制限が起きた際、社会機能が麻痺するおそれがあります。</li>
+        <li><strong>自国経済と技術エコシステムの育成：</strong> AI開発に必要なデータセンター、半導体、クラウド、高度人材を自国内に蓄積し、持続可能な技術競争力を担保します。</li>
+    </ul>
+
+    <h2>II. ソブリンAIを構成する要素</h2>
+    <p>ソブリンAIを構築するには、ソフトウェア（モデル）からハードウェアまでの全体レイヤーでの自立が求められます。</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>レイヤー</th>
+                <th>概要</th>
+                <th>主な課題</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>基盤モデル (LLM等)</strong></td>
+                <td>自国の言語・習慣・法規制に最適化された独自モデル</td>
+                <td>高度なパラメータ設計と開発資金・人材の確保</td>
+            </tr>
+            <tr>
+                <td><strong>データ</strong></td>
+                <td>自国内で安全に保管・処理される高品質データセット</td>
+                <td>機密・プライバシーを保護しつつ学習データを収集する仕組み</td>
+            </tr>
+            <tr>
+                <td><strong>計算インフラ</strong></td>
+                <td>国内立地のデータセンター、GPU/AI半導体、ソブリンクラウド</td>
+                <td>電力確保と最先端AIチップ（GPU等）の調達</td>
+            </tr>
+            <tr>
+                <td><strong>法規制・ガバナンス</strong></td>
+                <td>国家の価値観や安全基準に沿ったAIガバナンス枠組み</td>
+                <td>開発促進と透明性・安全性の担保のバランス</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>III. 日本におけるソブリンAIの状況</h2>
+    <p>日本においても、AIを国家戦略の最重点分野と位置付け、官民をあげてソブリンAIの確立を推進しています。</p>
+
+    <h3>1. 政府の主導策と政策フレームワーク</h3>
+    <ul>
+        <li><strong>GENIAC（Generative AI Accelerator Network）プロジェクト：</strong> 経済産業省やNEDOが中心となり、国内企業や研究機関に対する計算資源の提供、データ整備、共同開発の支援を行う「GENIAC」を推進し、国産基盤モデルの開発を強力にバックアップしています。</li>
+        <li><strong>法整備と予算投入：</strong> AI基本計画や関連施策のもと、計算インフラの確保や国産LLM開発に向けた数千億円から1兆円規模の官民投資が計画・実行されています。</li>
+    </ul>
+
+    <h3>2. 計算インフラとAI半導体の確保</h3>
+    <ul>
+        <li><strong>国内データセンター・スーパーコンピュータの増強：</strong> さくらインターネットやソフトバンク、NTTなどの国内事業者が、大規模なAI特化型データセンターの整備を進めています。政府の補助金を活用して最新GPUを数千〜数万基規模で導入する動きが活発です。</li>
+        <li><strong>ソブリンクラウドの構築：</strong> 行政や金融・医療などの重要データを海外へ出さず、国内法のもとで安全に運用できる国内資本のクラウド環境の整備が進んでいます。</li>
+    </ul>
+
+    <h3>3. 国内企業・機関による日本語特化型モデルの開発</h3>
+    <ul>
+        <li><strong>日本語・日本文化への最適化：</strong> 英語中心の大規模モデルではカバーしきれない高度な日本語表現、ビジネス習慣、専門用語に対応した軽量・高精度なLLMの開発が進んでいます。</li>
+        <li><strong>オープンモデルの公開：</strong> NTT（tsuzumi）、ソフトバンク、NEC、CyberAgentなどの大手企業や理化学研究所・東京科学大学などの研究機関が独自の基盤モデルを発表し、国内エコシステムへの普及を図っています。</li>
+    </ul>
+
+    <h3>4. 今後の課題</h3>
+    <div class="note-box">
+        <p><strong>最先端ハードウェアの依存構造：</strong> データやモデル開発の自立を進める一方、GPUなどの最先端AI半導体は海外製（NVIDIAなど）に依存せざるを得ない点が根本的な課題となっています。</p>
+        <p><strong>電力需要増への対応：</strong> AIデータセンターの急増に伴う莫大な電力消費に対し、再生可能エネルギーや次世代エネルギー（原子力、次世代送電網など）をどう供給するかが問われています。</p>
+    </div>
+
+</div>
+
+</body>
+</html>
