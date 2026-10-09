@@ -29,11 +29,23 @@
             padding-bottom: 20px;
             margin-bottom: 30px;
         }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
         h1 {
             color: #1a365d;
             font-size: 26px;
-            margin: 0 0 10px 0;
+            margin: 0;
             line-height: 1.4;
+        }
+        .update-date {
+            font-size: 14px;
+            color: #718096;
+            white-space: nowrap;
+            margin-left: 20px;
         }
         .date {
             font-size: 14px;
@@ -64,19 +76,6 @@
             padding: 15px 20px;
             margin: 15px 0 0 0;
             border-radius: 0 6px 6px 0;
-        }
-        .btn-print {
-            background-color: #2b6cb0;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-            font-weight: bold;
-        }
-        .btn-print:hover {
-            background-color: #1a365d;
         }
         /* テーブルスタイル */
         .table-wrapper {
@@ -128,20 +127,17 @@
             color: #2d3748;
             width: 10%;
         }
-        @media print {
-            .no-print { display: none; }
-            body { background-color: #fff; padding: 0; }
-            .container { box-shadow: none; padding: 0; max-width: 100%; }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
 
     <header>
-        <h1>POPs附属書A等の会合で検討経緯</h1>
+        <div class="header-top">
+            <h1>POPs附属書A等の会合で検討経緯</h1>
+            <div class="update-date">更新日：2026年10月9日</div>
+        </div>
         <div class="date">ストックホルム条約（POPs条約）審査状況・検討一覧</div>
     </header>
 
@@ -375,18 +371,20 @@
                         <td></td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
-                        <td rowspan="2" class="meeting-col">POPRC22</td>
+                        <td rowspan="2" class="meeting-col">POPRC22<br>決定事項6件</td>
                         <td rowspan="2" class="date-col">2026年<br>9月21日<br>～9月25日</td>
+                        <td></td>
                         <td>デカブロモジフェニルエタン（DBDPE）</td>
                         <td></td>
                         <td>ポリ臭素化ジベンゾ-p-ジオキシンおよびジベンゾフラン類</td>
-                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
+                        <td></td>
                         <td>ビス（2-エチルヘキシル）テトラブロモフタレート（TBPH）</td>
                         <td></td>
                         <td>ポリ臭素化／塩素化混合ジベンゾ-p-ジオキシン類およびジベンゾフラン類</td>
-                        <td></td><td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td><td></td>
                     </tr>
                     <tr>
                         <td class="meeting-col">COP13</td>
