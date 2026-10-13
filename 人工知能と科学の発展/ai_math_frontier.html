@@ -72,6 +72,13 @@
             color: #1a365d;
         }
 
+        .timeline h3 {
+            font-size: 1rem;
+            margin: 20px 0 8px 0;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
         .timeline p {
             margin: 0 0 12px 0;
             color: #4a5568;
@@ -136,6 +143,53 @@
             text-decoration: underline;
         }
 
+        .roundtable-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 4px 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+            background: #ffffff;
+        }
+
+        .roundtable-table th,
+        .roundtable-table td {
+            border: 1px solid #e2e8f0;
+            padding: 6px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .roundtable-table th {
+            background: #f4f6f9;
+            color: #1a365d;
+        }
+
+        .tag-verified {
+            color: #3b7a57;
+            font-weight: bold;
+        }
+
+        .tag-unverified {
+            color: #B91C1C;
+            font-weight: bold;
+        }
+
+        .tag-pending {
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .note-box {
+            border-left: 4px solid #B91C1C;
+            background: #fff7f7;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+
         @media print {
             .timeline-item::before {
                 background-color: #999 !important;
@@ -151,7 +205,7 @@
         <header>
             <h1>AIが挑む数学</h1>
             <div class="source-info">
-                <div><strong>更新日:</strong> 2026年10月11日</div>
+                <div><strong>更新日:</strong> 2026年10月13日</div>
                 <div><strong>主な出典:</strong> Epoch AI、Quanta Magazine、Scientific American、Terence Tao氏の投稿、各社発表への報道ほか（末尾に一覧）</div>
             </div>
         </header>
@@ -300,7 +354,7 @@
                     </div>
                 </div>
 
-                <!-- 9月11日の数学者による行動声明を追加 -->
+                <!-- 9月11日の数学者による行動声明 -->
                 <div class="comparison-box" style="margin-top: 15px;">
                     <div class="comparison-title">
                         数学者による行動声明（9月11日）
@@ -316,9 +370,8 @@
                 <p><strong>ほかのミレニアム問題:</strong> OpenAI のこの主張に続き、Hodge 予想や BSD 予想の解決をうかがわせる噂が出た。しかし、Clay の公式リストでは、BSD、Hodge、P対NP、リーマン予想、ヤン–ミルズの5問は未解決のままである。リーマン予想については、上記の8月10日の関連結果はあるが、予想の解決ではない。ヤン–ミルズ質量ギャップには、公開されたAIの試みがまだない。</p>
             </div>
 
-
             <div class="timeline-item active">
-                <div class="meta">2026年10月6日～11日（最新更新）</div>
+                <div class="meta">2026年10月6日～11日</div>
                 <h2>数学研究の大量公開：数百件の成果主張と、検証の新段階</h2>
                 <p><strong>10月6日:</strong> OpenAI は、社内の未公開フロンティアモデルが生み出した数学的成果をまとめて公開した。公開先は GitHub リポジトリで、初期発表では722本の原稿・372の結果群と報じられた。内容は代数、数論、幾何、偏微分方程式、理論計算機科学など幅広い。単に「数百問を解いた」と数えるだけでは、各結果の新規性・重要性・正しさを評価できない。</p>
                 <p><strong>10月7日～10日:</strong> 公開後、誤りの発見や証明の修正が進み、リポジトリ上の件数も変動したと報じられている。したがって、公開初日の件数を確定値として扱わず、原稿の版・訂正履歴・依存する補題を確認する必要がある。公開後すぐに内容を点検できるようになった一方、全成果が査読済み、または数学者により独立確認済みという意味ではない。</p>
@@ -337,6 +390,120 @@
                     <p style="font-size: 0.9rem; margin-bottom: 0;">9月のOpenAIの発表は、外力を許す設定で有限時間の特異性が生じるという証明を提示したもの。Clay Mathematics Institute は評価を急がない姿勢を示している。したがって、本ページでは「AIが解決した」と確定扱いせず、「解決を主張する証明が公開され、数学界による評価が進行中」と表現する。外力なしの設定まで解決したと読み替えてはならない。賞金の授与や正式な受容とも区別する。</p>
                 </div>
             </div>
+
+            <!-- ===== 追加：日本の研究者による座談会 ===== -->
+            <div class="timeline-item active">
+                <div class="meta">2026年10月13日（追加）</div>
+                <h2>日本の研究者の危機感：緊急座談会「OpenAI論文と理論物理」</h2>
+                <p>OpenAI が10月6日に722編の数学・理論計算機科学・数理物理の原稿を一括公開したことを受け、機械学習と物理学の融合（「学習物理学」）に取り組む日本の研究者が、緊急のオンライン座談会を開いた。量子重力、物性、宇宙論、流体力学など各分野への影響を把握し、研究者の役割、教育、査読のあり方を率直に話し合うことが目的とされている。座談会の文書は、不安を煽ることを目的とはしないと明記している。日本の第一線の数学者・物理学者の間に、こうした速い変化への危機感が広がっていることを示す出来事である。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">背景：何が起きたか</div>
+                    <ul class="sources-list">
+                        <li><strong>2026年9月：</strong> OpenAI がナビエ・ストークス方程式に関する論文を公表した。座談会の文書では「反例（特異解）の構成」と説明されている。</li>
+                        <li><strong>2026年10月6日：</strong> GitHub（openai/math）に722編の数学・理論計算機科学・数理物理の原稿を一括公開。372の「ファミリー（関連する論文群）」にまとめられ、未公開の社内フロンティアモデルが約4,000の問題に取り組んだ結果とされる。</li>
+                        <li><strong>10月7〜8日：</strong> 公開の翌日に3編が撤回（符号の誤りによる）、14編が改訂。残りは719編。</li>
+                    </ul>
+                </div>
+
+                <h3>722編の概要（公開情報で確認できた事実）</h3>
+                <table class="roundtable-table">
+                    <tr><th>項目</th><th>内容</th></tr>
+                    <tr><td>公開日・場所</td><td>2026年10月6日、GitHub openai/math（Apache-2.0）</td></tr>
+                    <tr><td>規模</td><td>722原稿 / 372ファミリー</td></tr>
+                    <tr><td>生成元</td><td>未公開の社内フロンティアモデル（約4,000問題を対象）</td></tr>
+                    <tr><td>主な分野</td><td>幾何、代数、理論計算機科学、数理物理</td></tr>
+                    <tr><td>形式化（Lean）</td><td>主結果がLeanで形式化されているのは162編のみ</td></tr>
+                    <tr><td>推論過程の要約</td><td>10件を公開（素数の既約指数、スピングラス、群論、数理物理など）</td></tr>
+                    <tr><td>ミレニアム懸賞問題</td><td>残る5問題はいずれも完全には解かれていない（部分的な前進にとどまる）</td></tr>
+                    <tr><td>助言</td><td>IASの「数学とAIに関する諮問グループ（AGMAI）」に相談</td></tr>
+                </table>
+
+                <h3>物理・計算機科学に関わる主な成果（報道による）</h3>
+                <ul class="sources-list">
+                    <li><strong>理論計算機科学：</strong> 行列積の計算量の上界 ω ≤ 2.25、L = RL = BPL という脱乱択化の結果、ユニークゲーム問題の困難性、準 n log n 時間のフーリエ変換など。</li>
+                    <li><strong>物理：</strong> Yang–Mills質量ギャップ問題の「ウォームアップ」にあたる非線形シグマ模型の結果、相互作用のある気体へのボース・アインシュタイン凝縮の予測の拡張。</li>
+                </ul>
+
+                <h3>研究コミュニティの反応</h3>
+                <table class="roundtable-table">
+                    <tr><th>立場</th><th>発言の趣旨</th></tr>
+                    <tr><td>肯定的</td><td>ハーバードのマイケル・ダグラス：「数学と数理物理の新しい時代が始まった」</td></tr>
+                    <tr><td>批判的</td><td>NYUのローラン・バウアーシュミット：一部は書き方が非常に悪く、無名の人からの投稿なら削除していたと述べた</td></tr>
+                    <tr><td>懐疑的</td><td>コーネル大学のアレックス・タウンゼント：Lean検証済みのものを先に発表すべきだった</td></tr>
+                    <tr><td>静観・拒否</td><td>コロンビア大学の数論者マイケル・ハリス：これらは読まないと表明</td></tr>
+                    <tr><td>団体声明</td><td>「Association for Human Mathematics」：「700以上のファイルを一度に公開するのは学問的態度ではなく、力の誇示だ」としてOpenAIとの協業中止を呼びかけ</td></tr>
+                    <tr><td>公式見解</td><td>OpenAI：「数学者と科学者のためのツールを提供する」ことが目的。検証途中の結果であり、コミュニティによるレビューのための材料と位置づけ</td></tr>
+                </table>
+
+                <h3>座談会の概要と登壇者</h3>
+                <table class="roundtable-table">
+                    <tr><th>氏名</th><th>所属</th><th>専門・テーマ</th><th>役割</th></tr>
+                    <tr><td>橋本 幸士</td><td>「学習物理学」領域代表</td><td>量子重力、ホログラフィー（AdS/CFT）</td><td>ファシリテーター・司会</td></tr>
+                    <tr><td>富谷 昭夫</td><td>東京女子大学・京都大学 准教授</td><td>学習物理学、格子QCD</td><td>企画・広報・配信</td></tr>
+                    <tr><td>坂上 貴之</td><td>京都大学 教授</td><td>数理流体力学</td><td>—</td></tr>
+                    <tr><td>園田 翔</td><td>理研／サイバーエージェント 上級研究員</td><td>深層学習理論、Leanによる形式化</td><td>—</td></tr>
+                    <tr><td>川島 直樹</td><td>東京大学 知の物理学研究センター</td><td>不規則系の統計力学（スピングラス）</td><td>—</td></tr>
+                    <tr><td>大月 純</td><td>岡山大学 理工学</td><td>物性理論（アンダーソン局在など）</td><td>—</td></tr>
+                    <tr><td>松原 隆彦</td><td>KEK 教授</td><td>観測的宇宙論、宇宙論的摂動論</td><td>—</td></tr>
+                    <tr><td>長井</td><td>東京大学 情報基盤センター</td><td>計算物理、材料の数値計算</td><td>—</td></tr>
+                </table>
+
+                <h3>議論の主な論点</h3>
+                <div class="comparison-box">
+                    <p style="font-size: 0.9rem; margin-bottom: 6px;"><strong>(1) 流体力学への影響</strong></p>
+                    <ul class="sources-list">
+                        <li>ナビエ・ストークス方程式は自然界の保存則を途中で打ち切った近似モデルであり、数学的な特異点が構成されても、それが自然界で確率的に起こりうるかは別の物理的問題として残る。</li>
+                        <li>複素解析で「極」の周辺情報から関数の性質を捉えるように、特異解を手がかりに乱流の理解を深める可能性がある。</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin: 10px 0 6px 0;"><strong>(2) 研究スタイルと役割の変化</strong></p>
+                    <ul class="sources-list">
+                        <li>従来は未解決問題を何十年かけて解く過程で新しい概念が生まれてきた。AIが証明や計算を担うと、「どの問いを立てるか」「どのモデルを切り出すか」が重要になる。</li>
+                        <li>結果の「何が物理的に面白く、価値があるか」の判断は人間の役割として残るとされる。</li>
+                        <li>Leanなどの形式言語による証明を、人間の直感や自然言語へ翻訳する課題が注目されている。</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin: 10px 0 6px 0;"><strong>(3) 学術インフラ</strong></p>
+                    <ul class="sources-list">
+                        <li>大量の論文生成に査読が追いつかず、arXivの投稿上限のような制御が必要になっている。</li>
+                        <li>正しさの検証は証明検証系が担い、人間は独創性や本質的な価値の評価に集中するという分担が予想される。</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin: 10px 0 6px 0;"><strong>(4) 若手研究者の教育</strong></p>
+                    <ul class="sources-list">
+                        <li>手計算や試行錯誤の「下積み」をAIに任せると、物理的直感や「筋の良い問題」を見抜く力が育ちにくくなるという懸念がある。</li>
+                        <li>AIの出力を吟味し批評する能力を中心に、AIを対話相手として能動的に検証する訓練が求められるとされる。</li>
+                    </ul>
+                </div>
+
+                <h3>座談会の記述と公開情報の照合</h3>
+                <p style="font-size: 0.9rem;">座談会の文書には、公開情報では確認できない記述が含まれている。以下のとおり区別して読むことを推奨する。</p>
+                <table class="roundtable-table">
+                    <tr><th>記述</th><th>確認状況</th></tr>
+                    <tr><td>722編の公開、372ファミリー、3編撤回、719編に減少</td><td><span class="tag-verified">確認済み</span></td></tr>
+                    <tr><td>主結果のLean形式化は162編のみ</td><td><span class="tag-verified">確認済み</span></td></tr>
+                    <tr><td>ミレニアム問題（残り5問）は未解決</td><td><span class="tag-verified">確認済み（完全解決ではなく部分的前進）</span></td></tr>
+                    <tr><td>物理分野の成果（シグマ模型、BEC拡張）</td><td><span class="tag-verified">報道で確認（文書の記述とは内容が異なる）</span></td></tr>
+                    <tr><td>ナビエ・ストークス方程式の反例構成（9月）</td><td><span class="tag-pending">論文の存在は報道にあるが、内容は未確認</span></td></tr>
+                    <tr><td>BFSS行列模型でのウィッテン予想の証明</td><td><span class="tag-unverified">今回の検索では確認できず</span></td></tr>
+                    <tr><td>3次元アンダーソン局在（金属相）の証明</td><td><span class="tag-unverified">今回の検索では確認できず</span></td></tr>
+                    <tr><td>スピングラスのメザール・パリジ予想の証明</td><td><span class="tag-pending">スピングラス関連の推論要約は公開されているが、証明の内容は未確認</span></td></tr>
+                    <tr><td>宇宙検閲官仮説の解決、BECでの相転移の存在</td><td><span class="tag-unverified">今回の検索では確認できず</span></td></tr>
+                    <tr><td>arXivの「研究者1人あたり月2本まで」の制限</td><td><span class="tag-unverified">今回の検索では確認できず</span></td></tr>
+                    <tr><td>研究速度が5〜6倍に加速したという実感</td><td><span class="tag-pending">出典不明（登壇者の個人的見解の可能性）</span></td></tr>
+                    <tr><td>対象が「理論物理学全般」であるという点</td><td><span class="tag-unverified">報道では数学・理論計算機科学が中心、物理は一部</span></td></tr>
+                </table>
+
+                <div class="note-box">
+                    <strong>文書の誤記について：</strong>「判例構成」「解の特異点（判例）」は、文脈から「反例」の誤記と思われる。「主主体的」は「主体的」の誤記と思われる。
+                </div>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">座談会のまとめ</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        722編の公開は、AIが数学・理論計算機科学・数理物理の未解決問題に取り組んだ大規模な事例として、研究界に大きな議論を生んだ。一方で、検証が不十分な原稿が多く、公開の方法にも強い批判があり、評価はまだ定まっていない。座談会の「AIが証明や計算を担い、人間は問いの設定と価値判断に集中する」という見方は、ひとつの見解として捉えるのが適切である。個別の成果や数値（arXivの制限、研究速度など）は、原典や一次資料で確認することを勧める。
+                    </p>
+                </div>
+            </div>
+            <!-- ===== 追加ここまで ===== -->
 
             <div class="timeline-item">
                 <div class="meta">全体像</div>
@@ -364,7 +531,7 @@
                 <h2>数学者による共同声明（声明：数学におけるAIの深刻な不整合）</h2>
                 <div class="comparison-box">
                     <p style="font-size: 0.9rem; margin-bottom: 8px;">
-                        2026年9月11日に発表されたフィールズ賞受賞者らによる声明文の要約は以下の通りです。
+                        2026年9月11日に発表されたフィールズ賞受賞者らによる声明文の要約は以下の通り。
                     </p>
                     <ul class="sources-list" style="margin-top: 8px;">
                         <li><strong>AI企業と数学界の目的の乖離：</strong> AIの数学的能力向上や問題解決は本来の目的（概念的理解や洞察の追求）の「手段」に過ぎないが、早急な「真偽」の量産は、かえって数学の肥沃な土壌を破壊しかねない。</li>
@@ -416,6 +583,12 @@
                     <li><a href="https://the-decoder.com/gpt-5-6-sol-reportedly-disproves-a-30-year-old-statistics-conjecture-in-90-minutes-after-humans-couldnt-crack-it/" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol reportedly disproves a 30-year-old statistics conjecture（The Decoder）</a></li>
                     <li><a href="https://news.ycombinator.com/item?id=48863490" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol Ultra produces proof of the Cycle Double Cover Conjecture（Hacker News）</a></li>
                     <li><a href="https://kingy.ai/millennium-prize-problems-ai/" target="_blank" rel="noopener noreferrer">Millennium Prize Problems and AI（Kingy AI）</a> / <a href="https://explainx.ai/blog/millennium-prize-problems-ai-solved-fact-check-2026" target="_blank" rel="noopener noreferrer">The 7 Millennium Prize Problems: What AI Has Actually Solved（explainx.ai）</a></li>
+                    <li><strong>日本語の座談会の参考資料：</strong>
+                        <a href="https://rits.shanghai.nyu.edu/ai/openai-drops-722-math-manuscripts-from-an-unreleased-model" target="_blank" rel="noopener noreferrer">OpenAI Drops 722 Math Manuscripts From an Unreleased Model（NYU Shanghai RITS）</a>、
+                        <a href="https://aiweekly.co/alerts/openai-publishes-722-ai-generated-math-preprints-on-github" target="_blank" rel="noopener noreferrer">OpenAI publishes 722 AI-generated math preprints on GitHub</a>、
+                        <a href="https://aiweekly.co/alerts/openai-posts-722-ai-math-preprints-mathematicians-balk" target="_blank" rel="noopener noreferrer">OpenAI posts 722 AI math preprints; mathematicians balk</a>、
+                        <a href="https://aiweekly.co/alerts/openai-dumps-722-ai-math-preprints-to-github-pulls-three" target="_blank" rel="noopener noreferrer">OpenAI dumps 722 AI math preprints to GitHub, pulls three</a>、
+                        <a href="https://yourstory.com/ai-story/openai-ai-open-maths-problems-solved" target="_blank" rel="noopener noreferrer">OpenAI puts AI-generated maths to the test with 722 manuscripts（YourStory）</a></li>
                 </ul>
             </div>
 
