@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米中以外の国のソブリンAI</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        /* ページ全体の基本スタイル */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333333;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        /* タイトルと見出し */
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #1a365d;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #2c5282;
+            background-color: #ebf8ff;
+            padding: 8px 15px;
+            border-left: 5px solid #2b6cb0;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 15px;
+            color: #2d3748;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        /* リストとテキスト */
+        p {
+            margin: 10px 0;
+        }
+
+        ul, ol {
+            margin: 10px 0 20px 25px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 注記・解説用ボックス */
+        blockquote, .note-box {
+            background-color: #f7fafc;
+            border-left: 4px solid #cbd5e0;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #4a5568;
+            border-radius: 0 4px 4px 0;
+        }
+
+        blockquote p, .note-box p {
+            margin: 5px 0;
+        }
+
+        /* アプローチ図解・コードブロック用ボックス */
+        .diagram-box {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #2d3748;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* 印刷時の最適化設定 */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            h2 {
+                page-break-before: always;
+            }
+            blockquote, .note-box, .diagram-box {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>米中以外の国のソブリンAI</h1>
+    <div class="subtitle">中堅国（ミドルパワー）における代表例と実現方法論</div>
+
+    <p>米中の覇権争いが激化する中、日本を含む中堅国（ミドルパワー）や欧州諸国、中東の主要国では、自国の言語・文化、法制度、そしてデータ主権を守りつつ産業競争力を高めるための「ソブリンAI（国家主権型AI）」の構築が急ピッチで進められている。</p>
+    <p>日本を含む中堅国のソブリンAI戦略は、「米中の巨大プラットフォームを賢く利用しつつも、自国の安全保障・基幹産業・固有文化に関わる『最も重要な脳（モデルとデータ）』だけは国内（または信頼できる領域内）でコントロールできるようにしておく」というハイブリッド型の自立戦略に集約されます。</p>
+
+    <h2>1. 米中以外（日本および中堅国）の代表的なソブリンAIの例</h2>
+
+    <h3>① 日本：国産基盤モデルおよび国内インフラ連携</h3>
+    <p><strong>代表的な動き・名称：</strong> 経済産業省やNEDO等の支援のもと、東工大（現・東工大すずかけ台キャンパス等）のスーパーコンピューター群や、さくらインターネット、NTT、LLM開発コンソーシアム（NEDOプロジェクト等を通じたrinna、東北大学、東大などの取り組み）による日本語特化型の大規模言語モデル開発。</p>
+    <p><strong>特徴：</strong> 日本語のニュアンス、日本の商習慣、法制度、歴史・文化的背景に最適化されており、行政や機密を扱う国内企業向けに国内の安全なクラウド・データセンター（データ主権の確保）上で運用されることを目指しています。</p>
+
+    <h3>② フランス（欧州の代表例）：Mistral AI を軸にした欧州主権</h3>
+    <p><strong>代表的なモデル：</strong> Mistral（ミストral）シリーズ（Mistral Large, Mixtral など）</p>
+    <p><strong>特徴：</strong> フランスのスタートアップであるMistral AIが開発するオープンウェイト/商用モデル。EUの厳格な規制（AI法）に準拠しつつ、フランス語をはじめとする欧州各国の言語や文化的な文脈に強いモデルを提供しています。「欧州のチャンピオン」として、EU域内のデータ主権を守る中核となっています。</p>
+
+    <h3>③ アラブ首長国連邦（UAE）：Falcon シリーズ</h3>
+    <p><strong>代表的なモデル：</strong> Falcon（ファルコン）シリーズ（TII開発）</p>
+    <p><strong>特徴：</strong> アブダビの技術革新研究所（TII）が開発したオープンソースの基盤モデル。豊富なオイルマネーを背景に自国製スーパーコンピューターで学習され、中東におけるアラビア語圏のAI主権を確立すると同時に、グローバルなオープンソースコミュニティへも大きく貢献しています。</p>
+
+    <h3>⑤ 韓国：ビッグテック依存脱却と自国エコシステムの確立</h3>
+    <p><strong>代表的な動き・モデル：</strong> NAVERの「HyperCLOVA X」、LGの「EXAONE」、KTなどの国産LLM。</p>
+    <p><strong>特徴：</strong> 巨大プラットフォーマー（NAVERなど）が存在する強みを活かし、韓国語・韓国の社会文化に特化した大規模基盤モデルを独自開発しています。また、政府（科学技術情報通信部）が数十万基規模のGPUインフラ「国家AI計算センター」を整備するなど、国家主上型のバックアップを行っています。</p>
+
+    <h3>⑥ ドイツ（および欧州連合）：産業データ保護と欧州自立型AI</h3>
+    <p><strong>代表的な動き・モデル：</strong> Aleph Alpha（アレフ・アルファ） の「Luminous」シリーズ、および政府主導の「EuroStack（欧州クラウド／AIスタック）」構想。</p>
+    <p><strong>特徴：</strong> ドイツは製造業（自動車、重工業など）の秘匿性の高い知財データ保護を最優先課題としています。Aleph Alphaは、説明可能性（Explainability）が高く、厳しいGDPRやプライバシー規制に完全準拠した企業・政府向けソブリンAIを専門としています。</p>
+
+    <h3>⑦ イギリス：国家安全保障と「AI for Science」への集中投資</h3>
+    <p><strong>代表的な動き・モデル：</strong> 国営スーパーコンピューター「Isambard-AI」（ブリストル大）および政府主導の「UK Sovereign AI Fund」。</p>
+    <p><strong>特徴：</strong> 米国製巨大モデルを排除するのではなく、安全保障・創薬・気候変動解析などの国家課題（AI for Science）に絞り込んだ自前AIコンピューティング基盤を整備。政府自らがAIスタートアップの最大顧客・投資家となる官民一体モデルを進めています。</p>
+
+    <h3>⑧ カナダ：公的データ活用と研究力の産業化</h3>
+    <p><strong>代表的な動き：</strong> 「カナダ・ソブリンAI計算戦略（Canadian Sovereign AI Compute Strategy）」、Mila（モントリオール学習アルゴリズム研究所）やVector Instituteなどの研究基盤。</p>
+    <p><strong>特徴：</strong> 深層学習の発祥地（ジェフリー・ヒントン氏ら）としての高い研究力を誇るものの、コンピューティング資源が不足していたため、政府主導で「公的コンピューティング・インフラ」を急拡大。研究者や国内スタートアップが米中にデータを渡さずに開発できる環境を提供しています。</p>
+
+    <h3>⑨ オーストラリア：先住民族言語の保護と資源・地理データ特化</h3>
+    <p><strong>代表的な動き：</strong> CSIRO（オーストラリア連邦科学産業研究機構）主導の「National AI Capability」プロジェクトや、先住民言語の保存AIプロジェクト。</p>
+    <p><strong>特徴：</strong> 地理的・言語的に特殊な課題（広大な土地の環境データ、鉱物・農業などの一次産業データ、先住民の多言語保護）に対応するため、「特定ドメインおよび文化遺産保護」にフォーカスしたAI主権を展開しています。</p>
+
+    <h2>2. これら中堅国が用いるソブリンAI実現の方法論</h2>
+    <p>米中のように「何兆円も投じて汎用モデルで全面対決する」ことが困難なため、上記各国は以下のような戦略的・現実的な方法論を採用しています。</p>
+
+    <div class="diagram-box">  ┌────────────────────────────────────────────────────────┐
+  │         【中堅国向けソブリンAI実現の4大アプローチ】          │
+  └────────────────────────────────────────────────────────┘
+          │
+          ├── ① 国営・公的「AI計算資源（Compute）」の集中整備
+          │     └─ Isambard-AI（英）、国家AI計算センター（韓）など
+          │
+          ├── ② 特定ドメイン（産業・科学・文化）への鋭い特化
+          │     └─ 独：製造業データ、豪：資源・環境、英：科学・医療
+          │
+          ├── ③ 官民パートナーシップ（PPP）と「政府買収」の活用
+          │     └─ 政府が最大ユーザーとなり国産AI市場を直接支援
+          │
+          └── ④ オープンアーキテクチャ・フレンドショアリングの採用
+                └─ 共通の価値観を持つ国々間での計算機・データの相互利用</div>
+
+    <h3>① 国営・公的「計算資源（Compute）」の優先配分</h3>
+    <p>自国ベンチャーや大学が米大手クラウド（AWS/GCP/Azure）に依存しすぎると、コストの流出とデータの海外持ち出しが発生します。そのため、国がGPUスーパーコンピューターを直接購入・所有し、国内企業や研究者に安価かつ安全に提供するインフラ自立化を進めています（英Isambard-AI、韓国家AI計算センターなど）。</p>
+
+    <h3>② 「得意領域（垂直市場）」への局地戦アプローチ</h3>
+    <p>全知全能の汎用AIを作ろうとせず、自国の強みがある領域にデータを集中させます。</p>
+
+    <h3>③ 「政府機関が最初の顧客になる」需要創出アプローチ</h3>
+    <p>技術開発の補助金（サプライサイド支援）だけでなく、行政手続き、医療、公共インフラなどのシステムに「国産ソブリンAI」を優先採用（デマンドサイド支援）します。イギリスの「Sovereign AI Procurement Scheme」や韓国の自治体DX推進など、政府自身が案件を提供することで国産モデル企業の収益を保証します。</p>
+
+    <h3>④ オープン標準と民主主義同盟（フレンドショアリング）</h3>
+    <p>単国で完全な半導体〜モデルまでの垂直統合は不可能に近いため、米NVIDIA等の基盤ハードウェアは利用しつつ、ソフトウェア層（オープンソースモデル、標準データフォーマット）をオープンにして特定企業へのロックインを防ぎます。また、安全保障の枠組み（例：AUKUS、日米欧の経済安保協議）に連動し、データ共有の基準を法的に保護・統一する方法論をとっています。</p>
+
+    <h3>⑤ 「フルスクラッチ」ではなく「ファインチューニング・継続事前学習（Continual Pre-training）」</h3>
+    <p>一から数千億〜数兆パラメータのモデルを自国だけでゼロから作り上げるのは、コストと計算資源の面で非現実的です。</p>
+    <ul>
+        <li><strong>手法：</strong> 優れた海外製のオープンウェイトモデル（MetaのLlamaやMistralなど）をベースにし、そこに自国の公的データ、法律文書、専門的・文化的テキスト、高品質な日本語（または現地語）データを大量に投入して「継続事前学習」を行うことで、効率的に自国特化の能力を身につけさせます。</li>
+    </ul>
+
+    <h3>⑥ 「汎用（General）で戦わず、特化（Niche / Domain Specific）で勝つ」</h3>
+    <p>米中の汎用AGI（汎用人工知能）と正面から性能（パラメータ数）で競うのではなく、特定のドメインで圧倒的な価値を出す方法論です。</p>
+    <ul>
+        <li><strong>手法：</strong> 製造業の「匠の技」のノウハウ、金融・規制対応、医療データ、行政手続き、あるいは独自の文化・歴史的コンテキストなど、<strong>外部のグローバルモデルが容易に真似できない「現地固有のディープなデータ」を強み</strong>にした垂直統合型のAIを構築します。</li>
+    </ul>
+
+    <h3>⑦ 国産・国内完結型インフラストラクチャの整備</h3>
+    <p>AIの頭脳（モデル）だけでなく、それを動かすハードウェアやデータセンターが外国企業に握られている場合、真のソブリンティ（主権）とは言えません。</p>
+    <ul>
+        <li><strong>手法：</strong> 国内の通信キャリアやITベンダーが主導し、国内法が適用される国内データセンター内にGPU基盤を配備。クラウドの物理的な所在地や通信経路を含めて国内で完結させるアーキテクチャ（いわゆる「国内完結型AIソリューション」）を構築します。</li>
+    </ul>
+
+    <h3>⑧ 国際連携（フレンドショアリング）とオープンエコシステム</h3>
+    <p>単一の国だけでサプライチェーンを完結させるのは困難なため、志を同じくする民主主義国や中堅国同士で、規制の相互運用やデータの安全な共有を行うアプローチです。</p>
+    <ul>
+        <li><strong>手法：</strong> オープンソース／オープンウェイトのコミュニティに積極的に参画し、透明性の高いモデルの検証（安全性評価・レッドチーミングなど）を共同で行うことで、特定企業へのベンダーロックインや技術的な孤立を防ぎます。</li>
+    </ul>
+
+</div>
+
+</body>
+</html>
