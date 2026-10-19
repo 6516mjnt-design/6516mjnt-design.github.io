@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>China Export Control Weekly Report</title>
+    <title>週刊 中国安全保障・輸出管理レポート (2026-10-12 〜 2026-10-18)</title>
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,205 +11,461 @@
         :root {
             --primary-color: #1a365d;
             --accent-color: #2b6cb0;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --text-color: #2d3748;
-            --border-color: #e2e8f0;
+            --bg-light: #f7fafc;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: #2d3748;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+        }
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed p-4 sm:p-6">
+<body class="p-4 md:p-8">
 
-<div class="max-w-4xl mx-auto space-y-10">
+<div class="max-w-5xl mx-auto space-y-6">
 
-    <!-- ================================================================= -->
-    <!-- MAIN SECTION: China Export Control Weekly Report                  -->
-    <!-- ================================================================= -->
-    <main>
-        <!-- Header -->
-        <header class="bg-slate-900 text-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
-            <div class="flex items-center space-x-2 text-indigo-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
-                <i class="fa-solid fa-newspaper"></i>
-                <span>Weekly Digest (China & Economic Security)</span>
+    <!-- Header -->
+    <header class="header-bg text-white p-6 md:p-8 rounded-lg shadow-lg">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <div class="flex items-center gap-2 text-blue-200 text-sm mb-1">
+                    <i class="fa-solid me-1 fa-shield-halved"></i>
+                    <span>安全保障・輸出管理インテリジェンス</span>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold">週刊 中国安全保障・輸出管理レポート</h1>
+                <p class="text-blue-100 text-sm mt-1">対象期間: 2026-10-12 〜 2026-10-18</p>
             </div>
-            <h1 class="text-2xl sm:3xl font-bold mb-2">中国・対外経済安保 週間ダイジェスト</h1>
-            <p class="text-slate-300 text-sm sm:text-base">中国の輸出管理、商務部（MOFCOM）の動向、半導体・レアアース規制および米中対立に関する週刊レポート</p>
-            <div class="mt-6 flex flex-wrap gap-4 text-xs bg-slate-800/80 p-3 rounded-lg border border-slate-700/50">
-                <span>📅 <strong>対象期間:</strong> 2026年10月5日(月) 〜 10月11日(日)</span>
-                <span>📊 <strong>記事件数：</strong> 138 件（中国関連・輸出管理特化）</span>
+            <div class="bg-white/10 backdrop-blur-md px-4 py-3 rounded-lg border border-white/20 text-center">
+                <span class="block text-xs text-blue-100">今週のモニタリング件数</span>
+                <span class="text-2xl md:text-3xl font-bold text-white">694 <span class="text-xs font-normal">件</span></span>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Executive Summary -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-indigo-200 mb-8">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4">今週のエグゼクティブサマリー</h2>
-            <ol class="space-y-4 text-xs sm:text-sm text-slate-700 list-decimal list-inside">
-                <li class="leading-relaxed">
-                    <strong>米中半導体戦争と闇市場・不正輸出の摘発。</strong> NVIDIA製チップを含むAIサーバーを中国へ不正に送るスキームに関与したスーパーマイクロの請負業者やブローカーが輸出管理規則違反を認め有罪を答弁（10月11日）。
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国とEUによる輸出管理対話と16項目のコンセンサス。</strong> 北京での会合にて、貿易や投資、輸出管理分野の16項目の合意に達し、ハイブリッド車やレアアース輸出許可の円滑化など関係安定化を図ることで一致（10月9日〜10日）。
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国商務部（MOFCOM）による保護主義への反発。</strong> 一部の国が「過剰生産能力」の名目で保護貿易主義を推し進めることに強烈な反対を表明し、国内ECの品質重視育成などの政策を打ち出す（10月10日）。
-                </li>
-                <li class="leading-relaxed">
-                    <strong>韓国・SKハイニックス等の危機感と半導体サプライチェーン。</strong> 米中の半導体増設スピード競争において、遅れれば韓国のシェアが奪われるという強い懸念や、米中和解による構図変化への警戒感が示される（10月11日）。
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米国の対中投資規制とサイバー安全保障。</strong> 米財務省が対外投資規制プログラムに基づき米国企業に初の罰金を課したほか、中国外務省が米中の核施設相互視察報道を否定するなど、技術・安保摩擦が継続（10月9日〜10日）。
-                </li>
-            </ol>
+    <!-- Executive Summary -->
+    <section class="card p-6 border-l-4 border-blue-700">
+        <h2 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-blue-700"></i>
+            エグゼクティブサマリー
+        </h2>
+        <ul class="space-y-2 text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                <span><strong>中国商務部が先端技術の輸出管理規制案を発表：</strong> AI（大規模モデル・AIエージェント含む）、バイオ医薬、太陽光発電関連など40技術分野における輸出規制・禁止案を提示。海外普及を推し進める一方、核心技術の流出制限を図る新戦略が打ち出されました。</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                <span><strong>台湾が対中密輸規制・罰則を大幅強化：</strong> 台湾政府はAIチップやAIサーバーの中国への違法輸出・密輸に対し、最大5年の懲役刑を含む刑事罰を導入する方針を確認。米国との通商合意や供給網強化の動きに歩調を合わせています。</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                <span><strong>EU・米国の対中通商・安全保障規制の交錯：</strong> EUと中国はハイブリッド車や市場アクセス協議を進める一方、対中規制強化で応酬を展開。米国では金融機関への制裁金科罰や、対中輸出規制に伴うサプライチェーンへの影響議論が拡大しています。</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <i class="fa-solid fa-angle-right text-blue-600 mt-1"></i>
+                <span><strong>半導体・メモリー市場の地政学的力学：</strong> 米国規制下の市場構造変化を受け、エヌビディアの中国市場シェア低下とファーウェイの躍進、CXMT（長鑫存儲）の次世代DRAM量産動向など、中国企業の国産化・技術追従が加速しています。</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Category 1: 中国の輸出管理・技術規制動き -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-2 text-slate-800 font-bold text-lg border-b-2 border-slate-200 pb-2">
+            <i class="fa-solid fa-file-contract text-blue-800"></i>
+            <h2>1. 中国の輸出管理・技術規制動向</h2>
         </div>
 
-        <!-- Category 1 -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
-            <div class="border-b-2 border-indigo-600 pb-3 mb-4">
-                <h2 class="text-lg sm:text-xl font-bold text-slate-900">1. 中国政府（商務部・外交部等）の政策・輸出管理動向</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-red-100 text-red-800">重要度: 高</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiUkFVX3lxTE1PeDJDU1BRbGZDTnZMV1d5TTJ1aEpDWTA0QjFYRGhXTEdkRTNEMU03VkFBTDlYblMzMlhIVGZuLV90YU9jV3M5ZjdTc2QzNlE5ZUE?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国、AI技術23項目を輸出規制へ その中身とは
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国政府は、大規模言語モデルやAIエージェントを含む23のAI技術項目について輸出規制を提案しました。AIの海外普及を進める一方で、核心技術の流出を制限する狙いがあると報じられています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
             </div>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>中国商務部、「過剰生産能力」口実の保護主義に反対表明:</strong> 一部の国が掲げる保護貿易主義に対し、商務部が強い反対の立場を明確にした。（10月10日、<a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD%E5%95%86%E5%8B%99%E9%83%A8+%E9%81%8e%E5%89%B0%E7%94%A3%E7%94%A3%E8%83%BD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国商務部など7部門、品質重視のEC育成へ:</strong> 健全な電子商取引の発展とサプライチェーンの品質向上に向けた新たな方針を発表した。（10月10日、<a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD%E5%95%86%E5%8B%99%E9%83%A8+EC+%E8%82%B2%E6%88%90" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国商務部が中欧貿易・投資協議の成果を詳細に解説:</strong> 北京で開催された第2回定例会合での合意内容について、商務部より公式見解が発表された。（10月10日、<a href="https://www.google.com/search?q=China+Ministry+of+Commerce+China-EU+trade+consultations" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国外務省、米中の核施設相互視察報道を否定:</strong> 事実と異なるとして、関連する報道内容を否定する公式コメントを発表した。（10月9日、<a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD%E5%A4%96%E5%8B%99%E7%9C%81+%E6%A0%B8%E6%96%BD%E8%A8%AD+%E7%9B%B8%E4%BA%92%E8%A6%96%E5%AF%9F" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国、10月の燃料輸出再開へ:</strong> 連休中に一時停止されていた燃料輸出の再開に向けた動きが報じられた。（10月9日、<a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD+%E7%87%83%E6%96%99%E8%BC%B8%E5%87%BA+%E5%86%8d%E9%96%8B" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-            </ul>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-red-100 text-red-800">重要度: 高</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE5kaUpQTFRYOU10U0VveGcySjNTTV9RaERHLThxR3gtTHNSejZlX3VlQW1TaWR0U01UZUVsMXczNGRQMDZmeTlsMW1tM1VNNGhjSVIwMm5VVkowMERETm1rSmV6QW9MaWxJcmc?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国、太陽光発電の主要12技術に輸出規制を提案
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国は、太陽光発電設備の製造技術やペロブスカイト型・タンデム型などの主要12技術に関し、輸出制限・禁止措置を提案しました。サプライチェーンの戦略的優位性を維持する意図が示されています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Investing.com / Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-16 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE9JcVN6MW1jcV9zdUFUbVhLbml0R09kcTdBbnVQR1prdDBKdV9nNm1BZ0swVDRQUUZWc3Bmakk5RVh6YkdCeDlaQU9kX21GSmhfRE40?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国商務部、AI大規模モデルなど40技術を輸出管理に加える案 SaaSやAPIは対象外
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国商務部は、AI・バイオ医薬・太陽光を含む40技術を輸出管理目録に追加する改定案を発表。技術移転や海外現地導入の直接移転を規制する一方で、APIやSaaS利用に関しては扱いを分ける方針とされています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / JETRO</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://www.jetro.go.jp/biznews/2026/07/d54fa345c2c5d02b.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国、ヘリウムに対する臨時輸出禁止管理を発表
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国政府は、国家安全保障および戦略的資源保護を目的として、ヘリウムに対する臨時の輸出禁止管理措置を決定したと発表しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> JETRO (安全保障貿易管理)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: 台湾・各国の法規制および対中対抗策 -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-2 text-slate-800 font-bold text-lg border-b-2 border-slate-200 pb-2">
+            <i class="fa-solid fa-gavel text-blue-800"></i>
+            <h2>2. 台湾・各国の法規制および対中対抗策</h2>
         </div>
 
-        <!-- Category 2 -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
-            <div class="border-b-2 border-indigo-600 pb-3 mb-4">
-                <h2 class="text-lg sm:text-xl font-bold text-slate-900">2. 米中半導体戦争・エンティティリストおよび不正輸出事件</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-red-100 text-red-800">重要度: 高</span>
+                        <span class="text-xs text-slate-400">2026-10-16 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE16QVhPcG1MLWtrOGJGTC1PQ2stcGhBbVVRRHhxQVI1NWJpT3ZzNWRpcEhscmZjSGV2MGlEaTc3RnZTczQxaGNKbzVUbzFiQi1sZ0o0VUxHbVVCdmpOTVVTRWpsRTBHUkN5cWY0aFBwOERvWE10?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            龔明鑫氏、AIチップの中国への違法輸出に刑事罰を導入と確認 台湾が輸出管理の拡大を計画
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        台湾の龔明鑫官房長官は、AIチップや関連機器の中国への密輸行為に対し、最大5年の懲役刑を含む刑事罰を科す法改正方針を明らかにしました。米国との経済連携・技術保護措置の一環と見られています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
             </div>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>スーパーマイクロ製AIサーバー不正輸出事件での有罪答弁:</strong> NVIDIA製チップを含むAIサーバーを中国へ密輸するスキームに関与した請負業者やブローカーが輸出管理規則違反を認め有罪を答弁した。（10月11日、<a href="https://www.google.com/search?q=Super+Micro+contractor+pleads+guilty+AI+chips+China" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米財務省、対外投資規制プログラムで米国企業に初の罰金:</strong> 対中投資規制の違反に対し、米国企業に対して初めて罰金が科せられたことが明らかに。（10月9日、<a href="https://www.google.com/search?q=US+Treasury+fines+US+company+outbound+investment+rules+China" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国企業の光学レンズ密輸事件で起訴:</strong> 中国の波長光電およびその董事長が、デュアルユース製品（光学レンズ）の密輸容疑で起訴された。（10月9日、<a href="https://www.google.com/search?q=%E6%B3%A2%E9%95%B7%E5%85%89%E9%9B%BB+%E5%AF%86%E8%BC%B8+%E8%B5%B7%E8%A8%B4" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>韓国・半導体業界からの米中関係への懸念:</strong> 李昌鏞氏らが、米中和解が実現すれば半導体の市場構図が一変するとの見解を示した。（10月11日、<a href="https://www.google.com/search?q=%E6%9D%8e%E6%98%86%E9%8F%A1+%E5%8D%8a%E5%B0%8E%E4%BD%93+%E7%B1%B3%E4%B8%AD%E5%92%8c%E8%A7%A3" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米中半導体戦争の裏側（闇市場とAI開発競争）:</strong> 中国の闇市場の実態や、HBM（広帯域メモリ）不足による中国AIチップ価格の高騰などが報じられた。（10月9日〜11日、<a href="https://www.google.com/search?q=%E7%B1%B3%E4%B8%AD%E5%8D%8a%E5%B0%8E%E4%BD%93%E6%88%A6%E4%BA%89+%E9%97%87%E5%B8%82%E5%A0%B4" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-            </ul>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-17 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE83eWlkWk9PUWhEQzktckRRc2pqRVVrOS1qeTZCZFlDbWwtS2Fha0VoVURpQ2tCUGVoa0ZDUmxMbzZWNXVtVjNBRTJ3SlJpUmFxMS1NMXRRMmZVWmFyQ3EtT2tGOGlSeFdrMGVoUDNNNGdjYUVQMGVz0gF8QVVfeXFMTnBkeU16X1pVd2REblZHVHVnaFJ5YkVYZVkzNnBvX0EtWk1TS0FoMDdYVkhjNGNPV2tuVUEzSkNiWkZ6X0FabG9zTHVHYUxfb1NWSVM0eFNLMDdxU2hmd2dGMHFPVUxYWDdNZTY0aXhIeTRrdkFvNngxR2o1MQ?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            半導体供給網強化へ 日独首脳、28日にも会談 中国念頭、経済安保で連携
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        日本とドイツの両首脳が首脳会談を実施予定。中国による技術やサプライチェーンへの強い影響力を念頭に、半導体安定供給網の構築や経済安全保障分野での連携強化について協議が行われる見通しです。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> 四国新聞WEB朝刊 / Google News
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 3: 米中・中EU外交および通商摩擦 -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-2 text-slate-800 font-bold text-lg border-b-2 border-slate-200 pb-2">
+            <i class="fa-solid fa-handshake-slash text-blue-800"></i>
+            <h2>3. 米中・中EU外交および通商摩擦</h2>
         </div>
 
-        <!-- Category 3 -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
-            <div class="border-b-2 border-indigo-600 pb-3 mb-4">
-                <h2 class="text-lg sm:text-xl font-bold text-slate-900">3. 中欧（中国・EU）貿易協議・レアアース・自動車協定</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / JETRO</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://www.jetro.go.jp/biznews/2026/10/392311f0bc1db93f.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国EU貿易投資協議第2回会合を北京で開催、市場アクセスに関する協議継続などで合意
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        北京において第2回中国EU貿易投資協議が開催され、双方は市場アクセス問題やハイブリッド車（HV）分野の対等な協力、実務的課題に関する継続協議で合意しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> JETRO (安全保障貿易管理)
+                </div>
             </div>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>中国とEU、輸出管理対話の強化と16項目のコンセンサスに合意:</strong> 北京での商務省会談において、貿易・投資・輸出管理分野での対話を強化し、意見の相違をWTO規則に従って解決することで一致した。（10月9日〜10日、<a href="https://www.google.com/search?q=China+EU+agree+to+strengthen+dialogue+on+export+controls" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>ハイブリッド車およびレアアース輸出の円滑化で相互理解:</strong> 欧州と中国が、EV・ハイブリッド車の貿易やレアアース元素の輸出許可について部分的合意（暫定合意）に達した。（10月9日〜10日、<a href="https://www.google.com/search?q=China+EU+hybrid+vehicles+rare+earths+trade+deal" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>中国の何立峰副総理とEU通商担当委員の会談:</strong> 北京にて会談が行われ、安定した経済・貿易関係を維持するための実務的協議が進められた。（10月10日〜11日、<a href="https://www.google.com/search?q=%E4%BD%95%E7%AB%8b%E5%B3%B0+EU+%E9%80%9a%E5%95%86%E6%8B%85%E5%BD%93%E5%A7%94%E5%93%A1" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>欧州の対中依存と自動車産業のジレンマ:</strong> 中国製自動車の輸入抑制を図る一方で、EUが中国のレアアース供給に依然として強く依存している構造的課題が指摘された。（10月9日〜10日、<a href="https://www.google.com/search?q=Europe+Chinese+car+imports+dependent+rare+earths" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>台湾・頼清徳総統の双十節演説と半導体防衛:</strong> 半導体技術による防衛力強化に言及しつつ、米中対話への期待感を表明した。（10月10日、<a href="https://www.google.com/search?q=%E8%3B4%E6%B8%85%E5%BE%B3+%E5%8D%8a%E5%B0%8E%E4%BD%93+%E5%8F%8C%E5%8D%81%E7%AF%80" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-            </ul>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVjdEdmlKOFl3UUNTN0ZNVEdqazFsdkNwUVVyT0xoUlpNNDZCQU1ZM0R2TWdnNEtzREY0TzRxVnRLdXVVNF9qNXMwTEl1TkZfdnFUQ2dzVEFNdDZ2c1ZjLXc5RDBORUg5S1RyYVFZd080Z29xVWpTOW5maFdfVG1BSnU2dm1MTG5zbTVB?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            EUの対中「二本立て」方針に反論 中国の自国利益を守る決意と能力を過小評価してはならない―中国商務部
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国商務部は、EU側が対話を進めつつ対中規制や調査を強化する姿勢（「対話と対抗の二本立て」）に対し、「圧力を通じた対抗措置は不適切である」と強く反論を発表しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-17 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxOblUzY256QVA2WUoxcVhPa2lKenVxd0JTZjRURFlvbmo1VHVkbnpka1o2Q1N1cTV5Zk80NnNVdkRNemJCN2VBZk5nM3FUbnc1T2dTMTJUTy1xenY4X015bEQxSS1mVnBuTmtyTUNPbV91Z3JabndubU9LOWNLSmJrYzg5cVViYW_SAYwBQVVfeXFMT19IYWo2bU9xUUNEV01UM2JyR19BTFVHRGljTjc5dExwazFlSjBSSHdvRHVrUi1VR3RxOGFvZTB1TzVZOGVlZnNyNUlQVW9HZWJOdHA3eGFGTW9XcmJ5bmdZcjA4aTRZRmJXZEFKU0VZdENUa25adFFsLTc1RzNHSDBxT1l0VW5oTEpWRlU?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            U.S. presses China on Mastercard, Citigroup market access in bilateral Bangkok talks
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        バンコクで開催された米中高官レベル会談において、米国側はマスターカードやシティグループなど米国金融機関の中国国内市場参入制限の撤廃を強く要求したと報じられています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-15 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE4wMzNoVmdjcjB6VEkzUEI5MVZNSXVCaHlSUE90XzZCMFpRR3hvalRMRUpBcld4dkU5aTB0ZTRiN1hrbjRDdlI1aFNpZl9YcEhlZG1Ud1o4TTgyelFyS09fU3gta2FaTkpCTGpGTlNOQ3ZaclBFaDFqQVVfTURJQQ?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            China to continue facilitating rare earth exports to EU
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        米中通商協議の不透明感が残る中でも、中国側は欧州企業向けのレアアース（稀土類）輸出許可手続きを引き続き迅速に進める旨を表明しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 4: 半導体・先端技術サプライチェーン動向 -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-2 text-slate-800 font-bold text-lg border-b-2 border-slate-200 pb-2">
+            <i class="fa-solid fa-microchip text-blue-800"></i>
+            <h2>4. 半導体・先端技術サプライチェーン動向</h2>
         </div>
 
-        <!-- Category 4 -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
-            <div class="border-b-2 border-indigo-600 pb-3 mb-4">
-                <h2 class="text-lg sm:text-xl font-bold text-slate-900">4. 日本国内および近隣国への影響・経済安保動向</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-red-100 text-red-800">重要度: 高</span>
+                        <span class="text-xs text-slate-400">2026-10-14 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTE8tZExaVGZfMGRwdHBBOW5LcXlsVmhiT3VleDFFTHhsVnFjRWNSZFRGRVFQaGlGN0VMN3hEa3BQcnFoYlFMczg1Qmtfc19yNEdNTXNqTg?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            NVIDIA、中国AIチップ市場のシェアが34%に低下 - Huaweiが28%まで拡大
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        米国の対中輸出規制強化を受け、中国国内のAIアクセラレータ市場でエヌビディアのシェアが34%に縮小する一方、ファーウェイ（華為技術）が28%に急伸し、国産代替が急速に進展していると報じられました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> TECH+ / Google News
+                </div>
             </div>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>SKハイニックス会長による半導体増設の急ぎの訴え:</strong> 崔泰源氏が、米中の設備投資競争の激化に伴い、韓国の市場シェア死守へ向けて生産増設を急ぐよう主張した。（10月11日、<a href="https://www.google.com/search?q=%E5%B4%94%E6%B3%B0%E6%BA%90+%E5%8D%8a%E5%B0%8E%E4%BD%93%E5%A2%97%E8%A8%AD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>日米財界人会議と経済安保テーマの協議:</strong> 経済安全保障やAI、先端技術における日米の連携強化について議論が交わされた。（10月7日〜9日、<a href="https://www.google.com/search?q=%E6%97%A5%E7%B1%B3%E8%B2%A1%E7%95%8C%E4%BA%BA%E4%BC%9A%E8%AD%B0+%E7%B5%8c%E6%B8%88%E5%AE%89%E4%BF%9D" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>TOWAによる国内半導体製造装置の新工場建設:</strong> サプライチェーンの強靭化および経済安保の一環として、国内での生産拠点拡充が決定された。（10月7日、<a href="https://www.google.com/search?q=TOWA+%E5%8D%8a%E5%B0%8E%E4%BD%93%E8%A3%BD%E9%80%A0%E8%A3%85%E7%BD%AE+%E6%96%B0%E5%B7%A5%E5%BB%A0" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>経団連会長による北海道バレー構想への期待:</strong> 国内での半導体集積・サプライチェーン再構築に向けた動きが活発化している。（10月8日、<a href="https://www.google.com/search?q=%E7%B5%8c%E5%9B%A3%E9%80%A3+%E5%8C%97%E6%B5%B7%E9%81%93%E3%83%90%E3%83%AC%E3%BC+%E5%8D%8a%E5%B0%8E%E4%BD%93" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>高市外交の一年と中国の本音を引き出すアプローチの評価:</strong> 日本の外交・経済安保戦略における対中アプローチの成果について専門家による分析がなされた。（10月9日、<a href="https://www.google.com/search?q=%E9%AB%98%E5%B8%82%E5%A4%96%E4%BA%A4+%E4%B8%AD%E5%9B%BD%E3%AE%E6%9C%AC%E9%9F%B3" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-            </ul>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-15 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE04eFotWFNJZ1pwQm1qN2ZUNkp6VHlYQThTdkstYUdpbzB2eGdsU1BhbHVSNkRGRktSWmVaczBlTDhucDRjbU13Xzd2eHpQSldLUzRoSEN4bTJWOUxReDRDemZVY3FIUGlEcU45TmU1d0tuVnFp?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            SKハイニックス、米工場承認の条件として中国・大連への装置搬入を要求
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        SKハイニックスは、米国での新工場投資を計画する対価として、同社の中国・大連工場に対する米国製半導体製造装置の搬入許可を米政府に要請・交渉していると報じられました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Reuters / Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-15 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTFBBa1NSbmVQX3cwTGp4UUNxLWlIek5hR0FhbGJiOXQzVk5BWG4tcFM0MFUtbVplMjNqX1cwbmsycVEtQ2R3UWhkRjRta2REUXByczVBd01KLUpnc3VhR1NLZWh3?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国CXMTが次世代DDR5を年内投入へ、Samsungより「2年先行」は本当か? 4F2技術の実力に迫る
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国メモリー大手の長鑫存儲技術（CXMT）が独自の構造設計や新技術を採用した次世代DRAMの投下を計画。既存大手メーカーへの追撃姿勢を強めています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTFAxRXVwbGVfODhMbFZqa1gxcU9IUjBDc2trR3hDNHpPQmhCZzZRVnZXdzJ3c0k2dWQtYTYzbktZR3JXZ0xHZzVEaEU2Qld6V0FGeUVvZTUxNFhtZU0?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            テスラ・アップル、中国製メモリに注目...サムスン・SK価格交渉力の試練
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        米大手IT企業がメモリ半導体の調達コスト抑制や世界的な供給不足に対応するため、品質向上を進める中国製メモリの採用・協議を検討していると伝えられています。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 5: 企業の遵守実務・反制裁・法務リスク -->
+    <section class="space-y-4">
+        <div class="flex items-center gap-2 text-slate-800 font-bold text-lg border-b-2 border-slate-200 pb-2">
+            <i class="fa-solid fa-building-shield text-blue-800"></i>
+            <h2>5. 企業の遵守実務・反制裁・法務リスク</h2>
         </div>
 
-        <!-- Category 5 -->
-        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
-            <div class="border-b-2 border-indigo-600 pb-3 mb-4">
-                <h2 class="text-lg sm:text-xl font-bold text-slate-900">5. 国際分析・サイバーセキュリティおよびサプライチェーン</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-18 / JETRO</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://www.jetro.go.jp/biznews/2026/08/c0a33fa23489264a.html" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            中国司法部、EUの京東に対するFSR調査を不当域外管轄措置に認定、同調査実施への協力を禁止
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        中国司法部は、EUの外国補助金規則（FSR）に基づく京東（JD.com）への調査を不当な域外管轄措置と認定し、国内企業や関係者による当該調査への協力行為を禁止する決定を下しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> JETRO (安全保障貿易管理)
+                </div>
             </div>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>CSISによるロシアの対中制裁逃れに関する分析レポート:</strong> 制裁下におけるロシアの中国への依存度や代替弾力性についての専門的分析が発表された。（CSIS 10月10日、<a href="https://www.google.com/search?q=Russias+Turn+to+China+Under+Sanctions+CSIS" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>Synopsysと中国AI研究所の提携による半導体設計高度化:</strong> 米中間の技術的なデカップリングが進む中、特定分野における企業間提携の動きが報じられた。（10月10日、<a href="https://www.google.com/search?q=Synopsys+China+AI+institute+semiconductor+design" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米中のAI開発競争と安全性確保の可能性:</strong> AIレースのスピードを完全に落とすことはできないものの、リスク管理において米中協力の余地があるとする議論が展開された。（10月10日、<a href="https://www.google.com/search?q=US+China+AI+race+safety+The+Diplomat" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>台湾企業の米国製ドローン台湾生産によるサプライチェーン強化:</strong> サプライチェーンの強靭化を目的とした米台間の防衛・先端製造協力が進行中。（10月9日、<a href="https://www.google.com/search?q=US+firm+battle-tested+drones+Taiwan+supply+chain" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米国の対中経済・軍事脅威認識とスコット・ベッセント氏の発言:</strong> 中国を最大の経済・軍事脅威と位置づけ、依存からの脱却を進める方針が改めて強調された。（10月9日、<a href="https://www.google.com/search?q=Bessent+China+economic+military+threat+Trump" target="_blank" rel="noopener noreferrer" class="text-indigo-600 underline">記事検索リンク</a>）
-                </li>
-            </ul>
-        </div>
-    </main>
 
-    <!-- ================================================================= -->
-    <!-- DIVIDER SECTION                                                   -->
-    <!-- ================================================================= -->
-    <div class="relative py-2">
-        <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-slate-300"></div>
-        </div>
-        <div class="relative flex justify-center">
-            <span class="bg-slate-50 px-3 text-xs text-slate-500 font-medium">
-                備考
-            </span>
-        </div>
-    </div>
-
-    <!-- ================================================================= -->
-    <!-- APPENDIX SECTION: Note (Subdued Style)                            -->
-    <!-- ================================================================= -->
-    <aside class="space-y-6">
-        <div class="bg-slate-100 border border-slate-200 text-slate-700 p-4 rounded-lg">
-            <div class="flex items-center space-x-2 text-slate-500 text-xs font-semibold uppercase mb-1">
-                <i class="fa-solid fa-circle-info text-slate-400"></i>
-                <span>Notes</span>
+            <div class="card p-5 space-y-3 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start gap-2 mb-2">
+                        <span class="tag bg-blue-100 text-blue-800">重要度: 中</span>
+                        <span class="text-xs text-slate-400">2026-10-16 / Google News</span>
+                    </div>
+                    <h3 class="font-bold text-slate-800 text-base mb-2">
+                        <a href="https://news.google.com/rss/articles/CBMiSkFVX3lxTE9CdHFYa3BCYWoxMFNQOUtFTS1tek5mbEx2Sm12RVNmT1RMS3BlZkxFcEZ4SktLWV8tdTJ6TGx4enRpQ2dXZEdDUDd3?oc=5" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 hover:underline">
+                            シャープ、輸出管理強化へSayariのツール導入
+                        </a>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        シャープは、複雑化する国際的な安全保障貿易管理およびサプライチェーンデューデリジェンスに対応するため、Sayariの分析・スクリーニングツールの導入を発表しました。
+                    </p>
+                </div>
+                <div class="text-xs text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-1">
+                    <i class="fa-solid fa-link text-slate-400"></i> Google News
+                </div>
             </div>
-            <h2 class="text-sm font-bold text-slate-800 mb-1">本レポートについて</h2>
-            <ul class="text-xs text-slate-600 leading-relaxed list-disc list-inside space-y-1">
-                <li>対象期間中の中国特化型の輸出管理・経済安保に関連する全138件の記事データを網羅し、主要な5つのカテゴリに整理して掲載しています。</li>
-                <li>リンクについては、環境によって切れやすい一時的な中継URLを避け、各記事の主要キーワードに基づいた確実なGoogle検索クエリURLを採用しています。</li>
+        </div>
+    </section>
+
+    <!-- Remarks -->
+    <aside class="card p-6 bg-slate-50 border border-slate-200">
+        <h3 class="text-sm font-bold text-slate-700 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-slate-500"></i>
+            備考（レポート運用メモ）
+        </h3>
+        <div class="text-xs text-slate-600 space-y-1">
+            <ul class="list-disc list-inside space-y-1">
+                <li>本レポートは、2026年10月12日から2026年10月18日までに収集された全694件のニュース生データ（`weekly_news_raw.txt`）に基づき、中国の輸出管理・経済安全保障に関連する重要動向を抽出・分類して作成されています。</li>
+                <li>各記記事へのハイパーリンクは、収集データに含まれている原文の個別の記事参照URLを正確に保持して掲載しています。</li>
             </ul>
         </div>
     </aside>
