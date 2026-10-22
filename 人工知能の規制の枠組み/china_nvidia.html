@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「中国のNVIDIA」とポストGPUへのパラダイムシフト</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #1a365d;
+            border-bottom: 3px solid #1a365d;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 35px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #16a085;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-bottom: 1.2rem;
+        }
+        ul, ol {
+            margin-bottom: 1.2rem;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        blockquote {
+            background: #f0f4f8;
+            border-left: 5px solid #3182ce;
+            margin: 1.5rem 0;
+            padding: 15px 20px;
+            font-style: normal;
+        }
+        .lead {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        .meta {
+            text-align: right;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+        .tech-note {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .method-name {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background-color: #fff;
+            font-size: 0.92rem;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .tree-list {
+            font-family: monospace, monospace;
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: right; padding: 10px;">
+        <button onclick="window.print()" style="
+            padding: 8px 20px;
+            background-color: #0057b8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        ">🖨️ 印刷</button>
+    </div>
+
+    <header>
+        <h1>「中国のNVIDIA」とポストGPUへのパラダイムシフト</h1>
+        <p class="meta">更新日：2026年10月22日</p>
+    </header>
+
+    <main>
+        <p class="lead">米国の輸出規制と中国の国家戦略が激突する中、ハイテク市場で最も注目を集める「中国のNVIDIA（エヌビディア）に相当する企業」の現状と、その裏にあるソフトウェア生態系、そして将来の覇権を揺るがす構造的変化について、まとめる。</p>
+
+        <hr>
+
+        <h2>1. 「中国のNVIDIA」の筆頭と有力スタートアップ</h2>
+        <p>現在、中国国内でNVIDIAの強力な代替インフラとして名実ともに「中国のNVIDIA」の座を確立しているのはファーウェイ（Huawei／華為技術）である。同社は単なる通信機器メーカーの枠を完全に超え、中国のAI自給自足を支える中核となっている。また、ファブレス（設計専門）の領域では、「中国版エヌビディア」と呼ばれる4つの新興巨頭（GPU四小龍）が猛追している。</p>
+
+        <h3>主要企業のポジショニング</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">企業名</th>
+                    <th style="width: 25%;">役割と位置づけ</th>
+                    <th style="width: 50%;">開発の強みと特徴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ファーウェイ<br>(Huawei)</strong></td>
+                    <td>実質的な絶対王者</td>
+                    <td>AIチップ「Ascend」シリーズを展開。IT大手（バイドゥ・バイトダンス等）のデータセンターへ大量導入。自動運転プラットフォーム「MDC」も網羅。</td>
+                </tr>
+                <tr>
+                    <td><strong>摩爾線程<br>(Moore Threads)</strong></td>
+                    <td>「中国版エヌビディア」筆頭</td>
+                    <td>創業者が元NVIDIAの中国代表。独自の汎用GPUを展開し、中国本土市場での上場に向けて急加速。</td>
+                </tr>
+                <tr>
+                    <td><strong>寒武紀科技<br>(Cambricon)</strong></td>
+                    <td>AI特化のパイオニア</td>
+                    <td>中国科学院発のベンチャー。「中国の小さなNVIDIA」と評され、AI計算に特化した先進的設計を持つ。</td>
+                </tr>
+                <tr>
+                    <td><strong>壁仞科技<br>(Biren Technology)</strong></td>
+                    <td>高性能GPUの挑戦者</td>
+                    <td>NVIDIAのハイエンド製品（H100等）に対抗しうる「BR100」シリーズを設計する高い技術力。</td>
+                </tr>
+                <tr>
+                    <td><strong>燧原科技<br>(Enflame)</strong></td>
+                    <td>クラウドAIの旗手</td>
+                    <td>メガテック企業テンセント（Tencent）の強力な出資・支援を受け、データセンター向けに特化。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>2. ファーウェイ vs NVIDIA：技術レベルと戦略比較</h2>
+        <p>ファーウェイのAI半導体（Ascendシリーズ）の単体性能は、NVIDIAの最先端製品と比較して「1〜2世代遅れ（約3年の技術格差）」にある。しかし、同社は独自の「力技」でこの溝を埋めている。</p>
+
+        <div class="tech-note">
+            <h4>【世代・製品レベルの比較構造】</h4>
+            <ul>
+                <li><strong>Blackwell世代（B200/B300）：</strong> <span class="method-name">【NVIDIAの独壇場】</span>（ファーウェイは未到達）</li>
+                <li><strong>Hopper世代（H100/H200）：</strong> ファーウェイ「Ascend 910C/950」がH100の60-70%の性能で肉薄</li>
+                <li><strong>規制対応版（H20/B20）：</strong> <span class="method-name">【ファーウェイの優位】</span>（実効性能でNVIDIAを凌駕）</li>
+            </ul>
+        </div>
+
+        <ul>
+            <li><strong>強み（束ねる技術）：</strong> チップ単体での遅れを、得意の通信インフラ技術でカバー。数万枚のチップを超高速で繋ぐ「スーパーノード」を構築し、システム全体の処理能力でNVIDIAに肉薄。</li>
+            <li><strong>弱み（物理的限界）：</strong> 米国制裁の影響により、台湾TSMCの最先端プロセス（3nm等）を使えず、中国SMICの7nm/5nm級に依存。消費電力と発熱、HBM（高帯域幅メモリ）の調達不足という構造的課題を抱える。</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. 「ソフトウェア（CUDA vs CANN）」の攻防</h2>
+        <p>NVIDIAの真の独占力の源泉は、ハードではなく400万人の開発者が依存するソフトウェア環境「CUDA（クーダ）」にある。ファーウェイはこれに対し、独自の開発プラットフォーム「CANN」で挑んでいる。</p>
+
+        <ul>
+            <li><strong>劇的な移行性の向上：</strong> 最新のCANN（バージョン8.0以降）では、AIモデル「DeepSeek」などの中国開発チームとの徹底的な共同最適化により、標準的なPyTorchコードであれば約80%〜95%のコードが書き換え不要で動作するレベルに到達。</li>
+            <li><strong>「推論」と「学習」の壁：</strong> すでに完成したモデルを動かす「推論」では完璧な代替として機能する一方、ゼロからAIをトレーニングする「学習」領域では、独自のカスタムカーネルの多用や分散処理時のエラー復旧能力において、依然としてCUDAに一日の長がある。</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. 巨大システム化の脆弱性と、次のパラダイムシフト</h2>
+        <p>NVIDIAは、インテルが「CPUの成功」に縛られモバイルシフト（iPhoneの台頭）やAIの波に乗り遅れて没落した歴史を徹底的に学んでいる。そのため、NVIDIA自身がLPUなどの競合技術（Groq社等）を先回りしてライセンス取得し、自ら非GPUチップ（Groq 3 LPU）を開発するなど、「自ら主力ビジネスを破壊する」パラノイア（危機感）経営を徹底。</p>
+
+        <p>次の10〜20年、NVIDIAの延長線上（より巨大なデータセンター、より微細なシリコン半導体）とは全く違う斜め上の角度から、以下の「不合理・不可能に見える異端の芽」がパラダイムシフトを起こす可能性はある。</p>
+
+        <div class="tree-list">
+            <strong>【NVIDIAを過去のものにする4つの異端領域】</strong><br>
+            ├── ① <strong>1ビットLLM</strong> （現在のAIの数学を捨て、超格安・古いチップで最新AIを動かす）<br>
+            ├── ② <strong>光（フォトニクス）コンピューティング</strong> （電気抵抗をゼロにし、計算速度を桁違いにする）<br>
+            ├── ③ <strong>バイオ・コンピューティング</strong> （本物の脳細胞をチップ上で培養し、20Wの超低電力で思考させる）<br>
+            └── ④ <strong>エッジAIのネイティブ化</strong> （巨大なデータセンターを不要にし、全ての端末でAIを完結させる）
+        </div>
+
+        <hr>
+
+        <h2>5. 日本へ求められる「気風の脱構築」</h2>
+        <p>10〜20年前、NVIDIAのGPUやCUDAが「ただのゲーム用のおもちゃ」と冷遇されていた当時、現在の繁栄を正確に目利きできた専門家は世界にいなかった。半導体を「産業のコメ（単なるコモディティ汎用品）」と見做し、目先の経済合理性から次々と撤退していった日本企業の失敗は、「規格外の突出」や「不合理に見える挑戦（遊び・冒険）」を許容できない、日本の同質的な気風に原因があった。日本が現在進めているラピダスなどの国家プロジェクトは、依然として大企業のサラリーマン的センス、つまり「過去の成功の追いかけ（形だけの模倣）」というアプローチに見える。</p>
+
+        <blockquote>
+            <p><strong>シリコンバレーの本質と日本への提言：</strong></p>
+            <p>米国シリコンバレーの本質は、洗練された投資システムそのものではなく、「どれだけ常識外れで扱いづらい人間であっても、突出した才能があるならば、失敗の痛みを社会で免責し、そのまま暴れさせる」という人間に対する圧倒的な寛容さとリスペクト（気風）にある。</p>
+            <p style="margin-bottom: 0;">次の時代を担うバイオ、光、1ビットLLMといった「異端の芽」を日本で育てるためには、既存の巨大システムに依存しない、規格外の発想をするベンチャーやはみ出し者を徹底的に大事にし、尖らせるための「社会の気風の破壊と再構築」こそが、最も本質的な課題である。</p>
+        </blockquote>
+    </main>
+</body>
+</html>
