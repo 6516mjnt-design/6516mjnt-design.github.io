@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仏教システム論</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent: #b45309;
+            --accent-light: #fef3c7;
+            --border-color: #e2e8f0;
+            --math-bg: #f1f5f9;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 3px double var(--border-color);
+            margin-bottom: 40px;
+        }
+        h1 {
+            margin: 0 0 15px 0;
+            color: var(--text-main);
+            font-size: 2.2rem;
+        }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            border-left: 5px solid var(--accent);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        .meta-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tag {
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+        .tag-buddha { background-color: #e0f2fe; color: #0369a1; }
+        .tag-math { background-color: var(--accent-light); color: var(--accent); }
+        
+        .math-box {
+            background-color: var(--math-bg);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Times New Roman', Times, serif, 'Meiryo';
+            font-style: italic;
+            border-left: 4px solid var(--text-muted);
+            margin: 20px 0;
+        }
+        .process-flow {
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin: 20px 0;
+        }
+        h3 { margin-top: 0; color: var(--text-main); }
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>仏教システム論</h1>
+        <p>〜 釈尊の洞察（如実知見）を現代数理の言葉で読み解く 〜</p>
+    </header>
+
+    <!-- 1. 縁起 -->
+    <h2 class="section-title">1. 縁起（えんぎ）</h2>
+    <div class="card">
+        <div class="meta-box">
+            <span class="tag tag-buddha">仏教：此有故彼有（因縁生起）</span>
+            <span class="tag tag-math">数理：グラフ理論（Graph Theory）</span>
+        </div>
+        <h3>【伝統的解説】</h3>
+        <p>ブッダは「これがあるとき、それがある」と説き、すべての事象は単独で存在するのではなく、互いに依存し合って成り立つとしました。お米が育つには土や水、太陽の光が必要なように、あらゆるものは「因（直接的な原因）」と「縁（間接的な条件）」によって一時的に形作られています（二本の葦の比喩）。</p>
+        
+        <h3>【数理モデルとその根拠】</h3>
+        <p>物事のつながりの構造を扱う「グラフ理論」で記述できます。世界を $G = (V, E)$ というネットワークモデルとして捉えます。</p>
+        <div class="math-box">
+            システムモデル： $G = (V, E)$ <br>
+            ・$V$（ノード）：実体のない「仮の事象（ラベル）」<br>
+            ・$E$（エッジ）：事象を結ぶ「依存関係の有向矢印」
+        </div>
+        <p><strong>根拠：</strong>このモデルでは、点（ノード）そのものに固有のデータ（自性）を認めません。点は、そこへ流れ込み、そこから出ていく「矢印（関係性）」の交差点としてのみ定義されます。関係性をすべて消去すると、点そのものもシステム内で消滅します。これが縁起の数理的証明です。</p>
+    </div>
+
+    <!-- 2. 空・無我 -->
+    <h2 class="section-title">2. 空（くう）・無我（むが）</h2>
+    <div class="card">
+        <div class="meta-box">
+            <span class="tag tag-buddha">仏教：色即是空・諸法無我</span>
+            <span class="tag tag-math">数理：集合論（空集合 ∅）</span>
+        </div>
+        <h3>【伝統的解説】</h3>
+        <p>「空」とは、物事が存在しないという虚無主義ではなく、「固定不変の実体がない」という意味です。人間の中央に、一生ずっと変わらない固定的な「魂（アートマン）」や「エゴ」は存在しません。私たちは肉体や心のパーツが集まって、あたかも「自分」という主役がいるように錯覚しているだけです。</p>
+        
+        <h3>【数理モデルとその根拠】</h3>
+        <p>数学の基礎である「集合論」において、要素を一切持たない状態の定義である「空集合」に対応します。</p>
+        <div class="math-box">
+            無我の証明： $\text{不変の私} \cap \text{人間の全構成要素（五蘊）} = \emptyset$ （空集合）
+        </div>
+        <p><strong>根拠：</strong>ブッダが瞑想の中で「肉体」「感情」「記憶」などの要素を一つずつ検証した結果、どこにも不変の私は含まれていませんでした。全要素の中から「変わらない私」という部分集合を抽出しようとしても、中身は空っぽ（$\emptyset$）になります。空集合は「無い」のではなく、「中身が空である状態」として数学的に確かに存在・定義されています。</p>
+    </div>
+
+    <!-- 3. 五蘊 -->
+    <h2 class="section-title">3. 五蘊（ごうん）</h2>
+    <div class="card">
+        <div class="meta-box">
+            <span class="tag tag-buddha">仏教：五蘊盛苦・五調和</span>
+            <span class="tag tag-math">数理：オブジェクト指向（コンポーネント設計）</span>
+        </div>
+        <h3>【伝統的解説】</h3>
+        <p>人間という情報処理システムは、次の5つの要素（情報の束）が超高速で連携して動く「現象」の連続です。これらが依存し合って動くことで、あたかも「独立した意識を持った私」がいるように見えています。</p>
+        
+        <div class="process-flow">
+            <strong>【情報処理のバケツリレー】</strong><br>
+            1. <strong>色（しき）：</strong> 物理パケット受信（目が光を、耳が音を捉える肉体機能）<br>
+            2. <strong>受（じゅ）：</strong> 自動感情フィルタ（瞬時に「快・不快・中立」を判定する）<br>
+            3. <strong>想（そう）：</strong> パターン認識（過去の記憶から「これは何か」を言語化・概念化する）<br>
+            4. <strong>行（ぎょう）：</strong> 意思決定トリガー（欲求や衝動、行動を起こそうとするエネルギー）<br>
+            5. <strong>識（しき）：</strong> 中央監視ログ（上記1〜4のプロセスが起きている全体を認識する意識）
+        </div>
+        <p><strong>根拠：</strong>5番目の「意識（識蘊）」すらも、単独で存在する主役ではなく、1〜4番目のデータが入力されて初めて起動する依存関数（メソッド）にすぎません。「私という主人がいて考えている」のではなく、「処理が回っている状態そのもの」を私と呼んでいるのです。</p>
+    </div>
+
+    <!-- 4. 無明 -->
+    <h2 class="section-title">4. 無明（むみょう）</h2>
+    <div class="card">
+        <div class="meta-box">
+            <span class="tag tag-buddha">仏教：無明・渇愛・諸行無常</span>
+            <span class="tag tag-math">数理：機械学習（過学習 / Overfitting）</span>
+        </div>
+        <h3>【伝統的解説】</h3>
+        <p>あらゆる苦しみの根本原因である「無明」とは、世界のありのままの姿（常に変化し、関係性で成り立っていること）を誤解し、自分の偏った思い込みや執着を「絶対の真実」だと勘違いしている脳の機能不全のことです。</p>
+        
+        <h3>【数理モデルとその根拠】</h3>
+        <p>人工知能（機械学習）において、過去のデータに適合しすぎて応用が効かなくなる「過学習」の数理現象として説明されます。</p>
+        <div class="math-box">
+            苦しみ（ストレス値） ＝ $\text{Loss}$ （現実のデータ － 脳内の固定化された数式）
+        </div>
+        <p><strong>根拠：</strong>過去の特定のデータ（トラウマや成功体験、固定観念）を脳が過剰に学習すると、認知の数式（モデル）がガチガチに固定されます。しかし、現実世界は常に変化（諸行無常）するため、入力される新しい現実データとの間に巨大な「計算誤差（Loss）」が発生します。この誤差こそが、仏教のいう「苦（ドゥッカ）」の正体です。</p>
+    </div>
+
+    <!-- 5. 瞑想と四聖諦 -->
+    <h2 class="section-title">5. 瞑想（サティ）と四聖諦（ししょうたい）</h2>
+    <div class="card">
+        <div class="meta-box">
+            <span class="tag tag-buddha">仏教：四聖諦・八正道・如実知見</span>
+            <span class="tag tag-math">数理：動的システムのリアルタイム・デバッグ</span>
+        </div>
+        <h3>【伝統的解説】</h3>
+        <p>ブッダは苦しみを解決するために、医療の診断プロセスにも似た「四聖諦（苦・集・滅・道）」という4つの段階を提示しました。そして、マインドフルネス（サティ・気づき）によって、今この瞬間の心と体の動きを客観的に観察し、苦しみの原因（執着のコード）を手放す方法を教えました。</p>
+        
+        <h3>【数理モデルとその根拠】</h3>
+        <p>暴走する動的システムの最適化、およびプログラムのエラー修正（デバッグ）のアルゴリズムに基づいています。</p>
+        <div class="math-box">
+            ・気づき（サティ） ＝ $\text{Breakpoint()}$ （自動ループの一時停止）<br>
+            ・四聖諦 ＝ $\text{Root Cause Analysis}$ （根本原因分析とパッチ適用）
+        </div>
+        <p><strong>根拠：</strong>感情やストレスの無限ループ（$\text{while True}$）が脳内で暴走しているとき、瞑想によって「いま怒りが発生している」と客観的にラベリングすることは、プログラムにブレークポイントを設置して実行を一時停止させる行為です。システムを外側から眺めるメタ視点を得ることで、過学習された不要なパラメータ（執着）を削ぎ落とし（正則化）、システム全体の処理を最適化（汎化性能の最大化）させることができます。</p>
+    </div>
+
+    <footer>
+        <p>© 仏滅紀元 - 現代数理科学 | ありのままの世界を記述する智慧</p>
+    </footer>
+</div>
+
+</body>
+</html>
