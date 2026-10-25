@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=index.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>週刊 バイオセキュリティ・生物安保動向レポート</title>
     <style>
         :root {
@@ -12,6 +12,7 @@
             --card-bg: #ffffff;
             --text-color: #333333;
             --border-color: #e2e8f0;
+            --accent-color: #e74c3c;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
@@ -60,7 +61,7 @@
             color: var(--primary-color);
             margin-top: 0;
             margin-bottom: 15px;
-            border-left: 4px solid #e74c3c;
+            border-left: 4px solid var(--accent-color);
             padding-left: 10px;
         }
         p {
@@ -82,8 +83,43 @@
             color: #555555;
         }
         li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
+        
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        .timeline-desc {
+            font-size: 14px;
+            color: #555555;
+            margin: 0;
+        }
+
         footer {
             margin-top: 50px;
             padding-top: 20px;
@@ -97,11 +133,11 @@
 <body>
 
 <div class="container">
-    <!-- ヘッダー部分 -->
+    <!-- ヘッダー部分（対象期間を設定） -->
     <header>
         <h1>週刊 バイオセキュリティ・生物安保動向レポート</h1>
         <div class="meta-info">
-            <span>📅 <strong>対象期間:</strong> 【2026年10月19日(月) 〜 10月25日(日)】</span>
+            <span>📅 <strong>対象期間:</strong> 2026年10月19日(月) 〜 10月25日(日)</span>
             <span>📊 <strong>検知件数:</strong> 0 件</span>
         </div>
     </header>
@@ -120,13 +156,42 @@
         </p>
     </div>
 
-    <!-- 分野別動向 -->
+    <!-- 主要分野別のモニタリング状況 -->
     <div class="card">
         <h2>主要分野別のモニタリング状況</h2>
         <ul>
             <li><strong>国際条約・法規制（BWC等）:</strong> 会議体の開催や条約加盟国による目立った新規の政策表明・制裁措置の発動はありませんでした。</li>
             <li><strong>最先端合成生物リスク（ミラーバクテリア等）:</strong> 学術界および主要シンクタンクからの緊急声明や、規制ライン（レッドライン）を揺るがす技術進展の報道はありません。</li>
-            <li><strong>AIによる生物設計・バイオセキュリティ防衛:</strong> 民間AI企業（フロンティアモデル開発企業）によるバイオスクリーニング強化や、新たな出力フィルター悪用に関するレポートの発表は確認されていません。</li>
+            <li><strong>AIによる生物設計・バイオセキュリティ防衛:</strong> 民間AI企業（フロンティアモデル開発企業）によるバイオスクリーニング強化や、新たな出力フィルター悪用に関するレポート of 発表は確認されていません。</li>
+        </ul>
+    </div>
+
+    <!-- 過去5年の重要事案セクション（古い順・修正文をそのまま反映） -->
+    <div class="card">
+        <h2>【重要解説】過去5年間の主要なバイオセキュリティ事案・マイルストーン</h2>
+        <p style="font-size: 14px; color: var(--secondary-color); margin-bottom: 20px;">
+            週次の新規検知数が0件の場合でも、本分野の構造的リスクを把握し問題意識を維持するために、過去5年の決定的な歴史的事案を常設公開しています。
+        </p>
+        
+        <ul class="timeline">
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2021年7月 AlphaFold2の公開とタンパク質構造予測のAI革命</strong><br>Google DeepMindがタンパク質構造予測AI「AlphaFold2」のソースコードを無償公開。これにより分子生物学の不確実性が大幅に排除され、医薬品開発が激変した。一方で、逆向きの構造を持つ「鏡像タンパク質（酵素）」をAI上で自動最適化・設計する道をも開くこととなり、今日のAI×バイオリスクの起点となった。</p>
+            </li>
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2022年11月 生物兵器禁止条約（BWC）第9回再検討会議と合成生物学の台頭</strong><br>遺伝子組み換えやAIによる核酸・ペプチド合成の急速な民主化（専門知識のない個人への拡散リスク）を受け、既存のBWC条約の枠組みが機能不全に陥っていることが指摘される。検証措置や科学技術の進展を迅速に監視する「技術評価メカニズム」の構築に向けた激しい議論が表面化した。</p>
+            </li>
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2023年10月 米国大統領令（AI安全基準）と商務省（BIS）による法規制化</strong><br>バイデン大統領（当時）が署名したAIに関する広範な大統領令（EO 14110）に基づき、フロンティアAIモデルが「生物・化学・放射能・核（CBRN）兵器」の設計図を提供しないよう厳格なガードレール設置を義務化。これに連動し、米商務省産業安全保障局（BIS）がEAR（輸出管理規則）等の実務に核酸合成・ペプチド合成の自動スクリーニング監視や先端バイオ設備の取引制限を落とし込み、米国の法的規制としての実効性が担保された。</p>
+            </li>
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2024年12月 ノーベル賞受賞者ら38名による「ミラーバクテリア創出禁止」共同声明</strong><br>『Science』誌上にて、世界のトップ科学者らが連名で「生きた鏡像細菌の創造、およびそれらへの資金提供を即刻禁止する法的規制」を強く求める国際共同声明を発表。地球上の天敵や免疫システムが一切通用しない生命の流出リスクに対し、初めて具体的なレッドライン（一線）が提起された。</p>
+            </li>
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2025年〜2026年 AG（オーストラリア・グループ）共通規制への「核酸・ペプチド合成」の落とし込み</strong><br>化学・生物兵器関連の国際的な輸出管理枠組みである「オーストラリア・グループ（AG）」において、AIを用いた遺伝子設計、核酸合成、ペプチド合成サービスに関するスクリーニングや技術提供の制限が共通規制のガイドラインとして具体的に落とし込まれる。これにより、機微な配列の注文を検知・ブロックする義務が、多国間協調に基づく実務的な輸出管理規則として本格化された。</p>
+            </li>
+            <li class="timeline-item">
+                <p class="timeline-desc"><strong>2026年3月9日 / 2026年10月 国連SABの公式勧告と不斉合成（硤合反応）のノーベル賞受賞</strong><br>【2026年3月9日】国連事務総長科学諮問委員会（SAB）が、自立増殖する「鏡像生命（ミラーライフ）」の壊滅的リスクに関する公式ブリーフを公表し国際規制を要請。【2026年10月】分子の左右の偏りを爆発的に増幅させる「不斉自己触媒反応（硤合反応）」を開拓した硤合憲三先生がノーベル化学賞を受賞。基礎化学の進展が人工生命創出の技術的土台として直結し、バイオセキュリティ議論が国内でも最高潮に達する。</p>
+            </li>
         </ul>
     </div>
 
