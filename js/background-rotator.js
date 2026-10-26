@@ -227,17 +227,36 @@
     retina_detect: true
   };
 
+  // 12. 夜空の花火（星空の上に、花火レイヤー fireworks.js を重ねる）
+  const presetNightFireworks = {
+    particles: {
+      number: { value: 200, density: { enable: true, value_area: 900 } },
+      color: { value: ["#ffffff", "#ffd76a", "#7fd8ff"] },
+      shape: { type: "circle" },
+      opacity: { value: 0.9, random: true, anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false } },
+      size: { value: 2.5, random: true },
+      line_linked: { enable: false },
+      move: { enable: true, speed: 0.2, direction: "none", random: true, straight: false, out_mode: "out" }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: { onhover: { enable: false }, onclick: { enable: false }, resize: true }
+    },
+    retina_detect: true,
+    fireworks: true // 花火レイヤーを有効にする印（particles.js 本体は無視する）
+  };
+
   /* ---------- プリセット一覧（増やしたい場合はここに push） ---------- */
   const presets = [
     presetNetwork, presetStars, presetBubbles, presetSnow, presetFireworks,
     presetSakura, presetAurora, presetDigitalRain, presetGeometric, presetConfetti,
-    presetAutumnWind
+    presetAutumnWind, presetNightFireworks
   ];
 
   const presetNames = [
     "ネットワーク", "星空", "泡", "雪", "花火風",
     "花吹雪", "オーロラ", "デジタルレイン", "幾何学模様", "コンフェッティ",
-    "若葉舞う"
+    "若葉舞う", "夜空の花火"
   ];
 
   /* ---------- 指定したプリセットを適用する（確認・切替用） ---------- */
@@ -251,6 +270,15 @@
       window.pJSDom = [];
     }
     particlesJS("particles-js", presets[index]);
+
+    // 花火レイヤー（fireworks.js）は、プリセットの指定に応じてオン／オフする
+    if (window.fireworks) {
+      if (presets[index].fireworks) {
+        window.fireworks.start();
+      } else {
+        window.fireworks.stop();
+      }
+    }
   }
 
   /* ---------- 週番号で自動選択 ---------- */
