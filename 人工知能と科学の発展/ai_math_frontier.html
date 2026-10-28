@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="../css/components.css">
     <style>
         /* ==========================================================================
-           このページ専用の追加スタイル（style.css にないタイムライン表現用）
-           配色は style.css のテーマカラー（紺 #1a365d / 青 #2b6cb0）に統一
+           このページ専用の追加スタイル
            ========================================================================== */
 
         .source-info {
@@ -30,11 +29,13 @@
             text-decoration: underline;
         }
 
+        /* タイムライン全体のコンテナ */
         .timeline {
             position: relative;
-            border-left: 2px solid #94a3b8;
-            padding-left: 20px;
-            margin-left: 10px;
+            border-left: 2px solid #cbd5e1;
+            padding-left: 24px;
+            margin-left: 12px;
+            margin-top: 30px;
         }
 
         .timeline-item {
@@ -42,27 +43,32 @@
             margin-bottom: 40px;
         }
 
+        /* タイムラインの丸ドット：日付(.meta)の真横中央に綺麗に配置 */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27px;
-            top: 5px;
+            left: -31px;
+            top: 4px;
             width: 12px;
             height: 12px;
             border-radius: 50%;
             background-color: #94a3b8;
             border: 2px solid #ffffff;
+            box-shadow: 0 0 0 1px #cbd5e1;
+            z-index: 1;
         }
 
         .timeline-item.active::before {
             background-color: #2b6cb0;
+            box-shadow: 0 0 0 1px #2b6cb0;
         }
 
         .timeline .meta {
-            font-size: 0.875rem;
-            color: #4a5568;
-            font-weight: 500;
-            margin-bottom: 4px;
+            font-size: 0.9rem;
+            color: #2b6cb0;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.2;
         }
 
         .timeline h2 {
@@ -70,6 +76,8 @@
             margin: 0 0 12px 0;
             font-weight: 700;
             color: #1a365d;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .timeline h3 {
@@ -82,10 +90,11 @@
         .timeline p {
             margin: 0 0 12px 0;
             color: #4a5568;
+            line-height: 1.6;
         }
 
         .comparison-box {
-            background-color: #f4f6f9;
+            background-color: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 6px;
             padding: 16px;
@@ -98,6 +107,8 @@
             margin-bottom: 6px;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .tag-human {
@@ -106,7 +117,6 @@
             font-size: 0.75rem;
             padding: 2px 6px;
             border-radius: 4px;
-            margin-left: 8px;
         }
 
         .tag-ai {
@@ -115,7 +125,6 @@
             font-size: 0.75rem;
             padding: 2px 6px;
             border-radius: 4px;
-            margin-left: 8px;
         }
 
         .alert-text {
@@ -211,7 +220,6 @@
         </header>
 
         <div class="timeline">
-
 
             <div class="timeline-item">
                 <div class="meta">2024年7月</div>
@@ -360,7 +368,6 @@
                     </div>
                 </div>
 
-                <!-- 9月11日の数学者による行動声明 -->
                 <div class="comparison-box" style="margin-top: 15px;">
                     <div class="comparison-title">
                         数学者による行動声明（9月11日）
@@ -397,9 +404,8 @@
                 </div>
             </div>
 
-            <!-- ===== 追加：OpenAI論文公開 ===== -->
             <div class="timeline-item active">
-                <div class="meta">2026年10月6日（追加）</div>
+                <div class="meta">2026年10月6日</div>
                 <h2>OpenAI の突然の論文公開と数学界に及ぼす波紋</h2>
                 <p>2026年10月6日にOpenAIは、未発表の内部モデルが生んだ数学の結果を722本の原稿（372の系統）として、GitHubに一括公開しました。根拠になる数字は、約4,000問に挑戦し、1件あたり平均でChatGPT Proの3時間分の思考に相当する計算量を使ったというものです。</p>
 
@@ -416,10 +422,9 @@
                     <p style="font-size: 0.9rem; margin-bottom: 0;">公開されたモデルの名前は明かされておらず、成果の一部に誤りがあるかもしれないと認めたうえで、大量の原稿を一度に出したことが議論を呼んでいます。</p>
                 </div>
             </div>
-            <!-- ===== 追加ここまで ===== -->
-            <!-- ===== 追加：日本の研究者による座談会 ===== -->
+
             <div class="timeline-item active">
-                <div class="meta">2026年10月13日（追加）</div>
+                <div class="meta">2026年10月13日</div>
                 <h2>日本の研究者の危機感：緊急座談会「OpenAI論文と理論物理」</h2>
                 <p>OpenAI が10月6日に722編の数学・理論計算機科学・数理物理の原稿を一括公開したことを受け、機械学習と物理学の融合（「学習物理学」）に取り組む日本の研究者が、緊急のオンライン座談会を開いた。量子重力、物性、宇宙論、流体力学など各分野への影響を把握し、研究者の役割、教育、査読のあり方を率直に話し合うことが目的とされている。座談会の文書は、不安を煽ることを目的とはしないと明記している。日本の第一線の数学者・物理学者の間に、こうした速い変化への危機感が広がっていることを示す出来事である。</p>
 
@@ -469,7 +474,7 @@
                     <tr><td>富谷 昭夫</td><td>東京女子大学・京都大学 准教授</td><td>学習物理学、格子QCD</td><td>企画・広報・配信</td></tr>
                     <tr><td>坂上 貴之</td><td>京都大学 教授</td><td>数理流体力学</td><td>—</td></tr>
                     <tr><td>園田 翔</td><td>理研／サイバーエージェント 上級研究員</td><td>深層学習理論、Leanによる形式化</td><td>—</td></tr>
-                    <tr><td>樺島 祥介</td><td>東京大学大学院理学系研究科 教授、知の物理学研究センター センター長</td><td>統計力学，情報理論，機械学習  情報科学への統計力学の広範な応用</td><td>—</td></tr>
+                    <tr><td>樺島 祥介</td><td>東京大学大学院理学系研究科 教授、知の物理学研究センター センター長</td><td>統計力学，情報理論，機械学習 情報科学への統計力学の広範な応用</td><td>—</td></tr>
                     <tr><td>大槻 純也</td><td>岡山大学 理工学 教授</td><td>物性理論（アンダーソン局在など）</td><td>—</td></tr>
                     <tr><td>松原 隆彦</td><td>高エネルギー加速器研究機構 素粒子原子核研究所 教授</td><td>観測的宇宙論、宇宙論的摂動論</td><td>—</td></tr>
                     <tr><td>永井 佑紀</td><td>東京大学 情報基盤センター 准教授</td><td>計算物理、材料の数値計算</td><td>—</td></tr>
@@ -529,11 +534,9 @@
                     </p>
                 </div>
             </div>
-            <!-- ===== 追加ここまで ===== -->
 
-            <!-- ===== 追加：数学を志す若者の思考についての考察 ===== -->
             <div class="timeline-item active">
-                <div class="meta">2026年10月17日（追加）</div>
+                <div class="meta">2026年10月17日</div>
                 <h2>数学を志す若者の思考についての考察</h2>
 
                 <h3>一つ目：AIと数学の関係</h3>
@@ -546,7 +549,6 @@
                 <p>SNSや動画の普及で、数学の美しさや未解決問題の物語に触れる機会が増え、学校の枠を超えて自分で学ぶ若者も少なくありません。「なぜそうなるのか」を納得したいという素朴な動機が、今も変わらず原動力になっています。</p>
             </div>
 
-            <!-- ===== 追加ここまで ===== -->
             <div class="timeline-item">
                 <div class="meta">全体像</div>
                 <h2>現時点での見方</h2>
@@ -567,7 +569,6 @@
                 </div>
             </div>
 
-            <!-- テキスト文書の要約セクションを参考として追加 -->
             <div class="timeline-item">
                 <div class="meta">参考</div>
                 <h2>数学者による共同声明（声明：数学におけるAIの深刻な不整合）</h2>
@@ -591,7 +592,7 @@
                     <li><a href="https://github.com/openai/math" target="_blank" rel="noopener noreferrer">OpenAI GitHub（数学成果の公開リポジトリへの入口。件数・版・訂正履歴を確認）</a></li>
                     <li><a href="https://www.theverge.com/ai-artificial-intelligence/1005004/openai-math-release-github" target="_blank" rel="noopener noreferrer">OpenAI drops another batch of mathematical breakthroughs（The Verge、2026年10月）</a></li>
                     <li><a href="https://www.washingtonpost.com/technology/2026/10/07/openai-releases-progress-more-than-300-math-research-problems/" target="_blank" rel="noopener noreferrer">OpenAI releases progress on more than 300 math research problems（The Washington Post、2026年10月7日）</a></li>
-                    <li><a href="https://techcrunch.com/2026/10/08/openais-math-solutions-arent-meeting-the-fields-standards-yet/" target="_blank" rel="noopener noreferrer">OpenAI’s math solutions aren’t meeting the field’s standards yet（TechCrunch、2026年10月8日）</a></li>
+                    <li><a href="https://techcrunch.com/2026/10/08/openais-math-solutions-arent-meeting-the-field-standards-yet/" target="_blank" rel="noopener noreferrer">OpenAI’s math solutions aren’t meeting the field’s standards yet（TechCrunch、2026年10月8日）</a></li>
                     <li><a href="https://terrytao.wordpress.com/2026/" target="_blank" rel="noopener noreferrer">Terence Tao：2026年の投稿・数学とAIに関する声明への案内</a></li>
                     <li><a href="https://teorth.github.io/tao-web/ai-views.html" target="_blank" rel="noopener noreferrer">Terence Tao on AI in mathematics — a living summary（2026年10月9日更新）</a></li>
                     <li><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/" target="_blank" rel="noopener noreferrer">An OpenAI model has disproved a central conjecture in discrete geometry（OpenAI）</a></li>
