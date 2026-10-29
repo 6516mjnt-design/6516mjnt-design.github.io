@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プログラミング言語 一覧とまとめ</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #d97706;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+
+        .summary-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .summary-box h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .summary-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .summary-box li {
+            margin-bottom: 8px;
+        }
+
+        .summary-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .news-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .news-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            background: var(--card-bg);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+        }
+
+        td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .notes-section {
+            background-color: var(--card-bg);
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .notes-section h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>プログラミング言語 一覧とまとめ</h1>
+        <div class="header-meta">
+            <span><strong>内容:</strong> 主要言語を用途別に整理</span>
+            <span><strong>作成日:</strong> 2026-10-29</span>
+        </div>
+    </header>
+
+    <section class="summary-box">
+        <h2>概要</h2>
+        <ul>
+            <li><strong>全体像：</strong> 利用されているプログラミング言語は数百種類あるため、完全な網羅は現実的ではありません。本まとめは実務で重要な言語を用途別に整理したものです。</li>
+            <li><strong>選び方の目安：</strong> Web開発はPHP・Python・JavaScript、高性能・低レイヤはC・C++・Rust、データ分析・AIはPython・R・Julia、スマホアプリはSwift・Kotlin・Dartが代表的です。</li>
+            <li><strong>PHPの話題：</strong> 2026年10月21日、PHP Foundationが重大な脆弱性（CVE-2026-109618／CVE-2026-109619、通称「php2shell」）を公表し、修正版（8.5.12／8.4.27／8.3.36／8.2.35）が公開されました。利用中のPHPが修正版以降かの確認が推奨されます。</li>
+        </ul>
+    </section>
+
+    <h2 class="category-title">1. Web開発（サーバーサイド）</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th><th>主な用途・実例</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>PHP</td><td>Web向けに設計されたスクリプト言語。HTMLへの埋め込みが容易で導入障壁が低い。PHP 8以降は型やJITなどが強化。</td><td>WordPress、Laravel、ECサイト</td></tr>
+            <tr><td>Python</td><td>可読性が高く汎用性が極めて高い。ライブラリが豊富。</td><td>Django／Flask、データ分析、AI</td></tr>
+            <tr><td>Ruby</td><td>記述の簡潔さと開発生産性を重視。</td><td>Ruby on Rails</td></tr>
+            <tr><td>JavaScript</td><td>ブラウザで動く標準的言語。非同期処理が中心。</td><td>フロントエンド全般、Node.js</td></tr>
+            <tr><td>TypeScript</td><td>JavaScriptに静的型付けを加えたもの。大規模開発で普及。</td><td>大規模フロント・バックエンド</td></tr>
+            <tr><td>Java</td><td>「一度書けばどこでも動く」（JVM）。企業システムで長年の実績。</td><td>Spring Boot、業務システム</td></tr>
+            <tr><td>C#</td><td>Microsoft系の汎用言語。Windows・ゲーム開発に強い。</td><td>ASP.NET、Unity</td></tr>
+            <tr><td>Go</td><td>Googleが開発。シンプルな文法と高い並行処理性能。</td><td>クラウド基盤、マイクロサービス</td></tr>
+            <tr><td>Perl</td><td>テキスト処理に強い。現在は利用が減少。</td><td>旧来のスクリプト、テキスト処理</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">2. システム・低レイヤ開発</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th><th>主な用途</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>C</td><td>ハードウェアに近く高速。メモリを手動管理する。</td><td>OS、組み込み、ドライバ</td></tr>
+            <tr><td>C++</td><td>Cにオブジェクト指向やテンプレートを加えたもの。高性能。</td><td>ゲームエンジン、ブラウザ、金融計算</td></tr>
+            <tr><td>Rust</td><td>メモリ安全性を言語仕様レベルで保証しつつ高速。学習難度は高め。</td><td>OS部品、ブラウザ、セキュリティ重視の基盤</td></tr>
+            <tr><td>Zig</td><td>Cの代替を目指す。シンプルで明示的な設計。</td><td>低レイヤ、ツールチェーン</td></tr>
+            <tr><td>Assembly</td><td>CPU命令に直接対応。</td><td>組み込み、性能の極限追求</td></tr>
+            <tr><td>Ada</td><td>高い信頼性・安全性を重視。</td><td>航空宇宙、鉄道、防衛</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">3. モバイル開発</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Swift</td><td>Appleが開発。iOS・macOS向けの標準的言語。</td></tr>
+            <tr><td>Kotlin</td><td>JVM上で動作。Androidの公式推奨言語。Javaとの互換性が高い。</td></tr>
+            <tr><td>Dart</td><td>Googleが開発。Flutterでクロスプラットフォーム開発に使用。</td></tr>
+            <tr><td>Objective-C</td><td>Swift以前のApple向け言語。既存資産の保守で残る。</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">4. 関数型・特殊パラダイム</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Haskell</td><td>純粋関数型で副作用を型で管理。研究や金融分野で利用。</td></tr>
+            <tr><td>OCaml／F#</td><td>強力な型推論を持つ関数型言語。F#は.NET上で動作。</td></tr>
+            <tr><td>Elixir／Erlang</td><td>並行処理・耐障害性に優れる。通信基盤や大規模チャットに利用。</td></tr>
+            <tr><td>Clojure</td><td>JVM上のLisp方言。データ指向の設計。</td></tr>
+            <tr><td>Lisp系（Common Lisp, Scheme, Racket）</td><td>括弧による文法。マクロや自己言語拡張性が強み。</td></tr>
+            <tr><td>Prolog</td><td>論理プログラミング。推論・自然言語処理で使用。</td></tr>
+            <tr><td>Scala</td><td>JVM上で関数型とオブジェクト指向を併用。データ処理（Spark）で利用。</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">5. データ分析・科学技術計算</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>R</td><td>統計解析に特化。学術・医療統計で強い。</td></tr>
+            <tr><td>Julia</td><td>数値計算の高速化を目指して設計。Pythonに近い記法。</td></tr>
+            <tr><td>MATLAB</td><td>行列計算と工学シミュレーションに強い。商用ライセンス。</td></tr>
+            <tr><td>Fortran</td><td>数値計算の老舗。気象・物理シミュレーションで現役。</td></tr>
+            <tr><td>Wolfram Language</td><td>記号計算と数学処理に特化（Mathematica）。</td></tr>
+            <tr><td>SAS</td><td>統計・企業データ分析。医薬・金融で利用。</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">6. 業務系・レガシー</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>COBOL</td><td>1950〜60年代からの業務言語。銀行・行政の基幹系で今も稼働。</td></tr>
+            <tr><td>RPG</td><td>帳票処理向け。IBMのメインフレームで利用。</td></tr>
+            <tr><td>VB.NET／VBA</td><td>Visual Basicの系譜。Excelマクロ（VBA）で広く使われる。</td></tr>
+            <tr><td>PL/SQL／T-SQL</td><td>データベース内の手続き言語。Oracle／SQL Serverで利用。</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">7. スクリプト・シェル・データ問い合わせ</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Bash／Zsh</td><td>Linux・macOSのシェル。運用自動化の基本。</td></tr>
+            <tr><td>PowerShell</td><td>Windows・クラウド管理の自動化に利用。</td></tr>
+            <tr><td>SQL</td><td>データベースの問い合わせ言語。宣言型。ほぼ必須の知識。</td></tr>
+            <tr><td>Lua</td><td>軽量で組み込みに適する。ゲームのスクリプトに多用。</td></tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">8. 教育・初学者向け／専門分野</h2>
+    <table>
+        <thead>
+            <tr><th>言語</th><th>特色</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Scratch</td><td>ブロックを組み立てて書くビジュアル言語。小学生向け。</td></tr>
+            <tr><td>BASIC</td><td>歴史的に初学者向けとして普及。現在は教育用途が中心。</td></tr>
+            <tr><td>Verilog／VHDL</td><td>回路（FPGA・LSI）を記述するハードウェア記述言語。</td></tr>
+            <tr><td>Solidity</td><td>スマートコントラクト用。Ethereum系で利用。</td></tr>
+            <tr><td>Smalltalk</td><td>オブジェクト指向の先駆け。現在は少数派。</td></tr>
+        </tbody>
+    </table>
+
+    <div class="notes-section">
+        <h3>補足</h3>
+        <p>HTML／CSSはWebの構造・見た目を記述するマークアップ／スタイル言語、YAML／JSONは設定やデータの記述形式であり、厳密にはプログラミング言語ではありません。ただし開発では必須の知識です。</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 プログラミング言語 一覧まとめ</p>
+    </footer>
+</div>
+
+</body>
+</html>
