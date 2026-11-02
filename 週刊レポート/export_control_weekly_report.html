@@ -3,176 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全保障・輸出管理ニュース週刊レポート（2026-10-19 〜 2026-10-25）</title>
+    <title>安全保障・輸出管理ニュース週刊レポート（2026/10/26 - 2026/11/01）</title>
     <style>
         :root {
             --primary-color: #1e3a8a;
             --secondary-color: #3b82f6;
-            --accent-color: #d97706;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
             --border-color: #e2e8f0;
+            --accent-tag: #e0e7ff;
+            --accent-tag-text: #3730a3;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
             background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding: 24px 16px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         header {
             background-color: var(--primary-color);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            color: #ffffff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            margin-bottom: 24px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+            font-size: 1.75rem;
+            font-weight: 700;
         }
 
-        .header-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 0.9rem;
+        header p {
+            margin: 0;
+            font-size: 0.95rem;
             opacity: 0.9;
-            flex-wrap: wrap;
         }
 
         .summary-box {
             background-color: #eff6ff;
             border-left: 4px solid var(--secondary-color);
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 0 8px 8px 0;
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin-bottom: 32px;
         }
 
         .summary-box h2 {
-            margin-top: 0;
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
             color: var(--primary-color);
-            font-size: 1.3rem;
         }
 
-        .summary-box ul {
+        .summary-box p {
             margin: 0;
-            padding-left: 20px;
+            font-size: 0.95rem;
+            color: #1e40af;
         }
 
-        .summary-box li {
-            margin-bottom: 8px;
-        }
-
-        .summary-box li:last-child {
-            margin-bottom: 0;
-        }
-
-        .category-title {
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 5px;
-            margin-top: 40px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
             margin-bottom: 20px;
-            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .news-card {
-            background: var(--card-bg);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .news-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .news-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            gap: 12px;
             margin-bottom: 10px;
-            gap: 15px;
         }
 
         .news-title {
             font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-weight: 600;
             margin: 0;
-            text-decoration: none;
+            color: var(--text-color);
         }
 
-        .news-title:hover {
-            text-decoration: underline;
-            color: var(--secondary-color);
+        .news-tag {
+            background-color: var(--accent-tag);
+            color: var(--accent-tag-text);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
         }
 
         .news-meta {
             font-size: 0.85rem;
-            color: var(--text-secondary);
-            white-space: nowrap;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
         }
 
         .news-content {
             font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
+            color: #334155;
+            margin-bottom: 12px;
         }
 
-        .notes-section {
-            background-color: var(--card-bg);
-            border: 1px dashed var(--accent-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 40px;
+        .news-impact {
+            background-color: #f1f5f9;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: #475569;
         }
 
-        .notes-section h3 {
-            margin-top: 0;
-            color: var(--accent-color);
+        .news-impact strong {
+            color: var(--primary-color);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 24px;
+            color: var(--text-muted);
             font-size: 0.85rem;
-            color: var(--text-secondary);
             border-top: 1px solid var(--border-color);
             margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-
-            .news-header {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .header-meta {
-                flex-direction: column;
-                gap: 5px;
-            }
         }
     </style>
 </head>
@@ -180,152 +164,75 @@
 
 <div class="container">
     <header>
-        <h1>安全保障・輸出管理ニュース 週刊レポート</h1>
-        <div class="header-meta">
-            <span><strong>対象期間:</strong> 2026-10-19 〜 2026-10-25</span>
-            <span><strong>総対象件数:</strong> 561件</span>
-            <span><strong>発行日:</strong> 2026-10-26</span>
-        </div>
+        <h1>安全保障・輸出管理ニュース週刊レポート</h1>
+        <p>対象期間：2026年10月26日（月）〜 2026年11月01日（日）</p>
     </header>
 
-    <section class="summary-box">
-        <h2>今週のエグゼクティブサマリー</h2>
-        <ul>
-            <li><strong>米中先端技術規制の攻防：</strong> 中国通信大手のインフラ内にNVIDIA最新GPU（B300）が導入されている実態が判明したと報じられる一方、中国側もAIやライフサイエンス分野の技術輸出規制強化を提案するなど相互に圧力を強めています。</li>
-            <li><strong>制裁回避動向と金融摩擦：</strong> イスラエルのネタニヤフ首相が国際制裁回避策として暗号資産利用を提案したのに対し、イスラエル中央銀行が実用性を疑問視して即座に反論・却下する事態が報告されました。</li>
-            <li><strong>多国間協力と経済安保：</strong> 日独首脳による経済安保包括宣言の調整や日韓財界によるサプライチェーン協力推進など、同盟国・有志国間での連携深化とサプライチェーン分散化の動きが拡大しています。</li>
-            <li><strong>重要品目の供給網リスク：</strong> シールド掘削機やレアアース、イットリウムなどの重要物資を巡り、各国の輸出規制導入や他国依存脱却へのアプローチが本格化しています。</li>
-        </ul>
-    </section>
-
-    <!-- カテゴリ 1: 米中対立・半導体・先端技術輸出管理 -->
-    <h2 class="category-title">1. 米中対立・半導体・先端技術輸出管理</h2>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE06N0VveFBrVzd2cFlHbC1Wa25McVJEdnRtMjZJNGIzRXJtc2dacEVXLUdwRFdkcDBwVVYyd0lGWmI2c1Nlb0xLVEUySV85MnR0SGtmVjBnSWNNRlVQdmZHYmVPcEtCci1ub2tVd0ZUSXNhcmVwZTF4SUtub0xIQdIBgwFBVV95cUxOdmtNUy1BdjdidV9DalNOcWswVmxYcWNKRUhVUGdsX29QNXktaHdjRUczbHJCRlJZbDFmNzE5Y0h2U1dSbWNweU42bm5SU05mWTB3TDNaYnljZkxCQXh5VXVEMUJMeGN4dU9wbjFCN0p6WDM2VzlMVXRMQUpsN1VuOThZWQ?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">中国通信大手でNVIDIA B300 GPUの稼働が確認されたと報じられる</a>
-            <span class="news-meta">Google News | 2026-10-24</span>
-        </div>
-        <p class="news-content">セキュリティ企業が中国電信（China Telecom）の内部で32基のNVIDIA B300 GPUが稼働しているのを発見したと報じられました。米国の輸出規制にもかかわらず最先端AIハードウェアの流出が続いている実態が示唆されています。</p>
+    <div class="summary-box">
+        <h2>今週のハイライト</h2>
+        <p>当週は、中国によるデュアルユース（軍民両用）物品および対日輸出管理の厳格化と、それに伴う日米欧のサプライチェーン・関税等への波及が主要なトピックとなりました。また、EU側の差別的規制措置に対する対抗姿勢や、各国における税関実務上の確認・監視強化が顕著となっています。</p>
     </div>
 
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOZG9RWEx0RjF1YWhreWp3UnhFeWNLcGR0SHplMDJhVDdLN2dNYlJibWZpeUhLbi1NR0ppVnFOQUtJNkpvdGh0ZVprWGphaEt3WERDVkdVeWI3V0RkMEtXWVNFOWxNaTVLQVZkd04wWW40SXhVbm1DOGJIcUl1a0tmUWZ2TjI?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">DeepSeekとMiniMaxが海外向けAI輸出許可を取得</a>
-            <span class="news-meta">Google News | 2026-10-25</span>
-        </div>
-        <p class="news-content">中国のAI開発企業DeepSeekおよびMiniMaxが、海外利用における中国のAI輸出管理手続きをクリアしたと報道されました。</p>
+    <div class="section-title">
+        <span>🌐 輸出管理・経済安全保障動向</span>
     </div>
 
+    <!-- Article 1 -->
     <div class="news-card">
         <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNVWtCTld5UTJnajEycGpGcEF6NWFBNGhmNlowYkJNVXZEZDF0WG5zdG5FNVBXdXZ1NmppTnI5Vi0zSmVuTHFRSEN0Vk5kU2RnZFVjbFVnaWltZzFUb1hCQ0pLY1lBYnl2eDlJYlFkOU1QX3dmV1ZJMGwtcUtWeGNkVHRjU1dkLUFGVDB5RVc0OFktUnVOZlBudV8zOTJNNFRXYXpFMnhoTGNKSTFlQTRhWUVnbG1BX1I5Mm9Wcg?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">中国がAI・バイオ・太陽光分野での新たな輸出管理案を提示</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
+            <h3 class="news-title">中国における両用品目輸出管理の強化と税関実務の留意点</h3>
+            <span class="news-tag">中国・制度運用</span>
         </div>
-        <p class="news-content">中国政府がAI、ライフサイエンス、太陽光発電（PV）技術などの先端・基幹技術に関する新たな輸出規制措置を提案したと報じられました。</p>
+        <div class="news-meta">
+            <span>日付: 2026-10-27</span>
+            <span>情報元: JETRO 海外ビジネス情報</span>
+        </div>
+        <div class="news-content">
+            中国において両用品目に分類されないと考えられる一般的な輸出品目についても、現地税関から技術資料や詳細な該非判定根拠の提出を求められる事例が増加しています。これにより通関に要する時間が長長期化する傾向にあり、現地進出企業や取引企業に対する影響が広がっています。
+        </div>
+        <div class="news-impact">
+            <strong>実務への影響:</strong> 中国拠点からの出荷および通関手続きにおいて、該非判定資料や技術仕様書の事前整備徹底が求められます。
+        </div>
     </div>
 
+    <!-- Article 2 -->
     <div class="news-card">
         <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMiO0FVX3lxTE0tYXhoRUstcXNPbi1ZTGFoeG5pV0xpM2tJTnM5V01rRnZteGtOWnNucEtvcTNsa05VRTZJ?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">中国AIチップ市場でファーウェイがNVIDIAに急接近</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
+            <h3 class="news-title">駐日米大使、中国によるレアアース等の対日規制理由を批判</h3>
+            <span class="news-tag">日米中・サプライチェーン</span>
         </div>
-        <p class="news-content">米国の輸出規制が強化される中、中国国内のAIチップ市場においてファーウェイをはじめとする国産メーカーがシェアを拡大し、NVIDIAに急速に迫っていると伝えられています。</p>
+        <div class="news-meta">
+            <span>日付: 2026-10-26</span>
+            <span>情報元: 経済安保リサーチ</span>
+        </div>
+        <div class="news-content">
+            中国側が対日輸出管理の目的として主張する「安全保障上の懸念」に対し、駐日米大使は重要鉱物の「政治的武器化」であると批判を表明しました。イットリウムなどの重要資源を巡り、日本国内サプライチェーンや日本企業と取引のある米国サプライヤーへの波及が注視されています。
+        </div>
+        <div class="news-impact">
+            <strong>実務への影響:</strong> レアアース調達網の多角化および代替素材の検討を含むリスクマネジメントの重要性が一段と高まっています。
+        </div>
     </div>
 
+    <!-- Article 3 -->
     <div class="news-card">
         <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOdEI3RkxUZzhTUHYzSEFMMGdxdkdreTlvdHRYOTVsZUk2UXpXNTJOMEZ3azVyelBoRlhLWDRfX0w2QWs0TURDVE5rcWRvODZvejNLLUVCYnR2dEVQOE42bkxPbnYzNWxSQXVCYkxJVzl2UmZ0bno1d2Q6aTE2a1Jvam5LR2ppVEFYY1R2SzhVZWtxc0FFTGl5bzFWSlnSAaIBQVVfeXFMTWZMN0xnYlhiaWx6TjJWQ0ZGV3hWNFlNUnlnNzhKZEhZd0ZWekJaYWo0T0g1dlI4dk9vVXppVUt1NVk4Qm9rQ0YxR2o3N2MyRVZCMWR1azRNa0JKRXZ6bVRTSm5jRVZJdFZCZldldmc1Vms1VmVSZ1hHRmgyeU5LZ1NyTllDblNzaXBUSWZRT1poQThNZUh2UUpnTlBBOGNuUThn?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">米財務省、対抗国への高対外投資を規制する新ルールを提案</a>
-            <span class="news-meta">ABC News / Google News | 2026-10-23</span>
+            <h3 class="news-title">中国商務部、EUによる差別的規制措置への対抗姿勢を表明</h3>
+            <span class="news-tag">中国・EU・貿易規制</span>
         </div>
-        <p class="news-content">米財務省は、中国をはじめとする懸念国に対するハイテク分野での対外投資（Outbound Investment）を強力に制限するための規則案を発表しました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE9jYWhvVXlrYWROV3VTaDh5cDROb3NaU0RXOUo4anRoYk41YUJqX3QzbVNtM2tncXNiYlktcGdmSmJuZUI0SWhrdU1aWFdmSGtBVXU2UWNJdHRKcjlDWVpSWXh5NmFsVzRoSndsVlhkSUt0TmZv?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">東京エレクトロン、半導体輸出管理を巡りロビー活動を強化</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
+        <div class="news-meta">
+            <span>日付: 2026-10-30</span>
+            <span>情報元: 人民網</span>
         </div>
-        <p class="news-content">主要な半導体製造装置メーカーである東京エレクトロンが、米国および国際的な半導体輸出規制に関する政策対応としてロビー活動費用を増額させていると報じられました。</p>
-    </div>
-
-    <!-- カテゴリ 2: 安全保障制裁・回避動向 -->
-    <h2 class="category-title">2. 安全保障制裁・回避動向</h2>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOWHZ6VVBXaDh1SXE5ZTBFa3pJS2ExLWR4b1FFWVJVNlJqRThrWGlxRlVZd0ZKaEhlSnJKMGNPaktXODdmZFR2aWl3WUFlOXNMczFkNXN2SXktQWhvLVJEOFhSaHVaRU96NDlNVWZGdi1mRGo1NHFuSFJKQm1MRHg2NE5jbFVGOTEwd0NRRloxQTd1NlhydW9YaW8zMlRNcFNkVUtpeUNwUDM5MnBNYlozYUVDUQ?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">イスラエル首相の暗号資産活用による制裁回避構想を中銀が否定</a>
-            <span class="news-meta">Google News | 2026-10-25</span>
+        <div class="news-content">
+            欧州連合（EU）がハイブリッド車や化学工業などの分野において中国製品に対する規制措置を拡大・検討している動きに対し、中国商務部は自国産業の正当な権利を主張し、「必要なあらゆる対抗措置を講じる」旨を発表しました。
         </div>
-        <p class="news-content">金融制裁回避のために暗号資産やブロックチェーンを用いた代替経済を構築するネタニヤフ首相の提案に対し、イスラエル中央銀行は「暗号資産で制裁を回避することは不可能」として真っ向から否定しました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOUnVnOEloY0J4aFRTZFZ2N2hTeHBWeUVXV3VPQmR0c04zcFlCdEs0aW1jUDRNM05Za3NMQnhtQ3BmVXNQRUFNMms5eXJJdVE4Q01ud0ZlYVVKOGhhSHBncjFLaVl6djRPb1NPVDZ6MkFtbHlYWmV0cWJ5VEdpTW1adFREWXRHVmUtcjR0MEl5QXhmJnMyamtrTUxiZjZkLTQ?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">トランプ大統領、ロシア制裁法案の発効直前に適用免除措置を実施</a>
-            <span class="news-meta">Google News | 2026-10-24</span>
+        <div class="news-impact">
+            <strong>実務への影響:</strong> 欧州・中国間での貿易摩擦・関税・対抗措置の拡大により、グローバルな製品供給網への更なる配慮が必要となります。
         </div>
-        <p class="news-content">米連邦議会で推進されている新たなロシア制裁関連法案（グラハム法案）の発効直前、トランプ大統領が大統領令を通じて同制裁の免除（ウェーブ）を実施したと報じられました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQWFJtSml5RzlfaXpTWE5sdDctV3U3MEJlOGNISlIwTmd5a2ZxcEFPRXl5WFh3NWNmS0IyOG5EdjhtYnNVWmpHSnQ2RTFxLVpOM0tJaHFfejRBc2MzVXk1dWRPQ2ZFS2lMQTJMaktLcENhWFUxZlhNbk1aenMzYUpIVkFGLV8wNVU?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">北朝鮮のサイバー・IT労働者ネットワークに対する追加制裁が決定</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
-        </div>
-        <p class="news-content">不正なIT労働者ネットワークやサイバー犯罪活動に関与しているとして、北朝鮮に関連する個人2名と2団体が新たに制裁対象に追加されました。</p>
-    </div>
-
-    <!-- カテゴリ 3: 経済安全保障政策・重要サプライチェーン -->
-    <h2 class="category-title">3. 経済安全保障政策・重要サプライチェーン</h2>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://www.jetro.go.jp/biznews/2026/10/5bbba031dfd8b793.html" class="news-title" target="_blank" rel="noopener noreferrer">中国、シールド掘削機の輸出管理を11月より実施へ</a>
-            <span class="news-meta">JETRO | 2026-10-25</span>
-        </div>
-        <p class="news-content">中国商務部と税関総署は、紛争を抱える国・地域などを念頭に、シールド掘削機（トンネル掘削機）に対する輸出管理を11月から運用開始すると発表しました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPVHk5T3YtbWgtM0cxeDlnaC1GQlMxNl9IQzJZaHdPLVZJN3NubmswZkVXMFRKenV4S1dFRHpjQXJLTnVPWVlPWWdqRmxBNl91YkFNVEVUR3hXTlZQVFMtQ0lfWmZ0Yy1NbjNwb0JCSWNsa0daX2FFMDFsbm1vc3BzQnZoWklyVEw2alRGeGN4dngxSk9RaUZLZDhxSQ?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">TSMC、中国産レアアース磁石不使用の製造装置調達を模索</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
-        </div>
-        <p class="news-content">台湾の半導体受託製造大手TSMCが、サプライチェーン上の地政学的リスクを排除するため、中国産レアアース磁石を使用しない半導体製造装置の選定を進めていると報じられました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMiY0FVX3lxTFBhcnhXSlhKU3ZkTzVjQWpwa0VyUm80cUJNNnMyTERNMVB0LUx2RFhSTVgxa0p6RVJoeUptTEJVRWY0VF9nMzI3cW1RSVByRVZzOUhoa3ZUbDNwbV94Z2lMQmNqYw?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">日独首脳が経済安保の包括宣言推進へレアアース連携も視野</a>
-            <span class="news-meta">Google News | 2026-10-24</span>
-        </div>
-        <p class="news-content">日本とドイツの両政府が経済安全保障分野での協力を格上げし、レアアースなど重要鉱物の安定調達や防衛分野の協力を盛り込んだ包括宣言の採択を調整していると伝えられました。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBsQVk0dDlKbDlHYlU1SElmNHBBYXJIelRBTjhGSVAxY2txWHJLX1JHdjdrZS04LVdrcWdPUUQwTG5yUTVXaVo1ZXRmMGc0RW04SW5ZTUNFTldjR1NUb3JfSUFzcjd2dXdPZlhZMw?oc=5" class="news-title" target="_blank" rel="noopener noreferrer">日本政府、経済安保強化へ「実質的支配者」の把握を閣議決定</a>
-            <span class="news-meta">Google News | 2026-10-23</span>
-        </div>
-        <p class="news-content">政府は全法人を対象に、真の所有者や影響力を持つ者を透明化する「実質的支配者」情報の把握に向けた対応方針を閣議決定しました。経済安全保障上のリスク管理の一環と見られます。</p>
-    </div>
-
-    <div class="news-card">
-        <div class="news-header">
-            <a href="https://www.jetro.go.jp/biznews/2026/10/87cda422d8b5738a.html" class="news-title" target="_blank" rel="noopener noreferrer">欧州委、新たな経済安全保障措置の提示を計画</a>
-            <span class="news-meta">JETRO | 2026-10-25</span>
-        </div>
-        <p class="news-content">EUの欧州委員会は、域内の産業基盤や技術を保護するため、新たな経済安全保障イニシアティブおよび関連措置を提案する方針を固めました。</p>
-    </div>
-
-    <div class="notes-section">
-        <h3>備考（レポート編集メモ）</h3>
-        <p>今週（2026年10月19日〜10月25日）の収集データ（計561件）より、政策決定者や企業の安全保障貿易管理担当者にとって重要な動向を抜粋・分類しました。特に先端半導体・AI周辺の米中規制合戦、制裁回避における暗号資産問題、および主要原材料（レアアース等）のサプライチェーン安定化に向けた有志国連携の加速が目立つ週となりました。</p>
     </div>
 
     <footer>
-        <p>&copy; 2026 安全保障・輸出管理ニュースレポート All Rights Reserved.</p>
+        <p>© 2026 安全保障・輸出管理ニュース週刊レポート | 本レポートは公開情報をもとに作成されています。CSIS等の特定ニュースは除外されています。</p>
     </footer>
 </div>
 
