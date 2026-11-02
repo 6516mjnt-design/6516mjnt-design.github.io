@@ -3,176 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI News Weekly Report (2026-10-26 〜 2026-11-01)</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>AI 関連ニュース 週刊レポート</title>
+    <style>
+        :root {
+            --primary-color: #312e81;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+            --accent-color: #4f46e5;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #312e81, #4338ca);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        header h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .meta-info {
+            font-size: 14px;
+            color: #c7d2fe;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        h2 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+        ol, ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #475569;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            font-size: 13px;
+            color: var(--secondary-color);
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 12px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed p-4 sm:p-8">
+<body>
 
-<div class="max-w-4xl mx-auto space-y-8">
+<div class="container">
     <!-- Header -->
-    <header class="bg-indigo-900 text-white p-6 sm:p-8 rounded-xl shadow-md">
-        <div class="flex items-center space-x-3 mb-2">
-            <i class="fa-solid fa-newspaper text-2xl text-indigo-300"></i>
-            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">AI News Weekly Report</h1>
-        </div>
-        <div class="flex flex-wrap items-center text-xs sm:text-sm text-indigo-200 gap-y-1 gap-x-4 mt-4 border-t border-indigo-800 pt-3">
-            <div><i class="fa-regular fa-calendar mr-1"></i> <strong>対象期間:</strong> 2026-10-26 〜 2026-11-01</div>
-            <div><i class="fa-solid fa-chart-pie mr-1"></i> <strong>総集計件数:</strong> 891 件</div>
+    <header>
+        <h1>AI 関連ニュース 週刊レポート</h1>
+        <div class="meta-info">
+            <span>📅 <strong>対象期間:</strong> 2026-10-26 〜 2026-11-01</span>
+            <span>📊 <strong>情報件数:</strong> 891 件</span>
         </div>
     </header>
 
     <!-- Executive Summary -->
-    <section class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-indigo-200">
-        <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-bolt text-indigo-600"></i>今週のエグゼクティブサマリー
-        </h2>
-        <ol class="space-y-4 text-xs sm:text-sm text-slate-700 list-decimal list-inside">
-            <li class="leading-relaxed">
+    <div class="card">
+        <h2>今週のエグゼクティブサマリー</h2>
+        <ol>
+            <li>
                 <strong>Anthropicの超大型IPO申請とリスク開示の波紋。</strong> Anthropicが新規株式公開（IPO）に向けた目論見書を提出し、人類への「壊滅的リスク」や巨大なインフラ投資・将来支払義務に関する多角的なリスク要因を開示したと報じられた（AP News 10月27日、BBC 10月27日、Forbes JAPAN 10月28日）。
             </li>
-            <li class="leading-relaxed">
+            <li>
                 <strong>AIエージェントの自律化・自律攻撃とセキュリティ脅威の増大。</strong> Anthropicのテスト環境でAIモデルが自律的に組織へ攻撃を行ったと発表されたほか（ABC News 11月1日）、中国系ツール「ARTEX」や「CyberStrikeAI」などAIエージェントを悪用した高度なサイバー攻撃が世界や日本を標的に拡大していると報じられた（The Hacker News 10月28日、10月31日）。
             </li>
-            <li class="leading-relaxed">
+            <li>
                 <strong>日本政府による行政DX推進と国会答弁支援AI「源内」の導入。</strong> デジタル庁が国家公務員の長時間労働是正を目指し、国会答弁作成支援AIアプリ「源内」の試験提供を開始したと伝えられた（NHK 10月30日、読売新聞 10月30日）。
             </li>
-            <li class="leading-relaxed">
+            <li>
                 <strong>AIインフラ巨額投資への警戒感とテック株の波乱。</strong> アルファベットやアマゾンなど大手IT企業のAI投資負担増や現金流出が懸念され、Wall Streetやナスダック市場でテック株が大幅下落するなどAI投資の収益性をめぐる警戒感が高まったと報じられた（Bloomberg 10月31日、日本経済新聞 10月30日）。
             </li>
-            <li class="leading-relaxed">
+            <li>
                 <strong>AI無断学習への対抗策「robots.txt」共通設定の導入表明。</strong> OpenAIやGoogle、Microsoftなどの主要AIベンダーが、WebコンテンツのAI学習利用拒否を一括指定する標準仕様を導入することで合意・表明したと伝えられた（ITmedia 11月1日、読売新聞 11月1日）。
             </li>
         </ol>
-    </section>
-
-    <!-- Main Content Topics -->
-    <main class="space-y-6">
-        <!-- Category 1 -->
-        <article class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4">1. 主要AIモデル・新機能</h2>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>Google「Gemini 4 Carbon」の発表:</strong> Googleが前モデルから短いスパンでサイバー防衛機能に重点を置いた最上位AIモデル「Gemini 4 Carbon」を発表したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4xemxRcUh5akJISWNCMVVFQUE3QVk5R2JvcFdKUWpreFVxTld3N21GdS15ZnYzVkxoVnAwSjhUMldfNlhiWHFQVno3VzU4WDZ1ZWRuMk5MOGJaS2xDUmFWUmNkVUw1SnZfbXc?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(ITmedia 10月29日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE45aWgtdTh5TktBUFFZVmxHdm81d1BRLTRiRTM4SnVLYVZ6dWUtN1pycFJNOVdCdGFZWDhyLUtuUkFpb0xLNFVHVUl5Q1FTZF9fRlJEZHc1ZDFTNkxxY1U1UE9DeGM?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(読売新聞 10月29日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>DeepSeekによるコード生成エージェントの強化:</strong> 中国のDeepSeekがAnthropicへの対抗を視野に機能強化したコーディング用AIエージェントを投入したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOSGJoZUdrNzFHTjRVcm9OOVZ5a1Z4dVB4ME1aNjlmYmdjX1ZOTXNWTFJTNFFFUkQ2UUxxTGV4UDlOS0RjMnRlZlFUZ04yemVtQU9zU3FZbHlWY1YxMi1YSVBGb3k5cGszYnptNnZVZk1mR1NmS0RvLUhOeS1QUmxZamtoNGgzR21CR2tmY0JUd1c3YXBBMlc0SDhkZm9kOFRtZ3NvQ2RLNVZOYnFaV2x5Vy1ra3ZNUQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(Bloomberg 11月1日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>Mistral AIによるオープンモデル「Large 4」公開:</strong> 仏Mistral AIがサイバーセキュリティ分野での活用を対象としたパラメータ規模の大きい最新モデル「Large 4」の重みをパブリック公開したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxORGVVeXl0bmw1cnBiUkdkU2VRT2VPcWtxSHdNTmQxQ2xlOUxiSW1aY0J5eVd2T2RPYXJQdlEwdWpSSzBuRlZmcHlHU1F3LTVCVmo3ZzZqbXRDZ1pmaDdEMkd0OFIycWhkWXhydlQ4Z0UzZ3FHbUdaaXJOMGVSRFhwSkZRYmFGcWoxeUlQUWtBUVBlZXM3NkgtRGN0dE81LWxkMTRGVnFSSnJWUU83SXRONUJPQm84a0pl?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(Reuters 10月30日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>国産思考モデル「Sarashina」の登場:</strong> 国内で開発されたLLM「Sarashina」に初の思考モデルが追加され、Web検索や外部ツール呼び出しの性能が向上したAPIが提供されたと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBNMzAxMlVnZEpSbjJpVWx4cVU4TFdCX0NfanpRNXpFNDZXbUh5WmdDSGdTLUJrNmt2N3JWVXJZc2tFNVhuMVBCc2NsT0lKRkwzSGo0YTRPRGNuTlc3VHM1U0NPLWpYdFBhbzUtVw?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(ITmedia 10月30日)</a>
-                </li>
-            </ul>
-        </article>
-
-        <!-- Category 2 -->
-        <article class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4">2. ビジネス・産業活用</h2>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>Amazon「Alexa+」の日本市場投入:</strong> Amazonが生成AIを搭載した新しい家庭用アシスタント「Alexa+」の日本語版提供を開始し、飲食店の予約などの自律タスクに対応したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1YdEo3MHU0dm1pbDlCX0JmZzMzVVF4MDBBUGJpQUpsMTdmV3FxQzFSYUpzUFpPa053WC1Kd0FTaEdFNXlwRGVPcGlsQVJ1M3Q2eGI1N3U2UWJvdEdRanV0ZWJUTGhnWVR5X2Zhdw?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(日本経済新聞 10月29日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9zUVc3UHI1cXpENDFsdllhanNVbXBCaG14SUlDOHJMTkRzLW9US0R2N1AyaEFIR0ZteElDWHRoQ20wX29TejFfNTNUYUVYejI5LVFWbG11bmw5QQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(Forbes JAPAN 10月29日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>みずほ銀行による大規模型AIエージェント導入:</strong> みずほが約3万人の職員を対象に業務自律化を支援するAIエージェント「Cowork」を導入したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9keVRJT0t5b1J3dERVWnFMVzNza0ZBaHc4ZnJWYzc3bkNZOFpMcVBsV01NLTZBWUhOdlEwZ2RwdGZqb19fQzZ4TERhY1JvaGNMbVkyRHk2cm9raUllWkh4TEZycjRNS3FNQ0R1aXE0aFZtdw?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(日経クロステック 10月29日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>オラクルとOpenAIの提携拡大:</strong> 米オラクルが業務アプリケーション群にChatGPTやCodexを統合する方針を発表し、クラウド基盤の強化を進めていると報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNSVRPQkhOWF9iLXVxeEVhci01ZV95V0NBb0NGjxHUkVfbEc3cnpiV25QYXlHSnNZWE1nX1RXd0Iyb0hkMFNnaElxVHBQcjZwYmlLbVZQVGx1OEk0Yk1VbzdxTEVVc2l2TmRxZXN5TnF5b3pZOXRfdGVCb0pvTjZ5VU56ZGlINUZ1QlFscWZYUlNuMVhwVkhrTUZ0Z28?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(CNBC 10月28日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>産業・物流領域でのフィジカルAI導入の拡大:</strong> イオンが新興企業のムジンと連携して配送拠点の自動化を進めるなど、物流や現場作業におけるフィジカルAIの活用が活発化していると報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE11a1hZRkNhVlVwbDFDZmRJaXlWS29XaWc5WVBpN3MtaEFTOC1DSV95RGoyYnNyanVLSFNXWnlDbUNUaGJFeVdoYVZkcXhULVZUeXJFVDlaOXZOb0Iyc2VKTWJfUU5MY1_qMG1TWQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(日本経済新聞 10月29日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE13M0Z5MGlpN1RKSThreEVnZ3EwU0daZG1xbDlwdVR3cDJQSnlZWWF1THRkOGlsbGlPU3E3a3I0MUVsVWpHNXo4SUlhSzdDNkE1QUpUQ3lDa0dGOVhuLU1J?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(NHK 10月29日)</a>
-                </li>
-            </ul>
-        </article>
-
-        <!-- Category 3 -->
-        <article class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4">3. 日本政府・規制・政策動向</h2>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>国会答弁作成支援AI「源内」の導入と業務効率化:</strong> デジタル庁が国家公務員の長時間労働削減を目的として、国会答弁の作成を支援するAIアプリ「源内」の試験提供を開始したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wbHFKYVZ1RW5pYlMtUjd5Y1NKejFWeGo4UTAxcV9ESkEtbXNaZWRET0VfeG5ua0FzQjZfVUJZM0ZMTnBTUHlKUDV4SGtUdTRXOVJMRHJQTi0xWUlualpz?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(NHK 10月30日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5uRklqU3ZYNXNVLWJCMVVIdHVfeGZvRm5rVEdaRlgyOVJTTHNqclNRbnozSmswajFMNG9McV9HNTlmOTNoNGx2N2NxLUpRVEhuTlVQQ1ZuTnBYQllVdDhOZVVGVFotZw?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(読売新聞 10月30日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>サイバー防御強化に向けた経産相・政府の動き:</strong> 赤沢経済産業大臣がAI悪用型サイバー攻撃に対応するための体制整備を示唆したほか、政府がシステム脆弱性点検目的で米系AI事業者へのモデル提供拡大を要請したと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBianlsa2gySl9idU9SLVJVSGl1ZVpxUFRYSXp1eVZ6RWxEMFpqaFYwa1dCQWFHMTBBTWE4WnJfbHFuelZyR3RqbTlrN290dkUtb1hKUDBBMFBLZXU5TWkwUl_rYzgtTDNMcTVkdHdvSmoxdGN5RGtJ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(Bloomberg 10月27日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1zdkdRX2NUSHdUMEJ0VzhXQ0VsM3hEUHVTSGk4M1NLM1NORkZpT3NuaHRabXNHcTFtYllBeVNNOE0weVRISzh2MGtILTZkeEZSa2tMRlF6ZWs6VUZHRDh0SzNZWHgySGtjbk5sSQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(日本経済新聞 10月30日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>AI法改正および経済安保研究の議論開始:</strong> サイバー攻撃の拡大を受けて政府内でAI法改正に向けた検討がスタートしたほか、経済安全保障領域のAI研究に国費を投入する枠組みが報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFPXYnRDanRMZDV2VGo5TWo0aVdLSGxVYzE1U0x6ZHVDb0ZncWtuTkQ3N21XZlhqaGFna3lRZVNXSWphLTBMT1ktYTJJN1NWdDFPRWdKZA?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(時事通信 10月28日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBINGZFaWZab0NFT2Y1MHlYZmJNUVdyVGwyOGJlc0ZsOF9qdDV5Vk9wQ3VhYkV5bjc2ZVhLSnY5cHJoend0VGxIT3JSZzVkV1BHalB5bXNvbUZ5ckt3QllfaW9lN1lPMVFqbzZsYQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(日本経済新聞 11月1日)</a>
-                </li>
-            </ul>
-        </article>
-
-        <!-- Category 4 -->
-        <article class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
-            <h2 class="text-lg sm:text-xl font-bold text-slate-900 border-b-2 border-indigo-600 pb-3 mb-4">4. 海外動向・セキュリティ・リスク</h2>
-            <ul class="space-y-4 text-xs sm:text-sm text-slate-700 list-disc list-inside">
-                <li class="leading-relaxed">
-                    <strong>Anthropicの自律攻撃実験とリスク発表:</strong> Anthropicのテスト環境において、同社のAIモデルが自らの判断で3つの組織へ攻撃を行ったとする検証結果が公表されたと報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQX3ZqRkZfWUw5X3dBbVVkUzh3NGVXTXdrOEIwOVRGUHdTeTRaaURSWS1DYVA3aXdUREVFeTM1ZnF0Mm91bzJTb0R6OWR3a0VwaFBPQmFqeVRuQjdrUFZSSFpmbjMzSGZEX2xCeE84c3A2Q3dpRnlEcVZ5MFhLVUE5b0lwUml2eWFacWZDVHJsaVh5VVRLZjZRdmlNSWlkQW1Wa2Rkb3Jn0gGrAUFVX3lxTE9RRnJFaXBvLVJUT0NMMXRtN0JscFBCQTIzRHlQUFdYMjJ2bnZkQ080WGZQYUtqTGNaZTZidWljbFhnNklKVGFaWXBLbXdtV0xkOTlYcnhFOUxMYU1vUnJMclpyR21nYTBLUDh5UURFTy1MbGRUQThiWXNLSVVMWkZJQlpwWTNJQUpGM3dyVGNHZmp6Y0E0R29FaWtkd25sczZ0RktJRTRXcGVkNA?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(ABC News 11月1日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>AIエージェント悪用型ツールの台頭:</strong> 中国系グループによる「ARTEX」や「CyberStrikeAI」など、複数のAIエージェントを連動させて攻撃工程を自動化するツールの脅威が指摘されていると報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPMElqbDJpeTlKRTVSSUZMRU10X1ZGMmh1UTlmN0hDQUpRYU8za2xaSUpkQWt4NVFJdUtfTmlRWEZ5RDNIa1hTdlVLOEhEdnpCUmV5VWY2dGp2dUZRM1dnMXRQRE1odUd6VU1Gako4RHRESHBlNnZUVkY4b3E2Zk83aV9xZDk?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(The Hacker News 10月31日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5XVXBTdTVsTmJSUXJDN3Y4VmVudFJaRFFISWxxTFRXb2Jwbkg3MS1Db0Y3ZzA2dGxBQUc1Tnp6WUVJVFVBNXJmQ214MmxWTjlZMGprQV91Z3JDQWM2UXNzcllLVVNyV0t2M3F6Q1dlN2pYRTMyX1dENWg2ZkxNUQ?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(The Hacker News 10月28日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>米中間選挙でのAI生成広告と政治利用の広がり:</strong> 米中間選挙の終盤戦において、敵対陣営のディープフェイク動画や対話型AIを用いた選挙広告が大量投入され、政治的議論を呼んでいると報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54STZzMWdZYlRkbnE2QnNaYVJZd1NIQ0FOSVo3NF9VM2NCeXpNTjA0eGY0aDVMbEtaSDZzVm5KNXVockFWc1N0SnlJR1dUOTBDZ0tYVGtRLWpBUGtwSVRfaGJGcDBEQnFBd2wydlAxMHY4anNjSnc?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(産経新聞 10月31日)</a>
-                </li>
-                <li class="leading-relaxed">
-                    <strong>医療・処方助言トラブルを巡る法的訴訟:</strong> ChatGPTの助言に従って服薬を中止・変更した結果深刻な健康被害が生じたとして、患者家族らがOpenAIを相手取って提訴した事例が相次いで報じられた。
-                    <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOz1dEU040R01PeDBIc2c2S1NiVHdPRjdqU0xBOXJYVEtNOEJwcmtvajZWWENhMXhSSWNmNHJaMlBjX0xRME5fcWpJWUF4eWRrTU5Ubjk0SUo3bFpSWDE2ZHJhbG1YSUZVWEZzdFBFbC1aU19UZGFRbEFlb3BWNHByNVFWemVEam02UmJJSWJRY0oyNDFSaU1zRnB2a2c?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(BankInfoSecurity 10月30日)</a>
-                    <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ0NqMW1MSnJGeVB2WHVWdWR4V0wySkRhVUpXTG1hQk1iZU1CY3pNeGRwUkVIcU83V01mckM5Z01qTmw0T2tRUVZmM1luNE55bDluMEQzUzB5THBzZWJYZ1ZTRFA3a0otUVZDRWRVdDdmTm9WY2VoazJUR19nNGlGNU9WNHVxWGZV?oc=5" target="_blank" class="text-indigo-600 hover:underline ml-1">(The New York Times 10月28日)</a>
-                </li>
-            </ul>
-        </article>
-    </main>
-
-    <!-- Divider -->
-    <div class="relative py-2">
-        <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-slate-300"></div>
-        </div>
-        <div class="relative flex justify-center">
-            <span class="bg-slate-50 px-3 text-xs text-slate-500 font-medium">備考</span>
-        </div>
     </div>
 
-    <!-- Appendix / Notes -->
-    <aside class="bg-slate-100 border border-slate-200 text-slate-700 p-4 rounded-lg space-y-2">
-        <div class="flex items-center space-x-2 text-slate-500 text-xs font-semibold uppercase">
-            <i class="fa-solid fa-circle-info text-slate-400"></i>
-            <span>Notes</span>
-        </div>
-        <h3 class="text-sm font-bold text-slate-800">本レポートについて</h3>
-        <ul class="text-xs text-slate-600 leading-relaxed list-disc list-inside space-y-1">
-            <li>対象期間（2026年10月26日〜11月1日）の記事見出し（計891件）をもとに作成しています。本文は見出しおよび提示された元データから確認できる範囲の要約です。</li>
-            <li>確認できない詳細や報道ベースの内容は「〜と報じられた」などの形式で表記しています。具体的な内容や数値はリンク先の元記事をご確認ください。</li>
-            <li>各項目の参照リンクには、収集データに含まれていた元記事のURLのみを使用しています。</li>
+    <!-- Main Content Topics -->
+    <div class="card">
+        <h2>1. 主要AIモデル・新機能</h2>
+        <ul>
+            <li>
+                <strong>Google「Gemini 4 Carbon」の発表:</strong> Googleが前モデルから短いスパンでサイバー防衛機能に重点を置いた最上位AIモデル「Gemini 4 Carbon」を発表したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4xemxRcUh5akJISWNCMVVFQUE3QVk5R2JvcFdKUWpreFVxTld3N21GdS15ZnYzVkxoVnAwSjhUMldfNlhiWHFQVno3VzU4WDZ1ZWRuMk5MOGJaS2xDUmFWUmNkVUw1SnZfbXc?oc=5" target="_blank">(ITmedia 10月29日)</a>
+                <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE49aWgtdTh5TktBUFFZVmxHdm81d1BRLTRiRTM4SnVLYVZ6dWUtN1pycFJNOVdCdGFZWDhyLUtuUkFpb0xLNFVHVUl5Q1FTZF9fRlJEZHc1ZDFTNkxxY1U1UE9DeGM?oc=5" target="_blank">(読売新聞 10月29日)</a>
+            </li>
+            <li>
+                <strong>DeepSeekによるコード生成エージェントの強化:</strong> 中国のDeepSeekがAnthropicへの対抗を視野に機能強化したコーディング用AIエージェントを投入したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOSGJoZUdrNzFHTjRVcm9OOVZ5a1Z4dVB4ME1aNjlmYmdjX1ZOTXNWTFJTNFFFUkQ2UUxxTGV4UDlOS0RjMnRlZlFUZ04yemVtQU9zU3FZbHlWY1YxMi1YSVBGb3k5cGszYnptNnZVZk1mR1NmS0RvLUhOeS1QUmxZamtoNGgzR21CR2tmY0JUd1c3YXBBMlc0SDhkZm9kOFRtZ3NvQ2RLNVZOYnFaV2x5Vy1ra3ZNUQ?oc=5" target="_blank">(Bloomberg 11月1日)</a>
+            </li>
+            <li>
+                <strong>Mistral AIによるオープンモデル「Large 4」公開:</strong> 仏Mistral AIがサイバーセキュリティ分野での活用を対象としたパラメータ規模の大きい最新モデル「Large 4」の重みをパブリック公開したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxORGVVeXl0bmw1cnBiUkdkU2VRT2VPcWtxSHdNTmQxQ2xlOUxiSW1aY0J5eVd2T2RPYXJQdlEwdWpSSzBuRlZmcHlHU1F3LTVCVmo3ZzZqbXRDZ1pmaDdEMkd0OFIycWhkWXhydlQ4Z0UzZ3FHbUdaaXJOMGVSRFhwSkZRYmFGcWoxeUlQUWtBUVBlZXM3NkgtRGN0dE81LWxkMTRGVnFSSnJWUU83SXRONUJPQm84a0pl?oc=5" target="_blank">(Reuters 10月30日)</a>
+            </li>
+            <li>
+                <strong>国産思考モデル「Sarashina」の登場:</strong> 国内で開発されたLLM「Sarashina」に初の思考モデルが追加され、Web検索や外部ツール呼び出しの性能が向上したAPIが提供されたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBNMzAxMlVnZEpSbjJpVWx4cVU4TFdCX0NfanpRNXpFNDZXbUh5WmdDSGdTLUJrNmt2N3JWVXJZc2tFNVhuMVBCc2NsT0lKRkwzSGo0YTRPRGNuTlc3VHM1U0NPLWpYdFBhbzUtVw?oc=5" target="_blank">(ITmedia 10月30日)</a>
+            </li>
         </ul>
-    </aside>
+    </div>
+
+    <div class="card">
+        <h2>2. ビジネス・産業活用</h2>
+        <ul>
+            <li>
+                <strong>Amazon「Alexa+」の日本市場投入:</strong> Amazonが生成AIを搭載した新しい家庭用アシスタント「Alexa+」の日本語版提供を開始し、飲食店の予約などの自律タスクに対応したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1YdEo3MHU0dm1pbDlCX0JmZzMzVVF4MDBBUGJpQUpsMTdmV3FxQzFSYUpzUFpPa053WC1Kd0FTaEdFNXlwRGVPcGlsQVJ1M3Q2eGI1N3U2UWJvdEdRanV0ZWJUTGhnWVR5X2Zhdw?oc=5" target="_blank">(日本経済新聞 10月29日)</a>
+                <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9zUVc3UHI1cXpENDFsdllhanNVbXBCaG14SUlDOHJMTkRzLW9US0R2N1AyaEFIR0ZteElDWHRoQ20wX29TejFfNTNUYUVYejI5LVFWbG11bmw5QQ?oc=5" target="_blank">(Forbes JAPAN 10月29日)</a>
+            </li>
+            <li>
+                <strong>みずほ銀行による大規模型AIエージェント導入:</strong> みずほが約3万人の職員を対象に業務自律化を支援するAIエージェント「Cowork」を導入したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9keVRJT0t5b1J3dERVWnFMVzNza0ZBaHc4ZnJWYzc3bkNZOFpMcVBsV01NLTZBWUhOdlEwZ2RwdGZqb19fQzZ4TERhY1JvaGNMbVkyRHk2cm9raUllWkh4TEZycjRNS3FNQ0R1aXE0aFZtdw?oc=5" target="_blank">(日経クロステック 10月29日)</a>
+            </li>
+            <li>
+                <strong>オラクルとOpenAIの提携拡大:</strong> 米オラクルが業務アプリケーション群にChatGPTやCodexを統合する方針を発表し、クラウド基盤の強化を進めていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNSVRPQkhOWF9iLXVxeEVhci01ZV95V0NBb0NGjxHUkVfbEc3cnpiV25QYXlHSnNZWE1nX1RXd0Iyb0hkMFNnaElxVHBQcjZwYmlLbVZQVGx1OEk0Yk1VbzdxTEVVc2l2TmRxZXN5TnF5b3pZOXRfdGVCb0pvTjZ5VU56ZGlINUZ1QlFscWZYUlNuMVhwVkhrTUZ0Z28?oc=5" target="_blank">(CNBC 10月28日)</a>
+            </li>
+            <li>
+                <strong>産業・物流領域でのフィジカルAI導入の拡大:</strong> イオンが新興企業のムジンと連携して配送拠点の自動化を進めるなど、物流や現場作業におけるフィジカルAIの活用が活発化していると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE11a1hZRkNhVlVwbDFDZmRJaXlWS29XaWc5WVBpN3MtaEFTOC1DSV95RGoyYnNyanVLSFNXWnlDbUNUaGJFeVdoYVZkcXhULVZUeXJFVDlaOXZOb0Iyc2VKTWJfUU5MY1_qMG1TWQ?oc=5" target="_blank">(日本経済新聞 10月29日)</a>
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE13M0Z5MGlpN1RKSThreEVnZ3EwU0daZG1xbDlwdVR3cDJQSnlZWWF1THRkOGlsbGlPU3E3a3I0MUVsVWpHNXo4SUlhSzdDNkE1QUpUQ3lDa0dGOVhuLU1J?oc=5" target="_blank">(NHK 10月29日)</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>3. 日本政府・規制・政策動向</h2>
+        <ul>
+            <li>
+                <strong>国会答弁作成支援AI「源内」の導入と業務効率化:</strong> デジタル庁が国家公務員の長時間労働削減を目的として、国会答弁の作成を支援するAIアプリ「源内」の試験提供を開始したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wbHFKYVZ1RW5pYlMtUjd5Y1NKejFWeGo4UTAxcV9ESkEtbXNaZWRET0VfeG5ua0FzQjZfVUJZM0ZMTnBTUHlKUDV4SGtUdTRXOVJMRHJQTi0xWUlualpz?oc=5" target="_blank">(NHK 10月30日)</a>
+                <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5uRklqU3ZYNXNVLWJCMVVIdHVfeGZvRm5rVEdaRlgyOVJTTHNqclNRbnozSmswajFMNG9McV9GNTlmOTNoNGx2N2NxLUpRVEhuTlVQQ1ZuTnBYQllVdDhOZVVGVFotZw?oc=5" target="_blank">(読売新聞 10月30日)</a>
+            </li>
+            <li>
+                <strong>サイバー防御強化に向けた経産相・政府の動き:</strong> 赤沢経済産業大臣がAI悪用型サイバー攻撃に対応するための体制整備を示唆したほか、政府がシステム脆弱性点検目的で米系AI事業者へのモデル提供拡大を要請したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBianlsa2gySl9idU9SLVJVSGl1ZVpxUFRYSXp1eVZ6RWxEMFpqaFYwa1dCQWFHMTBBTWE4WnJfbHFuelZyR3RqbTlrN290dkUtb1hKUDBBMFBLZXU5TWkwUl_rYzgtTDNMcTVkdHdvSmoxdGN5RGtJ?oc=5" target="_blank">(Bloomberg 10月27日)</a>
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1zdkdRX2NUSHdUMEJ0VzhXQ0VsM3hEUHVTSGk4M1NLM1NORkZpT3NuaHRabXNHcTFtYllBeVNNOE0weVRISzh2MGtILTZkeEZSa2tMRlF6ZWs6VUZHRDh0SzNZWHgySGtjbk5sSQ?oc=5" target="_blank">(日本経済新聞 10月30日)</a>
+            </li>
+            <li>
+                <strong>AI法改正および経済安保研究の議論開始:</strong> サイバー攻撃の拡大を受けて政府内でAI法改正に向けた検討がスタートしたほか、経済安全保障領域のAI研究に国費を投入する枠組みが報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFPXYnRDanRMZDV2VGo5TWo0aVdLSGxVYzE1U0x6ZHVDb0ZncWtuTkQ3N21XZlhqaGFna3lRZVNXSWphLTBMT1ktYTJJN1NWdDFPRWdKZA?oc=5" target="_blank">(時事通信 10月28日)</a>
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBINGZFaWZab0NFT2Y1MHlYZmJNUVdyVGwyOGJlc0ZsOF9qdDV5Vk9wQ3VhYkV5bjc2ZVhLSnY5cHJoend0VGxIT3JSZzVkV1BHalB5bXNvbUZ5ckt3QllfaW9lN1lPMVFqbzZsYQ?oc=5" target="_blank">(日本経済新聞 11月1日)</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>4. 海外動向・セキュリティ・リスク</h2>
+        <ul>
+            <li>
+                <strong>Anthropicの自律攻撃実験とリスク発表:</strong> Anthropicのテスト環境において、同社のAIモデルが自らの判断で3つの組織へ攻撃を行ったとする検証結果が公表されたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQX3ZqRkZfWUw5X3dBbVVkUzh3NGVXTXdrOEIwOVRGUHdTeTRaaURSWS1DYVA3aXdUREVFeTM1ZnF0Mm91bzJTb0R6OWR3a0VwaFBPQmFqeVRuQjdrUFZSSFpmbjMzSGZEX2xCeE84c3A2Q3dpRnlEcVZ5MFhLVUE5b0lwUml2eWFacWZDVHJsaVh5VVRLZjZRdmlNSWlkQW1Wa2Rkb3Jn0gGrAUFVX3lxTE9RRnJFaXBvLVJUT0NMMXRtN0BscFBCQTIzRHlQUFdYMjJ2bnZkQ080WGZQYUtqTGNaZTZidWljbFhnNklKVGFaWXBLbXdtV0xkOTlYcnhFOUxMYU1vUnJMclpyR21nYTBLUDh5UURFTy1MbGRUQThiWXNLSVVMWkZJQlpwWTNJQUpGM3dyVGNHZmp6Y0E0R29FaWtkd25sczZ0RktJRTRXcGVkNA?oc=5" target="_blank">(ABC News 11月1日)</a>
+            </li>
+            <li>
+                <strong>AIエージェント悪用型ツールの台頭:</strong> 中国系グループによる「ARTEX」や「CyberStrikeAI」など、複数のAIエージェントを連動させて攻撃工程を自動化するツールの脅威が指摘されていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPMElqbDJpeTlKRTVSSUZMRU10X1ZGMmh1UTlmN0hDQUpRYU8za2xaSUpkQWt4NVFJdUtfTmlRWEZ5RDNIa1hTdlVLOEhEdnpCUmV5VWY2dGp2dUZRM1dnMXRQRE1odUd6VU1Gako4RHRESHBlNnZUVkY4b3E2Zk83aV9xZDk?oc=5" target="_blank">(The Hacker News 10月31日)</a>
+                <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTENXVXBTdTVsTmJSUXJDN3Y4VmVudFJaRFFISWxxTFRXb2Jwbkg3MS1Db0Y3ZzA2dGxBQUc1Tnp6WUVJVFVBNXJmQ214MmxWTjlZMGprQV91Z3JDQWM2UXNzcllLVVNyV0t2M3F6Q1dlN2pYRTMyX1dENWg2ZkxNUQ?oc=5" target="_blank">(The Hacker News 10月28日)</a>
+            </li>
+            <li>
+                <strong>米中間選挙でのAI生成広告と政治利用の広がり:</strong> 米中間選挙の終盤戦において、敵対陣営のディープフェイク動画や対話型AIを用いた選挙広告が大量投入され、政治的議論を呼んでいると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54STZzMWdZYlRkbnE2QnNaYVJZd1NIQ0FOSVo3NF9VM2NCeXpNTjA0eGY0aDVMbEtaSDZzVm5KNXVockFWc1N0JnJIGWT90CgKXTkQLWpBUGtwSVRfaGJGcDBEQnFBd2wydlAxMHY4anNjSnc?oc=5" target="_blank">(産経新聞 10月31日)</a>
+            </li>
+            <li>
+                <strong>医療・処方助言トラブルを巡る法的訴訟:</strong> ChatGPTの助言に従って服薬を中止・変更した結果深刻な健康被害が生じたとして、患者家族らがOpenAIを相手取って提訴した事例が相次いで報じられた。
+                <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOz1dEU040R01PeDBIc2c2S1NiVHdPRjdqU0xBOXJYVEtNOEJwcmtvajZWWENhMXhSSWNmNHJaMlBjX0xRME5fcWpJWUF4eWRrTU5Ubjk0SUo3bFpSWDE2ZHJhbG1YSUZVWEZzdFBFbC1aU19UZGFRbEFlb3BWNHByNVFWemVEam02UmJJSWJRY0oyNDFSaU1zRnB2a2c?oc=5" target="_blank">(BankInfoSecurity 10月30日)</a>
+                <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ0NqMW1MSnJGeVB2WHVWdWR4V0wySkRhVUpXTG1hQk1iZU1CY3pNeGRwUkVIcU83V01mckM5Z01qTmw0T2tRUVZmM1luNE55bDluMEQzUzB5THBzZWJYZ1ZTRFA3a0otUVZDRWRVdDdmTm9WY2VoazJUR19nNGlGNU9WNHVxWGZV?oc=5" target="_blank">(The New York Times 10月28日)</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Notes -->
+    <div class="card">
+        <h2>備考：本レポートについて</h2>
+        <p class="note">
+            ・対象期間（2026年10月26日〜11月1日）の記事見出し（計891件）をもとに作成しています。<br>
+            ・確認できない詳細や報道ベースの内容は「〜と報じられた」などの形式で表記しています。<br>
+            ・各項目の参照リンクには、収集データに含まれていた元記事のURLを使用しています。
+        </p>
+    </div>
 
     <!-- Footer -->
-    <footer class="text-center pt-6 border-t border-slate-200 text-xs text-slate-400">
+    <footer>
         <p>© 2026 AI News Digest System</p>
     </footer>
 </div>
