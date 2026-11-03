@@ -64,6 +64,11 @@
             border-left: 4px solid var(--accent-color);
             padding-left: 10px;
         }
+        .chapter-count {
+            font-size: 13px;
+            color: var(--secondary-color);
+            margin: -8px 0 15px 14px;
+        }
         ol, ul {
             margin: 0;
             padding-left: 20px;
@@ -78,6 +83,10 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        .src {
+            font-size: 13px;
+            color: var(--secondary-color);
         }
         .note {
             font-size: 13px;
@@ -101,7 +110,7 @@
         <h1>AI 関連ニュース 週刊レポート</h1>
         <div class="meta-info">
             <span>📅 <strong>対象期間:</strong> 2026-10-26 〜 2026-11-01</span>
-            <span>📊 <strong>情報件数:</strong> 891 件</span>
+            <span>📊 <strong>情報件数:</strong> 1005 件（AI 992件 / Web脆弱性 13件）</span>
         </div>
     </header>
 
@@ -110,112 +119,165 @@
         <h2>今週のエグゼクティブサマリー</h2>
         <ol>
             <li>
-                <strong>Anthropicの超大型IPO申請とリスク開示の波紋。</strong> Anthropicが新規株式公開（IPO）に向けた目論見書を提出し、人類への「壊滅的リスク」や巨大なインフラ投資・将来支払義務に関する多角的なリスク要因を開示したと報じられた（AP News 10月27日、BBC 10月27日、Forbes JAPAN 10月28日）。
+                <strong>Anthropicの新規株式公開（IPO）申請と、リスク開示への注目。</strong> Anthropicが上場に向けた届出書類を提出し、AIの「壊滅的なリスク」などに言及したと報じられた（AP News・BBC 10月27日）。
             </li>
             <li>
-                <strong>AIエージェントの自律化・自律攻撃とセキュリティ脅威の増大。</strong> Anthropicのテスト環境でAIモデルが自律的に組織へ攻撃を行ったと発表されたほか（ABC News 11月1日）、中国系ツール「ARTEX」や「CyberStrikeAI」などAIエージェントを悪用した高度なサイバー攻撃が世界や日本を標的に拡大していると報じられた（The Hacker News 10月28日、10月31日）。
+                <strong>AIを使ったサイバー攻撃の拡大。</strong> 中国系グループがAIを活用したツール「ARTEX」で200以上の組織を狙ったと報じられ（The Hacker News 10月31日）、AIエージェントを多数連動させる「CyberStrikeAI」が日本を標的にしていると伝えられた（The Hacker News 10月28日）。
             </li>
             <li>
-                <strong>日本政府による行政DX推進と国会答弁支援AI「源内」の導入。</strong> デジタル庁が国家公務員の長時間労働是正を目指し、国会答弁作成支援AIアプリ「源内」の試験提供を開始したと伝えられた（NHK 10月30日、読売新聞 10月30日）。
+                <strong>PHP脆弱性「PHP2Shell」の実被害。</strong> 米CISAが関連する2件の脆弱性について実際の悪用を確認したと報じられ（BleepingComputer 10月27日）、国内では全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。
             </li>
             <li>
-                <strong>AIインフラ巨額投資への警戒感とテック株の波乱。</strong> アルファベットやアマゾンなど大手IT企業のAI投資負担増や現金流出が懸念され、Wall Streetやナスダック市場でテック株が大幅下落するなどAI投資の収益性をめぐる警戒感が高まったと報じられた（Bloomberg 10月31日、日本経済新聞 10月30日）。
+                <strong>国会答弁作成支援AI「源内」の試験提供。</strong> デジタル庁が国家公務員の長時間労働是正を目指し、答弁作成を支援するAIアプリの提供を始めたと報じられた（NHK 10月30日）。
             </li>
             <li>
-                <strong>AI無断学習への対抗策「robots.txt」共通設定の導入表明。</strong> OpenAIやGoogle、Microsoftなどの主要AIベンダーが、WebコンテンツのAI学習利用拒否を一括指定する標準仕様を導入することで合意・表明したと伝えられた（ITmedia 11月1日、読売新聞 11月1日）。
+                <strong>AI学習への利用拒否を一括指定する仕組みの動き。</strong> OpenAIやGoogleなどが、Webサイトの学習利用拒否を「robots.txt」で一括指定する共通仕様に対応すると表明したと報じられた（ITmedia 11月1日）。
             </li>
         </ol>
     </div>
 
-    <!-- Main Content Topics -->
+    <!-- 1. Main Models -->
     <div class="card">
         <h2>1. 主要AIモデル・新機能</h2>
+        <p class="chapter-count">AIの章（992件）から抜粋</p>
         <ul>
             <li>
-                <strong>Google「Gemini 4 Carbon」の発表:</strong> Googleが前モデルから短いスパンでサイバー防衛機能に重点を置いた最上位AIモデル「Gemini 4 Carbon」を発表したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4xemxRcUh5akJISWNCMVVFQUE3QVk5R2JvcFdKUWpreFVxTld3N21GdS15ZnYzVkxoVnAwSjhUMldfNlhiWHFQVno3VzU4WDZ1ZWRuMk5MOGJaS2xDUmFWUmNkVUw1SnZfbXc?oc=5" target="_blank">(ITmedia 10月29日)</a>
-                <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE49aWgtdTh5TktBUFFZVmxHdm81d1BRLTRiRTM4SnVLYVZ6dWUtN1pycFJNOVdCdGFZWDhyLUtuUkFpb0xLNFVHVUl5Q1FTZF9fRlJEZHc1ZDFTNkxxY1U1UE9DeGM?oc=5" target="_blank">(読売新聞 10月29日)</a>
+                <strong>Google「Gemini 4 Carbon」の発表:</strong> サイバー防御に重点を置いた上位モデルを発表したと報じられた（ITmedia 10月29日）。前モデルからの投入期間が短い点も報じられている。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4xemxRcUh5akJISWNCMVVFQUE3QVk5R2JvcFdKUWpreFVxTld3N21GdS15ZnYzVkxoVnAwSjhUMldfNlhiWHFQVno3VzU4WDZ1ZWRuMk5MOGJaS2xDUmFWUmNkVUw1SnZfbXc?oc=5" target="_blank">（ITmedia 10月29日）</a>
             </li>
             <li>
-                <strong>DeepSeekによるコード生成エージェントの強化:</strong> 中国のDeepSeekがAnthropicへの対抗を視野に機能強化したコーディング用AIエージェントを投入したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOSGJoZUdrNzFHTjRVcm9OOVZ5a1Z4dVB4ME1aNjlmYmdjX1ZOTXNWTFJTNFFFUkQ2UUxxTGV4UDlOS0RjMnRlZlFUZ04yemVtQU9zU3FZbHlWY1YxMi1YSVBGb3k5cGszYnptNnZVZk1mR1NmS0RvLUhOeS1QUmxZamtoNGgzR21CR2tmY0JUd1c3YXBBMlc0SDhkZm9kOFRtZ3NvQ2RLNVZOYnFaV2x5Vy1ra3ZNUQ?oc=5" target="_blank">(Bloomberg 11月1日)</a>
+                <strong>Mistral AIのオープンモデル「Large 4」:</strong> サイバーセキュリティ分野の利用者を対象に公開されたと報じられた（Reuters 10月30日）。
+                <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxORGVVeXl0bmw1cnBiUkdkU2VRT2VPcWtxSHdNTmQxQ2xlOUxiSW1aY0J5eVd2T2RPYXJQdlEwdWpSSzBuRlZmcHlHU1F3LTVCVmo3ZzZqbXRDZ1pmaDdEMkd0OFIycWhkWXhydlQ4Z0UzZ3FHbUdaaXJOMGVSRFhwSkZRYmFGcWoxeUlQUWtBUVBlZXM3NkgtRGN0dE81LWxkMTRGVnFSSnJWUU83SXRONUJPQm84a0pl?oc=5" target="_blank">（Reuters 10月30日）</a>
             </li>
             <li>
-                <strong>Mistral AIによるオープンモデル「Large 4」公開:</strong> 仏Mistral AIがサイバーセキュリティ分野での活用を対象としたパラメータ規模の大きい最新モデル「Large 4」の重みをパブリック公開したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxORGVVeXl0bmw1cnBiUkdkU2VRT2VPcWtxSHdNTmQxQ2xlOUxiSW1aY0J5eVd2T2RPYXJQdlEwdWpSSzBuRlZmcHlHU1F3LTVCVmo3ZzZqbXRDZ1pmaDdEMkd0OFIycWhkWXhydlQ4Z0UzZ3FHbUdaaXJOMGVSRFhwSkZRYmFGcWoxeUlQUWtBUVBlZXM3NkgtRGN0dE81LWxkMTRGVnFSSnJWUU83SXRONUJPQm84a0pl?oc=5" target="_blank">(Reuters 10月30日)</a>
+                <strong>国産LLM「Sarashina」の思考モデル:</strong> 初の思考モデルが追加され、ツール呼び出しやWeb検索の性能が向上したAPIとして提供されたと報じられた（ITmedia 10月30日）。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBNMzAxMlVnZEpSbjJpVWx4cVU4TFdCX0NfanpRNXpFNDZXbUh5WmdDSGdTLUJrNmt2N3JWVXJZc2tFNVhuMVBCc2NsT0lKRkwzSGo0YTRPRGNuTlc3VHM1U0NPLWpYdFBhbzUtVw?oc=5" target="_blank">（ITmedia 10月30日）</a>
             </li>
             <li>
-                <strong>国産思考モデル「Sarashina」の登場:</strong> 国内で開発されたLLM「Sarashina」に初の思考モデルが追加され、Web検索や外部ツール呼び出しの性能が向上したAPIが提供されたと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBNMzAxMlVnZEpSbjJpVWx4cVU4TFdCX0NfanpRNXpFNDZXbUh5WmdDSGdTLUJrNmt2N3JWVXJZc2tFNVhuMVBCc2NsT0lKRkwzSGo0YTRPRGNuTlc3VHM1U0NPLWpYdFBhbzUtVw?oc=5" target="_blank">(ITmedia 10月30日)</a>
+                <strong>DeepSeekのコーディング用エージェント:</strong> Anthropicへの対抗を意識した機能強化版を公開したと報じられた（Bloomberg 11月1日）。
+                <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOSGJoZUdrNzFHTjRVcm9OOVZ5a1Z4dVB4ME1aNjlmYmdjX1ZOTXNWTFJTNFFFUkQ2UUxxTGV4UDlOS0RjMnRlWlFUZ04yemVtQU9zU3FZbHlWY1YxMi1YSVBGb3k5cGszYnptNnZVZk1mR1NmS0RvLUhOeS1QUmxZamtoNGgzR21CR2tmY0JUd1c3YXBBMlc0SDhkZm9kOFRtZ3NvQ2RLNVZOYnFaV2x5Vy1ra3ZNUQ?oc=5" target="_blank">（Bloomberg 11月1日）</a>
             </li>
         </ul>
     </div>
 
+    <!-- 2. Business -->
     <div class="card">
         <h2>2. ビジネス・産業活用</h2>
+        <p class="chapter-count">AIの章（992件）から抜粋</p>
         <ul>
             <li>
-                <strong>Amazon「Alexa+」の日本市場投入:</strong> Amazonが生成AIを搭載した新しい家庭用アシスタント「Alexa+」の日本語版提供を開始し、飲食店の予約などの自律タスクに対応したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1YdEo3MHU0dm1pbDlCX0JmZzMzVVF4MDBBUGJpQUpsMTdmV3FxQzFSYUpzUFpPa053WC1Kd0FTaEdFNXlwRGVPcGlsQVJ1M3Q2eGI1N3U2UWJvdEdRanV0ZWJUTGhnWVR5X2Zhdw?oc=5" target="_blank">(日本経済新聞 10月29日)</a>
-                <a href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE9zUVc3UHI1cXpENDFsdllhanNVbXBCaG14SUlDOHJMTkRzLW9US0R2N1AyaEFIR0ZteElDWHRoQ20wX29TejFfNTNUYUVYejI5LVFWbG11bmw5QQ?oc=5" target="_blank">(Forbes JAPAN 10月29日)</a>
+                <strong>Amazon「Alexa+」の日本語版:</strong> 生成AIを搭載した家庭用アシスタントの提供が始まり、飲食店の予約など自律的なタスクに対応したと報じられた（日本経済新聞 10月29日）。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1YdEo3MHU0dm1pbDlCX0JmZzMzVVF4MDBBUGJpQUpsMTdmV3FxQzFSYUpzUFpPa053WC1Kd0FTaEdFNXlwRGVPcGlsQVJ1M3Q2eGI1N3U2UWJvdEdRanV0ZWJUTGhnWVR5X2Zhdw?oc=5" target="_blank">（日本経済新聞 10月29日）</a>
             </li>
             <li>
-                <strong>みずほ銀行による大規模型AIエージェント導入:</strong> みずほが約3万人の職員を対象に業務自律化を支援するAIエージェント「Cowork」を導入したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9keVRJT0t5b1J3dERVWnFMVzNza0ZBaHc4ZnJWYzc3bkNZOFpMcVBsV01NLTZBWUhOdlEwZ2RwdGZqb19fQzZ4TERhY1JvaGNMbVkyRHk2cm9raUllWkh4TEZycjRNS3FNQ0R1aXE0aFZtdw?oc=5" target="_blank">(日経クロステック 10月29日)</a>
+                <strong>みずほ銀行のAIエージェント導入:</strong> 約3万人の職員を対象に、非定型業務を含む業務の自律化を支援するエージェント「Cowork」を導入したと報じられた（日経クロステック 10月29日）。
+                <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9keVRJT0t5b1J3dERVWnFMVzNza0ZBaHc4ZnJWYzc3bkNZOFpMcVBsV01NLTZBWUhOdlEwZ2RwdGZqb19fQzZ4TERhY1JvaGNMbVkyRHk2cm9raUllWkh4TEZycjRNS3FNQ0R1aXE0aFZtdw?oc=5" target="_blank">（日経クロステック 10月29日）</a>
             </li>
             <li>
-                <strong>オラクルとOpenAIの提携拡大:</strong> 米オラクルが業務アプリケーション群にChatGPTやCodexを統合する方針を発表し、クラウド基盤の強化を進めていると報じられた。
-                <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNSVRPQkhOWF9iLXVxeEVhci01ZV95V0NBb0NGjxHUkVfbEc3cnpiV25QYXlHSnNZWE1nX1RXd0Iyb0hkMFNnaElxVHBQcjZwYmlLbVZQVGx1OEk0Yk1VbzdxTEVVc2l2TmRxZXN5TnF5b3pZOXRfdGVCb0pvTjZ5VU56ZGlINUZ1QlFscWZYUlNuMVhwVkhrTUZ0Z28?oc=5" target="_blank">(CNBC 10月28日)</a>
+                <strong>オラクルとOpenAIの提携拡大:</strong> 業務アプリケーションにChatGPTなどを組み込む方針が示されたと報じられた（CNBC 10月28日）。
             </li>
             <li>
-                <strong>産業・物流領域でのフィジカルAI導入の拡大:</strong> イオンが新興企業のムジンと連携して配送拠点の自動化を進めるなど、物流や現場作業におけるフィジカルAIの活用が活発化していると報じられた。
-                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE11a1hZRkNhVlVwbDFDZmRJaXlWS29XaWc5WVBpN3MtaEFTOC1DSV95RGoyYnNyanVLSFNXWnlDbUNUaGJFeVdoYVZkcXhULVZUeXJFVDlaOXZOb0Iyc2VKTWJfUU5MY1_qMG1TWQ?oc=5" target="_blank">(日本経済新聞 10月29日)</a>
-                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE13M0Z5MGlpN1RKSThreEVnZ3EwU0daZG1xbDlwdVR3cDJQSnlZWWF1THRkOGlsbGlPU3E3a3I0MUVsVWpHNXo4SUlhSzdDNkE1QUpUQ3lDa0dGOVhuLU1J?oc=5" target="_blank">(NHK 10月29日)</a>
+                <strong>物流現場でのフィジカルAI活用:</strong> イオンが新興企業と組み、次世代の物流拠点を8割自動化する計画を進めていると報じられた（日本経済新聞 10月29日）。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE11a1hZRkNhVlVwbDFDZmRJaXlWS29XaWc5WVBpN3MtaEFTOC1DSV95RGoyYnNyanVLSFNXWnlDbUNUaGJFeVdoYVZkcXhULVZUeXJFVDlaOXZOb0Iyc2VKTWJfUU5MY19qMG1TWQ?oc=5" target="_blank">（日本経済新聞 10月29日）</a>
             </li>
         </ul>
     </div>
 
+    <!-- 3. Japan Gov -->
     <div class="card">
         <h2>3. 日本政府・規制・政策動向</h2>
+        <p class="chapter-count">AIの章（992件）から抜粋</p>
         <ul>
             <li>
-                <strong>国会答弁作成支援AI「源内」の導入と業務効率化:</strong> デジタル庁が国家公務員の長時間労働削減を目的として、国会答弁の作成を支援するAIアプリ「源内」の試験提供を開始したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wbHFKYVZ1RW5pYlMtUjd5Y1NKejFWeGo4UTAxcV9ESkEtbXNaZWRET0VfeG5ua0FzQjZfVUJZM0ZMTnBTUHlKUDV4SGtUdTRXOVJMRHJQTi0xWUlualpz?oc=5" target="_blank">(NHK 10月30日)</a>
-                <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5uRklqU3ZYNXNVLWJCMVVIdHVfeGZvRm5rVEdaRlgyOVJTTHNqclNRbnozSmswajFMNG9McV9GNTlmOTNoNGx2N2NxLUpRVEhuTlVQQ1ZuTnBYQllVdDhOZVVGVFotZw?oc=5" target="_blank">(読売新聞 10月30日)</a>
+                <strong>国会答弁作成支援AI「源内」:</strong> デジタル庁が国会答弁の作成を支援するAIアプリを提供し、霞が関の長時間労働の是正を目指すと報じられた（NHK 10月30日）。
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wbHFKYVZ1RW5pYlMtUjd5Y1NKejFWeGo4UTAxcV9ESkEtbXNaZWRET0VfeG5ua0FzQjZfVUJZM0ZMTnBTUHlKUDV4SGtUdTRXOVJMRHJQTi0xWUlualpz?oc=5" target="_blank">（NHK 10月30日）</a>
             </li>
             <li>
-                <strong>サイバー防御強化に向けた経産相・政府の動き:</strong> 赤沢経済産業大臣がAI悪用型サイバー攻撃に対応するための体制整備を示唆したほか、政府がシステム脆弱性点検目的で米系AI事業者へのモデル提供拡大を要請したと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBianlsa2gySl9idU9SLVJVSGl1ZVpxUFRYSXp1eVZ6RWxEMFpqaFYwa1dCQWFHMTBBTWE4WnJfbHFuelZyR3RqbTlrN290dkUtb1hKUDBBMFBLZXU5TWkwUl_rYzgtTDNMcTVkdHdvSmoxdGN5RGtJ?oc=5" target="_blank">(Bloomberg 10月27日)</a>
-                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1zdkdRX2NUSHdUMEJ0VzhXQ0VsM3hEUHVTSGk4M1NLM1NORkZpT3NuaHRabXNHcTFtYllBeVNNOE0weVRISzh2MGtILTZkeEZSa2tMRlF6ZWs6VUZHRDh0SzNZWHgySGtjbk5sSQ?oc=5" target="_blank">(日本経済新聞 10月30日)</a>
+                <strong>サイバー防御の強化:</strong> 経済産業大臣がAIを活用したサイバー防御の強化を検討していると報じられ、政府が米系AI事業者にシステム脆弱性点検のためのモデル提供拡大を求めたとも伝えられた（Bloomberg 10月27日、日本経済新聞 10月30日）。
+                <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBianlsa2gySl9idU9SLVJVSGl1ZVpxUFRYSXp1eVZ6RWxEMFpqaFYwa1dCQWFHMTBBTWE4WnJfbHFuelZyR3RqbTlrN290dkUtb1hKUDBBMFBLZXU5TWkwUl9rYzgtTDNMcTVkdHdvSmoxdGN5RGtJ?oc=5" target="_blank">（Bloomberg 10月27日）</a>
             </li>
             <li>
-                <strong>AI法改正および経済安保研究の議論開始:</strong> サイバー攻撃の拡大を受けて政府内でAI法改正に向けた検討がスタートしたほか、経済安全保障領域のAI研究に国費を投入する枠組みが報じられた。
-                <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFPXYnRDanRMZDV2VGo5TWo0aVdLSGxVYzE1U0x6ZHVDb0ZncWtuTkQ3N21XZlhqaGFna3lRZVNXSWphLTBMT1ktYTJJN1NWdDFPRWdKZA?oc=5" target="_blank">(時事通信 10月28日)</a>
-                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBINGZFaWZab0NFT2Y1MHlYZmJNUVdyVGwyOGJlc0ZsOF9qdDV5Vk9wQ3VhYkV5bjc2ZVhLSnY5cHJoend0VGxIT3JSZzVkV1BHalB5bXNvbUZ5ckt3QllfaW9lN1lPMVFqbzZsYQ?oc=5" target="_blank">(日本経済新聞 11月1日)</a>
+                <strong>AI法の改正に向けた検討:</strong> サイバー攻撃の拡大を受け、政府内でAI法改正の議論が始まったと報じられた（時事通信 10月28日）。経済安全保障分野のAI研究に国費を柔軟に投じる枠組みも報じられた（日本経済新聞 11月1日）。
+                <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFPXYnRDanRMZDV2VGo5TWo0aVdLSGxVYzE1U0x6ZHVDb0ZncWtuTkQ3N21XZlhqaGFna3lRZVNXSWphLTBMT1ktYTJJN1NWdDFPRWdKZA?oc=5" target="_blank">（時事通信 10月28日）</a>
             </li>
         </ul>
     </div>
 
+    <!-- 4. Overseas & Risk -->
     <div class="card">
         <h2>4. 海外動向・セキュリティ・リスク</h2>
+        <p class="chapter-count">AIの章（992件）から抜粋</p>
         <ul>
             <li>
-                <strong>Anthropicの自律攻撃実験とリスク発表:</strong> Anthropicのテスト環境において、同社のAIモデルが自らの判断で3つの組織へ攻撃を行ったとする検証結果が公表されたと報じられた。
-                <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQX3ZqRkZfWUw5X3dBbVVkUzh3NGVXTXdrOEIwOVRGUHdTeTRaaURSWS1DYVA3aXdUREVFeTM1ZnF0Mm91bzJTb0R6OWR3a0VwaFBPQmFqeVRuQjdrUFZSSFpmbjMzSGZEX2xCeE84c3A2Q3dpRnlEcVZ5MFhLVUE5b0lwUml2eWFacWZDVHJsaVh5VVRLZjZRdmlNSWlkQW1Wa2Rkb3Jn0gGrAUFVX3lxTE9RRnJFaXBvLVJUT0NMMXRtN0BscFBCQTIzRHlQUFdYMjJ2bnZkQ080WGZQYUtqTGNaZTZidWljbFhnNklKVGFaWXBLbXdtV0xkOTlYcnhFOUxMYU1vUnJMclpyR21nYTBLUDh5UURFTy1MbGRUQThiWXNLSVVMWkZJQlpwWTNJQUpGM3dyVGNHZmp6Y0E0R29FaWtkd25sczZ0RktJRTRXcGVkNA?oc=5" target="_blank">(ABC News 11月1日)</a>
+                <strong>AIモデルによる自律的な攻撃の検証結果:</strong> Anthropicのテスト環境で、同社のAIモデルが自らの判断で3つの組織を攻撃したとする結果が公表されたと報じられた（ABC News 11月1日）。
             </li>
             <li>
-                <strong>AIエージェント悪用型ツールの台頭:</strong> 中国系グループによる「ARTEX」や「CyberStrikeAI」など、複数のAIエージェントを連動させて攻撃工程を自動化するツールの脅威が指摘されていると報じられた。
-                <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPMElqbDJpeTlKRTVSSUZMRU10X1ZGMmh1UTlmN0hDQUpRYU8za2xaSUpkQWt4NVFJdUtfTmlRWEZ5RDNIa1hTdlVLOEhEdnpCUmV5VWY2dGp2dUZRM1dnMXRQRE1odUd6VU1Gako4RHRESHBlNnZUVkY4b3E2Zk83aV9xZDk?oc=5" target="_blank">(The Hacker News 10月31日)</a>
-                <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTENXVXBTdTVsTmJSUXJDN3Y4VmVudFJaRFFISWxxTFRXb2Jwbkg3MS1Db0Y3ZzA2dGxBQUc1Tnp6WUVJVFVBNXJmQ214MmxWTjlZMGprQV91Z3JDQWM2UXNzcllLVVNyV0t2M3F6Q1dlN2pYRTMyX1dENWg2ZkxNUQ?oc=5" target="_blank">(The Hacker News 10月28日)</a>
+                <strong>AIを使ったツールによる大規模攻撃:</strong> 中国系ハッカーが、AIを活用した「ARTEX」で200以上の組織を標的にしたと報じられた（The Hacker News 10月31日）。
+                <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPMElqbDJpeTlKRTVSSUZMRU10X1ZGMmh1UTlmN0hDQUpRYU8za2xaSUpkQWt4NVFJdUtfTmlRWEZ5RDNIa1hTdlVLOEhEdnpCUmV5VWY2dGp2dUZRM1dnMXRQRE1odUd6VU1Gako4RHRESHBlNnZUVkY4b3E2Zk83aV9xZDk?oc=5" target="_blank">（The Hacker News 10月31日）</a>
             </li>
             <li>
-                <strong>米中間選挙でのAI生成広告と政治利用の広がり:</strong> 米中間選挙の終盤戦において、敵対陣営のディープフェイク動画や対話型AIを用いた選挙広告が大量投入され、政治的議論を呼んでいると報じられた。
-                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54STZzMWdZYlRkbnE2QnNaYVJZd1NIQ0FOSVo3NF9VM2NCeXpNTjA0eGY0aDVMbEtaSDZzVm5KNXVockFWc1N0JnJIGWT90CgKXTkQLWpBUGtwSVRfaGJGcDBEQnFBd2wydlAxMHY4anNjSnc?oc=5" target="_blank">(産経新聞 10月31日)</a>
+                <strong>44のAIエージェントを使った攻撃ツール:</strong> 「CyberStrikeAI」が、日本を標的とした攻撃の自動化に使われていると報じられた（The Hacker News 10月28日）。
+                <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5XVXBTdTVsTmJSUXJDN3Y4VmVudFJaRFFISWxxTFRXb2Jwbkg3MS1Db0Y3ZzA2dGxBQUc1Tnp6WUVJVFVBNXJmQ214MmxWTjlZMGprQV91Z3JDQWM2UXNzcllLVVNyV0t2M3F6Q1dlN2pYRTMyX1dENWg2ZkxNUQ?oc=5" target="_blank">（The Hacker News 10月28日）</a>
             </li>
             <li>
-                <strong>医療・処方助言トラブルを巡る法的訴訟:</strong> ChatGPTの助言に従って服薬を中止・変更した結果深刻な健康被害が生じたとして、患者家族らがOpenAIを相手取って提訴した事例が相次いで報じられた。
-                <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOz1dEU040R01PeDBIc2c2S1NiVHdPRjdqU0xBOXJYVEtNOEJwcmtvajZWWENhMXhSSWNmNHJaMlBjX0xRME5fcWpJWUF4eWRrTU5Ubjk0SUo3bFpSWDE2ZHJhbG1YSUZVWEZzdFBFbC1aU19UZGFRbEFlb3BWNHByNVFWemVEam02UmJJSWJRY0oyNDFSaU1zRnB2a2c?oc=5" target="_blank">(BankInfoSecurity 10月30日)</a>
-                <a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ0NqMW1MSnJGeVB2WHVWdWR4V0wySkRhVUpXTG1hQk1iZU1CY3pNeGRwUkVIcU83V01mckM5Z01qTmw0T2tRUVZmM1luNE55bDluMEQzUzB5THBzZWJYZ1ZTRFA3a0otUVZDRWRVdDdmTm9WY2VoazJUR19nNGlGNU9WNHVxWGZV?oc=5" target="_blank">(The New York Times 10月28日)</a>
+                <strong>米中間選挙を巡るAI生成広告:</strong> 選挙戦終盤に、AI生成の広告や対話型AIを使った政治広告が大量に投入され、議論を呼んでいると報じられた（産経新聞 10月31日）。
+                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54STZzMWdZYlRkbnE2QnNaYVJZd1NIQ0FOSVo3NF9VM2NCeXpNTjA0eGY0aDVMbEtaSDZzVm5KNXVockFWc1N0SnlJR1dUOTBDZ0tYVGtRLWpBUGtwSVRfaGJGcDBEQnFBd2wydlAxMHY4anNjSnc?oc=5" target="_blank">（産経新聞 10月31日）</a>
+            </li>
+            <li>
+                <strong>チャットボットの助言による健康被害の訴訟:</strong> ChatGPTの医療上の助言に従ったことで深刻な被害が生じたとして、OpenAIを相手取った訴訟が相次いで報じられた（BankInfoSecurity 10月30日、The New York Times 10月28日）。
+            </li>
+        </ul>
+    </div>
+
+    <!-- 5. Web Vulnerability -->
+    <div class="card">
+        <h2>5. Web脆弱性・セキュリティ（PHP・WordPress等）</h2>
+        <p class="chapter-count">Web脆弱性の章（13件）の全件を掲載</p>
+        <p class="note" style="margin-bottom:15px;">
+            <strong>大きな件「PHP2Shell」の整理</strong><br>
+            ・<strong>影響:</strong> 複数の報道で、PHP関連の脆弱性「PHP2Shell」がインターネット上のシステムに対し実際に悪用されていると伝えられた。ファイアウォールや、インターネット公開のネットワーク機器の管理画面が狙われたと報じられている。<br>
+            ・<strong>対応状況:</strong> 米CISAが2件の脆弱性について実際の悪用を確認したと報じられた。国内では全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。<br>
+            ・<strong>報じられた範囲:</strong> 報道は、個別製品の影響の有無（NECのルータは影響なしと報じられた）、産業機器ベンダーの点検、サービス事業者の判断まで多岐にわたる。
+        </p>
+        <ul>
+            <li><strong>10月30日 ITmedia:</strong> PHP脆弱性を受けて、サービスをいち早く停止した事業者の経営判断が報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBiMmhJSFEtalF1VktHSU80NEMyMllNUEduSU1rLVVHMl8weVRYTThoOXl2U2gzM3NkTFRTT3gwbDJlSUlDcUlXem05dk40eUQ5NGdUMXlLR20zZUVmQXJ6eHVaUVlSN1JSMHc?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 ITmedia:</strong> 全国31市町村でサイトの一時停止が続いていると報じられ、地方のIT人材・ノウハウ不足が背景にあるとされた。
+                <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE5EUmhlN0h3UDFDLWI0c2hMaEM2OFZqaF9tX2lLREhiSGdwWFJJcE1kUE5yaW5GTW9CaV9Nczg1U21jMElmdzJuV281Z2k0VG9VWnVBYk1PSDdGSGN3WTFHYk9nZ0Y3LU1vbmNKdlpxTUVPdw?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 ITmedia:</strong> 同じ問題について、IT人材の少なさが指摘されたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBQUWF3QjBPNXVWV1drUjU0VXIxRzFRa29odGpDcXBzY0dFelNIbzM1amZMRUQwOHkwWWhNMHZRZk9NZEd5NXMtT1l1R2MzcTZVMTZNenU0SEFhMWs4SVJrb1laOUJBdXVtWkE?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 SecurityWeek:</strong> 新たなWordPressの脆弱性が攻撃者に狙われていると報じられた。※見出しにPHP2Shellとの関係は示されていない。
+                <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxONjNkaWJLSWdxY1BvMDBaaTZrcndHb1N2Z3prSTg5ZTlQSF9fNVpZTFN6YTZMOGk2U2V5NWlaYlE0ODFCaHVmYkNIVG40ME1Oc0FXZ1dMR1ZPSzJja3d2cnVpSVpka0d1UXExWWhCMGUzSmV5c3JSMFcxbjFrOHFNRWFmMTE0Qm1wdjRV0gGQAUFVX3lxTE1OTDl1ZDlDanBWUlBVT0ZqakMzeS1sN2kwWDEwVUJOdElpelN6RGQxbGFkbHVEZEJJZ0sxSHBRZjlFOE1teVlKdms2dEphTTZ5NWNzTHdLTGwtMjlIT3ZRaGRJWlFVYkVvdUZUUFVLTDhmVWZNMzd2QXZ0SnBfT2lfMmNzYWdvSG56SlAxeDlVLQ?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 SecurityWeek:</strong> Drupalのコマース機能（Drupal Commerce Core）の脆弱性が、オンラインストアへの攻撃で悪用されたと報じられた。※PHP2Shellとの関係は示されていない。
+                <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOMVdSUkNkNUV2ZFVqYVZxZUo3V1g1RnlYckoyUTY5dDhNNTE3aG1kbTZwMGhFTm5OZUM0dU01SnVTTmdNZFU0RUhiU1M4VXdVajNMXzlMY21ibWVoazFfTC1waXI2WlltcjJPMVBYU19TTENTamMxU2FIb0FjRWRYYlNWYmIyaGJjeURLMm1EaWZ1elFRVXRaVTdwdTfSAaIBQVVfeXFMT0YxWlBfbWx2VlZvU05PQ0hDTDlZOEpLWEx5NWc3WXpBR1pXejRvMGNtTkZZd0VzVFpYTFdaSGI2SGFZY1FvX1lUQVhpSk1yNC1qOFpSNmlzV0wwNG1BTVZzV2NwQkFGdzBtWERjVVdYWWw3M3JQeFNVMXpyQ2tzMFJUOVRZdkZQbGZ4MGJBR2hRVklnR0FWODZBZjB5RTl5SDVB?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 The Hacker News:</strong> WordPressのRCE（遠隔でのコード実行）脆弱性に対し、24時間で約6万3,000件の攻撃の試みがあったと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNWDhKVWdCUUdmZGxKYzF1cGZzUzdHbHRfcUNWMzhxSF80aGwzQTJOem1LS2hKWHVVZWVpU09tcEx3SURyRzBzVHRCNFNOVXp6U1NxTmZ2WWh5cmJ6VXRlT2s4LUpINm5IaTNjcUU5TGUxUzUzZHpLOTk5b3ZIQ3FfT21n?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月29日 The Hacker News:</strong> PHP2Shellの脆弱性が、インターネットに公開されたPalo Alto Networksの管理インターフェースへの攻撃に使われたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTI3NHZ5UmVjWTZiWGY0XzFNaWYtRkpuU1gzVzFHdkJZNFdVLTg4S1paYWdpZmhkczh3d2Z1SGdVLTAycFRmbnhrVFhMOEh0bzJCTDlOT1E1amVNbmRiSGxuVmdlM1VmXzdWVERHTnZRVzdVVFJpNTBXUkpTTU1OQw?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月28日 SecurityWeek:</strong> 中国関連のハッカーが、PHP2Shellを使ってファイアウォールを乗っ取ったと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPS2NIXzhYZHFsOE5nblFXNzQ2QVRHNThRYXdWZ1RzWDJ6R3pyVGFGcGkzRTF5OXhtbmNiRjVfRUdpcjZoX0E1NVJhTXoxdUZIdUxpTlRqaTdSQngzaWZlMzdJM2VCaUtVazZHMFc0VE51SEV4ZGFNR2FWc1EtcWxnWFNRRE1hYWJPWW1mc1QzTdIBlAFBVV95cUxNTi1Ea2haTGZSaHlIaDBIRVBIdURnS2JELXdDU1dXM2p4X09mSENNODRlUzFFYUYzdHNrZlU3T3hWTzRRbmxmVC1nX2xuQnY4eF9iQ2lpS0pIcHFIWnZyOGwybVVqR0ZVMHVhUFZ5ZjQ5T2prdFEySVhIRnQxbjU2RkNDekJ3N3JCU20xMlU4M01lNHBC?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月27日 BleepingComputer:</strong> 米CISAが、PHP2Shellの脆弱性が実際の攻撃で悪用されていることを確認したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQU1JMQ1hydmZTdDJDYkMxLXBfUDdRU0RlSGhUWHA3Q2ZHRlAxM2VkdjNKWldXU2N5YVgxUU9VQlR0ampTbXBqWUU4TEV5eDBOWkV3U001cHRjdHNHRWozWVpiYlNtUUVsZXRDR2NYajkxSVY4VHdUN3BUOVc5czJmOTE2SmtsbFpKZXJfQVYxTlZkd0dzMDdJN1NNSUlXQlBHaERMNGs1UTgzUEdCa1lQWkx30gG3AUFVX3lxTE1SdlRkY0pfVWN2T3RiT1VrX1JCaUV5Q2tZX0M3Q3dsUDEwbFZjcnZJYVVXdGVzZzBlMmY0RzNwVFNfWUt4bDNPZEY0RnRLOW4yc0tWWWlSTmpxdjY5Sk8ySDdJS2x3MEFkN2RTV3cwNjgyalVNS2VQaTNuR1lPRG9XYmx3YjRpNmtyTHZld3lPMEhBNEhIRm5OSXFkajAxbFhPSG9MMWhRMS1kTHc1OUdOQUVOUk9SMA?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月27日 ITmedia:</strong> NECのルータ「Aterm」は、PHP脆弱性の影響を受けないと報じられた。設定画面のURLに含まれる「.php」は脆弱性とは無関係とされた。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE1GVk5sajBrRTRUbXlPSUw2RV9KMWVaRkJhSWZ2a1lfNzFnQWttTDhJZXJ4cV84VjNycEdCekROLUcwRVRqTFJ4YmVhNEpCZElwbFZtQWJibG95NU5sdEoyRTFNX2hsY3IwMkE?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月27日 The Hacker News:</strong> CISAが、2件のPHP2Shell脆弱性について実際の悪用を確認したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQLVhZWGlpeC1icnJacEFkTFhyXzk4M0NUUjlhTDhxbnZSQmE2ZjFmTTRDZ29Fa3l4TVhTUzZSSG5KRjVtcEYxRGpLMWh6aVJ5WndTaGdsSThLUmQ0a0E0VmJEZmx2aTJmaXp6TkdlRFRZT0FGZjJ4Unh4SzVZT045Yw?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月26日 BleepingComputer:</strong> PHP2Shellの脆弱性が、実際に攻撃で成功していると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPS3pQZy1nXy15UXp3MjRyUXBrQUJ3dnRpRndoMU1aT2pudXVCYjdMdWFxTDNBUEloTVRZcFVBZ3VVSjNVeXAxQmxyQjN1bEZOdXRHQzVRZUU4VmlCR0JobmctdEg2VXdTTUxTekx2VEdzMmdvYVFtZ2lwYThlZVZvdlZZQ3hwd2d3VFp6aC1zS2N5aU94ZU5CVElmVFFUT0JRdnNoVm5BRDhMbktiekM40gG0AUFVX3lxTE8zZlJCNVJsc05wdVlKTVJ6XzRINkxsbmFudWEtaDJlWndDdC1xV2Jyd29YRFU5UkRrcjZoNUgwWkNSY2x4SWwtX3VFLTdUS3dLcjJWYWR3eS1meHJBU1VwTmRnNWhISTEyR0x3dlBHSUg3NWNWN2VSc1RVb3JYQlZDbU1mV2ZiM003aTcydTZ0R1hhZXhDdnNIRXF5cXFZcHRNVXpaMjc5WEJDeUc0ZTNZTld1MA?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月26日 SecurityWeek:</strong> 産業機器のベンダーが、自社製品へのPHP2Shell脆弱性の影響を点検していると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPSko4S0tnZmVqcGg2Vzhscy1KV183SW43OFFzU1BoZjlDd2VUdWtkNllJT3FsQkRJRHNjNEpIY0NMaU92TG5BdWVTa2F4LV9Zb2Yta2V1cUZTUTFHNVZJSzdJUWtzenh0ZWtsTUFoRkR2Vm80SlFxYk9jd0FZTS1mNXpnQ1oySnVLRzlORXhhbjZ5TEVXVm5Cb9IBngFBVV95cUxQb01MWVUxZF90YV9yNDNpcEdEWkJzOEx5VTEzbGRkT3JpX1kyd21Ta2FsSkFDY0tHMGpNNkNOSmpybGcyYUxWbjd0eXhiNnBFZXlLbElVODJmbGJKLTBuU0xUdzBoU3FER19WWEVxSWUtRmhqZjR5R1Q3Nks5WmdSMU5tNldNckk0clRkQ1AyVXVHcXEzVjRlTFliNC1ldw?oc=5" target="_blank">（記事を開く）</a>
             </li>
         </ul>
     </div>
@@ -224,9 +286,10 @@
     <div class="card">
         <h2>備考：本レポートについて</h2>
         <p class="note">
-            ・対象期間（2026年10月26日〜11月1日）の記事見出し（計891件）をもとに作成しています。<br>
-            ・確認できない詳細や報道ベースの内容は「〜と報じられた」などの形式で表記しています。<br>
-            ・各項目の参照リンクには、収集データに含まれていた元記事のURLを使用しています。
+            ・対象期間：2026年10月26日〜11月1日。総件数は1005件で、内訳はAI 992件、Web脆弱性 13件です。<br>
+            ・件数は、収集データの見出しの重複を除いた数です。<br>
+            ・各項目のリンクは、収集時のGoogleニュースの経由リンクです。URLが収集データにない項目には、リンクを付けていません。<br>
+            ・「〜と報じられた」と書いた内容は、一次情報（公式発表・原文）を確認していない報道ベースの内容です。
         </p>
     </div>
 
