@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全保障・輸出管理ニュース週刊レポート（2026-10-26 〜 2026-11-01）</title>
+    <title>安全保障・輸出管理ニュース 週刊レポート</title>
     <style>
         :root {
             --primary-color: #1e3a8a;
             --secondary-color: #64748b;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #1e293b;
+            --text-color: #334155;
             --border-color: #e2e8f0;
             --accent-color: #d97706;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
             background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
-
         header {
             background: linear-gradient(135deg, #0f172a, #1e3a8a);
             color: #ffffff;
@@ -38,14 +35,12 @@
             margin-bottom: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
         header h1 {
             font-size: 24px;
             margin: 0 0 10px 0;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-
         .meta-info {
             font-size: 14px;
             color: #93c5fd;
@@ -53,7 +48,6 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -62,7 +56,6 @@
             margin-bottom: 25px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-
         h2 {
             font-size: 18px;
             color: var(--primary-color);
@@ -71,55 +64,25 @@
             border-left: 4px solid var(--accent-color);
             padding-left: 10px;
         }
-
-        ul {
+        ol, ul {
             margin: 0;
             padding-left: 20px;
-            color: #334155;
+            color: #475569;
         }
-
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-
-        .news-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .news-title {
-            font-size: 16px;
-            font-weight: bold;
+        a {
             color: var(--primary-color);
             text-decoration: none;
         }
-
-        .news-title:hover {
+        a:hover {
             text-decoration: underline;
         }
-
-        .news-meta {
-            font-size: 12px;
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-        }
-
-        .action-insight {
+        .note {
             font-size: 13px;
-            background-color: #fffbebfb;
-            padding: 10px 15px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
-            margin-top: 8px;
+            color: var(--secondary-color);
         }
-
         footer {
             margin-top: 50px;
             padding-top: 20px;
@@ -133,6 +96,7 @@
 <body>
 
 <div class="container">
+    <!-- Header -->
     <header>
         <h1>安全保障・輸出管理ニュース 週刊レポート</h1>
         <div class="meta-info">
@@ -141,126 +105,99 @@
         </div>
     </header>
 
+    <!-- Executive Summary -->
     <div class="card">
         <h2>今週のエグゼクティブサマリー</h2>
+        <ol>
+            <li>
+                <strong>米通商拡大法232条による新たな産業規制の発動。</strong> 米政権はロボット・産業機械の輸入が安全保障に及ぼす影響を認定し、関税即時発動ではなく各国との二国間交渉手続（180日以内）を指示した。FA・工作機械分野での対米輸出規制リスクが顕在化した。
+            </li>
+            <li>
+                <strong>米国のウイグル強制労働防止法（UFLPA）の対象急拡大。</strong> DHSがゲノム解析大手（BGI関連等）3社をリストに追加した。バイオ・ライフサイエンス分野でのサプライチェーン実質的排除と原産地証明が厳格化されている。
+            </li>
+            <li>
+                <strong>日本の外為法・政省令改正（パブコメ11/18締切）の進展。</strong> 経産省による合成装置、積層造形（3Dプリンタ）、リアルタイムオシロスコープ等の技術要件見直しが進み、各企業での該当性再判定ロジックの改訂が必要となっている。
+            </li>
+            <li>
+                <strong>中国「両用物項出口管制条例」下の現場通関混迷。</strong> リスト非該当とみられる一般資材・構成部品に対しても中国税関で不透明な書類提示要求や通関停滞が相次いでおり、実質的な対外輸出規制として機能している。
+            </li>
+        </ol>
+    </div>
+
+    <!-- Main Content Topics -->
+    <div class="card">
+        <h2>1. 米中対立・半導体・先端技術輸出管理</h2>
         <ul>
-            <li><strong>米通商拡大法232条による新たな産業規制の発動：</strong> 米政権はロボット・産業機械の輸入が安全保障に及ぼす影響を認定し、関税即時発動ではなく各国との二国間交渉手続（180日以内）を指示。FA・工作機械分野での対米輸出規制リスクが顕在化しました。</li>
-            <li><strong>米国のウイグル強制労働防止法（UFLPA）の対象急拡大：</strong> DHSがゲノム解析大手（BGI関連等）3社をリストに追加。バイオ・ライフサイエンス分野でのサプライチェーン実質的排除と原産地証明が厳格化されています。</li>
-            <li><strong>日本の外為法・政省令改正（パブコメ11/18締切）の進展：</strong> 経産省による合成装置、積層造形（3Dプリンタ）、リアルタイムオシロスコープ等の技術要件見直しが進み、各企業での該当性再判定ロジックの改訂が必要となっています。</li>
-            <li><strong>中国「両用物項出口管制条例」下の現場通関混迷：</strong> リスト非該当とみられる一般資材・構成部品に対しても中国税関で不透明な書類提示要求や通関停滞が相次いでおり、実質的な対外輸出規制として機能しています。</li>
+            <li>
+                <strong>米政府、通商拡大法232条に基づきロボット・先進産業機械の輸入交渉を指示:</strong> 米トランプ大統領は10月28日、1962年通商拡大法232条（国家安全保障条項）に基づき、ロボット、FA機器、工作機械およびそれらの主要構成部品の輸入増大が安全保障を脅かすリスクがあると認定する大統領布告に署名した。現時点での即時関税上乗せは見送られ、180日間の二国間交渉枠組みが設定されたと報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/f45a21cc559c23e8.html" target="_blank">(JETRO / ホワイトハウス 10月30日)</a>
+            </li>
+            <li>
+                <strong>米BIS、先端半導体製造装置の「関連会社規制（Affiliates Rule）」施行に向け最終調整:</strong> 米商務省産業安全保障局（BIS）が、Entity List収載企業が50%以上出資する海外子会社・関連会社を自動的に規制対象とする新規ルールの適用準備を進めており、11月上旬の公示を控えて国際的なサプライチェーン関係者が警戒を強めていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiO0FVX3lxTE0tYXhoRUstcXNPbi1ZTGFoeG5pV0xpM2tJTnM5V01rRnZteGtOWnNucEtvcTNsa05VRTZJ?oc=5" target="_blank">(Google News / Reuters 10月29日)</a>
+            </li>
+            <li>
+                <strong>中国、先端量子コンピューティング・AIモデルの国外輸出承認手続きを厳格化:</strong> 中国商務部と科学技術部は、両用物項出口管制条例の枠組みに基づき、特定パラメータ以上のLLM（大規模言語モデル）の重みデータおよび量子暗号関連技術の対外移転に対する個別事前認可制の本格運用を開始したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOZG9RWEx0RjF1YWhreWp3UnhFeWNLcGR0SHplMDJhVDdLN2dNYlJibWZpeUhLbi1NR0ppVnFOQUtJNkpvdGh0ZVprWGphaEt3WERDVkdVeWI3V0RkMEtXWVNFOWxNaTVLQVZkd04wWW40SXhVbm1DOGJIcUl1a0tmUWZ2TjI?oc=5" target="_blank">(Google News / Caixin 10月31日)</a>
+            </li>
         </ul>
     </div>
 
-    <!-- カテゴリ 1 -->
-    <div class="card">
-        <h2>1. 米中対立・半導体・先端技術輸出管理</h2>
-        
-        <div class="news-item">
-            <a href="https://www.jetro.go.jp/biznews/2026/10/f45a21cc559c23e8.html" class="news-title" target="_blank">米政府、通商拡大法232条に基づきロボット・先進産業機械の輸入交渉を指示</a>
-            <div class="news-meta">JETRO / ホワイトハウス | 2026-10-30</div>
-            <p>米トランプ大統領は10月28日、1962年通商拡大法232条（国家安全保障条項）に基づき、ロボット、FA機器、工作機械およびそれらの主要構成部品の輸入増大が安全保障を脅かすリスクがあると認定する大統領布告に署名しました。現時点での即時関税上乗せは見送られ、180日間の二国間交渉枠組みが設定されました。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 日本の産業用ロボット・制御機器メーカーは、米国の交渉条件（原産地比率・サイバー要件など）の具体化を注視し、契約変更や関税転嫁シナリオの検証が必要です。
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="https://news.google.com/rss/articles/CBMiO0FVX3lxTE0tYXhoRUstcXNPbi1ZTGFoeG5pV0xpM2tJTnM5V01rRnZteGtOWnNucEtvcTNsa05VRTZJ?oc=5" class="news-title" target="_blank">米BIS、先端半導体製造装置の「関連会社規制（Affiliates Rule）」施行に向け最終調整</a>
-            <div class="news-meta">Google News / Reuters | 2026-10-29</div>
-            <p>米商務省産業安全保障局（BIS）が、Entity List収載企業が50%以上出資する海外子会社・関連会社を自動的に規制対象とする新規ルールの適用準備を進めており、11月上旬の公示を控えて国際的なサプライチェーン関係者が警戒を強めています。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 中国拠点および第三国経由の取引先について、Entity List企業の株主構成・資本関係のスクリーニングを直ちに最新化する必要があります。
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOZG9RWEx0RjF1YWhreWp3UnhFeWNLcGR0SHplMDJhVDdLN2dNYlJibWZpeUhLbi1NR0ppVnFOQUtJNkpvdGh0ZVprWGphaEt3WERDVkdVeWI3V0RkMEtXWVNFOWxNaTVLQVZkd04wWW40SXhVbm1DOGJIcUl1a0tmUWZ2TjI?oc=5" class="news-title" target="_blank">中国、先端量子コンピューティング・AIモデルの国外輸出承認手続きを厳格化</a>
-            <div class="news-meta">Google News / Caixin | 2026-10-31</div>
-            <p>中国商務部と科学技術部は、両用物項出口管制条例の枠組みに基づき、特定パラメータ以上のLLM（大規模言語モデル）の重みデータおよび量子暗号関連技術の対外移転に対する個別事前認可制の本格運用を開始しました。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 中国合弁会社や現地R&D拠点から日本本社へのAIアルゴリズムや研究成果のデータ送受信が技術輸出規制違反に問われるリスクが生じています。
-            </div>
-        </div>
-    </div>
-
-    <!-- カテゴリ 2 -->
     <div class="card">
         <h2>2. 安全保障制裁・人権・サプライチェーン管理</h2>
-        
-        <div class="news-item">
-            <a href="https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html" class="news-title" target="_blank">米DHS、UFLPA（ウイグル強制労働防止法）エンティティリストにバイオ・ゲノム関連企業等を追加</a>
-            <div class="news-meta">JETRO / US DHS | 2026-10-30</div>
-            <p>米国土安全保障省（DHS）は10月29日、ウイグル強制労働防止法（UFLPA）の輸入禁止対象リストを更新し、深センBGIテクノロジー（華大遺伝関連）など中国企業3社を追加。ライフサイエンス製品およびゲノム機器の米国輸入時に原産地追跡（トレーサビリティ）要件が適用されます。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 試薬、臨床検査機器、ライフサイエンス原材料の調達ルートに指定企業が関与していないかデューデリジェンスの実施が必須です。
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOUnVnOEloY0J4aFRTZFZ2N2hTeHBWeUVXV3VPQmR0c04zcFlCdEs0aW1jUDRNM05Za3NMQnhtQ3BmVXNQRUFNMms5eXJJdVE4Q01ud0ZlYVVKOGhhSHBncjFLaVl6djRPb1NPVDZ6MkFtbHlYWmV0cWJ5VEdpTW1adFREWXRHVmUtcjR0MEl5QXhmJnMyamtrTUxiZjZkLTQ?oc=5" class="news-title" target="_blank">EU、第16次ロシア制裁パッケージの採択に向け暗号資産取引規制を再強化</a>
-            <div class="news-meta">Google News / Euractiv | 2026-10-28</div>
-            <p>欧州委員会は、ロシアによる第三国金融・暗号資産市場を経由した制裁回避行動を遮断するため、EU管轄下の暗号資産サービスプロバイダー（CASP）に対する顧客身元確認（KYC）および追跡規制の罰則規定を大幅強化する方針を示しました。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 欧州域内における決済や、中央アジア・中東拠点を介した二重使用物品の迂回貿易ルートに対する管理水準の見直しが要求されます。
-            </div>
-        </div>
+        <ul>
+            <li>
+                <strong>米DHS、UFLPA（ウイグル強制労働防止法）エンティティリストにバイオ・ゲノム関連企業等を追加:</strong> 米国土安全保障省（DHS）は10月29日、ウイグル強制労働防止法（UFLPA）の輸入禁止対象リストを更新し、深センBGIテクノロジー（華大遺伝関連）など中国企業3社を追加した。ライフサイエンス製品およびゲノム機器の米国輸入時に原産地追跡（トレーサビリティ）要件が適用されると報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html" target="_blank">(JETRO / US DHS 10月30日)</a>
+            </li>
+            <li>
+                <strong>EU、第16次ロシア制裁パッケージの採択に向け暗号資産取引規制を再強化:</strong> 欧州委員会は、ロシアによる第三国金融・暗号資産市場を経由した制裁回避行動を遮断するため、EU管轄下の暗号資産サービスプロバイダー（CASP）に対する顧客身元確認（KYC）および追跡規制の罰則規定を大幅強化する方針を示したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOUnVnOEloY0J4aFRTZFZ2N2hTeHBWeUVXV3VPQmR0c04zcFlCdEs0aW1jUDRNM05Za3NMQnhtQ3BmVXNQRUFNMms5eXJJdVE4Q01ud0ZlYVVKOGhhSHBncjFLaVl6djRPb1NPVDZ6MkFtbHlYWmV0cWJ5VEdpTW1adFREWXRHVmUtcjR0MEl5QXhmJnMyamtrTUxiZjZkLTQ?oc=5" target="_blank">(Google News / Euractiv 10月28日)</a>
+            </li>
+        </ul>
     </div>
 
-    <!-- カテゴリ 3 -->
     <div class="card">
         <h2>3. 日本の外為法・経済安全保障政策</h2>
-        
-        <div class="news-item">
-            <a href="https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1014_CLS&Type=0&Bunya=0000000038" class="news-title" target="_blank">経済産業省、外為令・輸出貿易管理令の政省令改正案に関するパブリックコメントを実施（11/18締切）</a>
-            <div class="news-meta">e-Gov パブリックコメント | 2026-10-19（公示中）</div>
-            <p>国際輸出管理レジーム（ワッセナー・セarrangement等）の技術合意を背景に、別表第1の各項（合成装置、金属積層造形装置、高精度オシロスコープ等）のスペック要件を見直す改正案の公募が進められています。施行は2027年早々が予定されています。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 自社製品および役務（技術提供）のパラメータシート・該当性ロジックの判定規程を今秋中に改訂準備しておく必要があります。
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="https://www.cas.go.jp/jp/seisaku/keizai_anzen_boshu/index.html" class="news-title" target="_blank">内閣府、経済安全保障推進法に基づく特定重要物資の追加指定方針を検討</a>
-            <div class="news-meta">内閣府 経済安全保障推進室 | 2026-10-27</div>
-            <p>政府は経済安全保障推進法に基づき、既存の半導体・蓄電池・重要鉱物等11物資に加え、先進パワー半導体素材（GaN、SiC）や通信用光ファイバー原材料等を特定重要物資に追加指定する検討を開始しました。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 安定供給確保計画（補助事業）の申請要件やサプライチェーン調査手続の準備が期待されます。
-            </div>
-        </div>
+        <ul>
+            <li>
+                <strong>経済産業省、外為令・輸出貿易管理令の政省令改正案に関するパブリックコメントを実施:</strong> 国際輸出管理レジーム（ワッセナー・アレンジメント等）の技術合意を背景に、別表第1の各項（合成装置、金属積層造形装置、高精度オシロスコープ等）のスペック要件を見直す改正案の公募が進められている。施行は2027年早々が予定されていると報じられた。
+                <a href="https://public-comment.e-gov.go.jp/servlet/Public?CLASSNAME=PCM1014_CLS&Type=0&Bunya=0000000038" target="_blank">(e-Gov パブリックコメント 10月19日)</a>
+            </li>
+            <li>
+                <strong>内閣府、経済安全保障推進法に基づく特定重要物資の追加指定方針を検討:</strong> 政府は経済安全保障推進法に基づき、既存の半導体・蓄電池・重要鉱物等11物資に加え、先進パワー半導体素材（GaN、SiC）や通信用光ファイバー原材料等を特定重要物資に追加指定する検討を開始したと報じられた。
+                <a href="https://www.cas.go.jp/jp/seisaku/keizai_anzen_boshu/index.html" target="_blank">(内閣府 経済安全保障推進室 10月27日)</a>
+            </li>
+        </ul>
     </div>
 
-    <!-- カテゴリ 4 -->
     <div class="card">
         <h2>4. 中国の輸出管理・重要鉱物・サプライチェーン動向</h2>
-        
-        <div class="news-item">
-            <a href="https://www.jetro.go.jp/biz/areareports/2026/9068d5fb05a8a23e.html" class="news-title" target="_blank">中国「両用物項出口管制条例」下での税関審査長期化と実質的貿易障壁化</a>
-            <div class="news-meta">JETRO 地域・分析レポート | 2026-10-27</div>
-            <p>中国各地の主要税関において、法令上の両用品目リストに掲載されていない標準的な電子構成部品や化学製品であっても、軍民両用転用のリスクを理由として非該当証明書類や詳細な顧客情報の提出を求められ、発送が数週間延期される実務トラブルが急増しています。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 現地法人からの日本向け・第三国向け出荷において、2〜4週間程度の通関遅延を想定したバッファー在庫の設定が必要です。
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="https://www.jetro.go.jp/biznews/2026/10/87cda422d8b5738a.html" class="news-title" target="_blank">日韓経済人会議、重要鉱物サプライチェーンの共同構築方針を発表</a>
-            <div class="news-meta">JETRO / 日本経済新聞 | 2026-10-31</div>
-            <p>日韓の経済界首脳がソウルで会合を開き、ニッケル、リチウム、レアアースなどの重要鉱物の開発・精錬に関する両国共同出資枠組みの創設を政府に提言することに合意しました。</p>
-            <div class="action-insight">
-                <strong>企業実務への影響・対策：</strong> 日韓企業の共同アライアンスを活用した供給網分散化プロジェクトへの参加機会が拡大する見通しです。
-            </div>
-        </div>
+        <ul>
+            <li>
+                <strong>中国「両用物項出口管制条例」下での税関審査長期化と実質的貿易障壁化:</strong> 中国各地の主要税関において、法令上の両用品目リストに掲載されていない標準的な電子構成部品や化学製品であっても、軍民両用転用のリスクを理由として非該当証明書類や詳細な顧客情報の提出を求められ、発送が数週間延期される実務トラブルが急増していると報じられた。
+                <a href="https://www.jetro.go.jp/biz/areareports/2026/9068d5fb05a8a23e.html" target="_blank">(JETRO 地域・分析レポート 10月27日)</a>
+            </li>
+            <li>
+                <strong>日韓経済人会議、重要鉱物サプライチェーンの共同構築方針を発表:</strong> 日韓の経済界首脳がソウルで会合を開き、ニッケル、リチウム、レアアースなどの重要鉱物の開発・精錬に関する両国共同出資枠組みの創設を政府に提言することに合意したと報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/87cda422d8b5738a.html" target="_blank">(JETRO / 日本経済新聞 10月31日)</a>
+            </li>
+        </ul>
     </div>
 
+    <!-- Notes -->
     <div class="card">
-        <h2>備考（レポート編集メモ）</h2>
+        <h2>備考：本レポートについて</h2>
         <p class="note">
-            本週刊レポート（2026年10月26日〜11月01日対象）は、グローバルで発注・公開された542件の一次報道および官報情報から、実務価値の高いニュースを厳選して構成しました。
+            ・対象期間（2026年10月26日〜11月1日）の一次報道および官報情報（計542件）をもとに作成しています。<br>
+            ・確認できない詳細や報道ベースの内容は「〜と報じられた」などの形式で表記しています。<br>
+            ・各項目の参照リンクには、収集データに含まれていた元記事のURLを使用しています。
         </p>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 安全保障・輸出管理ニュースレポート All Rights Reserved.</p>
+        <p>© 2026 安全保障・輸出管理ニュースレポート All Rights Reserved.</p>
     </footer>
 </div>
 

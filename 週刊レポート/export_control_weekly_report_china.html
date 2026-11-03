@@ -10,26 +10,23 @@
             --secondary-color: #64748b;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #1e293b;
+            --text-color: #334155;
             --border-color: #e2e8f0;
             --accent-color: #dc2626;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
             background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
-
         header {
             background: linear-gradient(135deg, #450a0a, #7f1d1d);
             color: #ffffff;
@@ -38,14 +35,12 @@
             margin-bottom: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
         header h1 {
             font-size: 24px;
             margin: 0 0 10px 0;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
-
         .meta-info {
             font-size: 14px;
             color: #fca5a5;
@@ -53,7 +48,6 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -62,7 +56,6 @@
             margin-bottom: 25px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-
         h2 {
             font-size: 18px;
             color: var(--primary-color);
@@ -71,56 +64,25 @@
             border-left: 4px solid var(--accent-color);
             padding-left: 10px;
         }
-
-        ul {
+        ol, ul {
             margin: 0;
             padding-left: 20px;
-            color: #334155;
+            color: #475569;
         }
-
         li {
             margin-bottom: 12px;
         }
-
-        .news-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .news-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--primary-color);
+        a {
+            color: var(--accent-color);
             text-decoration: none;
         }
-
-        .news-title:hover {
+        a:hover {
             text-decoration: underline;
         }
-
-        .news-meta {
-            font-size: 12px;
+        .note {
+            font-size: 13px;
             color: var(--secondary-color);
-            margin-top: 4px;
         }
-
-        a.link-btn {
-            color: #dc2626;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        a.link-btn:hover {
-            text-decoration: underline;
-        }
-
         footer {
             margin-top: 50px;
             padding-top: 20px;
@@ -134,6 +96,7 @@
 <body>
 
 <div class="container">
+    <!-- Header -->
     <header>
         <h1>安全保障・輸出管理ニュース 週刊レポート（中国ver）</h1>
         <div class="meta-info">
@@ -142,96 +105,75 @@
         </div>
     </header>
 
-    <!-- エグゼクティブサマリー -->
+    <!-- Executive Summary -->
     <div class="card">
-        <h2>今週のエグゼクティブ・サマリー</h2>
+        <h2>今週のエグゼクティブサマリー</h2>
+        <ol>
+            <li>
+                <strong>米国による中国・ウイグル関連企業およびAI・通信製品の排除・規制強化。</strong> 米国政府はウイグル強制労働防止法（UFLPA）に基づくリストに中国のバイオ・ゲノム関連企業3社を追加したほか、DeepSeek製品の調達禁止や中国企業製部品搭載製品の流通禁止規則を初適用するなど、規制を一層強めている。
+            </li>
+            <li>
+                <strong>中国による技術輸出制限・両用品目管理および営業秘密新ルールの動き。</strong> 中国当局はAI・バイオ・太陽光技術などを追加する輸出制限技術目録の改正草案公表やドローン・TBM（シールド掘削機）等の輸出管理を強化。さらに営業秘密侵害の外国企業に対する禁輸・投資制限などの新規制案も浮上している。
+            </li>
+            <li>
+                <strong>クアッド（Quad）によるAI協力強化と経済的威圧への懸念共有。</strong> 日米豪印の外相会合等において、インド太平洋地域でのAI開発・普及支援や半導体材料の安定調達に向けた連携が確認され、中国を意識した経済的威圧に対する懸念が表明された。
+            </li>
+            <li>
+                <strong>半導体・先端GPUを巡る不正流出・不正密輸問題と自給化の動き。</strong> 米国での巨額のNVIDIAチップ密輸容疑による訴追や台湾でのAIチップ密輸防止策など流出対策が進む一方、規制が中国独自の半導体・AI開発を加速させているとの指摘も報じられている。
+            </li>
+        </ol>
+    </div>
+
+    <!-- Main Content Topics -->
+    <div class="card">
+        <h2>1. 米国による対中エンティティ・技術規制の強化と中国側の反発</h2>
         <ul>
-            <li><strong>米国による中国・ウイグル関連企業およびAI・通信製品の排除・規制強化:</strong> 米国政府はウイグル強制労働防止法（UFLPA）に基づくリストに中国のバイオ・ゲノム関連企業3社を追加したほか、DeepSeek製品の調達禁止や中国企業製部品搭載製品の流通禁止規則を初適用するなど、規制を一層強めています。</li>
-            <li><strong>中国による技術輸出制限・両用品目管理および営業秘密新ルールの動き:</strong> 中国当局はAI・バイオ・太陽光技術などを追加する輸出制限技術目録の改正草案公表やドローン・TBM（シールド掘削機）等の輸出管理を強化。さらに営業秘密侵害の外国企業に対する禁輸・投資制限などの新規制案も浮上しています。</li>
-            <li><strong>クアッド（Quad）によるAI協力強化と経済的威圧への懸念共有:</strong> 日米豪印の外相会合等において、インド太平洋地域でのAI開発・普及支援や半導体材料の安定調達に向けた連携が確認され、中国を意識した経済的威圧に対する懸念が表明されました。</li>
-            <li><strong>半導体・先端GPUを巡る不正流出・不正密輸問題と自給化の動き:</strong> 米国での巨額のNVIDIAチップ密輸容疑による訴追や台湾でのAIチップ密輸防止策など流出対策が進む一方、規制が中国独自の半導体・AI開発を加速させているとの指摘も報じられています。</li>
+            <li>
+                <strong>ウイグル強制労働防止法（UFLPA）リストへバイオ・ゲノム関連3社を追加:</strong> トランプ米政権は、新疆での強制労働に関連しているとして中国のバイオ・ゲノム関連企業3社を輸入制限リストに追加したと報じられた。これに対し中国商務部は「断固反対し、自国企業の権利を擁護する」との談話を発表している。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html" target="_blank">(JETRO 10月29日)</a>
+            </li>
+            <li>
+                <strong>米連邦政府によるDeepSeek製品調達禁止およびFCCの新規制適用:</strong> 米政府が行政部門における中国DeepSeek社製品の調達禁止を発表したほか、米連邦通信委員会（FCC）は中国企業製部品を搭載した2製品の流通禁止規則を初めて適用したと報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/f713e529704cc84a.html" target="_blank">(JETRO 11月1日)</a>
+            </li>
         </ul>
     </div>
 
-    <!-- カテゴリ 1 -->
-    <div class="card">
-        <h2>1. 米国による対中エンティティ・技術規制の強化と中国側の反発</h2>
-        <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">
-            米国政府がウイグル強制労働防止法に基づくリスト指定拡大や中国製AI・通信規制を相次いで打ち出す一方、中国商務部などはこれらに対して強い反対姿勢を示し、対抗措置を予告しています。
-        </p>
-
-        <div class="news-item">
-            <div class="news-title">ウイグル強制労働防止法（UFLPA）リストへバイオ・ゲノム関連3社を追加</div>
-            <p>トランプ米政権は、新疆での強制労働に関連しているとして中国のバイオ・ゲノム関連企業3社を輸入制限リストに追加したと報じられました。これに対し中国商務部は「断固反対し、自国企業の権利を擁護する」との談話を発表しています。</p>
-            <div class="news-meta">
-                媒体: JETRO (安全保障貿易管理), Google News | 日付: 2026-10-29 〜 2026-11-01
-                <br>
-                <a href="https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html" target="_blank" class="link-btn">記事リンク (JETRO) &rarr;</a>
-            </div>
-        </div>
-
-        <div class="news-item">
-            <div class="news-title">米連邦政府によるDeepSeek製品調達禁止およびFCCの新規制適用</div>
-            <p>米政府が行政部門における中国DeepSeek社製品の調達禁止を発表したほか、米連邦通信委員会（FCC）は中国企業製部品を搭載した2製品の流通禁止規則を初めて適用したと報じられました。</p>
-            <div class="news-meta">
-                媒体: JETRO (安全保障貿易管理) | 日付: 2026-11-01
-                <br>
-                <a href="https://www.jetro.go.jp/biznews/2026/10/f713e529704cc84a.html" target="_blank" class="link-btn">記事リンク (JETRO) &rarr;</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- カテゴリ 2 -->
     <div class="card">
         <h2>2. 中国による技術・資材等の輸出管理および法規制強化</h2>
-        <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">
-            中国政府は自国主導の技術保護および他国への影響力行使を目的に、AI・バイオなどの先進技術やドローン、掘削機などの両用品目の輸出管理手続きを具体化させています。
-        </p>
-
-        <div class="news-item">
-            <div class="news-title">輸出制限・禁止技術目録の改正草案およびAI関連規制</div>
-            <p>中国商務部等はAI技術や生命科学、太陽光発電関連技術などを含む第5次「輸出制限・禁止技術目録」の改正草案を公表。先端技術の海外移転に対する制限をより厳格化する意図が指摘されています。</p>
-            <div class="news-meta">
-                媒体: JETRO (安全保障貿易管理), Google News | 日付: 2026-10-26 〜 2026-11-01
-                <br>
-                <a href="https://www.jetro.go.jp/biznews/2026/10/7ff8e9cb1624ef81.html" target="_blank" class="link-btn">記事リンク (JETRO) &rarr;</a>
-            </div>
-        </div>
-
-        <div class="news-item">
-            <div class="news-title">シールド掘削機（TBM）およびドローン関連品目の輸出管理実施</div>
-            <p>中国商務部と税関は、紛争や摩擦を抱える国・地域へのシールド掘削機の輸出管理を11月から実施する方針を発表したほか、ドローン関連品目の輸出管理の適正化・強化も進められています。</p>
-            <div class="news-meta">
-                媒体: JETRO (安全保障貿易管理), Google News | 日付: 2026-10-28 〜 2026-11-01
-                <br>
-                <a href="https://www.jetro.go.jp/biznews/2026/10/5bbba031dfd8b793.html" target="_blank" class="link-btn">記事リンク (JETRO) &rarr;</a>
-            </div>
-        </div>
+        <ul>
+            <li>
+                <strong>輸出制限・禁止技術目録の改正草案およびAI関連規制:</strong> 中国商務部等はAI技術や生命科学、太陽光発電関連技術などを含む第5次「輸出制限・禁止技術目録」の改正草案を公表し、先端技術の海外移転に対する制限をより厳格化する意図が指摘されていると報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/7ff8e9cb1624ef81.html" target="_blank">(JETRO 10月26日)</a>
+            </li>
+            <li>
+                <strong>シールド掘削機（TBM）およびドローン関連品目の輸出管理実施:</strong> 中国商務部と税関は、紛争や摩擦を抱える国・地域へのシールド掘削機の輸出管理を11月から実施する方針を発表したほか、ドローン関連品目の輸出管理の適正化・強化も進められていると報じられた。
+                <a href="https://www.jetro.go.jp/biznews/2026/10/5bbba031dfd8b793.html" target="_blank">(JETRO 10月28日)</a>
+            </li>
+        </ul>
     </div>
 
-    <!-- カテゴリ 3 -->
     <div class="card">
         <h2>3. 半導体・AIサプライチェーンと不正流出防止・自給化</h2>
-        <div class="news-item">
-            <div class="news-title">3億ドル規模のNVIDIA製先端チップ密輸容疑で司法省が訴追</div>
-            <p>米国司法省は、輸出規制を回避して中国へ3億ドル相当のNVIDIA製チップを不正密輸したとしてカリフォルニア州の男を訴追。また、台湾当局もAIチップの対中不正輸出・密輸行為を犯罪化する規制強化に動いています。</p>
-            <div class="news-meta">
-                媒体: Google News | 日付: 2026-10-29 〜 2026-10-31
-                <br>
-                <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3FrY1liNWY5enZvMVpUX0N3T0h6T0VsLXhLbnNITjFmRUx6Y1d0TllQdEVNR1JVc193VEpZVkRGV3RROE4xV0l0LW84TUtwSFdEOENodzVrV29TeUk4Zm9EcHBNWG9nNzlQS3R1THlOcWMxcWRCLTNYRENPUm9TNG1BWXVqZEV3YV8zeDhLVFpRSVdqSFBvWnplakZpOWJ1SGR6a2wyR2RLZw?oc=5" target="_blank" class="link-btn">記事リンク (Google News) &rarr;</a>
-            </div>
-        </div>
+        <ul>
+            <li>
+                <strong>3億ドル規模のNVIDIA製先端チップ密輸容疑で司法省が訴追:</strong> 米国司法省は、輸出規制を回避して中国へ3億ドル相当のNVIDIA製チップを不正密輸したとしてカリフォルニア州の男を訴追した。また、台湾当局もAIチップの対中不正輸出・密輸行為を犯罪化する規制強化に動いていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3FrY1liNWY5enZvMVpUX0N3T0h6T0VsLXhLbnNITjFmRUx6Y1d0TllQdEVNR1JVc193VEpZVkRGV3RROE4xV0l0LW84TUtwSFdEOENodzVrV29TeUk4Zm9EcHBNWG9nNzlQS3R1THlOcWMxcWRCLTNYRENPUm9TNG1BWXVqZEV3YV8zeDhLVFpRSVdqSFBvWnplakZpOWJ1SGR6a2wyR2RLZw?oc=5" target="_blank">(Google News 10月29日)</a>
+            </li>
+        </ul>
     </div>
 
-    <!-- 備考 -->
+    <!-- Notes -->
     <div class="card">
-        <h2>備考（システム構成メモ）</h2>
+        <h2>備考：本レポートについて</h2>
         <p class="note">
-            ・本レポートは、2026年10月26日から11月1日の対象期間に収集された公開ニュースデータ（総件数194件）に基づき、主要な安全保障および輸出管理に関する動向を抽出・要約したものです。<br>
-            ・各省庁の規則制定や対外発表については今後変更・更新される可能性があるため、実務上の運用検討においては最新の一次情報をご確認ください。
+            ・対象期間（2026年10月26日〜11月1日）の公開ニュースデータ（計194件）をもとに作成しています。<br>
+            ・確認できない詳細や報道ベースの内容は「〜と報じられた」などの形式で表記しています。<br>
+            ・各項目の参照リンクには、収集データに含まれていた元記事のURLを使用しています。
         </p>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 安全保障・輸出管理リサーチデスク All rights reserved.</p>
     </footer>
