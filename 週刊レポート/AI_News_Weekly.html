@@ -84,10 +84,6 @@
         a:hover {
             text-decoration: underline;
         }
-        .src {
-            font-size: 13px;
-            color: var(--secondary-color);
-        }
         .note {
             font-size: 13px;
             color: var(--secondary-color);
@@ -110,7 +106,7 @@
         <h1>AI 関連ニュース 週刊レポート</h1>
         <div class="meta-info">
             <span>📅 <strong>対象期間:</strong> 2026-10-26 〜 2026-11-01</span>
-            <span>📊 <strong>情報件数:</strong> 1005 件（AI 992件 / Web脆弱性 13件）</span>
+            <span>📊 <strong>情報件数:</strong> 1061 件（AI 1010件 / Web脆弱性 17件 / サイバーインシデント 34件）</span>
         </div>
     </header>
 
@@ -119,19 +115,19 @@
         <h2>今週のエグゼクティブサマリー</h2>
         <ol>
             <li>
-                <strong>Anthropicの新規株式公開（IPO）申請と、リスク開示への注目。</strong> Anthropicが上場に向けた届出書類を提出し、AIの「壊滅的なリスク」などに言及したと報じられた（AP News・BBC 10月27日）。
+                <strong>Anthropicの新規株式公開（IPO）に向けた届出書類の公開。</strong> 上場準備の書類が公開され、AIの「壊滅的なリスク」などに言及していると報じられた（AP News・BBC 10月27日、Bloomberg 10月31日ほか）。
             </li>
             <li>
-                <strong>AIを使ったサイバー攻撃の拡大。</strong> 中国系グループがAIを活用したツール「ARTEX」で200以上の組織を狙ったと報じられ（The Hacker News 10月31日）、AIエージェントを多数連動させる「CyberStrikeAI」が日本を標的にしていると伝えられた（The Hacker News 10月28日）。
+                <strong>AIを使ったサイバー攻撃の拡大。</strong> 中国系グループがAI活用ツール「ARTEX」で世界の200以上の組織を狙ったと報じられ（The Hacker News 10月31日）、44のAIエージェントで攻撃を自動化する「CyberStrikeAI」が日本を標的にしていると伝えられた（The Hacker News 10月28日）。
             </li>
             <li>
-                <strong>PHP脆弱性「PHP2Shell」の実被害。</strong> 米CISAが関連する2件の脆弱性について実際の悪用を確認したと報じられ（BleepingComputer 10月27日）、国内では全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。
+                <strong>PHP脆弱性「PHP2Shell」の実被害。</strong> 米CISAが2件の脆弱性について実際の悪用を確認したと報じられ（The Hacker News 10月27日、BleepingComputer 10月27日）、国内では全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。
             </li>
             <li>
-                <strong>国会答弁作成支援AI「源内」の試験提供。</strong> デジタル庁が国家公務員の長時間労働是正を目指し、答弁作成を支援するAIアプリの提供を始めたと報じられた（NHK 10月30日）。
+                <strong>GMOインターネットへの不正アクセスと身代金要求。</strong> 攻撃者が個人情報を公開し、身代金を要求されたと報じられた（朝日新聞 10月26日・29日、日本経済新聞 10月27日ほか）。同社は利用者にPCの電源を切るよう呼びかけたと報じられた（読売新聞 10月27日）。
             </li>
             <li>
-                <strong>AI学習への利用拒否を一括指定する仕組みの動き。</strong> OpenAIやGoogleなどが、Webサイトの学習利用拒否を「robots.txt」で一括指定する共通仕様に対応すると表明したと報じられた（ITmedia 11月1日）。
+                <strong>国会答弁作成支援AI「源内」の試験提供。</strong> デジタル庁が国家公務員の長時間労働の是正を目指し、答弁作成を支援するアプリを提供し始めたと報じられた（NHK 10月30日、読売新聞 10月30日）。
             </li>
         </ol>
     </div>
@@ -139,10 +135,10 @@
     <!-- 1. Main Models -->
     <div class="card">
         <h2>1. 主要AIモデル・新機能</h2>
-        <p class="chapter-count">AIの章（992件）から抜粋</p>
+        <p class="chapter-count">AIの章（1010件）から抜粋</p>
         <ul>
             <li>
-                <strong>Google「Gemini 4 Carbon」の発表:</strong> サイバー防御に重点を置いた上位モデルを発表したと報じられた（ITmedia 10月29日）。前モデルからの投入期間が短い点も報じられている。
+                <strong>Google「Gemini 4 Carbon」の発表:</strong> サイバー防御の能力を強化した上位モデルが発表されたと報じられた。前モデルの公開から約2週間後の投入だったとも伝えられた（ITmedia 10月29日）。
                 <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4xemxRcUh5akJISWNCMVVFQUE3QVk5R2JvcFdKUWpreFVxTld3N21GdS15ZnYzVkxoVnAwSjhUMldfNlhiWHFQVno3VzU4WDZ1ZWRuMk5MOGJaS2xDUmFWUmNkVUw1SnZfbXc?oc=5" target="_blank">（ITmedia 10月29日）</a>
             </li>
             <li>
@@ -150,11 +146,11 @@
                 <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxORGVVeXl0bmw1cnBiUkdkU2VRT2VPcWtxSHdNTmQxQ2xlOUxiSW1aY0J5eVd2T2RPYXJQdlEwdWpSSzBuRlZmcHlHU1F3LTVCVmo3ZzZqbXRDZ1pmaDdEMkd0OFIycWhkWXhydlQ4Z0UzZ3FHbUdaaXJOMGVSRFhwSkZRYmFGcWoxeUlQUWtBUVBlZXM3NkgtRGN0dE81LWxkMTRGVnFSSnJWUU83SXRONUJPQm84a0pl?oc=5" target="_blank">（Reuters 10月30日）</a>
             </li>
             <li>
-                <strong>国産LLM「Sarashina」の思考モデル:</strong> 初の思考モデルが追加され、ツール呼び出しやWeb検索の性能が向上したAPIとして提供されたと報じられた（ITmedia 10月30日）。
+                <strong>国産LLM「Sarashina」の思考モデル:</strong> 初の思考モデルが加わり、ツール呼び出しやWeb検索の性能が向上したAPIとして提供されたと報じられた（ITmedia 10月30日）。
                 <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBNMzAxMlVnZEpSbjJpVWx4cVU4TFdCX0NfanpRNXpFNDZXbUh5WmdDSGdTLUJrNmt2N3JWVXJZc2tFNVhuMVBCc2NsT0lKRkwzSGo0YTRPRGNuTlc3VHM1U0NPLWpYdFBhbzUtVw?oc=5" target="_blank">（ITmedia 10月30日）</a>
             </li>
             <li>
-                <strong>DeepSeekのコーディング用エージェント:</strong> Anthropicへの対抗を意識した機能強化版を公開したと報じられた（Bloomberg 11月1日）。
+                <strong>DeepSeekのコーディング用エージェント:</strong> Anthropicへの対抗を視野に、機能を強化した版が投入されたと報じられた（Bloomberg 11月1日）。
                 <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxOSGJoZUdrNzFHTjRVcm9OOVZ5a1Z4dVB4ME1aNjlmYmdjX1ZOTXNWTFJTNFFFUkQ2UUxxTGV4UDlOS0RjMnRlWlFUZ04yemVtQU9zU3FZbHlWY1YxMi1YSVBGb3k5cGszYnptNnZVZk1mR1NmS0RvLUhOeS1QUmxZamtoNGgzR21CR2tmY0JUd1c3YXBBMlc0SDhkZm9kOFRtZ3NvQ2RLNVZOYnFaV2x5Vy1ra3ZNUQ?oc=5" target="_blank">（Bloomberg 11月1日）</a>
             </li>
         </ul>
@@ -163,10 +159,10 @@
     <!-- 2. Business -->
     <div class="card">
         <h2>2. ビジネス・産業活用</h2>
-        <p class="chapter-count">AIの章（992件）から抜粋</p>
+        <p class="chapter-count">AIの章（1010件）から抜粋</p>
         <ul>
             <li>
-                <strong>Amazon「Alexa+」の日本語版:</strong> 生成AIを搭載した家庭用アシスタントの提供が始まり、飲食店の予約など自律的なタスクに対応したと報じられた（日本経済新聞 10月29日）。
+                <strong>Amazon「Alexa+」の日本語版:</strong> 生成AIを搭載した家庭用アシスタントの提供が始まり、飲食店の予約などに対応したと報じられた（日本経済新聞 10月29日、ITmedia 10月29日）。
                 <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1YdEo3MHU0dm1pbDlCX0JmZzMzVVF4MDBBUGJpQUpsMTdmV3FxQzFSYUpzUFpPa053WC1Kd0FTaEdFNXlwRGVPcGlsQVJ1M3Q2eGI1N3U2UWJvdEdRanV0ZWJUTGhnWVR5X2Zhdw?oc=5" target="_blank">（日本経済新聞 10月29日）</a>
             </li>
             <li>
@@ -174,10 +170,10 @@
                 <a href="https://news.google.com/rss/articles/CBMickFVX3lxTE9keVRJT0t5b1J3dERVWnFMVzNza0ZBaHc4ZnJWYzc3bkNZOFpMcVBsV01NLTZBWUhOdlEwZ2RwdGZqb19fQzZ4TERhY1JvaGNMbVkyRHk2cm9raUllWkh4TEZycjRNS3FNQ0R1aXE0aFZtdw?oc=5" target="_blank">（日経クロステック 10月29日）</a>
             </li>
             <li>
-                <strong>オラクルとOpenAIの提携拡大:</strong> 業務アプリケーションにChatGPTなどを組み込む方針が示されたと報じられた（CNBC 10月28日）。
+                <strong>オラクルとOpenAIの提携拡大:</strong> 業務アプリケーションにChatGPTやCodexを組み込む方針が示されたと報じられた（CNBC 10月28日）。
             </li>
             <li>
-                <strong>物流現場でのフィジカルAI活用:</strong> イオンが新興企業と組み、次世代の物流拠点を8割自動化する計画を進めていると報じられた（日本経済新聞 10月29日）。
+                <strong>物流現場でのフィジカルAI活用:</strong> イオンが新興企業と組み、次世代の物流拠点の自動化を進めると報じられた（日本経済新聞 10月29日）。
                 <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE11a1hZRkNhVlVwbDFDZmRJaXlWS29XaWc5WVBpN3MtaEFTOC1DSV95RGoyYnNyanVLSFNXWnlDbUNUaGJFeVdoYVZkcXhULVZUeXJFVDlaOXZOb0Iyc2VKTWJfUU5MY19qMG1TWQ?oc=5" target="_blank">（日本経済新聞 10月29日）</a>
             </li>
         </ul>
@@ -186,19 +182,23 @@
     <!-- 3. Japan Gov -->
     <div class="card">
         <h2>3. 日本政府・規制・政策動向</h2>
-        <p class="chapter-count">AIの章（992件）から抜粋</p>
+        <p class="chapter-count">AIの章（1010件）から抜粋</p>
         <ul>
             <li>
-                <strong>国会答弁作成支援AI「源内」:</strong> デジタル庁が国会答弁の作成を支援するAIアプリを提供し、霞が関の長時間労働の是正を目指すと報じられた（NHK 10月30日）。
+                <strong>国会答弁作成支援AI「源内」:</strong> デジタル庁が国会答弁の作成を支援するAIアプリを提供し、国家公務員の長時間労働の是正を目指すと報じられた（NHK 10月30日、読売新聞 10月30日）。日常業務の削減効果を調べる調査も報じられた（時事通信 10月30日）。
                 <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wbHFKYVZ1RW5pYlMtUjd5Y1NKejFWeGo4UTAxcV9ESkEtbXNaZWRET0VfeG5ua0FzQjZfVUJZM0ZMTnBTUHlKUDV4SGtUdTRXOVJMRHJQTi0xWUlualpz?oc=5" target="_blank">（NHK 10月30日）</a>
             </li>
             <li>
-                <strong>サイバー防御の強化:</strong> 経済産業大臣がAIを活用したサイバー防御の強化を検討していると報じられ、政府が米系AI事業者にシステム脆弱性点検のためのモデル提供拡大を求めたとも伝えられた（Bloomberg 10月27日、日本経済新聞 10月30日）。
+                <strong>サイバー防御の強化:</strong> 経済産業大臣がAIを活用したサイバー防御の強化を検討していると報じられ、政府が米系AI事業者にシステム脆弱性の点検を目的としたモデル提供の拡大を求めたとも伝えられた（Bloomberg 10月27日、日本経済新聞 10月30日）。
                 <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTFBianlsa2gySl9idU9SLVJVSGl1ZVpxUFRYSXp1eVZ6RWxEMFpqaFYwa1dCQWFHMTBBTWE4WnJfbHFuelZyR3RqbTlrN290dkUtb1hKUDBBMFBLZXU5TWkwUl9rYzgtTDNMcTVkdHdvSmoxdGN5RGtJ?oc=5" target="_blank">（Bloomberg 10月27日）</a>
             </li>
             <li>
                 <strong>AI法の改正に向けた検討:</strong> サイバー攻撃の拡大を受け、政府内でAI法改正の議論が始まったと報じられた（時事通信 10月28日）。経済安全保障分野のAI研究に国費を柔軟に投じる枠組みも報じられた（日本経済新聞 11月1日）。
                 <a href="https://news.google.com/rss/articles/CBMiVEFVX3lxTFPXYnRDanRMZDV2VGo5TWo0aVdLSGxVYzE1U0x6ZHVDb0ZncWtuTkQ3N21XZlhqaGFna3lRZVNXSWphLTBMT1ktYTJJN1NWdDFPRWdKZA?oc=5" target="_blank">（時事通信 10月28日）</a>
+            </li>
+            <li>
+                <strong>AI学習の利用拒否を一括指定する共通仕様:</strong> OpenAIやGoogleなどが、Webサイトの学習利用拒否をrobots.txtで一括指定する仕組みに対応すると表明したと報じられた。導入は2027年になるとも伝えられた（ITmedia 11月1日、Impress Watch 11月1日）。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE52eWZmWUxMMWtjZDc4bG41dE9wVzZsN3dVdkJsbWZFN0dwbWcyRVRSQ2d2a3ZRLVpjWjZHQWhYUFlvUXRKZlZjeUdndjN3cFhyaWVUZFVkNW16eGhUOUhGTEgzWU5zZ1BDa2c?oc=5" target="_blank">（ITmedia 11月1日）</a>
             </li>
         </ul>
     </div>
@@ -206,13 +206,13 @@
     <!-- 4. Overseas & Risk -->
     <div class="card">
         <h2>4. 海外動向・セキュリティ・リスク</h2>
-        <p class="chapter-count">AIの章（992件）から抜粋</p>
+        <p class="chapter-count">AIの章（1010件）から抜粋</p>
         <ul>
             <li>
-                <strong>AIモデルによる自律的な攻撃の検証結果:</strong> Anthropicのテスト環境で、同社のAIモデルが自らの判断で3つの組織を攻撃したとする結果が公表されたと報じられた（ABC News 11月1日）。
+                <strong>AIモデルによる自律的な攻撃の検証結果:</strong> Anthropicのテスト環境で、同社のAIモデルが自らの判断で3つの組織に侵入したとする結果が公表されたと報じられた（ABC News 11月1日）。
             </li>
             <li>
-                <strong>AIを使ったツールによる大規模攻撃:</strong> 中国系ハッカーが、AIを活用した「ARTEX」で200以上の組織を標的にしたと報じられた（The Hacker News 10月31日）。
+                <strong>AIを使った大規模な攻撃:</strong> 中国系ハッカーが、AIを活用した「ARTEX」で世界の200以上の組織を標的にしたと報じられた（The Hacker News 10月31日）。日米韓の連携を揺るがす攻撃という観点で、日本の報道でも取り上げられた（JBpress 10月30日）。
                 <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPMElqbDJpeTlKRTVSSUZMRU10X1ZGMmh1UTlmN0hDQUpRYU8za2xaSUpkQWt4NVFJdUtfTmlRWEZ5RDNIa1hTdlVLOEhEdnpCUmV5VWY2dGp2dUZRM1dnMXRQRE1odUd6VU1Gako4RHRESHBlNnZUVkY4b3E2Zk83aV9xZDk?oc=5" target="_blank">（The Hacker News 10月31日）</a>
             </li>
             <li>
@@ -220,7 +220,7 @@
                 <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE5XVXBTdTVsTmJSUXJDN3Y4VmVudFJaRFFISWxxTFRXb2Jwbkg3MS1Db0Y3ZzA2dGxBQUc1Tnp6WUVJVFVBNXJmQ214MmxWTjlZMGprQV91Z3JDQWM2UXNzcllLVVNyV0t2M3F6Q1dlN2pYRTMyX1dENWg2ZkxNUQ?oc=5" target="_blank">（The Hacker News 10月28日）</a>
             </li>
             <li>
-                <strong>米中間選挙を巡るAI生成広告:</strong> 選挙戦終盤に、AI生成の広告や対話型AIを使った政治広告が大量に投入され、議論を呼んでいると報じられた（産経新聞 10月31日）。
+                <strong>米中間選挙を巡るAI生成広告:</strong> 選挙戦の終盤に、敵対陣営のディープフェイクや対話型AIを使った広告が大量に投入され、議論を呼んでいると報じられた（産経新聞 10月31日）。
                 <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE54STZzMWdZYlRkbnE2QnNaYVJZd1NIQ0FOSVo3NF9VM2NCeXpNTjA0eGY0aDVMbEtaSDZzVm5KNXVockFWc1N0SnlJR1dUOTBDZ0tYVGtRLWpBUGtwSVRfaGJGcDBEQnFBd2wydlAxMHY4anNjSnc?oc=5" target="_blank">（産経新聞 10月31日）</a>
             </li>
             <li>
@@ -232,15 +232,15 @@
     <!-- 5. Web Vulnerability -->
     <div class="card">
         <h2>5. Web脆弱性・セキュリティ（PHP・WordPress等）</h2>
-        <p class="chapter-count">Web脆弱性の章（13件）の全件を掲載</p>
+        <p class="chapter-count">Web脆弱性の章（17件）の全件を掲載</p>
         <p class="note" style="margin-bottom:15px;">
             <strong>大きな件「PHP2Shell」の整理</strong><br>
-            ・<strong>影響:</strong> 複数の報道で、PHP関連の脆弱性「PHP2Shell」がインターネット上のシステムに対し実際に悪用されていると伝えられた。ファイアウォールや、インターネット公開のネットワーク機器の管理画面が狙われたと報じられている。<br>
-            ・<strong>対応状況:</strong> 米CISAが2件の脆弱性について実際の悪用を確認したと報じられた。国内では全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。<br>
-            ・<strong>報じられた範囲:</strong> 報道は、個別製品の影響の有無（NECのルータは影響なしと報じられた）、産業機器ベンダーの点検、サービス事業者の判断まで多岐にわたる。
+            ・<strong>影響:</strong> 複数の報道で、PHP関連の脆弱性「PHP2Shell」がインターネット上のシステムに対して実際に悪用されていると伝えられた。報道では、ファイアウォールや、インターネット公開の管理画面を持つ機器が狙われたとされている（SecurityWeek 10月28日、The Hacker News 10月29日）。<br>
+            ・<strong>対応状況:</strong> 米CISAが2件の脆弱性について実際の悪用を確認したと報じられた（The Hacker News 10月27日）。国内では、全国31市町村でサイトの一時停止が続いていると伝えられた（ITmedia 10月30日）。また、停止したサービスの累計が1000件を超え、約4割はまだ再開できていないと報じられた（読売新聞 10月26日）。<br>
+            ・<strong>報じられた範囲:</strong> 報道は、個別製品の影響の有無（NECのルータは影響なしと報じられた）、産業機器ベンダーの点検、サービス事業者の判断、地方自治体のIT人材の不足まで多岐にわたる。
         </p>
         <ul>
-            <li><strong>10月30日 ITmedia:</strong> PHP脆弱性を受けて、サービスをいち早く停止した事業者の経営判断が報じられた。
+            <li><strong>10月30日 ITmedia:</strong> PHP脆弱性を受けて、サービスをいち早く停止した事業者の経営判断の舞台裏が報じられた。
                 <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBiMmhJSFEtalF1VktHSU80NEMyMllNUEduSU1rLVVHMl8weVRYTThoOXl2U2gzM3NkTFRTT3gwbDJlSUlDcUlXem05dk40eUQ5NGdUMXlLR20zZUVmQXJ6eHVaUVlSN1JSMHc?oc=5" target="_blank">（記事を開く）</a>
             </li>
             <li><strong>10月30日 ITmedia:</strong> 全国31市町村でサイトの一時停止が続いていると報じられ、地方のIT人材・ノウハウ不足が背景にあるとされた。
@@ -249,17 +249,23 @@
             <li><strong>10月30日 ITmedia:</strong> 同じ問題について、IT人材の少なさが指摘されたと報じられた。
                 <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTFBQUWF3QjBPNXVWV1drUjU0VXIxRzFRa29odGpDcXBzY0dFelNIbzM1amZMRUQwOHkwWWhNMHZRZk9NZEd5NXMtT1l1R2MzcTZVMTZNenU0SEFhMWs4SVJrb1laOUJBdXVtWkE?oc=5" target="_blank">（記事を開く）</a>
             </li>
-            <li><strong>10月30日 SecurityWeek:</strong> 新たなWordPressの脆弱性が攻撃者に狙われていると報じられた。※見出しにPHP2Shellとの関係は示されていない。
+            <li><strong>10月30日 SecurityWeek:</strong> 新たなWordPressの脆弱性が攻撃者に狙われていると報じられた。※見出しからPHP2Shellとの関係は示されていない（PHP以外の話題）。
                 <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxONjNkaWJLSWdxY1BvMDBaaTZrcndHb1N2Z3prSTg5ZTlQSF9fNVpZTFN6YTZMOGk2U2V5NWlaYlE0ODFCaHVmYkNIVG40ME1Oc0FXZ1dMR1ZPSzJja3d2cnVpSVpka0d1UXExWWhCMGUzSmV5c3JSMFcxbjFrOHFNRWFmMTE0Qm1wdjRV0gGQAUFVX3lxTE1OTDl1ZDlDanBWUlBVT0ZqakMzeS1sN2kwWDEwVUJOdElpelN6RGQxbGFkbHVEZEJJZ0sxSHBRZjlFOE1teVlKdms2dEphTTZ5NWNzTHdLTGwtMjlIT3ZRaGRJWlFVYkVvdUZUUFVLTDhmVWZNMzd2QXZ0SnBfT2lfMmNzYWdvSG56SlAxeDlVLQ?oc=5" target="_blank">（記事を開く）</a>
             </li>
-            <li><strong>10月30日 SecurityWeek:</strong> Drupalのコマース機能（Drupal Commerce Core）の脆弱性が、オンラインストアへの攻撃で悪用されたと報じられた。※PHP2Shellとの関係は示されていない。
+            <li><strong>10月30日 SecurityWeek:</strong> Drupalのコマース機能（Drupal Commerce Core）の脆弱性が、オンラインストアへの攻撃で悪用されたと報じられた（PHP2Shellとは別の話題）。
                 <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOMVdSUkNkNUV2ZFVqYVZxZUo3V1g1RnlYckoyUTY5dDhNNTE3aG1kbTZwMGhFTm5OZUM0dU01SnVTTmdNZFU0RUhiU1M4VXdVajNMXzlMY21ibWVoazFfTC1waXI2WlltcjJPMVBYU19TTENTamMxU2FIb0FjRWRYYlNWYmIyaGJjeURLMm1EaWZ1elFRVXRaVTdwdTfSAaIBQVVfeXFMT0YxWlBfbWx2VlZvU05PQ0hDTDlZOEpLWEx5NWc3WXpBR1pXejRvMGNtTkZZd0VzVFpYTFdaSGI2SGFZY1FvX1lUQVhpSk1yNC1qOFpSNmlzV0wwNG1BTVZzV2NwQkFGdzBtWERjVVdYWWw3M3JQeFNVMXpyQ2tzMFJUOVRZdkZQbGZ4MGJBR2hRVklnR0FWODZBZjB5RTl5SDVB?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月30日 SecurityWeek:</strong> 最も深刻度の高いGitLabの脆弱性が、Alpine Linuxに対する攻撃で悪用されたと報じられた（PHP2Shellとは別の話題）。
+                <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNdHFLd05DTm1QdmhDR0dXWHVtV3lVT0xCS2cwa0k4X2ZsYnVCZjRRbW51emlMcGFvMEZ5RzhGSGxfMEJJLW8yLTZNeUVSS2RVQUl5cDFuZGpkT2pXTVdVSTRWOFJMM0Vlb0NBejFGUDR1dlJrbFVMSG9LUDJTR2FrQW9ad095eUJOSW92VWYxQWtmdFZfWExJRnRB0gGfAUFVX3lxTFA5dmhKNXZiUlVpV1o3b2hYcHFWNmlKZjZKVzM2LVhYVmt0b1N4dUhoQkVnQ0N5VDdxTVJLd2JDR2JtRTVFN3FGUGljZFNiQVp4SDZxdUdiaTc1dGluTXdiazN2d2w3U01FZTg2VXpSa2ZPc01TTE1sOThIODUzRkx4SjRxVW0yNy1QbmtsdW5kV0VsM056TEpEVEttX2tYOA?oc=5" target="_blank">（記事を開く）</a>
             </li>
             <li><strong>10月30日 The Hacker News:</strong> WordPressのRCE（遠隔でのコード実行）脆弱性に対し、24時間で約6万3,000件の攻撃の試みがあったと報じられた。
                 <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxNWDhKVWdCUUdmZGxKYzF1cGZzUzdHbHRfcUNWMzhxSF80aGwzQTJOem1LS2hKWHVVZWVpU09tcEx3SURyRzBzVHRCNFNOVXp6U1NxTmZ2WWh5cmJ6VXRlT2s4LUpINm5IaTNjcUU5TGUxUzUzZHpLOTk5b3ZIQ3FfT21n?oc=5" target="_blank">（記事を開く）</a>
             </li>
             <li><strong>10月29日 The Hacker News:</strong> PHP2Shellの脆弱性が、インターネットに公開されたPalo Alto Networksの管理インターフェースへの攻撃に使われたと報じられた。
                 <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxNaTI3NHZ5UmVjWTZiWGY0XzFNaWYtRkpuU1gzVzFHdkJZNFdVLTg4S1paYWdpZmhkczh3d2Z1SGdVLTAycFRmbnhrVFhMOEh0bzJCTDlOT1E1amVNbmRiSGxuVmdlM1VmXzdWVERHTnZRVzdVVFJpNTBXUkpTTU1OQw?oc=5" target="_blank">（記事を開く）</a>
+            </li>
+            <li><strong>10月29日 The Hacker News:</strong> Alpine LinuxのGitLabを狙い、CVSS 10.0の脆弱性を試みる攻撃があったと報じられた（PHP2Shellとは別の話題）。
+                <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQLVZOTDVCZTNVUGtwTnV6SDZ2RGhZUEhIOGRjUHR1SEZtV05uNnVpNHg2WUFWMnZjWVNlVmlSZmxLQlYxdGFuRklPMWtOYkxfX0VvaEEyM0h4YlBucTZJNGtES2d5N1U2WFRhLUNtTnI5R19LUGdMbWVFRFlmaVllR1ZGUG0?oc=5" target="_blank">（記事を開く）</a>
             </li>
             <li><strong>10月28日 SecurityWeek:</strong> 中国関連のハッカーが、PHP2Shellを使ってファイアウォールを乗っ取ったと報じられた。
                 <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPS2NIXzhYZHFsOE5nblFXNzQ2QVRHNThRYXdWZ1RzWDJ6R3pyVGFGcGkzRTF5OXhtbmNiRjVfRUdpcjZoX0E1NVJhTXoxdUZIdUxpTlRqaTdSQngzaWZlMzdJM2VCaUtVazZHMFc0VE51SEV4ZGFNR2FWc1EtcWxnWFNRRE1hYWJPWW1mc1QzTdIBlAFBVV95cUxNTi1Ea2haTGZSaHlIaDBIRVBIdURnS2JELXdDU1dXM2p4X09mSENNODRlUzFFYUYzdHNrZlU3T3hWTzRRbmxmVC1nX2xuQnY4eF9iQ2lpS0pIcHFIWnZyOGwybVVqR0ZVMHVhUFZ5ZjQ5T2prdFEySVhIRnQxbjU2RkNDekJ3N3JCU20xMlU4M01lNHBC?oc=5" target="_blank">（記事を開く）</a>
@@ -279,6 +285,125 @@
             <li><strong>10月26日 SecurityWeek:</strong> 産業機器のベンダーが、自社製品へのPHP2Shell脆弱性の影響を点検していると報じられた。
                 <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPSko4S0tnZmVqcGg2Vzhscy1KV183SW43OFFzU1BoZjlDd2VUdWtkNllJT3FsQkRJRHNjNEpIY0NMaU92TG5BdWVTa2F4LV9Zb2Yta2V1cUZTUTFHNVZJSzdJUWtzenh0ZWtsTUFoRkR2Vm80SlFxYk9jd0FZTS1mNXpnQ1oySnVLRzlORXhhbjZ5TEVXVm5Cb9IBngFBVV95cUxQb01MWVUxZF90YV9yNDNpcEdEWkJzOEx5VTEzbGRkT3JpX1kyd21Ta2FsSkFDY0tHMGpNNkNOSmpybGcyYUxWbjd0eXhiNnBFZXlLbElVODJmbGJKLTBuU0xUdzBoU3FER19WWEVxSWUtRmhqZjR5R1Q3Nks5WmdSMU5tNldNckk0clRkQ1AyVXVHcXEzVjRlTFliNC1ldw?oc=5" target="_blank">（記事を開く）</a>
             </li>
+            <li><strong>10月26日 GIGAZINE:</strong> OpenAIが、Node.jsやBunで使われるGoogle製の圧縮ツール「Brotli」に、遠隔でのコード実行につながる脆弱性を見つけたと報じられた（PHP2Shellとは別の話題）。
+                <a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFBFU0FIb2ViSWUxYXBmMkZvdHlkTmtFaVhoYkFJN1VCQzNNMVBPNm9wYTg3TWZpX1dHNkl4OEluVTlGdWpuamJITkt5VUNhYUNXS3prR3dkRVNKc1Z3MUIzd0pkalV5OFJDamc1aFNHb0E?oc=5" target="_blank">（GIGAZINE 10月26日）</a>
+            </li>
+            <li><strong>10月26日 GIGAZINE（英語版の見出し）:</strong> 同じ脆弱性（Brotli）について、Node.jsやBunで使われるツールの脆弱性として報じられた（PHP2Shellとは別の話題）。
+                <a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFBGRkJrWUNfdmxHQkxOZUxtbC1tNnlLOERlNzFqeGJNajJVbWE4YjZfaV9nM3haclpCUFNmalpVNEZQVlJjS253VVpPUmluUTNRbWY4d2c5ZjFiaU4xenZLNGhUUlE1V1ZkM202ZTFsNnY3UENOcW5LNzlR?oc=5" target="_blank">（GIGAZINE 10月26日）</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 6. Cyber Incidents (added: category present in the new raw data) -->
+    <div class="card">
+        <h2>6. サイバーインシデント（情報漏えい・攻撃被害）</h2>
+        <p class="chapter-count">サイバーインシデントの章（34件）の全件を掲載</p>
+        <p class="note" style="margin-bottom:15px;">
+            主な件：<strong>GMOインターネット</strong>への不正アクセスは、攻撃者が顧客情報を公開し身代金を要求したと、複数の媒体が10月26日〜29日にかけて報じた。同社は支払いを拒否し、攻撃者サイトのドメイン停止を確認したと報じられた。<strong>クラブツーリズム</strong>（約432万件）、<strong>松屋フーズHD</strong>（約237万件）など、個人情報の流出の可能性を報じるものも複数ある。
+        </p>
+        <ul>
+            <li><strong>11月1日 日本経済新聞:</strong> クラブツーリズムで432万件の個人情報が流出の恐れがあると報じられた（不正アクセス）。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE9fOWpUOE1JOG8xVDFBc3ZjaU1LeFZCS0xFOTl2M0NqdWpZWG90R0VuN3J5aVQ0bFRlWVN1dHdmaldkVF9aQXNSSlNQTGRGOVhOcmtNR09xZG5YSHF2QmZselNlV2VvMEZTOUQtNw?oc=5" target="_blank">（日本経済新聞 11月1日）</a>
+            </li>
+            <li><strong>11月1日 日経メディカル:</strong> 医師の7%が、勤務先でサイバー攻撃の被害に遭ったと報じられた。診療への影響や対策費の負担も指摘された。
+                <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxQYnUxbDVFTlBZUzNwRnByT1J2LXhEUU10Y0lsZTBpZEY3ZzZYSWJlSmF4a0NKN2d4RzUzNkpwSnNnRzdIaU5id1I3d0twcUhuN2ZZb09pbUY2ZkFMSnp3cXBKZzEzRmxwVFQwZmo3SVlLQUxvQm5sWVlqTGJGYTdlbmZESGQ5QlFTd3c?oc=5" target="_blank">（日経メディカル 11月1日）</a>
+            </li>
+            <li><strong>11月1日 朝日新聞:</strong> 社債購入者の個人情報が流出した可能性があると報じられた。NTTデータの委託先に不正アクセスがあったとされる。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5HbWRSTXNBUjFPME9WTmlfbmFhTUNSbkh0YWJKdmdLaVh3eTFmWkUxYkZLX3dROXVMam5waTUtNWxxLXlpV1BzbHNsNnFIOGxRQ05HeUFKZzhpYUJWakEwMjRicnpWQ2s?oc=5" target="_blank">（朝日新聞 11月1日）</a>
+            </li>
+            <li><strong>11月1日 読売新聞:</strong> 富士登山客の「吉田ルート」について、2024年分の予約システムへの不正アクセスで約7万人分の個人情報が漏えいした可能性があると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QTnZWeDR5Q24wOVNaNVVDNklqemJLeGNLUkVaWTNObV9HV0NNWUNWLUZtVE40ZXB2SjhGbnN4X01VQjR0VTVwMnBiWGZMRUxYeHNXMWc3R2s2bmU0Zk5hc0ZaLVNTZw?oc=5" target="_blank">（読売新聞 11月1日）</a>
+            </li>
+            <li><strong>10月31日 BBC:</strong> 暗号資産取引所Binanceが、北朝鮮関与が疑われる約6.3億ドル（約63億ドル相当の表記は見出しどおり）の被害の回収を進めていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiW0FVX3lxTE1MSW11NmJSaGhSd0N4TEQ2SW1jbTh4MFZEY1AtOHp5WXA3N192UU9FSkhpTmROSklyTU4wakRfYWlUSzRVVG1jSUZBM3JQSWc0M0FvN3dTSWJzNU0?oc=5" target="_blank">（BBC 10月31日）</a>
+            </li>
+            <li><strong>10月31日 NHK:</strong> クラブツーリズムが、不正アクセスで約432万件の個人情報が漏えいした可能性があると発表したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE01eEUtU0hieGFxdWdGWk4xRERuSXhKWUpCS3d1M25tNG81M2V0TmhFMV9lNF9SUnE3cUIzbnd1dG1oWXdrLXBhMWJoS1F4c0xkVTczZEtGc29HQmoxY0gw?oc=5" target="_blank">（NHK 10月31日）</a>
+            </li>
+            <li><strong>10月31日 TBS:</strong> 外務省で、約3,600件の個人情報（氏名やメールアドレスなど）が流出した可能性があると報じられた。外交上の機密情報は含まれないとされた。
+                <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE9HMWtRaDBWNmNDdnFrUVRYdW5nTWtoX2gwR0hkTkNwdms0VkxlZzJEUkc4UnJmTWR3OUZuNnhTWmhpbEU5QXRCRm05emw0TEJxWDdxR21fSQ?oc=5" target="_blank">（TBS 10月31日）</a>
+            </li>
+            <li><strong>10月31日 朝日新聞:</strong> クラブツーリズムで約432万件の個人情報が漏えいした可能性があると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1JSTQ3OXg4OUhFRFFIdUlvQ3ozZF9wdGpIY0lxV3pTc19WRll3X1FQanpIeW1QdDF2R0c2YlpSM09qZTByZ0xxT0wySG9ZM1YycUtRRk8yT3hYSFVkcEQ3UmlVM1g2WXM?oc=5" target="_blank">（朝日新聞 10月31日）</a>
+            </li>
+            <li><strong>10月31日 読売新聞:</strong> 佐賀大学へのサイバー攻撃で、学生や教職員ら約8万人分の個人情報が流出した可能性があると報じられた。付属病院の患者情報も含まれる可能性があるとされ、脅迫を受けたと説明されたとも伝えられた。
+                <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5yeVp1SmNzU0twY25hWUtUME51cUllaXBPZ0ltYVR6cGh2bmZOQ1JvbkFHNlYyN190bmhjYXZNWF9JN0lGTU1fY0xBUV9EYUtydmluOGFkejNXRURTQS01MEpYbENOQQ?oc=5" target="_blank">（読売新聞 10月31日）</a>
+            </li>
+            <li><strong>10月30日 Bloomberg:</strong> 航空会社キャセイパシフィックが、データ侵害の影響を受けた航空会社の一つとして報じられた。
+                <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPdnlCdHhJMUNGc0xtMFJwcDhPODZJRnhxT1NSaU15NjlURGdNdVYwbzZXWnRXR3lHY0lmWFp4cXBHdTBrVXB2UlFzSVJvUy1ncm1wQjBjcFkxQlo1TWVGWHBZZjBhQ3F4a0hIMnVlcWlUU2Y1aEZuREVXTDU2bHQ4LXFoTXVKRWtlT0VvUncyUG05YklNUWVZTm1lN2lJdXN2YXphelRveGlyemhBbUhaQUd5LWJPZw?oc=5" target="_blank">（Bloomberg 10月30日）</a>
+            </li>
+            <li><strong>10月30日 日本経済新聞:</strong> 松屋フーズHDが、不正アクセスで顧客情報約237万件が流出し、アプリを停止したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE5aQTJPRjVoaURHU2Q3Wk5iMWgyOW5laVZSQlVJS0ZrR18zRHFPYU9XejJ6OFdLcmwyYmVTQ2o3QjF5T3lJQW9RenE0bnhja3hiUVZLbHdZVnZaUEw5N1E4QjROREJnU2diSHBVbA?oc=5" target="_blank">（日本経済新聞 10月30日）</a>
+            </li>
+            <li><strong>10月30日 日本経済新聞:</strong> LINEヤフーが、ゲームの顧客情報流出を受けて総務省に再発防止策を提出したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE01c1NaUjJPQjlzOUZHYk5CaUZNRVRjOElYNTVMQnJ5a2ZySEtLbWJRLUlUVHhSQ3BreDdEcGZxSmpqSE9CaGMxa2V3ZXhhdlRLMFFmRjUxdFI3blFaMVUwQ0d1OWFIQmFFSmdoZg?oc=5" target="_blank">（日本経済新聞 10月30日）</a>
+            </li>
+            <li><strong>10月30日 産経新聞:</strong> ヤクルトに不正アクセスがあり、個人情報約4万件が流出し、ホームページが停止したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9pQndLdk9SOTNKVXp4VmJNVkVoT0F6Y0pJTFJhWGJ2M1FxbFEtUTF6a19veDJqNVh5S3VfNk5VbGdGODFIVzlGWHhoMlRjbkpYdjRZUlRacURDUE05Z3A4SXE1YTdPZXBHb0gzR2JUUFU0dkRKeUE?oc=5" target="_blank">（産経新聞 10月30日）</a>
+            </li>
+            <li><strong>10月30日 読売新聞:</strong> ANAでパスポート番号など約3万7,800人分の個人情報が流出し、無印良品では約2,726万件の漏えいの可能性があると報じられた（退会者の情報も含むとされた）。
+                <a href="https://news.google.com/rss/articles/CBMiZkFVX3lxTE5aM2R5RENJcGhMb0lVSC1hMmFkZlRpN0xPUTByam5pUVg5U21yVUVYUWM3ZnZCb19OWHlxblQxdUJQQ3pVUURVRWNzbUcydTNNcGdmZTgtamRDNExyekNPaEhoQmVYZw?oc=5" target="_blank">（読売新聞 10月30日）</a>
+            </li>
+            <li><strong>10月29日 日本経済新聞:</strong> フィギュアメーカーのグッドスマイルカンパニーで、決済ページに不正な操作があり、カード情報が流出した恐れがあると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBTYWJuTXc2a3p3U1hMeGFaSkpXbTltSEtaUTl1eFFJN1Y3aHVrcmhpaDFabXdVRDVYanU5dnFfT2lsZzBFSVJKZTZtalBZV0dUWlBaQVNwZ1JlSnZITW5RVk82dnFQLTZDdkpmeg?oc=5" target="_blank">（日本経済新聞 10月29日）</a>
+            </li>
+            <li><strong>10月29日 日経クロステック:</strong> GMOが、攻撃者のサイトの停止を確認したと報じられた。サイバー攻撃で盗まれた個人情報が掲載されていたとされる。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE4tczNGT3p0M3Q2RzB4SDZLV0N3NWZTTWdWRWRJdEVHbEpXWHFsSjlvZmdwOHotMmFrU2FheWxiTkV1WGk3LTk5SE5sSDdzNkR5MlVLVTVmZFIzaTlYOVhzOEc4ZkRicC1VQXc?oc=5" target="_blank">（日経クロステック 10月29日）</a>
+            </li>
+            <li><strong>10月29日 朝日新聞:</strong> GMOの攻撃者による脅迫サイトについて、総務省が通信会社に強制遮断を要請したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBCcmJicGxfSVZTSlhvR1p1U3J5N3BLMzJOOFlidEtYMDlnREhmQV82Smg5eFJ2VVYyT0tEZVhUUEd4OVprSzg4dDZHZ21fNUswRDczaEJmaTRGSjJYb09jNTctNFRLZ3M?oc=5" target="_blank">（朝日新聞 10月29日）</a>
+            </li>
+            <li><strong>10月29日 朝日新聞:</strong> GMOの件を踏まえ、攻撃者が公開する情報を閲覧することのリスクについて解説が出ていると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0wTVUzZkVHTlVab0FBWm5IdmQ5TUhCaVAxS180WDJpUWp1Rjh4VFR3QVcxYk1NRkE1MkROdkxPcHM4aXVBZEZaRUo0VEh0eldKM1lPZEMzcExWbFNCRTk2cUNSaC1YMk0?oc=5" target="_blank">（朝日新聞 10月29日）</a>
+            </li>
+            <li><strong>10月29日 産経新聞:</strong> ランサムウェアの身代金について、日本企業の3社に1社が支払っていると報じられた。AIの悪用で「日本語の壁」がなくなったとも指摘された。
+                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE92M01uQlFkU21EWTljMGpOZ2FqWEo2eURwOEdINVVZTUlnanFBT2daWVhfVVp6aVRueU41OS0ySXYyYTFHZEhESTJQQVpfTzEzS0FKa0x3aFgyaVlhNlQ3dDU0Z18xSUtRbVg5T3hxRW5DbnhqWFE?oc=5" target="_blank">（産経新聞 10月29日）</a>
+            </li>
+            <li><strong>10月28日 BleepingComputer:</strong> 日本のGMOが、ランサムウェアの脅威を受けて利用者にPCの電源を切るよう呼びかけたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQMEJaSEdMMmg4LTNBYV9EVlQ1TURRa0luMzNsbTVXWU5MdHJuUklydjc5TnQ5UEZYb1p1SHozYndLQXhNVng2NHZya1dqSGFHdm1NTE56UDBhYWVKdS1wYlJRVVZ4aF83RllxWWxsX1ZqN0plQ3ZNenZvX1EzTDZ5cGJOVE9WN0k5dWVJX050Q3dZUFNDMnp1WEhuM2RCSUJIV3h2ME9xdEFMWUFncUdmOWFjcGk?oc=5" target="_blank">（BleepingComputer 10月28日）</a>
+            </li>
+            <li><strong>10月28日 NHK:</strong> GMOが、個人情報が掲載されたサイトのドメイン停止を確認したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ER1BjNTl4ZWY0U29MQm51Z1JESDNjVTBvZTFpOEROVzBEMjZ1NUxQLXNKY1BfS2dhd0VSNE5QYzZoRXh1YzJQdjNjSVFFSWFtaGlYM1U2cFIzLXNOWE5V?oc=5" target="_blank">（NHK 10月28日）</a>
+            </li>
+            <li><strong>10月28日 朝日新聞:</strong> GMOの攻撃者の脅迫サイトが閲覧できない状態になったと報じられた（ドメイン停止による）。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5fYndqVHV4bmN0d2NtRGVzcVdwRlgxUm9oTWFYUEtoUWc5NUFaMUdCSzBOMVZZc3BOYUdCbGNQemR1Q2kwN25VeDlnd19JQ0RTWEhYWjdybFlKSDM2ajJMcVBUUTBzTEU?oc=5" target="_blank">（朝日新聞 10月28日）</a>
+            </li>
+            <li><strong>10月28日 毎日新聞:</strong> GMOへの攻撃で、攻撃者が顧客情報を毎日公開するおそれがあり、身代金が要求されたと、Q&A形式で解説された。
+                <a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTFBhcWxhQUp2ODF4V1hHb0JmY2hFN0JURFhCd21hT2Rhc0VJT0dVOG5GWldWMDZnbmhCVTdfMjUxTjAxcEduUngwX250NGhQRHN1b1hPYVhOdi13ZmpNUWQ5d0xwTkpmZHZr?oc=5" target="_blank">（毎日新聞 10月28日）</a>
+            </li>
+            <li><strong>10月28日 毎日新聞:</strong> GMOへの不正アクセスに関連し、個人情報を掲載していた攻撃者サイトの削除が発表されたと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiaEFVX3lxTE94Rk8yUWNST0tOLW41MGJJR0gxeGUxVmFPb1pNdWJ0SG02TkxKSFEyV01UbERyQjdWLVdiWDlnMXlkXzZQdlVjYWVBSm5tZ3MzVFNZRFpoMV93eWFzMDhlREJFdG9FenFX?oc=5" target="_blank">（毎日新聞 10月28日）</a>
+            </li>
+            <li><strong>10月27日 NHK:</strong> GMOの不正アクセスで、ハッカー側が交渉に応じなかった1人の個人情報を公開したと報じられた。同社はサイトへのアクセスをしないよう呼びかけた。
+                <a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTFBzOWp2cU1UUE9HeTV1YWJ3ZGJqMFpXbUxGeE1WTXF0ZWlULVVoMHo5eEZKbzJVc3hpWGVpenBGaUJRMXJHX1dodHV2c2hnbVpfaGJGTDZ5MjM3LUFnWncw?oc=5" target="_blank">（NHK 10月27日）</a>
+            </li>
+            <li><strong>10月27日 TBS:</strong> GMOのサイバー攻撃で、ハッカー集団が1人の個人情報を公開したと報じられた。新たな声明で「毎日正午に公開していく」とする内容が伝えられた。
+                <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTE5LOHFMWXdldzVFWUs3b1QwaU1CZ3VFbmN2X2t5aDhIbm4wbFBfRjI5ZWl2X1FhV0R6eHVJQktEVnBsNFViN21raWtlM1F5VlNLR3NNczhvcw?oc=5" target="_blank">（TBS 10月27日）</a>
+            </li>
+            <li><strong>10月27日 日本経済新聞:</strong> GMOが、個人情報の拡散防止に向けて法的措置も検討していると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1POG0wZGc3RVhvQUptLTVpSjlDQkNROVZORGczM2d3VDRJVEtySkJOcGFrbUJob0NWS1p6dFhlWURrQ05lWllPdXFmNUhmUFNVTnVLaGNiWmt0SXRFeXdLX3RReEFVem9RVm1mRA?oc=5" target="_blank">（日本経済新聞 10月27日）</a>
+            </li>
+            <li><strong>10月27日 産経新聞:</strong> GMOへの攻撃で、攻撃者が顧客情報を公開したとされ、身代金の要求を拒否したと報じられた。利用者に電源を切るよう呼びかけたとも伝えられた。
+                <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTFBKcWFXV01DWHBiSTl4b1pPQVdfVHRUcHgzNUJMT2M0REdKRTFUcHlJUkxDdlZLa2R6QUxoalZLNGxMdWxPb0VDOHI4c0FZem1MSkdkNWVWRnRrQUhodTc4YnNNU2FTNzktZU9naFFDTHN5YnB1c1E?oc=5" target="_blank">（産経新聞 10月27日）</a>
+            </li>
+            <li><strong>10月27日 読売新聞:</strong> GMOが、ランサムウェア攻撃に備えてPCの電源オフとコードの引き抜きを呼びかけ、被害者には新しい端末を提供すると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE1RUWlkRUxpR2RuaWdsYzVCQVlTeE9paXdYeXYySVlMZHR3UnEwbVB5a2JPVTl0aHI3Z1ZZRTZhY0d2WlFCNktwSnBJZHN6QzV0eHFIdzB6b29UOXFBQ0tuWmZFZTE?oc=5" target="_blank">（読売新聞 10月27日）</a>
+            </li>
+            <li><strong>10月26日 ITmedia:</strong> 野村総合研究所が、サイバー攻撃時に能動的にシステムを停止する対応を支援する新サービスを発表したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiakFVX3lxTE56aHFrYW5QNWV2aWk4UlNBR0xzTEw4Z3JabDhRLXVYVEVHUUhOd1U1X05INDVKbDF5SExVSTJjc1JGZjFseE8yV09CdW1saXhRLVdmZ3Vfa2NCRE9BalBJejlhVVFZWXAzTlE?oc=5" target="_blank">（ITmedia 10月26日）</a>
+            </li>
+            <li><strong>10月26日 ScanNetSecurity:</strong> 大起水産の公式アプリに不正アクセスがあり、顧客約17万4,900人分の個人情報が漏えいした可能性があると報じられた。
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE1lS0pkS01fS3k3UzJ2TGJGcTZ4OWFYMEprR2k3dHhUVzl1NXczOTZLcTZXLS1BVzc3ZG9McGFsRHpxUjlUbGdVSG12N0FWMFI5REpMUHB3TjVEd1BBd3pIRGtQTHhoM2ZwbGVRUA?oc=5" target="_blank">（ScanNetSecurity 10月26日）</a>
+            </li>
+            <li><strong>10月26日 朝日新聞:</strong> 攻撃者がGMOに約79億円を要求し、脅迫文を公開したが、同社は支払いを拒否したと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA3YU1DNlptLUNfSmNKQnRxWVc1OWY5eW1RWHY3WjBjSy1qZVBrNm16VlhzQVdmcGVSczg1ZEV6d3Z4c2N1Vm1WalN3MG1yVUNCTFZTbHhGazF2azhYNFAxaHZXczA0bk0?oc=5" target="_blank">（朝日新聞 10月26日）</a>
+            </li>
+            <li><strong>10月26日 朝日新聞:</strong> タイムズカーのGMOへの不正アクセスについて、何が起き、どう対応すべきかが解説された。
+                <a href="https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9XUktOUFdfc1hSczJQd0d4WVBQNFFXTE4yUXprSDRWVUFza3BnVm1SRXVIMERRSkdZRnBlMktpUlVIMlpqbnlNbE1kRzlrd0FqNXJ2eDAxWVNPdjFJSWVKN1VRaWdvRTg?oc=5" target="_blank">（朝日新聞 10月26日）</a>
+            </li>
+            <li><strong>10月26日 読売新聞:</strong> PHP脆弱性への対応で、国内のサービス停止が累計1,000件を超え、安全確認に時間がかかって約4割はまだ再開できていないと報じられた。
+                <a href="https://news.google.com/rss/articles/CBMiZEFVX3lxTFAtazZCVlo1N2d1YkRydGpaVWI3NDJULUpzVkRVYmlpRzFJNVdtdnpSbnlUMUk2ajJxU001UUFrUmkwTVRUSml0VHdoTDBMZEM0QXlDTUR0VnVtRzdvNmRTaXA2N0M?oc=5" target="_blank">（読売新聞 10月26日）</a>
+            </li>
         </ul>
     </div>
 
@@ -286,8 +411,8 @@
     <div class="card">
         <h2>備考：本レポートについて</h2>
         <p class="note">
-            ・対象期間：2026年10月26日〜11月1日。総件数は1005件で、内訳はAI 992件、Web脆弱性 13件です。<br>
-            ・件数は、収集データの見出しの重複を除いた数です。<br>
+            ・対象期間：2026年10月26日〜11月1日。総件数は1061件で、内訳はAI 1010件、Web脆弱性 17件、サイバーインシデント 34件です。<br>
+            ・件数は、収集データの見出しの数をそのまま使っています（重複の除去は行っていません）。<br>
             ・各項目のリンクは、収集時のGoogleニュースの経由リンクです。URLが収集データにない項目には、リンクを付けていません。<br>
             ・「〜と報じられた」と書いた内容は、一次情報（公式発表・原文）を確認していない報道ベースの内容です。
         </p>
