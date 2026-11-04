@@ -13,12 +13,13 @@
   <link rel="stylesheet" type="text/css" href="css/5-9.css">
 
 <style>
-  /* ▼ ここから追加するコード ▼ */
     html, body {
       height: auto !important;
       min-height: 100% !important;
       overflow-x: hidden !important;
       overflow-y: auto !important;
+      margin: 0;
+      padding: 0;
     }
 
     #particles-js {
@@ -30,53 +31,37 @@
       z-index: 0 !important;
     }
 
-    #wrapper, .container {
-      height: auto !important;
-      min-height: 100vh !important;
-      overflow: visible !important;
-      padding-bottom: 60px !important;
-    }
-    /* ▲ ここまで追加するコード ▲ */
-    
-    .btn-print {
-      display: inline-block;
-    }
-
-    button.btn-print {
-      background: transparent !important;
-      background-image: none !important;
-      color: transparent !important;
-      border: none !important;
-      font-size: 0 !important;
-      width: 0 !important;
-      height: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      pointer-events: none !important;
-    }
-
-    button.btn-print::before, 
-    button.btn-print::after {
-      content: none !important;
-      display: none !important;
-    }
-
-    #wrapper{
+    #wrapper {
+      width: 100%;
+      max-width: 1200px; /* 必要に応じて最大幅を調整してください */
+      margin: 0 auto;     /* 左右中央配置 */
+      padding: 0 20px;
+      box-sizing: border-box;
       display: block;
-      text-align: initial;
+      text-align: center; /* 全体を中央寄せベースに */
       color: initial;
       position: relative;
       z-index: 1;
       pointer-events: none; /* 余白部分はマウス操作を背景の粒子まで通す */
     }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      height: auto !important;
+      min-height: 100vh !important;
+      overflow: visible !important;
+      padding-bottom: 60px !important;
+      text-align: initial; /* カード内などのテキストは左揃え等に戻す場合 */
+    }
+
     /* リンクやボタンなど、実際に操作する要素だけクリックできるように戻す */
     #wrapper a,
     #wrapper button {
       pointer-events: auto;
     }
 
-    /* particles背景のz-indexをマイナス値ではなくプラスの小さい値に固定
-       （一部のブラウザ環境でマイナスz-indexが描画されない不具合への対応） */
+    /* particles背景のz-indexをプラスの小さい値に固定 */
     #particles-js {
       z-index: 0 !important;
     }
@@ -114,6 +99,22 @@
       color: #fff !important;
     }
 
+    /* ヘッダー全体を中央寄せ */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* タイトルとボタンの折り返し整列（中央揃え） */
+    header .title-area {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
     /* 題字グラデーションアニメーション */
     header h1.site-title {
       display: inline-block;
@@ -132,6 +133,31 @@
       background-clip: text;
       color: transparent !important;
       animation: flowGradient 6s linear infinite;
+      margin: 0;
+    }
+
+    /* 表題横の小型背景表示ボタン */
+    .btn-bg-only-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      font-size: 12px;
+      line-height: 1.4;
+      background-color: rgba(2, 14, 52, 0.7);
+      color: #7fd8ff !important;
+      border: 1px solid rgba(127, 216, 255, 0.4);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+    }
+
+    .btn-bg-only-sm:hover {
+      background-color: rgba(79, 124, 255, 0.4);
+      color: #ffffff !important;
+      border-color: #7fd8ff;
+      box-shadow: 0 0 8px rgba(127, 216, 255, 0.3);
     }
 
     @keyframes flowGradient {
@@ -146,14 +172,14 @@
       }
     }
 
-   /* html/bodyには触らず、専用の背景レイヤーを一枚敷く */
-body::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-color: #020E34;
-  z-index: -2;
-}
+   /* 専用の背景レイヤーを一枚敷く */
+   body::before{
+     content: "";
+     position: fixed;
+     inset: 0;
+     background-color: #020E34;
+     z-index: -2;
+   }
   </style>
  </head>
 <body>
@@ -164,11 +190,13 @@ body::before{
   <div id="wrapper">
 
     <header>
-      
-      <h1 class="site-title">いしちゃんのホームページ</h1>
-      <p class="update-date">知能とは？AIとは？AIと科学？AIと規制？　最終更新日：2026年11月4日</p>
+      <div class="title-area">
+        <h1 class="site-title">いしちゃんのホームページ</h1>
+        <a href="index_background.html" class="btn-bg-only-sm" target="_blank" rel="noopener noreferrer">✨ 背景</a>
+      </div>
+      <p class="update-date">知能とは？AIとは？AIと科学？AIと規制？ 最終更新日：2026年11月4日</p>
       <p class="update-date">システムで自動収集した情報を整理した内容を、テーマ別に毎週月曜日に更新する。(週刊レポート)</p>
-      <p class="update-date">AI関連ニュースでは、新たに　Web脆弱性やサイバーインシデント　の項目を追加した。</p>
+      <p class="update-date">AI関連ニュースでは、新たに Web脆弱性やサイバーインシデント の項目を追加した。</p>
      
       <p class="site-desc"></p>
       <p class="disclaimer"></p>
@@ -176,7 +204,6 @@ body::before{
 
     <div class="container">
 
-      <button onclick="window.print()" class="btn-print">印刷する</button>
       <div class="category-grid">
         <div class="category-card">
           <div class="category-title">週刊レポ（10月26日～11月01日）</div>
@@ -207,7 +234,7 @@ body::before{
             <a href="知性と知能について/※Intellect_Intelligence.html">知性と知能について<span style="color: red;">※</span></a>
              <a href="人工知能と生物学/dinosaur.html">科学の認識（定説）の変化の歴史</a>
             <a>シンギュラリティ（準備中）  
-            　　
+              
             <a href="お釈迦様の教え/※Buddhism.html">お釈迦様の教え<span style="color: red;">※</span></a>
           </div>
         </div>
@@ -236,7 +263,7 @@ body::before{
           <div class="link-list">
             <a href="別２化学品規制/Appended_Table2.html">別２化学品規制概要</a>
             <a href="別２化学品規制/narcotics_regulation.html">麻薬新条約</a>
-            <a href="別２化学品規制/MOP28_regulation.html">ﾓﾝﾄﾘｵｰﾙ議定書　(ｷｶﾞﾘ改正)</a>
+            <a href="別２化学品規制/MOP28_regulation.html">ﾓﾝﾄﾘｵｰﾙ議定書 (ｷｶﾞﾘ改正)</a>
             <a href="別２化学品規制/※PIC_POPs.html">PIC条約とPOPs条約<span style="color: red;">※</span></a>
             <a href="別２化学品規制/Minamata_regulation.html">水俣条約</a>
           </div>
