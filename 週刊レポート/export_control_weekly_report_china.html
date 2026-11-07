@@ -1,323 +1,336 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>経済安全保障・中国ニュース 週刊レポート（中国ver）｜2026年10月26日〜11月1日</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  body { font-family: 'Noto Sans JP', sans-serif; }
-  html { scroll-behavior: smooth; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安全保障・輸出管理ニュース 週刊レポート（中国ver）</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans JP', sans-serif; }
+    section[id] { scroll-margin-top: 1.5rem; }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
-<header class="bg-gradient-to-br from-red-950 via-slate-900 to-slate-900 text-white">
-  <div class="max-w-5xl mx-auto px-6 py-14">
-    <p class="text-red-300 text-sm tracking-widest mb-3">WEEKLY CHINA INTELLIGENCE REPORT</p>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight">経済安全保障・中国ニュース<br class="md:hidden"> 週刊レポート<span class="text-red-300 text-2xl md:text-3xl ml-2">（中国ver）</span></h1>
-    <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-300">
-      <p>📅 対象期間：<span class="text-white font-semibold">2026年10月26日 〜 2026年11月1日</span></p>
-      <p>📰 情報件数：<span class="text-white font-semibold">197件</span>（重複を統合して分類）</p>
-      <p>🗂 クラスタ数：<span class="text-white font-semibold">10</span></p>
+  <!-- ヘッダー -->
+  <header class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900 text-white">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+      <p class="text-xs tracking-widest text-indigo-300 uppercase mb-3">Weekly Report — China</p>
+      <h1 class="text-3xl md:text-4xl font-bold leading-tight">安全保障・輸出管理ニュース<br class="md:hidden"> 週刊レポート（中国ver）</h1>
+      <div class="mt-6 flex flex-wrap gap-3 text-sm">
+        <span class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5">
+          <span class="text-indigo-300">対象期間</span>
+          <span class="font-medium">2026年10月26日 〜 2026年11月01日</span>
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5">
+          <span class="text-indigo-300">情報件数</span>
+          <span class="font-medium">197件（収集総数）／ 掲載 14件</span>
+        </span>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="max-w-5xl mx-auto px-6 py-10 space-y-12">
+  <main class="max-w-5xl mx-auto px-6 py-10 space-y-14">
 
-<!-- エグゼクティブサマリー -->
-<section id="summary" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-  <h2 class="text-xl font-bold text-red-900 mb-4 flex items-center gap-2"><span class="w-1.5 h-6 bg-red-600 rounded"></span>エグゼクティブサマリー</h2>
-  <ul class="space-y-3 text-slate-700 leading-relaxed list-disc pl-5">
-    <li><strong>半導体・AIの対中規制は「密輸」と「スパイ」の段階に入りました。</strong>米司法省は約3億ドル相当のNvidiaチップの対中密輸で起訴し、台湾はAIチップの対中密輸を犯罪化する方向です。NYTは、Nvidia CEOに近い中国籍女性が中国情報機関の関係者だったと報じ、北京は否定しています。</li>
-    <li><strong>中国は、輸出規制の対象を製品から技術と人材へ広げています。</strong>AI関連技術を加えた輸出禁止・制限技術目録の改正草案、海外への技術移転と重要人材の移動の制限、営業秘密侵害への制裁を定める規制案が出ています。</li>
-    <li><strong>レアアースなど重要鉱物の供給は、次の期限が焦点です。</strong>レアアース規制の一時停止（休戦）は2027年1月10日が期限で、その後の扱いが注目されます。リン鉱石とシルバーの数量管理は2027年も停止を続ける一方、輸出ライセンスは維持されます。</li>
-    <li><strong>米国は中国企業への規制を同時に強めています。</strong>UFLPAのリストにバイオ・遺伝子関連企業が追加され、FCCは中国製部品を含む製品の流通を禁止しました。連邦調達ではディープシーク製品も禁止されています。</li>
-    <li><strong>中国は対抗措置を法的手段で示しています。</strong>商務部は米国の301条関税などへの対抗措置を発表し、EUには「あらゆる必要な措置」を警告しました。EUのFSR調査は「不当な域外適用」と認定されています。</li>
-    <li><strong>日本とアジアでは、人材・研究の防衛と経済安保の制度整備が議論されています。</strong>大学への軍事研究の応募が急増したことを受け、大学の社会的責任が問われています。Quad外相会合は中国の経済的威圧への懸念を共有し、AI支援に8,500万ドルを拠出しました。</li>
-    <li><strong>中国国内では、AIバブルと過剰生産への懸念が強まっています。</strong>AI株の急落が世界市場への警鐘とみられる一方、中国は33カ国・地域とFTA26件で自由貿易網を広げています。</li>
-  </ul>
-</section>
+    <!-- エグゼクティブサマリー -->
+    <section id="summary">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>エグゼクティブサマリー
+      </h2>
+      <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 p-6 md:p-8 space-y-4 leading-relaxed">
+        <p>今週（2026年10月26日〜11月1日）は、<strong class="text-indigo-700">中国による輸出管理の強化</strong>と、<strong class="text-indigo-700">米国による対中規制の拡大</strong>が並行して進んだ一週間でした。両国とも、技術・製品・人材の流れを管理する手段を重ねており、規制の重心は<strong>AI技術</strong>と<strong>バイオ・遺伝子分野</strong>に移りつつあります。</p>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700">
+          <li><strong>中国側：</strong>輸出禁止・制限技術目録への23項目追加と第5次改正草案の公表、AI・バイオ医薬・太陽光技術の輸出管理提案、無人機関連の規制強化が続きました。日本産ジクロロシランへのAD調査仮決定も、日本企業に直接関わる動きです。</li>
+          <li><strong>米国側：</strong>ウイグル強制労働防止法（UFLPA）リストへのバイオ・遺伝子関連企業の追加、中国企業製部品を搭載した製品の流通禁止、連邦調達からのディープシーク製品の排除、中国製トレーラーへの260%超のAD・CVDが相次ぎました。先端半導体の密輸事件の起訴も報じられています。</li>
+          <li><strong>半導体・AI：</strong>NVIDIA CEOをめぐる中国情報機関の接触報道が注目を集めました。台湾はAIチップの中国への密輸を犯罪化する方向を示しています。</li>
+          <li><strong>重要鉱物：</strong>中国による重要鉱物の輸出禁止措置の一年間の停止期限が近づいており、期限後の対応が焦点です。</li>
+        </ul>
+        <p class="text-slate-600 text-sm pt-3 border-t border-slate-100"><strong>注目点：</strong>中国は今週、AI技術と無人機関連技術の輸出管理を同時に強めました。一方で米国はバイオ・遺伝子分野への規制を拡大しています。技術分野ごとに規制の重心が移る中、中国商務部による技術目録改正の草案は、今後の動きを確認する価値が高いと考えられます。</p>
+      </div>
+    </section>
 
-<!-- 目次 -->
-<nav class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-  <h2 class="text-sm font-bold text-slate-500 tracking-wider mb-3">CONTENTS</h2>
-  <ol id="toc" class="grid md:grid-cols-2 gap-x-8 gap-y-1.5 text-sm"></ol>
-</nav>
+    <!-- CONTENTS -->
+    <section id="contents">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+        <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>CONTENTS
+      </h2>
+      <nav class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 divide-y divide-slate-100 overflow-hidden">
+        <a href="#cluster-01" class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-indigo-50 transition">
+          <span class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-indigo-600 w-6">01</span>
+            <span class="font-medium">米国の対中措置</span>
+          </span>
+          <span class="text-xs text-slate-500">5件 →</span>
+        </a>
+        <a href="#cluster-02" class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-indigo-50 transition">
+          <span class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-indigo-600 w-6">02</span>
+            <span class="font-medium">中国の輸出管理強化</span>
+          </span>
+          <span class="text-xs text-slate-500">6件 →</span>
+        </a>
+        <a href="#cluster-03" class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-indigo-50 transition">
+          <span class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-indigo-600 w-6">03</span>
+            <span class="font-medium">半導体・AI をめぐる動き</span>
+          </span>
+          <span class="text-xs text-slate-500">2件 →</span>
+        </a>
+        <a href="#cluster-04" class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-indigo-50 transition">
+          <span class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-indigo-600 w-6">04</span>
+            <span class="font-medium">重要鉱物</span>
+          </span>
+          <span class="text-xs text-slate-500">1件 →</span>
+        </a>
+        <a href="#notes" class="flex items-center justify-between gap-4 px-6 py-4 hover:bg-amber-50 transition">
+          <span class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-amber-600 w-6">注</span>
+            <span class="font-medium">注記</span>
+          </span>
+          <span class="text-xs text-slate-500">→</span>
+        </a>
+      </nav>
+    </section>
 
-<!-- クラスタ描画先 -->
-<div id="clusters" class="space-y-12"></div>
+    <!-- クラスタ 01 -->
+    <section id="cluster-01">
+      <div class="flex items-baseline gap-3 mb-5">
+        <span class="text-sm font-semibold text-indigo-600">01</span>
+        <h2 class="text-xl font-bold">米国の対中措置</h2>
+        <span class="text-xs text-slate-500">5件</span>
+      </div>
 
-<!-- 注意事項 -->
-<section id="notes" class="bg-amber-50 border border-amber-200 rounded-2xl p-8">
-  <h2 class="text-lg font-bold text-amber-900 mb-4">全体の注意事項（注記）</h2>
-  <ul class="list-disc pl-5 text-sm text-amber-900 space-y-2 leading-relaxed">
-    <li><strong>対象期間について：</strong>2026年10月26日〜11月1日の入力データ（197件）に基づきます。期間外の旧い記事や、日付が確認できない項目が一部混在している可能性があります。</li>
-    <li><strong>件数について：</strong>各クラスタの件数は重複を含む概数です。厳密な集計ではありません。</li>
-    <li><strong>重複について：</strong>同一の出来事を報じる記事は、代表的な記事に統合しています（例：Nvidia関連のスパイ報道、中国の輸出管理強化、BGI・UFLPA関連、中国の対EU・対米措置）。</li>
-    <li><strong>リンクについて：</strong>Google News経由の記事は長いリダイレクトURLのため、主要な記事のみリンクを付けています。リンクがない項目は見出しと原文のみを掲載しています。</li>
-    <li><strong>翻訳について：</strong>英語の見出しは日本語に訳し、原文を併記しています。日本語の見出しはそのまま掲載しています。訳文は要旨を伝えることを優先しており、正式な訳語とは異なる場合があります。</li>
-    <li><strong>前回レポートとの関係：</strong>同じ対象期間の別データ（経済安全保障・制裁ニュース版）と話題が重なる部分があります。重複の扱いは、そちらの統合方針に準じています。</li>
-    <li><strong>情報の性質：</strong>本レポートは報道の集約であり、法的助言や投資助言ではありません。輸出管理や制裁の適用判断は、必ず一次資料（官報、商務部・BIS・OFAC等の公式発表）でご確認ください。報道の内容は後日の発表で変わる場合があります。</li>
-    <li><strong>中国の発表について：</strong>中国政府・商務部の発表は、中国側の立場を示すものです。米国・EUなど他国の発表と併せてご覧ください。</li>
-  </ul>
-</section>
+      <div class="bg-indigo-50/60 rounded-2xl ring-1 ring-indigo-100 p-6 mb-5 leading-relaxed">
+        <p class="text-xs font-semibold text-indigo-700 mb-2">クラスタ概要</p>
+        <p class="text-slate-700">米国は今週、連邦調達、通信機器、貿易救済（AD・CVD）、人権関連リスト、密輸摘発と、複数の手段で対中規制を重ねました。最も目立つのは<strong>バイオ・遺伝子分野</strong>です。UFLPAリストへの中国バイオ関連企業3社の追加は、今週の中国側の反発（商務部の「断固反対」表明）にもつながりました。通信機器や連邦調達の分野では、新規則の初適用や政府調達からの排除など、「流通そのものを絞る」方向が強まっています。先端半導体の密輸事件は、輸出規制の執行面が強化されていることを示しています。</p>
+      </div>
 
-</main>
+      <div class="space-y-3 pl-2 border-l-2 border-indigo-100 ml-2">
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">トランプ政権、ウイグル強制労働防止法に基づくリストに中国のバイオ関連企業3社を追加</h3>
+          <p class="text-sm text-slate-600 mt-2">遺伝子関連企業の追加が中心で、バイオ分野の対中規制が強まっています。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html</a>
+        </article>
 
-<footer class="max-w-5xl mx-auto px-6 py-8 text-center text-xs text-slate-400 border-t border-slate-200">
-  経済安全保障・中国ニュース 週刊レポート（中国ver）｜対象期間：2026年10月26日〜11月1日｜情報件数：197件
-</footer>
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">米連邦通信委、中国企業製部品を搭載した2製品の流通を禁止、新規則を初適用</h3>
+          <p class="text-sm text-slate-600 mt-2">新規則が初めて適用された事例です。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/10/aace5f038aa320c0.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/10/aace5f038aa320c0.html</a>
+        </article>
 
-<script>
-const CLUSTERS = [
-  {
-    id: "c1", no: "01", title: "AI・半導体の対中輸出管理とチップ密輸・スパイ報道", count: "約30件",
-    overview: "米中の半導体・AI競争は、規制の強化だけでなく密輸とスパイの問題へ広がっています。米司法省は約3億ドル相当のNvidiaチップを中国へ密輸した容疑で男性を起訴し、台湾はAIチップの対中密輸を犯罪化する方針を示しました。NYTは、Nvidia CEOに近い中国籍女性実業家が中国情報機関の関係者だったと報じ、北京は否定しています。マレーシアの迂回輸出を調べた報道や、ASUSの対中サーバー取引への審査も出ています。一方、中国のメモリ企業CXMTはHBM3Eの限定生産を始め、Intel幹部は米中の半導体格差が縮まっていると指摘しました。",
-    highlights: [
-      "米国で約3億ドル相当のNvidiaチップの対中密輸を起訴（DOJ）。",
-      "NYT報道：Nvidia CEOに接近した中国籍女性を中国情報機関の関係者と判断したとの報道。トランプ政権は対応を見送り、北京は否定。",
-      "Megaspeedを巡る盲点（Nvidiaの取引先の審査の穴）が指摘される。",
-      "台湾がAIチップの対中密輸を罪に問う法改正を検討。",
-      "中国AIブームにより、韓国製DRAM・NANDの確保競争が激化。"
-    ],
-    items: [
-      { t: "エヌビディアCEOに中国情報機関が接触か 米政権が対応見送り", u: "https://news.google.com/rss/articles/CBMidEFVX3lxTE1DMUZfWllFRnhGWWEwWGYyWTRuYjhtVkNuTGI5UVFGN0lxeG1GdUdOV3Z3ci15VDRuZzFfOHpGYVB6NmtBM2tqOWxGNFNnbGI2aHdUbElzLU0ycFlKZnNjdmotNHdrQVhrcDR4MmNtMFZmUTA0?oc=5", n: "日本語記事（NYT報道の国内報道）" },
-      { t: "米司法省、Nvidiaチップ約3億ドルの対中密輸で男性を起訴", o: "DOJ charges California man with smuggling $300 million in Nvidia chips to China", u: "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3FrY1liNWY5enZvMVpUX0N3T0h6T0VsLXhLbnNITjFmRUx6Y1d0TllQdEVNR1JVc193VEpZVkRGV3RROE4xV0l0LW84TUtwSFdEOENodzVrV29TeUk4Zm9EcHBNWG9nNzlQS3R1THlOcWMxcWRCLTNYRENPUm9TNG1BWXVqZEV3YV8zeDhLVFpRSVdqSFBvWnplakZpOWJ1SGR6a2wyR2RLZw?oc=5" },
-      { t: "台湾、AIチップの対中密輸を犯罪化へ", o: "Taiwan moves to make AI chip smuggling to China a crime", u: "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPT3BqNTFma1VNRDVINm5jUWF4TjNRY0NOaEl5ZjBUUk1ldTNCQ3FTQkF3TWUwMHBDcjNpRzVPcVVXMENYVVRzV0hPVkItVURzclZ6VkdtckdRb252ZFdmb1ZtY2NZX1F3VkxwUk5JNDlKZ3RNRG5XU3JxVmVFYlRUUVh4RWtRR3ZZdGRz?oc=5" },
-      { t: "Nvidiaの取引先（Megaspeed）が示す、先端チップの対中流出を防ぐ米国の取り組みの盲点", o: "Nvidia’s Megaspeed ties show potential blind spots in the U.S. effort to block China from accessing advanced chips" },
-      { t: "インテル幹部、米中の半導体格差は縮まっていると指摘", o: "Intel chief says US-China chip gap is narrowing" },
-      { t: "ASUS株、中国サーバー取引で輸出管理の審査を受ける", o: "ASUS stock faces export-control scrutiny over China server deal" },
-      { t: "Nvidiaをめぐる中国のスパイ疑惑と米中AIチップ競争（同趣旨の記事多数）", o: "Nvidia CEO Jensen Huang targeted by Chinese spy? How US-China AI chip war is turning into espionage battle" },
-      { t: "北京、Nvidia CEOをめぐるスパイ疑惑を否定", o: "Beijing rejects spy claims involving Nvidia CEO amid rising US-China tech tensions" },
-      { t: "韓国製メモリの確保に血眼 中国AIの需要増", o: "China’s AI boom drives race for Korean memory chips as supply tightens" }
-    ]
-  },
-  {
-    id: "c2", no: "02", title: "中国の輸出管理・技術流出防止の強化", count: "約25件",
-    overview: "中国は、輸出規制の対象を製品から技術や人材へ広げています。AI関連技術などを追加する「輸出禁止・制限技術目録」の改正草案（第5次）が示されたほか、ドローンのエンジン・自動操縦・通信システム、太陽電池の製造技術、バイオ医薬品について、輸出前の登録（事前届出）などの管理が打ち出されています。さらに営業秘密の保護を強化する規制案が示され、外国企業への禁輸・投資制限や、関係者の渡航・就労の制限が盛り込まれました。国防動員法も改正され、民間資源の有事転用が迅速化されています。",
-    highlights: [
-      "AI関連技術などを追加する「輸出禁止・制限技術目録」の第5次改正草案。",
-      "海外への技術移転と重要人材の移動を制限する方針。",
-      "営業秘密侵害の外国企業に対する制裁・渡航制限の規制案。",
-      "ドローン関連の輸出管理の運用見直しと、太陽電池技術の輸出規制強化。",
-      "国防動員法の改正（台湾有事を念頭との見方）。"
-    ],
-    items: [
-      { t: "中国商務部など、輸出を制限・禁止する技術目録の第5次改正草案を公表、AI関連技術などを追加", u: "https://www.jetro.go.jp/biznews/2026/10/7ff8e9cb1624ef81.html", n: "出典：JETRO（安全保障貿易管理）" },
-      { t: "中国、営業秘密保護の新規制案 外国企業に禁輸・投資制限も", u: "https://news.google.com/rss/articles/CBMidEFVX3lxTE5fVW9pY2dxVXZwc1ZnanppVGRaYVZib2c3ODFBcjlTaWxJMFgwS0pCTlZYM2pRbVFDNUNPazZ6TjBVak5zRU9RNmVzOHJmTzdNSml0YmREeHJVcng2bDhYaXMtQnl1Ul9IZzQ4T2JTdnFCSF9n?oc=5", n: "日本語記事" },
-      { t: "中国が国防動員法を改正、民間資源の有事転用を迅速化　台湾有事も念頭か（香港誌）", u: "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBybkJmZ1VGSk5LM28yRHpRYzg4Znh1S3BaalJiRk5ZeldMcXplRGRsVmlyRGJLa3l3bU9VbEUyVmxfcTEzQ0Y5NWxlSGZxVTdVdnUzYg?oc=5", n: "日本語記事" },
-      { t: "中国、技術の海外移転と重要人材の移動の管理を強化", o: "Growing Confident in Its Technology, China Tightens Controls on Overseas Technology Transfers and Movement of Key Personnel" },
-      { t: "中国、営業秘密侵害の外国企業に対し渡航・就労を制限へ", o: "China Moves to Restrict Foreign Firms’ Travel, Work Over Trade Secret Breaches" },
-      { t: "中国、先進的な太陽電池製造技術の輸出を制限へ（緑の技術をめぐる貿易摩擦の激化）", o: "China Moves to Restrict Export of Advanced Solar Manufacturing Technologies, Escalating Green Tech Trade War" }
-    ]
-  },
-  {
-    id: "c3", no: "03", title: "希土類・重要鉱物の供給と中国の輸出規制", count: "約20件",
-    overview: "希土類（レアアース）と重要鉱物は、中国の輸出規制が世界の供給網を左右する最大の焦点です。中国は一時停止（休戦）の期限を2027年1月10日としており、その後の扱いが注目されています。リン鉱石とシルバーの輸出数量管理は2027年も停止を続ける一方、輸出ライセンスは維持されます。規制違反の摘発件数は前年を上回り、日本の製造業にも影響が及んでいます。TSMCや住友電工などは、中国依存を下げる代替策を進めています。",
-    highlights: [
-      "レアアースの輸出規制の一時停止が期限（2027年1月10日）を迎える。商務部は2027年の数量管理の継続とライセンス維持を表明。",
-      "中国の輸出違反摘発が前年を超え、日本の製造業への影響が懸念。",
-      "中国の希土類企業は価格上昇を背景に業績が回復（北方稀土の純利益が2.6倍）。",
-      "住友電工はタングステン代替工具を拡充、TSMCはレアアース不使用モーターを検討。"
-    ],
-    items: [
-      { t: "中国のレアアース休戦は11月ではなく1月10日に期限を迎える", o: "China's Rare Earth Truce Runs Out January 10, Not November", u: "https://news.google.com/rss/articles/CBMijAFBVV95cUxNNWg0eExsM0hadGtiSFN6Mm1QU3MwNzFRWC1BQXZldkhMY2drZmxBZk0tM2tVQ2RyZDdreGdQS2VWaTRuR0pvdGowUVlWYVcwanl3eTVNWnZsakJZbk1qVTc0ZVN6dDFMNC1XRDR6V2hRY3M5NG1tdWZrdDJDVmYzSG1URVkwUWhRS3BSMw?oc=5" },
-      { t: "中国、輸出違反摘発が前年超え　レアアース規制、日本に影　首相答弁1年", u: "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBNMVc1ckZBR3VES0w3VDBBZlBPcmNhRkt2d3hGUUdCT2VnWm4yVTlpMmxKaEVPNEFoNWE1eGFSTC1WUzFaZVp3OXRxWFdrN2FDRHc?oc=5", n: "日本語記事" },
-      { t: "中国、2027年もリン鉱石とシルバーの輸出数量管理の停止を継続、輸出ライセンスは維持（商務部）", o: "China to continue suspending export quota management for phosphate rock, silver in 2027, maintain export licensing: commerce ministry" },
-      { t: "中国レアアース大手「北方稀土」、純利益2.6倍　価格上昇とコスト低下が追い風", n: "日本語記事" },
-      { t: "住友電工、タングステン代替工具を3割拡充　中国輸出規制で需要", n: "日本語記事" },
-      { t: "TSMC、中国の輸出規制を受けてレアアース不使用モーターを検討、供給網の多角化へ", o: "TSMC Weighs Rare-Earth-Free Motors Amid China's Export Controls, Moves to Diversify Supply Chain" }
-    ]
-  },
-  {
-    id: "c4", no: "04", title: "米国の対中規制（強制労働・バイオ・通信・調達）", count: "約25件",
-    overview: "米国は、中国企業に対する規制を複数の分野で同時に強めています。ウイグル強制労働防止法（UFLPA）のリストにはバイオ・遺伝子関連の3社などが追加され、中国政府は強く反発しています。連邦通信委員会（FCC）は中国企業製部品を搭載した製品の流通禁止を初めて適用しました。連邦政府の行政部門では中国のAI「ディープシーク」製品の調達が禁止されています。さらに中国の通信事業者による米国の電話番号へのアクセス禁止や、米商務省による中国製トレーラーへの高率の反ダンピング・相殺関税も発動されています。",
-    highlights: [
-      "UFLPAリストにバイオ関連3社などを追加（10月28〜30日）。中国商務部は「断固反対」。",
-      "FCCが中国製部品を含む2製品の流通を禁止（新規則の初適用）。",
-      "連邦政府の行政部門で中国ディープシーク製品の調達を禁止。",
-      "中国の通信事業者による米国の電話番号へのアクセスを禁止。",
-      "中国製トレーラーに260%超のAD・CVDを発動。",
-      "米軍嘉手納基地が、車載カメラの機密流出懸念からBYD車の基地内乗り入れを禁止。"
-    ],
-    items: [
-      { t: "トランプ米政権、ウイグル強制労働防止法に基づくリストに中国のバイオ関連企業3社を追加", u: "https://www.jetro.go.jp/biznews/2026/10/9fe8c298706af819.html", n: "出典：JETRO" },
-      { t: "米連邦通信委、中国企業製部品を搭載した2製品の流通を禁止、新規則を初適用", u: "https://www.jetro.go.jp/biznews/2026/10/aace5f038aa320c0.html", n: "出典：JETRO" },
-      { t: "トランプ米政権、連邦政府の行政部門で中国ディープシーク製品の調達禁止", u: "https://www.jetro.go.jp/biznews/2026/10/f713e529704cc84a.html", n: "出典：JETRO" },
-      { t: "米商務省、中国製トレーラーに対する260%超のAD・CVDを発動", u: "https://www.jetro.go.jp/biznews/2026/10/007f99e09e832118.html", n: "出典：JETRO" },
-      { t: "米軍嘉手納基地がBYD車乗り入れ禁止　車載カメラ機密流出懸念　中国軍支援リストに", u: "https://news.google.com/rss/articles/CBMiekFVX3lxTE5wUnVtbGU3WjlGMHA4R0c3akdHZHc0Snk3Y1VxMlZPZnRqVy1DQ3h2VG5uRUlwUVZ4REZ6eTRRUnhEYURBS01PTm82VjZNdUNxUGxRbHR4dndmTklrTlBlVU5uMk9uaGZ4V19USlhfVnVEdnlpak53MWRB?oc=5", n: "日本語記事" },
-      { t: "米国、中国の通信事業者の米国電話番号へのアクセスを禁止", n: "日本語記事" },
-      { t: "米財務省、中国向け対外投資規制の大幅な拡大を提案", o: "Treasury Proposes Major Expansion of Outbound Investment Rules to Restrict US Investments in China" },
-      { t: "米国の対中投資の新提案が、AI・バイオ・半導体の資金調達を変える可能性", o: "New US China Investment Proposal Could Reshape AI, Biotech and Chip Funding" },
-      { t: "米国とＭＯＦＣＯＭ、バイオ技術取引の制限を提案（双方）", o: "U.S. Treasury Department and China’s MOFCOM Propose Restrictions on Biotechnology Transactions" }
-    ]
-  },
-  {
-    id: "c5", no: "05", title: "中国の対抗措置・報復と法執行", count: "約25件",
-    overview: "中国は、米国やEUの措置に対して、法的手段や調査で対抗する姿勢を強めています。商務部は、米国の301条関税などに対抗する措置を相次いで発表しました。EUに対しては、差別的な規制には「あらゆる必要な措置」を取ると警告しています。EUの外国補助金規制（FSR）に基づく京東への調査は、中国司法部により「不当な域外適用」と認定され、協力が禁止されました。さらに米パロアルトネットワークスの製品に対するサイバーセキュリティ審査、外国のシステムソフトを搭載した事務機器に対する国家安全調査も始まっています。",
-    highlights: [
-      "米国の301条関税などに対する対抗措置を発表（商務部）。米中首脳会談の合意に基づく協議は継続。",
-      "EUの差別的規制に「あらゆる必要な措置」で対抗すると警告。EUの京東へのFSR調査を「不当な域外管轄」と認定。",
-      "米国企業へのサイバーセキュリティ審査（パロアルトネットワークス）。",
-      "外国のシステムソフトを搭載した事務機器への国家安全調査。",
-      "日本産ジクロロシランに対する反ダンピング調査で仮決定（最大99.2%の保証金）。",
-      "中国EU貿易投資協議の第2回会合で、市場アクセスに関する協議の継続で合意。"
-    ],
-    items: [
-      { t: "中国商務部、米国の各種対中措置に対抗する一連の措置を発表", u: "https://www.jetro.go.jp/biznews/2026/08/ebeb6a0b0fa5bdac.html", n: "出典：JETRO" },
-      { t: "中国商務部、米国301条関税など各種措置に対する談話を相次ぎ発表、米中首脳会談の合意に基づく協議は継続", u: "https://www.jetro.go.jp/biznews/2026/08/1c2eeec0b8e89903.html", n: "出典：JETRO" },
-      { t: "中国司法部、EUの京東に対するFSR調査を不当域外管轄措置に認定、同調査実施への協力を禁止", u: "https://www.jetro.go.jp/biznews/2026/08/c0a33fa23489264a.html", n: "出典：JETRO" },
-      { t: "中国、米パロアルトネットワークスの中国販売製品に対してサイバーセキュリティー審査を実施", u: "https://www.jetro.go.jp/biznews/2026/08/ffc01cb7e5009061.html", n: "出典：JETRO" },
-      { t: "中国商務部、外国のシステムソフトウエアを搭載した事務機器に関する対外貿易国家安全調査を開始", u: "https://www.jetro.go.jp/biznews/2026/08/8059895f2a53665d.html", n: "出典：JETRO" },
-      { t: "中国、日本産ジクロロシランに対するAD調査で仮決定、最大99.2%の保証金を徴収", u: "https://www.jetro.go.jp/biznews/2026/09/d2f3568f66db6180.html", n: "出典：JETRO" },
-      { t: "中国商務部、EUの中国製品に対する差別的規制措置にあらゆる必要措置を取る", u: "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9sSlVkajl3M1VoMW51OERzUU9JX21xeGpEZndIMlUyVEc2bFlQT1ZBQmJsN3h0RlZrXzVzWlVFS2JaSWNkWmlIc1REZnBuanZIMWxrNVR1blR4VGpOazFZTE95TDV5bFRh?oc=5", n: "日本語記事" },
-      { t: "中国EU貿易投資協議第2回会合を北京で開催、市場アクセスに関する協議継続などで合意", u: "https://www.jetro.go.jp/biznews/2026/10/392311f0bc1db93f.html", n: "出典：JETRO" }
-    ]
-  },
-  {
-    id: "c6", no: "06", title: "日本・アジアの経済安保と対中政策", count: "約25件",
-    overview: "日本とアジアでは、経済安保の制度整備と、人材・研究の防衛が議論されています。Quad（日米豪印）外相会合は、中国の経済的威圧への懸念を共有し、AI開発・普及に8,500万ドルを支援すると発表しました。国内では、大学の軍事研究への応募が急増したことを受けて、大学の社会的責任のあり方が問われています。元国家安全保障局長の北村滋氏は、中国系のAI悪用とサイバー攻撃の激化に警鐘を鳴らしました。防衛産業では、経済安保に関わる分野を防衛費の対象に含める案が検討されています。",
-    highlights: [
-      "Quad外相会合：中国の経済的威圧への懸念を共有、AI開発・普及に8,500万ドルを支援。",
-      "大学の軍事研究への応募増加を受け、研究の在り方は大学の責任で判断すべきとの議論。",
-      "中国系のAI悪用・サイバー攻撃への警戒（北村滋氏）。",
-      "英国の情報機関による、中国研究機関の諜報活動支援への警告を受けた、日本の警戒点の整理。",
-      "訪中した岩屋前外相の発言（分離工作の見方への反論）と、中国側の強硬な対応。"
-    ],
-    items: [
-      { t: "日米豪印「クアッド」外相、AI開発・普及に8500万ドル支援へ　中国の経済的威圧に深刻な懸念表明", u: "https://news.google.com/rss/articles/CBMif0FVX3lxTE5DenJwaTdMLUltSzkzU01mYkRVS1VUREFFcnROMDZydVFsX1VhWjQ0aGo3VlZvdHduMWpaemRSUk9UcTlzS3hqRUZNRjlZa0s1WDJqRDZ2STlyMlU2YTdjcmNGQWlBV1RDYUVfV2lfMVFUVUNsZWQ0aU9zLUt5cG8?oc=5", n: "日本語記事" },
-      { t: "クアッド外相、中国念頭に経済的威圧への懸念を共有　首脳会合へ連携", u: "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ycTR2YlZIakJ6SGRTblRtbU5UdktYSXJNWmczYUpsekFscjBENGl1aHZsUUNoRVVzVU1xaDlJaWoyTjhTVllTUFYtbGdOajhoWjFiMHBSeGpFYzlWQVdR?oc=5", n: "日本語記事" },
-      { t: "研究の在り方、大学の責任で判断", u: "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9DZGhRUUEyZVkwVk5kNkxvNnhSbGVmQWdteGdESjdtbV9OZkk5RHFGMTNqdlFJdTRhN2JVR0FzR1l1Z29wQ2NieV8tRERHTlNvdV9rR3MzYzNJdw?oc=5", n: "日本語記事" },
-      { t: "「軍事研究」応募急増　大学の社会的責任、直視を", u: "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBWTE9ZVjNueHFaTmsxcjlqQllwYVZ0VjNWWVhDU3RqNDlYS1MxeGFGYkZLajRlV21iRkgyYzYzWkNMMllaQmhzS25NUTNqS2xfa1JLV3loMENYUQ?oc=5", n: "日本語記事" },
-      { t: "元国家安全保障局長・北村滋氏が警鐘、中国系AI悪用とサイバー攻撃激化を予見　狙われる日本企業・個人", u: "https://news.google.com/rss/articles/CBMif0FVX3lxTE5IT1NjVnNlcXMySkFndFRtcmFFd2t1eWpKeEF1MzlndkNCWC1OakpsOWZZVUNfTzZEYWtMNHEwYUs2WXdMc054U25VaUM4dDNEX1poanhIYks2ZjYxQjlBLTFQWFJkcnRGRk5ucGo2NlpWQldsRTM2Ry1UdHNFd0k?oc=5", n: "日本語記事" },
-      { t: "中国研究機関が諜報活動を支援か　英国情報機関の警告、日本が警戒すべき5つのこと", n: "日本語記事" },
-      { t: "訪中の岩屋前外相「分離工作」の見方に反論　中国の強硬な対応は外交の余地を狭めるか", u: "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPcDBjbkFZb2phSFlsS1RSbEhsd2FtemtwTjkwLUFjTHZZZHhHUVJ2aGtRM0RHSEd2VFQtVkh5LU1tdUdaVXd2aEZZNTVJbUJhQmVpX3RoMkhwNVkzcWptS25NWWNXMkdxZmtfX1F1QnRCSmJ0eThVeW1yY3dDYlVJTTFLNW05ZWdm?oc=5", n: "日本語記事" },
-      { t: "「稼げる防衛」の誕生　9兆円市場が問う中国依存と産業基盤の弱さ", n: "日本語記事" }
-    ]
-  },
-  {
-    id: "c7", no: "07", title: "欧州・豪州・ドイツの対中政策", count: "約15件",
-    overview: "欧州では対中姿勢の見直しが続いています。「脱リスク（de-risking）」を超える必要性や、欧州の対中政策が自ら招いた問題だという議論が見られます。ドイツのメルツ首相は、アジアの同盟国との関係強化を進め、安全保障と経済のリスクは切り離せないとして、多様化と新たな連携を提唱しました。EUと中国はAI対話と貿易で協議を続けていますが、ファーウェイの排除や新たな輸出管理が障害になっています。オーストラリアでは、対中脅威論への反論も出ています。",
-    highlights: [
-      "欧州の対中政策（脱リスク後の方向性）をめぐる論争。",
-      "メルツ首相：安全保障と経済のリスクは切り離せず、多様化と新たな連携が必要と提唱。",
-      "EU・中国のAI対話は、ファーウェイ排除と輸出管理が障害に。",
-      "「反中国連合」の結束にほころびが出ているとの分析。"
-    ],
-    items: [
-      { t: "欧州の対中ジレンマ：脱リスクを超えて", o: "Europe’s China Dilemma: Beyond De-Risking" },
-      { t: "EU・中国のAI対話は、ファーウェイ排除と新たな輸出管理を乗り越えられるか", o: "Can EU-China AI talks survive Huawei bans and new export controls?", u: "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVmdiNkZjcnFIOE5OUDN1SXBPSk1TY3JxQVNfZWpxdUh6WUJURHlPOXdSUldDUXRZYjU5VVFHNzdBOUFkVl9TcEQ2SUkwTmVCSDQ1b0N6cDNGZFhZdzhxeDBKOVQ0ckJaZG9welpMdU55OU1QM3J6WWlOOV9XSnhWXzNKMXNNYkpzakRCVWtUd3ZjY2stYUxodjJYd2VsdFk?oc=5" },
-      { t: "メルツ首相、アジアとの関係を実際の影響力に変える　欧州の対中問題は自ら招いたものとの指摘", o: "Merz races to turn Asia ties into real leverage + Eroglu says Europe’s China problem is self-inflicted", u: "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNVHFZYTVISnJHdEdEU0VjMnk2akliZ2tweTB1TkVLUlVPb1VEWG84UDZYd3Vrd1lsZ3dST3NjeGVFYzFQOXlsUzFoc3B5aGwyT01QMWk0T0JzVDVMR3dfbWdJZ3hhakJydjdxWTdvb0d6UWRnS3I0NTN2TGdQSEFydjFGMU5aa2V1SlRxOFFZUjNheUtmYmx4Ymt1ZnlrSFVJeTdWNVFvOVN2WldxZ2tTZks2bHV3YWdaRENZUjktR3pLaFE5YnJvVmxYbVpXMThydWVWd05zZG9XX2NCbFNCbzlUN2tsTGZvUnJr?oc=5" },
-      { t: "オーストラリアの「中国の脅威」論の欠陥", o: "As I See It | The flaw in Australia’s ‘China threat’ thesis", u: "https://news.google.com/rss/articles/CBMimAFBVV95cUxNeFNGNGdWd3R2WHljdEs4cHpWZHlENGdXVDhFUHI0Zmhvd29Lb2hWZW1URWdSdFEyNm1jUTcwVXRtWlNuVDVwbmdpb0pzSURpbVFNc3FfMFlWSV9XbWkxYnpaR3dSa0R6cjRXUFd0TElNa1A2YVBqNkdwNVo5OWxWVkZ6aWRCY1F0SGpBdXZwY0txN0xkS1pSNtIBmAFBVV95cUxPNFBvV0dBWTNlY2FUWkRXMGdiRG4yTWpWX0lhd1JfSm43Z3psSy1KWHNRN2xzZFRYWUlyQzZrcjNWWmt2SHBteENpQlRMQjBfOXNSVi14bjVPQmxGR1lxSnNKMm94RkhEZDZfWTVmQzdNYXRpQ3RPMUh5M3VNbVBMQ1FNOUxRbDZWNUM0QUFaZkxGX21CM1RSbA?oc=5" },
-      { t: "反中国連合は内側から崩れつつある", o: "The anti-China coalition is breaking apart at the seams" }
-    ]
-  },
-  {
-    id: "c8", no: "08", title: "中国の地政学・外交と国内経済", count: "約25件",
-    overview: "中国は、対外的には外交的な影響力を広げつつ、国内では経済の過剰能力とAI投資の過熱に直面しています。金正恩氏の訪中は、ロシアに安全保障、中国に経済を頼る北朝鮮の構図を示したと分析されています。ロシア・米国・中国の首脳会談に向けた準備が始まったとの報道もあります。中国は33カ国・地域とのFTA26件で自由貿易網を広げる一方、国内ではAIバブル崩壊や過剰生産への懸念が強まっています。台湾周辺の海域での精密調査や、南シナ海の緊張も続いています。",
-    highlights: [
-      "金正恩氏の訪中：ロシアは安全保障、中国は経済という北朝鮮の対外構図。",
-      "ロシア・米国・中国の首脳会談に向けた準備が始まったとの報道。",
-      "中国が33カ国・地域とFTA26件を締結し、自由貿易網の骨格が固まる。",
-      "中国のAI株の急落と「AIバブル」への懸念、過剰生産能力への指摘。",
-      "台湾周辺の東・南側海域での精密調査（潜水艦作戦のデータ蓄積との見方）。",
-      "ASEAN国防相会議に中国が欠席。地域の安全保障上の機会の喪失との指摘。"
-    ],
-    items: [
-      { t: "中国、33カ国・地域とFTA26件　自由貿易網の骨格固まる", u: "https://news.google.com/rss/articles/CBMigAFBVV95cUxNZld5UWdSajVyS1phclpYRmZjUmVyTDBKUTQ1czNkS194RDlNYmhGeTZnb1d6cVdzdDJqRUo3U3R4Z0tVRi1pTkFBX2VGVFowSzRnUlpUckV6VzdhcEg2Z0VEcDkzV0hzS2ZhUjVzbkg5dDZ6bXF2VmxDaHNMdzJsag?oc=5", n: "日本語記事" },
-      { t: "ロシア、米国、中国は、前例のない首脳会談に向けた準備を開始した", u: "https://news.google.com/rss/articles/CBMimAFBVV95cUxNTldVSFU3QVg5RTVpV0lHaHpDWGpKU0hQVzI0b2h4TDN4b2RxVDhzQkFtWmU0MFBuMnVtaHl1VlMwUzBSY0ViUFJNdU0tNWd1eHllVDBxemRLd19XTkFZSG9EaWtHU0hLeHJGYU9KUXNhZ2JXRTd0NmFxV1JkUURQcERGUXhTbTBEOGIyNWEwcjRuam1QcUdORw?oc=5", n: "日本語記事" },
-      { t: "中国は経済の衝突点に向かっている　元首相ケビン・ラッドの警告", o: "China accelerating towards economic collision point with world, says former PM Kevin Rudd", u: "https://news.google.com/rss/articles/CBMioARBVV95cUxNcjBiaUhzeVVNTW5VYkdROFpkSjJvb19lMlEwY2t6VjFSNjlYSkNDbzhhVTY3TjBEdUJFeUpwdm90TG5abmdQckZUODhwWVgzMm93bUxNZzdXcXRwUFltWm14RjRmUEF3WjlGY0Z3ZmVFYUgwR2RDQjZhSGlwQ2VxN0hVdEZfMmdwaF9JY3RVVmppT2VkMlJOSG1rOXNCdzJFZUdLOXFpWkhfOWVYb2Ewb0RzVXZIZ1dpd2g5ejFFRmJwaFh2WWF4QXRfU3hpcGlJSi15SVF5Vk1RQ0l0ZVpYSzJQVzEwdnFxLThCSWxUR3JZbzBBSkR1N2NvZ013dWw0b3hWS2M5UTZMXzM1VnlrVGs2RWc0MnoyOFZnMWpISlRnVFNFTkFIR09Kck1jd1JydUdwVkxyWFBTaHRGaTZwTUlNUXlxZHVJNVVGWHg2MlVrS09DUnN4bVd0OTJmbGtrT2xnc0FTTzMyRzN4NzRkNnlsNmJrbWlrZjJtR2t1cU42TkJ3emZoUHBhNDI2NkVPOTVFR1ZjajA0T0xyaU0xbGJsZEgwaVhOUlNUU1FOeGZGRnEzbmZ1Y3VSZnItTUdvUkN6aHoySmloRWhuOVh6WlBRWnBBM2FEMGdwS0dhZEtNMU50Zl9vcWhkVFFvaG14amx3VTd3Wm5tVjhUQ05tZ080NzJVejdJUFl1eGJBZmQzdXB4MDREUk1jUjBQZFNT?oc=5" },
-      { t: "中国のAIバブルは世界の懸念か　480億ドルの崩壊はなぜ起きたのか", o: "China’s $480 billion AI bust explained. What went wrong with the tech boom?" },
-      { t: "中国は米国との経済競争でリードしているか", o: "Is China taking the lead in the economic race against the US?" },
-      { t: "金正恩氏の訪中は経済以上の意味を持つか（統一相の見方）", o: "Kim's China trip may have been more than economic event: unification minister" },
-      { t: "ASEAN国防相会議を中国が欠席　地域の政治・安全保障上の課題を解く機会の喪失との指摘", o: "Political scientist Aries Arugay says China's absence at the ASEAN Defense Minister's Meeting was a missed opportunity" }
-    ]
-  },
-  {
-    id: "c9", no: "09", title: "半導体メモリ・企業と市場動向", count: "約20件",
-    overview: "半導体メモリ市場では、中国勢の台頭と、韓国メーカーの対応が注目されています。SK hynix傘下のSolidigmは米国にNAND工場を計画しており、中国・大連の装置搬入の承認が鍵とされています。中国のAI需要が韓国製DRAMの争奪戦を招き、中国のCXMTはHBM3Eの限定生産を始めたほか、Appleにも主要メーカー並みの価格を提示したと報じられています。キオクシアは中国メモリ企業の実力に脅かされているとの分析もあります。",
-    highlights: [
-      "Solidigm（SK hynix傘下）が米国でのNAND工場を計画。中国・大連の装置搬入の承認が焦点。",
-      "中国のAIブームによる韓国製メモリの争奪。",
-      "CXMTのHBM3E限定生産（歩留まり20〜30%の課題）と、Appleへの価格提示の報道。",
-      "キオクシアを脅かす中国メモリ企業の実力の分析。",
-      "中国の半導体産業に関するETFが米国で新規に設定。"
-    ],
-    items: [
-      { t: "SKハイニックス子会社Solidigm、米国で59.7兆ウォン規模のNAND工場を推進　中国大連の装置搬入承認が鍵", u: "https://news.google.com/rss/articles/CBMidEFVX3lxTFA0Q2R1aDRGcHNxV0J1UGtjaWV6b0EtWUtaXzJQOFowek9pYmpHQnQ1NXFHaHJWbkp1LXA0aEVoY3BRcnVabktXZFVoTjlYakJBYUJWZm82el9JRy13ck9hVkw1VVQxc1NYeHZsMVoxR2JIREFX?oc=5", n: "日本語記事" },
-      { t: "中国CXMT、HBM3Eの限定生産へ　歩留まり20〜30%の壁とAI半導体の国産化戦略", u: "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0yT054U2dHcERMZzZJTER4QlRLMnE1UEJPaHZ0TDcwVTZpWVNBUXl3ZzNXbVFqSU5jT0tqUnhJUU40WnBrY2o3QlZrcHRGNlZqbUhIbUFqLW1zYlZuOGc?oc=5", n: "日本語記事" },
-      { t: "Appleにも値引きせず？中国DRAM大手CXMT、Samsungなど世界大手3社並みの価格を提示と報道", u: "https://news.google.com/rss/articles/CBMiggFBVV95cUxOakRDcndBMnVCeDliMG1XTHlaYW0wYlBadk95akRmcldtM0gtbmFSMUhaWVdjaGZDazZaRmhlRHN4dGJuV25xZlhGblllekRsZXRCQV9yWXJ0X3ZEeF9iMUpueTdUYlVRbEszZXI4R3FrNGIyWnk4T0YtNlZDWS1JNHZR?oc=5", n: "日本語記事" },
-      { t: "キオクシアを脅かす「中国半導体メモリー企業」の実力", u: "https://news.google.com/rss/articles/CBMif0FVX3lxTE9xVk80QUtaRWRUU3MzckxqRHFYcXVOdGlXNmdTS3hhbDNXb2QzWGtzbWtPbWFWZ0NKeTFIUHVrZW1wZlZvMzdDSkp3dkF1Wmo4cXozck5HRkNjZi1RWTMtMFZDWmtpSjROQlVCZndYU0tEbXh6b3dSX2drTU42TGM?oc=5", n: "日本語記事" },
-      { t: "VanEck、中国の半導体産業に投資する初のETFを設定", o: "VanEck launches first ETF on China’s semiconductor industry" },
-      { t: "中外製薬の「Too big to grow」の呪縛　中国勢も台頭、処方箋は脱自前主義", n: "日本語記事（個別企業）" }
-    ]
-  },
-  {
-    id: "c10", no: "10", title: "生成AIと米中AI覇権競争", count: "約15件",
-    overview: "生成AIをめぐる米中の競争は、モデルの性能だけでなく輸出管理と海外展開の戦略に広がっています。中国はAIの海外展開を打ち出し、DeepSeekとMiniMaxの海外展開を認める方針を示しました。AIの輸出規制の草案では、AI技術を国内で管理しつつ、サービスとしての海外展開（オフショアモデル）は進める構図が指摘されています。Anthropicの株式上場（IPO）の届出でも、中国との競争やモデルの蒸留（distillation）、半導体輸出規制が主要なリスクとして挙げられました。",
-    highlights: [
-      "中国のAI輸出規制：AI技術は国内管理を維持し、サービスとしての海外展開は進める構図。",
-      "中国のAI企業（DeepSeek、MiniMax）の海外展開を認める方針。",
-      "Mistralの新しいオープンウェイトモデルが、中国製AIへの対抗として注目。",
-      "Anthropicの株式上場届出で、中国との競争とモデル蒸留、輸出規制がリスクとして記載。"
-    ],
-    items: [
-      { t: "AIの海外展開、DeepSeekとミニマックスに認める　中国テック輸出戦略", u: "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1sZ0pUd2tjM2prdXF2YnB1dERDSC1kVFlQZUMweWRpbkNKNk45X2UyVDFWVmZYM1lCd2xGYzRjWXptU1dJcTdvT3RFWUk4M2p4djNjb2RFRWV5Y18yYzJUNjNJVdIBaEFVX3lxTE9aS0JZYVhGbDNjTF8yLTBhYXF1OVhNU3BCSWlDM1czakdWbl9fUjUwZDNnNTdSXzNQRUZ2RFJ1d3hub2h5aFc5azNyMjFNcUdkdFFpb2pwOWJDeGRpbG5RNm9jelJYQklo?oc=5", n: "日本語記事" },
-      { t: "Anthropicの株式上場届出、中国のAI競争、モデル蒸留、半導体輸出規制が主要リスクとして浮上", o: "Anthropic's IPO filing highlights China AI rivalry as model distillation, chip export controls emerge as key risks", u: "https://news.google.com/rss/articles/CBMilwFBVV95cUxPcGlRTGFYVWtPOXdoSGZnd0RQOGxSSmp2c1FJU3B5YzI5aVBsMmhFR3p5em11akpzWkdEY0pTMEs0ekE3RVdQMVdMTTQ2eWYtaURWMXdrdzBKMUUtWXFsYVdsTDF5MThjcm9kY3NvQVVETnBidFVRN3ZaMDFiblFBOGszYXh2MzE1OU9EOG9FU2J1cExGdzNr?oc=5" },
-      { t: "Mistral、「Le Chonk」オープンウェイトモデルを公開、サイバーセキュリティ分野で中国製AIに対抗", n: "日本語記事" },
-      { t: "米国と中国のAI競争が、各国に競合する技術圏の選択を迫る", o: "U.S.-China AI rivalry forces countries to navigate competing technology blocs" },
-      { t: "ワシントンが見落としている、中国の半導体野心への影響力", o: "Washington’s Overlooked Leverage Over China’s Chip Ambitions" }
-    ]
-  }
-];
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">トランプ政権、連邦政府の行政部門で中国ディープシーク製品の調達を禁止</h3>
+          <p class="text-sm text-slate-600 mt-2">連邦調達からの排除措置です。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/10/f713e529704cc84a.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/10/f713e529704cc84a.html</a>
+        </article>
 
-// 目次
-const toc = document.getElementById('toc');
-toc.innerHTML = CLUSTERS.map(c =>
-  `<li><a href="#${c.id}" class="text-red-700 hover:underline">${c.no}. ${c.title}</a></li>`
-).join('') +
-`<li><a href="#notes" class="text-slate-500 hover:underline">全体の注意事項</a></li>`;
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">米商務省、中国製トレーラーに対する260%超のAD・CVDを発動</h3>
+          <p class="text-sm text-slate-600 mt-2">反ダンピング・相殺関税の事例です。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/10/007f99e09e832118.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/10/007f99e09e832118.html</a>
+        </article>
 
-// クラスタ描画
-const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-document.getElementById('clusters').innerHTML = CLUSTERS.map(c => `
-<section id="${c.id}" class="scroll-mt-6">
-  <div class="flex items-center gap-3 mb-4">
-    <span class="bg-red-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">${c.no}</span>
-    <h2 class="text-xl font-bold text-slate-900">${esc(c.title)}</h2>
-    <span class="text-xs text-slate-400">${c.count}</span>
-  </div>
-  <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-5">
-    <div>
-      <h3 class="text-sm font-bold text-red-700 mb-1">概要</h3>
-      <p class="text-slate-700 leading-relaxed">${esc(c.overview)}</p>
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-29</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">DOJ、米国人男性がNVIDIA製チップ約3億ドルを中国に密輸した容疑で起訴</h3>
+          <p class="text-xs text-slate-500 mt-1 italic">原文：DOJ charges California man with smuggling $300 million in Nvidia chips to China</p>
+          <p class="text-sm text-slate-600 mt-2">先端半導体の密輸摘発です。</p>
+          <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3FrY1liNWY5enZvMVpUX0N3T0h6T0VsLXhLbnNITjFmRUx6Y1d0TllQdEVNR1JVc193VEpZVkRGV3RROE4xV0l0LW84TUtwSFdEOENodzVrV29TeUk4Zm9EcHBNWG9nNzlQS3R1THlOcWMxcWRCLTNYRENPUm9TNG1BWXVqZEV3YV8zeDhLVFpRSVdqSFBvWnplakZpOWJ1SGR6a2wyR2RLZw?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMiqgFBVV95cUxQa3FrY1liNWY5enZvMVpUX0N3T0h6T0VsLXhLbnNITjFmRUx6Y1d0TllQdEVNR1JVc193VEpZVkRGV3RROE4xV0l0LW84TUtwSFdEOENodzVrV29TeUk4Zm9EcHBNWG9nNzlQS3R1THlOcWMxcWRCLTNYRENPUm9TNG1BWXVqZEV3YV8zeDhLVFpRSVdqSFBvWnplakZpOWJ1SGR6a2wyR2RLZw?oc=5</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- クラスタ 02 -->
+    <section id="cluster-02">
+      <div class="flex items-baseline gap-3 mb-5">
+        <span class="text-sm font-semibold text-indigo-600">02</span>
+        <h2 class="text-xl font-bold">中国の輸出管理強化</h2>
+        <span class="text-xs text-slate-500">6件</span>
+      </div>
+
+      <div class="bg-indigo-50/60 rounded-2xl ring-1 ring-indigo-100 p-6 mb-5 leading-relaxed">
+        <p class="text-xs font-semibold text-indigo-700 mb-2">クラスタ概要</p>
+        <p class="text-slate-700">中国は今週、輸出管理の対象を広げる動きを複数同時に進めました。技術目録には23項目が追加され、第5次改正草案ではAI関連技術などが加わる見込みです。AI・バイオ医薬・太陽光の3分野についても新たな輸出管理が提案されており、これらは「技術を外に出さない」という方向で一貫しています。無人機関連では、エンジン・自動操縦・通信システムまで対象が広がりました。一方で、日本産ジクロロシランに対するAD調査の仮決定は、輸出管理とは別に貿易救済の手段が日本企業に直接及んでいることを示しています。米国企業へのサイバーセキュリティー審査も、対抗措置の一環とみられます。</p>
+      </div>
+
+      <div class="space-y-3 pl-2 border-l-2 border-indigo-100 ml-2">
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-31</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国が「輸出禁止・制限技術目録」に23項目追加、AI技術の輸出管理を強化</h3>
+          <p class="text-sm text-slate-600 mt-2">AI技術の囲い込みが他国に及ぼすリスクも論じられています。</p>
+          <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE53UnppNW4zbWxia3ZmWURKc1haN19GZ1dMd3FWUGlmRWdHYzhNUjRVS0dUSFpaeVA4TTFXOTF1VDNyUmFSXzZneWJPWHJ4Q1RaU0Znb1VQODd1d2FwaFVIZXRYWml2R1RKc05Dc0VRQ2xXRlhHbVBELWt3bEhnWW8?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMif0FVX3lxTE53UnppNW4zbWxia3ZmWURKc1haN19GZ1dMd3FWUGlmRWdHYzhNUjRVS0dUSFpaeVA4TTFXOTF1VDNyUmFSXzZneWJPWHJ4Q1RaU0Znb1VQODd1d2FwaFVIZXRYWml2R1RKc05Dc0VRQ2xXRlhHbVBELWt3bEhnWW8?oc=5</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国商務部など、輸出を制限・禁止する技術目録の第5次改正草案を公表、AI関連技術などを追加</h3>
+          <p class="text-sm text-slate-600 mt-2">現時点は草案段階のため、パブリックコメントや最終化の動きを確認する必要があります。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/10/7ff8e9cb1624ef81.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/10/7ff8e9cb1624ef81.html</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-26</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国、AI・バイオ医薬・太陽光技術の輸出管理を新たに提案</h3>
+          <p class="text-xs text-slate-500 mt-1 italic">原文：China proposes new export controls on artificial intelligence, biopharma, and photovoltaic technologies</p>
+          <p class="text-sm text-slate-600 mt-2">輸出前の登録がすでに適用されているという指摘もあります。</p>
+          <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQQUluM3JRMHRybHBfX0VRX2dPMTRaVEpldTJSMVo5RURBQkYyMzVZOFhTaDU2NmE2dEdEZmNsSzdLWmhQTHd0VnE3c1NEa3pfMTIyRnRCY0xIMk0zaVhNT3hzVkF0SWxqNzg0eklBTEFVZDE2NmhhVzhpemxndC1vN3V5Y1V2blFLM0t6c2h1bXRobUhPM1VDMWlxb0VTT0dBUnJrVWg3eTFGUTNRTlJRM0M4eWdrY2EtOVF3VWU3YkdrdUU?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMiwwFBVV95cUxQQUluM3JRMHRybHBfX0VRX2dPMTRaVEpldTJSMVo5RURBQkYyMzVZOFhTaDU2NmE2dEdEZmNsSzdLWmhQTHd0VnE3c1NEa3pfMTIyRnRCY0xIMk0zaVhNT3hzVkF0SWxqNzg0eklBTEFVZDE2NmhhVzhpemxndC1vN3V5Y1V2blFLM0t6c2h1bXRobUhPM1VDMWlxb0VTT0dBUnJrVWg3eTFGUTNRTlJRM0M4eWdrY2EtOVF3VWU3YkdrdUU?oc=5</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-30</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国、無人機エンジン・自動操縦・通信システムの輸出管理を強化</h3>
+          <p class="text-xs text-slate-500 mt-1 italic">原文：China Tightens Export Controls on Drone Engines, Autopilots and Communication Systems</p>
+          <p class="text-sm text-slate-600 mt-2">ドローン部品のサプライチェーンに影響が及ぶ可能性があります。</p>
+          <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNMEtXYnd3cDZneEkxTzdYSEV0YmFia2FyNXNZSVA3RHJtc0NUcldvWkFfR2hPMGNXcUxhMnpnSWNXQzlzUlpsMlJHRURZRHNXRGszRlNBb0p3Wlllb1JjNHRVSDBvWVoyQlkzSW9ORy1VeXhHbWgzSi1uVzhIYl9aZXhOUGRmdWJXWkxMalhJLS1sOHJ1aTdYamt3eWpRVUFzM2V5Q3VaYTE2djRXSm4tMC11WjBpVDQwdmM4SXhMVV85anJoWVVN?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMixwFBVV95cUxNMEtXYnd3cDZneEkxTzdYSEV0YmFia2FyNXNZSVA3RHJtc0NUcldvWkFfR2hPMGNXcUxhMnpnSWNXQzlzUlpsMlJHRURZRHNXRGszRlNBb0p3Wlllb1JjNHRVSDBvWVoyQlkzSW9ORy1VeXhHbWgzSi1uVzhIYl9aZXhOUGRmdWJXWkxMalhJLS1sOHJ1aTdYamt3eWpRVUFzM2V5Q3VaYTE2djRXSm4tMC11WjBpVDQwdmM4SXhMVV85anJoWVVN?oc=5</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国、日本産ジクロロシランに対するAD調査で仮決定、最大99.2%の保証金を徴収</h3>
+          <p class="text-sm text-slate-600 mt-2">日本企業に直接影響する案件です。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/09/d2f3568f66db6180.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/09/d2f3568f66db6180.html</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-11-01</span>
+            <span>JETRO（安全保障貿易管理）</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国、米パロアルトネットワークスの中国販売製品にサイバーセキュリティー審査を実施</h3>
+          <p class="text-sm text-slate-600 mt-2">米企業への対抗措置の一環とみられます。</p>
+          <a href="https://www.jetro.go.jp/biznews/2026/08/ffc01cb7e5009061.html" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://www.jetro.go.jp/biznews/2026/08/ffc01cb7e5009061.html</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- クラスタ 03 -->
+    <section id="cluster-03">
+      <div class="flex items-baseline gap-3 mb-5">
+        <span class="text-sm font-semibold text-indigo-600">03</span>
+        <h2 class="text-xl font-bold">半導体・AI をめぐる動き</h2>
+        <span class="text-xs text-slate-500">2件</span>
+      </div>
+
+      <div class="bg-indigo-50/60 rounded-2xl ring-1 ring-indigo-100 p-6 mb-5 leading-relaxed">
+        <p class="text-xs font-semibold text-indigo-700 mb-2">クラスタ概要</p>
+        <p class="text-slate-700">今週の半導体・AI関連では、人の動きをめぐる問題が注目されました。NYTは、NVIDIAのCEOに近い中国籍の女性事業家が中国情報機関の関係者と判断されていたと報じ、米政権が対応を見送ったとも伝えています。中国側はこの報道を否定しています。また台湾は、AIチップの中国への密輸を犯罪として扱う方向を示しました。技術や製品の規制に加えて、人と情報の流れや密輸の取り締まりも争点になりつつあります。</p>
+      </div>
+
+      <div class="space-y-3 pl-2 border-l-2 border-indigo-100 ml-2">
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-30</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">エヌビディアCEOに中国情報機関が接触か、米政権が対応見送り</h3>
+          <p class="text-sm text-slate-600 mt-2">NYTの報道です。中国側は関連する報道を否定しています。</p>
+          <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTE1DMUZfWllFRnhGWWEwWGYyWTRuYjhtVkNuTGI5UVFGN0lxeG1GdUdOV3Z3ci15VDRuZzFfOHpGYVB6NmtBM2tqOWxGNFNnbGI2aHdUbElzLU0ycFlKZnNjdmotNHdrQVhrcDR4MmNtMFZmUTA0?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMidEFVX3lxTE1DMUZfWllFRnhGWWEwWGYyWTRuYjhtVkNuTGI5UVFGN0lxeG1GdUdOV3Z3ci15VDRuZzFfOHpGYVB6NmtBM2tqOWxGNFNnbGI2aHdUbElzLU0ycFlKZnNjdmotNHdrQVhrcDR4MmNtMFZmUTA0?oc=5</a>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-31</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">台湾、AIチップの中国への密輸を犯罪化する方向</h3>
+          <p class="text-xs text-slate-500 mt-1 italic">原文：Taiwan moves to make AI chip smuggling to China a crime</p>
+          <p class="text-sm text-slate-600 mt-2">台湾側の法制度整備の動きです。</p>
+          <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxPT3BqNTFma1VNRDVINm5jUWF4TjNRY0NOaEl5ZjBUUk1ldTNCQ3FTQkF3TWUwMHBDcjNpRzVPcVVXMENYVVRzV0hPVkItVURzclZ6VkdtckdRb252ZFdmb1ZtY2NZX1F3VkxwUk5JNDlKZ3RNRG5XU3JxVmVFYlRUUVh4RWtRR3ZZdGRz?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMiiwFBVV95cUxPT3BqNTFma1VNRDVINm5jUWF4TjNRY0NOaEl5ZjBUUk1ldTNCQ3FTQkF3TWUwMHBDcjNpRzVPcVVXMENYVVRzV0hPVkItVURzclZ6VkdtckdRb252ZFdmb1ZtY2NZX1F3VkxwUk5JNDlKZ3RNRG5XU3JxVmVFYlRUUVh4RWtRR3ZZdGRz?oc=5</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- クラスタ 04 -->
+    <section id="cluster-04">
+      <div class="flex items-baseline gap-3 mb-5">
+        <span class="text-sm font-semibold text-indigo-600">04</span>
+        <h2 class="text-xl font-bold">重要鉱物</h2>
+        <span class="text-xs text-slate-500">1件</span>
+      </div>
+
+      <div class="bg-indigo-50/60 rounded-2xl ring-1 ring-indigo-100 p-6 mb-5 leading-relaxed">
+        <p class="text-xs font-semibold text-indigo-700 mb-2">クラスタ概要</p>
+        <p class="text-slate-700">中国が重要鉱物に対して導入していた輸出禁止措置の一年間の停止期限が近づいています。停止期間の終わりに、中国が措置を延長するのか、再開するのか、規制の形を変えるのかが今後の焦点です。このため、期限前後の商務部などの発表に注意が必要です。</p>
+      </div>
+
+      <div class="space-y-3 pl-2 border-l-2 border-indigo-100 ml-2">
+        <article class="bg-white rounded-xl shadow-sm ring-1 ring-slate-200 p-5 ml-4 hover:shadow-md transition">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+            <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-medium">2026-10-31</span>
+            <span>Google News</span>
+          </div>
+          <h3 class="font-semibold leading-snug">中国、重要鉱物の輸出禁止措置の一年間の停止期限が近づく</h3>
+          <p class="text-xs text-slate-500 mt-1 italic">原文：China's one-year pause on critical mineral export bans nears its deadline</p>
+          <p class="text-sm text-slate-600 mt-2">停止期限の後の対応が焦点です。</p>
+          <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxOVDAzWVFRRDNGX1FYLWU3SGtqX25maXRkZEliMjJoOUpnMk1fZER1VnhLRHRGZnJMSEJTNXpYeWk0eHM4Nl9EOHFLbDN1YXNBV0ozbElXMGFZS0lvZ3B5SlhQUEV3WktBNlpGT1N4dlZBaERBaFQxZDBoT3U0NUFSME1wWDA5N1d3Smh2dU95WFAyRS1kcmUzRFZpeURDeDh0anc?oc=5" target="_blank" rel="noopener" class="inline-block mt-3 text-sm text-indigo-600 hover:underline break-all">https://news.google.com/rss/articles/CBMiogFBVV95cUxOVDAzWVFRRDNGX1FYLWU3SGtqX25maXRkZEliMjJoOUpnMk1fZER1VnhLRHRGZnJMSEJTNXpYeWk0eHM4Nl9EOHFLbDN1YXNBV0ozbElXMGFZS0lvZ3B5SlhQUEV3WktBNlpGT1N4dlZBaERBaFQxZDBoT3U0NUFSME1wWDA5N1d3Smh2dU95WFAyRS1kcmUzRFZpeURDeDh0anc?oc=5</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 注記 -->
+    <section id="notes">
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+        <span class="w-1.5 h-6 bg-amber-500 rounded-full"></span>注記
+      </h2>
+      <div class="bg-amber-50 rounded-2xl ring-1 ring-amber-200 p-6 md:p-8 text-sm text-slate-700 leading-relaxed">
+        <ul class="list-disc pl-5 space-y-2">
+          <li>本レポートは、収集した197件の見出しのうち、安全保障・輸出管理に関わる14件を掲載しています。掲載は見出しと公開情報に基づくもので、記事本文の精査は行っていません。</li>
+          <li>各クラスタ概要は、掲載記事の見出しと概要をもとにした整理であり、記事に書かれていない結論は含めていません。</li>
+          <li>英語見出しの日本語訳は、内容を要約した仮訳です。原文は見出しの下に併記しています。日本語見出しの記事は原文のまま掲載しています。</li>
+          <li>Google News 経由のリンクは転送用URLです。リンク先が変わる場合や、閲覧に制限がかかる場合があります。</li>
+          <li>日付は収集時の記録に基づき、URLに含まれる年月と一致しない記事があります。JETRO掲載記事の日付は、記録上の日付をそのまま記載しています。</li>
+          <li>NYT報道（エヌビディアCEO関連）は報道内容であり、事実として確定したものではありません。</li>
+          <li>技術目録の改正（中国商務部）は草案段階であり、施行時期や最終内容は今後変わる可能性があります。</li>
+          <li>本レポートは情報の整理を目的としたものであり、法的判断や取引判断の助言を含むものではありません。個別案件への対応は、専門家や関係当局への確認を行ってください。</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-5xl mx-auto px-6 py-6 text-xs text-slate-500 flex flex-col md:flex-row justify-between gap-2">
+      <p>安全保障・輸出管理ニュース 週刊レポート（中国ver）</p>
+      <p>対象期間：2026年10月26日 〜 2026年11月01日</p>
     </div>
-    <div>
-      <h3 class="text-sm font-bold text-red-700 mb-1">主要な動向・ハイライト</h3>
-      <ul class="list-disc pl-5 text-slate-700 space-y-1">
-        ${c.highlights.map(h => `<li>${esc(h)}</li>`).join('')}
-      </ul>
-    </div>
-    <div>
-      <h3 class="text-sm font-bold text-red-700 mb-2">個別ニュース</h3>
-      <ul class="space-y-3">
-        ${c.items.map(it => {
-          const title = it.u
-            ? `<a href="${it.u}" target="_blank" rel="noopener" class="font-semibold text-red-700 hover:underline">${esc(it.t)}</a>`
-            : `<p class="font-semibold text-slate-800">${esc(it.t)}</p>`;
-          const orig = it.o ? `<p class="text-xs text-slate-500 mt-0.5">原文：${esc(it.o)}</p>` : '';
-          const note = it.n ? `<p class="text-xs text-slate-500 mt-0.5">${esc(it.n)}</p>` : '';
-          return `<li class="border-l-2 ${it.u ? 'border-red-200' : 'border-slate-200'} pl-4">${title}${orig}${note}</li>`;
-        }).join('')}
-      </ul>
-    </div>
-  </div>
-</section>`).join('');
-</script>
+  </footer>
 
 </body>
 </html>
