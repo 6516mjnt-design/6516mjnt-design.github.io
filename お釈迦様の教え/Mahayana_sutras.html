@@ -1,382 +1,783 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大乗経典リスト と 日本の宗派・教相判釈</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <style>
-        /* 既存のCSSを変更しない前提で、縦並びにするための補助スタイル */
-        .vertical-box {
-            display: block;
-            width: 100%;
-        }
-        .vertical-box .card {
-            margin-bottom: 25px; /* グリッドのgapの代わりにマージンで余白を確保 */
-        }
-        /* 追加要素用のテーブル補助スタイル */
-        .sect-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .sect-table th, .sect-table td {
-            border: 1px solid #cbd5e0;
-            padding: 10px 12px;
-            text-align: left;
-            font-size: 14px;
-        }
-        .sect-table th {
-            background-color: #edf2f7;
-            color: #2d3748;
-            font-weight: bold;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大乗経典と日本の仏教宗派</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2933;
+    --ink-soft: #52606d;
+    --paper: #fbf9f4;
+    --card: #ffffff;
+    --line: #e4dccd;
+    --accent: #7a4a1d;
+    --accent-soft: #f4ead8;
+    --indigo: #2c3e6b;
+    --indigo-soft: #e8ecf6;
+    --gold: #b08a3e;
+    --radius: 10px;
+    --serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 56px clamp(20px, 5vw, 48px) 96px;
+  }
+
+  /* ---------- ヘッダー ---------- */
+  header.hero {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  header.hero .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+  header.hero h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.35;
+    margin: 0 0 14px;
+  }
+  header.hero p.lead {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- 目次（横並び） ---------- */
+  nav.toc {
+    background: var(--indigo);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 56px;
+  }
+  nav.toc .toc-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+  }
+  nav.toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 6px 18px;
+  }
+  nav.toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14.5px;
+    color: #dfe6f5;
+  }
+  nav.toc a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+  nav.toc .num {
+    display: inline-block;
+    width: 1.8em;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-weight: 700;
+  }
+
+  /* ---------- セクション ---------- */
+  section.part {
+    margin-bottom: 64px;
+    scroll-margin-top: 24px;
+  }
+  section.part > h2 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px;
+  }
+  section.part > h2 .num {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+  }
+  section.part > .intro {
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+  }
+
+  h3.sub {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+    margin: 36px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--gold);
+  }
+
+  p { margin: 0 0 14px; }
+
+  .callout {
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .callout strong { color: var(--accent); }
+
+  /* ---------- 表 ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--line);
+  }
+  th {
+    background: var(--indigo-soft);
+    color: var(--indigo);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td small {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- 教判の流れ ---------- */
+  ol.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+  }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 18px 20px 18px 64px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  ol.steps strong { display: block; margin-bottom: 4px; }
+
+  /* ---------- 経典カード ---------- */
+  .school-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .school {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .school header {
+    padding: 16px 20px;
+    color: #fff;
+    background: var(--indigo);
+  }
+  .school header h4 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .school header span {
+    font-size: 12px;
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+  }
+  .school:nth-child(2) header { background: #5b4636; }
+  .school:nth-child(3) header { background: #3d6b6b; }
+  .school:nth-child(4) header { background: #6b3d4f; }
+  .school:nth-child(5) header { background: #4a5a2e; }
+  .school .body { padding: 18px 20px 20px; font-size: 14.5px; }
+  .school .body .desc { color: var(--ink-soft); margin-bottom: 12px; }
+  .school ul { margin: 0; padding: 0; list-style: none; }
+  .school li {
+    padding: 10px 0;
+    border-top: 1px dashed var(--line);
+  }
+  .school li:first-child { border-top: none; padding-top: 0; }
+  .school li b { display: block; font-weight: 700; }
+  .school li span { color: var(--ink-soft); font-size: 13.5px; }
+
+  /* ---------- 阿含・パーリ ---------- */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .compare .box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+  .compare h4 {
+    font-family: var(--serif);
+    font-weight: 700;
+    margin: 0 0 10px;
+    font-size: 17px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--line);
+  }
+  .compare ul { margin: 0; padding-left: 1.2em; font-size: 14.5px; }
+  .compare li { margin-bottom: 4px; }
+  .compare .note { font-size: 12.5px; color: var(--ink-soft); margin-top: 10px; }
+
+  /* ---------- 五時 タイムライン ---------- */
+  .timeline {
+    position: relative;
+    margin: 24px 0 8px;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--gold);
+  }
+  .period {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .period::before {
+    content: "";
+    position: absolute;
+    left: -26px;
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 3px solid var(--accent);
+  }
+  .period.last::before { background: var(--accent); }
+  .period .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .period .name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .period .span {
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 10px;
+    border-radius: 999px;
+  }
+  .period dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 4.5em 1fr;
+    gap: 6px 12px;
+    font-size: 14.5px;
+  }
+  .period dt { color: var(--ink-soft); font-weight: 700; }
+  .period dd { margin: 0; }
+
+  /* ---------- 八教 ---------- */
+  .eight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .eight .box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+  .eight h4 {
+    font-family: var(--serif);
+    font-weight: 700;
+    margin: 0 0 4px;
+    font-size: 17px;
+  }
+  .eight .caption {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+  .eight ul { margin: 0; padding: 0; list-style: none; }
+  .eight li {
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+  }
+  .eight li:first-child { border-top: none; padding-top: 0; }
+  .eight li b { color: var(--indigo); }
+
+  /* ---------- 結論 ---------- */
+  .conclusion {
+    margin-top: 40px;
+    padding: 28px 30px;
+    background: var(--indigo);
+    color: #f1f4fb;
+    border-radius: var(--radius);
+  }
+  .conclusion h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    margin: 0 0 10px;
+    font-size: 19px;
+    color: #fff;
+  }
+  .conclusion p { margin: 0; color: #dfe6f5; }
+
+  footer.page-foot {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .print-btn {
+    font: inherit;
+    font-size: 13px;
+    padding: 8px 16px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 18px;
+  }
+  .print-btn:hover { background: var(--accent); color: #fff; }
+
+  /* ---------- レスポンシブ ---------- */
+  @media (max-width: 760px) {
+    .compare, .eight { grid-template-columns: 1fr; }
+    main { padding: 36px 18px 72px; }
+  }
+
+  /* ---------- 印刷 ---------- */
+  @media print {
+    body { background: #fff; }
+    nav.toc, .print-btn { display: none; }
+    main { max-width: none; padding: 0; }
+    section.part, .school, .period { break-inside: avoid; }
+    .school-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>大乗経典リスト</h1>
-            <p>5つの系統について、初期から中期、そして密教へと展開した主要な経典を系統ごとに網羅</p>
-        </header>
+<main>
 
-        <!-- 印刷ボタン -->
-        <button class="btn-print" onclick="window.print()">印刷する</button>
+  <header class="hero">
+    <p class="eyebrow">BUDDHIST SCRIPTURES</p>
+    <h1>大乗経典と日本の仏教宗派</h1>
+    <p class="lead">初期大乗から中期、そして密教へと展開した主要経典を系統別に整理し、日本の各宗派がどの経典を根本に据えてきたのかを見ていきます。日本の宗派は、教相判釈をはじめ中国の伝統を強く受けており、お釈迦様の教えからは大きく変容したものになっています。</p>
+    <button class="print-btn" onclick="window.print()">印刷する</button>
+  </header>
 
-        <!-- 1. 日本の宗派と信仰する大乗経典の関係 -->
-        <header style="margin-top: 30px;">
-            <h2>日本の宗派と信仰する大乗経典の関係</h2>
-            <p>日本の各宗派は、膨大な仏教経典の中から「最も釈迦の真意（至高の悟り）を表している」とされる経典を根本所依の聖典として掲げています。</p>
-        </header>
+  <nav class="toc" aria-label="目次">
+    <p class="toc-title">目次</p>
+    <ol>
+      <li><a href="#part1"><span class="num">1</span>宗派と経典の対応</a></li>
+      <li><a href="#part2"><span class="num">2</span>宗派で経典が異なる理由</a></li>
+      <li><a href="#part3"><span class="num">3</span>大乗経典の分類</a></li>
+      <li><a href="#part4"><span class="num">4</span>大乗経典と教相判釈</a></li>
+      <li><a href="#part5"><span class="num">5</span>パーリと大乗の阿含経の関係</a></li>
+    </ol>
+  </nav>
 
-        <main class="vertical-box" style="margin-bottom: 40px;">
-            <section class="card">
-                <div class="card-header" style="background-color: #2b6cb0;">
-                    <h2>宗派と根本聖典（所依の経典）の対応一覧</h2>
-                </div>
-                <div class="card-body">
-                    <table class="sect-table">
-                        <thead>
-                            <tr>
-                                <th>宗派</th>
-                                <th>主な根本聖典（所依の経典）</th>
-                                <th>主尊（本尊）</th>
-                                <th>特徴・教義的位置づけ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>天台宗</strong></td>
-                                <td>『法華経』（妙法蓮華経）</td>
-                                <td>釈迦如来、阿弥陀如来など</td>
-                                <td>「円教（完全な教え）」として法華経を最高峰に据える。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>真言宗</strong></td>
-                                <td>『大日経』『金剛頂経』など</td>
-                                <td>大日如来</td>
-                                <td>密教経典を所依とし、「即身成仏」を目指す。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>浄土宗・浄土真宗</strong></td>
-                                <td>『浄土三部経』<br><span style="font-size: 12px; color: #4a5568;">（『無量寿経』『観無量寿経』『阿弥陀経』）</span></td>
-                                <td>阿弥陀如来</td>
-                                <td>阿弥陀仏の本願と他力救済を説く経典を選択・専修する。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>日蓮宗</strong></td>
-                                <td>『法華経』</td>
-                                <td>釈迦牟尼仏（十界曼荼羅）</td>
-                                <td>法華経のみを正法とし、お題目（南無妙法蓮華経）を唱える。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>禅宗</strong><br><span style="font-size: 12px; color: #4a5568;">（臨済宗・曹洞宗）</span></td>
-                                <td>『般若心経』『金剛般若経』『楞伽経』など</td>
-                                <td>釈迦如来</td>
-                                <td>不立文字（言葉に頼らない）を基旨としつつ、空や覚者を説く経典を参照。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>華厳宗</strong>（奈良仏教）</td>
-                                <td>『華厳経』</td>
-                                <td>毘盧遮那仏</td>
-                                <td>重々無尽の悟りの世界（法界）を説く華厳経を根本とする。</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+  <!-- 1 -->
+  <section class="part" id="part1">
+    <h2><span class="num">PART 1</span>宗派と経典の対応</h2>
+    <p class="intro">日本の各宗派は、膨大な経典の中から「釈迦の真意を最もよく表している」とされるものを根本所依の聖典として掲げています。</p>
 
-            <section class="card">
-                <div class="card-header" style="background-color: #2b6cb0;">
-                    <h2>なぜ宗派によって信仰する経典が異なるのか？</h2>
-                </div>
-                <div class="card-body">
-                    <p style="margin-bottom: 12px;"><strong>1. 教判（教相判釈）の発達：</strong><br>
-                    インドから中国へ膨大な経典が一気に伝来した際、「釈迦が説いた教えの中でどれが真実か」を整理するため、時代や理解度に応じた教えの階層化（教判）が行われました。その結果、最高と位置づける経典が宗派（天台宗の『法華経』、真言宗の密教経典など）によって異なりました。</p>
-                    
-                    <p style="margin-bottom: 12px;"><strong>2. 鎌倉仏教における「選択（せんちゃく）」と専修：</strong><br>
-                    平安末期〜鎌倉時代、社会不安を背景に「誰もが救われる教え」を求めた開祖たち（法然・日蓮など）は、膨大な経典の中から単一の原理や経典（『浄土三部経』や『法華経』）を選び取り、それに専念する道（専修）を確立しました。</p>
-
-                    <p style="margin-bottom: 0;"><strong>3. 大乗仏教自体の多様性と伝来：</strong><br>
-                    大乗仏教はインドで数百年をかけて多様な思想（空、唯識、如来蔵、浄土、密教など）を生み出しました。日本へはそれらが完成された形で伝わったため、どの思想的潮流を基盤に置くかによって重んじる経典が分かれました。</p>
-                </div>
-            </section>
-        </main>
-
-        <!-- 既存の経典リストセクション -->
-        <main class="vertical-box">
-            <!-- 1. 般若経系 -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>1. 般若経系（初期大乗仏教の中心）</h2>
-                </div>
-                <div class="card-body">
-                    <p>「空（くう）」の思想と、悟りを求める「菩薩（ぼさつ）」の智慧を説く経典群。</p>
-                    <ul>
-                        <li><a href="#"><strong>『八千頌般若経』</strong>：最も古くに成立した般若経。</a></li>
-                        <li><a href="#"><strong>『金剛般若経』</strong>：中国や日本の禅宗で特に重んじられる経典。</a></li>
-                        <li><a href="#"><strong>『般若心経』</strong>：大般若経のエッセンスを極限まで凝縮した大衆的な経典。</a></li>
-                        <li><a href="#"><strong>『大品般若経』</strong>：大規模な般若経の代表.</a></li>
-                        <li><a href="#"><strong>『大般若波羅蜜多経』</strong>：玄奘三蔵がこれらを全 600 巻に集大成したもの。</a></li>
-                        <li><a href="#"><strong>『維摩経』</strong>：在家の信者である維摩詰を主人公とする経典。</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 2. 法華経・一乗系 -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>2. 法華経・一乗系</h2>
-                </div>
-                <div class="card-body">
-                    <p>釈迦の永遠の命（久遠実成）と、すべての人が例外なく仏になれる道（一仏乗）を説く経典群。</p>
-                    <ul>
-                        <li><a href="#"><strong>『妙法蓮華経』</strong>：通称『法華経』。鳩摩羅什訳が最も普及。</a></li>
-                        <li><a href="#"><strong>『無量義経』</strong>：法華経の導入部とされる経典。</a></li>
-                        <li><a href="#"><strong>『観普賢菩薩行法経』</strong>：法華経の締めくくりとされる経典。</a></li>
-                        <li><a href="#"><strong>『勝鬘経』</strong>：在家の女性である勝鬘夫人が一乗の教えを説く経典。</a></li>
-                        <li><a href="#"><strong>『大般涅槃経』</strong>：釈迦の入滅を舞台に「悉有仏性」を説く経典。</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 3. 華厳経・唯識系 -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>3. 華厳経・唯識系</h2>
-                </div>
-                <div class="card-body">
-                    <p>仏の悟りの世界（宇宙的広がり）や、世界は心の働きが作り出したものであるという「唯識」を説く経典群。</p>
-                    <ul>
-                        <li><a href="#"><strong>『大方広仏華厳経』</strong>：通称『華厳経』。</a></li>
-                        <li><a href="#"><strong>『十地経』</strong>：華厳経の一部。菩薩が修行する 10 の段階を説く。</a></li>
-                        <li><a href="#"><strong>『入法界品』</strong>：善財童子が 53 人の知識を訪ねて旅をする物語。</a></li>
-                        <li><a href="#"><strong>『解深密経』</strong>：唯識思想の根本となった中期大乗経典。</a></li>
-                        <li><a href="#"><strong>『大乗阿毘達磨経』</strong>：唯識の学派を発展させた重要経典。</a></li>
-                        <li><a href="#"><strong>『楞伽経』</strong>：禅宗などにも影響を与えた経典。</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 4. 浄土教系 -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>4. 浄土教系</h2>
-                </div>
-                <div class="card-body">
-                    <p>他力（阿弥陀仏の誓願）によって、苦しみのない清らかな世界（極楽浄土）へ往生することを説く経典群。</p>
-                    <ul>
-                        <li><a href="#"><strong>『仏説無量寿経』</strong>：阿弥陀仏の 48 の願いと四十八願を説く。</a></li>
-                        <li><a href="#"><strong>『仏説観無量寿経』</strong>：浄土を心に思い描く具体的な瞑想法を説く。</a></li>
-                        <li><a href="#"><strong>『仏説阿弥陀経』</strong>：極楽浄土の美しい様子と、念仏の功徳を説く。</a></li>
-                        <li><a href="#"><strong>『般舟三昧経』</strong>：瞑想の中で現在在世の仏にまみえる方法を説く古い経典。</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- 5. 密教系（後期大乗仏教） -->
-            <section class="card">
-                <div class="card-header">
-                    <h2>5. 密教系（後期大乗仏教）</h2>
-                </div>
-                <div class="card-body">
-                    <p>シンボル、呪文（真言）、身体的な儀礼（手印など）を通じて、この身のままで仏になる「即身成仏」を目指す経典群。</p>
-                    <ul>
-                        <li><a href="#"><strong>『大日経』</strong>：密教の理論（胎蔵界曼荼羅）を説く、純密の根本経典。</a></li>
-                        <li><a href="#"><strong>『金剛頂経』</strong>：密教の実践（金剛界曼荼羅）を説く根本経典。</a></li>
-                        <li><a href="#"><strong>『蘇悉地経』</strong>：密教の具体的な儀礼や作法を補完する経典。</a></li>
-                        <li><a href="#"><strong>『理趣経』</strong>：人間の欲望や愛欲をも肯定し、大いなる智慧へと昇華させる経典。</a></li>
-                        <li><a href="#"><strong>『大随求陀羅尼経』</strong>：呪文（陀羅尼）の功徳を説く初期密教的経典。</a></li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-
-        <!-- 阿含経とパーリ仏典のセクション -->
-        <header style="margin-top: 60px;">
-            <h2>（参考）阿含経とパーリ仏典の関係</h2>
-            <p>阿含経は大乗経典には含まれないが、大乗仏教の修行者たちも「阿含経」の教えを基礎として学び、その上で大乗の教えを発展させて大乗経典をまとめた。</p>
-        </header>
-
-        <main class="vertical-box" style="margin-bottom: 40px;">
-            <section class="card">
-                <div class="card-header" style="background-color: #2d3748;">
-                    <h2>阿含経とパーリ仏典の特徴と成立</h2>
-                </div>
-                <div class="card-body">
-                    <p style="margin-bottom: 12px;"><strong>阿含経：</strong>古代インドのさまざまな仏教のグループ（部派）によって別々に漢訳されたもの。例えば『長阿含経』は法蔵部、『雑阿含経』は説一切有部というグループのテキストが元になっている。</p>
-                    <p style="margin-bottom: 12px;"><strong>パーリ経典：</strong>スリランカの上座部（大寺派）という一つのグループによって厳格に守り継がれてきたもの。そのため、パーリ経典の方が全体のまとまりや文章の統一感がある。</p>
-                    
-                    <div style="background-color: #f7fafc; border-left: 4px solid #4a5568; padding: 12px; margin-top: 15px; border-radius: 0 4px 4px 0;">
-                        <p style="margin-bottom: 8px;"><strong>阿含経（初期仏教）</strong><br>
-                        <strong>【内容】</strong> お釈迦様が生きている間に、弟子たちに説いた実践的な教え。個人が悟りを開いて苦しみから解放されることを目指す。<br>
-                        <strong>【パーリ経典との対比】</strong> 『長阿含経』、『中阿含経』、『雑阿含経』、『増一阿含経』</p>
-                        <p style="margin-bottom: 0;"><strong>大乗経典（大乗仏教）</strong><br>
-                        <strong>【内容】</strong> お釈迦様の入滅後、菩薩（ぼさつ）と呼ばれる修行者たちによってまとめられた教え。すべての生きとし生けるものの救済を目指す。</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #2d3748;">
-                    <h2>経典の構成比較（四阿含・パーリ五部）</h2>
-                </div>
-                <div class="card-body">
-                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 1; min-width: 250px;">
-                            <h3 style="font-size: 16px; border-bottom: 2px solid #cbd5e0; padding-bottom: 5px; margin-bottom: 10px;">阿含経（四阿含）</h3>
-                            <ul>
-                                <li><strong>長阿含（じょうあごん）</strong></li>
-                                <li><strong>中阿含（ちゅうあごん）</strong></li>
-                                <li><strong>雑阿含（ぞうあごん）</strong></li>
-                                <li><strong>増一阿含（ぞういちあごん）</strong></li>
-                            </ul>
-                        </div>
-                        <div style="flex: 1; min-width: 250px;">
-                            <h3 style="font-size: 16px; border-bottom: 2px solid #cbd5e0; padding-bottom: 5px; margin-bottom: 10px;">パーリ経典（パーリ五部・ニカーヤ）</h3>
-                            <ul>
-                                <li><strong>長部（ちょうぶ / ディーガ・ニカーヤ）</strong></li>
-                                <li><strong>中部（ちゅうぶ / マッジャーマ・ニカーヤ）</strong></li>
-                                <li><strong>相応部（そうおうぶ / サンユッタ・ニカーヤ）</strong></li>
-                                <li><strong>増支部（ぞうしぶ / アングッタラ・ニカーヤ）</strong></li>
-                                <li><strong>小部（しょうぶ / クッダカ・ニカーヤ）</strong><br><span style="font-size: 12px; color: #718096;">※阿含経には独立したまとまりとしては存在しない内容を含む。</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- 教相判釈（五時八教）のセクション -->
-        <header style="margin-top: 60px;">
-            <h2>（参考）歴史的な分類：教相判釈</h2>
-            <p>中国や日本の伝統仏教では、これらの経典群を釈迦が説いた時期や内容の深さによって体系化する「教相判釈」という分類も行われました。宗派の正統性を主張するために用いられた解釈学です。</p>
-        </header>
-
-        <div class="main-title" style="font-size: 22px; margin-bottom: 20px;">天台宗の「五時八教」</div>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; color: #4a5568; font-size: 14px;">
-            中国の天台宗の開祖である智顗（ちぎ）が、膨大な仏典を釈迦が説いた時系列（五時）と、説法の形式・内容（八教）で体系化したもの。「すべての経典は法華経へ至るための伏線である」という視点から整理されています。
-        </p>
-
-        <div class="main-title" style="font-size: 18px; text-align: left; margin-bottom: 15px; border-left: 4px solid #2b6cb0; padding-left: 10px;">1. 五時の体系（釈迦の生涯の5つの時期）</div>
-        
-        <main class="vertical-box" style="margin-bottom: 40px;">
-            <section class="card">
-                <div class="card-header" style="background-color: #2c5282;">
-                    <h2>① 華厳時（けごんじ）［最初の21日間］</h2>
-                </div>
-                <div class="card-body">
-                    <p><strong>特徴:</strong> 悟りを開いた釈迦が、その最高境地をそのまま説いた時期。</p>
-                    <p><strong>該当:</strong> 『華厳経』</p>
-                    <p style="font-size: 13px; background: #edf2f7; padding: 8px; border-radius: 4px;"><strong>結果:</strong> 内容が高度すぎて、普通の人間には「見えても聞こえても理解できない」状態だったため、レベルを下げることにした。</p>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #2c5282;">
-                    <h2>② 鹿苑時（ろくおんじ）［次の12年間］</h2>
-                </div>
-                <div class="card-body">
-                    <p><strong>特徴:</strong> 初心者向けに、物事の苦しみや因果応報（小乗仏教）を説いた時期。</p>
-                    <p><strong>該当:</strong> 『阿含経』</p>
-                    <p style="font-size: 13px; background: #edf2f7; padding: 8px; border-radius: 4px;"><strong>結果:</strong> 人々は基礎的な教えを理解し、心が落ち着いた。</p>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #2c5282;">
-                    <h2>③ 方等時（ほうとうじ）［次の8年間］</h2>
-                </div>
-                <div class="card-body">
-                    <p><strong>特徴:</strong> 小乗の教えに満足している弟子たちを「大乗の広い心を持ちなさい」と叱咤激励・批判した時期。</p>
-                    <p><strong>該当:</strong> 『維摩経』『思益経』『勝鬘経』『金光明経』など</p>
-                    <p style="font-size: 13px; background: #edf2f7; padding: 8px; border-radius: 4px;"><strong>結果:</strong> 弟子たちは小乗の限界を知り、大乗仏教に目を向け始めた。</p>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #2c5282;">
-                    <h2>④ 般若時（はんにゃじ）［次の22年間］</h2>
-                </div>
-                <div class="card-body">
-                    <p><strong>特徴:</strong> 執着を徹底的に打ち破るため、「すべては空（くう）」という智慧をじっくり説いた時期。</p>
-                    <p><strong>該当:</strong> 『般若経』（大品・小品・金剛など）</p>
-                    <p style="font-size: 13px; background: #edf2f7; padding: 8px; border-radius: 4px;"><strong>結果:</strong> 大乗と小乗の垣根が取り払われ、偏見が消えた。</p>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #1a365d;">
-                    <h2>⑤ 法華涅槃時（ほっけねはんじ）［最後の8年間］</h2>
-                </div>
-                <div class="card-body">
-                    <p><strong>特徴:</strong> 釈迦の本心を明かし、「すべての人が仏になれる（一乗）」と説いた究極の時期。</p>
-                    <p><strong>該当:</strong> 『法華経』、および遺言として説いた『涅槃経』</p>
-                    <p style="font-size: 13px; background: #ebf8ff; padding: 8px; border-radius: 4px; border: 1px solid #bee3f8;"><strong>結果:</strong> 仏教のすべての教えがここで一つに統合された。</p>
-                </div>
-            </section>
-        </main>
-
-        <div class="main-title" style="font-size: 18px; text-align: left; margin-bottom: 15px; border-left: 4px solid #2b6cb0; padding-left: 10px;">2. 八教の体系（説法の「方法」と「内容」）</div>
-        
-        <main class="vertical-box" style="margin-bottom: 40px;">
-            <section class="card">
-                <div class="card-header" style="background-color: #4a5568;">
-                    <h2>化儀（けぎ）の四教：説法のスタイル</h2>
-                </div>
-                <div class="card-body">
-                    <p style="font-size: 13px; margin-bottom: 10px; color: #718096;">釈迦が相手に応じてどのように教えを説いたかという分類。</p>
-                    <ul>
-                        <li><a href="#"><strong>1. 頓教（とんぎょう）</strong>：段階を踏まず最高の悟りをそのまま説く。</a></li>
-                        <li><a href="#"><strong>2. 漸教（ぜんきょう）</strong>：浅い教えから深い教えへと段階的に説く。</a></li>
-                        <li><a href="#"><strong>3. 秘密教（ひみつきょう）</strong>：各自が異なる利益を密かに得る説法。</a></li>
-                        <li><a href="#"><strong>4. 不定教（ふじょうきょう）</strong>：同じ説法から各自が異なる理解をする説法。</a></li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header" style="background-color: #4a5568;">
-                    <h2>化法（けほう）の四教：思想の中身</h2>
-                </div>
-                <div class="card-body">
-                    <p style="font-size: 13px; margin-bottom: 10px; color: #718096;">経典に書かれている思想の深さを4つのグレードに分けたもの。</p>
-                    <ul>
-                        <li><a href="#"><strong>1. 三蔵教（さんぞうきょう）</strong>：小乗仏教の教え. 自分だけの悟りを目指す。</a></li>
-                        <li><a href="#"><strong>2. 通教（つうきょう）</strong>：小乗と大乗の共通の橋渡しとなる教え。「空」の入り口。</a></li>
-                        <li><a href="#"><strong>3. 別教（べっきょう）</strong>：大乗の菩薩だけを対象にした特別な教え。</a></li>
-                        <li><a href="#"><strong>4. 円教（えんきょう）</strong>：すべてが完全に融和した最高の教え（法華経）。</a></li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-
-        <footer style="text-align: center; padding: 20px; border-top: 1px solid #e2e8f0; color: #718096; font-size: 14px;">
-            <p><strong>結論：五時八教のゴール</strong><br>天台宗はこの「五時八教」という網の目を使ってすべての経典を整理し、「法華経（法華涅槃時・円教）こそが、釈迦が最も伝えたかった究極の教えである」ということを論理的に証明しようとしました。</p>
-        </footer>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>宗派</th>
+            <th>主な根本聖典</th>
+            <th>主尊（本尊）</th>
+            <th>特徴・教義的位置づけ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>天台宗</strong></td>
+            <td>『法華経』（妙法蓮華経）</td>
+            <td>釈迦如来、阿弥陀如来など</td>
+            <td>「円教（完全な教え）」として法華経を最高峰に据える。</td>
+          </tr>
+          <tr>
+            <td><strong>真言宗</strong></td>
+            <td>『大日経』『金剛頂経』など</td>
+            <td>大日如来</td>
+            <td>密教経典を所依とし、「即身成仏」を目指す。</td>
+          </tr>
+          <tr>
+            <td><strong>浄土宗・浄土真宗</strong></td>
+            <td>『浄土三部経』<small>『無量寿経』『観無量寿経』『阿弥陀経』</small></td>
+            <td>阿弥陀如来</td>
+            <td>阿弥陀仏の本願と他力による救済を説く経典を選び、専ら修める。</td>
+          </tr>
+          <tr>
+            <td><strong>日蓮宗</strong></td>
+            <td>『法華経』</td>
+            <td>釈迦牟尼仏（十界曼荼羅）</td>
+            <td>法華経のみを正法とし、お題目（南無妙法蓮華経）を唱える。</td>
+          </tr>
+          <tr>
+            <td><strong>禅宗</strong><small>臨済宗・曹洞宗</small></td>
+            <td>『般若心経』『金剛般若経』『楞伽経』など</td>
+            <td>釈迦如来</td>
+            <td>不立文字（言葉に頼らない）を基本としつつ、空や覚りを説く経典を参照する。</td>
+          </tr>
+          <tr>
+            <td><strong>華厳宗</strong><small>奈良仏教</small></td>
+            <td>『華厳経』</td>
+            <td>毘盧遮那仏</td>
+            <td>重々無尽の悟りの世界（法界）を説く華厳経を根本とする。</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="part" id="part2">
+    <h2><span class="num">PART 2</span>宗派で経典が異なる理由</h2>
+    <p class="intro">同じ仏教でも宗派ごとに重んじる経典が分かれたのには、三つの背景があります。</p>
+
+    <ol class="steps">
+      <li>
+        <strong>教判（教相判釈）の発達</strong>
+        インドから中国へ膨大な経典が一度に伝わると、「釈迦の教えのうちどれが真実か」を整理するため、教えを時代や理解度に応じて階層化する教判が行われました。その結果、最高位に置く経典が宗派によって異なりました（天台宗の『法華経』、真言宗の密教経典など）。
+      </li>
+      <li>
+        <strong>鎌倉仏教における「選択」と専修</strong>
+        平安末期から鎌倉時代にかけて、社会不安を背景に「誰もが救われる教え」を求めた開祖たち（法然、日蓮など）は、膨大な経典の中から単一の経典や原理を選び取り（『浄土三部経』や『法華経』）、それに専念する道を確立しました。
+      </li>
+      <li>
+        <strong>大乗仏教自体の多様性</strong>
+        大乗仏教はインドで数百年をかけて、空、唯識、如来蔵、浄土、密教など多様な思想を生み出しました。日本にはそれらが完成された形で伝わったため、どの思想潮流を基盤に置くかで重んじる経典が分かれました。
+      </li>
+    </ol>
+  </section>
+
+  <!-- 3 -->
+  <section class="part" id="part3">
+    <h2><span class="num">PART 3</span>大乗経典の分類</h2>
+    <p class="intro">大乗経典は思想的な傾向によって大きく五つの系統に分けて理解されます。</p>
+
+    <div class="school-grid">
+
+      <article class="school">
+        <header>
+          <span>SYSTEM 1</span>
+          <h4>般若経系</h4>
+        </header>
+        <div class="body">
+          <p class="desc">「空」の思想と、悟りを求める菩薩の智慧を説く経典群。初期大乗仏教の中心。</p>
+          <ul>
+            <li><b>八千頌般若経</b><span>最も古く成立したとされる般若経。</span></li>
+            <li><b>大品般若経</b><span>大規模な般若経の代表。</span></li>
+            <li><b>金剛般若経</b><span>中国や日本の禅宗で特に重んじられる。</span></li>
+            <li><b>般若心経</b><span>大般若経の精髄を極限まで凝縮した、大衆的な経典。</span></li>
+            <li><b>大般若波羅蜜多経</b><span>玄奘三蔵が全600巻に集大成したもの。</span></li>
+            <li><b>維摩経</b><span>在家信者の維摩詰を主人公とする経典。</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="school">
+        <header>
+          <span>SYSTEM 2</span>
+          <h4>法華経・一乗系</h4>
+        </header>
+        <div class="body">
+          <p class="desc">釈迦の永遠の命（久遠実成）と、すべての人が例外なく仏になれる道（一仏乗）を説く経典群。</p>
+          <ul>
+            <li><b>妙法蓮華経</b><span>通称『法華経』。鳩摩羅什訳が最も普及。</span></li>
+            <li><b>無量義経</b><span>法華経の導入部とされる。</span></li>
+            <li><b>観普賢菩薩行法経</b><span>法華経の締めくくりとされる。</span></li>
+            <li><b>勝鬘経</b><span>在家の女性・勝鬘夫人が一乗の教えを説く。</span></li>
+            <li><b>大般涅槃経</b><span>釈迦の入滅を舞台に「悉有仏性」を説く。</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="school">
+        <header>
+          <span>SYSTEM 3</span>
+          <h4>華厳経・唯識系</h4>
+        </header>
+        <div class="body">
+          <p class="desc">仏の悟りの宇宙的な広がりや、世界は心の働きが生み出したものとする「唯識」を説く経典群。</p>
+          <ul>
+            <li><b>大方広仏華厳経</b><span>通称『華厳経』。</span></li>
+            <li><b>十地経</b><span>華厳経の一部。菩薩が歩む十の段階を説く。</span></li>
+            <li><b>入法界品</b><span>善財童子が五十三人の知識を訪ねる旅の物語。</span></li>
+            <li><b>解深密経</b><span>唯識思想の根本となった中期大乗経典。</span></li>
+            <li><b>大乗阿毘達磨経</b><span>唯識学派を発展させた重要経典。</span></li>
+            <li><b>楞伽経</b><span>禅宗などにも影響を与えた。</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="school">
+        <header>
+          <span>SYSTEM 4</span>
+          <h4>浄土教系</h4>
+        </header>
+        <div class="body">
+          <p class="desc">阿弥陀仏の誓願（他力）によって、苦しみのない極楽浄土へ往生することを説く経典群。</p>
+          <ul>
+            <li><b>仏説無量寿経</b><span>阿弥陀仏の四十八願を説く。</span></li>
+            <li><b>仏説観無量寿経</b><span>浄土を心に思い描く具体的な瞑想法を説く。</span></li>
+            <li><b>仏説阿弥陀経</b><span>極楽の様子と念仏の功徳を説く。</span></li>
+            <li><b>般舟三昧経</b><span>瞑想中に現在仏にまみえる方法を説く古い経典。</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="school" style="grid-column: 1 / -1;">
+        <header>
+          <span>SYSTEM 5（後期大乗）</span>
+          <h4>密教系</h4>
+        </header>
+        <div class="body">
+          <p class="desc">真言（呪文）、印契（手印）、曼荼羅などを通じて、この身のままで仏になる「即身成仏」を目指す経典群。</p>
+          <ul>
+            <li><b>大日経</b><span>密教の理論（胎蔵界曼荼羅）を説く、純密の根本経典。</span></li>
+            <li><b>金剛頂経</b><span>密教の実践（金剛界曼荼羅）を説く根本経典。</span></li>
+            <li><b>蘇悉地経</b><span>密教の具体的な儀礼や作法を補完する経典。</span></li>
+            <li><b>理趣経</b><span>人間の欲望や愛欲をも肯定し、大いなる智慧へ昇華させる経典。</span></li>
+            <li><b>大随求陀羅尼経</b><span>陀羅尼（呪文）の功徳を説く初期密教的な経典。</span></li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="part" id="part4">
+    <h2><span class="num">PART 4</span>大乗経典と教相判釈（五時八教）</h2>
+    <p class="intro">中国や日本の伝統仏教では、経典群を釈迦の説法の時期や内容の深さによって体系化する「教相判釈」が行われました。宗派の正統性を主張するための解釈学でもあります。</p>
+
+    <h3 class="sub">五時の体系：釈迦の生涯を五つの時期に分ける</h3>
+    <p>天台宗の開祖・智顗（ちぎ）は、釈迦の説法を時系列で五つに分けました。「すべての経典は法華経へ至るための伏線である」という視点で整理されています。</p>
+
+    <div class="timeline">
+      <div class="period">
+        <div class="head">
+          <span class="name">① 華厳時</span>
+          <span class="span">最初の21日間</span>
+        </div>
+        <dl>
+          <dt>特徴</dt><dd>悟りを開いた釈迦が、その最高境地をそのまま説いた時期。</dd>
+          <dt>該当</dt><dd>『華厳経』</dd>
+          <dt>結果</dt><dd>内容が高度すぎて、凡人には理解できない状態だったため、教えのレベルを下げることにした。</dd>
+        </dl>
+      </div>
+
+      <div class="period">
+        <div class="head">
+          <span class="name">② 鹿苑時</span>
+          <span class="span">次の12年間</span>
+        </div>
+        <dl>
+          <dt>特徴</dt><dd>初心者向けに、苦しみや因果応報を説いた（小乗）時期。</dd>
+          <dt>該当</dt><dd>『阿含経』</dd>
+          <dt>結果</dt><dd>人々は基礎的な教えを理解し、心の安定を得た。</dd>
+        </dl>
+      </div>
+
+      <div class="period">
+        <div class="head">
+          <span class="name">③ 方等時</span>
+          <span class="span">次の8年間</span>
+        </div>
+        <dl>
+          <dt>特徴</dt><dd>小乗の教えに満足している弟子たちを、大乗の広い心を持つよう叱咤・批判した時期。</dd>
+          <dt>該当</dt><dd>『維摩経』『思益経』『勝鬘経』『金光明経』など</dd>
+          <dt>結果</dt><dd>弟子たちは小乗の限界を知り、大乗仏教に目を向け始めた。</dd>
+        </dl>
+      </div>
+
+      <div class="period">
+        <div class="head">
+          <span class="name">④ 般若時</span>
+          <span class="span">次の22年間</span>
+        </div>
+        <dl>
+          <dt>特徴</dt><dd>執着を徹底的に打ち破るため、「すべては空」という智慧を説いた時期。</dd>
+          <dt>該当</dt><dd>『般若経』（大品・小品・金剛など）</dd>
+          <dt>結果</dt><dd>大乗と小乗の垣根が取り払われ、偏見が消えた。</dd>
+        </dl>
+      </div>
+
+      <div class="period last">
+        <div class="head">
+          <span class="name">⑤ 法華涅槃時</span>
+          <span class="span">最後の8年間</span>
+        </div>
+        <dl>
+          <dt>特徴</dt><dd>釈迦の本心を明かし、「すべての人が仏になれる（一乗）」と説いた究極の時期。</dd>
+          <dt>該当</dt><dd>『法華経』、および遺言として説いたとされる『涅槃経』</dd>
+          <dt>結果</dt><dd>仏教のすべての教えがここで一つに統合された。</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 class="sub">八教の体系：説法の「方法」と「内容」</h3>
+    <p>五時に加えて、説法の仕方（化儀）と思想の深さ（化法）を組み合わせた八つの分類です。</p>
+
+    <div class="eight">
+      <div class="box">
+        <h4>化儀の四教</h4>
+        <p class="caption">釈迦が相手に応じてどのように教えを説いたかという「説法のスタイル」。</p>
+        <ul>
+          <li><b>頓教（とんぎょう）</b>段階を踏まず、最高の覚りをそのまま説く。</li>
+          <li><b>漸教（ぜんきょう）</b>浅い教えから深い教えへと段階的に説く。</li>
+          <li><b>秘密教（ひみつきょう）</b>聞く者それぞれが、異なる利益を密かに得る説法。</li>
+          <li><b>不定教（ふじょうきょう）</b>同じ説法から、人によって異なる理解をする説法。</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h4>化法の四教</h4>
+        <p class="caption">経典に書かれている思想の深さを四つの段階に分けたもの。</p>
+        <ul>
+          <li><b>三蔵教（さんぞうきょう）</b>小乗仏教の教え。自分一人の覚りを目指す。</li>
+          <li><b>通教（つうきょう）</b>小乗と大乗をつなぐ教え。「空」への入り口。</li>
+          <li><b>別教（べっきょう）</b>大乗の菩薩だけを対象とした特別な教え。</li>
+          <li><b>円教（えんきょう）</b>すべてが完全に融和した最高の教え（法華経）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <h3>五時八教が目指したゴール</h3>
+      <p>天台宗はこの枠組みですべての経典を整理し、「法華経（法華涅槃時・円教）こそが釈迦の最も伝えたかった究極の教えである」ことを論理的に示そうとしました。</p>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="part" id="part5">
+    <h2><span class="num">PART 5</span>パーリ仏典と大乗経典の阿含経の関係</h2>
+    <p class="intro">阿含経は大乗経典には含まれません。しかし大乗の修行者たちも阿含経の教えを基礎として学び、その上に大乗の教えを発展させていきました。</p>
+
+    <div class="compare">
+      <div class="box">
+        <h4>阿含経（初期仏教）</h4>
+        <p>古代インドの部派によって別々に漢訳されたもの。例えば『長阿含経』は法蔵部、『雑阿含経』は説一切有部のテキストが元になっているとされます。</p>
+        <ul>
+          <li>長阿含（じょうあごん）</li>
+          <li>中阿含（ちゅうあごん）</li>
+          <li>雑阿含（ぞうあごん）</li>
+          <li>増一阿含（ぞういちあごん）</li>
+        </ul>
+        <p class="note">内容：釈迦の生前に弟子たちへ説かれた実践的な教え。個人が覚りを開き、苦しみから解放されることを目指す。</p>
+      </div>
+      <div class="box">
+        <h4>パーリ経典（パーリ五部）</h4>
+        <p>スリランカの上座部（大寺派）が厳格に守り伝えてきたもの。そのため全体のまとまりや文章の統一感があります。</p>
+        <ul>
+          <li>長部（ディーガ・ニカーヤ）</li>
+          <li>中部（マッジャマ・ニカーヤ）</li>
+          <li>相応部（サンユッタ・ニカーヤ）</li>
+          <li>増支部（アングッタラ・ニカーヤ）</li>
+          <li>小部（クッダカ・ニカーヤ）</li>
+        </ul>
+        <p class="note">※小部は阿含経には独立したまとまりとして存在しない内容を含みます。</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>大乗経典との違い</strong><br>
+      大乗経典は、釈迦の入滅後に菩薩と呼ばれる修行者たちによってまとめられた教えです。個人の解脱にとどまらず、すべての生きとし生けるものの救済を目指す点が特徴です。
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <p>※本ページは、既存資料の構成と表記を整理し直したものです。宗派の所依経典や教判の内容は学派・時代によって解釈が異なる場合があります。</p>
+  </footer>
+
+</main>
 </body>
 </html>
