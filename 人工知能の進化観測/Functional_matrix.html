@@ -28,290 +28,297 @@ h1{font-size:1.8rem;margin:0 0 4px}h2{font-size:1.25rem;margin:28px 0 10px}h3{fo
 <body>
 <div class="container">
 
-<header> 
+<header>
 <h1>AI機能別比較マトリクス</h1>
-<p>更新日：2026年10月3日（初回作成日：2026年9月4日）</p>
+<p>更新日：2026年11月9日（初回作成日：2026年9月4日）</p>
 <p>AI Feature Comparison Matrix</p>
 </header>
- 
-<div class="category-card" style="margin-bottom: 30px;"> 
+
+<div class="category-card" style="margin-bottom: 30px;">
 <div class="category-title"><strong>対象企業・製品</strong></div>
-<ul> 
+<ul>
 <li>🟢 OpenAI（ChatGPT）</li>
 <li>🔵 Google（Gemini）</li>
 <li>🟠 Anthropic（Claude）</li>
 </ul>
 </div>
- 
-<h2>機能別比較マトリクス（2026年10月3日時点）</h2>
+
+<h2>機能別比較マトリクス（2026年11月9日時点）</h2>
 <p style="margin-bottom: 10px; color: #555;">各機能名の下に、初めて見る方向けの簡単な説明を添えています。</p>
- 
-<div class="table-wrap"> 
-<table> 
-<thead> 
-<tr> 
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
 <th>AI機能（縦軸）</th>
 <th>🟢 OpenAI</th>
 <th>🔵 Google</th>
 <th>🟠 Anthropic</th>
 </tr>
 </thead>
- 
-<tbody> 
-<tr> 
+
+<tbody>
+<tr>
 <td class="td-feature">主要LLMモデル <span class="feature-desc">頭脳にあたる中核AI。他の全機能はこの上に載る</span> </td>
-<td> 
-<div class="entry"> <span class="model-name">GPT-6 Astra</span> <span class="model-date">Sol／Terra／Lunaの3階層</span> </div>
+<td>
+<div class="entry"> <span class="model-name">GPT-6 系（Sol／Terra／Luna）</span> <span class="model-date">最新：GPT-6.1 Terra（2026年10月26日）、GPT-6 Rosalind Research（生命科学向け・ベータ、10月30日）</span> </div>
 </td>
-<td> 
-<div class="entry"> <span class="model-name">Gemini 3.8 Flash／3.5 Flash-Lite</span> <span class="model-date">※2026年9月30日に「Gemini 4 Argon」発表</span> </div>
+<td>
+<div class="entry"> <span class="model-name">Gemini 4 Argon</span> <span class="model-date">2026年9月30日発表。Google の最上位モデル（文脈1Mトークン）</span> </div>
+<div class="entry"> <span class="model-name">Gemini 3.8 Flash／3.5 Flash-Lite</span> <span class="model-date">高速・低コスト向け（3.8 Flash は9月2日）</span> </div>
 </td>
-<td> 
-<div class="entry"> <span class="model-name">Claude Mythos 5.1／Fable 5.1／Claude Sonnet 5／Opus 5／Haiku 4.5</span> <span class="model-date">上位にMythos／Fable系</span> </div>
+<td>
+<div class="entry"> <span class="model-name">Claude Fable 5.1／Mythos 5.1</span> <span class="model-date">2026年9月1日。上位モデル（Mythos は承認済み組織向け）</span> </div>
+<div class="entry"> <span class="model-name">Claude Opus 5.5</span> <span class="model-date">2026年9月22日</span> </div>
+<div class="entry"> <span class="model-name">Claude Sonnet 5.5</span> <span class="model-date">2026年9月28日（Sonnet 5.5 は Sonnet 4.5 の後継、Sonnet 4.5 は2026年11月30日にAPI提供終了予定）</span> </div>
+<div class="entry"> <span class="model-name">Claude Haiku 5.5</span> <span class="model-date">2026年10月7日。高速・小型向け</span> </div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">テキスト・対話 <span class="feature-desc">いわゆる「チャットで質問に答える」基本機能</span> </td>
-<td> 
-<div class="entry">ChatGPT（メモリ・カスタム指示対応）</div>
+<td>
+<div class="entry">ChatGPT（メモリ・カスタム指示対応）。GPT-6 Pro は応答の高速化、ツール利用・並列エージェントの改善（10月16日）</div>
 </td>
-<td> 
-<div class="entry">Geminiアプリ（Live対話・要約）</div>
+<td>
+<div class="entry">Geminiアプリ（Live対話・要約）。Gemini 4 をアプリで利用可能。毎朝のブリーフ機能「Daily Brief」</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude（自然な長文対話、日本語品質に強み）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">画像・動画生成 <span class="feature-desc">文章から絵や映像を作る機能</span> </td>
-<td> 
-<div class="entry"> GPT Image 2 </div>
+<td>
+<div class="entry"> <span class="model-name">ChatGPT Images 2.6（GPT Image 2.6）</span> <span class="model-date">2026年11月4日。生成が高速化、編集時の細部保持が向上、GIF作成と参照画像の保存に対応</span> </div>
 <div class="entry"> <span class="model-name">Sora 2／Sora 2 Pro</span> <span class="model-date">※提供終了</span><br> <span class="feature-desc" style="margin-top:2px;">Web・アプリ版は2026年4月26日に提供終了。開発者向けSora APIも2026年9月24日に提供完全停止済み</span> </div>
 </td>
-<td> 
-<div class="entry">Imagen系、Veo 3.1</div>
+<td>
+<div class="entry"> <span class="model-name">Gemini Omni 1.2 Flash（動画）</span> <span class="model-date">2026年11月5日。最大15秒のクリップ、会話型の編集に対応</span> </div>
+<div class="entry"> <span class="model-name">Nano Banana 2.1（画像）</span> <span class="model-date">2026年10月6日</span> </div>
 </td>
-<td> 
+<td>
 <div class="entry na">非対応（画像・動画生成機能は提供せず）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">音声認識・会話 <span class="feature-desc">声で話しかけて、声で返してくれる機能</span> </td>
-<td> 
-<div class="entry">Whisper、GPT-Live</div>
+<td>
+<div class="entry">Whisper、GPT-Live-1.1（ChatGPT Voice。日本語を含む新しい声を追加）</div>
 </td>
-<td> 
-<div class="entry">Google翻訳、Gemini Live</div>
+<td>
+<div class="entry">Google翻訳、Gemini Live、Gemini 3.8 Live（音声モデル）</div>
 </td>
-<td> 
+<td>
 <div class="entry na">音声機能は非搭載（外部連携のみ）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">プログラミング支援 <span class="feature-desc">プログラムのコードを書く・直すのを手伝う機能</span> </td>
-<td> 
+<td>
 <div class="entry">GitHub Copilot、Codex（GPT-5.6 Sol搭載）</div>
 </td>
-<td> 
-<div class="entry">Gemini Code Assist</div>
+<td>
+<div class="entry">Gemini Code Assist ※新規の Gemini Enterprise 契約には2026年10月9日から含まれません。サポートは Gemini 3.x 系のみ、2027年3月31日まで</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude Code、Artifacts</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">開発エージェント基盤（CLI／IDE） <span class="feature-desc">プログラマー向け。ターミナルやエディタ上で自律的にコード作業を行う</span> </td>
-<td> 
+<td>
 <div class="entry">Codex CLI</div>
 </td>
-<td> 
+<td>
 <div class="entry">Gemini CLI／Google Antigravity</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude Code（CLI／VS Code／JetBrains）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">自律型・常駐型エージェント <span class="feature-desc">バックグラウンド常駐や複数作業を自律実行する機能</span> </td>
-<td> 
+<td>
 <div class="entry"> <span class="model-name">ChatGPT Work / dot</span><br> 常駐型エージェント「dot」（9月発表）および文書・スライド作成・複数ファイル横断分析を自律実行 </div>
 </td>
-<td> 
+<td>
 <div class="entry"> <span class="model-name">Gemini Spark</span><br> Google Workspace・Gmail等と連携し24時間稼働 </div>
 </td>
-<td> 
+<td>
 <div class="entry"> <span class="model-name">Claude Cowork</span><br> ローカルファイル操作、レポート作成、定期タスクを自律実行 </div>
+<div class="entry"> <span class="model-name">Claude Duet</span><br> 2026年10月21日発表、リサーチプレビュー中（米国の Pro／Max／Ultra 契約者のうち招待者）。仮想マシン上で人の操作なしに動作 </div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">ブラウザエージェント <span class="feature-desc">AIが人の代わりにWebブラウザを操作し、検索・予約・入力などを行う機能</span> </td>
-<td> 
+<td>
 <div class="entry"> Chrome拡張＋ChatGPTデスクトップアプリ内のエージェント機能<br> <span class="feature-desc" style="margin-top:2px;">専用ブラウザ「ChatGPT Atlas」は2026年8月に提供終了、機能を統合</span> </div>
 </td>
-<td> 
+<td>
 <div class="entry">Gemini in Chrome／Auto browse（Chrome本体に統合、Google AI Pro/Ultra向け）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude in Chrome（拡張機能、有料プラン向け）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">オフィス連携 <span class="feature-desc">Word・Excel・PowerPoint・メールなど、日常業務のアプリの中で直接AIを使える機能</span> </td>
-<td> 
+<td>
 <div class="entry">Microsoft 365 Copilot（GPT-5.6搭載、Word/Excel/PowerPoint/Outlook）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Gemini in Workspace（Gmail／Docs／Sheets／Slides）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude for Excel／PowerPoint／Word／Outlook（4アプリで文脈を共有）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">カスタムAI・エージェント作成 <span class="feature-desc">自分専用の「特化型AI」を、プログラミングなしで作れる機能</span> </td>
-<td> 
-<div class="entry">Custom GPTs / dots設定</div>
+<td>
+<div class="entry">Custom GPTs / dots設定。ChatGPTの「アプリ」は2026年7月に「プラグイン」へ改称</div>
 </td>
-<td> 
+<td>
 <div class="entry">Gems</div>
 </td>
-<td> 
-<div class="entry">Projects、カスタムスキル</div>
+<td>
+<div class="entry">Projects、カスタムスキル、Claude Marketplace（2026年11月4日に25以上のパートナー製品・エージェントへ拡大）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">検索・回答エンジン <span class="feature-desc">Google検索のように、最新情報を調べて答えてくれる機能</span> </td>
-<td> 
+<td>
 <div class="entry">SearchGPT（リアルタイム検索統合）</div>
 </td>
-<td> 
+<td>
 <div class="entry">AI Overviews（Google検索統合）</div>
 </td>
-<td> 
+<td>
 <div class="entry na">独立した検索エンジンは未提供（Web検索は補助機能）</div>
 </td>
-</tr> 
- 
-<tr> 
+</tr>
+
+<tr>
 <td class="td-feature">データ分析・予測 <span class="feature-desc">表やデータをAIに読み込ませて、グラフ化や分析をしてもらう機能</span> </td>
-<td> 
+<td>
 <div class="entry">Advanced Data Analysis（旧Code Interpreter）</div>
 </td>
-<td> 
+<td>
 <div class="entry">BigQuery ML／Vertex AI</div>
 </td>
-<td> 
-<div class="entry">Code実行機能・財務分析対応（Opus系が強み）</div>
+<td>
+<div class="entry">Code実行機能・財務分析対応（Opus系が強み）。Personal Finance in Claude（2026年11月5日、米国の Pro／Max／Ultra 向けベータ）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">音楽・音声生成 <span class="feature-desc">文章や指示から音楽・楽曲を作る機能</span> </td>
-<td> 
+<td>
 <div class="entry na">非対応（音楽生成機能は提供せず）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Lyria（音楽生成モデル）</div>
 </td>
-<td> 
+<td>
 <div class="entry na">非対応（音楽生成機能は提供せず）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">ロボティクス <span class="feature-desc">AIが実際のロボットの動作を制御する分野</span> </td>
-<td> 
+<td>
 <div class="entry na">非注力</div>
 </td>
-<td> 
+<td>
 <div class="entry">Gemini Robotics-ER</div>
 </td>
-<td> 
+<td>
 <div class="entry na">非提供</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">リアルタイム音声API <span class="feature-desc">開発者向け。アプリに「AIとリアルタイム音声で会話する」機能を組み込むための部品</span> </td>
-<td> 
+<td>
 <div class="entry">Realtime API</div>
 </td>
-<td> 
+<td>
 <div class="entry">Live API</div>
 </td>
-<td> 
+<td>
 <div class="entry na">非提供</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">開発者向けAPI基盤 <span class="feature-desc">他社のアプリやサービスにAIを組み込むための土台</span> </td>
-<td> 
+<td>
 <div class="entry">OpenAI API</div>
 </td>
-<td> 
-<div class="entry">Google AI Studio／Vertex AI</div>
+<td>
+<div class="entry">Google AI Studio／Vertex AI（Gemini API は Gemini Omni 1.2 Flash を追加）</div>
 </td>
-<td> 
-<div class="entry">Claude Platform（旧Anthropic Console）、MCP規格</div>
+<td>
+<div class="entry">Claude Platform（旧Anthropic Console）、MCP規格。Messages API のメッセージスレッドがベータ（11月2日）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">エンタープライズ管理基盤 <span class="feature-desc">企業が組織全体でAIを安全に導入・管理するための仕組み（権限管理・監査ログ等）</span> </td>
-<td> 
-<div class="entry">ChatGPT Enterprise</div>
+<td>
+<div class="entry">ChatGPT Enterprise（GPT-6 Rosalind Research を承認済み企業向けに提供）</div>
 </td>
-<td> 
-<div class="entry">Gemini Enterprise Agent Platform</div>
+<td>
+<div class="entry">Gemini Enterprise Agent Platform（Gemini 4 Argon の長時間処理が一般提供）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Claude Enterprise（SSO／SCIM／監査ログ）</div>
 </td>
 </tr>
- 
-<tr> 
+
+<tr>
 <td class="td-feature">ハードウェア <span class="feature-desc">AIを組み込んだ専用の機器・端末</span> </td>
-<td> 
+<td>
 <div class="entry">専用デバイス開発中（旧io社買収案件）</div>
 </td>
-<td> 
+<td>
 <div class="entry">Pixel等、自社端末へのAI統合</div>
 </td>
-<td> 
+<td>
 <div class="entry na">非提供</div>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
- 
+
 <h2>各社の特徴（要点）</h2>
- 
-<div class="category-card" style="line-height: 1.8; margin-bottom: 30px;"> 
-<ul> 
-<li><strong>🟢 OpenAI：</strong> テキスト・画像・動画・音声すべてに参入する全方位型。2026年9月末発表の常駐型エージェント「dot」により、会話がない時間も自律的にタスクを監視・処理可能に。</li>
-<li><strong>🔵 Google：</strong> Google検索・Gmail・Workspace・Androidとの連携が最大の強み。2026年9月末に次世代「Gemini 4 Argon」を発表。</li>
-<li><strong>🟠 Anthropic：</strong> 画像・動画・音声生成には参入せず、テキストの論理思考・コード生成・長文読解にリソースを集中。Claude Coworkによる自律実行が強み。</li>
+
+<div class="category-card" style="line-height: 1.8; margin-bottom: 30px;">
+<ul>
+<li><strong>🟢 OpenAI：</strong> テキスト・画像・動画・音声すべてに参入する全方位型。GPT-6系への移行が進み、11月4日に画像生成「ChatGPT Images 2.6」、11月5日にサイバーセキュリティ特化モデル「ChatGPT-6 Cyber」を発表。9月末発表の常駐型エージェント「dot」で、会話がない時間もタスクを処理。</li>
+<li><strong>🔵 Google：</strong> Google検索・Gmail・Workspace・Androidとの連携が最大の強み。9月30日に「Gemini 4 Argon」を発表し、11月5日には動画生成「Gemini Omni 1.2 Flash」を公開。</li>
+<li><strong>🟠 Anthropic：</strong> 画像・動画・音声生成には参入せず、テキストの論理思考・コード生成・長文読解に集中。9月から10月にかけてOpus 5.5、Sonnet 5.5、Haiku 5.5を順次公開。10月にはClaude Duetを発表し、11月にはClaude Marketplaceとパーソナルファイナンス機能を拡充。</li>
 </ul>
 </div>
- 
+
 <h3>注記・補足情報</h3>
- 
-<p>※１ 本表は2026年10月3日時点の情報に基づく。各社ともモデル・機能のアップデート頻度が高いため、最新情報は各社公式サイト（openai.com、gemini.google.com、claude.com）でご確認ください。</p>
+
+<p>※１ 本表は2026年11月9日時点の情報に基づく。各社ともモデル・機能のアップデート頻度が高いため、最新情報は各社公式サイト（openai.com、gemini.google.com、claude.com）でご確認ください。</p>
 <p>※２ 「非対応／非提供」はその企業が現時点でその機能を一般提供していないことを示す。開発中・非公開ベータの場合もあるため、将来変わる可能性がある。</p>
 <p>※３ ChatGPT Atlas（OpenAI専用ブラウザ）は2026年8月9日に提供終了し、ブラウジング機能はChatGPTデスクトップアプリとChrome拡張機能に統合された。</p>
 <p>※４ Sora（OpenAIの動画生成AI）は2026年3月24日に終了が発表され、Web版・アプリ版は同年4月26日に一般ユーザー向け提供を終了済み。開発者向けのSora APIも2026年9月24日をもって提供を完全停止した。</p>
+<p>※５ 一部の情報（GPT-6の各階層の詳細、Gemini 4 Carbonの発表有無など）は、公式発表の確認が取れていないため本表には含めていません。</p>
 
 <section class="maint">
 <h2>更新メモ</h2>
@@ -322,6 +329,7 @@ h1{font-size:1.8rem;margin:0 0 4px}h2{font-size:1.25rem;margin:28px 0 10px}h3{fo
 <tr><td>2026-09-04</td><td>初回版（拡張版）作成。</td></tr>
 <tr><td>2026-09-09</td><td>最小構成に整理。</td></tr>
 <tr><td>2026-10-03</td><td>最新版（2026年10月3日時点）へ更新。Gemini 4 Argon発表の注記追加およびOpenAI「dot」エージェント機能を反映。</td></tr>
+<tr><td>2026-11-09</td><td>Claude主要モデルを最新版（Fable／Mythos 5.1、Opus 5.5、Sonnet 5.5、Haiku 5.5）へ修正。OpenAI: GPT-6.1 Terra、GPT Images 2.6、GPT-Live-1.1、ChatGPT-6 Cyber を反映。Google: Gemini 4 Argon（9月30日）、Gemini Omni 1.2 Flash、Gemini 3.8 Live、Gemini Code Assist の変更を反映。Anthropic: Claude Duet、Personal Finance、Claude Marketplace を追加。</td></tr>
 </tbody>
 </table>
 </section>
