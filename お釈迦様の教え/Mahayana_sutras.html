@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大乗経典リスト と 教相判釈（五時八教）</title>
+    <title>大乗経典リスト と 日本の宗派・教相判釈</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
     <style>
-        /* 既存のCSSを変更しない前提で、縦並びにするための補助スタイルをHTML側にのみ追記 */
+        /* 既存のCSSを変更しない前提で、縦並びにするための補助スタイル */
         .vertical-box {
             display: block;
             width: 100%;
         }
         .vertical-box .card {
             margin-bottom: 25px; /* グリッドのgapの代わりにマージンで余白を確保 */
+        }
+        /* 追加要素用のテーブル補助スタイル */
+        .sect-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .sect-table th, .sect-table td {
+            border: 1px solid #cbd5e0;
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .sect-table th {
+            background-color: #edf2f7;
+            color: #2d3748;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -29,7 +46,87 @@
         <!-- 印刷ボタン -->
         <button class="btn-print" onclick="window.print()">印刷する</button>
 
-        <!-- 既存CSSのgridクラスを使わず、縦に並ぶブロック要素として配置 -->
+        <!-- 1. 日本の宗派と信仰する大乗経典の関係 -->
+        <header style="margin-top: 30px;">
+            <h2>日本の宗派と信仰する大乗経典の関係</h2>
+            <p>日本の各宗派は、膨大な仏教経典の中から「最も釈迦の真意（至高の悟り）を表している」とされる経典を根本所依の聖典として掲げています。</p>
+        </header>
+
+        <main class="vertical-box" style="margin-bottom: 40px;">
+            <section class="card">
+                <div class="card-header" style="background-color: #2b6cb0;">
+                    <h2>宗派と根本聖典（所依の経典）の対応一覧</h2>
+                </div>
+                <div class="card-body">
+                    <table class="sect-table">
+                        <thead>
+                            <tr>
+                                <th>宗派</th>
+                                <th>主な根本聖典（所依の経典）</th>
+                                <th>主尊（本尊）</th>
+                                <th>特徴・教義的位置づけ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>天台宗</strong></td>
+                                <td>『法華経』（妙法蓮華経）</td>
+                                <td>釈迦如来、阿弥陀如来など</td>
+                                <td>「円教（完全な教え）」として法華経を最高峰に据える。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>真言宗</strong></td>
+                                <td>『大日経』『金剛頂経』など</td>
+                                <td>大日如来</td>
+                                <td>密教経典を所依とし、「即身成仏」を目指す。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>浄土宗・浄土真宗</strong></td>
+                                <td>『浄土三部経』<br><span style="font-size: 12px; color: #4a5568;">（『無量寿経』『観無量寿経』『阿弥陀経』）</span></td>
+                                <td>阿弥陀如来</td>
+                                <td>阿弥陀仏の本願と他力救済を説く経典を選択・専修する。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>日蓮宗</strong></td>
+                                <td>『法華経』</td>
+                                <td>釈迦牟尼仏（十界曼荼羅）</td>
+                                <td>法華経のみを正法とし、お題目（南無妙法蓮華経）を唱える。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>禅宗</strong><br><span style="font-size: 12px; color: #4a5568;">（臨済宗・曹洞宗）</span></td>
+                                <td>『般若心経』『金剛般若経』『楞伽経』など</td>
+                                <td>釈迦如来</td>
+                                <td>不立文字（言葉に頼らない）を基旨としつつ、空や覚者を説く経典を参照。</td>
+                            </tr>
+                            <tr>
+                                <td><strong>華厳宗</strong>（奈良仏教）</td>
+                                <td>『華厳経』</td>
+                                <td>毘盧遮那仏</td>
+                                <td>重々無尽の悟りの世界（法界）を説く華厳経を根本とする。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header" style="background-color: #2b6cb0;">
+                    <h2>なぜ宗派によって信仰する経典が異なるのか？</h2>
+                </div>
+                <div class="card-body">
+                    <p style="margin-bottom: 12px;"><strong>1. 教判（教相判釈）の発達：</strong><br>
+                    インドから中国へ膨大な経典が一気に伝来した際、「釈迦が説いた教えの中でどれが真実か」を整理するため、時代や理解度に応じた教えの階層化（教判）が行われました。その結果、最高と位置づける経典が宗派（天台宗の『法華経』、真言宗の密教経典など）によって異なりました。</p>
+                    
+                    <p style="margin-bottom: 12px;"><strong>2. 鎌倉仏教における「選択（せんちゃく）」と専修：</strong><br>
+                    平安末期〜鎌倉時代、社会不安を背景に「誰もが救われる教え」を求めた開祖たち（法然・日蓮など）は、膨大な経典の中から単一の原理や経典（『浄土三部経』や『法華経』）を選び取り、それに専念する道（専修）を確立しました。</p>
+
+                    <p style="margin-bottom: 0;"><strong>3. 大乗仏教自体の多様性と伝来：</strong><br>
+                    大乗仏教はインドで数百年をかけて多様な思想（空、唯識、如来蔵、浄土、密教など）を生み出しました。日本へはそれらが完成された形で伝わったため、どの思想的潮流を基盤に置くかによって重んじる経典が分かれました。</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 既存の経典リストセクション -->
         <main class="vertical-box">
             <!-- 1. 般若経系 -->
             <section class="card">
@@ -118,7 +215,7 @@
             </section>
         </main>
 
-        <!-- ワード文書から追加されたセクション -->
+        <!-- 阿含経とパーリ仏典のセクション -->
         <header style="margin-top: 60px;">
             <h2>（参考）阿含経とパーリ仏典の関係</h2>
             <p>阿含経は大乗経典には含まれないが、大乗仏教の修行者たちも「阿含経」の教えを基礎として学び、その上で大乗の教えを発展させて大乗経典をまとめた。</p>
@@ -173,6 +270,7 @@
             </section>
         </main>
 
+        <!-- 教相判釈（五時八教）のセクション -->
         <header style="margin-top: 60px;">
             <h2>（参考）歴史的な分類：教相判釈</h2>
             <p>中国や日本の伝統仏教では、これらの経典群を釈迦が説いた時期や内容の深さによって体系化する「教相判釈」という分類も行われました。宗派の正統性を主張するために用いられた解釈学です。</p>
