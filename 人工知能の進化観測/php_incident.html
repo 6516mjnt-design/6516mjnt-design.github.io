@@ -1,0 +1,299 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>PHP 2 Shell</title>
+<style>
+    :root {
+        --bg: #f9f9f9; --fg: #333; --muted: #666; --navy: #1a365d; --blue: #0056b3;
+        --card: #ffffff; --line: #ddd; --head: #f2f2f2; --stripe: #fafafa;
+        --lead-bg: #e6f2ff; --alert-bg: #fff5f5; --alert: #dc3545;
+        --warn-bg: #fffbeb; --warn: #d97706; --ok-bg: #f0fff4; --ok: #28a745;
+        --note-bg: #f5f5f5; --note: #6c757d; --h2: #222; --h3: #444;
+        color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+            --bg: #161a20; --fg: #e4e7ec; --muted: #9aa3b0; --navy: #9ec3f0; --blue: #7fb2ea;
+            --card: #1e232b; --line: #353d4a; --head: #262d38; --stripe: #1b2028;
+            --lead-bg: #1d2a3d; --alert-bg: #3a1f23; --alert: #f07178;
+            --warn-bg: #3a2f17; --warn: #f0b35a; --ok-bg: #173023; --ok: #5fd08a;
+            --note-bg: #242a33; --note: #9aa3b0; --h2: #eef1f5; --h3: #d3d9e2;
+            color-scheme: dark;
+        }
+    }
+    :root[data-theme="dark"] {
+        --bg: #161a20; --fg: #e4e7ec; --muted: #9aa3b0; --navy: #9ec3f0; --blue: #7fb2ea;
+        --card: #1e232b; --line: #353d4a; --head: #262d38; --stripe: #1b2028;
+        --lead-bg: #1d2a3d; --alert-bg: #3a1f23; --alert: #f07178;
+        --warn-bg: #3a2f17; --warn: #f0b35a; --ok-bg: #173023; --ok: #5fd08a;
+        --note-bg: #242a33; --note: #9aa3b0; --h2: #eef1f5; --h3: #d3d9e2;
+        color-scheme: dark;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+        line-height: 1.7; color: var(--fg); background: var(--bg);
+        max-width: 800px; margin: 0 auto;
+        padding-block: 20px;
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+        overflow-wrap: break-word;
+    }
+    header { border-bottom: 3px solid var(--navy); padding-bottom: 10px; margin-bottom: 30px; }
+    h1 { color: var(--navy); font-size: 2rem; margin: 0 0 5px; text-wrap: balance; }
+    .meta-info { color: var(--muted); font-size: 0.9rem; text-align: right; }
+    .lead-text {
+        font-size: 1.1rem; font-weight: bold; background-color: var(--lead-bg);
+        padding: 15px; border-left: 5px solid var(--blue); margin-bottom: 30px;
+        border-radius: 0 4px 4px 0;
+    }
+    h2 { color: var(--h2); border-bottom: 1px solid var(--line); padding-bottom: 5px; margin-top: 40px; font-size: 1.5rem; }
+    h3 { color: var(--h3); margin-top: 25px; font-size: 1.2rem; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 10px; }
+    ol { padding-left: 20px; }
+    ol li { margin-bottom: 15px; }
+    .timeline { list-style: none; padding-left: 0; }
+    .timeline-item { margin-bottom: 20px; padding-left: 15px; border-left: 3px solid var(--line); }
+    .timeline-date { font-weight: bold; color: var(--blue); display: block; margin-bottom: 5px; }
+    .table-wrap { overflow-x: auto; margin-top: 15px; }
+    table { width: 100%; border-collapse: collapse; background-color: var(--card); }
+    th, td { border: 1px solid var(--line); padding: 12px; text-align: left; vertical-align: top; }
+    th { background-color: var(--head); font-weight: bold; }
+    tr:nth-child(even) td { background-color: var(--stripe); }
+    blockquote { background-color: var(--note-bg); border-left: 4px solid var(--note); padding: 10px 15px; margin: 15px 0; font-style: italic; }
+    .alert-box { background-color: var(--alert-bg); border-left: 5px solid var(--alert); padding: 15px; margin-top: 15px; border-radius: 0 4px 4px 0; }
+    .boomerang-box { background-color: var(--warn-bg); border-left: 5px solid var(--warn); padding: 15px; margin-top: 15px; border-radius: 0 4px 4px 0; }
+    .interpretation-box { background-color: var(--ok-bg); border-left: 5px solid var(--ok); padding: 15px; margin-top: 15px; border-radius: 0 4px 4px 0; }
+    .interpretation-box.accident { background-color: var(--note-bg); border-left: 5px solid var(--note); }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { padding-left: 1.6em; position: relative; }
+    .checklist li::before { content: "\2610"; position: absolute; left: 0; color: var(--muted); }
+    .rule { font-weight: bold; color: var(--navy); }
+    @media (prefers-reduced-motion: no-preference) { body { scroll-behavior: smooth; } }
+</style>
+
+<header>
+    <h1>PHP 2 Shell と呼ばれるセキュリティ上の欠陥とその対策</h1>
+    <div class="meta-info">作成日：2026年11月10日</div>
+</header>
+
+<div class="lead-text">
+    2026年10月、ウェブサイトを動かす基礎プログラム「PHP」に、外部からサーバーを乗っ取られるおそれのある欠陥「PHP 2 Shell」が見つかった。
+    確認されたのは「危険があるかもしれない」という段階で、悪用された事例は確認されていない。
+</div>
+
+<h2>はじめに</h2>
+<p>国内では、念のためサービスを一時停止した組織があったとされている。ただし、欠陥が悪用されて情報が盗まれたと確認された事例ではない。
+    多くの組織が「止める」以外の判断材料を持てなかったと見られることが、この件の大きな教訓である。</p>
+<p>この報告書の結論は次の三つです。</p>
+<div class="interpretation-box">
+    <ul>
+        <li><strong>今すぐやるべきこと：</strong>使っている PHP のバージョンを確認し、修正版に更新すること。古いバージョンを使い続けている場合は、新しいバージョンへの移行を急ぐ必要がある。</li>
+        <li><strong>中長期でやるべきこと：</strong>「どこで何が動いているか」を常に把握できる体制を作り、問題が見つかったときに素早く直せる仕組みを整えること。</li>
+        <li><strong>根本的な作り方の見直し：</strong>より安全な言語の利用、システムの隔離など。時間がかかるため、段階的に進めること。</li>
+    </ul>
+</div>
+
+<h2>1. 基本の理解：この欠陥は何か</h2>
+
+<h3>1.1 ウェブサイトの「受付」と「作業場」</h3>
+<p>ウェブサイトの仕組みは、郵便局に例えると分かりやすいかもしれない。</p>
+<ul>
+    <li><strong>受付（サーバーの基盤部分）：</strong>外からの荷物（リクエスト）を受け取り、中身を読み取って振り分ける。</li>
+    <li><strong>作業場（PHP で書かれたプログラム）：</strong>振り分けられた荷物に対して、ページの作成などの実際の仕事をする。</li>
+</ul>
+<p>今回の欠陥は、このうち<strong>受付にあたる部分</strong>、つまり PHP という言語の内部の処理にある。受付で荷物を読み取る段階で、仕組みの隙を突かれるおそれがある。
+    そのため、作業場のプログラムをどれだけ丁寧に書いても、受付の隙は防げない。</p>
+
+<h3>1.2 「解放後使用」とは</h3>
+<p>コンピュータは、作業のために一時的にメモリ（作業用の机の広さのようなもの）を借りる。仕事が終わると、その机を返す。</p>
+<p>今回の欠陥は、この「返したはずの机」を、まだ使っているかのように扱ってしまうことで起きるおそれがある。
+    返したはずの机に悪意のある人が自分の書類を置いておくと、プログラムはそれを正しい指示として読んでしまい、サーバーを操られるおそれがある。</p>
+<p>これは仕組みを分かりやすくするための比喩。専門用語では「解放後使用（UAF）」と呼ばれる種類の問題で、公式の発表では正確な種類はまだ明記されていない。</p>
+
+<h3>1.3 どれくらい深刻か</h3>
+<p>国の機関であるIPA（情報処理推進機構）の注意喚起では、インターネット越しに、ログインなしで、サーバーに好きなプログラムを動かされるおそれがある。
+    深刻度を示す点数（CVSS v4）は <strong>9.2</strong> で、10点満点に近い高い数字である。</p>
+<div class="boomerang-box">
+    <p>ただし、「攻撃が成功した」と確認されたわけではない。現時点では「攻撃されるおそれがある」段階の注意喚起。</p>
+</div>
+
+<h2>2. 何を、どう直せばよいか</h2>
+
+<h3>2.1 修正版のバージョン</h3>
+<p>次のバージョンより古い PHP は、この欠陥の影響を受けるおそれがある。</p>
+<div class="table-wrap">
+<table>
+    <thead><tr><th>使っている PHP の系統</th><th>直すべきバージョン（以上）</th></tr></thead>
+    <tbody>
+        <tr><td>8.2 系</td><td>8.2.35</td></tr>
+        <tr><td>8.3 系</td><td>8.3.36</td></tr>
+        <tr><td>8.4 系</td><td>8.4.27</td></tr>
+        <tr><td>8.5 系</td><td>8.5.12</td></tr>
+        <tr><td>8.1 以前</td><td>修正版はありません（サポート終了）</td></tr>
+    </tbody>
+</table>
+</div>
+<div class="alert-box">
+    <p><span class="rule">「8.1 以前」は、直す版がもう提供されないため、新しいバージョンへの移行が必要。</span></p>
+</div>
+<p>なお、解説記事では PHP 5 以降の版が影響を受ける可能性があると報じられている。古い版は、すべて対象に含まれるものとして扱うのが安全。</p>
+
+<h3>2.2 「バージョン」とは何か</h3>
+<p>PHP のバージョンは、ソフトウェアの世代番号。例えば「8.2.35」は、8.2 という世代の 35 回目の修正版、という意味です。
+    数字が大きいほど新しく、後ろの番号が大きいほど多くの修正が入っている。</p>
+<p>自分のサーバーで使われている PHP のバージョンは、サーバーの管理者や、制作を依頼した業者に確認するのが確実である。</p>
+
+<h3>2.3 更新できないときは</h3>
+<p>すぐに更新できない場合には、次のような一時的な対策がある。</p>
+<ul>
+    <li><strong>アクセスを制限する：</strong>外部から使える人や場所を絞ります。</li>
+    <li><strong>WAF を前に置く：</strong>WAF とは、ウェブの防犯カメラや検問所のような仕組みです。怪しい荷物を途中で止める。
+        ただし、根本的な修正の代わりにはならず、時間を稼ぐための手段である。</li>
+    <li><strong>一時的に止める：</strong>危険性が残ったまま動かし続けるのを避けるための、最後の手段です。止めればサービスは利用できなくなる。</li>
+</ul>
+
+<h2>3. なぜ多くの組織が「止める」ことになったのか</h2>
+
+<h3>3.1 止める以外に判断できなかった</h3>
+<p>今回、組織が止める判断をした理由として、次の点が考えられる。</p>
+<ul>
+    <li>自分のサーバーで、どの PHP が動いているか把握できていなかった。</li>
+    <li>欠陥の影響を受けるかどうかを、すぐに判断できなかった。</li>
+    <li>直す手順を、すぐに用意できなかった。</li>
+</ul>
+<p>判断材料がないため、「念のため全部止める」しか選べなかったと見られる。
+    これは、家の鍵が壊れたかもしれないのに、どの扉が壊れているか分からず、家中の扉を閉め切って出かけられなくなる状態に似ている。</p>
+
+<h3>3.2 止めることにもコストがある</h3>
+<p>サービスを止めれば、利用者や業務に大きな影響が出る。一方、危険なまま動かし続ければ、乗っ取りのリスクを抱えたままになる。
+    どちらにもコストがあるため、大切なのは<strong>止めるかどうかを、事前に決めた基準で判断できること</strong>である。</p>
+
+<h3>3.3 「無料だから使い続けた」は一部だけ正しい</h3>
+<p>PHP や Linux は無償で使えるため、「費用をかけずに導入できる」というのは事実である。しかし、無料なのはソフトウェアの利用料だけ。
+    更新作業、セキュリティの監視、担当者の育成などには費用がかかる。問題は、「無料＝安い」と受け取られ、こうした費用が見えないままになっていたことにあると考えられる。</p>
+
+<h2>4. 欠陥の作り方を見直す必要性</h2>
+
+<h3>4.1 「安全な言語」とは</h3>
+<p>プログラムを書く言語には、メモリの扱い方の違いがある。</p>
+<ul>
+    <li><strong>手動で管理する言語（C 言語など）：</strong>速くて自由度が高い一方、使い終わった机を返し忘れたり、返した後も使ったりするミスが起きやすくなる。</li>
+    <li><strong>安全な仕組みを持つ言語（Rust、Go など）：</strong>こうしたミスを、言語の仕組みで大きく減らせる。</li>
+</ul>
+<div class="boomerang-box">
+    <p>ただし、安全な言語に変えても、すべての問題がなくなるわけではない。「ミスの種類を減らす」効果があるということ。</p>
+</div>
+
+<h3>4.2 「隔離」とは</h3>
+<p>もう一つの考え方は、仮に一か所が乗っ取られても、被害が広がらないように区切っておくことである。</p>
+<ul>
+    <li><strong>コンテナや仮想マシン：</strong>一つのサーバーの中を、独立した小部屋に分けるようなものです。</li>
+    <li><strong>最小限の権限：</strong>各プログラムに、必要最低限の操作だけを許可します。</li>
+</ul>
+<p>これらは、一般の組織でも取り入れやすい方法である。</p>
+
+<h3>4.3 OS の作り替えについて</h3>
+<p>OS（パソコンやサーバーの基本ソフト）を、まったく新しい設計のものに置き換える、という考え方もある。理屈としては安全性を高めますが、多くの組織にとって現実的な選択肢ではない。
+    まずは、隔離や権限管理といった身近な方法から進めるのが現実的である。</p>
+
+<h2>5. 歴史の補足</h2>
+<p>今回の件は、古い技術を使い続けてきたことにも関係する。</p>
+<div class="table-wrap">
+<table>
+    <thead><tr><th>技術</th><th>誕生</th></tr></thead>
+    <tbody>
+        <tr><td>UNIX（基本ソフトの元になった仕組み）</td><td>1960 年代末、アメリカの研究所</td></tr>
+        <tr><td>C 言語</td><td>1972 年</td></tr>
+        <tr><td>Linux</td><td>1991 年</td></tr>
+    </tbody>
+</table>
+</div>
+<p>Linux は「1960 年代の古い設計」ではなく、比較的新しい仕組みです。古いのは、その土台となった考え方の一部である。</p>
+
+<h2>6. 今後の取り組み：段階的なロードマップ</h2>
+<ul class="timeline">
+    <li class="timeline-item">
+        <span class="timeline-date">フェーズ 0：今すぐ（〜1 か月）</span>
+        <ul>
+            <li>外部に公開しているサーバーから優先して、使っている PHP のバージョンを確認する。</li>
+            <li>PHP 8.1 以前を使っている場合は、移行の計画を立てる。</li>
+            <li>修正版（8.2.35 / 8.3.36 / 8.4.27 / 8.5.12 以降）へ更新する。</li>
+            <li>すぐに更新できないものは、アクセス制限や一時停止の基準を決めて対応する。</li>
+            <li>WAF を前に置き、ルールを最新の状態にする。</li>
+            <li>IPA や JPCERT/CC などの注意喚起を、定期的に確認する。</li>
+        </ul>
+    </li>
+    <li class="timeline-item">
+        <span class="timeline-date">フェーズ 1：短期（0〜6 か月）</span>
+        <ul>
+            <li>どのサーバーで何が動いているかを、常に一覧で把握できるようにする。</li>
+            <li>テストを含めた自動更新の仕組みを作る。</li>
+            <li>緊急時に止めるかどうかを判断する手順書を作り、練習しておく。</li>
+            <li>古くなったソフトウェアを使わなくするための計画を立て、予算を確保する。</li>
+        </ul>
+    </li>
+    <li class="timeline-item">
+        <span class="timeline-date">フェーズ 2：中期（6 か月〜2 年）</span>
+        <ul>
+            <li>新しく作るシステムでは、安全な言語の採用を基本方針にする。</li>
+            <li>危険性の高い古い部分から、順番に作り替える。</li>
+            <li>隔離や権限管理を、標準的なシステムの作り方にする。</li>
+        </ul>
+    </li>
+    <li class="timeline-item">
+        <span class="timeline-date">フェーズ 3：長期（2〜5 年）</span>
+        <ul>
+            <li>システムを発注するときの条件に、「安全性」「更新期限」「ソフトウェアの部品表（どの部品を使っているか）の提出」を加える。</li>
+            <li>多くの業者を経由する契約の形を見直し、セキュリティに必要な費用を正しく見積もる。</li>
+            <li>セキュリティを担当する人材を育て、定期的に攻撃を想定した訓練をする。</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>7. 今すぐできるチェックリスト</h2>
+<ul class="checklist">
+    <li>使っている PHP のバージョンを確認する（外部公開のサーバーから優先）</li>
+    <li>PHP 8.1 以前を使っていないか確認し、使っていれば移行を計画する</li>
+    <li>修正版（8.2.35 / 8.3.36 / 8.4.27 / 8.5.12 以降）へ更新する</li>
+    <li>すぐに更新できない場合の対策（アクセス制限・一時停止の基準）を決めておく</li>
+    <li>WAF を前に置き、ルールを最新にする</li>
+    <li>IPA や JPCERT/CC の注意喚起を定期的に確認する担当者を決める</li>
+</ul>
+
+<h2>8. 用語集</h2>
+<div class="table-wrap">
+<table>
+    <thead><tr><th>用語</th><th>意味</th></tr></thead>
+    <tbody>
+        <tr><td>PHP</td><td>ウェブサイトを作るためのプログラムの言語。世界中で広く使われている。</td></tr>
+        <tr><td>脆弱性</td><td>悪用される隙になりうる欠陥のこと。</td></tr>
+        <tr><td>CVE 番号</td><td>脆弱性に付けられる世界共通の識別番号。</td></tr>
+        <tr><td>CVSS</td><td>脆弱性の深刻さを点数で表す仕組み。10 点満点。</td></tr>
+        <tr><td>解放後使用（UAF）</td><td>使い終わったメモリを返した後も、そのまま使ってしまう種類のミス。</td></tr>
+        <tr><td>修正版（パッチ）</td><td>欠陥を直すための更新。</td></tr>
+        <tr><td>EOL（サポート終了）</td><td>修正版が提供されなくなった古いバージョンのこと。</td></tr>
+        <tr><td>WAF</td><td>外から届く怪しい通信を、途中で検査して止める防御の仕組み。</td></tr>
+        <tr><td>コンテナ・仮想マシン</td><td>一つのコンピュータの中で、プログラムを互いに区切って動かす仕組み。</td></tr>
+        <tr><td>SBOM</td><td>ソフトウェアがどの部品からできているかを示す一覧表。</td></tr>
+        <tr><td>IPA</td><td>情報処理推進機構。経済産業省所管の独立行政法人で、セキュリティの注意喚起を出している。</td></tr>
+        <tr><td>JPCERT/CC</td><td>日本のコンピュータの緊急対応を担う組織。</td></tr>
+    </tbody>
+</table>
+</div>
+
+<h2>9. 確認できていないことと注意点</h2>
+<div class="boomerang-box">
+    <ul>
+        <li>組織が受けた実際の被害（情報流出や停止件数）は、今回の確認では把握できていない。</li>
+        <li>欠陥の技術的な詳しい仕組みは、今後の公式発表で変わる可能性がある。正確な情報は、PHP の公式発表や IPA の注意喚起で確認すること。</li>
+        <li>「止めた組織の数」などの数字は、出典が確認できていないため引用していない。</li>
+    </ul>
+</div>
+
+<h2>10. 参考情報</h2>
+<ul>
+    <li>IPA「PHP の脆弱性（CVE-2026-109618 他）」注意喚起（2026-10-22）：<a href="https://www.ipa.go.jp/security/security-alert/2026/alert20261022.html" target="_blank" rel="noopener">https://www.ipa.go.jp/security/security-alert/2026/alert20261022.html</a></li>
+    <li>脆弱性の解説記事（CVE-2026-109618 / 109619）：<a href="https://cybelangel.com/ja/%e3%83%96%e3%83%ad%e3%82%b0/critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/" target="_blank" rel="noopener">解説記事</a></li>
+</ul>
+
+</body></html>
