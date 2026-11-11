@@ -160,6 +160,30 @@
       box-shadow: 0 0 8px rgba(127, 216, 255, 0.3);
     }
 
+    /* 通常のリンクボタン：白いカード上で見えるよう、薄いサンド系の背景と濃い文字色 */
+    .link-list a {
+      background-color: #f7f2ea;
+      color: #4a3a2a;
+      border: 1px solid #e3d6c0;
+      transition: all 0.2s ease;
+    }
+    .link-list a:hover {
+      background-color: #efe6d6;
+      border-color: #c9b696;
+      color: #2e2216;
+    }
+
+    /* お釈迦様の教えボタン：ごく薄い茶色 */
+    .link-list a.btn-buddhism {
+      background-color: #efe6d6;
+      color: #4a3a2a;
+      border-color: #d9c9ae;
+    }
+    .link-list a.btn-buddhism:hover {
+      background-color: #e2d3ba;
+      color: #2e2216;
+    }
+
     @keyframes flowGradient {
       0%   { background-position: 0% 50%; }
       100% { background-position: 300% 50%; }
@@ -233,7 +257,7 @@
              <a href="人工知能と生物学/dinosaur.html">科学の認識（定説）の変化の歴史</a>
             <a>シンギュラリティ（準備中）  
               
-            <a href="お釈迦様の教え/※Buddhism.html">お釈迦様の教え<span style="color: red;">※</span></a>
+            <a href="お釈迦様の教え/※Buddhism.html" class="btn-buddhism">お釈迦様の教え<span style="color: red;">※</span></a>
           </div>
         </div>
 
