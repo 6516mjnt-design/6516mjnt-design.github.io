@@ -27,6 +27,7 @@
             background-color: #f9f9f9;
             padding-top: 5px;
             padding-bottom: 5px;
+            scroll-margin-top: 20px;
         }
         h3 {
             border-bottom: 1px solid #ccc;
@@ -50,6 +51,46 @@
             padding: 10px 15px;
             border-radius: 4px;
             font-size: 0.95rem;
+        }
+        .supplement {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 12px 18px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 0.85rem;
+        }
+        .toc-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 6px;
+            margin: 0 0 8px 0;
+        }
+       .toc ol {
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+            line-height: 1.7;
+        }
+        .toc li {
+            margin-bottom: 0;
+        }
+        .toc a {
+            color: #333;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .toc .range {
+            color: #888;
+            font-size: 0.8rem;
         }
         .supplement {
             font-size: 0.9rem;
@@ -82,9 +123,41 @@
         → <a href="dhammapada_prerequisites.html">ダンマパダ・スッタニパータを読む前に(前提条件)</a>
     </div>
 
+    <nav class="toc">
+        <p class="toc-title">目次</p>
+        <ol>
+            <li><a href="#ch1">第一章　対句</a> <span class="range">（1〜20）</span></li>
+            <li><a href="#ch2">第二章　勤しみ</a> <span class="range">（21〜32）</span></li>
+            <li><a href="#ch3">第三章　心</a> <span class="range">（33〜43）</span></li>
+            <li><a href="#ch4">第四章　花にちなんで</a> <span class="range">（44〜59）</span></li>
+            <li><a href="#ch5">第五章　愚者</a> <span class="range">（60〜75）</span></li>
+            <li><a href="#ch6">第六章　賢者</a> <span class="range">（76〜89）</span></li>
+            <li><a href="#ch7">第七章　供養に値する人</a> <span class="range">（90〜99）</span></li>
+            <li><a href="#ch8">第八章　千という数にちなんで</a> <span class="range">（100〜115）</span></li>
+            <li><a href="#ch9">第九章　悪</a> <span class="range">（116〜128）</span></li>
+            <li><a href="#ch10">第十章　暴力</a> <span class="range">（129〜145）</span></li>
+            <li><a href="#ch11">第十一章　老い</a> <span class="range">（146〜156）</span></li>
+            <li><a href="#ch12">第十二章　自己</a> <span class="range">（157〜166）</span></li>
+            <li><a href="#ch13">第十三章　世の中</a> <span class="range">（167〜178）</span></li>
+            <li><a href="#ch14">第十四章　ブッダ</a> <span class="range">（179〜196）</span></li>
+            <li><a href="#ch15">第十五章　幸せ</a> <span class="range">（197〜208）</span></li>
+            <li><a href="#ch16">第十六章　愛しきもの</a> <span class="range">（209〜220）</span></li>
+            <li><a href="#ch17">第十七章　怒り</a> <span class="range">（221〜234）</span></li>
+            <li><a href="#ch18">第十八章　汚れ</a> <span class="range">（235〜255）</span></li>
+            <li><a href="#ch19">第十九章　理に従う人</a> <span class="range">（256〜272）</span></li>
+            <li><a href="#ch20">第二十章　道</a> <span class="range">（273〜289）</span></li>
+            <li><a href="#ch21">第二十一章　さまざまなこと</a> <span class="range">（290〜305）</span></li>
+            <li><a href="#ch22">第二十二章　地獄</a> <span class="range">（306〜319）</span></li>
+            <li><a href="#ch23">第二十三章　象にちなんで</a> <span class="range">（320〜333）</span></li>
+            <li><a href="#ch24">第二十四章　渇望</a> <span class="range">（334〜359）</span></li>
+            <li><a href="#ch25">第二十五章　出家修行者</a> <span class="range">（360〜382）</span></li>
+            <li><a href="#ch26">第二十六章　行い清き人</a> <span class="range">（383〜423）</span></li>
+        </ol>
+    </nav>
+
     <!-- 第一章 対句 -->
-    <h2>第一章　対句</h2>
-    
+    <h2 id="ch1">第一章　対句</h2>
+
     <div class="verse">
         <div class="verse-number">1</div>
         <p class="verse-text"><span style="color: red;">心はすべてのものごとに先立ち、すべてをつくり出し、すべてを左右する。邪な心で話し、行動する人には、苦しみが付き従う。あたかも、荷車を牽く牛の足跡の上を車輪が付き従うように。</span></p>
@@ -147,12 +220,12 @@
 
     <div class="verse">
         <div class="verse-number">13</div>
-        <p class="verse-text">粗雑に葺いてある屋根からは雨が漏れいるように、修養されなていない心には情欲が入り込む。</p>
+        <p class="verse-text">粗雑に葺いてある屋根からは雨が漏れ入るように、修養されていない心には情欲が入り込む。</p>
     </div>
 
     <div class="verse">
         <div class="verse-number">14</div>
-        <p class="verse-text">しっかり葺いてある屋根からは雨が漏れいらないように、よく修養された心には情欲が入り込まない。</p>
+        <p class="verse-text">しっかり葺いてある屋根からは雨が漏れ入らないように、よく修養された心には情欲が入り込まない。</p>
     </div>
 
     <div class="verse">
@@ -182,11 +255,11 @@
 
     <div class="verse">
         <div class="verse-number">20</div>
-        <p class="verse-text">たとえ教えを少ししか諳んじていていなくても、理に従って実践し、貪欲と怒りと迷妄を捨て、理を正しく理解し、心が解放されて、執着しない人は、修養に励む人の部類に入る。</p>
+        <p class="verse-text">たとえ教えを少ししか諳んじていなくても、理に従って実践し、貪欲と怒りと迷妄を捨て、理を正しく理解し、心が解放されて、執着しない人は、修養に励む人の部類に入る。</p>
     </div>
 
-    <!-- 第二章 勤いそしみ -->
-    <h2>第二章　勤しみ</h2>
+    <!-- 第二章 勤しみ -->
+    <h2 id="ch2">第二章　勤しみ</h2>
 
     <div class="verse">
         <div class="verse-number">21</div>
@@ -249,24 +322,24 @@
     </div>
 
     <!-- 第三章 心 -->
-    <h2>第三章　心</h2>
+    <h2 id="ch3">第三章　心</h2>
 
     <div class="verse">
         <div class="verse-number">33</div>
         <p class="verse-text">心は、動揺し、ざわめき、制御し難い。聡明な人は、矢師が矢をまっすぐに矯めるように、この心を矯める。</p>
     </div>
 
-   <div class="verse">
+    <div class="verse">
         <div class="verse-number">34</div>
         <p class="verse-text">心は、水から引き揚げられて、陸地に投げ捨てられた魚のように、悪魔の支配から逃れようと、ばたばたともがきまわる。</p>
     </div>
 
-   <div class="verse">
+    <div class="verse">
         <div class="verse-number">35</div>
         <p class="verse-text"><span style="color: red;">心は、捉え難く、軽々しく、欲するがままに動き回る。この心を制御することはよいことであり、制御された心は幸せをもたらす。</span></p>
     </div>
 
-   <div class="verse">
+    <div class="verse">
         <div class="verse-number">36</div>
         <p class="verse-text"><span style="color: red;">心は、目に見えず、微妙で、欲するがままに動き回る。聡明な人はこの心を制御し、制御された心は幸せをもたらす。</span></p>
     </div>
@@ -278,7 +351,7 @@
 
     <div class="verse">
         <div class="verse-number">38</div>
-        <p class="verse-text">心落ち着かず、正しい理を知らず、俗事に惑わされれる人は、完璧な叡智を得ることができない。</p>
+        <p class="verse-text">心落ち着かず、正しい理を知らず、俗事に惑わされる人は、完璧な叡智を得ることができない。</p>
     </div>
 
     <div class="verse">
@@ -307,7 +380,7 @@
     </div>
 
     <!-- 第四章 花にちなんで -->
-    <h2>第四章　花にちなんで</h2>
+    <h2 id="ch4">第四章　花にちなんで</h2>
 
     <div class="verse">
         <div class="verse-number">44</div>
@@ -381,7 +454,7 @@
 
     <div class="verse">
         <div class="verse-number">58</div>
-        <p class="verse-text">大通りに捨てられたb塵芥の山の中から、香しく麗しい蓮華が生え出るように、</p>
+        <p class="verse-text">大通りに捨てられた塵芥の山の中から、香しく麗しい蓮華が生え出るように、</p>
     </div>
 
     <div class="verse">
@@ -390,7 +463,7 @@
     </div>
 
     <!-- 第五章 愚者 -->
-    <h2>第五章　愚者</h2>
+    <h2 id="ch5">第五章　愚者</h2>
 
     <div class="verse">
         <div class="verse-number">60</div>
@@ -414,7 +487,7 @@
 
     <div class="verse">
         <div class="verse-number">64</div>
-        <p class="verse-text">あたかも、スプーンにスープの味がわからないように、患者は一生涯賢者に仕えても、真理を知ることがない。</p>
+        <p class="verse-text">あたかも、スプーンにスープの味がわからないように、愚者は一生涯賢者に仕えても、真理を知ることがない。</p>
     </div>
 
     <div class="verse">
@@ -459,7 +532,7 @@
 
     <div class="verse">
         <div class="verse-number">73</div>
-        <p class="verse-text"><span style="color: red;">愚者は不相応に尊敬されたガリ、教団で上位を占めたがり、僧房にあっては権勢を、信者の家では供養を得たがる。</span></p>
+        <p class="verse-text"><span style="color: red;">愚者は不相応に尊敬されたがり、教団で上位を占めたがり、僧房にあっては権勢を、信者の家では供養を得たがる。</span></p>
     </div>
 
     <div class="verse">
@@ -473,7 +546,7 @@
     </div>
 
     <!-- 第六章 賢者 -->
-    <h2>第六章　賢者</h2>
+    <h2 id="ch6">第六章　賢者</h2>
 
     <div class="verse">
         <div class="verse-number">76</div>
@@ -494,9 +567,10 @@
         <div class="verse-number">79</div>
         <p class="verse-text"><span style="color: red;">真理を喜ぶ人は、心清らかに澄み、安らかに生きる。賢者は、聖者が説かれた真理を常に楽しむ。</span></p>
     </div>
+
     <div class="verse">
         <div class="verse-number">80</div>
-        <p class="verse-text">灌漑技師は水を導き、矢師は矢を作り、大工は木を製剤し、賢者は自己を修養する。</p>
+        <p class="verse-text">灌漑技師は水を導き、矢師は矢を作り、大工は木を製材し、賢者は自己を修養する。</p>
     </div>
 
     <div class="verse">
@@ -543,412 +617,412 @@
         <div class="verse-number">89</div>
         <p class="verse-text">目覚めへの条件を整え、心を修養し、執着を捨てるのを喜び、心の汚れを滅びし尽くして輝く人は、この世で平安の境地に達している。</p>
     </div>
- 
+
     <!-- 第七章 供養に値する人 -->
-    <h2>第七章　供養に値する人</h2>
+    <h2 id="ch7">第七章　供養に値する人</h2>
 
     <div class="verse">
         <div class="verse-number">90</div>
         <p class="verse-text">修行の道のりを終え、憂いを離れ、自由自在で、あらゆるしがらみを断ち切った人に、悩みはない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">91</div>
         <p class="verse-text"><span style="color: red;">心ある人は勤しみ励み、白鳥が湖を後にするように、世俗的生活を楽しまず、捨てさる。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">92</div>
         <p class="verse-text">蓄財することなく、食事は慎ましやかで、情欲の兆しもなく解放された人、彼の歩みは、空飛ぶ鳥の軌跡のようにたどり難い。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">93</div>
         <p class="verse-text">汚れを除き取り、食べ物を貪らず、情欲の兆しもない解放された人、彼の歩みは、空飛ぶ鳥の軌跡のようにたどり難い。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">94</div>
         <p class="verse-text">御者が馬を調教するように、感覚器官を制御し、奢りを捨て、汚れをなくした人、神々でさえも彼を羨む。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">95</div>
         <p class="verse-text">大地のように動じることがなく、固く閉ざされた門のように慎み深く、汚れた泥のない湖のように清い人、彼はもはや輪廻の世界にさまよわない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">96</div>
         <p class="verse-text">正しい叡智によって解放され、安らかな人、彼は心も言葉も行いもおだやかである。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">97</div>
         <p class="verse-text">情欲を離れ、安らぎを知り、しがらみを断ち切り、世俗的善悪を超え、欲望を捨てさった人、彼こそじつに最上の人である。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">98</div>
         <p class="verse-text">村であれ、森であれ、低地であれ、平地であれ、尊敬に値する人のいるところは、どこであれ楽しい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">99</div>
         <p class="verse-text">歓楽を求めず、執着のない人たちは、世の一般に人たちとは異なり、人里離れたところを楽しむ。</p>
     </div>
 
     <!-- 第八章 千という数にちなんで -->
-    <h2>第八章　千という数にちなんで</h2>
+    <h2 id="ch8">第八章　千という数にちなんで</h2>
 
     <div class="verse">
         <div class="verse-number">100</div>
         <p class="verse-text">千の無益な言葉よりも、聞いて心静まる有益な言葉一つのほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">101</div>
         <p class="verse-text"><span style="color: red;">千の無益な詩よりも、聞いて心静まる有益な詩一つのほうがいい。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">102</div>
         <p class="verse-text">百の無益な詩を唱えるよりも、聞いて心静まる真理の言葉一つのほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">103</div>
         <p class="verse-text"><span style="color: red;">百万の敵に戦場で勝利するよりも、己一人にうち克つ人こそ、最上の勝者である。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">104</div>
         <p class="verse-text"><span style="color: red;">自己にうち克つことは、他人に勝つことよりも優れている。つねに行いを慎み、自己を制御する人、</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">105</div>
-        <p class="verse-text"><span style="color: red;">その人の勝利を、敗北に転じることは、神も、ガンダルヴァも、悪魔も、ブラフマー神もできない。/span></p>
+        <p class="verse-text"><span style="color: red;">その人の勝利を、敗北に転じることは、神も、ガンダルヴァも、悪魔も、ブラフマー神もできない。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">106</div>
         <p class="verse-text">百年のあいだ、月々何千もの供養祭祀を営むよりも、自己を修養した人を、一瞬でも崇拝するほうが優れている。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">107</div>
         <p class="verse-text">百年のあいだ、林の中で火の祭祀を営むよりも、自己を修養した人を、一瞬でも崇拝するほうが優れている。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">108</div>
         <p class="verse-text">一年間功徳を得るために神を祀り、犠牲を捧げようとも、その功徳は行いの正しい人を敬うそれの四分の一にも及ばない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">109</div>
         <p class="verse-text">礼節を守り、つねに年長者を敬う人には、寿命と美しさ、楽しみと力、この四つが増大する。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">110</div>
         <p class="verse-text">百年のあいだ、行い悪く、心乱れて生きるよりも、行い優れ、心静かに、一日生きるほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">111</div>
         <p class="verse-text">百年のあいだ、愚かに、心乱れて生きるよりも、賢く、心静かに、一日生きるほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">112</div>
         <p class="verse-text">百年のあいだ、怠りなまけて無気力に生きるよりも、意志堅固に、勤しみ励んで、一日生きるほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">113</div>
         <p class="verse-text">百年のあいだ、ものごとの生起と消滅の理を知らずに生きるよりも、ものごとの消滅の理を知って、一日生きるほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">114</div>
         <p class="verse-text">百年のあいだ、不死への道を知らずに生きるよりも、不死への道を知って、一日生きるほうがいい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">115</div>
         <p class="verse-text">百年のあいだ、最上の真理を知らずに生きるよりも、最上の真理を知って、一日生きるほうがいい。</p>
     </div>
 
     <!-- 第九章 悪 -->
-    <h2>第九章　悪</h2>
+    <h2 id="ch9">第九章　悪</h2>
 
     <div class="verse">
         <div class="verse-number">116</div>
         <p class="verse-text"><span style="color: red;">善い行いをするのを急ぎ、悪い行いから心を遠ざけよ。善い行いをするのに怯むあいだに、心は悪い行いを楽しむ。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">117</div>
         <p class="verse-text"><span style="color: red;">悪い行いをしたならば、それを繰り返してはならない。悪い行いになじんではならない。悪い行いを積み重ねるのは苦しみである。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">118</div>
         <p class="verse-text"><span style="color: red;">善い行いをしたならば、それを繰り返せ。善い行いを心がけよ。善い行いを積み重ねるのは楽しみである。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">119</div>
         <p class="verse-text">悪い行いの報いが熟すまでは、悪人でも良い思いをすることがある。しかし悪い行いの報いが熟した時には、悪人には不幸が訪れる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">120</div>
         <p class="verse-text">善い行いの果報が熟すまでは、善人でも災いに遭うことがある。しかし善い行いの果報が熟した時には、善人には幸いが訪れる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">121</div>
         <p class="verse-text"><span style="color: red;">「私はその報いを受けない」と思って、悪い行いを軽んじてはならない。水は一滴ずつ滴り落ち、水瓶を満たす。愚者は、悪い行いを少しずつ重ね、やがて災いに満たされる。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">122</div>
         <p class="verse-text">「私はその果報を享受できない」と思って、善い行いを軽んじてはならない。水は一滴ずつ滴り落ち、水瓶を満たす。善人は、善い行いを少しずつ重ね、やがて福徳に満たされる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">123</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">124</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">125</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">126</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">127</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">128</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第十章 暴力 -->
-    <h2>第十章　暴力</h2>
+    <h2 id="ch10">第十章　暴力</h2>
 
     <div class="verse">
         <div class="verse-number">129</div>
         <p class="verse-text">生きとし生けるものは暴力に怯え、死を恐れる。自分も他人も同じである以上、殺してはならず、殺させてはならない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">130</div>
         <p class="verse-text">生きとし生けるものは暴力に怯え、命は愛おしい。自分も他人も同じである以上、殺してはならず、殺させてはならない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">131</div>
         <p class="verse-text"><span style="color: red;">生きとし生けるものは幸せを求めている。自分の幸せを求めて生きものを傷つける人は、死後幸せを得られない。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">132</div>
         <p class="verse-text">生きとし生けるものは幸せを求めている。自分の幸せのために生きものを傷つけることのない人は、死後幸せを得る。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">133</div>
         <p class="verse-text"><span style="color: red;">荒々しい言葉を口にしてはならない。言われた人はあなたに言い返すだろう。怒りの言葉は苦痛であり、その報いはあなたの身に降りかかる。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">134</div>
         <p class="verse-text"><span style="color: red;">ひび割れた鐘の音のように声を荒立てず、怒ることがなければ、あなたは平安の境地に到る。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">135</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">136</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">137</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">138</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">139</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">140</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">141</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">142</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">143</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">144</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">145</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第十一章 老い -->
-    <h2>第十一章　老い</h2>
+    <h2 id="ch11">第十一章　老い</h2>
 
     <div class="verse">
         <div class="verse-number">146</div>
         <p class="verse-text">この世は燃え盛っているのに、どうして笑い、喜んでいられるのか。闇の中にありながら、どうして灯明を求めないのか。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">147</div>
         <p class="verse-text">見よ、着飾った身体を。もろもろの物質の集合体に過ぎず、傷つき、病み、欲望に駆られ、けっして永続しない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">148</div>
         <p class="verse-text"><span style="color: red;">この身体は衰え、病の巣となり、脆くも滅びる。汚れた身体は朽ち果て、命あるものは死に帰着する。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">149</div>
         <p class="verse-text">秋に捨てられて散らばった瓢箪のように、鳩の羽根のような色をした人骨を目にして、どうして喜んでいられるか。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">150</div>
         <p class="verse-text">骨格が肉と血で覆われた身体には、老いと死と驕りと欺瞞が潜んでいる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">151</div>
         <p class="verse-text">いとも麗しい国王の乗り物も朽ち、身体もまた老いる。徳ある人の理は老いることなく、徳ある人たちは互いに理を説きあう。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">152</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">153</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">154</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">155</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">156</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第十二章 自己 -->
-    <h2>第十二章　自己</h2>
+    <h2 id="ch12">第十二章　自己</h2>
 
     <div class="verse">
         <div class="verse-number">157</div>
         <p class="verse-text">自分を愛しく思うならば、自制せよ。賢者を目指すならば、人生三期を通して自己を修養せよ。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">158</div>
         <p class="verse-text"><span style="color: red;">先ず自制せよ。次いで他人を教えよ。そうすれば、賢者は煩わされることがない。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">159</div>
         <p class="verse-text"><span style="color: red;">他人に教えるとおりに自分でも実践すること。自制してこそ、他人を制御することができる。自制するのはずつに難しい。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">160</div>
         <p class="verse-text"><span style="color: red;">自分こそが自分の主である。他人がどうして主でありえようか。自制したならば、得難き主を得る。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">161</div>
         <p class="verse-text">鉱石が（自分から生まれた）ダイヤモンドに砕破されるように、無知な人は、自分の行いから生まれた悪によってうち砕かれる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">162</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">163</div>
         <p class="verse-text">善くないこと、自分のためにならないことはなしやすい。善いこと、自分のためになることはなし難い。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">164</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">165</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">166</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第十三章 世の中 -->
-    <h2>第十三章　世の中</h2>
+    <h2 id="ch13">第十三章　世の中</h2>
 
     <div class="verse">
         <div class="verse-number">167</div>
@@ -1011,7 +1085,7 @@
     </div>
 
     <!-- 第十四章 ブッダ -->
-    <h2>第十四章　ブッダ</h2>
+    <h2 id="ch14">第十四章　ブッダ</h2>
 
     <div class="verse">
         <div class="verse-number">179</div>
@@ -1104,14 +1178,14 @@
     </div>
 
     <!-- 第十五章 幸せ -->
-    <h2>第十五章　幸せ</h2>
+    <h2 id="ch15">第十五章　幸せ</h2>
 
     <div class="verse">
         <div class="verse-number">197</div>
         <p class="verse-text"><span style="color: red;">恨みを抱く人たちの中にあって、私たちは恨みを抱かずに生きよう。恨みを抱く人たちの中にあって、私たちは恨みを抱かず幸せに生きよう。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">198</div>
         <p class="verse-text">悩める人たちの中にあって、私たちは悩まずに生きよう。悩める人たちの中にあって、私たちは悩まず幸せに生きよう。</p>
     </div>
@@ -1167,14 +1241,14 @@
     </div>
 
     <!-- 第十六章 愛しきもの -->
-    <h2>第十六章　愛しきもの</h2>
+    <h2 id="ch16">第十六章　愛しきもの</h2>
 
     <div class="verse">
         <div class="verse-number">209</div>
         <p class="verse-text">すべきことは行わず、すべきではないことを行い、目的を捨て、快楽に執着する人は、目的に向かって進む人を羨む。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">210</div>
         <p class="verse-text">愛しい人とも、愛しくない人とも交わるな。愛しい人と別れるのは苦しく、愛しくない人に会うのは苦しい。</p>
     </div>
@@ -1230,14 +1304,14 @@
     </div>
 
     <!-- 第十七章 怒り -->
-    <h2>第十七章　怒り</h2>
+    <h2 id="ch17">第十七章　怒り</h2>
 
     <div class="verse">
         <div class="verse-number">221</div>
         <p class="verse-text">怒りと驕りとを取り除き、いかなる束縛をも超越せよ。個人存在に執着せず、所有欲をなくせば、苦しみがなくなる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">222</div>
         <p class="verse-text">こみあげて来る怒りを、牛車を制御するように制御する人、彼こそが「御者」であり、他の人はただ「手綱を持つ人」に過ぎない。</p>
     </div>
@@ -1303,7 +1377,7 @@
     </div>
 
     <!-- 第十八章 汚れ -->
-    <h2>第十八章　汚れ</h2>
+    <h2 id="ch18">第十八章　汚れ</h2>
 
     <div class="verse">
         <div class="verse-number">235</div>
@@ -1392,7 +1466,7 @@
 
     <div class="verse">
         <div class="verse-number">252</div>
-        <p class="verse-text"><span style="color: red;">他人の過失は目に留まりやすく、自分の過失は目に留まりにくい。あたかも、狡猾な賭博氏が、自分に不利なサイコロの目を隠すように、他人の過失は仔細もらさず暴くいっぽうで、自分の過失はかくしてしまう。</span></p>
+        <p class="verse-text"><span style="color: red;">他人の過失は目に留まりやすく、自分の過失は目に留まりにくい。あたかも、狡猾な賭博師が、自分に不利なサイコロの目を隠すように、他人の過失は仔細もらさず暴くいっぽうで、自分の過失はかくしてしまう。</span></p>
     </div>
 
     <div class="verse">
@@ -1410,15 +1484,15 @@
         <p class="verse-text"></p>
     </div>
 
-    <!-- 第十九章 理ことわりに従う人 -->
-    <h2>第十九章　理に従う人</h2>
+    <!-- 第十九章 理に従う人 -->
+    <h2 id="ch19">第十九章　理に従う人</h2>
 
     <div class="verse">
         <div class="verse-number">256</div>
         <p class="verse-text">ものごとを手際よく処理するからといって、理に従う人ではない。義と不義とを懸命に見きわめる人が、理に従う人である。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">257</div>
         <p class="verse-text">急がず、公平に、公正に他人を導く人は、理に従う人であり、賢者と呼ばれる。</p>
     </div>
@@ -1428,7 +1502,7 @@
         <p class="verse-text">多くを語るからといって、賢者なのではない。心おだやかに、恨むことなく、恐れることのない人、彼こそ賢者と呼ばれる。</p>
     </div>
 
-      <div class="verse">
+    <div class="verse">
         <div class="verse-number">259</div>
         <p class="verse-text">多くを語るからといって、教えを理解した人ではない。聞いた教えが少なくとも、それを体得し、理から外れることのない人、彼こそ道を実践する人である。</p>
     </div>
@@ -1499,178 +1573,178 @@
     </div>
 
     <!-- 第二十章 道 -->
-    <h2>第二十章　道</h2>
+    <h2 id="ch20">第二十章　道</h2>
 
     <div class="verse">
         <div class="verse-number">273</div>
         <p class="verse-text"><span style="color: red;">道の中では八支の道が、真理の中では四つの真理が、徳の中では情欲の消滅が、人の中では眼ある人が最も優れている。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">274</div>
         <p class="verse-text">真理を洞察する道、それはこの道であり、他にはない。この道を歩め。これこそ悪魔を挫く道である。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">275</div>
         <p class="verse-text"><span style="color: red;">この道を歩むならば、苦しみをなくすことができる。毒矢を抜く方法を知って、私「ゴータマ・ブッダ」はこの道を説く。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">276</div>
         <p class="verse-text">勤しみ励め。修行を完成した人「ゴータマ・ブッダ」は、ただ道を説くだけである。この道を歩み、心を修養する人は、悪魔の束縛からのがれる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">277</div>
         <p class="verse-text"><span style="color: red;">「条件付けられたものはすべて、無常である」と、叡智によって理解したならば、苦しみはなくなる。これが清浄に到る道である。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">278</div>
         <p class="verse-text">「条件付けられたものはすべて、苦しみである」と、叡智によって理解したならば、苦しみはなくなる。これが清浄の境地に到る道である。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">279</div>
         <p class="verse-text"><span style="color: red;">「もろもののこと（ダンマ）はすべて、我ならざるものである」と、叡智によって理解したならば、苦しみはなくなる。これが清浄の境地に到る道である。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">280</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">281</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">282</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">283</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">284</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">285</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">286</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">287</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">288</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">289</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第二十一章 さまざまなこと -->
-    <h2>第二十一章　さまざまなこと</h2>
+    <h2 id="ch21">第二十一章　さまざまなこと</h2>
 
     <div class="verse">
         <div class="verse-number">290</div>
         <p class="verse-text">小さな快楽を捨てることによって、大きな幸せを見つけることができるなら、賢者は小さな快楽を捨てて、大きな幸せを追求する。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">291</div>
         <p class="verse-text">他人を苦しめることによって、自分の快楽を求める人は、憎しみの絆にからまれ、憎しみから逃れられない。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">292</div>
         <p class="verse-text"><span style="color: red;">なすべきことをなさず、なすべからざることをなし、傲慢にして、怠惰な人には汚れが増す。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">293</div>
         <p class="verse-text">つねに身体の本性を思索し、なすべからざることをなさず、なすべきことをなし、注意深く、思慮深い人には汚れがなくなる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">294</div>
         <p class="verse-text">渇望と傲慢、永遠主義と刹那主義、感覚器官とその対象、執着と貪りとを滅ぼした行い清き人は汚れることなく進む。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">295</div>
         <p class="verse-text">渇望と傲慢、永遠主義と刹那主義、五つの障碍を滅ぼした行い清き人は汚れることなく進む。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">296</div>
         <p class="verse-text"><span style="color: red;">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねにブッダ（仏）を念じている。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">297</div>
         <p class="verse-text"><span style="color: red;">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねにダンマ（法）を念じている。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">298</div>
         <p class="verse-text">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねにサンガ（僧）を念じている。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">299</div>
         <p class="verse-text">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねに行いに気をつけている。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">300</div>
         <p class="verse-text"><span style="color: red;">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねに不殺生を楽しんでいる。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">301</div>
         <p class="verse-text"><span style="color: red;">ゴータマ・ブッダの弟子はいつも意識の醒めた状態にあり、昼も夜もつねに修養を楽しんでいる。</span></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">302</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">303</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">304</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">305</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第二十二章 地獄 -->
-    <h2>第二十二章　地獄</h2>
+    <h2 id="ch22">第二十二章　地獄</h2>
 
     <div class="verse">
         <div class="verse-number">306</div>
@@ -1682,68 +1756,68 @@
         <p class="verse-text">僧衣を纏っていても、行いが悪く、慎みのない人が多い。彼らは、悪い行いによって地獄に落ちる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">308</div>
         <p class="verse-text">戒めを守らず、自制しない僧侶は、施しの食を受けるより、火炎のように熱した鉄の塊を食らうほうがふさわしい。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">309</div>
         <p class="verse-text">放逸で、他人の妻と交わる男は、四つのことに遭遇する。不運な目に遭い、安眠できず、非難され、地獄に落ちる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">310</div>
         <p class="verse-text">不運な目に遭い、地獄に落ち、男も相手の女も共に怯え、楽しみは少なく、刑罰は重い。それゆえに男は他人の妻と交わるべからず。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">311</div>
         <p class="verse-text">茅の葉も、掴み方を誤ると、掌を切るように、修養に励む人も、行いを誤ると、地獄に落ちる。</p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">312</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">313</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">314</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">315</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">316</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">317</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">318</div>
         <p class="verse-text"></p>
     </div>
 
-     <div class="verse">
+    <div class="verse">
         <div class="verse-number">319</div>
         <p class="verse-text"></p>
     </div>
 
     <!-- 第二十三章 象にちなんで -->
-    <h2>第二十三章　象にちなんで</h2>
+    <h2 id="ch23">第二十三章　象にちなんで</h2>
 
     <div class="verse">
         <div class="verse-number">320</div>
@@ -1757,7 +1831,7 @@
 
     <div class="verse">
         <div class="verse-number">322</div>
-        <p class="verse-text">調教されたロバは良く、インダス川流域の血糖よき馬もよく、牙のある大きな象も良い。自己を修養した人はそれらにまさる。</p>
+        <p class="verse-text">調教されたロバは良く、インダス川流域の血統よき馬もよく、牙のある大きな象も良い。自己を修養した人はそれらにまさる。</p>
     </div>
 
     <div class="verse">
@@ -1815,8 +1889,8 @@
         <p class="verse-text"></p>
     </div>
 
-    <!-- 第二十四章 渴望 -->
-    <h2>第二十四章　渴望</h2>
+    <!-- 第二十四章 渇望 -->
+    <h2 id="ch24">第二十四章　渇望</h2>
 
     <div class="verse">
         <div class="verse-number">334</div>
@@ -1949,7 +2023,7 @@
     </div>
 
     <!-- 第二十五章 出家修行者 -->
-    <h2>第二十五章　出家修行者</h2>
+    <h2 id="ch25">第二十五章　出家修行者</h2>
 
     <div class="verse">
         <div class="verse-number">360</div>
@@ -2067,7 +2141,7 @@
     </div>
 
     <!-- 第二十六章 行い清き人 -->
-    <h2>第二十六章　行い清き人</h2>
+    <h2 id="ch26">第二十六章　行い清き人</h2>
 
     <div class="verse">
         <div class="verse-number">383</div>
