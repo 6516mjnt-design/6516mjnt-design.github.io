@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI・シンギュラリティのキーパーソン114人</title>
+<style>
+  :root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --primary: #1e293b;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  header .meta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .controls {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search-box {
+    flex: 1 1 300px;
+  }
+  .search-box input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box input:focus {
+    border-color: var(--accent);
+  }
+  .count-badge {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc a {
+    font-size: 0.82rem;
+    text-decoration: none;
+    color: var(--text-main);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .toc a:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  section.category {
+    margin-bottom: 3rem;
+  }
+  section.category h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 0.6rem 1rem;
+    background: var(--card-bg);
+    border-left: 5px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    margin-bottom: 1.25rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem 1.15rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+  .info {
+    flex: 1;
+    min-width: 0;
+  }
+  .name {
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+  }
+  .desc {
+    font-size: 0.86rem;
+    color: var(--text-muted);
+    word-break: break-word;
+  }
+  .deceased {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-left: 0.35rem;
+    font-weight: 500;
+  }
+  .note {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: #b45309;
+    background: #fef3c7;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-top: 0.3rem;
+  }
+  .hidden {
+    display: none !important;
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .controls, .toc { display: none; }
+    .card { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI・シンギュラリティのキーパーソン114人</h1>
+    <p class="meta">作成日：2026年11月17日</p>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="名前、所属、キーワードで検索（例：OpenAI, ノーベル賞, 教授...）">
+    </div>
+    <div class="count-badge" id="countDisplay">表示中: 114 / 114人</div>
+  </div>
+
+  <nav class="toc" aria-label="カテゴリー目次">
+    <a href="#cat-1">1. AI最前線の企業トップ</a>
+    <a href="#cat-2">2. 現場の技術者・研究トップ</a>
+    <a href="#cat-3">3. ハードウェア・ビッグテック</a>
+    <a href="#cat-4">4. 深層学習・基礎技術</a>
+    <a href="#cat-5">5. アライメント・安全性</a>
+    <a href="#cat-6">6. AIリスク警鐘派</a>
+    <a href="#cat-7">7. 効果的利他主義・思想家</a>
+    <a href="#cat-8">8. AI予測・タイムライン分析</a>
+    <a href="#cat-9">9. 政策・規制・政治家</a>
+    <a href="#cat-10">10. 加速主義・思想・メディア</a>
+    <a href="#cat-11">11. 懐疑派・批判派・哲学者</a>
+    <a href="#cat-12">12. 歴史的レジェンド</a>
+    <a href="#cat-13">13. 日本のキーパーソン</a>
+  </nav>
+
+  <main id="listContainer"></main>
+</div>
+
+<script>
+const rawText = `1. AI最前線の企業トップ・レースの主役たち
+　1. サム・アルトマン（OpenAI CEO）
+　2. ダリオ・アモデイ（Anthropic CEO）
+　3. デミス・ハサビス（Google DeepMind CEO / ノーベル化学賞受賞者）
+　4. イーロン・マスク（xAI / Tesla / SpaceX 創業者）
+　5. マーク・ザッカーバーグ（Meta CEO）
+　6. イリヤ・サツケヴァー（Safe Superintelligence 創業者 / 元OpenAIチーフサイエンティスト）
+　7. ミラ・ムラティ（Thinking Machines Lab 創業者 / 元OpenAI CTO）
+　8. ムスタファ・スレイマン（Microsoft AI CEO / DeepMind共同創業者）
+　9. 梁文鋒（DeepSeek 創業者）
+　10. アレクサンドル・ワン（Scale AI 創業者 / Meta超知能研究所 トップ）
+
+2. 現場の技術者・開発者・研究トップ
+　11. グレッグ・ブロックマン（OpenAI 共同創業者 / 社長）
+　12. ヤクブ・パホツキ（OpenAI チーフサイエンティスト）
+　13. マーク・チェン（OpenAI 最高研究責任者）
+　14. ジョン・シュルマン（Thinking Machines Lab 共同創業者 / 元OpenAI共同創業者 / 元Anthropic / ChatGPT開発に関与）
+　15. アンドレイ・カルパシー（Eureka Labs 創業者 / 元Tesla AIディレクター / 元OpenAI）
+　16. ダニエラ・アモデイ（Anthropic 共同創業者 / 社長）
+　17. ジャック・クラーク（Anthropic 共同創業者 / 政策責任者）
+　18. シェーン・レッグ（Google DeepMind 共同創業者 / チーフAGIサイエンティスト）
+　19. ジェフ・ディーン（Google チーフサイエンティスト）
+
+3. ハードウェア・巨大資本・ビッグテック
+　20. ジェンスン・フアン（NVIDIA 創業者 / CEO）
+　21. リサ・スー（AMD CEO）
+　22. ホック・タン（Broadcom CEO）
+　23. モリス・チャン（TSMC 創業者）
+　24. スンダー・ピチャイ（Google / Alphabet CEO）
+　25. サティア・ナデラ（Microsoft CEO）
+　26. エリック・シュミット（元Google CEO / 国家AI戦略提言者）
+　27. ピーター・ティール（投資家 / PayPal・Palantir 共同創業者）
+
+4. 深層学習・基礎技術の開拓者
+　28. ジェフリー・ヒントン（深層学習の父 / ノーベル物理学賞・チューリング賞受賞者）
+　29. ヨシュア・ベンジオ（モントリオール大学教授 / チューリング賞受賞者 / AI安全性研究者）
+　30. ヤン・ルカン（元Meta チーフAIサイエンティスト / チューリング賞受賞者）
+　31. フェイフェイ・リー（スタンフォード大学教授 / ImageNet考案者 / World Labs 創業者）
+　32. アンドリュー・エン（Google Brain 共同創業者 / Coursera 共同創業者）
+　33. アレックス・クリジェフスキー（AlexNet 開発者）
+　34. ノーム・シャジール（Transformer論文共同著者 / Google）
+　35. リチャード・サットン（アルバータ大学教授 / 強化学習の父 / チューリング賞受賞者）
+　36. デビッド・シルバー（Google DeepMind 強化学習研究の中心人物 / AlphaGo開発責任者）
+　37. オリオル・ビニャルズ（Google DeepMind 研究担当VP / Gemini共同技術責任者）
+　38. ジョン・ジャンパー（Google DeepMind ディレクター / AlphaFold2開発者 / ノーベル化学賞受賞者）
+　39. テレンス・タオ（UCLA教授 / フィールズ賞受賞数学者）
+
+5. アライメント・安全性研究者
+　40. ポール・クリスティアーノ（RLHF考案者 / Alignment Research Center 創業者）
+　41. ヤン・ライケ（Anthropic アライメント研究者 / 元OpenAIスーパーアライメント共同責任者）
+　42. クリス・オラー（Anthropic 共同創業者 / 機械論的解釈可能性研究者）
+　43. ニール・ナンダ（Google DeepMind 機械論的解釈可能性研究チーム責任者）
+　44. バック・シュレゲリス（Redwood Research CEO）
+　45. ダン・ヘンドリックス（Center for AI Safety 代表）
+　46. リチャード・ンゴ（AGI安全性・ガバナンス研究者 / 元OpenAI）
+　47. アマンダ・アスケル（Anthropic 研究者 / Claudeの人格・倫理設計に関与）
+
+6. AIリスク警鐘派・存続リスク論者
+　48. エリエザー・ユドコウスキー（MIRI 共同創業者 / アライメント理論の先駆者）
+　49. ネイト・ソアレス（MIRI 代表）
+　50. ニック・ボストロム（『スーパーインテリジェンス』著者 / 哲学者）
+　51. スチュアート・ラッセル（UC バークレー教授 / 『エージェントアプローチ人工知能』共著者）
+　52. マックス・テグマーク（MIT教授 / Future of Life Institute 創業者）
+　53. ロマン・ヤンポルスキー（ルイビル大学教授 / AIセーフティ研究者）
+
+7. 効果的利他主義・コミュニティ・思想家
+　54. ピーター・シンガー（プリンストン大学名誉教授 / 効果的利他主義の思想的源流）
+　55. トビー・オード（オックスフォード大学研究員 / 『The Precipice（崖っぷち）』著者）
+　56. ウィル・マッカスキル（哲学者 / 効果的利他主義・長期主義の提唱者）
+　57. ホールデン・カーノフスキー（Open Philanthropy 共同創業者 / AI戦略家）
+　58. ヤン・タリン（Skype 共同創業者 / 存続リスク研究を支援する投資家）
+　59. スコット・アレクサンダー（精神科医 / ブログ『Astral Codex Ten』執筆者）
+　60. グウェルン（Gwern Branwen）（独立研究者 / スケーリング仮説・AI分析の執筆者）
+　61. ロビン・ハンソン（ジョージ・メイソン大学教授 / 経済学者 / 予測市場・Em論者）
+
+8. AI予測・タイムライン・データ計測分析
+　62. ダニエル・ココタイロ（AI Futures Project 代表 / 『AI 2027』主著者 / 元OpenAI）
+　63. イライ・リフランド（AI Futures Project / 予測モデル分析者）
+　64. レオポルド・アッシェンブレナー（投資ファンド創業者 / 『Situational Awareness』著者 / 元OpenAI）
+　65. アジヤ・コトラ（Open Philanthropy / 生物学的アンカー予測モデルの考案者）
+　66. カール・シュルマン（経済モデル・知能爆発の分析研究者）
+　67. トム・デビッドソン（Open Philanthropy / AIテイクオフ・ガバナンス分析）
+　68. ハイメ・セビリア（Epoch AI 代表）
+　69. ベス・バーンズ（METR 創業者・代表 / 自律AIの評価）
+　70. エゲ・エルディル（Mechanize 共同創業者 / 元Epoch AI研究者）
+　71. タマイ・ベシログル（Mechanize 共同創業者 / Epoch AI 共同創業者）
+
+9. 政策・規制・政治家
+　72. ヘレン・トナー（ジョージタウン大学CSET 戦略ディレクター / 元OpenAI取締役）
+　73. デイビッド・サックス（ホワイトハウス AI・暗号資産担当責任者）
+　74. バーニー・サンダース（アメリカ合衆国上院議員）
+　75. マイケル・クラツィオス（ホワイトハウス科学技術政策局（OSTP）局長）
+　76. オードリー・タン（台湾 無任所大使（デジタル担当） / 初代デジタル発展部長）
+
+10. 加速主義（e/acc）・思想・メディア
+　77. ギヨーム・ヴェルドン（Beff Jezos）（e/acc 創始者 / Extropic 創業者）
+　78. マーク・アンドリーセン（Andreessen Horowitz 共同創業者）
+　79. ヴィタリック・ブテリン（Ethereum 共同創業者 / 防衛的加速主義（d/acc）提唱者）
+　80. ユヴァル・ノア・ハラリ（歴史学者 / 『サピエンス全史』『NEXUS 情報の人類史』著者）
+　81. ドワルケシュ・パテル（『Dwarkesh Podcast』ホスト）
+　82. イーサン・モリック（ペンシルベニア大学ウォートン校教授 / 『Co-Intelligence』著者）
+
+11. 懐疑派・批判派・認知科学者・哲学者
+　83. ゲイリー・マーカス（ニューヨーク大学名誉教授 / 認知科学者 / LLMの限界を指摘）
+　84. ティムニット・ゲブル（分散型AI研究所（DAIR）創業者 / AI倫理研究者）
+　85. アービンド・ナラヤナン（プリンストン大学教授 / 『AI Snake Oil』共著者）
+　86. メラニー・ミッチェル（サンタフェ研究所教授 / 複雑系・AI研究者）
+　87. ダロン・アセモグル（MIT教授 / ノーベル経済学賞受賞者）
+　88. デイビッド・チャーマーズ（ニューヨーク大学教授 / 哲学者 / 「意識のハードプロブレム」提唱者）
+　89. ジョン・サール（哲学者 / 「中国語の部屋」考案者）（故人・2025年没）
+　90. ロジャー・ペンローズ（オックスフォード大学名誉教授 / ノーベル物理学賞受賞者 / 量子脳理論）
+　91. ノーム・チョムスキー（MIT名誉教授 / 言語学者）
+
+12. 歴史的レジェンド・先駆者
+　92. アラン・チューリング（計算機科学の父 / チューリングテスト考案者）（故人・1954年没）
+　93. ジョン・フォン・ノイマン（ノイマン型コンピュータ考案者 / 技術的特異点に言及）（故人・1957年没）
+　94. クロード・シャノン（情報理論の父）（故人・2001年没）
+　95. ジョン・マッカーシー（「人工知能」命名者 / LISP開発者）（故人・2011年没）
+　96. マービン・ミンスキー（MIT AI研究所 共同創業者）（故人・2016年没）
+　97. I. J. グッド（統計学者 / 「知能爆発」概念の提唱者）（故人・2009年没）
+　98. ハンス・モラベック（ロボット工学者 / モラベックのパラドックス提唱者）
+　99. ヴァーナー・ヴィンジ（数学者・SF作家 / 「シンギュラリティ」概念の普及者）（故人・2024年没）
+　100. スティーブン・ホーキング（理論物理学者 / AIリスクへの警鐘）（故人・2018年没）
+　101. レイ・カーツワイル（発明家・未来学者 / 『シンギュラリティは近い』著者）
+
+13. 日本のキーパーソン
+　102. 孫正義（ソフトバンクグループ 代表取締役 会長兼社長執行役員）
+　103. 松尾豊（東京大学大学院教授 / 日本ディープラーニング協会 理事長）
+　104. 安野貴博（AIエンジニア / チームみらい 党首 / 参議院議員）
+　105. 落合陽一（メディアアーティスト / 筑波大学 教授 / デジタルネイチャー開発研究センター長 / 東京大学 准教授）
+　106. 甘利俊一（理化学研究所 栄誉研究員 / 情報幾何学の創始者 / 神経回路網理論の先駆者）
+　107. 岡野原大輔（Preferred Networks 代表取締役社長 / 共同創業者）
+　108. 松田卓也（神戸大学名誉教授 / 宇宙物理学者 / シンギュラリティサロン主宰）
+　109. 山川宏（全脳アーキテクチャ・イニシアティブ（WBAI）代表 / AIアライメントネットワーク（ALIGN）理事）
+　110. 高橋恒一（理化学研究所 チームリーダー / AIアライメントネットワーク（ALIGN）代表理事）
+　111. 正田備也（立教大学大学院 人工知能科学研究科 教授 / 機械学習研究者）
+　112. 林祐輔（人工生命国際研究機構 研究員 / AIアライメントネットワーク（ALIGN）理事）
+　113. 有路翔太（bioshok）（AGI Hub 共同代表 / 『知能爆発』関連の著者 ※著書との関係は要確認）
+　114. 林央（AGI Hub 共同創業者 / 主任研究員（Chief Alignment Officer） / MIRI アウトリーチ日本責任者）`;
+
+const container = document.getElementById('listContainer');
+const blocks = rawText.trim().split(/\n\s*\n/);
+
+blocks.forEach((block, idx) => {
+  const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+  const title = lines[0];
+  const section = document.createElement('section');
+  section.className = 'category';
+  section.id = `cat-${idx + 1}`;
+
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+  section.appendChild(h2);
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i];
+    const match = line.match(/^(\d+)\.\s*(.+)$/);
+    if (!match) continue;
+    const num = match[1];
+    let rest = match[2];
+
+    let deceasedBadge = '';
+    const decMatch = rest.match(/（故人・[^）]+）$/);
+    if (decMatch) {
+      deceasedBadge = decMatch[0].replace(/[（）]/g, '');
+      rest = rest.replace(/（故人・[^）]+）$/, '');
+    }
+
+    const firstParenIdx = rest.indexOf('（');
+    let name = rest;
+    let desc = '';
+    if (firstParenIdx !== -1) {
+      // Handle cases like グウェルン（Gwern Branwen）（独立研究者...）
+      const secondParenIdx = rest.indexOf('）（');
+      if (secondParenIdx !== -1) {
+        name = rest.slice(0, secondParenIdx + 1);
+        desc = rest.slice(secondParenIdx + 2, -1);
+      } else {
+        name = rest.slice(0, firstParenIdx);
+        desc = rest.slice(firstParenIdx + 1, -1);
+      }
+    }
+
+    let noteText = '';
+    const noteMatch = desc.match(/※[^）]+/);
+    if (noteMatch) {
+      noteText = noteMatch[0];
+      desc = desc.replace(noteText, '').trim();
+    }
+
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.dataset.search = `${num} ${name} ${desc} ${deceasedBadge} ${noteText} ${title}`.toLowerCase();
+
+    card.innerHTML = `
+      <div class="num">${num}</div>
+      <div class="info">
+        <div class="name">${name}${deceasedBadge ? `<span class="deceased">${deceasedBadge}</span>` : ''}</div>
+        <div class="desc">${desc}</div>
+        ${noteText ? `<div class="note">${noteText}</div>` : ''}
+      </div>
+    `;
+    grid.appendChild(card);
+  }
+
+  section.appendChild(grid);
+  container.appendChild(section);
+});
+
+const searchInput = document.getElementById('searchInput');
+const countDisplay = document.getElementById('countDisplay');
+const allCards = Array.from(document.querySelectorAll('.card'));
+const allSections = Array.from(document.querySelectorAll('section.category'));
+
+searchInput.addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  let visibleCount = 0;
+
+  allCards.forEach(card => {
+    const match = !q || card.dataset.search.includes(q);
+    card.classList.toggle('hidden', !match);
+    if (match) visibleCount++;
+  });
+
+  allSections.forEach(sec => {
+    const hasVisible = sec.querySelectorAll('.card:not(.hidden)').length > 0;
+    sec.classList.toggle('hidden', !hasVisible);
+  });
+
+  countDisplay.textContent = `表示中: ${visibleCount} / ${allCards.length}人`;
+});
+</script>
+</body>
+</html>
