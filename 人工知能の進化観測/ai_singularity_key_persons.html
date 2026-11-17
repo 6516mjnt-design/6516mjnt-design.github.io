@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI・シンギュラリティのキーパーソン114人</title>
+<title>AI・シンギュラリティのキーパーソン</title>
 <style>
   :root {
     --bg-color: #f8fafc;
@@ -156,11 +156,27 @@
     flex: 1;
     min-width: 0;
   }
+  .name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.25rem;
+  }
   .name {
     font-weight: 700;
     font-size: 1.02rem;
     color: var(--primary);
-    margin-bottom: 0.25rem;
+  }
+  .nat-badge {
+    display: inline-block;
+    font-size: 0.74rem;
+    background: #eef2ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+    padding: 0.08rem 0.45rem;
+    border-radius: 4px;
+    font-weight: 600;
   }
   .desc {
     font-size: 0.86rem;
@@ -169,12 +185,11 @@
   }
   .deceased {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     background: #f1f5f9;
     color: #475569;
-    padding: 0.1rem 0.45rem;
+    padding: 0.08rem 0.45rem;
     border-radius: 4px;
-    margin-left: 0.35rem;
     font-weight: 500;
   }
   .note {
@@ -200,12 +215,12 @@
 <div class="container">
   <header>
     <h1>AI・シンギュラリティのキーパーソン114人</h1>
-    <p class="meta">作成日：2026年11月17日</p>
+    <p class="meta">作成日：2026年11月17日（国籍追記版）</p>
   </header>
 
   <div class="controls">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="名前、所属、キーワードで検索（例：OpenAI, ノーベル賞, 教授...）">
+      <input type="text" id="searchInput" placeholder="名前、国籍、所属、キーワードで検索（例：アメリカ, イギリス, 日本, OpenAI...）">
     </div>
     <div class="count-badge" id="countDisplay">表示中: 114 / 114人</div>
   </div>
@@ -230,6 +245,123 @@
 </div>
 
 <script>
+const nationalities = {
+  1: "アメリカ",
+  2: "アメリカ（イタリア二重国籍）",
+  3: "イギリス",
+  4: "アメリカ（南アフリカ出身・カナダ国籍保有）",
+  5: "アメリカ",
+  6: "カナダ / イスラエル（ロシア出身）",
+  7: "アメリカ（アルバニア出身）",
+  8: "イギリス / アメリカ",
+  9: "中国",
+  10: "アメリカ",
+  11: "アメリカ",
+  12: "ポーランド",
+  13: "アメリカ",
+  14: "アメリカ",
+  15: "カナダ（スロバキア出身）",
+  16: "アメリカ（イタリア二重国籍）",
+  17: "イギリス",
+  18: "ニュージーランド",
+  19: "アメリカ",
+  20: "アメリカ（台湾出身）",
+  21: "アメリカ（台湾出身）",
+  22: "アメリカ（マレーシア出身）",
+  23: "台湾 / アメリカ（中国出身）",
+  24: "アメリカ（インド出身）",
+  25: "アメリカ（インド出身）",
+  26: "アメリカ",
+  27: "アメリカ（ドイツ出身・ニュージーランド国籍保有）",
+  28: "イギリス / カナダ",
+  29: "カナダ（フランス出身）",
+  30: "フランス / アメリカ",
+  31: "アメリカ（中国出身）",
+  32: "アメリカ / イギリス（香港育ち）",
+  33: "カナダ（ウクライナ出身）",
+  34: "アメリカ",
+  35: "カナダ / アメリカ",
+  36: "イギリス",
+  37: "スペイン",
+  38: "アメリカ",
+  39: "オーストラリア / アメリカ",
+  40: "アメリカ",
+  41: "ドイツ",
+  42: "カナダ",
+  43: "イギリス",
+  44: "アメリカ",
+  45: "アメリカ",
+  46: "イギリス",
+  47: "イギリス（アイルランド育ち）",
+  48: "アメリカ",
+  49: "アメリカ",
+  50: "スウェーデン",
+  51: "イギリス / アメリカ",
+  52: "スウェーデン / アメリカ",
+  53: "アメリカ（ウクライナ出身）",
+  54: "オーストラリア",
+  55: "オーストラリア",
+  56: "イギリス",
+  57: "アメリカ",
+  58: "エストニア",
+  59: "アメリカ",
+  60: "アメリカ",
+  61: "アメリカ",
+  62: "アメリカ",
+  63: "アメリカ",
+  64: "ドイツ",
+  65: "イギリス / アメリカ",
+  66: "アメリカ",
+  67: "イギリス",
+  68: "スペイン",
+  69: "アメリカ / イギリス",
+  70: "トルコ",
+  71: "トルコ",
+  72: "オーストラリア",
+  73: "アメリカ（南アフリカ出身）",
+  74: "アメリカ",
+  75: "アメリカ",
+  76: "台湾",
+  77: "カナダ",
+  78: "アメリカ",
+  79: "カナダ（ロシア出身）",
+  80: "イスラエル",
+  81: "アメリカ（インド出身）",
+  82: "アメリカ",
+  83: "アメリカ",
+  84: "アメリカ（エチオピア出身）",
+  85: "アメリカ（インド出身）",
+  86: "アメリカ",
+  87: "トルコ / アメリカ",
+  88: "オーストラリア",
+  89: "アメリカ",
+  90: "イギリス",
+  91: "アメリカ",
+  92: "イギリス",
+  93: "アメリカ（ハンガリー出身）",
+  94: "アメリカ",
+  95: "アメリカ",
+  96: "アメリカ",
+  97: "イギリス",
+  98: "オーストリア / カナダ / アメリカ",
+  99: "アメリカ",
+  100: "イギリス",
+  101: "アメリカ",
+  102: "日本",
+  103: "日本",
+  104: "日本",
+  105: "日本",
+  106: "日本",
+  107: "日本",
+  108: "日本",
+  109: "日本",
+  110: "日本",
+  111: "日本",
+  112: "日本",
+  113: "日本",
+  114: "日本"
+};
+
 const rawText = `1. AI最前線の企業トップ・レースの主役たち
 　1. サム・アルトマン（OpenAI CEO）
 　2. ダリオ・アモデイ（Anthropic CEO）
@@ -367,7 +499,7 @@ const rawText = `1. AI最前線の企業トップ・レースの主役たち
 　110. 高橋恒一（理化学研究所 チームリーダー / AIアライメントネットワーク（ALIGN）代表理事）
 　111. 正田備也（立教大学大学院 人工知能科学研究科 教授 / 機械学習研究者）
 　112. 林祐輔（人工生命国際研究機構 研究員 / AIアライメントネットワーク（ALIGN）理事）
-　113. 有路翔太（bioshok）（AGI Hub 共同代表 / 『知能爆発』関連の著者 ※著書との関係は要確認）
+　113. 有路翔太（bioshok）（AGI Hub 共同代表 / 『知能爆発』の著者）
 　114. 林央（AGI Hub 共同創業者 / 主任研究員（Chief Alignment Officer） / MIRI アウトリーチ日本責任者）`;
 
 const container = document.getElementById('listContainer');
@@ -405,7 +537,6 @@ blocks.forEach((block, idx) => {
     let name = rest;
     let desc = '';
     if (firstParenIdx !== -1) {
-      // Handle cases like グウェルン（Gwern Branwen）（独立研究者...）
       const secondParenIdx = rest.indexOf('）（');
       if (secondParenIdx !== -1) {
         name = rest.slice(0, secondParenIdx + 1);
@@ -423,14 +554,20 @@ blocks.forEach((block, idx) => {
       desc = desc.replace(noteText, '').trim();
     }
 
+    const nat = nationalities[Number(num)] || "";
+
     const card = document.createElement('article');
     card.className = 'card';
-    card.dataset.search = `${num} ${name} ${desc} ${deceasedBadge} ${noteText} ${title}`.toLowerCase();
+    card.dataset.search = `${num} ${name} ${nat} ${desc} ${deceasedBadge} ${noteText} ${title}`.toLowerCase();
 
     card.innerHTML = `
       <div class="num">${num}</div>
       <div class="info">
-        <div class="name">${name}${deceasedBadge ? `<span class="deceased">${deceasedBadge}</span>` : ''}</div>
+        <div class="name-row">
+          <span class="name">${name}</span>
+          ${nat ? `<span class="nat-badge">${nat}</span>` : ''}
+          ${deceasedBadge ? `<span class="deceased">${deceasedBadge}</span>` : ''}
+        </div>
         <div class="desc">${desc}</div>
         ${noteText ? `<div class="note">${noteText}</div>` : ''}
       </div>
