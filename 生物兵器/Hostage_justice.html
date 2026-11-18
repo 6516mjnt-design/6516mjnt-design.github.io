@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人質司法冤罪事件（プレサンスと大川原化工機）にみる日本の検察・裁判所による「司法の暴走」の構造分析</title>
+<style>
+  :root {
+    --text: #222;
+    --sub: #666;
+    --border: #ddd;
+    --header-bg: #f5f5f5;
+    --accent: #444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    color: var(--text);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.8;
+  }
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 12px;
+  }
+  .updated {
+    color: var(--sub);
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-left: 10px;
+    border-left: 5px solid var(--accent);
+  }
+  h3 {
+    font-size: 1.05em;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+    border-left: 3px solid var(--sub);
+    color: var(--text);
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  .lead-box {
+    background: #fafafa;
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+  }
+  .lead-box .lead-title {
+    font-weight: 600;
+    font-size: 1.05em;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .lead-box ul, .lead-box ol {
+    margin: 12px 0;
+    padding-left: 1.4em;
+  }
+  .lead-box li {
+    margin-bottom: 6px;
+  }
+  .note {
+    font-size: 0.85em;
+    color: var(--sub);
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  .movie-note {
+    font-size: 0.9em;
+    color: #333;
+    background: var(--header-bg);
+    padding: 12px 16px;
+    border-left: 4px solid var(--sub);
+    margin-bottom: 32px;
+  }
+  .toc {
+    border: 1px solid var(--border);
+    padding: 18px 24px;
+    margin-bottom: 40px;
+  }
+  .toc-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .toc li {
+    margin-bottom: 6px;
+  }
+  .toc a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--sub);
+  }
+  .toc a:hover {
+    color: var(--sub);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92em;
+    margin-bottom: 24px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--header-bg);
+    font-weight: 600;
+  }
+  td.date {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  td.category {
+    white-space: nowrap;
+    font-weight: 600;
+    background: #fafafa;
+  }
+  table.timeline-table tr:nth-child(even) td {
+    background: #fafafa;
+  }
+  .item {
+    margin-bottom: 22px;
+  }
+  .item .meta {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .item .desc {
+    color: #333;
+    margin: 0;
+  }
+  .chain-box {
+    background: #fafafa;
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    margin-top: 28px;
+  }
+  .chain-box .chain-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .chain-box ol {
+    padding-left: 1.4em;
+    margin: 0 0 12px 0;
+  }
+  .chain-box li {
+    margin-bottom: 8px;
+  }
+  .chain-box p {
+    margin-bottom: 0;
+    font-weight: 600;
+  }
+  .summary-list {
+    background: var(--header-bg);
+    padding: 16px 24px;
+    border-left: 4px solid var(--accent);
+    margin-top: 20px;
+  }
+  .summary-list ul {
+    margin: 0 0 10px 0;
+    padding-left: 1.4em;
+  }
+  .summary-list li {
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .summary-list p {
+    margin: 0;
+  }
+  footer {
+    margin-top: 60px;
+    color: var(--sub);
+    font-size: 0.8em;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 16px; border: 1px solid var(--border); padding: 10px; }
+    td { border: none; padding: 4px 0; }
+    td.category { background: transparent; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 6px; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.75em;
+      color: var(--sub);
+      margin-bottom: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>人質司法冤罪事件（プレサンスと大川原化工機）にみる日本の検察・裁判所による「司法の暴走」の構造分析</h1>
+<p class="updated">作成日：2026年11月17日</p>
+
+<div class="lead-box">
+  <p class="lead-title">【なぜ日本の刑事司法は「暴走」を止められないのか】</p>
+  <p>プレサンスコーポレーション元社長・山岸忍氏に対する業務上横領容疑の冤罪事件（248日間の長期勾留）や、大川原化工機事件（332日間の長期勾留と元顧問の勾留中発病・死去）は、無実の人間をストーリーありきで犯人に仕立て上げる検察・警察の暴走と、それを止めるべき裁判所が検察の言いなりとなって令状を発付し続ける「構造的な司法の暴走」が引き起こした人権侵害である。両事件を通じて、以下を解明する。</p>
+  <ol>
+    <li>検察・公安による証拠の捏造・隠蔽と自白強要のメカニズム</li>
+    <li>憲法上の「無罪推定の原則」や一般社会の常識を踏みにじり、検察請求を追認する裁判所の自動承認システム</li>
+    <li>冤罪判明後も司法が身内の過ちを免責し続ける無責任体制</li>
+  </ol>
+  <p>また、検察官への付審判裁判※や裁判官37人を相手取った国家賠償請求訴訟など、司法の聖域への闘争を報告する。</p>
+  <p class="note">※付審判制度（ふしんぱんせいど）：告訴や告発をした人が検察官の不起訴処分に不服がある場合、裁判所に対して強制的に刑事裁判（審判）を開くよう求める制度</p>
+</div>
+
+<p class="movie-note">（映画『負けへんで』の元ネタ（実話・原作）は、大阪の不動産会社「プレサンスコーポレーション」の創業者で元社長である山岸忍氏が自らの経験を綴ったノンフィクション手記）</p>
+
+<nav class="toc" aria-label="目次">
+  <div class="toc-title">目次</div>
+  <ul>
+    <li><a href="#sec1">１．プレサンスコーポレーション冤罪事件：無実の経営者を抹殺した248日間</a></li>
+    <li><a href="#sec2">２．プレサンスコーポレーションと大川原化工機冤罪事件の比較：特捜と公安「暴走の構図」</a></li>
+    <li><a href="#sec3">３．なぜ裁判所は暴走するのか：世間の常識から逸脱した3つの構造的病理</a></li>
+    <li><a href="#sec4">４．司法の聖域に立ち向かう闘争（プレサンスと大川原化工機）と抜本的改革への展望</a></li>
+  </ul>
+</nav>
+
+<h2 id="sec1">１．プレサンスコーポレーション冤罪事件：無実の経営者を抹殺した248日間</h2>
+
+<p>プレサンスコーポレーション冤罪・人質司法事件は、2019年に同社の創業者で当時社長であった山岸忍氏が、学校法人「明浄学院」の土地取引をめぐる業務上横領の共犯容疑で大阪地検特捜部に逮捕・起訴され、248日間（約8カ月）もの間、外界と遮断された拘置所に閉じ込められた末に完全無罪となった事件である。</p>
+
+<p>発端は明浄学院の元理事長らによる約21億円の着服事件であった。特捜部は先に逮捕したプレサンス社の部下に対し、密室で机を叩き怒鳴り散らす等の威圧的な取り調べを行い、「社長に事前に報告・相談した」という虚偽の供述調書を無理やり作成させた。山岸氏には横領の動機も利益も一切なく、共謀を示す客観証拠も皆無であったが、特捜部は「会社のトップが知らないはずがない」というストーリーで逮捕・起訴を強行した。</p>
+
+<p>さらなる問題は、裁判所が特捜部の暴走に完全に同調したこと。山岸氏は無実を訴えて一貫して否認したが、裁判所は「否認しているから関係者と口裏を合わせるおそれがある」という検察の主張を検証せず採用し、保釈請求を何度も却下し続けた。その結果、山岸氏は上場企業の創業社長の座を追われ、築き上げた社会的信用と経営権を奪われた。後に公判で取り調べの録音・録画映像が再生され、他の証拠とともに検事の違法な供述誘導が白日の下に晒され、完全無罪が確定した。</p>
+
+<h3>1.1 事件と責任追及の主要タイムライン</h3>
+
+<table class="timeline-table">
+  <thead>
+    <tr>
+      <th>時期</th>
+      <th>主な出来事・司法の暴走と責任追及の動き</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="date" data-label="時期">2019年12月16日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">大阪地検特捜部が山岸忍氏を業務上横領容疑で逮捕。代表取締役社長辞任に追い込む。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2019年12月25日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">客観証拠がないまま業務上横領罪で起訴。一貫して無実を主張するも、裁判所は保釈請求を繰り返し却下。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2020年8月19日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">逮捕から248日目にして保釈が認められる（家族や社員との接触も厳しく制限）。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2021年10月28日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">大阪地裁が山岸氏に完全無罪判決（求刑・懲役3年）。検察が控訴を断念し、同年11月に無罪確定。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2022年3月</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">違法な捜査・起訴および不当な長期勾留があったとして、山岸忍氏側が、国に約7億7000万円の損害賠償を求め提訴（国賠訴訟）。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2024年8月8日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">大阪高裁が、部下を威圧して虚偽供述を引き出した田渕大輔検事を特別公務員暴行陵虐罪で刑事裁判にかける「付審判決定」を下す（検察官に対して史上初）。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2025年3月21日</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">国賠訴訟の一審（大阪地裁）は、検察の違法捜査がありながら「起訴当時の検察官の判断は違法とまで言えない」として国の賠償責任を否定（山岸氏側が控訴）。</td>
+    </tr>
+    <tr>
+      <td class="date" data-label="時期">2026年7月〜現在</td>
+      <td data-label="主な出来事・司法の暴走と責任追及の動き">「付審判決定」を受けた田渕検事の刑事裁判（大阪地裁・7月10日初公判）が進行中。国賠訴訟の控訴審（大阪高裁）は同年9月に結審し、2027年1月27日に中間判決予定。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="sec2">２．プレサンスコーポレーションと大川原化工機冤罪事件の比較：特捜と公安「暴走の構図」</h2>
+
+<p>プレサンス事件と並び、日本の刑事司法の闇を象徴するのが「大川原化工機事件」（警視庁公安部・東京地検・2020年逮捕）である。両事件は捜査機関も罪名も異なるが、無実の企業経営者・技術者を標的にし、捜査機関と裁判所が一体となって長期勾留（人質司法）を強行した点において、同一の構図を持っている。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>比較項目</th>
+      <th>プレサンスコーポレーション事件</th>
+      <th>大川原化工機事件</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="category" data-label="比較項目">捜査機関</td>
+      <td data-label="プレサンスコーポレーション事件">大阪地検特捜部</td>
+      <td data-label="大川原化工機事件">警視庁公安部・東京地検公安部</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">容疑内容</td>
+      <td data-label="プレサンスコーポレーション事件">業務上横領（学校法人の土地取引をめぐる共謀）</td>
+      <td data-label="大川原化工機事件">外為法違反（噴霧乾燥機の無許可輸出）</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">勾留期間と被害</td>
+      <td data-label="プレサンスコーポレーション事件">248日間（山岸忍元社長）→ 上場企業社長の辞任・社会的信用の喪失</td>
+      <td data-label="大川原化工機事件">332日間（大川原正明社長・島田順司元取締役）<br>※元顧問・相嶋静夫氏（約300日勾留）は末期胃がんでも保釈されず入院先で死去</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">捜査の暴走の実態</td>
+      <td data-label="プレサンスコーポレーション事件">客観証拠ゼロのまま、部下への威圧的取り調べで虚偽の供述調書を捏造・誘導</td>
+      <td data-label="大川原化工機事件">無罪を示す自社検証実験の報告書を隠蔽し、規制要件を満たす不自然な実験データを捏造</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">冤罪判明の決定打</td>
+      <td data-label="プレサンスコーポレーション事件">取り調べの録音・録画映像の再生による違法誘導の露呈</td>
+      <td data-label="大川原化工機事件">弁護側の追及と内部証言による実験データ隠蔽・捏造の発覚</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">刑事裁判の結末</td>
+      <td data-label="プレサンスコーポレーション事件">2021年10月 完全無罪判決（検察が控訴断念し確定）</td>
+      <td data-label="大川原化工機事件">2021年7月 初公判直前に検察が起訴を取り消し（公訴取消しによる異例の敗北）</td>
+    </tr>
+    <tr>
+      <td class="category" data-label="比較項目">責任追及の最新動向</td>
+      <td data-label="プレサンスコーポレーション事件">国賠一審は不当判決（控訴審係争中）。田渕検事に対する史上初の付審判裁判が進行中</td>
+      <td data-label="大川原化工機事件">国賠訴訟は捜査の違法性を認め勝訴確定。<br>次に現在、勾留・保釈却下に関与した裁判官37人の法的責任を問う新たな国賠訴訟が東京地裁で進行中</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>2.1 捜査機関の暴走：「ストーリーありき」の証拠捏造と自白強要</h3>
+
+<div class="item">
+  <p class="meta">■ 見立て優先の「結論ありき」捜査</p>
+  <p class="desc">両事件とも、客観的な事実から犯罪を立証するのではなく、捜査機関が最初に描いた「悪質な組織犯罪」というストーリーに事実を無理やり当てはめる暴走が行われた。プレサンス事件では「社長が知らなかったはずがない」、大川原化工機事件では「生物兵器転用可能な機械を輸出する悪質な企業だ」という独断的ストーリーが先行し、その見立てに沿わない事実や証拠はすべて無視・排除された。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 証拠の隠蔽・捏造という犯罪的手法</p>
+  <p class="desc">プレサンス事件では、検事が密室で部下を怒鳴りつけて記憶にない供述を調書化し、大川原化工機事件では、警視庁公安部が自ら行った実験で「輸出規制の要件を満たさない（＝無罪）」という結果が出たにもかかわらず、その報告書を組織的に隠蔽した。法を執行すべき捜査機関自らが、無実の人間を陥れるために証拠を捏造・隠蔽するという違法行為に手を染めていた。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 長期勾留を武器にした「人質司法」の意図的運用</p>
+  <p class="desc">大川原化工機事件の国賠訴訟の証人尋問では、警視庁公安部の捜査員自身が「人質司法」という言葉を使って長期勾留の意図を認める衝撃的な証言を行った。容疑を認めない限り何百日でも拘置所に閉じ込め、精神的・肉体的限界に追い込んで屈服させる手法は、近代法治国家における拷問の代替手段にほかならない。</p>
+</div>
+
+<h2 id="sec3">３．なぜ裁判所は暴走するのか：世間の常識から逸脱した3つの構造的病理</h2>
+
+<p>日本の刑事司法において最も深刻であり、かつ国民の感覚から最もかけ離れているのは、「人権の最後の砦」であるはずの裁判所が、捜査機関の暴走を止めるどころか、その共犯者として機能している点である。一般社会の常識や憲法上の「無罪推定の原則」を踏みにじる裁判所の運用実態を3つの病理に整理した。</p>
+
+<div class="item">
+  <p class="meta">■ 【病理①】 令状審査の「自動承認機関（ラバースタンプ）化」と人間性の喪失</p>
+  <p class="desc">日本の裁判所（令状担当裁判官）は、検察官による勾留請求や勾留延長請求を99%前後という高確率で認めている（異常）。本来、身体拘束は「逃亡や具体的な証拠隠滅の現実的危険性」がある場合に限られる例外措置であるにもかかわらず、「容疑を否認している＝関係者と口裏を合わせる可能性がある」という抽象的な一言だけで、具体的な証拠の精査もせず機械的に勾留を認め続けている。社会常識に照らせば明白に不当な約8カ月〜11カ月の身柄拘束や、大川原化工機事件で末期胃がんの診断が出ていた相嶋静夫氏（当時72歳）の保釈請求を何度も却下し、治療の機会を奪い死に至らしめた判断は、人間の生命や尊厳よりも前例踏襲と検察への配慮を優先する裁判所の硬直性である。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 【病理②】 捜査段階の「追認」と公判段階の「厳格さ」という無責任な二重基準</p>
+  <p class="desc">令状段階では検察の言いなりで長期勾留を許し続ける一方で、いざ公判が始まり弁護側の努力で捜査の矛盾や違法性が暴かれると、裁判所は一転して完全無罪を言い渡す（あるいは検察が公訴を取り消す）。しかし、無罪判決が出たときにはすでに何百日もの時間が奪われ、会社の経営権や社会的地位、さらには人の命まで失われる。「とりあえず勾留して、無罪なら後で釈放すればよい」という裁判所の無責任で甘い二重基準は、人権侵害を構造的に生み出し続けている。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 【病理③】 事後検証における「司法の自己免責」と無謬性神話の温存</p>
+  <p class="desc">無罪確定後、被害者が国に賠償を求める国家賠償請求訴訟においても、裁判所は身内である司法・検察組織の法的責任を極力認めない厚い壁を築いている。プレサンス事件の国賠一審（大阪地裁・2025年3月）では、検事が違法な取り調べで虚偽供述を誘導した事実を認めながら、「起訴当時の検察官の判断に職務上の注意義務違反があったとまでは言えない」という一般市民には理解不能な論理で国の賠償責任を否定した。さらに重大なのは、これまで不当な勾留状を出し続け保釈を却下した「裁判官の判断の違法性」がほぼ一切認められてこなかったこと。「裁判官の独立」や「裁量の広さ」を盾に自らの過ちを免責する構造が、「誤った勾留を出しても裁判官は一切責任を問われない」という究極の無責任体制を温存してきた。</p>
+</div>
+
+<div class="chain-box">
+  <div class="chain-title">【司法の暴走を支える「無責任の連鎖」】</div>
+  <ol>
+    <li><strong>警察・検察：</strong>ストーリーありきで立件し、証拠の隠蔽や威圧的取り調べで調書を作る（責任を問われない前提）。</li>
+    <li><strong>令状担当裁判官：</strong>検察の請求を精査せず99%承認し、否認を理由に長期勾留・保釈却下を続ける（誤っても責任を問われない）。</li>
+    <li><strong>国賠担当裁判官：</strong>無罪確定後も「当時の検察・裁判官の判断に違法性はない」と事後的に免責する。</li>
+  </ol>
+  <p>この3段階の「無責任の連鎖」こそが、世間の常識から完全に逸脱した司法の暴走を許し続けている最大の原因である。</p>
+</div>
+
+<h2 id="sec4">４．司法の聖域に立ち向かう闘争（プレサンスと大川原化工機）と抜本的改革への展望</h2>
+
+<p>「聖域」として守られてきた検察官個人や裁判官の法的責任に対し、プレサンス事件と大川原化工機事件の被害者・遺族らは真正面から挑み、日本の司法史を塗り替える画期的な取り組みに挑戦している。</p>
+
+<div class="item">
+  <p class="meta">■ 史上初の「検察官に対する付審判裁判」（プレサンス事件）</p>
+  <p class="desc">検察組織が身内である検事を不起訴処分としたのに対し、大阪高裁は特別公務員暴行陵虐罪での「付審判決定」を下し、2026年7月より田渕大輔検事に対する刑事裁判が大阪地裁で進行している。検察官本人が刑事被告人として法廷に立たされる前例が確立されたことで、密室での違法な取り調べに対する抑止力となる。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 裁判官37人の法的責任を問う新たな国賠訴訟（大川原化工機事件）</p>
+  <p class="desc">大川原化工機事件では、捜査機関（警視庁・東京地検）の違法性を認めた国賠訴訟の勝訴確定にとどまらず、2026年に入り、勾留中に保釈が認められず死去した相嶋静夫氏の遺族らが、逮捕状・勾留状の発付や保釈却下の判断を下した計37人の裁判官の判断はすべて違法であるとして、国に損害賠償を求める新たな訴訟を東京地裁に提起し審理が進められている。「人質司法の扉を開いたのは、検察の言いなりで令状を出し続けた裁判所そのものである」として、司法の自己免責構造に風穴を開ける歴史的訴訟である。</p>
+</div>
+
+<div class="item">
+  <p class="meta">■ 制度の抜本的改革に向けて不可欠な視点</p>
+  <p class="desc">取り調べの全過程の録音・録画（可視化）の全面義務化や、捜査機関による証拠開示の徹底はもとより、最も急務なのは裁判所の令状審査・保釈判断の抜本的な意識改革と制度見直しである。「否認＝罪証隠滅のおそれ」という憲法違反の運用を即刻廃止し、具体的な証拠隠滅の立証責任を検察に厳格に課すとともに、不当な長期勾留を許した裁判官・検察官個人の責任が明確に問われる仕組みを構築しない限り、第2、第3のプレサンス事件・大川原化工機事件は必ず繰り返される。過去にも無数の冤罪事件を放置してきた裁判所をはじめとする司法の責任は限りなく重い。</p>
+</div>
+
+<div class="summary-list">
+  <ul>
+    <li>田渕検事に対する付審判裁判、プレサンス事件国賠訴訟控訴審（2027年1月中間判決予定）</li>
+    <li>大川原化工機事件における裁判官37人を相手取った国賠訴訟</li>
+  </ul>
+  <p>これらは、日本の司法が「権力のための組織」から「国民の人権を守る砦」へと生まれ変わることができるかを問う試金石である。</p>
+</div>
+
+<footer>人質司法冤罪事件（プレサンスと大川原化工機）にみる「司法の暴走」の構造分析</footer>
+
+</body>
+</html>
