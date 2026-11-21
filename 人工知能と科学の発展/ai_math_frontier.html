@@ -214,7 +214,7 @@
         <header>
             <h1>AIが挑む数学</h1>
             <div class="source-info">
-                <div><strong>更新日:</strong> 2026年10月17日</div>
+                <div><strong>更新日:</strong> 2026年11月21日</div>
                 <div><strong>主な出典:</strong> Epoch AI、Quanta Magazine、Scientific American、Terence Tao氏の投稿、各社発表への報道ほか（末尾に一覧）</div>
             </div>
         </header>
@@ -549,6 +549,27 @@
                 <p>SNSや動画の普及で、数学の美しさや未解決問題の物語に触れる機会が増え、学校の枠を超えて自分で学ぶ若者も少なくありません。「なぜそうなるのか」を納得したいという素朴な動機が、今も変わらず原動力になっています。</p>
             </div>
 
+            <div class="timeline-item active">
+                <div class="meta">2026年11月20日（米国時間）／11月21日（日本時間）</div>
+                <h2>リーマン予想：Anthropic 社員による証明の主張（未検証）</h2>
+                <p>Anthropic の数学者 Levent Alpöge 氏が、Claude との共同作業でリーマン予想の証明を発見したと主張した。自身のウェブサイトに4ページの注記が掲載され、証明は Lean による形式化コードの形で公開された。紙の論文やプレプリントはまだない。同氏は、同じ方法で一般化リーマン予想（GRH）も証明されるとしており、拡張リーマン予想（ERH）への拡張も見込んでいると述べている。</p>
+                <p>報道によると、Alpöge 氏は発表前に Dario Amodei 氏へ相談していた。本人も、発表の時期が同週の Anthropic の新規株式公開（IPO）と重なることから、タイミングを冷ややかに見る向きがあることを認めている。</p>
+                <div class="comparison-box">
+                    <div class="comparison-title">検証と論争の状況 <span class="tag-ai">AI支援による主張</span></div>
+                    <ul class="sources-list">
+                        <li><strong>形式化の規模：</strong> 報道で Lean コードの規模が食い違う（数百万行とする報道と、論文換算で約25万ページとする報道がある）。いずれにせよ、人間が読める形の証明はまだ存在しない。</li>
+                        <li><strong>数学者の反応：</strong> Terence Tao 氏は、内部の AI モデルを用いた「巨大な」Lean のみの証明が GRH について作られたと自身のブログに書いた。Lean 上での検証は、Zulip のスレッドで進められている。Elliot Glazer 氏は、形式化された命題が一般化リーマン予想そのものであることを確認し、Lean 側の不具合の可能性を1%未満と見積もった。Brian Conrey 氏は、AFP に対し「人類史における記念碑的な瞬間」とコメントしたが、同氏自身はまだ証明を独立に検証していない。</li>
+                        <li><strong>Clay 数学研究所：</strong> 公式の一覧では、リーマン予想は依然として未解決とされている。Clay の規則では、査読誌への掲載から少なくとも2年が経ち、数学界で一般的に受け入れられる必要がある。</li>
+                        <li><strong>Anthropic の公式見解：</strong> 報道時点で、公式の声明は確認できていない。</li>
+                    </ul>
+                    <div class="alert-text">
+                        <strong>⚠️ 留意点：</strong> これは「証明の主張」であり、「解決」ではない。Lean のコードが、Clay の問題文どおりのリーマン予想を正しく表現しているかどうかの確認が、最初の関門になる。その後、人間による読解と査読が必要である。
+                    </div>
+                </div>
+                <p><strong>文脈：</strong> 8月10日の発表では、同じ問題の関連結果（臨界線上にあると証明された零点の割合の下限を41.6%から67.2%に引き上げたもの）にとどまり、Anthropic 自身も、その手法で予想全体が証明されるとは見込んでいないと述べていた。今回の主張はそれを大きく超えるが、現時点では未検証である。</p>
+                <p><strong>読み方：</strong> 10月の OpenAI による大量公開と同様に、今回も発表の仕方（検証前の公表、発表の時期、企業の利害）が数学界で議論になっている。判断は、Lean の照合結果、公開される論文、独立した専門家の評価を待つ必要がある。</p>
+            </div>
+
             <div class="timeline-item">
                 <div class="meta">全体像</div>
                 <h2>現時点での見方</h2>
@@ -561,7 +582,7 @@
                 <div class="comparison-box">
                     <div class="comparison-title">未確定のこと</div>
                     <p style="font-size: 0.9rem; margin-bottom: 0;">
-                        OpenAI のナビエ–ストークス方程式の証明や「100問以上」の主張、Astra の Tier 4 の値は、企業の発表の段階で、独立した検証や査読は終わっていない。これまでのErdős問題の「解決」の多くは、長く放置されていた問題や、文献に既出の解だったことも分かっている。
+                        OpenAI のナビエ–ストークス方程式の証明、11月20日の Alpöge 氏によるリーマン予想の証明の主張、「100問以上」の主張、Astra の Tier 4 の値は、企業の発表の段階で、独立した検証や査読は終わっていない。これまでのErdős問題の「解決」の多くは、長く放置されていた問題や、文献に既出の解だったことも分かっている。
                     </p>
                     <div class="alert-text">
                         <strong>⚠️ 出典上の注意：</strong> 本ページの内容は報道、各社の発表、論考に基づく。日付や数値は出典ごとに数日のずれがある場合がある（例：OpenAI のナビエ–ストークス方程式に関する発表は9月8日と9の両方で報じられている）。
@@ -626,6 +647,13 @@
                     <li><a href="https://the-decoder.com/gpt-5-6-sol-reportedly-disproves-a-30-year-old-statistics-conjecture-in-90-minutes-after-humans-couldnt-crack-it/" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol reportedly disproves a 30-year-old statistics conjecture（The Decoder）</a></li>
                     <li><a href="https://news.ycombinator.com/item?id=48863490" target="_blank" rel="noopener noreferrer">GPT-5.6 Sol Ultra produces proof of the Cycle Double Cover Conjecture（Hacker News）</a></li>
                     <li><a href="https://kingy.ai/millennium-prize-problems-ai/" target="_blank" rel="noopener noreferrer">Millennium Prize Problems and AI（Kingy AI）</a> / <a href="https://explainx.ai/blog/millennium-prize-problems-ai-solved-fact-check-2026" target="_blank" rel="noopener noreferrer">The 7 Millennium Prize Problems: What AI Has Actually Solved（explainx.ai）</a></li>
+                    <li><strong>リーマン予想の主張（2026年11月20日）：</strong>
+                        <a href="https://www.scientificamerican.com/article/anthropic-mathematician-claims-to-prove-riemann-hypothesis-most-famous-problem-in-all-of-math/" target="_blank" rel="noopener noreferrer">Anthropic mathematician claims to prove Riemann hypothesis（Scientific American）</a>、
+                        <a href="https://www.france24.com/en/live-news/20261120-anthropic-researcher-says-claude-solved-math-s-greatest-riddle" target="_blank" rel="noopener noreferrer">Anthropic researcher says Claude solved math's greatest riddle（AFP / France 24）</a>、
+                        <a href="https://futurism.com/artificial-intelligence/anthropic-riemann-hypothesis" target="_blank" rel="noopener noreferrer">Anthropic Mathematician Claims He's Solved the Riemann Hypothesis（Futurism）</a>、
+                        <a href="https://kingy.ai/blog/levent-alpoge-claude-riemann-hypothesis-proof/" target="_blank" rel="noopener noreferrer">Levent Alpöge claims a Riemann hypothesis proof with Claude（kingy.ai）</a>、
+                        <a href="https://www.nacionale.com/en/articles/when-will-we-know-riemann-hypothesis-proof-verified-alpoge-claude-lean-what-happens-next" target="_blank" rel="noopener noreferrer">When will we know if the Riemann hypothesis proof is right?（Nacionale）</a>、
+                        <a href="https://www.anthropic.com/research/riemann-zeta" target="_blank" rel="noopener noreferrer">Anthropic 公式研究記事（2026年8月10日）</a></li>
                     <li><strong>日本語の座談会の参考資料：</strong>
                         <a href="https://rits.shanghai.nyu.edu/ai/openai-drops-722-math-manuscripts-from-an-unreleased-model" target="_blank" rel="noopener noreferrer">OpenAI Drops 722 Math Manuscripts From an Unreleased Model（NYU Shanghai RITS）</a>、
                         <a href="https://aiweekly.co/alerts/openai-publishes-722-ai-generated-math-preprints-on-github" target="_blank" rel="noopener noreferrer">OpenAI publishes 722 AI-generated math preprints on GitHub</a>、
