@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIとプレプリントサーバー</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #d97706;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+
+        .summary-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .summary-box h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .summary-box p {
+            margin: 0 0 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .summary-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .category-lead {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: -10px 0 20px 0;
+            font-weight: 500;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .news-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .news-card p {
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .news-card ul, .card-list {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .news-card li, .card-list li {
+            margin-bottom: 8px;
+        }
+
+        .news-card li:last-child, .card-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .news-card li strong, .card-list li strong {
+            color: var(--text-primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            background: var(--card-bg);
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+        }
+
+        td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .notes-section {
+            background-color: var(--card-bg);
+            border: 1px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .notes-section h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .notes-section ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .notes-section li {
+            margin-bottom: 8px;
+        }
+
+        .notes-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .notes-section li strong {
+            color: var(--text-primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            th, td {
+                padding: 8px;
+                font-size: 0.85rem;
+            }
+
+            td:first-child {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>AIとプレプリントサーバー</h1>
+        <div class="header-meta">
+            <span><strong>内容:</strong> プレプリントサーバーの概要・AIとの関係・新たな構造的課題</span>
+            <span><strong>作成日:</strong> 2026-11-21</span>
+        </div>
+    </header>
+
+    <section class="summary-box">
+        <h2>概要</h2>
+        <p>学術誌に投稿・掲載される前の論文草稿（プレプリント）をインターネット上で迅速に公開・共有するためのプラットフォーム。</p>
+        <p>査読を経る前に公開できるため、研究成果の早期共有や先行研究の主張（先取権）の記録に役立つ一方、AIの普及によって品質管理や功績評価をめぐる新たな構造的課題も生まれている。</p>
+    </section>
+
+    <h2 class="category-title">1. 主な特徴・メリット</h2>
+    <div class="news-card">
+        <ul class="card-list">
+            <li><strong>迅速な公開：</strong> 学術誌の査読や出版にかかる数か月〜1年以上の待ち時間を省き、短期間で公開できる。</li>
+            <li><strong>オープンアクセスとDOI付与：</strong> 多くのサーバーで無料で閲覧でき、DOI（デジタルオブジェクト識別子）が付与されるため引用や追跡がしやすい。</li>
+            <li><strong>コミュニティからのフィードバック：</strong> 公開後に他の研究者から意見や指摘を得て、本投稿前の改善につなげられる。</li>
+        </ul>
+    </div>
+
+    <h2 class="category-title">2. 代表的なプレプリントサーバー</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>サーバー名</th>
+                <th>対象分野・特徴</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>arXiv</td>
+                <td>1991年開設。物理学・数学・情報科学などの分野で広く使われている。</td>
+            </tr>
+            <tr>
+                <td>bioRxiv / medRxiv</td>
+                <td>生物学・生命科学（bioRxiv）や医学・健康科学（medRxiv）向けの主要サーバー。</td>
+            </tr>
+            <tr>
+                <td>ChemRxiv</td>
+                <td>化学分野向けのサーバー。</td>
+            </tr>
+            <tr>
+                <td>SSRN / PsyArXiv</td>
+                <td>社会科学（SSRN）や心理学（PsyArXiv）などで利用。</td>
+            </tr>
+            <tr>
+                <td>Jxiv</td>
+                <td>科学技術振興機構（JST）が2022年に運用を開始した、日本発・全分野対応（日本語・英語）のプレプリントサーバー。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="category-title">3. プレプリントサーバーとAI（人工知能）</h2>
+    <p class="category-lead">「AI研究の発展を加速させるインフラ」と「AIによって変わるサーバー運営・研究手法」という双方向の深い関係にある。</p>
+
+    <div class="news-card">
+        <h3>1. AI研究の急速な進化を支える土台としての関係</h3>
+        <ul>
+            <li><strong>最先端研究の即時共有：</strong> AI・機械学習分野は技術革新のスピードが極めて速く、査読に半年〜1年かかる従来の学術誌では公開時点で情報が古くなることがある。そのため、arXiv（特に cs.AI や cs.LG カテゴリ）に論文を公開するのが事実上の標準となっている。</li>
+            <li><strong>事実上の一次情報源：</strong> 世界的なAI学会（NeurIPS、ICML、ICLRなど）の採択論文や、主要企業の最新モデルの技術レポートの多くが、まずプレプリントとして公開される。</li>
+        </ul>
+    </div>
+
+    <div class="news-card">
+        <h3>2. AI技術がプレプリントの活用・運営にもたらしている変化</h3>
+        <ul>
+            <li><strong>文献検索・要約・分析の効率化：</strong> オープンアクセスであるプレプリントは、AIによる学習や検索ツール（Semantic Scholar、Elicit、NotebookLMなど）と相性が良く、膨大な新着論文のスクリーニングや要約に活用される。</li>
+            <li><strong>AI生成論文（ペーパーミル・低品質投稿）への対策：</strong> 生成AIの普及により、短時間で大量に作られた低品質な論文や架空の内容を含む投稿が増加する問題が起きている。これに対し、arXivなどの運営側ではAI検出・スクリーニングの導入や投稿ガイドライン（AI利用の開示義務、著者にAIを含めない規定など）の厳格化が進められている。</li>
+            <li><strong>自動査読・チェック支援：</strong> 言語の校正や形式チェック、統計的誤りの検出などにAIツールが補助的に使われる動きも広がっている。</li>
+        </ul>
+    </div>
+
+    <div class="news-card">
+        <h3>3. 学習データとしての側面（著作権・ライセンス）</h3>
+        <ul>
+            <li>プレプリントはクリエイティブ・コモンズ（CC）などのライセンスで公開されることが多く、LLM（大規模言語モデル）や科学特化型AIの事前学習データとしても重要な役割を果たす。</li>
+        </ul>
+    </div>
+
+    <h2 class="category-title">4. AIが引き起こした新たな難題と「抑止・バランス取り」の現実解</h2>
+    <p class="category-lead">AIを無手勝流で走らせた大量投稿が増えるなか、単なる「規制強化」では解決できない構造的なジレンマが生じている。</p>
+
+    <div class="news-card">
+        <h3>1. なぜ完全な抑止が難しいのか（玉石混交のジレンマ）</h3>
+        <ul>
+            <li><strong>「無手勝流の量産」と「本当の宝」の境界：</strong> 査読前の初期草稿には、検証や記述が稚拙であっても先見性・画期性のあるアイデア（宝）が含まれることがある。荒削りな発想を入口で厳しく弾きすぎると、革新的な着想の芽まで摘み取るリスクがある。</li>
+            <li><strong>人的モデレーションの処理限界：</strong> 多くのサーバーの審査はボランティアや限られたスタッフに支えられており、AIで短時間に量産される草稿の波を一つひとつ精査することには限界がある。</li>
+            <li><strong>対策とすり抜けのいたちごっこ：</strong> 機械的なAI検出ツールには誤検知（偽陽性）のリスクがあるほか、共著者の分散や表現の加工などによる抜け道も生まれやすく、技術的な遮断だけで完全に防ぐことは難しい。</li>
+        </ul>
+    </div>
+
+    <div class="news-card">
+        <h3>2. サーバー側が進める「抑止・バランス取り」の現実解</h3>
+        <p>完全な排除ではなく、<strong>「投稿者の説明責任の明確化」</strong>と<strong>「運営リソースの保護」</strong>を軸とした現実的なルール運用へシフトしている。</p>
+        <ul>
+            <li><strong>投稿頻度・同時審査枠の制限（レート制限）：</strong> AIによる無制限の大量投稿を防ぐため、投稿者あたりの月間新規投稿数や同時に審査中・保留中とできる件数に上限を設け、モデレーション負荷を抑える取り組みが進んでいる。</li>
+            <li><strong>検証怠慢に対するペナルティの厳格化：</strong> AI利用そのものを一律禁止するのではなく、架空の引用（ハルシネーション）やLLMの指示文の消し残りなど、著者としての最低限の確認を怠った投稿に対して不採択や一定期間の投稿停止を科す運用が強まっている。</li>
+            <li><strong>人間とコミュニティによる多段階選別：</strong> 自動ツールだけで合否を決めず、人間のモデレーターの判断や異議申し立ての仕組みを残しつつ、公開後のコード・データ公開状況や追試・引用を通じてコミュニティ全体で価値を見極める方向が重視されている。</li>
+        </ul>
+    </div>
+
+    <div class="news-card">
+        <h3>3. 先取権・功績評価への波及（科学賞の難しさ）</h3>
+        <ul>
+            <li><strong>「着想」と「実証・完成」の分離：</strong> プレプリントで荒削りなアイデアを最初に出す人と、後から厳密な検証や大規模開発でブレイクスルーを成し遂げる人が分かれるケースが増え、誰の功績を最も重視すべきかの線引きが難しくなっている。</li>
+            <li><strong>個人表彰制度とのギャップ：</strong> 巨大チームや企業主導の研究、さらにはAIツール自体が新発見に関与する時代において、「最大3名・個人のみ」を原則とするノーベル賞のような伝統的科学賞の枠組みでは、貢献者の特定がますます困難になっている。</li>
+        </ul>
+    </div>
+
+    <div class="notes-section">
+        <h3>利用・閲覧時の注意点（読者側の目利きの重要性）</h3>
+        <ul>
+            <li><strong>査読未了である点：</strong> 専門家による査読を通過していないため、誤りや未検証の結論が含まれる可能性がある。引用や報道・意思決定に使う際は慎重な確認が必要。</li>
+            <li><strong>玉石混交の中での検証視点：</strong> AIによる大量投稿が増えるなか、著者履歴、コードやデータの公開有無、引用文献の実在性、バージョン更新履歴などを確認し、粗削りな着想と単なるノイズを見極める姿勢が求められる。</li>
+            <li><strong>投稿先の規定確認：</strong> 学術誌によってはプレプリント公開済みの原稿を「既発表」とみなす場合があるため、事前に投稿規定を確認する必要がある。</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AIとプレプリントサーバー</p>
+    </footer>
+</div>
+
+</body>
+</html>
