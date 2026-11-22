@@ -227,7 +227,7 @@
       <p class="disclaimer"></p>
     </header>
 
-    <!-- キーワード検索ボックス（下位HTML本文検索・1か所まとめ版） -->
+    <!-- キーワード検索ボックス（下位HTML・2階層目の孫ページ本文も検索・1か所まとめ版） -->
     <style>
       .search-box-wrap {
         max-width: 520px;
@@ -302,7 +302,7 @@
         <input
           type="search"
           id="keyword-search"
-          placeholder="キーワードで絞り込み（例：プリントサーバー、規制）"
+          placeholder="キーワードで絞り込み（下層・孫ページ本文も検索）"
           aria-label="サイト内キーワード検索"
           autocomplete="off"
         >
@@ -334,14 +334,28 @@
           searchIndex.set(link, baseText);
         });
 
+        function appendIndexText(link, text) {
+          if (!text) return;
+          const currentText = searchIndex.get(link) || '';
+          searchIndex.set(link, `${currentText} ${text}`.toLowerCase());
+        }
+
+        function isRelativeHtmlUrl(urlStr) {
+          if (!urlStr) return false;
+          const clean = urlStr.split('#')[0].split('?')[0];
+          if (!clean || clean.startsWith('mailto:') || clean.startsWith('javascript:') || /^https?:\/\//i.test(clean)) {
+            return false;
+          }
+          return clean.endsWith('.html') || clean.endsWith('.htm');
+        }
+
         let loadedCount = 0;
-        let failedCount = 0;
         let isLoadedAll = location.protocol === 'file:';
 
         function updateStatus(matchedCount, rawQuery) {
           const loadInfo = isLoadedAll
-            ? (failedCount > 0 ? `（一部 ${failedCount}件 取得失敗）` : '')
-            : `（下位ページ読み込み中：${loadedCount}/${subLinks.length}）`;
+            ? ''
+            : `（下層ページ読み込み中：${loadedCount}/${subLinks.length}）`;
 
           if (!rawQuery) {
             statusEl.textContent = loadInfo;
@@ -353,34 +367,59 @@
             : `「${rawQuery}」に一致する項目は見つかりませんでした。${loadInfo}`;
         }
 
-        async function loadSubPagesContent() {
+        async function fetchHtmlDoc(resolvedUrl) {
+          const res = await fetch(resolvedUrl);
+          if (!res.ok) return null;
+          const htmlText = await res.text();
+          return parser.parseFromString(htmlText, 'text/html');
+        }
+
+        async function loadSubAndGrandChildPages() {
           if (location.protocol === 'file:') return;
 
           await Promise.all(
             subLinks.map(async link => {
-              const href = link.getAttribute('href');
+              const rawHref = link.getAttribute('href');
               try {
-                const res = await fetch(encodeURI(href));
-                if (!res.ok) {
-                  failedCount += 1;
-                  console.warn('下位HTMLの取得失敗:', href, res.status);
-                  return;
+                const childUrl = new URL(encodeURI(rawHref), document.baseURI);
+                const childDoc = await fetchHtmlDoc(childUrl.href);
+
+                if (childDoc) {
+                  const childTitle = childDoc.querySelector('title')?.textContent || '';
+                  const childBody = childDoc.body?.textContent || '';
+                  appendIndexText(link, `${childTitle} ${childBody}`);
+
+                  // 1階層目HTML内の相対HTMLリンク（2階層目・孫ページ）を収集して取得
+                  const grandChildUrls = Array.from(childDoc.querySelectorAll('a[href]'))
+                    .map(a => a.getAttribute('href'))
+                    .filter(isRelativeHtmlUrl)
+                    .map(h => new URL(encodeURI(h), childUrl.href).href);
+
+                  const uniqueGrandChildUrls = Array.from(new Set(grandChildUrls));
+
+                  await Promise.all(
+                    uniqueGrandChildUrls.map(async gcUrl => {
+                      try {
+                        const gcDoc = await fetchHtmlDoc(gcUrl);
+                        if (!gcDoc) return;
+                        const gcFileName = decodeURIComponent(new URL(gcUrl).pathname.split('/').pop() || '');
+                        const gcTitle = gcDoc.querySelector('title')?.textContent || '';
+                        const gcBody = gcDoc.body?.textContent || '';
+                        appendIndexText(link, `${gcFileName} ${gcTitle} ${gcBody}`);
+                      } catch (e) {
+                        // 孫ページの個別取得エラーは無視して続行
+                      }
+                    })
+                  );
                 }
-                const htmlText = await res.text();
-                const doc = parser.parseFromString(htmlText, 'text/html');
-                const titleText = doc.querySelector('title')?.textContent || '';
-                const bodyText = doc.body?.textContent || '';
-                const currentText = searchIndex.get(link) || '';
-                searchIndex.set(link, `${currentText} ${titleText} ${bodyText}`.toLowerCase());
               } catch (e) {
-                failedCount += 1;
-                console.warn('下位HTMLの読み込みエラー:', href, e);
+                // 子ページの取得エラーは無視して続行
               } finally {
                 loadedCount += 1;
                 if (input.value.trim()) {
                   filterLinks();
                 } else if (!isLoadedAll) {
-                  statusEl.textContent = `下位ページ読み込み中：${loadedCount}/${subLinks.length}`;
+                  statusEl.textContent = `下層ページ読み込み中：${loadedCount}/${subLinks.length}`;
                 }
               }
             })
@@ -438,7 +477,7 @@
           input.focus();
         });
 
-        loadSubPagesContent();
+        loadSubAndGrandChildPages();
       })();
     </script>
 
