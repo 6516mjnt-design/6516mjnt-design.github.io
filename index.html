@@ -227,6 +227,188 @@
       <p class="disclaimer"></p>
     </header>
 
+    <!-- キーワード検索ボックス（下層HTML本文も検索・1か所まとめ版） -->
+    <style>
+      .search-box-wrap {
+        max-width: 520px;
+        margin: 18px auto 24px;
+        position: relative;
+        pointer-events: auto;
+      }
+
+      .search-input-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(2, 14, 52, 0.85);
+        border: 1px solid rgba(127, 216, 255, 0.5);
+        border-radius: 999px;
+        padding: 6px 14px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      }
+
+      .search-input-group:focus-within {
+        border-color: #7fd8ff;
+        box-shadow: 0 0 0 3px rgba(127, 216, 255, 0.2);
+      }
+
+      #keyword-search {
+        flex: 1;
+        min-width: 0;
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 15px;
+        padding: 6px 4px;
+        outline: none;
+      }
+
+      #keyword-search::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      #clear-search {
+        border: 1px solid rgba(127, 216, 255, 0.35);
+        background: rgba(79, 124, 255, 0.25);
+        color: #fff;
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        cursor: pointer;
+        display: none;
+      }
+
+      #clear-search:hover {
+        background: rgba(79, 124, 255, 0.5);
+      }
+
+      .search-status {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #cfefff;
+        text-align: center;
+        min-height: 1.4em;
+      }
+
+      .is-hidden {
+        display: none !important;
+      }
+    </style>
+
+    <div class="search-box-wrap" role="search">
+      <div class="search-input-group">
+        <span aria-hidden="true">🔍</span>
+        <input
+          type="search"
+          id="keyword-search"
+          placeholder="キーワードで絞り込み（リンク名・本文も検索）"
+          aria-label="サイト内キーワード検索"
+          autocomplete="off"
+        >
+        <button type="button" id="clear-search" aria-label="検索をクリア">クリア</button>
+      </div>
+      <div id="search-status" class="search-status" aria-live="polite"></div>
+    </div>
+
+    <script>
+      (function () {
+        const input = document.getElementById('keyword-search');
+        const clearBtn = document.getElementById('clear-search');
+        const statusEl = document.getElementById('search-status');
+        const cards = Array.from(document.querySelectorAll('.category-card'));
+        const links = Array.from(document.querySelectorAll('.link-list > a'));
+
+        // 各リンクの検索用テキスト（初期値はリンク名・URL・カテゴリ名）
+        const searchIndex = new Map();
+        const parser = new DOMParser();
+
+        links.forEach(link => {
+          const card = link.closest('.category-card');
+          const categoryTitle = card?.querySelector('.category-title')?.textContent || '';
+          const href = link.getAttribute('href') || '';
+          const baseText = `${link.textContent || ''} ${href} ${categoryTitle}`.toLowerCase();
+          searchIndex.set(link, baseText);
+        });
+
+        // 下層HTMLの中身を読み込んでインデックスに追加（同一オリジン・HTTP/HTTPS環境向け）
+        async function loadSubPagesContent() {
+          if (location.protocol === 'file:') return;
+
+          await Promise.all(
+            links.map(async link => {
+              const href = link.getAttribute('href');
+              if (!href || href.startsWith('#') || /^https?:\/\//i.test(href)) return;
+
+              try {
+                const res = await fetch(encodeURI(href));
+                if (!res.ok) return;
+                const htmlText = await res.text();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+                const bodyText = (doc.body?.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+                const currentText = searchIndex.get(link) || '';
+                searchIndex.set(link, `${currentText} ${bodyText}`);
+                if (input.value.trim()) {
+                  filterLinks();
+                }
+              } catch (e) {
+                // 読み込みできないファイルがあっても他の検索は継続
+              }
+            })
+          );
+        }
+
+        function filterLinks() {
+          const rawQuery = input.value.trim();
+          const query = rawQuery.toLowerCase();
+
+          clearBtn.style.display = rawQuery ? 'inline-block' : 'none';
+
+          if (!query) {
+            cards.forEach(card => {
+              card.classList.remove('is-hidden');
+              card.querySelectorAll('.link-list > a').forEach(a => a.classList.remove('is-hidden'));
+            });
+            statusEl.textContent = '';
+            return;
+          }
+
+          let matchedCount = 0;
+
+          cards.forEach(card => {
+            const cardLinks = Array.from(card.querySelectorAll('.link-list > a'));
+            let cardHasMatch = false;
+
+            cardLinks.forEach(link => {
+              const haystack = searchIndex.get(link) || '';
+              const isMatch = haystack.includes(query);
+              link.classList.toggle('is-hidden', !isMatch);
+              if (isMatch) {
+                cardHasMatch = true;
+                matchedCount += 1;
+              }
+            });
+
+            card.classList.toggle('is-hidden', !cardHasMatch);
+          });
+
+          statusEl.textContent = matchedCount > 0
+            ? `「${rawQuery}」の一致件数：${matchedCount}件`
+            : `「${rawQuery}」に一致する項目は見つかりませんでした。`;
+        }
+
+        input.addEventListener('input', filterLinks);
+
+        clearBtn.addEventListener('click', function () {
+          input.value = '';
+          filterLinks();
+          input.focus();
+        });
+
+        loadSubPagesContent();
+      })();
+    </script>
+
+
     <div class="container">
 
       <div class="category-grid">
