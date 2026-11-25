@@ -160,6 +160,30 @@
       box-shadow: 0 0 8px rgba(127, 216, 255, 0.3);
     }
 
+    /* ヘッダー内のお知らせ用小型リンクボタン */
+    .btn-header-link {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.4;
+      background-color: rgba(2, 14, 52, 0.8);
+      color: #7fd8ff !important;
+      border: 1px solid rgba(127, 216, 255, 0.5);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+    }
+
+    .btn-header-link:hover {
+      background-color: rgba(79, 124, 255, 0.45);
+      color: #ffffff !important;
+      border-color: #7fd8ff;
+      box-shadow: 0 0 8px rgba(127, 216, 255, 0.35);
+    }
+
     /* 通常のリンクボタン：白いカード上で見えるよう、薄いサンド系の背景と濃い文字色 */
     .link-list a {
       background-color: #f7f2ea;
@@ -220,8 +244,14 @@
       </div>
       <p class="update-date">知能とは？AIとは？AIと科学？AIと規制？ 最終更新日：2026年11月25日</p>
       <p class="update-date">システムで自動収集した情報を整理した内容を、テーマ別に毎週月曜日に更新する。(週刊レポート)</p>
-      <p class="update-date">数学のリーマン予想問題が解かれたという報告が11月20日（米国時間）にあり、追加しました。</p>
-      <p class="update-date">11月24日にメガスピード社が米国のエンティティリストに追加されるという情報があり、「NVIDIA製品の不正輸出・密輸」の報告に追記した。</p>
+      <p class="update-date">
+        数学のリーマン予想問題が解かれたという報告が11月20日（米国時間）にあり、追加した。
+        <a href="人工知能と科学の発展/ai_math_frontier.html" class="btn-header-link">リンク１</a>
+      </p>
+      <p class="update-date">
+        11月24日にメガスピード社が米国のエンティティリストに追加されるという情報を追記した。
+        <a href="人工知能の規制の枠組み/NVIDIA_illegal_export.html" class="btn-header-link">リンク２</a>
+      </p>
 
       <p class="site-desc"></p>
       <p class="disclaimer"></p>
