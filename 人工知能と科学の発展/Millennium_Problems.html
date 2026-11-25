@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミレニアム懸賞問題の概要とAIによる解答状況</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <style>
+        /* ==========================================================================
+           このページ専用の追加スタイル
+           ========================================================================== */
+
+        .source-info {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .source-info a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .source-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* タイムライン全体のコンテナ */
+        .timeline {
+            position: relative;
+            border-left: 2px solid #cbd5e1;
+            padding-left: 24px;
+            margin-left: 12px;
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        /* タイムラインの丸ドット */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #94a3b8;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 1px #cbd5e1;
+            z-index: 1;
+        }
+
+        .timeline-item.active::before {
+            background-color: #2b6cb0;
+            box-shadow: 0 0 0 1px #2b6cb0;
+        }
+
+        .timeline .meta {
+            font-size: 0.9rem;
+            color: #2b6cb0;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .timeline h2 {
+            font-size: 1.25rem;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            color: #1a365d;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .timeline h3 {
+            font-size: 1rem;
+            margin: 20px 0 8px 0;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
+        .timeline p {
+            margin: 0 0 12px 0;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .comparison-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-human {
+            background-color: #E0E7FF;
+            color: #4338CA;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .tag-ai {
+            background-color: #FEF3C7;
+            color: #92400E;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .alert-text {
+            color: #B91C1C;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .sources-list {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            padding-left: 1.2em;
+        }
+
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 10px 0 4px 0;
+        }
+
+        .roundtable-table {
+            width: 100%;
+            min-width: 540px;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            color: #4a5568;
+            background: #ffffff;
+        }
+
+        .roundtable-table th,
+        .roundtable-table td {
+            border: 1px solid #e2e8f0;
+            padding: 6px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .roundtable-table th {
+            background: #f4f6f9;
+            color: #1a365d;
+        }
+
+        .tag-verified {
+            color: #3b7a57;
+            font-weight: bold;
+        }
+
+        .tag-unverified {
+            color: #B91C1C;
+            font-weight: bold;
+        }
+
+        .tag-pending {
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .note-box {
+            border-left: 4px solid #B91C1C;
+            background: #fff7f7;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+
+        @media print {
+            .timeline-item::before {
+                background-color: #999 !important;
+            }
+            .table-wrap {
+                overflow-x: visible;
+            }
+            .roundtable-table {
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">印刷 / PDF保存</button>
+
+        <header>
+            <h1>ミレニアム懸賞問題の概要とAIによる解答状況</h1>
+            <div class="source-info">
+                <div><strong>更新日:</strong> 2026年11月25日</div>
+                <div><strong>対象:</strong> クレイ数学研究所（CMI）ミレニアム懸賞問題7問および2026年秋までのAI証明動向</div>
+            </div>
+        </header>
+
+        <div class="timeline">
+
+            <div class="timeline-item active">
+                <div class="meta">概要・制度</div>
+                <h2>ミレニアム懸賞問題とは</h2>
+                <p><strong>ミレニアム懸賞問題（Millennium Prize Problems）</strong>とは、2000年5月にアメリカの<strong>クレイ数学研究所</strong>が設立した、数学における特に重要かつ困難な7つの未解決問題の総称です。各問題に<strong>100万ドル</strong>の懸賞金がかけられており、21世紀の数学研究の方向性を示す指標となっています。</p>
+                <p>単なる難問パズルにとどまらず、数論・幾何・偏微分方程式・計算量理論・数理物理など、数学の異なる分野をつなぐ結節点に位置づけられています。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">懸賞金のルールと現在の状況</div>
+                    <ul class="sources-list">
+                        <li><strong>公式認定の基準：</strong> 査読付き論文として公表された後、数学界で広く受け入れられ、かつ<strong>公表から少なくとも2年以上経過</strong>してから賞の審査対象となります。</li>
+                        <li><strong>解決済みの問題：</strong> これまでに正式に解決・認定されたのは<strong>ポアンカレ予想</strong>のみです（グリゴリー・ペレルマンが2002〜2003年に証明を公開し、2010年に賞が授与されましたが辞退しています）。</li>
+                        <li><strong>近年の動向：</strong> 2026年秋にかけて、ナビエ・ストークス方程式やリーマン予想に関し、AI支援や形式証明支援系（Lean）を用いた証明の発表が相次ぎましたが、「証明の公開・主張」と「クレイ数学研究所による公式認定」は区別して捉える必要があります。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">7つの問題一覧</div>
+                <h2>ミレニアム懸賞問題の概要とAI解答状況一覧</h2>
+                <p>7つの問題それぞれの分野、問われている内容のポイント、および2026年11月時点でのAIによる取り組み・解答状況を整理します。</p>
+
+                <div class="table-wrap">
+                    <table class="roundtable-table">
+                        <tr>
+                            <th>問題名</th>
+                            <th>分野</th>
+                            <th>問われていることのポイント</th>
+                            <th>AIによる解答状況</th>
+                        </tr>
+                        <tr>
+                            <td><strong>1. ポアンカレ予想</strong></td>
+                            <td>位相幾何学（トポロジー）</td>
+                            <td>単連結な閉3次元多様体は3次元球面に同相か</td>
+                            <td><span class="tag-verified">解決済み</span>（人間による証明が確立。AIは形式化ベンチマーク等の位置づけ）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. P対NP問題</strong></td>
+                            <td>計算量理論</td>
+                            <td>答えを素早く検証できる問題（NP）は、素早く見つけられる問題（P）と同じか</td>
+                            <td><span class="tag-unverified">未解決</span>（決定的証明は未確認。相対化・自然証明・代数化などの障壁が核心）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. リーマン予想</strong></td>
+                            <td>整数論・複素解析</td>
+                            <td>リーマンゼータ関数の非自明な零点の実部はすべて 1/2 に並ぶか</td>
+                            <td><span class="tag-pending">AI支援証明の主張・検証中</span>（2026年11月にClaude支援の証明とLean形式化が発表され精査中）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. ナビエ・ストークス方程式の解の存在と滑らかさ</strong></td>
+                            <td>偏微分方程式・流体力学</td>
+                            <td>3次元非圧縮性流体の運動を表す方程式に、常に滑らかで破綻しない解が存在するか</td>
+                            <td><span class="tag-pending">AI証明の公開・検証中</span>（2026年9月にOpenAI内部モデルによる特異点構成とLeanコードが公開され評価中）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. ヤン＝ミルズ方程式と質量ギャップ</strong></td>
+                            <td>量子場理論・数理物理</td>
+                            <td>4次元ゲージ理論を数学的に厳密に構成でき、最小の正の質量（質量ギャップ）が存在するか</td>
+                            <td><span class="tag-unverified">未解決</span>（物理的直感と数学的厳密化・形式化の隔たりが大きく、完全解決には至っていない）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6. ホッジ予想</strong></td>
+                            <td>代数幾何学</td>
+                            <td>射影代数多様体上の特定のコホモロジー類が、代数サイクルの有理線形結合で表されるか</td>
+                            <td><span class="tag-unverified">未解決</span>（高度な抽象構造と形式化基盤の整備が課題で、AIによる本丸突破は未確認）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7. バーチ・スウィンナートン＝ダイアー予想</strong></td>
+                            <td>整数論・代数幾何学</td>
+                            <td>楕円曲線の有理点群のランクが、対応する L 関数の特殊値での零点の位数と一致するか</td>
+                            <td><span class="tag-unverified">未解決</span>（部分的な既知結果はあるが一般形は未達成。AIによる完全解決は未確認）</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="timeline-item active">
+                <div class="meta">各問題のAI解答状況（1〜3）</div>
+                <h2>ポアンカレ予想・P対NP問題・リーマン予想</h2>
+
+                <h3>1. ポアンカレ予想：解決済み（人間による証明）</h3>
+                <p>2002〜2003年にグリゴリー・ペレルマンが証明を公開して解決済みであり、ミレニアム懸賞問題で唯一公式に解決が認められた問題です。AIによる新規解答の対象というよりは、形式化（Leanなど）のベンチマークや基準点として扱われる位置づけです。</p>
+
+                <h3>2. P対NP問題：未解決</h3>
+                <p>AIや機械学習を用いたアルゴリズム探索・計算量下界の研究は盛んですが、PとNPのどちらが正しいか（あるいは独立性・障壁の問題）を決定づける証明は出ていません。「相対化」「自然証明」「代数化」といった計算量理論の有名な障壁をどう突破するかが依然として核心です。</p>
+
+                <h3>3. リーマン予想：AI支援証明の発表・検証中（公式認定は未確定）</h3>
+                <p>2026年11月20日、Anthropicの研究者レベント・アルポゲ（Levent Alpöge）氏らがAIモデル「Claude」の支援を受けてリーマン予想の証明と形式化を発表しました。</p>
+                <div class="comparison-box">
+                    <div class="comparison-title">検証上の主な論点 <span class="tag-ai">検証・精査中</span></div>
+                    <p style="font-size: 0.9rem; margin-bottom: 0;">
+                        証明が超大規模（数百万行規模や論文換算で極めて長大とされる形式化コード）であることから、「人間が全体を読み切って直観的に理解できるのか」「形式化された命題が本来のリーマン予想と過不足なく一致しているか」「未証明の穴（<code>sorry</code> 等）がないか」など、数学コミュニティと形式検証コミュニティによる精査が進行中です。
+                    </p>
+                    <div class="alert-text">
+                        <strong>⚠️ 留意点：</strong> 証明の主張・形式化の公開と、クレイ数学研究所による公式認定・規定上の検証要件の充足とは別段階にあります。
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item active">
+                <div class="meta">各問題のAI解答状況（4〜7）</div>
+                <h2>ナビエ・ストークス・ヤン＝ミルズ・ホッジ・BSD予想</h2>
+
+                <h3>4. ナビエ・ストークス方程式の解の存在と滑らかさ：AI証明の公開・検証中</h3>
+                <p>2026年9月、OpenAIの内部システムが3次元非圧縮性流体のナビエ・ストークス方程式について、有限時間で特異点（解の破綻・爆発）が生じ得ることを示す証明とLeanによる形式化を公開しました。多数のエージェントによる探索・検証を経て得られた成果とされていますが、専門家の精査や規定上の検証期間・合意形成が伴うため、公式認定は確定していません。</p>
+
+                <h3>5. ヤン＝ミルズ方程式と質量ギャップ：未解決</h3>
+                <p>4次元量子ヤン＝ミルズ理論の厳密な構成と質量ギャップの存在は、物理学的直感と数学的厳密化の隔たりが非常に大きい問題です。関連する模型や部分的な研究が議論されることはあっても、問題全体の厳密な解決には至っていません。</p>
+
+                <h3>6. ホッジ予想：未解決</h3>
+                <p>代数幾何学・複素幾何学の高度な抽象構造を扱うため、定理証明支援系でのライブラリ整備（代数多様体やコホモロジー・サイクル写像などの基盤整備）自体が大きな課題となっており、AIが単独または主導で本丸を突破したという段階には至っていません。</p>
+
+                <h3>7. バーチ・スウィンナートン＝ダイアー予想（BSD予想）：未解決</h3>
+                <p>楕円曲線の有理点群のランクとL関数の特殊値における零点の位数を結びつける予想で、部分的な結果（ランク0やランク1の多くのケースなど）は知られていますが、一般形の証明は未達成です。数論幾何の深い理論が必要であり、AIによる完全解決は報告されていません。</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="meta">方法論と課題</div>
+                <h2>AIによる証明アプローチの特徴と新たな論点</h2>
+                <p>近年のAIアプローチは、単に「ひらめきで短い別解を出す」というよりも、<strong>膨大な証明探索とLeanなどの形式証明器による論理チェックを組み合わせる方向</strong>に大きくシフトしています。</p>
+
+                <div class="comparison-box">
+                    <div class="comparison-title">押さえておくべき3つの視点</div>
+                    <ul class="sources-list">
+                        <li><strong>可読性と理解の問題：</strong> 機械が検証できる証明があっても、人間がその構造や「なぜ成り立つのか」を納得できるか。</li>
+                        <li><strong>定式化の忠実さ：</strong> 形式化された命題（Lean等）が、元の数学的・物理的問題の意図や前提条件を過不足なく捉えているか。</li>
+                        <li><strong>検証と合意形成のプロセス：</strong> 迅速な公開や大量生成が進む中で、独立した検証、適切な引用・帰属、公式認定の基準をどう維持するか。</li>
+                    </ul>
+                </div>
+
+                <div class="note-box">
+                    <strong>整理のまとめ：</strong> 2026年秋時点でクレイ数学研究所が公式に解決を認定したミレニアム懸賞問題はポアンカレ予想のみです。ナビエ・ストークス方程式やリーマン予想ではAIを用いた証明の公開・主張が大きな注目を集めていますが、独立した検証と数学界での合意形成の途上にあります。
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+```[cite: 1]
